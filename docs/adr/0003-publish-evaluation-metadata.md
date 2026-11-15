@@ -1,0 +1,3 @@
+# Publish evaluation metadata
+
+The public evaluation set will contain pytest issue IDs, evidence cutoffs, repository commit SHAs, human-reviewed expected outcomes, and hashes of the issue content used. Evaluation fetches public issue text and flags a case when its content no longer matches the recorded hash. We chose this over copying full contributor issue bodies into our repository because the public metadata is enough to inspect each case while avoiding a second bulk publication of contributor content. A changed or unavailable issue may require manual review before that case can be replayed.
