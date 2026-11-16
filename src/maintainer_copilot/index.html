@@ -18,6 +18,8 @@
     <h1>Open-source Maintainer Copilot</h1>
     <p>Paste a pytest issue for a reviewable draft. No reply is posted.</p>
     <form id="issue-form">
+      <label for="number">pytest issue number (for earlier issue search)</label>
+      <input id="number" name="number" type="number" min="1" step="1" placeholder="Optional">
       <label for="title">Issue title</label>
       <input id="title" name="title" required>
       <label for="body">Issue body</label>
@@ -29,8 +31,10 @@
       <h2>Triage report</h2>
       <p><strong>Trace ID:</strong> <span id="trace-id"></span></p>
       <p><strong>Issue type:</strong> <span id="issue-type"></span></p>
-      <p><strong>Duplicate candidates:</strong> <span id="duplicates"></span></p>
-      <p><strong>Related issues:</strong> <span id="related"></span></p>
+      <h3>Duplicate candidates</h3>
+      <ul id="duplicates"></ul>
+      <h3>Related issues</h3>
+      <ul id="related"></ul>
       <h3>Missing report details</h3>
       <ul id="missing-details"></ul>
       <h3>Draft reply</h3>
@@ -60,6 +64,15 @@
         }
       }
 
+      function renderSuggestedIssue(item, candidate) {
+        const link = document.createElement("a");
+        link.href = candidate.url;
+        link.textContent = `#${candidate.issue_number}: ${candidate.title}`;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        item.append(link, document.createTextNode(` — ${candidate.reason} [${candidate.citation_id}]`));
+      }
+
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
         reportSection.hidden = true;
@@ -69,6 +82,9 @@
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
+              number: document.getElementById("number").value
+                ? Number(document.getElementById("number").value)
+                : undefined,
               title: document.getElementById("title").value,
               body: document.getElementById("body").value,
             }),
@@ -77,8 +93,8 @@
           const report = await response.json();
           document.getElementById("trace-id").textContent = report.trace_id;
           document.getElementById("issue-type").textContent = report.issue_type ?? "Unknown";
-          document.getElementById("duplicates").textContent = report.duplicate_candidates.length || "None assessed";
-          document.getElementById("related").textContent = report.related_issues.length || "None assessed";
+          fillList("duplicates", report.duplicate_candidates, renderSuggestedIssue);
+          fillList("related", report.related_issues, renderSuggestedIssue);
           document.getElementById("draft-reply").textContent = report.draft_reply;
           fillList("missing-details", report.missing_details, (item, detail) => {
             item.textContent = `${detail.request} [${detail.citation_id}]`;

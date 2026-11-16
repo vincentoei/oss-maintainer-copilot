@@ -29,6 +29,11 @@ def test_web_interface_submits_issue_to_report_api() -> None:
     assert page.status_code == 200
     assert 'name="title"' in page.text
     assert 'name="body"' in page.text
+    assert 'name="number"' in page.text
+    assert '<ul id="duplicates"' in page.text
+    assert '<ul id="related"' in page.text
+    assert "item.append(link" in page.text
+    assert "candidate.reason" in page.text
     assert "Missing report details" in page.text
     assert "Draft reply" in page.text
     assert "Citations" in page.text
@@ -40,7 +45,7 @@ def test_web_interface_submits_issue_to_report_api() -> None:
         "minimal example",
     ]
     assert report.trace_id
-    python_report = triage_issue(IssueUnderReview(**issue_data))
+    python_report = triage_issue(IssueUnderReview.model_validate(issue_data))
     assert report.model_dump(exclude={"trace_id"}) == python_report.model_dump(
         exclude={"trace_id"}
     )
