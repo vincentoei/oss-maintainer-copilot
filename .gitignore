@@ -1,2 +1,7 @@
 /ai-stack-guide.pdf
 *:Zone.Identifier
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+__pycache__/

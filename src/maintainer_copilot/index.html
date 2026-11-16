@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Open-source Maintainer Copilot</title>
+    <style>
+      body { font: 1rem/1.5 system-ui, sans-serif; max-width: 48rem; margin: 2rem auto; padding: 0 1rem; }
+      label { display: block; font-weight: 600; margin-top: 1rem; }
+      input, textarea { box-sizing: border-box; display: block; width: 100%; font: inherit; padding: .5rem; }
+      textarea { min-height: 12rem; }
+      button { font: inherit; margin-top: 1rem; padding: .5rem 1rem; }
+      section { border-top: 1px solid #ccc; margin-top: 2rem; }
+      pre { white-space: pre-wrap; font: inherit; }
+    </style>
+  </head>
+  <body>
+    <h1>Open-source Maintainer Copilot</h1>
+    <p>Paste a pytest issue for a reviewable draft. No reply is posted.</p>
+    <form id="issue-form">
+      <label for="title">Issue title</label>
+      <input id="title" name="title" required>
+      <label for="body">Issue body</label>
+      <textarea id="body" name="body"></textarea>
+      <button type="submit">Create triage report</button>
+    </form>
+    <p id="error" role="alert"></p>
+    <section id="report" hidden>
+      <h2>Triage report</h2>
+      <p><strong>Trace ID:</strong> <span id="trace-id"></span></p>
+      <p><strong>Issue type:</strong> <span id="issue-type"></span></p>
+      <p><strong>Duplicate candidates:</strong> <span id="duplicates"></span></p>
+      <p><strong>Related issues:</strong> <span id="related"></span></p>
+      <h3>Missing report details</h3>
+      <ul id="missing-details"></ul>
+      <h3>Draft reply</h3>
+      <pre id="draft-reply"></pre>
+      <h3>Citations</h3>
+      <ul id="citations"></ul>
+      <h3>Abstentions</h3>
+      <ul id="abstentions"></ul>
+    </section>
+    <script>
+      const form = document.getElementById("issue-form");
+      const reportSection = document.getElementById("report");
+      const error = document.getElementById("error");
+
+      function fillList(id, values, render) {
+        const list = document.getElementById(id);
+        list.replaceChildren();
+        for (const value of values) {
+          const item = document.createElement("li");
+          render(item, value);
+          list.append(item);
+        }
+        if (values.length === 0) {
+          const item = document.createElement("li");
+          item.textContent = "None";
+          list.append(item);
+        }
+      }
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        reportSection.hidden = true;
+        error.textContent = "";
+        try {
+          const response = await fetch("/api/triage", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              title: document.getElementById("title").value,
+              body: document.getElementById("body").value,
+            }),
+          });
+          if (!response.ok) throw new Error("Could not create a report.");
+          const report = await response.json();
+          document.getElementById("trace-id").textContent = report.trace_id;
+          document.getElementById("issue-type").textContent = report.issue_type ?? "Unknown";
+          document.getElementById("duplicates").textContent = report.duplicate_candidates.length || "None assessed";
+          document.getElementById("related").textContent = report.related_issues.length || "None assessed";
+          document.getElementById("draft-reply").textContent = report.draft_reply;
+          fillList("missing-details", report.missing_details, (item, detail) => {
+            item.textContent = `${detail.request} [${detail.citation_id}]`;
+          });
+          fillList("citations", report.citations, (item, citation) => {
+            const link = document.createElement("a");
+            link.href = citation.source_url;
+            link.textContent = `[${citation.id}] ${citation.description}`;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            item.append(link);
+          });
+          fillList("abstentions", report.abstentions, (item, abstention) => {
+            item.textContent = `${abstention.field}: ${abstention.reason}`;
+          });
+          reportSection.hidden = false;
+        } catch {
+          error.textContent = "Could not create a report. Check the issue title and try again.";
+        }
+      });
+    </script>
+  </body>
+</html>
