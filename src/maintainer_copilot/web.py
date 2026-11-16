@@ -7,6 +7,10 @@ from fastapi import Depends, FastAPI
 from fastapi.responses import HTMLResponse
 
 from maintainer_copilot import IssueUnderReview, TriageReport, triage_issue
+from maintainer_copilot.documentation import (
+    DocumentationSource,
+    PytestDocumentationSource,
+)
 from maintainer_copilot.issue_search import GitHubIssueSource
 
 app = FastAPI(title="Open-source Maintainer Copilot")
@@ -14,6 +18,10 @@ app = FastAPI(title="Open-source Maintainer Copilot")
 
 async def get_issue_source() -> GitHubIssueSource:
     return GitHubIssueSource()
+
+
+async def get_documentation_source() -> DocumentationSource:
+    return PytestDocumentationSource()
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -26,5 +34,8 @@ async def index() -> HTMLResponse:
 async def create_report(
     issue: IssueUnderReview,
     source: Annotated[GitHubIssueSource, Depends(get_issue_source)],
+    documentation_source: Annotated[
+        DocumentationSource, Depends(get_documentation_source)
+    ],
 ) -> TriageReport:
-    return triage_issue(issue, source)
+    return triage_issue(issue, source, documentation_source)

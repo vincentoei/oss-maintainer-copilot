@@ -37,6 +37,8 @@
       <ul id="related"></ul>
       <h3>Missing report details</h3>
       <ul id="missing-details"></ul>
+      <h3>Documentation evidence</h3>
+      <ul id="documentation-claims"></ul>
       <h3>Draft reply</h3>
       <pre id="draft-reply"></pre>
       <h3>Citations</h3>
@@ -98,6 +100,17 @@
           document.getElementById("draft-reply").textContent = report.draft_reply;
           fillList("missing-details", report.missing_details, (item, detail) => {
             item.textContent = `${detail.request} [${detail.citation_id}]`;
+          });
+          fillList("documentation-claims", report.documentation_claims, (item, claim) => {
+            const citation = report.citations.find((entry) => entry.id === claim.citation_id);
+            const link = document.createElement("a");
+            link.href = citation.source_url;
+            link.textContent = `[${citation.id}]`;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            const passage = document.createElement("blockquote");
+            passage.textContent = citation.passage;
+            item.append(document.createTextNode(`${claim.claim} `), link, passage);
           });
           fillList("citations", report.citations, (item, citation) => {
             const link = document.createElement("a");

@@ -6,8 +6,11 @@ missing details, and cites the relevant template lines. When given a public
 pytest issue number, it searches earlier public pytest issues and shows ranked
 duplicate candidates and related issues with reasons and links. It abstains from
 those judgments when the number or sufficient issue detail is missing, or when
-GitHub search fails. Issue type remains unassessed. The application makes no
-model or GPU calls.
+GitHub search fails. For issues about capture fixtures or fixture scope, it
+retrieves the relevant section of the public pytest documentation and adds a
+linked passage only when that section supports the corresponding report claim.
+If the passage is unavailable or changed, the report abstains from that claim.
+Issue type remains unassessed. The application makes no model or GPU calls.
 
 ## Run locally
 
