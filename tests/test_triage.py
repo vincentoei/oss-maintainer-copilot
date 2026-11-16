@@ -21,7 +21,7 @@ def test_bug_report_requests_only_missing_template_details_with_citations() -> N
     assert str(report.citations[0].source_url) == (
         "https://github.com/pytest-dev/pytest/blob/"
         "50234b4e670064c42a4c29cb6258115a2079ba4c/"
-        ".github/ISSUE_TEMPLATE/1_bug_report.md#L15"
+        ".github/ISSUE_TEMPLATE/1_bug_report.md#L14"
     )
     assert "pip list" in report.draft_reply
     assert "[C1]" in report.draft_reply
@@ -29,6 +29,22 @@ def test_bug_report_requests_only_missing_template_details_with_citations() -> N
     assert report.duplicate_candidates == []
     assert report.related_issues == []
     assert report.trace_id
+
+
+def test_bug_detail_citations_match_pinned_template_lines() -> None:
+    report = triage_issue(IssueUnderReview(title="Bug: collection fails", body=""))
+
+    assert {
+        detail.name: str(citation.source_url).rsplit("#", 1)[-1]
+        for detail, citation in zip(
+            report.missing_details, report.citations, strict=True
+        )
+    } == {
+        "bug description": "L13",
+        "pip list output": "L14",
+        "pytest and OS versions": "L15",
+        "minimal example": "L16",
+    }
 
 
 def test_feature_request_skips_supplied_details() -> None:
@@ -178,7 +194,7 @@ def test_bug_prefix_wins_when_title_mentions_feature() -> None:
     )
 
     assert [detail.name for detail in report.missing_details] == ["pip list output"]
-    assert str(report.citations[0].source_url).endswith("/1_bug_report.md#L15")
+    assert str(report.citations[0].source_url).endswith("/1_bug_report.md#L14")
 
 
 def test_concrete_feature_use_case_is_not_requested_again() -> None:

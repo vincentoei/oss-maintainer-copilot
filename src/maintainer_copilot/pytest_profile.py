@@ -24,22 +24,22 @@ BUG_DETAILS = (
     TemplateDetail(
         "bug description",
         "a detailed description of the bug or problem",
-        14,
+        13,
     ),
     TemplateDetail(
         "pip list output",
         "the output of `pip list` from the virtual environment you are using",
-        15,
+        14,
     ),
     TemplateDetail(
         "pytest and OS versions",
         "your pytest and operating system versions",
-        16,
+        15,
     ),
     TemplateDetail(
         "minimal example",
         "a minimal example, if possible",
-        17,
+        16,
     ),
 )
 
