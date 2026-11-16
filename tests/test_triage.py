@@ -264,3 +264,54 @@ def test_feature_use_case_in_monorepo_context_is_not_requested_again() -> None:
     )
 
     assert report.missing_details == []
+
+
+def test_populated_markdown_pip_list_section_is_not_requested_again() -> None:
+    report = triage_issue(
+        IssueUnderReview(
+            title="Bug: collection fails",
+            body=(
+                "### pip list\n\n"
+                "```text\nPackage Version\n------- -------\n"
+                "pytest 8.3.4\npluggy 1.5.0\n```\n"
+            ),
+        )
+    )
+
+    assert "pip list output" not in {detail.name for detail in report.missing_details}
+
+
+def test_empty_markdown_pip_list_section_is_still_requested() -> None:
+    report = triage_issue(
+        IssueUnderReview(title="Bug: collection fails", body="### pip list\n")
+    )
+
+    assert "pip list output" in {detail.name for detail in report.missing_details}
+
+
+def test_concrete_problem_scenario_counts_as_feature_use_case() -> None:
+    report = triage_issue(
+        IssueUnderReview(
+            title="Feature request: fixture graph",
+            body=(
+                "#### What's the problem this feature will solve?\n"
+                "A nightly CI run times out when a fixture cycle occurs in a suite "
+                "with 900 fixtures; maintainers cannot identify the cycle.\n"
+            ),
+        )
+    )
+
+    assert "real-world use case" not in {
+        detail.name for detail in report.missing_details
+    }
+
+
+def test_empty_feature_use_case_heading_is_still_requested() -> None:
+    report = triage_issue(
+        IssueUnderReview(
+            title="Feature request: fixture graph",
+            body="#### Use case\n<!-- Describe a real-world example. -->\n",
+        )
+    )
+
+    assert "real-world use case" in {detail.name for detail in report.missing_details}

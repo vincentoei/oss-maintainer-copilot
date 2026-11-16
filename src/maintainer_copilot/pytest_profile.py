@@ -136,14 +136,19 @@ def _has_pip_list_output(body: str) -> bool:
     package_row = re.compile(r"^[\w.-]+\s+\d+(?:\.\d+)+(?:\S*)$")
     lines = body.splitlines()
     for index, line in enumerate(lines):
-        heading = re.match(r"(?i)^\s*(?:pip list|packages installed)\s*:\s*(.*)$", line)
+        heading = re.match(
+            r"(?i)^\s*(?:#{1,6}\s+)?(?:pip list|packages installed)\s*(?::\s*(.*))?$",
+            line,
+        )
         if heading is None:
             continue
-        if package_row.match(heading.group(1).strip()):
+        if package_row.match((heading.group(1) or "").strip()):
             return True
         for output_line in lines[index + 1 :]:
-            if not output_line.strip() or re.match(r"^\s*#{1,6}\s+", output_line):
+            if re.match(r"^\s*#{1,6}\s+", output_line):
                 break
+            if not output_line.strip():
+                continue
             if package_row.match(output_line.strip()):
                 return True
     return False
@@ -180,6 +185,22 @@ def _section_has_answer(body: str, heading: str) -> bool:
     return bool(re.search(r"\w{3,}", answer))
 
 
+def _has_concrete_scenario(body: str) -> bool:
+    for sentence in re.split(r"[.!?\n]+", body):
+        if len(sentence.split()) < 12:
+            continue
+        if not re.search(r"\b(?:when|while|during|after|before)\b", sentence, re.I):
+            continue
+        if re.search(
+            r"\b(?:\d+|ci|pytest|test|fixture|suite|pipeline|project|"
+            r"repository|plugin)\b",
+            sentence,
+            re.I,
+        ):
+            return True
+    return False
+
+
 def missing_feature_details(body: str) -> list[TemplateDetail]:
     without_comments = re.sub(r"<!--.*?-->", "", body, flags=re.DOTALL)
     has_problem = _section_has_answer(
@@ -189,7 +210,13 @@ def missing_feature_details(body: str) -> list[TemplateDetail]:
         body, "Describe the solution you'd like"
     ) or bool(re.search(r"\b(?:i would like|please add|the solution is)\b", body, re.I))
     has_use_case = bool(
-        re.search(r"\b(?:for example|use case|e\.g\.)\b", without_comments, re.I)
+        _section_has_answer(body, "Use case")
+        or _section_has_answer(body, "Real-world use case")
+        or re.search(
+            r"\b(?:for example|e\.g\.)\s*[:,]?\s*\w[^\n]{20,}",
+            without_comments,
+            re.I,
+        )
         or re.search(
             r"\b(?:we (?:maintain|use|run|manage)|our (?:test suite|monorepo|"
             r"repository|project)|in our|in (?:a|an|the) (?:\w+\s+){0,2}"
@@ -197,6 +224,7 @@ def missing_feature_details(body: str) -> list[TemplateDetail]:
             without_comments,
             re.I,
         )
+        or _has_concrete_scenario(without_comments)
     )
     has_alternatives = _section_has_answer(body, "Alternative Solutions") or bool(
         re.search(r"\b(?:i tried|workaround|no alternatives)\b", without_comments, re.I)
