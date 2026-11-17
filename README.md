@@ -25,8 +25,8 @@ separate; the report makes no overall CI verdict. If the linked checks cannot
 be read or none have completed, it abstains on CI evidence. When one PR commit's
 checks are unavailable, it cites checks from the other and records a partial
 CI abstention. Issues without one unambiguous relevant link do not trigger CI
-inspection. The reader caps GitHub responses and marks incomplete check lists
-unavailable.
+inspection; links described as unrelated or historical context are excluded.
+The reader caps GitHub responses and marks incomplete check lists unavailable.
 The report can suggest a pytest `type:*` label and show the exact issue-text
 quote used for that suggestion. A model selects from evidence-backed reply
 statements; the server checks its response and adds citation markers before

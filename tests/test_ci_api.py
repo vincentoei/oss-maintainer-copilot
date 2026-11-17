@@ -130,6 +130,7 @@ def report_for(
     ("body", "link"),
     [
         (f"Relevant PR: {PR_URL}", CILink("pull", "123")),
+        (f"Upstream PR: {PR_URL}; do not ignore its checks.", CILink("pull", "123")),
         (f"Relevant commit: {COMMIT_URL}", CILink("commit", COMMIT)),
     ],
 )
@@ -169,6 +170,7 @@ def test_linked_pr_or_commit_yields_specific_cited_result(
     [
         "Collection fails without a linked change.",
         "Unrelated PR: https://github.com/another/project/pull/123",
+        f"For historical context, see {PR_URL}; it predates this regression.",
         f"Do not use {PR_URL}; it is unrelated.",
         f"Do not use\n{PR_URL}",
         f"PR: {PR_URL}\nis unrelated.",
