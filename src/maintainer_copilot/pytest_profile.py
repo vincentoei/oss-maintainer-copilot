@@ -1,4 +1,4 @@
-"""The fixed pytest issue-template evidence used by the first report."""
+"""Pytest issue types, templates, and pinned historical evidence."""
 
 import re
 from dataclasses import dataclass
@@ -29,6 +29,12 @@ TYPE_EVIDENCE_CUES = {
     "type: selftests": r"\b(?:selftests|pytest test suite)\b",
 }
 TYPE_LABELS = tuple(TYPE_EVIDENCE_CUES)
+BASELINE_TYPE_PRIORITY = (
+    "type: regression",
+    "type: docs",
+    "type: enhancement",
+    "type: bug",
+)
 
 
 def type_quote_supports_label(label: str, quote: str, issue_text: str) -> bool:
@@ -97,6 +103,61 @@ DOCUMENTATION_TOPICS = (
         ),
     ),
 )
+
+
+@dataclass(frozen=True)
+class HistoricalReplayEvidence:
+    documentation_key: str
+    documentation_path: str
+    documentation_start_line: int
+    documentation_lines: tuple[str, ...]
+    documentation_section: str
+    documentation_claim: str
+    documentation_relevance: str
+    source_path: str
+    source_line: int
+    source_line_text: str
+
+    def topic(self, commit: str) -> DocumentationTopic:
+        end_line = self.documentation_start_line + len(self.documentation_lines) - 1
+        return DocumentationTopic(
+            key=self.documentation_key,
+            url=(
+                "https://github.com/pytest-dev/pytest/blob/"
+                f"{commit}/{self.documentation_path}"
+                f"#L{self.documentation_start_line}-L{end_line}"
+            ),
+            section=self.documentation_section,
+            passage=" ".join(self.documentation_lines),
+            claim=self.documentation_claim,
+            relevance=self.documentation_relevance,
+        )
+
+
+HISTORICAL_REPLAY_EVIDENCE = {
+    12081: HistoricalReplayEvidence(
+        documentation_key="capture",
+        documentation_path="doc/en/how-to/capture-stdout-stderr.rst",
+        documentation_start_line=109,
+        documentation_lines=(
+            "The ``capsys``, ``capsysbinary``, ``capfd``, and ``capfdbinary`` fixtures",
+            "allow access to stdout/stderr output created during "
+            "test execution.  Here is",
+        ),
+        documentation_section="accessing-captured-output-from-a-test-function",
+        documentation_claim=(
+            "pytest documents that capture fixtures let tests access stdout and stderr "
+            "created during execution."
+        ),
+        documentation_relevance=r"\b(?:capsys|capfd|capteesys|capsysbinary|capfdbinary)\b",
+        source_path="src/_pytest/capture.py",
+        source_line=935,
+        source_line_text=(
+            '        """Read and return the captured output so far, '
+            "resetting the internal"
+        ),
+    )
+}
 
 
 def relevant_documentation_topics(

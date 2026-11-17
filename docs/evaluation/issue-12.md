@@ -22,7 +22,9 @@ terms, then selects a type from literal issue-text cues and includes available
 citation-backed reply statements. Both methods keep later comments, labels,
 and closure decisions out of model input. `replay_case` checks each candidate's
 opening timestamp and content hash before scoring, and rejects a post-cutoff
-or mismatched repository commit.
+or mismatched repository commit. Pytest type priorities and pinned evidence
+locations live in the repository profile; the field scorer reads the allowed
+evidence boundary from replay.
 
 Each case still has **one reviewed earlier-issue relationship**. The retrieval
 rate is whether that known issue surfaced from the verified candidate pool.

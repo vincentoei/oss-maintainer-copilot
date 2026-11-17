@@ -289,35 +289,6 @@ class _FrozenIssues:
         ]
 
 
-_CAPTURE_DOC_PATH = "doc/en/how-to/capture-stdout-stderr.rst"
-_CAPTURE_DOC_LINES = (
-    "The ``capsys``, ``capsysbinary``, ``capfd``, and ``capfdbinary`` fixtures",
-    "allow access to stdout/stderr output created during test execution.  Here is",
-)
-_CAPTURE_SOURCE_LINE = (
-    '        """Read and return the captured output so far, resetting the internal'
-)
-_CAPTURE_SOURCE_PATH = "src/_pytest/capture.py"
-_CAPTURE_SOURCE_NUMBER = 935
-
-
-def _capture_topic(commit: str) -> documentation.DocumentationTopic:
-    return documentation.DocumentationTopic(
-        key="capture",
-        url=(
-            "https://github.com/pytest-dev/pytest/blob/"
-            f"{commit}/{_CAPTURE_DOC_PATH}#L109-L110"
-        ),
-        section="accessing-captured-output-from-a-test-function",
-        passage=" ".join(_CAPTURE_DOC_LINES),
-        claim=(
-            "pytest documents that capture fixtures let tests access stdout and stderr "
-            "created during execution."
-        ),
-        relevance=r"\b(?:capsys|capfd|capteesys|capsysbinary|capfdbinary)\b",
-    )
-
-
 def allowed_case_citation_urls(
     case: HistoricalCase, candidate_numbers: Collection[int]
 ) -> set[str]:
@@ -335,13 +306,13 @@ def allowed_case_citation_urls(
             pytest_profile.citation_url("feature", detail.line, case.repository_commit)
             for detail in pytest_profile.FEATURE_DETAILS
         )
-    if case.issue_number == 12081:
-        allowed.add(_capture_topic(case.repository_commit).url)
+    if evidence := pytest_profile.HISTORICAL_REPLAY_EVIDENCE.get(case.issue_number):
+        allowed.add(evidence.topic(case.repository_commit).url)
         allowed.add(
             repository_source.SourceLocation(
                 commit=case.repository_commit,
-                path=_CAPTURE_SOURCE_PATH,
-                line=_CAPTURE_SOURCE_NUMBER,
+                path=evidence.source_path,
+                line=evidence.source_line,
             ).source_url
         )
     return allowed
@@ -352,6 +323,7 @@ class _PinnedDocumentation:
     topic: documentation.DocumentationTopic
     commit: str
     reader: repository_source.SourceReader
+    evidence: pytest_profile.HistoricalReplayEvidence
 
     def get_passage(
         self, topic: documentation.DocumentationTopic
@@ -360,14 +332,23 @@ class _PinnedDocumentation:
             return None
         excerpt = self.reader.get_excerpt(
             repository_source.SourceLocation(
-                commit=self.commit, path=_CAPTURE_DOC_PATH, line=110
+                commit=self.commit,
+                path=self.evidence.documentation_path,
+                line=(
+                    self.evidence.documentation_start_line
+                    + len(self.evidence.documentation_lines)
+                    - 1
+                ),
             )
         )
-        offset = 109 - excerpt.start_line
+        offset = self.evidence.documentation_start_line - excerpt.start_line
         if (
             excerpt.commit != self.commit
-            or excerpt.path != _CAPTURE_DOC_PATH
-            or tuple(excerpt.lines[offset : offset + 2]) != _CAPTURE_DOC_LINES
+            or excerpt.path != self.evidence.documentation_path
+            or tuple(
+                excerpt.lines[offset : offset + len(self.evidence.documentation_lines)]
+            )
+            != self.evidence.documentation_lines
         ):
             return None
         return documentation.DocumentationPassage(topic.url, topic.passage)
@@ -377,14 +358,15 @@ class _PinnedDocumentation:
 class _PinnedSource:
     commit: str
     reader: repository_source.SourceReader
+    evidence: pytest_profile.HistoricalReplayEvidence
 
     def get_excerpt(
         self, location: repository_source.SourceLocation
     ) -> repository_source.SourceExcerpt:
         if (
             location.commit != self.commit
-            or location.path != _CAPTURE_SOURCE_PATH
-            or location.line != _CAPTURE_SOURCE_NUMBER
+            or location.path != self.evidence.source_path
+            or location.line != self.evidence.source_line
         ):
             raise repository_source.SourceUnavailable("Source is outside the cutoff.")
         excerpt = self.reader.get_excerpt(location)
@@ -392,7 +374,8 @@ class _PinnedSource:
             excerpt.commit != self.commit
             or excerpt.path != location.path
             or not excerpt.start_line <= location.line <= excerpt.end_line
-            or excerpt.lines[location.line - excerpt.start_line] != _CAPTURE_SOURCE_LINE
+            or excerpt.lines[location.line - excerpt.start_line]
+            != self.evidence.source_line_text
         ):
             raise repository_source.SourceUnavailable("Pinned source did not match.")
         return excerpt
@@ -450,29 +433,33 @@ def replay_case(
         )
         for reference in references
     )
-    is_capture_case = case.issue_number == 12081
+    evidence = pytest_profile.HISTORICAL_REPLAY_EVIDENCE.get(case.issue_number)
     reader = source_reader or repository_source.PublicRepositorySource()
-    topic = _capture_topic(case.repository_commit) if is_capture_case else None
+    topic = evidence.topic(case.repository_commit) if evidence is not None else None
     issue = IssueUnderReview(
         number=reviewed.number,
         title=reviewed.title,
         body=reviewed.body,
         source_location=repository_source.SourceLocation(
             commit=case.repository_commit,
-            path=_CAPTURE_SOURCE_PATH,
-            line=_CAPTURE_SOURCE_NUMBER,
+            path=evidence.source_path,
+            line=evidence.source_line,
         )
-        if is_capture_case
+        if evidence is not None
         else None,
     )
     return triage_issue(
         issue,
         source=_FrozenIssues(reviewed, candidates, keyword_filter),
-        documentation_source=_PinnedDocumentation(topic, case.repository_commit, reader)
-        if topic is not None
+        documentation_source=_PinnedDocumentation(
+            topic, case.repository_commit, reader, evidence
+        )
+        if topic is not None and evidence is not None
         else None,
         source_reader=(
-            _PinnedSource(case.repository_commit, reader) if is_capture_case else None
+            _PinnedSource(case.repository_commit, reader, evidence)
+            if evidence is not None
+            else None
         ),
         model_client=model_client or ControlledReplayModel(),
         ci_source=_UnavailableHistoricalCI(),

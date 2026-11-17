@@ -25,12 +25,7 @@ class KeywordRuleModel:
 
     def generate(self, request: model.ModelRequest) -> object:
         issue_text = f"{request.issue_title}\n{request.issue_body}"
-        priority = (
-            "type: regression",
-            "type: docs",
-            "type: enhancement",
-            "type: bug",
-        )
+        priority = pytest_profile.BASELINE_TYPE_PRIORITY
         labels = priority + tuple(
             label for label in pytest_profile.TYPE_LABELS if label not in priority
         )

@@ -16,7 +16,7 @@
         "citation_validity_rate": 1.0,
         "issue_type_abstention_appropriateness": 0.0,
         "duplicate_abstention_appropriateness": 0.8,
-        "draft_reply_usefulness": "partially_human_confirmed",
+        "draft_reply_usefulness": "human_confirmed",
         "representative_failures": [
           {
             "issue_number": 7312,
@@ -36,7 +36,7 @@
           }
         ],
         "draft_reply_usefulness_review": {
-          "status": "partial_pending_human_confirmation",
+          "status": "human_confirmed",
           "rated": 5,
           "pending": 0,
           "ratings": {
