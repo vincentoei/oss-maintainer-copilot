@@ -17,6 +17,7 @@ from maintainer_copilot.agent import (
     OpenAICompatibleAgent,
     triage_issue_with_agent,
 )
+from maintainer_copilot.ci import CISource, PublicCISource
 from maintainer_copilot.documentation import (
     DocumentationSource,
     PublicDocumentationSource,
@@ -44,6 +45,10 @@ async def get_documentation_source() -> DocumentationSource:
 
 async def get_source_reader() -> SourceReader:
     return PublicRepositorySource()
+
+
+async def get_ci_source() -> CISource:
+    return PublicCISource()
 
 
 async def get_model_client() -> ModelClient:
@@ -80,9 +85,10 @@ async def create_report(
     ],
     source_reader: Annotated[SourceReader, Depends(get_source_reader)],
     model_client: Annotated[ModelClient, Depends(get_model_client)],
+    ci_source: Annotated[CISource, Depends(get_ci_source)],
 ) -> TriageReport:
     return triage_issue(
-        issue, source, documentation_source, source_reader, model_client
+        issue, source, documentation_source, source_reader, model_client, ci_source
     )
 
 
@@ -95,7 +101,8 @@ async def create_agent_report(
     ],
     source_reader: Annotated[SourceReader, Depends(get_source_reader)],
     agent_client: Annotated[AgentClient, Depends(get_agent_client)],
+    ci_source: Annotated[CISource, Depends(get_ci_source)],
 ) -> TriageReport:
     return triage_issue_with_agent(
-        issue, source, documentation_source, source_reader, agent_client
+        issue, source, documentation_source, source_reader, agent_client, ci_source
     )

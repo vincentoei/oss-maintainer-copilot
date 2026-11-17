@@ -16,6 +16,20 @@ When a reviewer supplies a pytest source commit, repository path, and line,
 the report quotes the inspected line and links to its exact commit and location.
 The web interface also links to the inspected excerpt. Unavailable source
 produces an abstention instead of a claim.
+When the issue text contains one explicit `pytest-dev/pytest` PR or full commit
+URL, or a repo-qualified reference labelled `PR`, the report reads GitHub check
+runs for that PR's head and, while open, its test merge commit, or for the linked
+commit. Each completed check appears with its own conclusion, commit SHA,
+and check-run citation in the API and web report. Contradictory checks stay
+separate; the report makes no overall CI verdict. If the linked checks cannot
+be read or none have completed, it abstains on CI evidence. When one PR commit's
+checks are unavailable, it cites checks from the other and records a partial
+CI abstention. Issues without one unambiguous relevant link do not trigger CI
+inspection; links described as unrelated, historical context, or background only
+are excluded.
+An explicitly paired PR and `merged as` commit count as one target; the commit
+is inspected. Other multiple-link cases remain ambiguous and do not trigger CI.
+The reader caps GitHub responses and marks incomplete check lists unavailable.
 The report can suggest a pytest `type:*` label and show the exact issue-text
 quote used for that suggestion. A model selects from evidence-backed reply
 statements; the server checks its response and adds citation markers before
@@ -66,6 +80,8 @@ records an abstention. The agent cannot post, edit, or execute commands. The
 agent's usefulness depends on the configured model; model selection and quality
 measurement are separate work, so the controlled-response tests here establish
 behavior and safety boundaries rather than model quality.
+Linked CI evidence follows the same explicit-link rule on both report endpoints;
+it does not add an agent action.
 
 Open <http://127.0.0.1:8000> to paste an issue. Enter its pytest issue number
 to search only issues opened before it. For a newly drafted issue without a

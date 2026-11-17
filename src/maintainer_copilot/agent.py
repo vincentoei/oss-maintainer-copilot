@@ -7,7 +7,7 @@ from typing import Annotated, Literal, Protocol
 
 from pydantic import BaseModel, ConfigDict, Field, TypeAdapter, ValidationError
 
-from maintainer_copilot import documentation, issue_search, model, pytest_profile
+from maintainer_copilot import ci, documentation, issue_search, model, pytest_profile
 from maintainer_copilot import source as repository_source
 from maintainer_copilot.triage import (
     Abstention,
@@ -308,6 +308,7 @@ def triage_issue_with_agent(
     documentation_source: documentation.DocumentationSource,
     source_reader: repository_source.SourceReader,
     agent_client: AgentClient,
+    ci_source: ci.CISource | None = None,
 ) -> TriageReport:
     """Let one bounded agent choose reads, then validate its report selection."""
     passages: dict[
@@ -387,6 +388,7 @@ def triage_issue_with_agent(
         _CachedDocumentationSource(passages),
         source_cache,
         agent_client if finished else _UnavailableModel(),
+        ci_source,
     )
     if agent_failure is not None:
         report.abstentions.append(Abstention(field="agent", reason=agent_failure))
