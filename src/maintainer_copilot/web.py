@@ -17,6 +17,7 @@ from maintainer_copilot.documentation import (
     PublicDocumentationSource,
 )
 from maintainer_copilot.issue_search import GitHubIssueSource
+from maintainer_copilot.model import ModelClient, OpenAICompatibleModel
 from maintainer_copilot.source import (
     PublicRepositorySource,
     SourceExcerpt,
@@ -38,6 +39,10 @@ async def get_documentation_source() -> DocumentationSource:
 
 async def get_source_reader() -> SourceReader:
     return PublicRepositorySource()
+
+
+async def get_model_client() -> ModelClient:
+    return OpenAICompatibleModel.from_environment()
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -65,5 +70,8 @@ async def create_report(
         DocumentationSource, Depends(get_documentation_source)
     ],
     source_reader: Annotated[SourceReader, Depends(get_source_reader)],
+    model_client: Annotated[ModelClient, Depends(get_model_client)],
 ) -> TriageReport:
-    return triage_issue(issue, source, documentation_source, source_reader)
+    return triage_issue(
+        issue, source, documentation_source, source_reader, model_client
+    )

@@ -4,9 +4,16 @@ import re
 from collections.abc import Collection
 from uuid import UUID, uuid4
 
-from pydantic import BaseModel, ConfigDict, Field, HttpUrl, model_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl,
+    ValidationError,
+    model_validator,
+)
 
-from maintainer_copilot import documentation, issue_search, pytest_profile
+from maintainer_copilot import documentation, issue_search, model, pytest_profile
 from maintainer_copilot import source as repository_source
 
 
@@ -59,6 +66,7 @@ class IssueSuggestion(BaseModel):
 class TriageReport(BaseModel):
     trace_id: UUID
     issue_type: str | None
+    issue_type_quote: str | None
     duplicate_candidates: list[IssueSuggestion]
     related_issues: list[IssueSuggestion]
     missing_details: list[MissingReportDetail]
@@ -70,6 +78,13 @@ class TriageReport(BaseModel):
 
     @model_validator(mode="after")
     def validate_citations(self) -> "TriageReport":
+        if (
+            self.issue_type is not None
+            and self.issue_type not in pytest_profile.TYPE_LABELS
+        ):
+            raise ValueError("issue type must be a pytest type label")
+        if (self.issue_type is None) != (self.issue_type_quote is None):
+            raise ValueError("issue type must include an issue-text quote")
         citation_ids = [citation.id for citation in self.citations]
         if len(citation_ids) != len(set(citation_ids)):
             raise ValueError("citation IDs must be unique")
@@ -165,6 +180,7 @@ def triage_issue(
     source: issue_search.IssueSource | None = None,
     documentation_source: documentation.DocumentationSource | None = None,
     source_reader: repository_source.SourceReader | None = None,
+    model_client: model.ModelClient | None = None,
 ) -> TriageReport:
     """Build a reviewable report from pytest templates, issues, and documentation."""
     template = pytest_profile.template_for(issue.title, issue.body)
@@ -202,9 +218,7 @@ def triage_issue(
         )
         reply += f" Could you add the following details?\n{requests}"
 
-    abstentions = [
-        Abstention(field="issue_type", reason="No issue type evidence was assessed.")
-    ]
+    abstentions: list[Abstention] = []
     suggestions: list[issue_search.Match] = []
     if issue.number is None:
         search_reason = "A pytest issue number is needed to search only earlier issues."
@@ -353,9 +367,85 @@ def triage_issue(
             )
         )
 
+    citation_by_id = {item.id: item for item in citations}
+    reply_statements = [
+        model.ReplyStatement(
+            detail.citation_id,
+            f"Could you add {detail.request}?",
+            str(citation_by_id[detail.citation_id].source_url),
+        )
+        for detail in details
+    ]
+    reply_statements.extend(
+        model.ReplyStatement(
+            item.citation_id,
+            f"Earlier issue #{item.issue_number} may be relevant: {item.reason}",
+            str(citation_by_id[item.citation_id].source_url),
+        )
+        for item in duplicates + related
+    )
+    reply_statements.extend(
+        model.ReplyStatement(
+            claim.citation_id,
+            claim.claim,
+            str(citation_by_id[claim.citation_id].source_url),
+        )
+        for claim in documentation_claims + source_claims
+    )
+    model_request = model.ModelRequest(
+        issue_title=issue.title,
+        issue_body=issue.body,
+        reply_statements=tuple(reply_statements),
+        required_reply_ids=tuple(detail.citation_id for detail in details),
+    )
+    try:
+        client = model_client or model.OpenAICompatibleModel.from_environment()
+        suggestion = model.validate_suggestion(
+            client.generate(model_request), model_request
+        )
+    except (model.ModelUnavailable, ValidationError, ValueError) as exc:
+        issue_type = None
+        issue_type_quote = None
+        model_reason = (
+            "Model unavailable; no issue type suggestion was produced."
+            if isinstance(exc, model.ModelUnavailable)
+            else "Model output failed validation; no issue type was suggested."
+        )
+        abstentions.append(Abstention(field="issue_type", reason=model_reason))
+    else:
+        issue_type = suggestion.issue_type
+        issue_type_quote = suggestion.issue_type_quote
+        if issue_type is None:
+            abstentions.append(
+                Abstention(
+                    field="issue_type",
+                    reason=(
+                        "Model found insufficient issue-text evidence for a type label."
+                    ),
+                )
+            )
+        selected = {statement.citation_id: statement for statement in reply_statements}
+        reply = "Thanks for sharing this issue."
+        if suggestion.reply_citation_ids:
+            reply += "\n" + "\n".join(
+                f"- {selected[citation_id].text} [{citation_id}]"
+                for citation_id in suggestion.reply_citation_ids
+            )
+        else:
+            reply += (
+                " I cannot substantiate a specific request from the available evidence."
+            )
+            abstentions.append(
+                Abstention(
+                    field="draft_reply",
+                    reason="No supported reply claim was selected.",
+                )
+            )
+
     report = TriageReport(
         trace_id=uuid4(),
-        issue_type=None,
+        issue_type=issue_type,
+        issue_type_quote=issue_type_quote,
         duplicate_candidates=duplicates,
         related_issues=related,
         missing_details=details,

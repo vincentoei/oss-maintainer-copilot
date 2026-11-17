@@ -16,7 +16,11 @@ When a reviewer supplies a pytest source commit, repository path, and line,
 the report quotes the inspected line and links to its exact commit and location.
 The web interface also links to the inspected excerpt. Unavailable source
 produces an abstention instead of a claim.
-Issue type remains unassessed. The application makes no model or GPU calls.
+The report can suggest a pytest `type:*` label and show the exact issue-text
+quote used for that suggestion. A model selects from evidence-backed reply
+statements; the server checks its response and adds citation markers before
+display. If the model is unavailable or returns unsupported content, the report
+shows an abstention and retains the cited template-detail reply.
 
 ## Run locally
 
@@ -27,6 +31,23 @@ Install [uv](https://docs.astral.sh/uv/getting-started/installation/) and Python
 uv sync --locked --group dev
 uv run --no-env-file uvicorn maintainer_copilot.web:app --reload
 ```
+
+To enable model suggestions, set `MODEL_NAME` to a model served by an
+[OpenAI-compatible chat-completions endpoint](https://github.com/ollama/ollama/blob/main/docs/api/openai-compatibility.mdx).
+`MODEL_BASE_URL` defaults to `http://127.0.0.1:11434/v1` (Ollama's local
+endpoint). For example, after starting a local model server:
+
+```sh
+MODEL_NAME=your-model-name uv run --no-env-file uvicorn maintainer_copilot.web:app --reload
+```
+
+Set `MODEL_BASE_URL` if your server uses a different URL. The model receives the
+issue title and body plus the report's available citation-backed statements. It
+returns a pytest type label or unknown, an exact quote from the issue for a
+suggested label, and citation IDs to include in the draft reply. The server
+rejects free-text claims, unknown citations, and labels without a matching
+cue in the quoted issue text. With no model configured, the report still works
+and marks the model suggestion as unavailable.
 
 Open <http://127.0.0.1:8000> to paste an issue. Enter its pytest issue number
 to search only issues opened before it. For a newly drafted issue without a

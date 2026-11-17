@@ -38,7 +38,8 @@
     <section id="report" hidden>
       <h2>Triage report</h2>
       <p><strong>Trace ID:</strong> <span id="trace-id"></span></p>
-      <p><strong>Issue type:</strong> <span id="issue-type"></span></p>
+      <p><strong>Suggested issue type:</strong> <span id="issue-type"></span></p>
+      <p id="issue-type-basis" hidden><strong>Issue text quote:</strong> <span id="issue-type-quote"></span></p>
       <h3>Duplicate candidates</h3>
       <ul id="duplicates"></ul>
       <h3>Related issues</h3>
@@ -111,6 +112,8 @@
           const report = await response.json();
           document.getElementById("trace-id").textContent = report.trace_id;
           document.getElementById("issue-type").textContent = report.issue_type ?? "Unknown";
+          document.getElementById("issue-type-quote").textContent = report.issue_type_quote ?? "";
+          document.getElementById("issue-type-basis").hidden = !report.issue_type_quote;
           fillList("duplicates", report.duplicate_candidates, renderSuggestedIssue);
           fillList("related", report.related_issues, renderSuggestedIssue);
           document.getElementById("draft-reply").textContent = report.draft_reply;
