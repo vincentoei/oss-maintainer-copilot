@@ -82,8 +82,14 @@ class ControlledAgent:
 
 
 class FixedIssues:
-    def __init__(self, candidate_title: str = TITLE, fail: bool = False) -> None:
+    def __init__(
+        self,
+        candidate_title: str = TITLE,
+        candidate_body: str = BODY,
+        fail: bool = False,
+    ) -> None:
         self.candidate_title = candidate_title
+        self.candidate_body = candidate_body
         self.fail = fail
         self.reads = 0
         self.searches = 0
@@ -103,7 +109,7 @@ class FixedIssues:
             IssueRecord(
                 410,
                 self.candidate_title,
-                BODY,
+                self.candidate_body,
                 datetime(2024, 5, 8, tzinfo=UTC),
             )
         ]
@@ -353,3 +359,20 @@ def test_unicode_escaping_cannot_expand_a_tool_result_past_the_limit() -> None:
     assert observation.status == "error"
     assert len(json.dumps(observation.output)) <= MAX_TOOL_OUTPUT_CHARS
     assert report["source_claims"] == []
+
+
+def test_retrieved_long_term_stays_bounded_in_final_model_input_and_report() -> None:
+    long_body = BODY + " " + "a" * 10_000
+    agent = ControlledAgent([search_action(), FINISH])
+
+    report = report_for(
+        agent, issues=FixedIssues(candidate_body=long_body), body=long_body
+    )
+
+    assert len(report["duplicate_candidates"][0]["reason"]) < 500
+    assert all(
+        len(statement.text) < 500
+        for statement in agent.final_requests[0].reply_statements
+    )
+    observation = agent.step_requests[1].observations[0]
+    assert len(json.dumps(observation.output)) <= MAX_TOOL_OUTPUT_CHARS
