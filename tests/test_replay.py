@@ -234,6 +234,38 @@ def test_replay_ignores_post_cutoff_activity_in_every_evidence_channel() -> None
     }
 
 
+def test_keyword_baseline_filters_the_frozen_candidate_by_query_terms() -> None:
+    case, github, repository = synthetic_case()
+    earlier = github.issues[case.earlier_issue.number]
+    github.issues[earlier.number] = issue_search.IssueRecord(
+        earlier.number, "Some report", "captured visible", earlier.created_at
+    )
+    data = case.model_dump()
+    data["earlier_issue"]["content_sha256"] = content_hash(
+        github.issues[earlier.number]
+    )
+    case = HistoricalCase.model_validate(data)
+
+    paired = replay_case(
+        case,
+        commit_source=repository,
+        issue_source=github,
+        source_reader=repository,
+        model_client=ControlledReplayModel(),
+    )
+    filtered = replay_case(
+        case,
+        commit_source=repository,
+        issue_source=github,
+        source_reader=repository,
+        model_client=ControlledReplayModel(),
+        keyword_filter=True,
+    )
+
+    assert [item.issue_number for item in paired.related_issues] == [earlier.number]
+    assert filtered.related_issues == []
+
+
 @pytest.mark.parametrize("changed_number", [12081, 3448])
 def test_changed_issue_content_is_flagged_before_model_or_source_reads(
     changed_number: int,

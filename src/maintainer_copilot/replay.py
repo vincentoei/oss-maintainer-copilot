@@ -3,6 +3,7 @@
 import hashlib
 import json
 import os
+import re
 from dataclasses import dataclass
 from datetime import datetime
 from importlib.resources import files
@@ -207,6 +208,7 @@ def _verified_issue(
 class _FrozenIssues:
     reviewed: issue_search.IssueRecord
     earlier: issue_search.IssueRecord
+    keyword_filter: bool = False
 
     def get_issue(self, number: int) -> issue_search.IssueRecord:
         if number != self.reviewed.number:
@@ -218,6 +220,13 @@ class _FrozenIssues:
     ) -> list[issue_search.IssueRecord]:
         if created_before != self.reviewed.created_at or not query:
             raise issue_search.IssueSearchError("Search is outside the frozen case.")
+        if self.keyword_filter:
+            terms = query.removeprefix("(").removesuffix(")").split(" OR ")
+            text = f"{self.earlier.title}\n{self.earlier.body}"
+            if not any(
+                re.search(rf"\b{re.escape(term)}\b", text, re.I) for term in terms
+            ):
+                return []
         return [self.earlier]
 
 
@@ -326,6 +335,7 @@ def replay_case(
     issue_source: issue_search.IssueSource | None = None,
     source_reader: repository_source.SourceReader | None = None,
     model_client: model.ModelClient | None = None,
+    keyword_filter: bool = False,
 ) -> TriageReport:
     """Verify public issue text, then triage with only pre-cutoff evidence."""
     case = case or load_case()
@@ -360,7 +370,7 @@ def replay_case(
     )
     return triage_issue(
         issue,
-        source=_FrozenIssues(reviewed, earlier),
+        source=_FrozenIssues(reviewed, earlier, keyword_filter),
         documentation_source=_PinnedDocumentation(topic, case.repository_commit, reader)
         if topic is not None
         else None,

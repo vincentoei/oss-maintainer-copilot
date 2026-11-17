@@ -1,0 +1,624 @@
+{
+  "methods": {
+    "controlled": {
+      "aggregate": {
+        "cases": 5,
+        "completed": 5,
+        "errors": [],
+        "mean_latency_ms": 1855.99,
+        "duplicate_retrieval_recall": 1.0,
+        "duplicate_judgment_accuracy": 0.5,
+        "issue_type_accuracy": 0.0,
+        "missing_details_exact": 0.8,
+        "missing_details_precision": 1.0,
+        "missing_details_recall": 0.8,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.0,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 7312,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12081,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 12081,
+            "field": "issue_type"
+          }
+        ]
+      },
+      "cases": [
+        {
+          "issue_number": 7312,
+          "method": "controlled",
+          "opening_cutoff": "2020-06-03T14:20:24+00:00",
+          "repository_commit": "61a6ac97054c0bd6f812642b46847c4b7cbede2a",
+          "latency_ms": 1642.44,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 349
+            },
+            "duplicate_judgment": {
+              "correct": false,
+              "expected": "duplicate_candidate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: enhancement",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 1,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_appropriate": true,
+              "semantic_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]"
+            }
+          }
+        },
+        {
+          "issue_number": 10156,
+          "method": "controlled",
+          "opening_cutoff": "2022-07-19T20:03:50+00:00",
+          "repository_commit": "34a285986e456406b22b62aa563a64331f640e7f",
+          "latency_ms": 1824.63,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 2959
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: docs",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 1,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_appropriate": true,
+              "semantic_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C1]"
+            }
+          }
+        },
+        {
+          "issue_number": 12081,
+          "method": "controlled",
+          "opening_cutoff": "2024-03-06T00:03:25+00:00",
+          "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+          "latency_ms": 2302.47,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 3448
+            },
+            "duplicate_judgment": {
+              "correct": false,
+              "expected": "duplicate_candidate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: enhancement",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 3,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_appropriate": true,
+              "semantic_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, call; one report negates a shared condition. [C1]\n- pytest documents that capture fixtures let tests access stdout and stderr created during execution. [C2]\n- At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line. [C3]"
+            }
+          }
+        },
+        {
+          "issue_number": 12083,
+          "method": "controlled",
+          "opening_cutoff": "2024-03-06T10:53:11+00:00",
+          "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+          "latency_ms": 1969.0,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 7012
+            },
+            "duplicate_judgment": {
+              "correct": null,
+              "expected": "uncertain",
+              "observed": "related_issue",
+              "review_status": "pending_human_review"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: regression",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 1.0,
+              "recall": 0.0,
+              "expected": [
+                "pip list output"
+              ],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 1,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_appropriate": null,
+              "semantic_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #7012 may be relevant: Shared topic: collect, collected, duplicate; the same failure or request is not established. [C1]"
+            }
+          }
+        },
+        {
+          "issue_number": 12146,
+          "method": "controlled",
+          "opening_cutoff": "2024-03-21T12:06:34+00:00",
+          "repository_commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
+          "latency_ms": 1541.39,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 7312
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: bug",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 1,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_appropriate": true,
+              "semantic_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #7312 may be relevant: Shared topic: def, fixture, mark; the same failure or request is not established. [C1]"
+            }
+          }
+        }
+      ]
+    },
+    "keyword_rule": {
+      "aggregate": {
+        "cases": 5,
+        "completed": 5,
+        "errors": [],
+        "mean_latency_ms": 1834.33,
+        "duplicate_retrieval_recall": 0.6,
+        "duplicate_judgment_accuracy": 0.25,
+        "issue_type_accuracy": 0.2,
+        "missing_details_exact": 0.8,
+        "missing_details_precision": 1.0,
+        "missing_details_recall": 0.8,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.8,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12081,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 12081,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12083,
+            "field": "duplicate_retrieval"
+          }
+        ]
+      },
+      "cases": [
+        {
+          "issue_number": 7312,
+          "method": "keyword_rule",
+          "opening_cutoff": "2020-06-03T14:20:24+00:00",
+          "repository_commit": "61a6ac97054c0bd6f812642b46847c4b7cbede2a",
+          "latency_ms": 1966.94,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 349
+            },
+            "duplicate_judgment": {
+              "correct": false,
+              "expected": "duplicate_candidate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": true,
+              "expected": "type: enhancement",
+              "observed": "type: enhancement"
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 1,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "missing_details"
+              ],
+              "issue_type_appropriate": true,
+              "duplicate_appropriate": true,
+              "semantic_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]"
+            }
+          }
+        },
+        {
+          "issue_number": 10156,
+          "method": "keyword_rule",
+          "opening_cutoff": "2022-07-19T20:03:50+00:00",
+          "repository_commit": "34a285986e456406b22b62aa563a64331f640e7f",
+          "latency_ms": 1652.63,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 2959
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: docs",
+              "observed": "type: infrastructure"
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 1,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "missing_details"
+              ],
+              "issue_type_appropriate": true,
+              "duplicate_appropriate": true,
+              "semantic_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C1]"
+            }
+          }
+        },
+        {
+          "issue_number": 12081,
+          "method": "keyword_rule",
+          "opening_cutoff": "2024-03-06T00:03:25+00:00",
+          "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+          "latency_ms": 1847.31,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 3448
+            },
+            "duplicate_judgment": {
+              "correct": false,
+              "expected": "duplicate_candidate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: enhancement",
+              "observed": "type: docs"
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 3,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "missing_details"
+              ],
+              "issue_type_appropriate": true,
+              "duplicate_appropriate": true,
+              "semantic_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, call; one report negates a shared condition. [C1]\n- pytest documents that capture fixtures let tests access stdout and stderr created during execution. [C2]\n- At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line. [C3]"
+            }
+          }
+        },
+        {
+          "issue_number": 12083,
+          "method": "keyword_rule",
+          "opening_cutoff": "2024-03-06T10:53:11+00:00",
+          "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+          "latency_ms": 1655.6,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": false,
+              "expected_issue": 7012
+            },
+            "duplicate_judgment": {
+              "correct": null,
+              "expected": "uncertain",
+              "observed": "not_retrieved",
+              "review_status": "pending_human_review"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: regression",
+              "observed": "type: bug"
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 1.0,
+              "recall": 0.0,
+              "expected": [
+                "pip list output"
+              ],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 0,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "draft_reply",
+                "missing_details"
+              ],
+              "issue_type_appropriate": true,
+              "duplicate_appropriate": null,
+              "semantic_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence."
+            }
+          }
+        },
+        {
+          "issue_number": 12146,
+          "method": "keyword_rule",
+          "opening_cutoff": "2024-03-21T12:06:34+00:00",
+          "repository_commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
+          "latency_ms": 2049.15,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": false,
+              "expected_issue": 7312
+            },
+            "duplicate_judgment": {
+              "correct": false,
+              "expected": "nonduplicate",
+              "observed": "not_retrieved",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: bug",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 0,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "draft_reply",
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_appropriate": true,
+              "semantic_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence."
+            }
+          }
+        }
+      ]
+    }
+  },
+  "cost_assumptions": {
+    "model_api_usd": 0,
+    "github_api_usd": 0,
+    "scope": "No paid model calls; public GitHub reads have no per-request charge. CPU, network, and hosting costs excluded."
+  },
+  "methodology": "Both methods replay the same verified issue text, earlier issue, and pinned pytest commit. The keyword-rule baseline filters its one earlier-issue fixture by query terms, applies lexical match and template rules, and selects type by cue. Controlled responses are a smoke comparator, not model quality."
+}
