@@ -28,6 +28,7 @@ _UNRELATED = re.compile(
     re.IGNORECASE,
 )
 _DO_NOT_IGNORE = re.compile(r"\b(?:do not|don't|never)\s+ignore\b", re.IGNORECASE)
+_MERGED_AS = re.compile(r"\s*,?\s*merged as\s+", re.IGNORECASE)
 _FOLLOWING_EXCLUSION = re.compile(
     r"\s*(?:(?:it|this|that)(?:\s+(?:PR|commit))?\s+)?"
     r"(?:is|was)\s+(?:unrelated|irrelevant|not relevant|not related)\b",
@@ -60,19 +61,36 @@ class CILink:
 
 
 def linked_target(title: str, body: str) -> CILink | None:
-    """Accept one distinct explicit link in the target repository's issue text."""
-    text = f"{title}\n{body}"
+    """Accept one target link or a PR explicitly paired with its merge commit."""
     links: set[CILink] = set()
-    for match in _LINK.finditer(text):
-        if _is_unrelated(text, match.start(), match.end()):
-            continue
-        links.add(
-            CILink("pull", match[2]) if match[1] else CILink("commit", match[4].lower())
-        )
-    for match in _SHORT_PR.finditer(text):
-        if not _is_unrelated(text, match.start(), match.end()):
-            links.add(CILink("pull", match[1]))
-    return next(iter(links)) if len(links) == 1 else None
+    merged_pairs: list[tuple[CILink, CILink]] = []
+    for text in (title, body):
+        matches = list(_LINK.finditer(text))
+        for match in matches:
+            if not _is_unrelated(text, match.start(), match.end()):
+                links.add(
+                    CILink("pull", match[2])
+                    if match[1]
+                    else CILink("commit", match[4].lower())
+                )
+        for first, second in zip(matches, matches[1:], strict=False):
+            if (
+                first[1]
+                and second[3]
+                and _MERGED_AS.fullmatch(text[first.end() : second.start()])
+            ):
+                merged_pairs.append(
+                    (CILink("pull", first[2]), CILink("commit", second[4].lower()))
+                )
+        for match in _SHORT_PR.finditer(text):
+            if not _is_unrelated(text, match.start(), match.end()):
+                links.add(CILink("pull", match[1]))
+    if len(links) == 1:
+        return next(iter(links))
+    for pull, commit in merged_pairs:
+        if links == {pull, commit}:
+            return commit
+    return None
 
 
 def _is_unrelated(text: str, start: int, end: int) -> bool:

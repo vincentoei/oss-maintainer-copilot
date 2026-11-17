@@ -95,6 +95,7 @@ def report_for(
     ci_source: FixedCI,
     model: ControlledModel | None = None,
     endpoint: str = "/api/triage",
+    title: str = "CI diagnostic",
 ) -> dict[str, Any]:
     model = model or ControlledModel()
 
@@ -115,7 +116,7 @@ def report_for(
         ) as client:
             return await client.post(
                 endpoint,
-                json={"title": "CI diagnostic", "body": body},
+                json={"title": title, "body": body},
             )
 
     try:
@@ -135,6 +136,7 @@ def report_for(
             CILink("pull", "123"),
         ),
         (f"Upstream PR: {PR_URL}; do not ignore its checks.", CILink("pull", "123")),
+        (f"Fixed in {PR_URL}, merged as {COMMIT_URL}.", CILink("commit", COMMIT)),
         (f"Relevant commit: {COMMIT_URL}", CILink("commit", COMMIT)),
     ],
 )
@@ -167,6 +169,19 @@ def test_linked_pr_or_commit_yields_specific_cited_result(
     ]
     assert "CI" not in report["draft_reply"]
     assert model.requests[0].reply_statements == ()
+
+
+def test_unrelated_title_does_not_exclude_a_relevant_body_link() -> None:
+    source = FixedCI([check("linux tests", "success", 42)])
+
+    report = report_for(
+        f"{PR_URL} fixes the collection failure.",
+        source,
+        title="Collection failure unrelated to plugin loading",
+    )
+
+    assert source.reads == [CILink("pull", "123")]
+    assert report["ci_results"][0]["conclusion"] == "success"
 
 
 @pytest.mark.parametrize(

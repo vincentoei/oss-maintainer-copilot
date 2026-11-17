@@ -27,6 +27,8 @@ checks are unavailable, it cites checks from the other and records a partial
 CI abstention. Issues without one unambiguous relevant link do not trigger CI
 inspection; links described as unrelated, historical context, or background only
 are excluded.
+An explicitly paired PR and `merged as` commit count as one target; the commit
+is inspected. Other multiple-link cases remain ambiguous and do not trigger CI.
 The reader caps GitHub responses and marks incomplete check lists unavailable.
 The report can suggest a pytest `type:*` label and show the exact issue-text
 quote used for that suggestion. A model selects from evidence-backed reply
