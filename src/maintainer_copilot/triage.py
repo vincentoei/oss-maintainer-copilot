@@ -1,6 +1,7 @@
 """The Python triage API and its validated report."""
 
 import re
+from collections.abc import Collection
 from uuid import UUID, uuid4
 
 from pydantic import BaseModel, ConfigDict, Field, HttpUrl, model_validator
@@ -85,16 +86,28 @@ class TriageReport(BaseModel):
         for claim in self.documentation_claims:
             citation = citation_by_id.get(claim.citation_id)
             if citation is None or not citation.passage:
+                raise ValueError("documentation claim must cite a passage")
+        return self
+
+    def validate_documentation_evidence(
+        self, supplied_evidence: Collection[documentation.DocumentationEvidence]
+    ) -> "TriageReport":
+        """Check claims and citations against evidence returned by the source."""
+        supplied = {
+            (item.claim, item.passage.url, item.passage.text)
+            for item in supplied_evidence
+        }
+        citation_by_id = {item.id: item for item in self.citations}
+        for claim in self.documentation_claims:
+            citation = citation_by_id[claim.citation_id]
+            if (
+                claim.claim,
+                str(citation.source_url),
+                citation.passage,
+            ) not in supplied:
                 raise ValueError(
-                    "documentation claim must cite a supplied documentation passage"
+                    "claim cites evidence not supplied by documentation source"
                 )
-            if not any(
-                claim.claim == topic.claim
-                and str(citation.source_url) == topic.url
-                and citation.passage == topic.passage
-                for topic in documentation.TOPICS
-            ):
-                raise ValueError("documentation claim is not supported by its passage")
         return self
 
 
@@ -203,6 +216,7 @@ def triage_issue(
             )
         )
     documentation_claims: list[DocumentationClaim] = []
+    supplied_evidence: list[documentation.DocumentationEvidence] = []
     doc_source = documentation_source or documentation.PytestDocumentationSource()
     for topic in documentation.relevant_topics(issue.title, issue.body):
         try:
@@ -220,6 +234,9 @@ def triage_issue(
                 )
             )
             continue
+        supplied_evidence.append(
+            documentation.DocumentationEvidence(claim=topic.claim, passage=passage)
+        )
         citation_id = f"C{len(citations) + 1}"
         citations.append(
             Citation(
@@ -240,7 +257,7 @@ def triage_issue(
             )
         )
 
-    return TriageReport(
+    report = TriageReport(
         trace_id=uuid4(),
         issue_type=None,
         duplicate_candidates=duplicates,
@@ -251,3 +268,4 @@ def triage_issue(
         citations=citations,
         abstentions=abstentions,
     )
+    return report.validate_documentation_evidence(supplied_evidence)

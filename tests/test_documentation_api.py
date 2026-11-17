@@ -6,11 +6,11 @@ from typing import Any, cast
 
 import httpx2
 import pytest
-from pydantic import ValidationError
 
 from maintainer_copilot import TriageReport
 from maintainer_copilot.documentation import (
     TOPICS,
+    DocumentationEvidence,
     DocumentationPassage,
     DocumentationSource,
     DocumentationTopic,
@@ -154,17 +154,29 @@ def test_report_rejects_claim_not_supported_by_supplied_passage() -> None:
         "pytest guarantees that capsys captures subprocess output."
     )
 
-    with pytest.raises(ValidationError, match="not supported by its passage"):
-        TriageReport.model_validate(report)
+    supplied = [
+        DocumentationEvidence(
+            claim=TOPICS[0].claim,
+            passage=DocumentationPassage(CAPTURE_URL, CAPTURE_PASSAGE),
+        )
+    ]
+    with pytest.raises(ValueError, match="not supplied by documentation source"):
+        TriageReport.model_validate(report).validate_documentation_evidence(supplied)
 
 
 def test_fixed_evidence_rejects_claim_citing_unsupplied_passage() -> None:
     report = report_for(
         FixedDocumentationSource({}), "Bug: capsys cannot capture stdout"
     )
-    report["documentation_claims"] = [
-        {"claim": "pytest documents stdout capture.", "citation_id": "C1"}
-    ]
+    report["citations"].append(
+        {
+            "id": "C99",
+            "source_url": CAPTURE_URL,
+            "description": "forged documentation citation",
+            "passage": CAPTURE_PASSAGE,
+        }
+    )
+    report["documentation_claims"] = [{"claim": TOPICS[0].claim, "citation_id": "C99"}]
 
-    with pytest.raises(ValidationError, match="supplied documentation passage"):
-        TriageReport.model_validate(report)
+    with pytest.raises(ValueError, match="not supplied by documentation source"):
+        TriageReport.model_validate(report).validate_documentation_evidence([])

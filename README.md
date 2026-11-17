@@ -10,6 +10,8 @@ GitHub search fails. For issues about capture fixtures or fixture scope, it
 retrieves the relevant section of the public pytest documentation and adds a
 linked passage only when that section supports the corresponding report claim.
 If the passage is unavailable or changed, the report abstains from that claim.
+Report generation checks each claim against passages returned during that request;
+parsing a saved report alone cannot establish where a passage came from.
 Issue type remains unassessed. The application makes no model or GPU calls.
 
 ## Run locally

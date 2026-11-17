@@ -62,6 +62,12 @@ class DocumentationPassage:
     text: str
 
 
+@dataclass(frozen=True)
+class DocumentationEvidence:
+    claim: str
+    passage: DocumentationPassage
+
+
 class DocumentationSource(Protocol):
     def get_passage(self, topic: DocumentationTopic) -> DocumentationPassage | None: ...
 
