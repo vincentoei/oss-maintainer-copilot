@@ -127,6 +127,31 @@ out-of-range source returns HTTP 404. The operation only reads source.
 The report API accepts the same values in an optional `source_location` object
 inside `POST /api/triage`; the web form exposes those fields directly.
 
+## Inspect a report trace
+
+Every report includes a `trace_id` and a `status` (`complete` or `partial`). The
+web report links the ID to `GET /api/traces/{trace_id}` and shows the same trace
+events below the report. For example:
+
+```sh
+trace_id=... # copy trace_id from the report
+curl "http://127.0.0.1:8000/api/traces/$trace_id"
+```
+
+Each event identifies a retrieval, bounded agent tool action, or model call,
+with its target (including a bounded search query preview or configured model
+name), status, start offset, duration, result count, evidence references where
+applicable, and a sanitized error when it fails. Model events include input and
+output token counts when the model endpoint provides them. The trace omits
+prompts, raw issue text, and raw model responses. A failed dependency leaves
+supported report fields and citations available, marks the report `partial`, and
+records an abstention for the unsupported field.
+
+Traces are kept in memory in the current server process, up to the most recent
+100 reports. They are unavailable after a restart or from another server worker;
+the trace API returns 404 when an ID is no longer present. No model is required
+to inspect a report trace.
+
 ## Deterministic checks
 
 ```sh

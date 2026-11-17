@@ -10,6 +10,7 @@ from urllib.request import Request, urlopen
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from maintainer_copilot import pytest_profile
+from maintainer_copilot.trace import TraceEvent
 
 
 @dataclass(frozen=True)
@@ -25,6 +26,25 @@ class ModelRequest:
     issue_body: str
     reply_statements: tuple[ReplyStatement, ...]
     required_reply_ids: tuple[str, ...]
+
+
+@dataclass(frozen=True)
+class ModelResponse:
+    output: object
+    input_tokens: int | None = None
+    output_tokens: int | None = None
+    error: str | None = None
+
+
+def unwrap_response(raw: object, trace_event: TraceEvent | None = None) -> object:
+    if isinstance(raw, ModelResponse):
+        if trace_event is not None:
+            trace_event.input_tokens = raw.input_tokens
+            trace_event.output_tokens = raw.output_tokens
+        if raw.error is not None:
+            raise ModelUnavailable(raw.error)
+        return raw.output
+    return raw
 
 
 class ModelClient(Protocol):
@@ -85,13 +105,15 @@ def validate_suggestion(raw: object, request: ModelRequest) -> ModelSuggestion:
     return suggestion
 
 
-def generate_validated(client: ModelClient, request: ModelRequest) -> ModelSuggestion:
+def generate_validated(
+    client: ModelClient, request: ModelRequest, trace_event: TraceEvent | None = None
+) -> ModelSuggestion:
     """Contain provider failures, then validate its untrusted response."""
     try:
         raw = client.generate(request)
     except Exception as exc:
         raise ModelUnavailable("Model client failed.") from exc
-    return validate_suggestion(raw, request)
+    return validate_suggestion(unwrap_response(raw, trace_event), request)
 
 
 class OpenAICompatibleModel:
@@ -170,8 +192,36 @@ class OpenAICompatibleModel:
             if len(response_body) > 65_536:
                 raise ValueError("model response exceeds size limit")
             envelope = json.loads(response_body)
-            content = envelope["choices"][0]["message"]["content"]
-            return json.loads(content)
+            if not isinstance(envelope, dict):
+                raise ValueError("model response is not an object")
+            usage = envelope.get("usage")
+            input_tokens = (
+                usage.get("prompt_tokens") if isinstance(usage, dict) else None
+            )
+            output_tokens = (
+                usage.get("completion_tokens") if isinstance(usage, dict) else None
+            )
+            valid_input = (
+                input_tokens
+                if type(input_tokens) is int and input_tokens >= 0
+                else None
+            )
+            valid_output = (
+                output_tokens
+                if type(output_tokens) is int and output_tokens >= 0
+                else None
+            )
+            try:
+                content = envelope["choices"][0]["message"]["content"]
+                output = json.loads(content)
+            except (ValueError, KeyError, IndexError, TypeError):
+                return ModelResponse(
+                    None,
+                    valid_input,
+                    valid_output,
+                    "Model response is unavailable or malformed.",
+                )
+            return ModelResponse(output, valid_input, valid_output)
         except (
             URLError,
             TimeoutError,
@@ -184,3 +234,9 @@ class OpenAICompatibleModel:
             raise ModelUnavailable(
                 "Model response is unavailable or malformed."
             ) from exc
+
+
+def model_identity(client: ModelClient) -> str:
+    if isinstance(client, OpenAICompatibleModel):
+        return client.model_name[:200] or "unconfigured"
+    return type(client).__name__

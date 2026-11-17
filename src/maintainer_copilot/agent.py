@@ -9,6 +9,7 @@ from pydantic import BaseModel, ConfigDict, Field, TypeAdapter, ValidationError
 
 from maintainer_copilot import ci, documentation, issue_search, model, pytest_profile
 from maintainer_copilot import source as repository_source
+from maintainer_copilot.trace import TraceRecorder
 from maintainer_copilot.triage import (
     Abstention,
     IssueUnderReview,
@@ -208,6 +209,7 @@ def _search(
     arguments: SearchArguments,
     source: issue_search.IssueSource,
     cache: _CachedIssueSource,
+    trace: TraceRecorder,
 ) -> ToolObservation:
     if issue.number is None or arguments.issue_number != issue.number:
         return _observation(
@@ -221,10 +223,20 @@ def _search(
             {"reason": "The issue lacks enough details for an earlier issue search."},
         )
     try:
-        reviewed = source.get_issue(issue.number)
-        if reviewed.number != issue.number:
-            raise issue_search.IssueSearchError("Wrong issue returned.")
-        candidates = source.search_issues(query, reviewed.created_at)
+        with trace.call(
+            "retrieval", "get_issue", f"pytest issue #{issue.number}"
+        ) as event:
+            reviewed = source.get_issue(issue.number)
+            if reviewed.number != issue.number:
+                raise issue_search.IssueSearchError("Wrong issue returned.")
+            event.result_count = 1
+        with trace.call(
+            "retrieval",
+            "search_issues",
+            f"query {query[:256]} before {reviewed.created_at.isoformat()}",
+        ) as search_event:
+            candidates = source.search_issues(query, reviewed.created_at)
+            search_event.result_count = len(candidates)
         matches = [
             match
             for candidate in candidates
@@ -261,6 +273,7 @@ def _search(
     }
     observation = _observation("search_earlier_issues", "ok", output)
     if observation.status == "ok":
+        search_event.references = [match.issue.url for match in selected]
         cache.reviewed = reviewed
         cache.query = query
         cache.cutoff = reviewed.created_at
@@ -273,13 +286,18 @@ def _inspect(
     location: repository_source.SourceLocation,
     reader: repository_source.SourceReader,
     cache: _CachedSourceReader,
+    trace: TraceRecorder,
 ) -> ToolObservation:
     if issue.source_location is None or location != issue.source_location:
         return _observation(
             "inspect_source", "error", {"reason": "Source location is not allowed."}
         )
     try:
-        excerpt = reader.get_excerpt(location)
+        with trace.call(
+            "retrieval", "get_source_excerpt", location.source_url
+        ) as event:
+            excerpt = reader.get_excerpt(location)
+            event.result_count = 1
     except Exception:
         return _observation(
             "inspect_source", "error", {"reason": "Source inspection failed."}
@@ -311,23 +329,33 @@ def triage_issue_with_agent(
     ci_source: ci.CISource | None = None,
 ) -> TriageReport:
     """Let one bounded agent choose reads, then validate its report selection."""
+    recorder = TraceRecorder()
     passages: dict[
         documentation.DocumentationTopic, documentation.DocumentationPassage
     ] = {}
     documentation_context: list[dict[str, str]] = []
     for topic in pytest_profile.relevant_documentation_topics(issue.title, issue.body):
         try:
-            passage = documentation_source.get_passage(topic)
-        except documentation.DocumentationError:
+            with recorder.call(
+                "retrieval", "get_documentation_passage", topic.key
+            ) as event:
+                passage = documentation_source.get_passage(topic)
+                event.result_count = 1 if passage is not None else 0
+        except Exception:
             passage = None
         if passage is not None and (passage.url, passage.text) == (
             topic.url,
             topic.passage,
         ):
             passages[topic] = passage
+            event.references = [passage.url]
             documentation_context.append(
                 {"key": topic.key, "url": passage.url, "passage": passage.text}
             )
+        else:
+            if event.status == "ok":
+                event.status = "partial"
+                event.error = "Verified documentation passage unavailable."
 
     issue_cache = _CachedIssueSource()
     source_cache = _CachedSourceReader()
@@ -343,13 +371,20 @@ def triage_issue_with_agent(
             MAX_AGENT_STEPS - 1 - decision,
         )
         try:
-            raw = agent_client.next_step(request)
+            with recorder.call(
+                "model", "agent_action", model.model_identity(agent_client)
+            ) as model_event:
+                raw = model.unwrap_response(
+                    agent_client.next_step(request), model_event
+                )
         except Exception:
             agent_failure = "Agent model was unavailable."
             break
         try:
             action = _ACTION_ADAPTER.validate_python(raw, strict=True)
         except (ValidationError, ValueError):
+            model_event.status = "error"
+            model_event.error = "Agent action failed validation."
             observations.append(
                 _observation(
                     "invalid_action",
@@ -362,6 +397,9 @@ def triage_issue_with_agent(
             finished = True
             break
         if action.tool in used_tools:
+            with recorder.call("tool", action.tool) as tool_event:
+                tool_event.status = "error"
+                tool_event.error = "This tool has already been called."
             observations.append(
                 _observation(
                     action.tool,
@@ -371,14 +409,28 @@ def triage_issue_with_agent(
             )
             continue
         used_tools.add(action.tool)
-        if isinstance(action, SearchAction):
-            observations.append(
-                _search(issue, action.arguments, issue_source, issue_cache)
+        target = (
+            f"pytest issue #{action.arguments.issue_number}"
+            if isinstance(action, SearchAction)
+            else action.arguments.source_url
+        )
+        with recorder.call("tool", action.tool, target) as tool_event:
+            observation = (
+                _search(issue, action.arguments, issue_source, issue_cache, recorder)
+                if isinstance(action, SearchAction)
+                else _inspect(
+                    issue, action.arguments, source_reader, source_cache, recorder
+                )
             )
-        else:
-            observations.append(
-                _inspect(issue, action.arguments, source_reader, source_cache)
-            )
+            tool_event.status = observation.status
+            if observation.status == "ok":
+                matches = observation.output.get("matches")
+                tool_event.result_count = (
+                    len(matches) if isinstance(matches, list) else 1
+                )
+            if observation.status == "error":
+                tool_event.error = str(observation.output["reason"])
+            observations.append(observation)
 
     if not finished and agent_failure is None:
         agent_failure = "Agent step limit was exhausted before a final report."
@@ -389,6 +441,7 @@ def triage_issue_with_agent(
         source_cache,
         agent_client if finished else _UnavailableModel(),
         ci_source,
+        recorder,
     )
     if agent_failure is not None:
         report.abstentions.append(Abstention(field="agent", reason=agent_failure))
