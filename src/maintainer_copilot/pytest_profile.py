@@ -60,10 +60,6 @@ def type_quote_supports_label(label: str, quote: str, issue_text: str) -> bool:
 
 
 TEMPLATE_REVISION = "50234b4e670064c42a4c29cb6258115a2079ba4c"
-TEMPLATE_BASE = (
-    f"https://github.com/pytest-dev/pytest/blob/{TEMPLATE_REVISION}/"
-    ".github/ISSUE_TEMPLATE/"
-)
 
 DOCUMENTATION_TOPICS = (
     DocumentationTopic(
@@ -103,13 +99,13 @@ DOCUMENTATION_TOPICS = (
 )
 
 
-def relevant_documentation_topics(title: str, body: str) -> list[DocumentationTopic]:
+def relevant_documentation_topics(
+    title: str,
+    body: str,
+    topics: tuple[DocumentationTopic, ...] = DOCUMENTATION_TOPICS,
+) -> list[DocumentationTopic]:
     issue_text = f"{title}\n{body}"
-    return [
-        topic
-        for topic in DOCUMENTATION_TOPICS
-        if re.search(topic.relevance, issue_text, re.I)
-    ]
+    return [topic for topic in topics if re.search(topic.relevance, issue_text, re.I)]
 
 
 @dataclass(frozen=True)
@@ -332,11 +328,16 @@ def missing_feature_details(body: str) -> list[TemplateDetail]:
     return _missing_details(FEATURE_DETAILS, provided)
 
 
-def citation_url(template: TemplateKind, line: int) -> str:
+def citation_url(
+    template: TemplateKind, line: int, revision: str = TEMPLATE_REVISION
+) -> str:
     if template == "bug":
         filename = "1_bug_report.md"
     elif template == "feature":
         filename = "2_feature_request.md"
     else:
         assert_never(template)
-    return f"{TEMPLATE_BASE}{filename}#L{line}"
+    return (
+        "https://github.com/pytest-dev/pytest/blob/"
+        f"{revision}/.github/ISSUE_TEMPLATE/{filename}#L{line}"
+    )
