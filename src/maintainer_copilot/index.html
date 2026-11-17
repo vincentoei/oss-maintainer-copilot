@@ -24,6 +24,14 @@
       <input id="title" name="title" required>
       <label for="body">Issue body</label>
       <textarea id="body" name="body"></textarea>
+      <h2>Inspect pytest source (optional)</h2>
+      <p>Enter a commit, repository path, and line to cite source in the report.</p>
+      <label for="source-commit">Commit SHA</label>
+      <input id="source-commit" name="source-commit" pattern="[0-9a-f]{40}" placeholder="Full 40-character SHA">
+      <label for="source-path">Repository path</label>
+      <input id="source-path" name="source-path" placeholder="src/_pytest/capture.py">
+      <label for="source-line">Line number</label>
+      <input id="source-line" name="source-line" type="number" min="1" step="1">
       <button type="submit">Create triage report</button>
     </form>
     <p id="error" role="alert"></p>
@@ -39,6 +47,8 @@
       <ul id="missing-details"></ul>
       <h3>Documentation evidence</h3>
       <ul id="documentation-claims"></ul>
+      <h3>Repository source evidence</h3>
+      <ul id="source-claims"></ul>
       <h3>Draft reply</h3>
       <pre id="draft-reply"></pre>
       <h3>Citations</h3>
@@ -80,6 +90,9 @@
         reportSection.hidden = true;
         error.textContent = "";
         try {
+          const sourceCommit = document.getElementById("source-commit").value;
+          const sourcePath = document.getElementById("source-path").value;
+          const sourceLine = document.getElementById("source-line").value;
           const response = await fetch("/api/triage", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -89,6 +102,9 @@
                 : undefined,
               title: document.getElementById("title").value,
               body: document.getElementById("body").value,
+              source_location: sourceCommit || sourcePath || sourceLine
+                ? { commit: sourceCommit, path: sourcePath, line: Number(sourceLine) }
+                : undefined,
             }),
           });
           if (!response.ok) throw new Error("Could not create a report.");
@@ -111,6 +127,29 @@
             const passage = document.createElement("blockquote");
             passage.textContent = citation.passage;
             item.append(document.createTextNode(`${claim.claim} `), link, passage);
+          });
+          fillList("source-claims", report.source_claims, (item, claim) => {
+            const citation = report.citations.find((entry) => entry.id === claim.citation_id);
+            const location = citation.source_location;
+            const link = document.createElement("a");
+            link.href = citation.source_url;
+            link.textContent = `[${citation.id}] ${location.path}:${location.line}`;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            const commit = document.createElement("code");
+            commit.textContent = citation.source_location.commit;
+            const inspect = document.createElement("a");
+            inspect.href = "/api/source?" + new URLSearchParams({
+              commit: citation.source_location.commit,
+              path: citation.source_location.path,
+              line: citation.source_location.line,
+            });
+            inspect.textContent = "Inspect excerpt";
+            const passage = document.createElement("blockquote");
+            passage.textContent = citation.passage;
+            item.append(document.createTextNode(`${claim.claim} `), link,
+              document.createTextNode(" at commit "), commit,
+              document.createTextNode(" · "), inspect, passage);
           });
           fillList("citations", report.citations, (item, citation) => {
             const link = document.createElement("a");

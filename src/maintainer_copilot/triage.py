@@ -7,6 +7,7 @@ from uuid import UUID, uuid4
 from pydantic import BaseModel, ConfigDict, Field, HttpUrl, model_validator
 
 from maintainer_copilot import documentation, issue_search, pytest_profile
+from maintainer_copilot import source as repository_source
 
 
 class IssueUnderReview(BaseModel):
@@ -15,6 +16,7 @@ class IssueUnderReview(BaseModel):
     title: str = Field(min_length=1)
     body: str
     number: int | None = Field(default=None, gt=0)
+    source_location: repository_source.SourceLocation | None = None
 
 
 class Citation(BaseModel):
@@ -22,9 +24,15 @@ class Citation(BaseModel):
     source_url: HttpUrl
     description: str
     passage: str | None = None
+    source_location: repository_source.SourceLocation | None = None
 
 
 class DocumentationClaim(BaseModel):
+    claim: str
+    citation_id: str
+
+
+class SourceClaim(BaseModel):
     claim: str
     citation_id: str
 
@@ -55,6 +63,7 @@ class TriageReport(BaseModel):
     related_issues: list[IssueSuggestion]
     missing_details: list[MissingReportDetail]
     documentation_claims: list[DocumentationClaim]
+    source_claims: list[SourceClaim]
     draft_reply: str
     citations: list[Citation]
     abstentions: list[Abstention]
@@ -87,6 +96,15 @@ class TriageReport(BaseModel):
             citation = citation_by_id.get(claim.citation_id)
             if citation is None or not citation.passage:
                 raise ValueError("documentation claim must cite a passage")
+        for source_claim in self.source_claims:
+            citation = citation_by_id.get(source_claim.citation_id)
+            if (
+                citation is None
+                or citation.source_location is None
+                or citation.passage is None
+                or str(citation.source_url) != citation.source_location.source_url
+            ):
+                raise ValueError("source claim must cite a commit and source line")
         return self
 
     def validate_documentation_evidence(
@@ -110,11 +128,43 @@ class TriageReport(BaseModel):
                 )
         return self
 
+    def validate_source_evidence(
+        self, supplied_evidence: Collection[repository_source.SourceEvidence]
+    ) -> "TriageReport":
+        """Check source claims against excerpts read during this report request."""
+        supplied = {
+            (
+                item.claim,
+                item.excerpt.source_url,
+                item.excerpt.commit,
+                item.excerpt.path,
+                item.excerpt.line,
+                item.passage,
+            )
+            for item in supplied_evidence
+        }
+        citation_by_id = {item.id: item for item in self.citations}
+        for claim in self.source_claims:
+            citation = citation_by_id[claim.citation_id]
+            location = citation.source_location
+            assert location is not None
+            if (
+                claim.claim,
+                str(citation.source_url),
+                location.commit,
+                location.path,
+                location.line,
+                citation.passage,
+            ) not in supplied:
+                raise ValueError("claim cites evidence not supplied by source reader")
+        return self
+
 
 def triage_issue(
     issue: IssueUnderReview,
     source: issue_search.IssueSource | None = None,
     documentation_source: documentation.DocumentationSource | None = None,
+    source_reader: repository_source.SourceReader | None = None,
 ) -> TriageReport:
     """Build a reviewable report from pytest templates, issues, and documentation."""
     template = pytest_profile.template_for(issue.title, issue.body)
@@ -251,6 +301,50 @@ def triage_issue(
         documentation_claims.append(
             DocumentationClaim(claim=topic.claim, citation_id=citation_id)
         )
+    source_claims: list[SourceClaim] = []
+    supplied_source_evidence: list[repository_source.SourceEvidence] = []
+    if issue.source_location is not None:
+        location = issue.source_location
+        reader = source_reader or repository_source.PublicRepositorySource()
+        try:
+            excerpt = reader.get_excerpt(location)
+        except repository_source.SourceUnavailable:
+            excerpt = None
+        if (
+            excerpt is None
+            or excerpt.commit != location.commit
+            or excerpt.path != location.path
+            or excerpt.line != location.line
+            or excerpt.source_url != location.source_url
+            or not excerpt.start_line <= location.line <= excerpt.end_line
+            or len(excerpt.lines) != excerpt.end_line - excerpt.start_line + 1
+        ):
+            abstentions.append(
+                Abstention(
+                    field="source_claims",
+                    reason="Requested pytest source line is unavailable.",
+                )
+            )
+        else:
+            source_line = excerpt.lines[location.line - excerpt.start_line].strip()
+            claim = (
+                f"At commit {location.commit}, pytest source {location.path}:"
+                f"{location.line} reads: {source_line or '[blank line]'}"
+            )
+            supplied_source_evidence.append(
+                repository_source.SourceEvidence(claim, excerpt, source_line)
+            )
+            citation_id = f"C{len(citations) + 1}"
+            citations.append(
+                Citation(
+                    id=citation_id,
+                    source_url=HttpUrl(excerpt.source_url),
+                    description=f"pytest source: {location.path}:{location.line}",
+                    passage=source_line,
+                    source_location=location,
+                )
+            )
+            source_claims.append(SourceClaim(claim=claim, citation_id=citation_id))
     if template is None:
         abstentions.append(
             Abstention(
@@ -266,8 +360,11 @@ def triage_issue(
         related_issues=related,
         missing_details=details,
         documentation_claims=documentation_claims,
+        source_claims=source_claims,
         draft_reply=reply,
         citations=citations,
         abstentions=abstentions,
     )
-    return report.validate_documentation_evidence(supplied_evidence)
+    return report.validate_documentation_evidence(
+        supplied_evidence
+    ).validate_source_evidence(supplied_source_evidence)

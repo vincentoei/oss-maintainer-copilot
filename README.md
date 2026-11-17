@@ -12,6 +12,10 @@ linked passage only when that section supports the corresponding report claim.
 If the passage is unavailable or changed, the report abstains from that claim.
 Report generation checks each claim against passages returned during that request;
 parsing a saved report alone cannot establish where a passage came from.
+When a reviewer supplies a pytest source commit, repository path, and line,
+the report quotes the inspected line and links to its exact commit and location.
+The web interface also links to the inspected excerpt. Unavailable source
+produces an abstention instead of a claim.
 Issue type remains unassessed. The application makes no model or GPU calls.
 
 ## Run locally
@@ -47,6 +51,26 @@ bodies reflect GitHub's current issue text, so historical evaluation still
 requires verified opening versions as described in ADR-0001. If a broad query
 exceeds GitHub's 1,000-result search window, the report abstains on issue
 matches.
+
+## Inspect pytest source
+
+`GET /api/source` accepts a full lowercase 40-character commit SHA, a relative
+repository file path, and a positive line number. For example:
+
+```sh
+curl --get http://127.0.0.1:8000/api/source \
+  --data-urlencode 'commit=36eed6b7b0eb59760fc4b33e90bdaac5057388f0' \
+  --data-urlencode 'path=src/_pytest/capture.py' \
+  --data-urlencode 'line=1014'
+```
+
+The response contains at most 11 lines around the requested line, a GitHub
+permalink, and the commit and path that were read. Inspection is limited to the
+public `pytest-dev/pytest` repository, 256 KiB per file, and 4,096 excerpt
+characters. Invalid arguments return HTTP 422; unavailable, oversized, or
+out-of-range source returns HTTP 404. The operation only reads source.
+The report API accepts the same values in an optional `source_location` object
+inside `POST /api/triage`; the web form exposes those fields directly.
 
 ## Deterministic checks
 
