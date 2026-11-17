@@ -24,10 +24,15 @@ _SHORT_PR = re.compile(
 )
 _UNRELATED = re.compile(
     r"\b(?:unrelated|irrelevant|not relevant|do not use|do not inspect|ignore|"
-    r"historical context|predates (?:this|the) regression)\b",
+    r"historical context|background only|predates (?:this|the) regression)\b",
     re.IGNORECASE,
 )
 _DO_NOT_IGNORE = re.compile(r"\b(?:do not|don't|never)\s+ignore\b", re.IGNORECASE)
+_FOLLOWING_EXCLUSION = re.compile(
+    r"\s*(?:(?:it|this|that)(?:\s+(?:PR|commit))?\s+)?"
+    r"(?:is|was)\s+(?:unrelated|irrelevant|not relevant|not related)\b",
+    re.IGNORECASE,
+)
 _SHA = re.compile(r"[0-9a-f]{40}")
 _CONCLUSIONS = frozenset(
     {
@@ -81,14 +86,16 @@ def _is_unrelated(text: str, start: int, end: int) -> bool:
     current_line, _, next_line = after.partition("\n")
     boundary = re.search(r"[.!?](?=\s|$)", current_line)
     following = current_line[: boundary.start()] if boundary else current_line
-    qualifier = re.match(
-        r"\s*(?:(?:it|this)\s+)?(?:is\s+)?"
-        r"(?:unrelated|irrelevant|not relevant|not related)\b",
-        next_line,
-        re.IGNORECASE,
-    )
-    if qualifier and not _LINK.search(next_line) and not _SHORT_PR.search(next_line):
-        following += f" {next_line}"
+    adjacent = current_line[boundary.end() :] if boundary else ""
+    if not adjacent.strip():
+        adjacent = next_line
+    clause = re.split(r"[.!?](?=\s|$)|\n", adjacent, maxsplit=1)[0]
+    if (
+        _FOLLOWING_EXCLUSION.match(clause)
+        and not _LINK.search(clause)
+        and not _SHORT_PR.search(clause)
+    ):
+        return True
     context = _DO_NOT_IGNORE.sub("", f"{preceding} {following}")
     return bool(_UNRELATED.search(context))
 
