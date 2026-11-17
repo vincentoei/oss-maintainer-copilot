@@ -400,9 +400,7 @@ def triage_issue(
     )
     try:
         client = model_client or model.OpenAICompatibleModel.from_environment()
-        suggestion = model.validate_suggestion(
-            client.generate(model_request), model_request
-        )
+        suggestion = model.generate_validated(client, model_request)
     except (model.ModelUnavailable, ValidationError, ValueError) as exc:
         issue_type = None
         issue_type_quote = None

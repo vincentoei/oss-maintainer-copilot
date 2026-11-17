@@ -41,7 +41,8 @@ def report_for(
 
     async def request() -> httpx2.Response:
         async with httpx2.AsyncClient(
-            transport=httpx2.ASGITransport(app=app), base_url="http://testserver"
+            transport=httpx2.ASGITransport(app=app, raise_app_exceptions=False),
+            base_url="http://testserver",
         ) as client:
             return await client.post(
                 "/api/triage",
@@ -251,3 +252,45 @@ def test_postcue_negation_does_not_ground_a_suggestion() -> None:
 
     assert report["issue_type"] is None
     assert any(item["field"] == "issue_type" for item in report["abstentions"])
+
+
+def test_cropped_quote_cannot_hide_negation_in_issue_text() -> None:
+    report = report_for(
+        FixedModel(
+            {
+                "issue_type": "type: bug",
+                "issue_type_quote": "bug",
+                "reply_citation_ids": ["C1", "C2", "C3", "C4"],
+            }
+        ),
+        title="Feature request, not a bug",
+    )
+
+    assert report["issue_type"] is None
+    assert any(item["field"] == "issue_type" for item in report["abstentions"])
+
+
+def test_short_quote_in_positive_issue_context_can_support_type() -> None:
+    report = report_for(
+        FixedModel(
+            {
+                "issue_type": "type: bug",
+                "issue_type_quote": "Bug",
+                "reply_citation_ids": ["C1", "C2", "C3", "C4"],
+            }
+        )
+    )
+
+    assert report["issue_type"] == "type: bug"
+    assert report["issue_type_quote"] == "Bug"
+
+
+def test_unexpected_replacement_model_failure_returns_cited_report() -> None:
+    report = report_for(FixedModel(RuntimeError("model process exited")))
+
+    assert report["issue_type"] is None
+    assert "[C1]" in report["draft_reply"]
+    assert any(
+        item["field"] == "issue_type" and "unavailable" in item["reason"]
+        for item in report["abstentions"]
+    )

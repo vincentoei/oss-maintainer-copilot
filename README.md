@@ -45,9 +45,9 @@ Set `MODEL_BASE_URL` if your server uses a different URL. The model receives the
 issue title and body plus the report's available citation-backed statements. It
 returns a pytest type label or unknown, an exact quote from the issue for a
 suggested label, and citation IDs to include in the draft reply. The server
-rejects free-text claims, unknown citations, and labels without a matching
-cue in the quoted issue text. With no model configured, the report still works
-and marks the model suggestion as unavailable.
+rejects free-text claims, unknown citations, and labels without an unnegated
+cue in the quote's original issue context. With no model configured, the report
+still works and marks the model suggestion as unavailable.
 
 Open <http://127.0.0.1:8000> to paste an issue. Enter its pytest issue number
 to search only issues opened before it. For a newly drafted issue without a

@@ -66,7 +66,11 @@ def validate_suggestion(raw: object, request: ModelRequest) -> ModelSuggestion:
     if (
         quote is not None
         and suggestion.issue_type is not None
-        and not pytest_profile.type_quote_supports_label(suggestion.issue_type, quote)
+        and not pytest_profile.type_quote_supports_label(
+            suggestion.issue_type,
+            quote,
+            f"{request.issue_title}\n{request.issue_body}",
+        )
     ):
         raise ValueError("issue-text quote does not support the type label")
     available = {statement.citation_id for statement in request.reply_statements}
@@ -79,6 +83,15 @@ def validate_suggestion(raw: object, request: ModelRequest) -> ModelSuggestion:
     if not set(request.required_reply_ids).issubset(suggestion.reply_citation_ids):
         raise ValueError("reply omits requested missing details")
     return suggestion
+
+
+def generate_validated(client: ModelClient, request: ModelRequest) -> ModelSuggestion:
+    """Contain provider failures, then validate its untrusted response."""
+    try:
+        raw = client.generate(request)
+    except Exception as exc:
+        raise ModelUnavailable("Model client failed.") from exc
+    return validate_suggestion(raw, request)
 
 
 class OpenAICompatibleModel:
@@ -112,9 +125,9 @@ class OpenAICompatibleModel:
                         "Return only a JSON object "
                         "with issue_type, issue_type_quote, and reply_citation_ids. "
                         "Choose issue_type from the supplied pytest labels or null. "
-                        "For a label, quote a short exact span of the issue "
-                        "title or body "
-                        "as issue_type_quote; otherwise use null. Select only "
+                        "For a label, quote an exact phrase from the issue "
+                        "title or body as issue_type_quote, including nearby "
+                        "negation or qualifiers; otherwise use null. Select only "
                         "supplied citation IDs for reply_citation_ids. Do not "
                         "write free "
                         "text claims. Include all required_reply_ids. Use [] when "
