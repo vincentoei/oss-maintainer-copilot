@@ -80,6 +80,9 @@ def test_field_scores_keep_retrieval_judgment_and_reply_review_separate() -> Non
     assert scores["missing_details"]["exact"] is True
     assert scores["citation_validity"]["valid"] is True
     assert scores["draft_reply_usefulness"]["rating"] is None
+    assert scores["draft_reply_usefulness"]["citations"][0]["source_url"] == (
+        f"https://github.com/pytest-dev/pytest/issues/{case.earlier_issue.number}"
+    )
 
 
 def test_uncertain_relationship_is_reserved_for_review() -> None:
@@ -89,6 +92,9 @@ def test_uncertain_relationship_is_reserved_for_review() -> None:
     assert scores["duplicate_judgment"]["correct"] is None
     assert scores["duplicate_judgment"]["review_status"] == "pending_human_review"
     assert scores["missing_details"]["recall"] == 0
+    assert scores["abstention"]["duplicate_expected"] is True
+    assert scores["abstention"]["duplicate_observed"] is False
+    assert scores["abstention"]["duplicate_appropriate"] is False
 
 
 def test_citation_check_rejects_post_cutoff_source() -> None:

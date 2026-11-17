@@ -5,7 +5,7 @@
         "cases": 5,
         "completed": 5,
         "errors": [],
-        "mean_latency_ms": 1855.99,
+        "mean_latency_ms": 1764.9,
         "duplicate_retrieval_recall": 1.0,
         "duplicate_judgment_accuracy": 0.5,
         "issue_type_accuracy": 0.0,
@@ -14,6 +14,7 @@
         "missing_details_recall": 0.8,
         "citation_validity_rate": 1.0,
         "issue_type_abstention_appropriateness": 0.0,
+        "duplicate_abstention_appropriateness": 0.8,
         "draft_reply_usefulness": "pending_human_review",
         "representative_failures": [
           {
@@ -25,16 +26,12 @@
             "field": "issue_type"
           },
           {
-            "issue_number": 10156,
-            "field": "issue_type"
+            "issue_number": 7312,
+            "field": "abstention"
           },
           {
-            "issue_number": 12081,
-            "field": "duplicate_judgment"
-          },
-          {
-            "issue_number": 12081,
-            "field": "issue_type"
+            "issue_number": 12083,
+            "field": "missing_details"
           }
         ]
       },
@@ -44,7 +41,7 @@
           "method": "controlled",
           "opening_cutoff": "2020-06-03T14:20:24+00:00",
           "repository_commit": "61a6ac97054c0bd6f812642b46847c4b7cbede2a",
-          "latency_ms": 1642.44,
+          "latency_ms": 1879.48,
           "error": null,
           "scores": {
             "duplicate_retrieval": {
@@ -81,14 +78,24 @@
                 "missing_details"
               ],
               "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
               "duplicate_appropriate": true,
-              "semantic_review_status": "pending_human_review"
+              "other_fields_review_status": "pending_human_review"
             },
             "draft_reply_usefulness": {
               "review_status": "pending_human_review",
               "rating": null,
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
-              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]"
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+                  "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+                  "passage": null
+                }
+              ]
             }
           }
         },
@@ -97,7 +104,7 @@
           "method": "controlled",
           "opening_cutoff": "2022-07-19T20:03:50+00:00",
           "repository_commit": "34a285986e456406b22b62aa563a64331f640e7f",
-          "latency_ms": 1824.63,
+          "latency_ms": 1562.69,
           "error": null,
           "scores": {
             "duplicate_retrieval": {
@@ -134,14 +141,24 @@
                 "missing_details"
               ],
               "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
               "duplicate_appropriate": true,
-              "semantic_review_status": "pending_human_review"
+              "other_fields_review_status": "pending_human_review"
             },
             "draft_reply_usefulness": {
               "review_status": "pending_human_review",
               "rating": null,
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
-              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C1]"
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C1]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+                  "description": "pytest issue #2959: pytest 3.3.0 immutable fixture params",
+                  "passage": null
+                }
+              ]
             }
           }
         },
@@ -150,7 +167,7 @@
           "method": "controlled",
           "opening_cutoff": "2024-03-06T00:03:25+00:00",
           "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
-          "latency_ms": 2302.47,
+          "latency_ms": 1915.97,
           "error": null,
           "scores": {
             "duplicate_retrieval": {
@@ -187,14 +204,36 @@
                 "missing_details"
               ],
               "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
               "duplicate_appropriate": true,
-              "semantic_review_status": "pending_human_review"
+              "other_fields_review_status": "pending_human_review"
             },
             "draft_reply_usefulness": {
               "review_status": "pending_human_review",
               "rating": null,
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
-              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, call; one report negates a shared condition. [C1]\n- pytest documents that capture fixtures let tests access stdout and stderr created during execution. [C2]\n- At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line. [C3]"
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, call; one report negates a shared condition. [C1]\n- pytest documents that capture fixtures let tests access stdout and stderr created during execution. [C2]\n- At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line. [C3]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+                  "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
+                  "description": "pytest documentation: capture",
+                  "passage": "The ``capsys``, ``capsysbinary``, ``capfd``, and ``capfdbinary`` fixtures allow access to stdout/stderr output created during test execution.  Here is"
+                },
+                {
+                  "id": "C3",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+                  "description": "pytest source: src/_pytest/capture.py:935",
+                  "passage": "        \"\"\"Read and return the captured output so far, resetting the internal"
+                }
+              ]
             }
           }
         },
@@ -203,7 +242,7 @@
           "method": "controlled",
           "opening_cutoff": "2024-03-06T10:53:11+00:00",
           "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
-          "latency_ms": 1969.0,
+          "latency_ms": 1564.52,
           "error": null,
           "scores": {
             "duplicate_retrieval": {
@@ -242,14 +281,24 @@
                 "missing_details"
               ],
               "issue_type_appropriate": false,
-              "duplicate_appropriate": null,
-              "semantic_review_status": "pending_human_review"
+              "duplicate_expected": true,
+              "duplicate_observed": false,
+              "duplicate_appropriate": false,
+              "other_fields_review_status": "pending_human_review"
             },
             "draft_reply_usefulness": {
               "review_status": "pending_human_review",
               "rating": null,
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
-              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #7012 may be relevant: Shared topic: collect, collected, duplicate; the same failure or request is not established. [C1]"
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #7012 may be relevant: Shared topic: collect, collected, duplicate; the same failure or request is not established. [C1]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/7012",
+                  "description": "pytest issue #7012: Quotation marks in pytest command collects duplicate tests",
+                  "passage": null
+                }
+              ]
             }
           }
         },
@@ -258,7 +307,7 @@
           "method": "controlled",
           "opening_cutoff": "2024-03-21T12:06:34+00:00",
           "repository_commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
-          "latency_ms": 1541.39,
+          "latency_ms": 1901.84,
           "error": null,
           "scores": {
             "duplicate_retrieval": {
@@ -295,14 +344,24 @@
                 "missing_details"
               ],
               "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
               "duplicate_appropriate": true,
-              "semantic_review_status": "pending_human_review"
+              "other_fields_review_status": "pending_human_review"
             },
             "draft_reply_usefulness": {
               "review_status": "pending_human_review",
               "rating": null,
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
-              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #7312 may be relevant: Shared topic: def, fixture, mark; the same failure or request is not established. [C1]"
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #7312 may be relevant: Shared topic: def, fixture, mark; the same failure or request is not established. [C1]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+                  "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+                  "passage": null
+                }
+              ]
             }
           }
         }
@@ -313,7 +372,7 @@
         "cases": 5,
         "completed": 5,
         "errors": [],
-        "mean_latency_ms": 1834.33,
+        "mean_latency_ms": 2625.06,
         "duplicate_retrieval_recall": 0.6,
         "duplicate_judgment_accuracy": 0.25,
         "issue_type_accuracy": 0.2,
@@ -322,6 +381,7 @@
         "missing_details_recall": 0.8,
         "citation_validity_rate": 1.0,
         "issue_type_abstention_appropriateness": 0.8,
+        "duplicate_abstention_appropriateness": 0.8,
         "draft_reply_usefulness": "pending_human_review",
         "representative_failures": [
           {
@@ -333,16 +393,16 @@
             "field": "issue_type"
           },
           {
-            "issue_number": 12081,
-            "field": "duplicate_judgment"
-          },
-          {
-            "issue_number": 12081,
-            "field": "issue_type"
+            "issue_number": 12083,
+            "field": "duplicate_retrieval"
           },
           {
             "issue_number": 12083,
-            "field": "duplicate_retrieval"
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12083,
+            "field": "abstention"
           }
         ]
       },
@@ -352,7 +412,7 @@
           "method": "keyword_rule",
           "opening_cutoff": "2020-06-03T14:20:24+00:00",
           "repository_commit": "61a6ac97054c0bd6f812642b46847c4b7cbede2a",
-          "latency_ms": 1966.94,
+          "latency_ms": 1941.33,
           "error": null,
           "scores": {
             "duplicate_retrieval": {
@@ -388,14 +448,24 @@
                 "missing_details"
               ],
               "issue_type_appropriate": true,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
               "duplicate_appropriate": true,
-              "semantic_review_status": "pending_human_review"
+              "other_fields_review_status": "pending_human_review"
             },
             "draft_reply_usefulness": {
               "review_status": "pending_human_review",
               "rating": null,
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
-              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]"
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+                  "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+                  "passage": null
+                }
+              ]
             }
           }
         },
@@ -404,7 +474,7 @@
           "method": "keyword_rule",
           "opening_cutoff": "2022-07-19T20:03:50+00:00",
           "repository_commit": "34a285986e456406b22b62aa563a64331f640e7f",
-          "latency_ms": 1652.63,
+          "latency_ms": 1577.37,
           "error": null,
           "scores": {
             "duplicate_retrieval": {
@@ -440,14 +510,24 @@
                 "missing_details"
               ],
               "issue_type_appropriate": true,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
               "duplicate_appropriate": true,
-              "semantic_review_status": "pending_human_review"
+              "other_fields_review_status": "pending_human_review"
             },
             "draft_reply_usefulness": {
               "review_status": "pending_human_review",
               "rating": null,
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
-              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C1]"
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C1]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+                  "description": "pytest issue #2959: pytest 3.3.0 immutable fixture params",
+                  "passage": null
+                }
+              ]
             }
           }
         },
@@ -456,7 +536,7 @@
           "method": "keyword_rule",
           "opening_cutoff": "2024-03-06T00:03:25+00:00",
           "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
-          "latency_ms": 1847.31,
+          "latency_ms": 1952.69,
           "error": null,
           "scores": {
             "duplicate_retrieval": {
@@ -492,14 +572,36 @@
                 "missing_details"
               ],
               "issue_type_appropriate": true,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
               "duplicate_appropriate": true,
-              "semantic_review_status": "pending_human_review"
+              "other_fields_review_status": "pending_human_review"
             },
             "draft_reply_usefulness": {
               "review_status": "pending_human_review",
               "rating": null,
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
-              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, call; one report negates a shared condition. [C1]\n- pytest documents that capture fixtures let tests access stdout and stderr created during execution. [C2]\n- At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line. [C3]"
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, call; one report negates a shared condition. [C1]\n- pytest documents that capture fixtures let tests access stdout and stderr created during execution. [C2]\n- At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line. [C3]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+                  "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
+                  "description": "pytest documentation: capture",
+                  "passage": "The ``capsys``, ``capsysbinary``, ``capfd``, and ``capfdbinary`` fixtures allow access to stdout/stderr output created during test execution.  Here is"
+                },
+                {
+                  "id": "C3",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+                  "description": "pytest source: src/_pytest/capture.py:935",
+                  "passage": "        \"\"\"Read and return the captured output so far, resetting the internal"
+                }
+              ]
             }
           }
         },
@@ -508,7 +610,7 @@
           "method": "keyword_rule",
           "opening_cutoff": "2024-03-06T10:53:11+00:00",
           "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
-          "latency_ms": 1655.6,
+          "latency_ms": 3384.92,
           "error": null,
           "scores": {
             "duplicate_retrieval": {
@@ -547,14 +649,17 @@
                 "missing_details"
               ],
               "issue_type_appropriate": true,
-              "duplicate_appropriate": null,
-              "semantic_review_status": "pending_human_review"
+              "duplicate_expected": true,
+              "duplicate_observed": false,
+              "duplicate_appropriate": false,
+              "other_fields_review_status": "pending_human_review"
             },
             "draft_reply_usefulness": {
               "review_status": "pending_human_review",
               "rating": null,
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
-              "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence."
+              "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+              "citations": []
             }
           }
         },
@@ -563,7 +668,7 @@
           "method": "keyword_rule",
           "opening_cutoff": "2024-03-21T12:06:34+00:00",
           "repository_commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
-          "latency_ms": 2049.15,
+          "latency_ms": 4269.01,
           "error": null,
           "scores": {
             "duplicate_retrieval": {
@@ -601,14 +706,17 @@
                 "missing_details"
               ],
               "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
               "duplicate_appropriate": true,
-              "semantic_review_status": "pending_human_review"
+              "other_fields_review_status": "pending_human_review"
             },
             "draft_reply_usefulness": {
               "review_status": "pending_human_review",
               "rating": null,
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
-              "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence."
+              "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+              "citations": []
             }
           }
         }

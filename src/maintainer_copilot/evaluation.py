@@ -136,6 +136,7 @@ def score_report(case: HistoricalCase, report: TriageReport) -> dict[str, Any]:
     recall = true_positive / len(expected_details) if expected_details else 1.0
     errors = citation_errors(case, report)
     abstained = {item.field for item in report.abstentions}
+    duplicate_abstention_expected = expected.earlier_issue_relationship == "uncertain"
     return {
         "duplicate_retrieval": {"found": found, "expected_issue": earlier},
         "duplicate_judgment": {
@@ -172,10 +173,11 @@ def score_report(case: HistoricalCase, report: TriageReport) -> dict[str, Any]:
             "observed_fields": sorted(abstained),
             "issue_type_appropriate": ("issue_type" in abstained)
             == (expected.issue_type is None),
-            "duplicate_appropriate": None
-            if expected.earlier_issue_relationship == "uncertain"
-            else "duplicate_candidates" not in abstained,
-            "semantic_review_status": "pending_human_review",
+            "duplicate_expected": duplicate_abstention_expected,
+            "duplicate_observed": "duplicate_candidates" in abstained,
+            "duplicate_appropriate": ("duplicate_candidates" in abstained)
+            == duplicate_abstention_expected,
+            "other_fields_review_status": "pending_human_review",
         },
         "draft_reply_usefulness": {
             "review_status": "pending_human_review",
@@ -185,6 +187,15 @@ def score_report(case: HistoricalCase, report: TriageReport) -> dict[str, Any]:
                 "evidence without misleading claims?"
             ),
             "draft_reply": report.draft_reply,
+            "citations": [
+                {
+                    "id": citation.id,
+                    "source_url": str(citation.source_url),
+                    "description": citation.description,
+                    "passage": citation.passage,
+                }
+                for citation in report.citations
+            ],
         },
     }
 
@@ -239,8 +250,17 @@ def aggregate(results: list[CaseResult]) -> dict[str, Any]:
                 or metric.get("exact") is False
                 or metric.get("valid") is False
                 or metric.get("found") is False
+                or metric.get("issue_type_appropriate") is False
+                or metric.get("duplicate_appropriate") is False
             ):
                 failures.append({"issue_number": item.issue_number, "field": field})
+    representative = []
+    seen_fields: set[str] = set()
+    for failure in failures:
+        field_name = str(failure["field"])
+        if field_name not in seen_fields:
+            representative.append(failure)
+            seen_fields.add(field_name)
     return {
         "cases": len(results),
         "completed": len(complete),
@@ -264,8 +284,11 @@ def aggregate(results: list[CaseResult]) -> dict[str, Any]:
         "issue_type_abstention_appropriateness": _mean(
             complete, "abstention", "issue_type_appropriate"
         ),
+        "duplicate_abstention_appropriateness": _mean(
+            complete, "abstention", "duplicate_appropriate"
+        ),
         "draft_reply_usefulness": "pending_human_review",
-        "representative_failures": failures[:5],
+        "representative_failures": representative[:5],
     }
 
 

@@ -44,14 +44,17 @@ errors using the existing GitHub CLI credential.
 | Missing details precision / recall (case macro) | 1.0 / 0.8 | 1.0 / 0.8 |
 | Deterministic citation validity | 5 / 5 cases | 5 / 5 cases |
 | Appropriate issue-type abstention | 0 / 5 | 4 / 5 |
-| Mean end-to-end latency | 1,855.99 ms | 1,834.33 ms |
+| Appropriate duplicate abstention | 4 / 5 | 4 / 5 |
+| Mean end-to-end latency | 1,764.90 ms | 2,625.06 ms |
 | Replay errors | 0 | 0 |
 | Draft-reply usefulness | Pending human review | Pending human review |
 
 The one uncertain duplicate relationship is excluded from exact judgment
-accuracy. Exact matching cannot establish whether a `related_issues` entry
-appropriately conveys that uncertainty. The case-level output records the
-observed relationship and `pending_human_review` for that judgment.
+accuracy. The confirmed expected abstention for #12083 is scored separately:
+neither method explicitly abstained on `duplicate_candidates`, so both score
+4/5 on duplicate abstention. Exact matching cannot establish whether a
+`related_issues` entry adequately conveys uncertainty; the case-level output
+records that relationship as `pending_human_review`.
 
 ## Representative failures
 
@@ -67,7 +70,8 @@ observed relationship and `pending_human_review` for that judgment.
 
 ## Human review still needed
 
-The saved draft replies are ready for a maintainer to rate. For each case,
+The saved draft replies and their citation URLs and passages are ready for a
+maintainer to rate. For each case,
 record whether the reply asks for the confirmed missing details, presents the
 earlier issue with suitable uncertainty, and makes only supported claims.
 Mark each as useful, partly useful, or not useful, with a short reason.
