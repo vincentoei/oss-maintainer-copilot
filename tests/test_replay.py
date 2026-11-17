@@ -16,6 +16,7 @@ from maintainer_copilot.replay import (
     RepositoryCommit,
     content_hash,
     load_case,
+    load_cases,
     replay_case,
 )
 
@@ -323,6 +324,73 @@ def test_case_rejects_repository_evidence_after_opening() -> None:
         HistoricalCase.model_validate(data)
 
 
+def test_published_cases_cover_five_families_and_judgment_types() -> None:
+    cases = load_cases()
+    assert {case.issue_number for case in cases} == {7312, 10156, 12081, 12083, 12146}
+    assert len({case.issue_family_id for case in cases}) == 5
+    assert all(case.human_review.status == "confirmed" for case in cases)
+    assert [case.expected_outcome.earlier_issue_relationship for case in cases].count(
+        "duplicate_candidate"
+    ) >= 1
+    assert [case.expected_outcome.earlier_issue_relationship for case in cases].count(
+        "nonduplicate"
+    ) >= 1
+    assert [case.expected_outcome.earlier_issue_relationship for case in cases].count(
+        "uncertain"
+    ) >= 1
+
+
+@pytest.mark.parametrize("number", [7312, 10156, 12083, 12146])
+def test_other_recorded_cases_replay_without_annotation_leakage(number: int) -> None:
+    recorded = next(case for case in load_cases() if case.issue_number == number)
+    reviewed = issue_search.IssueRecord(
+        number,
+        recorded.opening_title,
+        "Opening report with a concrete pytest behavior and example.",
+        recorded.opening_cutoff,
+    )
+    earlier = issue_search.IssueRecord(
+        recorded.earlier_issue.number,
+        "Earlier pytest issue with similar terminology",
+        "A different report available at the opening cutoff.",
+        recorded.earlier_issue.created_at,
+    )
+    data = recorded.model_dump()
+    data["opening_content_sha256"] = content_hash(reviewed)
+    data["earlier_issue"]["content_sha256"] = content_hash(earlier)
+    data["expected_outcome"]["rationale"] = "SECRET LATER ANNOTATION"
+    case = HistoricalCase.model_validate(data)
+    github = ChangingGitHub(reviewed, earlier)
+    repository = ChangingRepository(case.repository_commit, case.repository_commit_at)
+    model = ObservedModel()
+
+    report = replay_case(
+        case,
+        commit_source=repository,
+        issue_source=github,
+        source_reader=repository,
+        model_client=model,
+    )
+
+    assert report.status == "complete"
+    assert repository.reads == []
+    assert len(model.requests) == 1
+    assert "SECRET LATER ANNOTATION" not in str(model.requests[0])
+    assert all(
+        case.repository_commit in str(citation.source_url)
+        for citation in report.citations
+        if "/blob/" in str(citation.source_url)
+    )
+
+
+def test_confirmation_requires_a_named_reviewer_and_time() -> None:
+    data = load_case().model_dump()
+    data["human_review"]["reviewer"] = None
+    data["human_review"]["confirmed_at"] = None
+    with pytest.raises(ValueError, match="require a reviewer"):
+        HistoricalCase.model_validate(data)
+
+
 def test_forged_pre_cutoff_timestamp_cannot_admit_a_later_commit() -> None:
     case, github, repository = synthetic_case()
     data = case.model_dump()
@@ -343,6 +411,15 @@ def test_forged_pre_cutoff_timestamp_cannot_admit_a_later_commit() -> None:
     assert github.reads == []
     assert repository.reads == []
     assert model.requests == []
+
+
+@pytest.mark.skipif(
+    os.getenv("RUN_LIVE_REPLAY") != "1", reason="requires public GitHub access"
+)
+def test_all_recorded_cases_replay_with_public_opening_text() -> None:
+    for case in load_cases():
+        report = replay_case(case)
+        assert report.status == "complete", case.issue_number
 
 
 @pytest.mark.skipif(

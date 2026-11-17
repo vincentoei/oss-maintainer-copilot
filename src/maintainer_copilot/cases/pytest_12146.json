@@ -1,0 +1,33 @@
+{
+  "issue_number": 12146,
+  "issue_family_id": "fixture-cache-key-identity",
+  "template_profile": "bug_feature",
+  "opening_title": "Parametrization with Variables Unexpectedly Changes Fixture Scope from Class-Level to Function-Level",
+  "opening_cutoff": "2024-03-21T12:06:34Z",
+  "opening_content_sha256": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-17T16:52:16Z",
+  "repository_commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
+  "repository_commit_at": "2024-03-20T09:21:40Z",
+  "earlier_issue": {
+    "number": 7312,
+    "created_at": "2020-06-03T14:20:24Z",
+    "content_sha256": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "issue_type": "type: bug",
+    "missing_details": [],
+    "earlier_issue_relationship": "nonduplicate",
+    "rationale": "The reported class-scoped fixture runs twice when parameter tuples are rebuilt. #7312 requests generating parameter values from a session fixture. They share fixture and parametrization words but describe different behavior and remedies.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/12146",
+      "https://github.com/pytest-dev/pytest/issues/7312"
+    ]
+  },
+  "human_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user",
+    "confirmed_at": "2026-11-17T17:01:42Z"
+  }
+}

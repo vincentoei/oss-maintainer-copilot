@@ -1,5 +1,7 @@
 {
   "issue_number": 12081,
+  "issue_family_id": "capture-readouterr-output",
+  "template_profile": "bug_feature",
   "opening_title": "Capture: copy output when using readouterr() instead of consuming it",
   "opening_cutoff": "2024-03-06T00:03:25Z",
   "opening_content_sha256": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
@@ -12,5 +14,20 @@
     "created_at": "2018-05-04T10:55:56Z",
     "content_sha256": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
     "last_edited_at": null
+  },
+  "expected_outcome": {
+    "issue_type": "type: enhancement",
+    "missing_details": [],
+    "earlier_issue_relationship": "duplicate_candidate",
+    "rationale": "Both opening reports describe readouterr consuming captured output so a later test failure omits it. The newer issue requests a non-consuming capture method; the earlier issue asks to retain the output.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/12081",
+      "https://github.com/pytest-dev/pytest/issues/3448"
+    ]
+  },
+  "human_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user",
+    "confirmed_at": "2026-11-17T17:01:42Z"
   }
 }
