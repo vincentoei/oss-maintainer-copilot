@@ -47,7 +47,7 @@ errors using the existing GitHub CLI credential.
 | Appropriate duplicate abstention | 4 / 5 | 4 / 5 |
 | Mean end-to-end latency | 1,764.90 ms | 2,625.06 ms |
 | Replay errors | 0 | 0 |
-| Draft-reply usefulness | Pending human review | Pending human review |
+| Draft-reply usefulness (agent review; human confirmation pending) | 5 partly useful | 3 partly useful, 2 not useful |
 
 The one uncertain duplicate relationship is excluded from exact judgment
 accuracy. The confirmed expected abstention for #12083 is scored separately:
@@ -68,17 +68,59 @@ records that relationship as `pending_human_review`.
   `type: infrastructure`. The controlled response abstains on all five known
   issue types by design.
 
-## Human review still needed
+## Recorded draft review
 
-The saved draft replies and their citation URLs and passages are ready for a
-maintainer to rate. For each case,
-record whether the reply asks for the confirmed missing details, presents the
-earlier issue with suitable uncertainty, and makes only supported claims.
-Mark each as useful, partly useful, or not useful, with a short reason.
-Citation checks here verify structure and the pinned evidence boundary;
-whether each cited passage actually supports the surrounding wording also
-needs human review. The uncertain #12083 relationship likewise needs a human
-judgment of the report's phrasing. No pending judgment is counted as correct.
+Codex reviewed all ten saved replies on 2026-11-18 against the confirmed
+expectations. These are **agent-authored ratings awaiting human confirmation**;
+the existing `pending_human_review` fields remain pending. The JSON now records
+a rating and reason for every draft, each citation's claim and support judgment,
+missing-detail request checks, and uncertainty judgments. These additions do
+not change the deterministic scores or constitute human verification.
+
+The review fetched all nine distinct issue opening titles/bodies and matched
+their stored SHA-256 hashes. It checked the two pinned capture passages and
+the pinned bug template. Only opening content and pinned files were used;
+later comments and resolutions were excluded. Issue citations have null saved
+passages, so their opening bodies were inspected directly. All 12 citation
+occurrences were checked: eight support their limited claims and four only
+partly support them. The two uncited fallback replies have no citation-support
+judgment to pass.
+
+| Case | Method | Usefulness | Reason and uncertainty judgment |
+| --- | --- | --- | --- |
+| #7312 | controlled | partly useful | Relevant #349 link, but no duplicate-candidate explanation; the unspecified negated condition is unsupported as a distinction. |
+| #7312 | keyword_rule | partly useful | Same reply: relevant link, unsupported negation, and insufficient explanation of the expected duplicate candidate. |
+| #10156 | controlled | partly useful | Relevant #2959 background and appropriate caution, but no explanation of the documentation request versus frozen-parameter bug. |
+| #10156 | keyword_rule | partly useful | Same reply: supported cautious relevance, but generic tokens do not explain the nonduplicate distinction. |
+| #12081 | controlled | partly useful | Relevant #3448 and supported capture references, but unsupported negation and no explanation of the shared output-loss behavior or duplicate candidate. |
+| #12081 | keyword_rule | partly useful | Same reply: valid documentation/source claims, but the source sentence merely says a line exists and the relationship explanation is inadequate. |
+| #12083 | controlled | partly useful | Relevant #7012 and supported caution, but missing `pip list output` request and explicit duplicate abstention; differing reproductions are unexplained. |
+| #12083 | keyword_rule | not useful | Generic fallback; no `pip list output` request, #7012 discussion, or explicit duplicate abstention. |
+| #12146 | controlled | partly useful | Relevant #7312 and supported caution, but no explanation of fixture-derived parameter values versus repeated fixture execution. |
+| #12146 | keyword_rule | not useful | Generic fallback without case-specific evidence or the expected nonduplicate distinction. |
+
+For #7312 and #12081, the earlier openings support shared requested behavior;
+the claim that one report negates a shared condition does not identify a
+substantive contradiction. For #10156 and #12146, the cautious relationship
+claims are supported, but explaining the actual distinction would make the
+replies more useful. The #12081 documentation supports access to captured
+stdout/stderr, and source line 935 exists as claimed; neither draft explains
+the buffer-reset behavior using that source.
+
+For #12083, both reports fail the expected request and explicit duplicate
+abstention. The controlled wording that the same failure is not established
+is a supported caution, but does not explicitly state that whether #7012 is a
+duplicate remains uncertain or explain the pytest 8 file-plus-directory
+regression versus the earlier pytest 5.4.1 empty-argument example. Its saved
+abstention fields omit `duplicate_candidates`. The keyword fallback abstains
+on the draft generally, which also does not meet the duplicate-specific
+expectation. Neither reply is fully useful. The pinned
+[bug template](https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/1_bug_report.md#L14)
+requests `pip list` output; version information in #12083 does not supply it.
+
+Human confirmation of these recorded ratings, semantic citation assessments,
+and uncertainty judgments is still required before claiming the pending human
+fields are verified. No pending judgment is counted as correct.
 
 ## Reproduce
 
@@ -93,3 +135,7 @@ case's provenance cannot be verified. CI runs the deterministic scorer and
 citation tests without network access. The five-case estimates and controlled
 responses are provisional. Model selection and `llmfit` belong to #21 after
 #15 and before #16.
+
+The command above regenerates raw scores and would overwrite the recorded
+review additions. To compare a new run while retaining this review, redirect
+its output to a separate file; the ratings apply only to these saved drafts.
