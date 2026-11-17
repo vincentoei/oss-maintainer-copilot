@@ -217,8 +217,10 @@ def triage_issue(
         )
     documentation_claims: list[DocumentationClaim] = []
     supplied_evidence: list[documentation.DocumentationEvidence] = []
-    doc_source = documentation_source or documentation.PytestDocumentationSource()
-    for topic in documentation.relevant_topics(issue.title, issue.body):
+    doc_source = documentation_source or documentation.PublicDocumentationSource(
+        pytest_profile.DOCUMENTATION_TOPICS
+    )
+    for topic in pytest_profile.relevant_documentation_topics(issue.title, issue.body):
         try:
             passage = doc_source.get_passage(topic)
         except documentation.DocumentationError:

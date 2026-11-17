@@ -6,10 +6,15 @@ from typing import Annotated
 from fastapi import Depends, FastAPI
 from fastapi.responses import HTMLResponse
 
-from maintainer_copilot import IssueUnderReview, TriageReport, triage_issue
+from maintainer_copilot import (
+    IssueUnderReview,
+    TriageReport,
+    pytest_profile,
+    triage_issue,
+)
 from maintainer_copilot.documentation import (
     DocumentationSource,
-    PytestDocumentationSource,
+    PublicDocumentationSource,
 )
 from maintainer_copilot.issue_search import GitHubIssueSource
 
@@ -21,7 +26,7 @@ async def get_issue_source() -> GitHubIssueSource:
 
 
 async def get_documentation_source() -> DocumentationSource:
-    return PytestDocumentationSource()
+    return PublicDocumentationSource(pytest_profile.DOCUMENTATION_TOPICS)
 
 
 @app.get("/", response_class=HTMLResponse)

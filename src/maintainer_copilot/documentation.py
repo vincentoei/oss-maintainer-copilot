@@ -1,6 +1,6 @@
-"""Retrieve bounded, verifiable passages from public pytest documentation."""
+"""Retrieve bounded, verifiable passages from approved public documentation."""
 
-import re
+from collections.abc import Collection
 from dataclasses import dataclass
 from html.parser import HTMLParser
 from typing import Protocol
@@ -16,44 +16,6 @@ class DocumentationTopic:
     passage: str
     claim: str
     relevance: str
-
-
-TOPICS = (
-    DocumentationTopic(
-        key="capture",
-        url=(
-            "https://docs.pytest.org/en/stable/how-to/capture-stdout-stderr.html"
-            "#accessing-captured-output-from-a-test-function"
-        ),
-        section="accessing-captured-output-from-a-test-function",
-        passage=(
-            "fixtures allow access to stdout/stderr output created during "
-            "test execution."
-        ),
-        claim=(
-            "pytest documents that capture fixtures let tests access stdout and stderr "
-            "created during execution."
-        ),
-        relevance=r"\b(?:capsys|capfd|capteesys|capsysbinary|capfdbinary)\b",
-    ),
-    DocumentationTopic(
-        key="fixture_scope",
-        url="https://docs.pytest.org/en/stable/how-to/fixtures.html#fixture-scopes",
-        section="fixture-scopes",
-        passage=(
-            "Fixtures are created when first requested by a test, and are "
-            "destroyed based on their scope"
-        ),
-        claim=(
-            "pytest documents that fixture scope determines when a fixture "
-            "is destroyed."
-        ),
-        relevance=(
-            r"\bfixture scopes?\b|\bscope\s*=\s*['\"]"
-            r"(?:function|class|module|package|session)['\"]"
-        ),
-    ),
-)
 
 
 @dataclass(frozen=True)
@@ -106,9 +68,12 @@ class _SectionParagraph(HTMLParser):
             self.parts.append(data)
 
 
-class PytestDocumentationSource:
+class PublicDocumentationSource:
+    def __init__(self, approved_topics: Collection[DocumentationTopic]) -> None:
+        self.approved_topics = frozenset(approved_topics)
+
     def get_passage(self, topic: DocumentationTopic) -> DocumentationPassage | None:
-        if topic not in TOPICS:
+        if topic not in self.approved_topics:
             return None
         try:
             request = Request(
@@ -126,8 +91,3 @@ class PytestDocumentationSource:
         if parser.paragraph is None or topic.passage not in parser.paragraph:
             return None
         return DocumentationPassage(url=topic.url, text=topic.passage)
-
-
-def relevant_topics(title: str, body: str) -> list[DocumentationTopic]:
-    issue_text = f"{title}\n{body}"
-    return [topic for topic in TOPICS if re.search(topic.relevance, issue_text, re.I)]

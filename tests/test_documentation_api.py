@@ -9,13 +9,13 @@ import pytest
 
 from maintainer_copilot import TriageReport
 from maintainer_copilot.documentation import (
-    TOPICS,
     DocumentationEvidence,
     DocumentationPassage,
     DocumentationSource,
     DocumentationTopic,
-    PytestDocumentationSource,
+    PublicDocumentationSource,
 )
+from maintainer_copilot.pytest_profile import DOCUMENTATION_TOPICS
 from maintainer_copilot.web import app, get_documentation_source
 
 CAPTURE_URL = (
@@ -138,8 +138,31 @@ def test_documentation_source_extracts_passage_from_the_linked_section(
         lambda request, timeout: BytesIO(html.encode()),
     )
 
-    assert PytestDocumentationSource().get_passage(TOPICS[0]) == DocumentationPassage(
-        CAPTURE_URL, CAPTURE_PASSAGE
+    assert PublicDocumentationSource(DOCUMENTATION_TOPICS).get_passage(
+        DOCUMENTATION_TOPICS[0]
+    ) == DocumentationPassage(CAPTURE_URL, CAPTURE_PASSAGE)
+
+
+def test_documentation_source_uses_profile_allowlist(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    topic = DocumentationTopic(
+        key="custom",
+        url="https://docs.example.org/guide#approved-section",
+        section="approved-section",
+        passage="An approved passage.",
+        claim="The guide describes the approved passage.",
+        relevance="approved",
+    )
+    html = "<section id='approved-section'><p>An approved passage.</p></section>"
+    monkeypatch.setattr(
+        "maintainer_copilot.documentation.urlopen",
+        lambda request, timeout: BytesIO(html.encode()),
+    )
+
+    assert PublicDocumentationSource(()).get_passage(topic) is None
+    assert PublicDocumentationSource((topic,)).get_passage(topic) == (
+        DocumentationPassage(topic.url, topic.passage)
     )
 
 
@@ -156,7 +179,7 @@ def test_report_rejects_claim_not_supported_by_supplied_passage() -> None:
 
     supplied = [
         DocumentationEvidence(
-            claim=TOPICS[0].claim,
+            claim=DOCUMENTATION_TOPICS[0].claim,
             passage=DocumentationPassage(CAPTURE_URL, CAPTURE_PASSAGE),
         )
     ]
@@ -176,7 +199,9 @@ def test_fixed_evidence_rejects_claim_citing_unsupplied_passage() -> None:
             "passage": CAPTURE_PASSAGE,
         }
     )
-    report["documentation_claims"] = [{"claim": TOPICS[0].claim, "citation_id": "C99"}]
+    report["documentation_claims"] = [
+        {"claim": DOCUMENTATION_TOPICS[0].claim, "citation_id": "C99"}
+    ]
 
     with pytest.raises(ValueError, match="not supplied by documentation source"):
         TriageReport.model_validate(report).validate_documentation_evidence([])
