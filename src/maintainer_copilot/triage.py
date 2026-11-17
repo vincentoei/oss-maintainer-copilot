@@ -13,7 +13,7 @@ from pydantic import (
     model_validator,
 )
 
-from maintainer_copilot import documentation, issue_search, model, pytest_profile
+from maintainer_copilot import ci, documentation, issue_search, model, pytest_profile
 from maintainer_copilot import source as repository_source
 
 
@@ -41,6 +41,13 @@ class DocumentationClaim(BaseModel):
 
 class SourceClaim(BaseModel):
     claim: str
+    citation_id: str
+
+
+class CIResult(BaseModel):
+    check_name: str
+    conclusion: str
+    commit: str
     citation_id: str
 
 
@@ -72,6 +79,7 @@ class TriageReport(BaseModel):
     missing_details: list[MissingReportDetail]
     documentation_claims: list[DocumentationClaim]
     source_claims: list[SourceClaim]
+    ci_results: list[CIResult]
     draft_reply: str
     citations: list[Citation]
     abstentions: list[Abstention]
@@ -120,6 +128,10 @@ class TriageReport(BaseModel):
                 or str(citation.source_url) != citation.source_location.source_url
             ):
                 raise ValueError("source claim must cite a commit and source line")
+        for result in self.ci_results:
+            citation = citation_by_id.get(result.citation_id)
+            if citation is None or not citation.passage:
+                raise ValueError("CI result must cite a check run")
         return self
 
     def validate_documentation_evidence(
@@ -174,6 +186,28 @@ class TriageReport(BaseModel):
                 raise ValueError("claim cites evidence not supplied by source reader")
         return self
 
+    def validate_ci_evidence(
+        self, supplied_evidence: Collection[ci.CheckResult]
+    ) -> "TriageReport":
+        """Check each result against a check run read during this report request."""
+        supplied = {
+            (item.name, item.conclusion, item.commit, str(item.url))
+            for item in supplied_evidence
+        }
+        citation_by_id = {item.id: item for item in self.citations}
+        for result in self.ci_results:
+            citation = citation_by_id[result.citation_id]
+            if (
+                result.check_name,
+                result.conclusion,
+                result.commit,
+                str(citation.source_url),
+            ) not in supplied or citation.passage != (
+                f"{result.check_name}: {result.conclusion} at commit {result.commit}"
+            ):
+                raise ValueError("CI result cites evidence not supplied by CI source")
+        return self
+
 
 def triage_issue(
     issue: IssueUnderReview,
@@ -181,6 +215,7 @@ def triage_issue(
     documentation_source: documentation.DocumentationSource | None = None,
     source_reader: repository_source.SourceReader | None = None,
     model_client: model.ModelClient | None = None,
+    ci_source: ci.CISource | None = None,
 ) -> TriageReport:
     """Build a reviewable report from pytest templates, issues, and documentation."""
     template = pytest_profile.template_for(issue.title, issue.body)
@@ -359,6 +394,48 @@ def triage_issue(
                 )
             )
             source_claims.append(SourceClaim(claim=claim, citation_id=citation_id))
+    ci_results: list[CIResult] = []
+    supplied_ci_evidence: list[ci.CheckResult] = []
+    if link := ci.linked_target(issue.title, issue.body):
+        try:
+            inspection = (ci_source or ci.PublicCISource()).get_checks(link)
+        except ci.CIUnavailable:
+            inspection = ci.CIInspection(())
+        if inspection.partial and inspection.checks:
+            abstentions.append(
+                Abstention(
+                    field="ci_results",
+                    reason="Some linked pytest CI results are unavailable.",
+                )
+            )
+        if not inspection.checks:
+            abstentions.append(
+                Abstention(
+                    field="ci_results",
+                    reason="Linked pytest CI results are unavailable.",
+                )
+            )
+        for check in inspection.checks:
+            citation_id = f"C{len(citations) + 1}"
+            citations.append(
+                Citation(
+                    id=citation_id,
+                    source_url=check.url,
+                    description=f"pytest CI check: {check.name}",
+                    passage=(
+                        f"{check.name}: {check.conclusion} at commit {check.commit}"
+                    ),
+                )
+            )
+            ci_results.append(
+                CIResult(
+                    check_name=check.name,
+                    conclusion=check.conclusion,
+                    commit=check.commit,
+                    citation_id=citation_id,
+                )
+            )
+            supplied_ci_evidence.append(check)
     if template is None:
         abstentions.append(
             Abstention(
@@ -461,10 +538,13 @@ def triage_issue(
         missing_details=details,
         documentation_claims=documentation_claims,
         source_claims=source_claims,
+        ci_results=ci_results,
         draft_reply=reply,
         citations=citations,
         abstentions=abstentions,
     )
-    return report.validate_documentation_evidence(
-        supplied_evidence
-    ).validate_source_evidence(supplied_source_evidence)
+    return (
+        report.validate_documentation_evidence(supplied_evidence)
+        .validate_source_evidence(supplied_source_evidence)
+        .validate_ci_evidence(supplied_ci_evidence)
+    )

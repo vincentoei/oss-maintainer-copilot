@@ -52,6 +52,8 @@
       <ul id="documentation-claims"></ul>
       <h3>Repository source evidence</h3>
       <ul id="source-claims"></ul>
+      <h3>Linked CI evidence</h3>
+      <ul id="ci-results"></ul>
       <h3>Draft reply</h3>
       <pre id="draft-reply"></pre>
       <h3>Citations</h3>
@@ -157,6 +159,16 @@
             item.append(document.createTextNode(`${claim.claim} `), link,
               document.createTextNode(" at commit "), commit,
               document.createTextNode(" · "), inspect, passage);
+          });
+          fillList("ci-results", report.ci_results, (item, result) => {
+            const citation = report.citations.find((entry) => entry.id === result.citation_id);
+            const link = document.createElement("a");
+            link.href = citation.source_url;
+            link.textContent = `[${citation.id}] ${result.check_name}`;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            item.append(link, document.createTextNode(
+              `: ${result.conclusion} at commit ${result.commit}`));
           });
           fillList("citations", report.citations, (item, citation) => {
             const link = document.createElement("a");
