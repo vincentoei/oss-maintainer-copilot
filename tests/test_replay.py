@@ -14,6 +14,7 @@ from maintainer_copilot.replay import (
     GitHubCommitSource,
     HistoricalCase,
     RepositoryCommit,
+    candidate_references,
     content_hash,
     load_case,
     load_cases,
@@ -232,6 +233,101 @@ def test_replay_ignores_post_cutoff_activity_in_every_evidence_channel() -> None
     assert {location.commit for location in repository.reads} == {
         case.repository_commit
     }
+
+
+def test_keyword_baseline_filters_the_frozen_candidate_by_query_terms() -> None:
+    case, github, repository = synthetic_case()
+    earlier = github.issues[case.earlier_issue.number]
+    github.issues[earlier.number] = issue_search.IssueRecord(
+        earlier.number, "Some report", "captured visible", earlier.created_at
+    )
+    data = case.model_dump()
+    data["earlier_issue"]["content_sha256"] = content_hash(
+        github.issues[earlier.number]
+    )
+    case = HistoricalCase.model_validate(data)
+
+    paired = replay_case(
+        case,
+        commit_source=repository,
+        issue_source=github,
+        source_reader=repository,
+        model_client=ControlledReplayModel(),
+    )
+    filtered = replay_case(
+        case,
+        commit_source=repository,
+        issue_source=github,
+        source_reader=repository,
+        model_client=ControlledReplayModel(),
+        keyword_filter=True,
+    )
+
+    assert [item.issue_number for item in paired.related_issues] == [earlier.number]
+    assert filtered.related_issues == []
+
+
+def test_keyword_baseline_searches_verified_openings_before_the_cutoff() -> None:
+    case, github, repository = synthetic_case()
+    earlier_opening = issue_search.IssueRecord(
+        10000,
+        case.opening_title,
+        github.issues[case.issue_number].body,
+        datetime(2024, 3, 5, tzinfo=UTC),
+    )
+    data = case.model_dump()
+    data["issue_number"] = earlier_opening.number
+    data["opening_title"] = earlier_opening.title
+    data["opening_cutoff"] = earlier_opening.created_at
+    data["opening_content_sha256"] = content_hash(earlier_opening)
+    earlier_case = HistoricalCase.model_validate(data)
+    later = issue_search.IssueRecord(
+        13000,
+        "A later fix reveals the outcome",
+        "This was fixed",
+        datetime(2024, 3, 7, tzinfo=UTC),
+    )
+    data["issue_number"] = later.number
+    data["opening_title"] = later.title
+    data["opening_cutoff"] = later.created_at
+    data["opening_content_sha256"] = content_hash(later)
+    later_case = HistoricalCase.model_validate(data)
+    github.issues[earlier_opening.number] = earlier_opening
+    catalog = [earlier_case, later_case]
+
+    assert {ref.number for ref in candidate_references(case, catalog)} == {3448, 10000}
+    report = replay_case(
+        case,
+        commit_source=repository,
+        issue_source=github,
+        source_reader=repository,
+        model_client=ControlledReplayModel(),
+        keyword_filter=True,
+        candidate_catalog=catalog,
+    )
+
+    assert 10000 in {item.issue_number for item in report.duplicate_candidates}
+    assert 13000 not in github.reads
+    assert any(str(item.source_url) == earlier_opening.url for item in report.citations)
+
+    github.issues[earlier_opening.number] = issue_search.IssueRecord(
+        earlier_opening.number,
+        earlier_opening.title,
+        earlier_opening.body + "\nA post-cutoff edit",
+        earlier_opening.created_at,
+    )
+    observed = ObservedModel()
+    with pytest.raises(CaseFlagged, match="opening content changed"):
+        replay_case(
+            case,
+            commit_source=repository,
+            issue_source=github,
+            source_reader=repository,
+            model_client=observed,
+            keyword_filter=True,
+            candidate_catalog=catalog,
+        )
+    assert observed.requests == []
 
 
 @pytest.mark.parametrize("changed_number", [12081, 3448])

@@ -1,0 +1,1260 @@
+{
+  "methods": {
+    "controlled": {
+      "aggregate": {
+        "cases": 5,
+        "completed": 5,
+        "errors": [],
+        "mean_latency_ms": 1737.04,
+        "mean_candidate_pool_size": 1.0,
+        "duplicate_retrieval_recall": 1.0,
+        "duplicate_judgment_accuracy": 0.5,
+        "issue_type_accuracy": 0.0,
+        "missing_details_exact": 0.8,
+        "missing_details_precision": 1.0,
+        "missing_details_recall": 0.8,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.0,
+        "duplicate_abstention_appropriateness": 0.8,
+        "draft_reply_usefulness": "human_confirmed",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 7312,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 7312,
+            "field": "abstention"
+          },
+          {
+            "issue_number": 12083,
+            "field": "missing_details"
+          }
+        ],
+        "draft_reply_usefulness_review": {
+          "status": "human_confirmed",
+          "rated": 5,
+          "pending": 0,
+          "ratings": {
+            "useful": 0,
+            "partly useful": 5,
+            "not useful": 0
+          },
+          "reviewer": "requesting user",
+          "confirmed_at": "2026-11-17T18:17:39Z"
+        },
+        "citation_support_review": {
+          "status": "human_confirmed",
+          "checked": 7,
+          "ratings": {
+            "supported": 5,
+            "partly supported": 2,
+            "unsupported": 0
+          }
+        }
+      },
+      "cases": [
+        {
+          "issue_number": 7312,
+          "method": "controlled",
+          "opening_cutoff": "2020-06-03T14:20:24+00:00",
+          "repository_commit": "61a6ac97054c0bd6f812642b46847c4b7cbede2a",
+          "latency_ms": 1560.93,
+          "candidate_pool_size": 1,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 349,
+              "retrieved_issues": [
+                349
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": false,
+              "expected": "duplicate_candidate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: enhancement",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 1,
+              "errors": [],
+              "semantic_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "overall": "partly supported",
+                "citations": [
+                  {
+                    "citation_id": "C1",
+                    "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+                    "claim": "- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]",
+                    "support": "partly supported",
+                    "reviewed_location": "Opening example and following explanation in #349; opening use case and proposed parametrization in #7312.",
+                    "reason": "Both request fixture-derived parameter values, supporting relevance. Shared lexical tokens are not a substantive explanation. Neither opening establishes the implied opposing condition; both describe missing functionality."
+                  }
+                ],
+                "note": "Issue citations have null saved passages; checked the hash-matched opening bodies directly. Structural validity alone does not establish semantic support."
+              }
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "uncertainty_judgment": "insufficient",
+                "reason": "Cautious relevance understates the reviewed duplicate candidate and the unspecified negation suggests an unsupported distinction.",
+                "explicit_duplicate_abstention": false,
+                "missing_details_abstention_appropriate": true,
+                "other_fields_reason": "No missing details are expected, so making no information request is appropriate. Issue-type abstention remains assessed separately by the existing exact score."
+              }
+            },
+            "draft_reply_usefulness": {
+              "review_status": "human_confirmed",
+              "rating": "partly useful",
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+                  "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+                  "passage": null
+                }
+              ],
+              "reason": "Links the relevant fixture-parametrization request #349, but does not identify the shared requested behavior or flag a duplicate candidate. The unspecified negated-condition claim is unsupported as a distinction between the reports. No missing detail is expected.",
+              "reviewer": "requesting user",
+              "missing_details_review": {
+                "expected": [],
+                "request_satisfied": true,
+                "reason": "No missing detail is expected; the draft makes no unnecessary information request."
+              },
+              "confirmed_at": "2026-11-17T18:17:39Z"
+            }
+          }
+        },
+        {
+          "issue_number": 10156,
+          "method": "controlled",
+          "opening_cutoff": "2022-07-19T20:03:50+00:00",
+          "repository_commit": "34a285986e456406b22b62aa563a64331f640e7f",
+          "latency_ms": 1688.74,
+          "candidate_pool_size": 1,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 2959,
+              "retrieved_issues": [
+                2959
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: docs",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 1,
+              "errors": [],
+              "semantic_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "overall": "supported",
+                "citations": [
+                  {
+                    "citation_id": "C1",
+                    "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+                    "claim": "- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C1]",
+                    "support": "supported",
+                    "reviewed_location": "Opening description and pytest_configure example in #2959; opening documentation request and dynamic-plugin example in #10156.",
+                    "reason": "Both concern CLI-driven fixture parameters. The earlier frozen-parameter behavior and the new documentation request are distinct, supporting cautious relevance and the lack of an established identical request. The reply does not explain that distinction."
+                  }
+                ],
+                "note": "Issue citations have null saved passages; checked the hash-matched opening bodies directly. Structural validity alone does not establish semantic support."
+              }
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "uncertainty_judgment": "appropriate but incomplete",
+                "reason": "Avoids a duplicate assertion, consistent with the expected nonduplicate; omits the concrete docs-request versus frozen-parameter distinction.",
+                "explicit_duplicate_abstention": false,
+                "missing_details_abstention_appropriate": true,
+                "other_fields_reason": "No missing details are expected, so making no information request is appropriate. Issue-type abstention remains assessed separately by the existing exact score."
+              }
+            },
+            "draft_reply_usefulness": {
+              "review_status": "human_confirmed",
+              "rating": "partly useful",
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C1]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+                  "description": "pytest issue #2959: pytest 3.3.0 immutable fixture params",
+                  "passage": null
+                }
+              ],
+              "reason": "Links relevant background #2959 and avoids declaring a duplicate, but generic shared tokens do not explain that this is a documentation request for dynamic fixture registration rather than the earlier frozen-parameter bug. No missing detail is expected.",
+              "reviewer": "requesting user",
+              "missing_details_review": {
+                "expected": [],
+                "request_satisfied": true,
+                "reason": "No missing detail is expected; the draft makes no unnecessary information request."
+              },
+              "confirmed_at": "2026-11-17T18:17:39Z"
+            }
+          }
+        },
+        {
+          "issue_number": 12081,
+          "method": "controlled",
+          "opening_cutoff": "2024-03-06T00:03:25+00:00",
+          "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+          "latency_ms": 2155.35,
+          "candidate_pool_size": 1,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 3448,
+              "retrieved_issues": [
+                3448
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": false,
+              "expected": "duplicate_candidate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: enhancement",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 3,
+              "errors": [],
+              "semantic_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "overall": "partly supported",
+                "citations": [
+                  {
+                    "citation_id": "C1",
+                    "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+                    "claim": "- Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, call; one report negates a shared condition. [C1]",
+                    "support": "partly supported",
+                    "reviewed_location": "Opening description, failure output, and missing-stdout observation in #3448; issue, examples, and proposed solution in #12081.",
+                    "reason": "Both describe readouterr consuming output later missing from failure reports, supporting relevance and a duplicate candidate. No substantive opposing condition is identified to support the negated-condition claim."
+                  },
+                  {
+                    "citation_id": "C2",
+                    "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
+                    "claim": "- pytest documents that capture fixtures let tests access stdout and stderr created during execution. [C2]",
+                    "support": "supported",
+                    "reviewed_location": "Pinned capture documentation, lines 109-110.",
+                    "reason": "The passage expressly says the capture fixtures allow access to stdout/stderr created during test execution. It supports the draft statement but does not explain the output-loss behavior."
+                  },
+                  {
+                    "citation_id": "C3",
+                    "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+                    "claim": "- At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line. [C3]",
+                    "support": "supported",
+                    "reviewed_location": "Pinned src/_pytest/capture.py, line 935; adjacent line 936 completes the docstring sentence.",
+                    "reason": "The saved line is present at the cited commit. This supports the literal line-existence claim, which provides little explanation; the draft does not explain that readouterr resets the buffer."
+                  }
+                ],
+                "note": "Issue citations have null saved passages; checked the hash-matched opening bodies directly. Structural validity alone does not establish semantic support."
+              }
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "uncertainty_judgment": "insufficient",
+                "reason": "Cautious relevance understates the reviewed duplicate candidate; the negation wording does not explain a supported difference.",
+                "explicit_duplicate_abstention": false,
+                "missing_details_abstention_appropriate": true,
+                "other_fields_reason": "No missing details are expected, so making no information request is appropriate. Issue-type abstention remains assessed separately by the existing exact score."
+              }
+            },
+            "draft_reply_usefulness": {
+              "review_status": "human_confirmed",
+              "rating": "partly useful",
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, call; one report negates a shared condition. [C1]\n- pytest documents that capture fixtures let tests access stdout and stderr created during execution. [C2]\n- At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line. [C3]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+                  "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
+                  "description": "pytest documentation: capture",
+                  "passage": "The ``capsys``, ``capsysbinary``, ``capfd``, and ``capfdbinary`` fixtures allow access to stdout/stderr output created during test execution.  Here is"
+                },
+                {
+                  "id": "C3",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+                  "description": "pytest source: src/_pytest/capture.py:935",
+                  "passage": "        \"\"\"Read and return the captured output so far, resetting the internal"
+                }
+              ],
+              "reason": "Supplies the relevant earlier issue and valid capture documentation/source references, but fails to explain their shared output-loss behavior or identify a duplicate candidate. The negated-condition claim is unsupported as a distinction, and the source sentence merely states that a line exists. No missing detail is expected.",
+              "reviewer": "requesting user",
+              "missing_details_review": {
+                "expected": [],
+                "request_satisfied": true,
+                "reason": "No missing detail is expected; the draft makes no unnecessary information request."
+              },
+              "confirmed_at": "2026-11-17T18:17:39Z"
+            }
+          }
+        },
+        {
+          "issue_number": 12083,
+          "method": "controlled",
+          "opening_cutoff": "2024-03-06T10:53:11+00:00",
+          "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+          "latency_ms": 1455.81,
+          "candidate_pool_size": 1,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 7012,
+              "retrieved_issues": [
+                7012
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": null,
+              "expected": "uncertain",
+              "observed": "related_issue",
+              "review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "expected_uncertainty_satisfied": false,
+                "reason": "The wording says the same failure is not established, which is useful caution. However, the saved report has no duplicate_candidates abstention and the draft does not explicitly state that whether #7012 is a duplicate remains uncertain or explain the differing reproductions.",
+                "failures": [
+                  "missing pip list output request",
+                  "missing explicit duplicate abstention"
+                ]
+              }
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: regression",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 1.0,
+              "recall": 0.0,
+              "expected": [
+                "pip list output"
+              ],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 1,
+              "errors": [],
+              "semantic_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "overall": "supported",
+                "citations": [
+                  {
+                    "citation_id": "C1",
+                    "source_url": "https://github.com/pytest-dev/pytest/issues/7012",
+                    "claim": "- Earlier issue #7012 may be relevant: Shared topic: collect, collected, duplicate; the same failure or request is not established. [C1]",
+                    "support": "supported",
+                    "reviewed_location": "Opening reproduction and version list in #7012; current/expected behavior sections in #12083.",
+                    "reason": "Both concern collection arguments and duplicate tests. The earlier empty quoted argument under pytest 5.4.1 differs from the pytest 8 file-plus-directory regression. Relevance and caution are supported; this does not satisfy the separately expected explicit duplicate abstention."
+                  }
+                ],
+                "note": "Issue citations have null saved passages; checked the hash-matched opening bodies directly. Structural validity alone does not establish semantic support."
+              }
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": true,
+              "duplicate_observed": false,
+              "duplicate_appropriate": false,
+              "other_fields_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "uncertainty_judgment": "insufficient",
+                "reason": "The wording says the same failure is not established, which is useful caution. However, the saved report has no duplicate_candidates abstention and the draft does not explicitly state that whether #7012 is a duplicate remains uncertain or explain the differing reproductions.",
+                "explicit_duplicate_abstention": false,
+                "missing_details_abstention_appropriate": false,
+                "other_fields_reason": "Abstaining on missing details is inappropriate because pip list output is missing."
+              }
+            },
+            "draft_reply_usefulness": {
+              "review_status": "human_confirmed",
+              "rating": "partly useful",
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #7012 may be relevant: Shared topic: collect, collected, duplicate; the same failure or request is not established. [C1]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/7012",
+                  "description": "pytest issue #7012: Quotation marks in pytest command collects duplicate tests",
+                  "passage": null
+                }
+              ],
+              "reason": "Provides a relevant #7012 lead with cautious wording, but omits the required pip list output request and explicit duplicate abstention. It does not explain the pytest 8 file-plus-directory regression versus the pytest 5.4.1 empty-argument reproduction.",
+              "reviewer": "requesting user",
+              "missing_details_review": {
+                "expected": [
+                  "pip list output"
+                ],
+                "request_satisfied": false,
+                "reason": "Neither the saved missing_details field nor the draft requests pip list output."
+              },
+              "confirmed_at": "2026-11-17T18:17:39Z"
+            }
+          }
+        },
+        {
+          "issue_number": 12146,
+          "method": "controlled",
+          "opening_cutoff": "2024-03-21T12:06:34+00:00",
+          "repository_commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
+          "latency_ms": 1824.38,
+          "candidate_pool_size": 1,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 7312,
+              "retrieved_issues": [
+                7312
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: bug",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 1,
+              "errors": [],
+              "semantic_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "overall": "supported",
+                "citations": [
+                  {
+                    "citation_id": "C1",
+                    "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+                    "claim": "- Earlier issue #7312 may be relevant: Shared topic: def, fixture, mark; the same failure or request is not established. [C1]",
+                    "support": "supported",
+                    "reviewed_location": "Opening use case and proposed parameters_fixture example in #7312; the two fixture-execution examples in #12146.",
+                    "reason": "Fixture parametrization is shared, but a request for fixture-derived values is different from repeated fixture execution with recreated tuples. The limited relevance/no-established-same-failure wording is supported."
+                  }
+                ],
+                "note": "Issue citations have null saved passages; checked the hash-matched opening bodies directly. Structural validity alone does not establish semantic support."
+              }
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "uncertainty_judgment": "appropriate but incomplete",
+                "reason": "Avoids a duplicate assertion, consistent with the expected nonduplicate; does not explain the feature-request versus repeated-execution distinction.",
+                "explicit_duplicate_abstention": false,
+                "missing_details_abstention_appropriate": true,
+                "other_fields_reason": "No missing details are expected, so making no information request is appropriate. Issue-type abstention remains assessed separately by the existing exact score."
+              }
+            },
+            "draft_reply_usefulness": {
+              "review_status": "human_confirmed",
+              "rating": "partly useful",
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #7312 may be relevant: Shared topic: def, fixture, mark; the same failure or request is not established. [C1]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+                  "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+                  "passage": null
+                }
+              ],
+              "reason": "Links a related fixture-parametrization feature request and avoids claiming the same failure, but does not explain why a request for fixture-supplied parameter values differs from repeated fixture execution with recreated tuples. No missing detail is expected.",
+              "reviewer": "requesting user",
+              "missing_details_review": {
+                "expected": [],
+                "request_satisfied": true,
+                "reason": "No missing detail is expected; the draft makes no unnecessary information request."
+              },
+              "confirmed_at": "2026-11-17T18:17:39Z"
+            }
+          }
+        }
+      ]
+    },
+    "keyword_rule": {
+      "aggregate": {
+        "cases": 5,
+        "completed": 5,
+        "errors": [],
+        "mean_latency_ms": 4348.95,
+        "mean_candidate_pool_size": 6.0,
+        "duplicate_retrieval_recall": 0.6,
+        "duplicate_judgment_accuracy": 0.25,
+        "issue_type_accuracy": 0.2,
+        "missing_details_exact": 0.8,
+        "missing_details_precision": 1.0,
+        "missing_details_recall": 0.8,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.8,
+        "duplicate_abstention_appropriateness": 0.8,
+        "draft_reply_usefulness": "human_confirmed",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12083,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 12083,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12083,
+            "field": "abstention"
+          }
+        ],
+        "draft_reply_usefulness_review": {
+          "status": "human_confirmed",
+          "rated": 5,
+          "pending": 0,
+          "ratings": {
+            "useful": 0,
+            "partly useful": 3,
+            "not useful": 2
+          },
+          "reviewer": "requesting user",
+          "confirmed_at": "2026-11-17T19:01:59Z"
+        },
+        "citation_support_review": {
+          "status": "human_confirmed",
+          "checked": 9,
+          "ratings": {
+            "supported": 3,
+            "partly supported": 5,
+            "unsupported": 1
+          }
+        }
+      },
+      "cases": [
+        {
+          "issue_number": 7312,
+          "method": "keyword_rule",
+          "opening_cutoff": "2020-06-03T14:20:24+00:00",
+          "repository_commit": "61a6ac97054c0bd6f812642b46847c4b7cbede2a",
+          "latency_ms": 3048.97,
+          "candidate_pool_size": 4,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 349,
+              "retrieved_issues": [
+                349,
+                2959,
+                7012
+              ],
+              "other_issues_unreviewed": [
+                2959,
+                7012
+              ]
+            },
+            "duplicate_judgment": {
+              "correct": false,
+              "expected": "duplicate_candidate",
+              "observed": "related_issue",
+              "review_status": "exact",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "explanation_adequate": false,
+                "reason": "The report leaves confirmed duplicate candidate #349 under related issues and does not explain the shared request; its negated-condition distinction is unsupported."
+              }
+            },
+            "issue_type": {
+              "correct": true,
+              "expected": "type: enhancement",
+              "observed": "type: enhancement"
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 3,
+              "errors": [],
+              "semantic_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "overall": "partly supported",
+                "citations": [
+                  {
+                    "citation_id": "C1",
+                    "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+                    "claim": "- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]",
+                    "support": "partly supported",
+                    "reviewed_location": "Opening fixture-parametrization request in #349 and opening use case in #7312.",
+                    "reason": "Both request fixture-derived parameter values, supporting relevance. Neither opening establishes the claimed negated condition."
+                  },
+                  {
+                    "citation_id": "C2",
+                    "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+                    "claim": "- Earlier issue #2959 may be relevant: Shared topic: case, config, def; the same failure or request is not established. [C2]",
+                    "support": "partly supported",
+                    "reviewed_location": "Opening dynamic fixture-parameter description in #2959 and opening use case in #7312.",
+                    "reason": "The earlier issue gives broader dynamic-parametrization context, but the shared tokens and generic reason do not establish the same request."
+                  },
+                  {
+                    "citation_id": "C3",
+                    "source_url": "https://github.com/pytest-dev/pytest/issues/7012",
+                    "claim": "- Earlier issue #7012 may be relevant: Shared topic: def, session, single; the same failure or request is not established. [C3]",
+                    "support": "unsupported",
+                    "reviewed_location": "Opening collection-argument reproduction in #7012 and opening fixture-parametrization request in #7312.",
+                    "reason": "The earlier issue concerns empty collection arguments and duplicate tests; overlapping words such as def and session do not establish meaningful relevance."
+                  }
+                ],
+                "note": "The requesting user confirmed each judgment after checking hash-matched opening bodies. Structural URL and cutoff checks are scored separately."
+              }
+            },
+            "abstention": {
+              "observed_fields": [
+                "missing_details"
+              ],
+              "issue_type_appropriate": true,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "uncertainty_judgment": "insufficient",
+                "reason": "The report leaves confirmed duplicate candidate #349 under related issues and does not explain the shared request; its negated-condition distinction is unsupported.",
+                "explicit_duplicate_abstention": false,
+                "missing_details_abstention_appropriate": true,
+                "other_fields_reason": "No missing detail is expected; abstaining on missing details is appropriate."
+              }
+            },
+            "draft_reply_usefulness": {
+              "review_status": "human_confirmed",
+              "rating": "partly useful",
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]\n- Earlier issue #2959 may be relevant: Shared topic: case, config, def; the same failure or request is not established. [C2]\n- Earlier issue #7012 may be relevant: Shared topic: def, session, single; the same failure or request is not established. [C3]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+                  "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+                  "description": "pytest issue #2959: pytest 3.3.0 immutable fixture params",
+                  "passage": null
+                },
+                {
+                  "id": "C3",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/7012",
+                  "description": "pytest issue #7012: Quotation marks in pytest command collects duplicate tests",
+                  "passage": null
+                }
+              ],
+              "reason": "The #349 link identifies the shared fixture-derived parametrization request, but the duplicate-candidate explanation remains inadequate. #2959 is broader dynamic-parametrization context; #7012 concerns empty collection arguments and is not meaningfully relevant. The negated-condition claim is unsupported.",
+              "reviewer": "requesting user",
+              "confirmed_at": "2026-11-17T19:01:59Z",
+              "missing_details_review": {
+                "expected": [],
+                "request_satisfied": true,
+                "reason": "No missing detail is expected; the draft makes no information request."
+              }
+            }
+          }
+        },
+        {
+          "issue_number": 10156,
+          "method": "keyword_rule",
+          "opening_cutoff": "2022-07-19T20:03:50+00:00",
+          "repository_commit": "34a285986e456406b22b62aa563a64331f640e7f",
+          "latency_ms": 3423.03,
+          "candidate_pool_size": 5,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 2959,
+              "retrieved_issues": [
+                349,
+                2959,
+                7312
+              ],
+              "other_issues_unreviewed": [
+                349,
+                7312
+              ]
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "explanation_adequate": false,
+                "reason": "The reply avoids asserting a duplicate, but does not explain the documented nonduplicate distinction between a dynamic-fixture documentation request and frozen fixture parameters."
+              }
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: docs",
+              "observed": "type: infrastructure"
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 3,
+              "errors": [],
+              "semantic_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "overall": "partly supported",
+                "citations": [
+                  {
+                    "citation_id": "C1",
+                    "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+                    "claim": "- Earlier issue #7312 may be relevant: Shared topic: case, config, def; the same failure or request is not established. [C1]",
+                    "support": "partly supported",
+                    "reviewed_location": "Opening session-scoped fixture parametrization request in #7312 and opening dynamic-fixture documentation request in #10156.",
+                    "reason": "Both discuss fixture parametrization, but the reply does not explain this broader context or distinguish a feature request from the documentation request."
+                  },
+                  {
+                    "citation_id": "C2",
+                    "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+                    "claim": "- Earlier issue #349 may be relevant: Shared topic: arg, but, case; one report negates a shared condition. [C2]",
+                    "support": "partly supported",
+                    "reviewed_location": "Opening fixture-value parametrization request in #349 and opening documentation request in #10156.",
+                    "reason": "There is broader fixture-parametrization context, but the claimed negated condition is not supported by the openings."
+                  },
+                  {
+                    "citation_id": "C3",
+                    "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+                    "claim": "- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C3]",
+                    "support": "supported",
+                    "reviewed_location": "Opening frozen-parameter report in #2959 and opening body of #10156, which links its earlier discussion.",
+                    "reason": "The earlier issue directly supports the background relationship; documenting dynamic fixture registration remains a distinct request that the reply does not explain."
+                  }
+                ],
+                "note": "The requesting user confirmed each judgment after checking hash-matched opening bodies. Structural URL and cutoff checks are scored separately."
+              }
+            },
+            "abstention": {
+              "observed_fields": [
+                "missing_details"
+              ],
+              "issue_type_appropriate": true,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "uncertainty_judgment": "appropriate but incomplete",
+                "reason": "The reply avoids asserting a duplicate, but does not explain the documented nonduplicate distinction between a dynamic-fixture documentation request and frozen fixture parameters.",
+                "explicit_duplicate_abstention": false,
+                "missing_details_abstention_appropriate": true,
+                "other_fields_reason": "No missing detail is expected; abstaining on missing details is appropriate."
+              }
+            },
+            "draft_reply_usefulness": {
+              "review_status": "human_confirmed",
+              "rating": "partly useful",
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #7312 may be relevant: Shared topic: case, config, def; the same failure or request is not established. [C1]\n- Earlier issue #349 may be relevant: Shared topic: arg, but, case; one report negates a shared condition. [C2]\n- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C3]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+                  "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+                  "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+                  "passage": null
+                },
+                {
+                  "id": "C3",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+                  "description": "pytest issue #2959: pytest 3.3.0 immutable fixture params",
+                  "passage": null
+                }
+              ],
+              "reason": "The #7312 and #349 links give broader fixture-parametrization context, and #2959 directly supports the background relationship. The reply does not explain those links, its negation claim is unsupported, and it does not distinguish documenting dynamic fixture registration from reporting frozen fixture parameters.",
+              "reviewer": "requesting user",
+              "confirmed_at": "2026-11-17T19:01:59Z",
+              "missing_details_review": {
+                "expected": [],
+                "request_satisfied": true,
+                "reason": "No missing detail is expected; the draft makes no information request."
+              }
+            }
+          }
+        },
+        {
+          "issue_number": 12081,
+          "method": "keyword_rule",
+          "opening_cutoff": "2024-03-06T00:03:25+00:00",
+          "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+          "latency_ms": 4583.83,
+          "candidate_pool_size": 6,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 3448,
+              "retrieved_issues": [
+                3448
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": false,
+              "expected": "duplicate_candidate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: enhancement",
+              "observed": "type: docs"
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 3,
+              "errors": [],
+              "semantic_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "overall": "partly supported",
+                "citations": [
+                  {
+                    "citation_id": "C1",
+                    "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+                    "claim": "- Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, call; one report negates a shared condition. [C1]",
+                    "support": "partly supported",
+                    "reviewed_location": "Opening description, failure output, and missing-stdout observation in #3448; issue, examples, and proposed solution in #12081.",
+                    "reason": "Both describe readouterr consuming output later missing from failure reports, supporting relevance and a duplicate candidate. No substantive opposing condition is identified to support the negated-condition claim."
+                  },
+                  {
+                    "citation_id": "C2",
+                    "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
+                    "claim": "- pytest documents that capture fixtures let tests access stdout and stderr created during execution. [C2]",
+                    "support": "supported",
+                    "reviewed_location": "Pinned capture documentation, lines 109-110.",
+                    "reason": "The passage expressly says the capture fixtures allow access to stdout/stderr created during test execution. It supports the draft statement but does not explain the output-loss behavior."
+                  },
+                  {
+                    "citation_id": "C3",
+                    "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+                    "claim": "- At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line. [C3]",
+                    "support": "supported",
+                    "reviewed_location": "Pinned src/_pytest/capture.py, line 935; adjacent line 936 completes the docstring sentence.",
+                    "reason": "The saved line is present at the cited commit. This supports the literal line-existence claim, which provides little explanation; the draft does not explain that readouterr resets the buffer."
+                  }
+                ],
+                "note": "Issue citations have null saved passages; checked the hash-matched opening bodies directly. Structural validity alone does not establish semantic support."
+              }
+            },
+            "abstention": {
+              "observed_fields": [
+                "missing_details"
+              ],
+              "issue_type_appropriate": true,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "uncertainty_judgment": "insufficient",
+                "reason": "Cautious relevance understates the reviewed duplicate candidate; the negation wording does not explain a supported difference.",
+                "explicit_duplicate_abstention": false,
+                "missing_details_abstention_appropriate": true,
+                "other_fields_reason": "No missing details are expected, so making no information request is appropriate. Issue-type abstention remains assessed separately by the existing exact score."
+              }
+            },
+            "draft_reply_usefulness": {
+              "review_status": "human_confirmed",
+              "rating": "partly useful",
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, call; one report negates a shared condition. [C1]\n- pytest documents that capture fixtures let tests access stdout and stderr created during execution. [C2]\n- At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line. [C3]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+                  "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
+                  "description": "pytest documentation: capture",
+                  "passage": "The ``capsys``, ``capsysbinary``, ``capfd``, and ``capfdbinary`` fixtures allow access to stdout/stderr output created during test execution.  Here is"
+                },
+                {
+                  "id": "C3",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+                  "description": "pytest source: src/_pytest/capture.py:935",
+                  "passage": "        \"\"\"Read and return the captured output so far, resetting the internal"
+                }
+              ],
+              "reason": "Supplies the relevant earlier issue and valid capture documentation/source references, but fails to explain their shared output-loss behavior or identify a duplicate candidate. The negated-condition claim is unsupported as a distinction, and the source sentence merely states that a line exists. No missing detail is expected.",
+              "reviewer": "requesting user",
+              "missing_details_review": {
+                "expected": [],
+                "request_satisfied": true,
+                "reason": "No missing detail is expected; the draft makes no unnecessary information request."
+              },
+              "confirmed_at": "2026-11-17T18:17:39Z"
+            }
+          }
+        },
+        {
+          "issue_number": 12083,
+          "method": "keyword_rule",
+          "opening_cutoff": "2024-03-06T10:53:11+00:00",
+          "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+          "latency_ms": 5364.82,
+          "candidate_pool_size": 7,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": false,
+              "expected_issue": 7012,
+              "retrieved_issues": [],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": null,
+              "expected": "uncertain",
+              "observed": "not_retrieved",
+              "review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "expected_uncertainty_satisfied": false,
+                "reason": "General draft-reply abstention is not duplicate-specific uncertainty. No earlier issue is discussed and the expected relationship is not explained.",
+                "failures": [
+                  "missing pip list output request",
+                  "missing explicit duplicate abstention"
+                ]
+              }
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: regression",
+              "observed": "type: bug"
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 1.0,
+              "recall": 0.0,
+              "expected": [
+                "pip list output"
+              ],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 0,
+              "errors": [],
+              "semantic_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "overall": "not applicable",
+                "citations": [],
+                "note": "No citations or specific factual evidence claims to verify; this is not a citation-support success."
+              }
+            },
+            "abstention": {
+              "observed_fields": [
+                "draft_reply",
+                "missing_details"
+              ],
+              "issue_type_appropriate": true,
+              "duplicate_expected": true,
+              "duplicate_observed": false,
+              "duplicate_appropriate": false,
+              "other_fields_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "uncertainty_judgment": "insufficient",
+                "reason": "General draft-reply abstention is not duplicate-specific uncertainty. No earlier issue is discussed and the expected relationship is not explained.",
+                "explicit_duplicate_abstention": false,
+                "missing_details_abstention_appropriate": false,
+                "other_fields_reason": "Abstaining on missing details is inappropriate because pip list output is missing."
+              }
+            },
+            "draft_reply_usefulness": {
+              "review_status": "human_confirmed",
+              "rating": "not useful",
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+              "citations": [],
+              "reason": "Generic fallback provides no case-specific evidence or next step. It omits the required pip list output request, does not retrieve or discuss #7012, and supplies no explicit duplicate abstention.",
+              "reviewer": "requesting user",
+              "missing_details_review": {
+                "expected": [
+                  "pip list output"
+                ],
+                "request_satisfied": false,
+                "reason": "Neither the saved missing_details field nor the draft requests pip list output."
+              },
+              "confirmed_at": "2026-11-17T18:17:39Z"
+            }
+          }
+        },
+        {
+          "issue_number": 12146,
+          "method": "keyword_rule",
+          "opening_cutoff": "2024-03-21T12:06:34+00:00",
+          "repository_commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
+          "latency_ms": 5324.1,
+          "candidate_pool_size": 8,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": false,
+              "expected_issue": 7312,
+              "retrieved_issues": [],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": false,
+              "expected": "nonduplicate",
+              "observed": "not_retrieved",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: bug",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 0,
+              "errors": [],
+              "semantic_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "overall": "not applicable",
+                "citations": [],
+                "note": "No citations or specific factual evidence claims to verify; this is not a citation-support success."
+              }
+            },
+            "abstention": {
+              "observed_fields": [
+                "draft_reply",
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "uncertainty_judgment": "insufficient",
+                "reason": "General draft-reply abstention is not duplicate-specific uncertainty. No earlier issue is discussed and the expected relationship is not explained.",
+                "explicit_duplicate_abstention": false,
+                "missing_details_abstention_appropriate": true,
+                "other_fields_reason": "No missing details are expected, so making no information request is appropriate. Issue-type abstention remains assessed separately by the existing exact score."
+              }
+            },
+            "draft_reply_usefulness": {
+              "review_status": "human_confirmed",
+              "rating": "not useful",
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+              "citations": [],
+              "reason": "Generic fallback provides no case-specific evidence or next step and does not retrieve #7312 or explain the expected nonduplicate distinction. No missing detail is expected, so declining a specific request does not help triage this report.",
+              "reviewer": "requesting user",
+              "missing_details_review": {
+                "expected": [],
+                "request_satisfied": true,
+                "reason": "No missing detail is expected; the draft makes no unnecessary information request."
+              },
+              "confirmed_at": "2026-11-17T18:17:39Z"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "cost_assumptions": {
+    "model_api_usd": 0,
+    "github_api_usd": 0,
+    "scope": "No paid model calls; public GitHub reads have no per-request charge. CPU, network, and hosting costs excluded."
+  },
+  "methodology": "Both methods replay the same verified issue text, earlier issue, and pinned pytest commit. The keyword-rule baseline searches all hash-verified opening issues in the published case catalog that precede each cutoff, applies lexical match and template rules, and selects type by cue. Controlled responses are a one-pair smoke comparator, not model quality.",
+  "draft_review": {
+    "status": "human_confirmed",
+    "reviewer": "requesting user",
+    "reviewed_on": "2026-11-18",
+    "expected_outcomes": "docs/evaluation/first-five-cases.md",
+    "scope": "All 10 saved draft replies, all 16 citation occurrences, missing-detail requests, and relationship wording. The requesting user confirmed the updated #7312 and #10156 judgments after checking hash-matched opening bodies.",
+    "evidence_verification": "The prior human-confirmed review used hash-matched public openings and pinned passages. This pooled run independently verified every pre-cutoff candidate opening before scoring.",
+    "rating_scale": {
+      "useful": "Addresses the expected triage needs with supported, concrete evidence and appropriate uncertainty.",
+      "partly useful": "Provides relevant evidence or a helpful lead but omits an important distinction, request, or explanation, or includes an unsupported claim.",
+      "not useful": "Provides no actionable case-specific evidence or request."
+    },
+    "human_confirmation": "The requesting user confirmed the original eight unchanged replies and the two updated keyword-rule replies for #7312 and #10156 in the implementation conversation on 2026-11-18 (Asia/Jakarta).",
+    "confirmed_at": "2026-11-17T19:01:59Z",
+    "pending_cases": []
+  }
+}
