@@ -326,10 +326,10 @@ def triage_issue(
                 )
             )
         else:
-            source_line = excerpt.lines[location.line - excerpt.start_line].strip()
+            source_line = excerpt.lines[location.line - excerpt.start_line]
             claim = (
                 f"At commit {location.commit}, pytest source {location.path}:"
-                f"{location.line} reads: {source_line or '[blank line]'}"
+                f"{location.line} contains the cited line."
             )
             supplied_source_evidence.append(
                 repository_source.SourceEvidence(claim, excerpt, source_line)

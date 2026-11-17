@@ -189,8 +189,8 @@ def test_report_cites_only_inspected_pytest_source(
     assert report["source_claims"] == [
         {
             "claim": (
-                f"At commit {COMMIT}, pytest source {PATH}:1014 reads: "
-                f"{source_lines[1013].strip()}"
+                f"At commit {COMMIT}, pytest source {PATH}:1014 "
+                "contains the cited line."
             ),
             "citation_id": "C5",
         }
@@ -208,7 +208,7 @@ def test_report_cites_only_inspected_pytest_source(
         "path": PATH,
         "line": 1014,
     }
-    assert citation["passage"] == source_lines[1013].strip()
+    assert citation["passage"] == source_lines[1013]
     assert requested == [
         f"https://raw.githubusercontent.com/pytest-dev/pytest/{COMMIT}/{PATH}"
     ]

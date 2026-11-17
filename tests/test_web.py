@@ -48,6 +48,7 @@ def test_web_interface_submits_issue_to_report_api() -> None:
     assert "new URLSearchParams" in page.text
     assert "link.href = citation.source_url" in page.text
     assert "passage.textContent = citation.passage" in page.text
+    assert 'const passage = document.createElement("pre")' in page.text
     assert "Draft reply" in page.text
     assert "Citations" in page.text
     assert "Abstentions" in page.text

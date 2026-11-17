@@ -145,7 +145,7 @@
               line: citation.source_location.line,
             });
             inspect.textContent = "Inspect excerpt";
-            const passage = document.createElement("blockquote");
+            const passage = document.createElement("pre");
             passage.textContent = citation.passage;
             item.append(document.createTextNode(`${claim.claim} `), link,
               document.createTextNode(" at commit "), commit,
