@@ -55,7 +55,7 @@ using the existing GitHub CLI credential.
 | Appropriate duplicate abstention | 4 / 5 | 4 / 5 |
 | Mean end-to-end latency | 1,737.04 ms | 4,348.95 ms |
 | Replay errors | 0 | 0 |
-| Draft-reply usefulness (human confirmed) | 5 partly useful | 1 partly useful, 2 not useful; 2 pending |
+| Draft-reply usefulness (human confirmed) | 5 partly useful | 3 partly useful, 2 not useful |
 
 The one uncertain duplicate relationship is excluded from exact judgment
 accuracy. The confirmed expected abstention for #12083 is scored separately:
@@ -76,34 +76,34 @@ confirmed the recorded judgment for that case.
   `type: infrastructure`. The controlled response abstains on all five known
   issue types by design.
 - The pooled search adds #2959 and #7012 to #7312's baseline reply, and #7312
-  and #349 to #10156's baseline reply. Their usefulness and citation support
-  need renewed human review.
+  and #349 to #10156's baseline reply. Human review found #7012 irrelevant to
+  #7312 and the negated-condition claims unsupported. Both replies remain only
+  partly useful because their relationship explanations are incomplete.
 
 ## Human-confirmed draft review
 
-The requesting user confirmed the original ten reply ratings and citation
-judgments on 2026-11-18 (Asia/Jakarta). Eight drafts and citation lists remain
-identical after the pooled search, so their confirmations carry forward. The
-keyword-rule replies for #7312 and #10156 now include additional earlier
-issues; their ratings and citation-support judgments are pending renewed human
-review. The JSON records the carried confirmation time and keeps pending
-fields separate. The controlled drafts remain unchanged.
+The requesting user confirmed the original reply ratings and citation judgments
+on 2026-11-18 (Asia/Jakarta). Eight drafts and citation lists remain identical
+after the pooled search, so their confirmations carry forward. The requesting
+user then checked the changed keyword-rule replies for #7312 and #10156 against
+the hash-matched opening bodies and confirmed their ratings, all six citation
+judgments, and relationship assessments. All ten saved drafts are now human
+reviewed. The controlled drafts remain unchanged.
 
 The previous review fetched all nine distinct issue opening titles/bodies and
 matched their stored SHA-256 hashes. This run verifies candidate openings again
 before report generation. It also checks the two pinned capture passages and
-the pinned bug template. Later comments and resolutions remain excluded. Ten
-unchanged citation occurrences retain human judgments: seven supported and
-three partly supported. The six citation occurrences in the two changed drafts
-await renewed review. The two uncited fallback replies have no citation claim
+the pinned bug template. Later comments and resolutions remain excluded. All
+16 citation occurrences were checked: eight supported, seven partly supported,
+and one unsupported. The two uncited fallback replies have no citation claim
 to assess.
 
 | Case | Method | Usefulness | Reason and uncertainty judgment |
 | --- | --- | --- | --- |
 | #7312 | controlled | partly useful | Relevant #349 link, but no duplicate-candidate explanation; the unspecified negated condition is unsupported as a distinction. |
-| #7312 | keyword_rule | Pending | Adds #2959 and #7012 beside #349; review their relevance and the unsupported negation claim. |
+| #7312 | keyword_rule | partly useful | #349 supports the shared fixture-derived parameter request but not the negated-condition claim; #2959 is broader context. #7012 concerns empty collection arguments and is unsupported as relevant. The duplicate-candidate explanation remains inadequate. |
 | #10156 | controlled | partly useful | Relevant #2959 background and appropriate caution, but no explanation of the documentation request versus frozen-parameter bug. |
-| #10156 | keyword_rule | Pending | Adds #7312 and #349, with #2959 moved to the third citation; review whether these links help the documentation request. |
+| #10156 | keyword_rule | partly useful | #7312 and #349 offer broader fixture-parametrization context without an explanation; #349 does not support the negation claim. #2959 directly supports the background relationship. The reply does not distinguish documenting dynamic fixture registration from reporting frozen fixture parameters. |
 | #12081 | controlled | partly useful | Relevant #3448 and supported capture references, but unsupported negation and no explanation of the shared output-loss behavior or duplicate candidate. |
 | #12081 | keyword_rule | partly useful | Same reply: valid documentation/source claims, but the source sentence merely says a line exists and the relationship explanation is inadequate. |
 | #12083 | controlled | partly useful | Relevant #7012 and supported caution, but missing `pip list output` request and explicit duplicate abstention; differing reproductions are unexplained. |
@@ -130,10 +130,9 @@ expectation. Neither reply is fully useful. The pinned
 [bug template](https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/1_bug_report.md#L14)
 requests `pip list` output; version information in #12083 does not supply it.
 
-The requesting user confirmed the eight unchanged assessments. The #12083
-missing-detail and duplicate-abstention failures remain recorded as failures.
-The two changed baseline drafts must be reviewed before their semantic scores
-can be counted as confirmed.
+The requesting user confirmed all ten assessments, including the six citation
+judgments in the changed baseline drafts. The #12083 missing-detail and
+duplicate-abstention failures remain recorded as failures.
 
 ## Reproduce
 

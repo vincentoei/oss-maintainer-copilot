@@ -46,6 +46,15 @@
           },
           "reviewer": "requesting user",
           "confirmed_at": "2026-11-17T18:17:39Z"
+        },
+        "citation_support_review": {
+          "status": "human_confirmed",
+          "checked": 7,
+          "ratings": {
+            "supported": 5,
+            "partly supported": 2,
+            "unsupported": 0
+          }
         }
       },
       "cases": [
@@ -603,7 +612,7 @@
         "citation_validity_rate": 1.0,
         "issue_type_abstention_appropriateness": 0.8,
         "duplicate_abstention_appropriateness": 0.8,
-        "draft_reply_usefulness": "partially_human_confirmed",
+        "draft_reply_usefulness": "human_confirmed",
         "representative_failures": [
           {
             "issue_number": 7312,
@@ -627,16 +636,25 @@
           }
         ],
         "draft_reply_usefulness_review": {
-          "status": "partial_pending_human_confirmation",
-          "rated": 3,
-          "pending": 2,
+          "status": "human_confirmed",
+          "rated": 5,
+          "pending": 0,
           "ratings": {
             "useful": 0,
-            "partly useful": 1,
+            "partly useful": 3,
             "not useful": 2
           },
           "reviewer": "requesting user",
-          "confirmed_at": "2026-11-17T18:17:39Z"
+          "confirmed_at": "2026-11-17T19:01:59Z"
+        },
+        "citation_support_review": {
+          "status": "human_confirmed",
+          "checked": 9,
+          "ratings": {
+            "supported": 3,
+            "partly supported": 5,
+            "unsupported": 1
+          }
         }
       },
       "cases": [
@@ -666,7 +684,12 @@
               "correct": false,
               "expected": "duplicate_candidate",
               "observed": "related_issue",
-              "review_status": "exact"
+              "review_status": "exact",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "explanation_adequate": false,
+                "reason": "The report leaves confirmed duplicate candidate #349 under related issues and does not explain the shared request; its negated-condition distinction is unsupported."
+              }
             },
             "issue_type": {
               "correct": true,
@@ -684,7 +707,38 @@
               "valid": true,
               "checked": 3,
               "errors": [],
-              "semantic_review_status": "pending_human_review"
+              "semantic_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "overall": "partly supported",
+                "citations": [
+                  {
+                    "citation_id": "C1",
+                    "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+                    "claim": "- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]",
+                    "support": "partly supported",
+                    "reviewed_location": "Opening fixture-parametrization request in #349 and opening use case in #7312.",
+                    "reason": "Both request fixture-derived parameter values, supporting relevance. Neither opening establishes the claimed negated condition."
+                  },
+                  {
+                    "citation_id": "C2",
+                    "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+                    "claim": "- Earlier issue #2959 may be relevant: Shared topic: case, config, def; the same failure or request is not established. [C2]",
+                    "support": "partly supported",
+                    "reviewed_location": "Opening dynamic fixture-parameter description in #2959 and opening use case in #7312.",
+                    "reason": "The earlier issue gives broader dynamic-parametrization context, but the shared tokens and generic reason do not establish the same request."
+                  },
+                  {
+                    "citation_id": "C3",
+                    "source_url": "https://github.com/pytest-dev/pytest/issues/7012",
+                    "claim": "- Earlier issue #7012 may be relevant: Shared topic: def, session, single; the same failure or request is not established. [C3]",
+                    "support": "unsupported",
+                    "reviewed_location": "Opening collection-argument reproduction in #7012 and opening fixture-parametrization request in #7312.",
+                    "reason": "The earlier issue concerns empty collection arguments and duplicate tests; overlapping words such as def and session do not establish meaningful relevance."
+                  }
+                ],
+                "note": "The requesting user confirmed each judgment after checking hash-matched opening bodies. Structural URL and cutoff checks are scored separately."
+              }
             },
             "abstention": {
               "observed_fields": [
@@ -694,11 +748,19 @@
               "duplicate_expected": false,
               "duplicate_observed": false,
               "duplicate_appropriate": true,
-              "other_fields_review_status": "pending_human_review"
+              "other_fields_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "uncertainty_judgment": "insufficient",
+                "reason": "The report leaves confirmed duplicate candidate #349 under related issues and does not explain the shared request; its negated-condition distinction is unsupported.",
+                "explicit_duplicate_abstention": false,
+                "missing_details_abstention_appropriate": true,
+                "other_fields_reason": "No missing detail is expected; abstaining on missing details is appropriate."
+              }
             },
             "draft_reply_usefulness": {
-              "review_status": "pending_human_review",
-              "rating": null,
+              "review_status": "human_confirmed",
+              "rating": "partly useful",
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
               "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]\n- Earlier issue #2959 may be relevant: Shared topic: case, config, def; the same failure or request is not established. [C2]\n- Earlier issue #7012 may be relevant: Shared topic: def, session, single; the same failure or request is not established. [C3]",
               "citations": [
@@ -720,7 +782,15 @@
                   "description": "pytest issue #7012: Quotation marks in pytest command collects duplicate tests",
                   "passage": null
                 }
-              ]
+              ],
+              "reason": "The #349 link identifies the shared fixture-derived parametrization request, but the duplicate-candidate explanation remains inadequate. #2959 is broader dynamic-parametrization context; #7012 concerns empty collection arguments and is not meaningfully relevant. The negated-condition claim is unsupported.",
+              "reviewer": "requesting user",
+              "confirmed_at": "2026-11-17T19:01:59Z",
+              "missing_details_review": {
+                "expected": [],
+                "request_satisfied": true,
+                "reason": "No missing detail is expected; the draft makes no information request."
+              }
             }
           }
         },
@@ -750,7 +820,12 @@
               "correct": true,
               "expected": "nonduplicate",
               "observed": "related_issue",
-              "review_status": "exact"
+              "review_status": "exact",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "explanation_adequate": false,
+                "reason": "The reply avoids asserting a duplicate, but does not explain the documented nonduplicate distinction between a dynamic-fixture documentation request and frozen fixture parameters."
+              }
             },
             "issue_type": {
               "correct": false,
@@ -768,7 +843,38 @@
               "valid": true,
               "checked": 3,
               "errors": [],
-              "semantic_review_status": "pending_human_review"
+              "semantic_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "overall": "partly supported",
+                "citations": [
+                  {
+                    "citation_id": "C1",
+                    "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+                    "claim": "- Earlier issue #7312 may be relevant: Shared topic: case, config, def; the same failure or request is not established. [C1]",
+                    "support": "partly supported",
+                    "reviewed_location": "Opening session-scoped fixture parametrization request in #7312 and opening dynamic-fixture documentation request in #10156.",
+                    "reason": "Both discuss fixture parametrization, but the reply does not explain this broader context or distinguish a feature request from the documentation request."
+                  },
+                  {
+                    "citation_id": "C2",
+                    "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+                    "claim": "- Earlier issue #349 may be relevant: Shared topic: arg, but, case; one report negates a shared condition. [C2]",
+                    "support": "partly supported",
+                    "reviewed_location": "Opening fixture-value parametrization request in #349 and opening documentation request in #10156.",
+                    "reason": "There is broader fixture-parametrization context, but the claimed negated condition is not supported by the openings."
+                  },
+                  {
+                    "citation_id": "C3",
+                    "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+                    "claim": "- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C3]",
+                    "support": "supported",
+                    "reviewed_location": "Opening frozen-parameter report in #2959 and opening body of #10156, which links its earlier discussion.",
+                    "reason": "The earlier issue directly supports the background relationship; documenting dynamic fixture registration remains a distinct request that the reply does not explain."
+                  }
+                ],
+                "note": "The requesting user confirmed each judgment after checking hash-matched opening bodies. Structural URL and cutoff checks are scored separately."
+              }
             },
             "abstention": {
               "observed_fields": [
@@ -778,11 +884,19 @@
               "duplicate_expected": false,
               "duplicate_observed": false,
               "duplicate_appropriate": true,
-              "other_fields_review_status": "pending_human_review"
+              "other_fields_review_status": "human_confirmed",
+              "semantic_review": {
+                "status": "human_confirmed",
+                "uncertainty_judgment": "appropriate but incomplete",
+                "reason": "The reply avoids asserting a duplicate, but does not explain the documented nonduplicate distinction between a dynamic-fixture documentation request and frozen fixture parameters.",
+                "explicit_duplicate_abstention": false,
+                "missing_details_abstention_appropriate": true,
+                "other_fields_reason": "No missing detail is expected; abstaining on missing details is appropriate."
+              }
             },
             "draft_reply_usefulness": {
-              "review_status": "pending_human_review",
-              "rating": null,
+              "review_status": "human_confirmed",
+              "rating": "partly useful",
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
               "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #7312 may be relevant: Shared topic: case, config, def; the same failure or request is not established. [C1]\n- Earlier issue #349 may be relevant: Shared topic: arg, but, case; one report negates a shared condition. [C2]\n- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C3]",
               "citations": [
@@ -804,7 +918,15 @@
                   "description": "pytest issue #2959: pytest 3.3.0 immutable fixture params",
                   "passage": null
                 }
-              ]
+              ],
+              "reason": "The #7312 and #349 links give broader fixture-parametrization context, and #2959 directly supports the background relationship. The reply does not explain those links, its negation claim is unsupported, and it does not distinguish documenting dynamic fixture registration from reporting frozen fixture parameters.",
+              "reviewer": "requesting user",
+              "confirmed_at": "2026-11-17T19:01:59Z",
+              "missing_details_review": {
+                "expected": [],
+                "request_satisfied": true,
+                "reason": "No missing detail is expected; the draft makes no information request."
+              }
             }
           }
         },
@@ -1120,28 +1242,19 @@
   },
   "methodology": "Both methods replay the same verified issue text, earlier issue, and pinned pytest commit. The keyword-rule baseline searches all hash-verified opening issues in the published case catalog that precede each cutoff, applies lexical match and template rules, and selects type by cue. Controlled responses are a one-pair smoke comparator, not model quality.",
   "draft_review": {
-    "status": "partial_pending_human_confirmation",
+    "status": "human_confirmed",
     "reviewer": "requesting user",
     "reviewed_on": "2026-11-18",
     "expected_outcomes": "docs/evaluation/first-five-cases.md",
-    "scope": "Eight unchanged draft replies retain the requesting user’s confirmation. The pooled keyword search changed two replies and their citation lists; those new outputs await review.",
+    "scope": "All 10 saved draft replies, all 16 citation occurrences, missing-detail requests, and relationship wording. The requesting user confirmed the updated #7312 and #10156 judgments after checking hash-matched opening bodies.",
     "evidence_verification": "The prior human-confirmed review used hash-matched public openings and pinned passages. This pooled run independently verified every pre-cutoff candidate opening before scoring.",
     "rating_scale": {
       "useful": "Addresses the expected triage needs with supported, concrete evidence and appropriate uncertainty.",
       "partly useful": "Provides relevant evidence or a helpful lead but omits an important distinction, request, or explanation, or includes an unsupported claim.",
       "not useful": "Provides no actionable case-specific evidence or request."
     },
-    "human_confirmation": "The requesting user confirmed the eight unchanged replies and their citation judgments on 2026-11-18 (Asia/Jakarta). Confirmation of the updated keyword-rule replies for #7312 and #10156 is pending.",
-    "confirmed_at": "2026-11-17T18:17:39Z",
-    "pending_cases": [
-      {
-        "method": "keyword_rule",
-        "issue_number": 7312
-      },
-      {
-        "method": "keyword_rule",
-        "issue_number": 10156
-      }
-    ]
+    "human_confirmation": "The requesting user confirmed the original eight unchanged replies and the two updated keyword-rule replies for #7312 and #10156 in the implementation conversation on 2026-11-18 (Asia/Jakarta).",
+    "confirmed_at": "2026-11-17T19:01:59Z",
+    "pending_cases": []
   }
 }
