@@ -125,6 +125,23 @@ reader, run:
 RUN_LIVE_REPLAY=1 uv run --no-env-file pytest -q tests/test_replay.py -k recorded_case
 ```
 
+Five case metadata files now live in
+[`src/maintainer_copilot/cases/`](src/maintainer_copilot/cases/). Replay all five
+with controlled model responses using:
+
+```sh
+uv run --no-env-file python -m maintainer_copilot.replay --all
+```
+
+Each result includes its issue number and human-review status. A case whose
+public opening text or pinned commit no longer matches is printed as flagged.
+The [first-five case review](docs/evaluation/first-five-cases.md) records the
+confirmed expected outcomes, individual relationship judgments, provenance
+checks, and the live replay result. All five have reviewer confirmation.
+These controlled replays are smoke checks; model selection and quality
+measurement remain issue #21 work after
+#15 and before #16.
+
 Open <http://127.0.0.1:8000> to paste an issue. Enter its pytest issue number
 to search only issues opened before it. For a newly drafted issue without a
 number, the report still checks template details and abstains on earlier issue

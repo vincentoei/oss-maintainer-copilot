@@ -1,0 +1,33 @@
+{
+  "issue_number": 7312,
+  "issue_family_id": "fixture-values-in-parametrization",
+  "template_profile": "generic",
+  "opening_title": "Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+  "opening_cutoff": "2020-06-03T14:20:24Z",
+  "opening_content_sha256": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-17T16:52:16Z",
+  "repository_commit": "61a6ac97054c0bd6f812642b46847c4b7cbede2a",
+  "repository_commit_at": "2020-06-02T23:25:02Z",
+  "earlier_issue": {
+    "number": 349,
+    "created_at": "2013-08-30T19:48:51Z",
+    "content_sha256": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "issue_type": "type: enhancement",
+    "missing_details": [],
+    "earlier_issue_relationship": "duplicate_candidate",
+    "rationale": "Both requests need values produced by fixtures to determine parametrization. The later issue specifies a session-scoped fixture; its post-opening discussion identifies #349 as the existing request.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/7312",
+      "https://github.com/pytest-dev/pytest/issues/349"
+    ]
+  },
+  "human_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user",
+    "confirmed_at": "2026-11-17T17:01:42Z"
+  }
+}

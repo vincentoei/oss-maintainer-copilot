@@ -1,0 +1,34 @@
+{
+  "issue_number": 10156,
+  "issue_family_id": "dynamic-fixture-documentation",
+  "template_profile": "bug_feature",
+  "opening_title": "Document how to build dynamic session-scoped fixtures",
+  "opening_cutoff": "2022-07-19T20:03:50Z",
+  "opening_content_sha256": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-17T16:52:16Z",
+  "repository_commit": "34a285986e456406b22b62aa563a64331f640e7f",
+  "repository_commit_at": "2022-07-16T02:08:21Z",
+  "earlier_issue": {
+    "number": 2959,
+    "created_at": "2017-11-28T09:02:11Z",
+    "content_sha256": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "issue_type": "type: docs",
+    "missing_details": [],
+    "earlier_issue_relationship": "nonduplicate",
+    "rationale": "This asks for documentation of registering a dynamic session-scoped fixture plugin. #2959 reports parameters becoming immutable before configure time. The proposed workaround and requested outcome differ; a 2026 closure instead references later #12376.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/10156",
+      "https://github.com/pytest-dev/pytest/issues/2959",
+      "https://github.com/pytest-dev/pytest/issues/12376"
+    ]
+  },
+  "human_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user",
+    "confirmed_at": "2026-11-17T17:01:42Z"
+  }
+}

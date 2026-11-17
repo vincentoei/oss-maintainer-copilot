@@ -6,7 +6,7 @@ import os
 from dataclasses import dataclass
 from datetime import datetime
 from importlib.resources import files
-from typing import Protocol
+from typing import Literal, Protocol
 from urllib.error import URLError
 from urllib.request import Request, urlopen
 
@@ -72,8 +72,36 @@ class EarlierIssue(BaseModel):
     last_edited_at: datetime | None
 
 
+class ExpectedTriageOutcome(BaseModel):
+    issue_type: str | None
+    missing_details: list[str]
+    earlier_issue_relationship: Literal[
+        "duplicate_candidate", "nonduplicate", "uncertain"
+    ]
+    rationale: str = Field(min_length=1)
+    annotation_evidence: list[str] = Field(default_factory=list)
+
+
+class HumanReview(BaseModel):
+    status: Literal["pending", "confirmed"]
+    reviewer: str | None = None
+    confirmed_at: datetime | None = None
+
+    @model_validator(mode="after")
+    def validate_confirmation(self) -> "HumanReview":
+        if self.status == "confirmed" and (not self.reviewer or not self.confirmed_at):
+            raise ValueError("confirmed cases require a reviewer and confirmation time")
+        if self.status == "pending" and (self.reviewer or self.confirmed_at):
+            raise ValueError("pending cases cannot claim reviewer confirmation")
+        if self.confirmed_at is not None and self.confirmed_at.tzinfo is None:
+            raise ValueError("review confirmation time must include a timezone")
+        return self
+
+
 class HistoricalCase(BaseModel):
     issue_number: int = Field(gt=0)
+    issue_family_id: str = Field(pattern=r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+    template_profile: Literal["generic", "bug_feature"]
     opening_title: str
     opening_cutoff: datetime
     opening_content_sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
@@ -82,6 +110,8 @@ class HistoricalCase(BaseModel):
     repository_commit: str = Field(pattern=r"^[0-9a-f]{40}$")
     repository_commit_at: datetime
     earlier_issue: EarlierIssue
+    expected_outcome: ExpectedTriageOutcome
+    human_review: HumanReview
 
     @model_validator(mode="after")
     def validate_cutoff(self) -> "HistoricalCase":
@@ -104,13 +134,36 @@ class HistoricalCase(BaseModel):
             or self.earlier_issue.last_edited_at is not None
         ):
             raise ValueError("this case requires unedited issue content")
+        if self.earlier_issue.number >= self.issue_number:
+            raise ValueError("candidate issue must precede the issue under review")
+        if self.expected_outcome.issue_type is not None:
+            from maintainer_copilot.pytest_profile import TYPE_LABELS
+
+            if self.expected_outcome.issue_type not in TYPE_LABELS:
+                raise ValueError("expected issue type must be a pytest type label")
+        if (
+            self.human_review.confirmed_at is not None
+            and self.human_review.confirmed_at < self.opening_verified_at
+        ):
+            raise ValueError("human review cannot predate provenance verification")
         return self
 
 
 def load_case() -> HistoricalCase:
-    """Load the reviewed public metadata for pytest issue #12081."""
+    """Load the public metadata for pytest issue #12081."""
     path = files("maintainer_copilot").joinpath("cases/pytest_12081.json")
     return HistoricalCase.model_validate_json(path.read_text(encoding="utf-8"))
+
+
+def load_cases() -> list[HistoricalCase]:
+    """Load published historical cases in issue-number order."""
+    directory = files("maintainer_copilot").joinpath("cases")
+    cases = [
+        HistoricalCase.model_validate_json(path.read_text(encoding="utf-8"))
+        for path in directory.iterdir()
+        if path.name.startswith("pytest_") and path.name.endswith(".json")
+    ]
+    return sorted(cases, key=lambda case: case.issue_number)
 
 
 def content_hash(issue: issue_search.IssueRecord) -> str:
@@ -292,29 +345,50 @@ def replay_case(
         case.earlier_issue.created_at,
         case.earlier_issue.content_sha256,
     )
+    is_capture_case = case.issue_number == 12081
     reader = source_reader or repository_source.PublicRepositorySource()
-    topic = _capture_topic(case.repository_commit)
+    topic = _capture_topic(case.repository_commit) if is_capture_case else None
     issue = IssueUnderReview(
         number=reviewed.number,
         title=reviewed.title,
         body=reviewed.body,
         source_location=repository_source.SourceLocation(
             commit=case.repository_commit, path="src/_pytest/capture.py", line=935
-        ),
+        )
+        if is_capture_case
+        else None,
     )
     return triage_issue(
         issue,
         source=_FrozenIssues(reviewed, earlier),
-        documentation_source=_PinnedDocumentation(
-            topic, case.repository_commit, reader
+        documentation_source=_PinnedDocumentation(topic, case.repository_commit, reader)
+        if topic is not None
+        else None,
+        source_reader=(
+            _PinnedSource(case.repository_commit, reader) if is_capture_case else None
         ),
-        source_reader=_PinnedSource(case.repository_commit, reader),
         model_client=model_client or ControlledReplayModel(),
         ci_source=_UnavailableHistoricalCI(),
-        documentation_topics=(topic,),
+        documentation_topics=(topic,) if topic is not None else (),
         template_revision=case.repository_commit,
+        structured_template_available=case.template_profile == "bug_feature",
     )
 
 
 if __name__ == "__main__":
-    print(json.dumps(replay_case().model_dump(mode="json"), indent=2))
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Replay time-frozen pytest issues")
+    parser.add_argument("--all", action="store_true", help="replay all published cases")
+    arguments = parser.parse_args()
+    for recorded_case in load_cases() if arguments.all else [load_case()]:
+        try:
+            report = replay_case(recorded_case)
+            result: dict[str, object] = {
+                "issue_number": recorded_case.issue_number,
+                "human_review": recorded_case.human_review.status,
+                "report": report.model_dump(mode="json"),
+            }
+        except CaseFlagged as exc:
+            result = {"issue_number": recorded_case.issue_number, "flagged": str(exc)}
+        print(json.dumps(result, indent=2))

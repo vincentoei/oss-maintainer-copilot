@@ -225,10 +225,15 @@ def triage_issue(
         pytest_profile.DOCUMENTATION_TOPICS
     ),
     template_revision: str = pytest_profile.TEMPLATE_REVISION,
+    structured_template_available: bool = True,
 ) -> TriageReport:
     """Build a reviewable report from pytest templates, issues, and documentation."""
     recorder = trace or TraceRecorder()
-    template = pytest_profile.template_for(issue.title, issue.body)
+    template = (
+        pytest_profile.template_for(issue.title, issue.body)
+        if structured_template_available
+        else None
+    )
     if template == "bug":
         missing = pytest_profile.missing_bug_details(issue.body)
     elif template == "feature":
