@@ -410,6 +410,16 @@ def triage_issue(
             else "Model output failed validation; no issue type was suggested."
         )
         abstentions.append(Abstention(field="issue_type", reason=model_reason))
+        if not details:
+            reply += (
+                " I cannot substantiate a specific reply from the available evidence."
+            )
+            abstentions.append(
+                Abstention(
+                    field="draft_reply",
+                    reason="Model did not select a supported reply claim.",
+                )
+            )
     else:
         issue_type = suggestion.issue_type
         issue_type_quote = suggestion.issue_type_quote
@@ -422,11 +432,13 @@ def triage_issue(
                     ),
                 )
             )
-        selected = {statement.citation_id: statement for statement in reply_statements}
+        statement_by_id = {
+            statement.citation_id: statement for statement in reply_statements
+        }
         reply = "Thanks for sharing this issue."
         if suggestion.reply_citation_ids:
             reply += "\n" + "\n".join(
-                f"- {selected[citation_id].text} [{citation_id}]"
+                f"- {statement_by_id[citation_id].text} [{citation_id}]"
                 for citation_id in suggestion.reply_citation_ids
             )
         else:

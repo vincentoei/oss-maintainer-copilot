@@ -47,7 +47,7 @@ def type_quote_supports_label(label: str, quote: str, issue_text: str) -> bool:
         prefix = issue_text[max(0, match.start() - 32) : match.start()]
         suffix = issue_text[match.end() : match.end() + 32]
         if not re.search(
-            r"\b(?:no|not|never|without)(?:\s+(?:a|an|any|longer))?\s*$",
+            r"\b(?:no|not|never|without)(?:\s+\w+){0,3}\s*$",
             prefix,
             re.I,
         ) and not re.match(

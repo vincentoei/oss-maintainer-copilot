@@ -270,6 +270,33 @@ def test_cropped_quote_cannot_hide_negation_in_issue_text() -> None:
     assert any(item["field"] == "issue_type" for item in report["abstentions"])
 
 
+def test_qualified_negation_cannot_ground_type_suggestion() -> None:
+    report = report_for(
+        FixedModel(
+            {
+                "issue_type": "type: bug",
+                "issue_type_quote": "bug",
+                "reply_citation_ids": ["C1", "C2", "C3", "C4"],
+            }
+        ),
+        title="Feature request, not really a bug",
+    )
+
+    assert report["issue_type"] is None
+    assert any(item["field"] == "issue_type" for item in report["abstentions"])
+
+
+def test_model_failure_without_reply_evidence_explicitly_abstains() -> None:
+    report = report_for(
+        FixedModel(ModelUnavailable("model offline")),
+        title="Question about collection",
+    )
+
+    assert report["citations"] == []
+    assert "cannot substantiate" in report["draft_reply"]
+    assert any(item["field"] == "draft_reply" for item in report["abstentions"])
+
+
 def test_short_quote_in_positive_issue_context_can_support_type() -> None:
     report = report_for(
         FixedModel(
