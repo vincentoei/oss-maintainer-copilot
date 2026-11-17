@@ -12,6 +12,11 @@ from maintainer_copilot import (
     pytest_profile,
     triage_issue,
 )
+from maintainer_copilot.agent import (
+    AgentClient,
+    OpenAICompatibleAgent,
+    triage_issue_with_agent,
+)
 from maintainer_copilot.documentation import (
     DocumentationSource,
     PublicDocumentationSource,
@@ -45,6 +50,10 @@ async def get_model_client() -> ModelClient:
     return OpenAICompatibleModel.from_environment()
 
 
+async def get_agent_client() -> AgentClient:
+    return OpenAICompatibleAgent.from_environment()
+
+
 @app.get("/", response_class=HTMLResponse)
 async def index() -> HTMLResponse:
     html = files("maintainer_copilot").joinpath("index.html").read_text()
@@ -74,4 +83,19 @@ async def create_report(
 ) -> TriageReport:
     return triage_issue(
         issue, source, documentation_source, source_reader, model_client
+    )
+
+
+@app.post("/api/agent/triage", response_model=TriageReport)
+async def create_agent_report(
+    issue: IssueUnderReview,
+    source: Annotated[GitHubIssueSource, Depends(get_issue_source)],
+    documentation_source: Annotated[
+        DocumentationSource, Depends(get_documentation_source)
+    ],
+    source_reader: Annotated[SourceReader, Depends(get_source_reader)],
+    agent_client: Annotated[AgentClient, Depends(get_agent_client)],
+) -> TriageReport:
+    return triage_issue_with_agent(
+        issue, source, documentation_source, source_reader, agent_client
     )

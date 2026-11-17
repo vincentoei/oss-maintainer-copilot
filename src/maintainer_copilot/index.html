@@ -8,6 +8,7 @@
       body { font: 1rem/1.5 system-ui, sans-serif; max-width: 48rem; margin: 2rem auto; padding: 0 1rem; }
       label { display: block; font-weight: 600; margin-top: 1rem; }
       input, textarea { box-sizing: border-box; display: block; width: 100%; font: inherit; padding: .5rem; }
+      input[type="checkbox"] { display: inline; width: auto; margin-right: .5rem; }
       textarea { min-height: 12rem; }
       button { font: inherit; margin-top: 1rem; padding: .5rem 1rem; }
       section { border-top: 1px solid #ccc; margin-top: 2rem; }
@@ -32,6 +33,7 @@
       <input id="source-path" name="source-path" placeholder="src/_pytest/capture.py">
       <label for="source-line">Line number</label>
       <input id="source-line" name="source-line" type="number" min="1" step="1">
+      <label for="agent-mode"><input id="agent-mode" name="agent-mode" type="checkbox">Use bounded agent (requires a configured model)</label>
       <button type="submit">Create triage report</button>
     </form>
     <p id="error" role="alert"></p>
@@ -94,7 +96,9 @@
           const sourceCommit = document.getElementById("source-commit").value;
           const sourcePath = document.getElementById("source-path").value;
           const sourceLine = document.getElementById("source-line").value;
-          const response = await fetch("/api/triage", {
+          const endpoint = document.getElementById("agent-mode").checked
+            ? "/api/agent/triage" : "/api/triage";
+          const response = await fetch(endpoint, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
