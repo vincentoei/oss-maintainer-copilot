@@ -149,14 +149,16 @@ access:
 
 ```sh
 GITHUB_TOKEN="$(gh auth token)" uv run --locked --no-env-file \
-  python -m maintainer_copilot.evaluation > docs/evaluation/issue-12-results.json
+  python -m maintainer_copilot.evaluation > /tmp/issue-12-new-results.json
 ```
 
 [Issue #12's methodology and provisional results](docs/evaluation/issue-12.md)
 explain each field score, failures, latency and cost assumptions, and the
 semantic judgments still awaiting human review. The checked-in
 [results JSON](docs/evaluation/issue-12-results.json) keeps case-level outputs
-inspectable. No model is selected by this evaluation.
+and confirmed judgments inspectable. The command writes raw scores separately
+so it does not replace the reviewed artifact. No model is selected by this
+evaluation.
 
 Open <http://127.0.0.1:8000> to paste an issue. Enter its pytest issue number
 to search only issues opened before it. For a newly drafted issue without a

@@ -3,6 +3,7 @@
 import argparse
 import json
 import re
+from collections.abc import Collection
 from dataclasses import asdict, dataclass
 from time import perf_counter
 from typing import Any
@@ -11,6 +12,8 @@ from maintainer_copilot import model, pytest_profile
 from maintainer_copilot.replay import (
     CaseFlagged,
     HistoricalCase,
+    allowed_case_citation_urls,
+    candidate_references,
     load_cases,
     replay_case,
 )
@@ -56,30 +59,15 @@ class KeywordRuleModel:
         }
 
 
-def citation_errors(case: HistoricalCase, report: TriageReport) -> list[str]:
+def citation_errors(
+    case: HistoricalCase,
+    report: TriageReport,
+    candidate_numbers: Collection[int] | None = None,
+) -> list[str]:
     """Check saved citations against this case's verified evidence boundary."""
     errors: list[str] = []
-    earlier_url = (
-        f"https://github.com/pytest-dev/pytest/issues/{case.earlier_issue.number}"
-    )
-    allowed = {earlier_url}
-    if case.template_profile == "bug_feature":
-        allowed.update(
-            pytest_profile.citation_url("bug", detail.line, case.repository_commit)
-            for detail in pytest_profile.BUG_DETAILS
-        )
-        allowed.update(
-            pytest_profile.citation_url("feature", detail.line, case.repository_commit)
-            for detail in pytest_profile.FEATURE_DETAILS
-        )
-    if case.issue_number == 12081:
-        prefix = f"https://github.com/pytest-dev/pytest/blob/{case.repository_commit}/"
-        allowed.update(
-            {
-                prefix + "doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
-                prefix + "src/_pytest/capture.py#L935",
-            }
-        )
+    verified_numbers = set(candidate_numbers or (case.earlier_issue.number,))
+    allowed = allowed_case_citation_urls(case, verified_numbers)
     citation_by_id = {item.id: item for item in report.citations}
     for citation in report.citations:
         url = str(citation.source_url)
@@ -91,7 +79,7 @@ def citation_errors(case: HistoricalCase, report: TriageReport) -> list[str]:
         ):
             errors.append(f"{citation.id}: source location uses a different commit")
     for item in report.duplicate_candidates + report.related_issues:
-        if item.issue_number != case.earlier_issue.number:
+        if item.issue_number not in verified_numbers:
             errors.append(f"{item.citation_id}: unverified earlier issue")
         if item.citation_id not in citation_by_id:
             errors.append(f"{item.citation_id}: missing issue citation")
@@ -111,16 +99,23 @@ def citation_errors(case: HistoricalCase, report: TriageReport) -> list[str]:
     return errors
 
 
-def score_report(case: HistoricalCase, report: TriageReport) -> dict[str, Any]:
+def score_report(
+    case: HistoricalCase,
+    report: TriageReport,
+    candidate_numbers: Collection[int] | None = None,
+) -> dict[str, Any]:
     """Score exact fields, and mark semantic judgments for human review."""
     if case.human_review.status != "confirmed":
         raise ValueError("case needs a confirmed human review before scoring")
     expected = case.expected_outcome
     earlier = case.earlier_issue.number
-    found = earlier in {
-        item.issue_number
-        for item in report.duplicate_candidates + report.related_issues
-    }
+    retrieved_numbers = sorted(
+        {
+            item.issue_number
+            for item in report.duplicate_candidates + report.related_issues
+        }
+    )
+    found = earlier in retrieved_numbers
     duplicate = earlier in {item.issue_number for item in report.duplicate_candidates}
     if expected.earlier_issue_relationship == "uncertain":
         duplicate_judgment: bool | None = None
@@ -134,11 +129,18 @@ def score_report(case: HistoricalCase, report: TriageReport) -> dict[str, Any]:
     true_positive = len(actual_details & expected_details)
     precision = true_positive / len(actual_details) if actual_details else 1.0
     recall = true_positive / len(expected_details) if expected_details else 1.0
-    errors = citation_errors(case, report)
+    errors = citation_errors(case, report, candidate_numbers)
     abstained = {item.field for item in report.abstentions}
     duplicate_abstention_expected = expected.earlier_issue_relationship == "uncertain"
     return {
-        "duplicate_retrieval": {"found": found, "expected_issue": earlier},
+        "duplicate_retrieval": {
+            "found": found,
+            "expected_issue": earlier,
+            "retrieved_issues": retrieved_numbers,
+            "other_issues_unreviewed": [
+                number for number in retrieved_numbers if number != earlier
+            ],
+        },
         "duplicate_judgment": {
             "correct": duplicate_judgment,
             "expected": expected.earlier_issue_relationship,
@@ -207,22 +209,39 @@ class CaseResult:
     opening_cutoff: str
     repository_commit: str
     latency_ms: float
+    candidate_pool_size: int
     error: str | None
     scores: dict[str, Any] | None
 
 
-def evaluate_case(case: HistoricalCase, method: str) -> CaseResult:
+def evaluate_case(
+    case: HistoricalCase,
+    method: str,
+    catalog: Collection[HistoricalCase] | None = None,
+) -> CaseResult:
     """Run one method against a verified historical case."""
     if method not in ("controlled", "keyword_rule"):
         raise ValueError("unknown evaluation method")
     started = perf_counter()
+    pool_size = 0
     try:
+        candidate_catalog = (
+            (catalog if catalog is not None else load_cases())
+            if method == "keyword_rule"
+            else ()
+        )
+        candidate_numbers = tuple(
+            reference.number
+            for reference in candidate_references(case, candidate_catalog)
+        )
+        pool_size = len(candidate_numbers)
         report = replay_case(
             case,
             model_client=(KeywordRuleModel() if method == "keyword_rule" else None),
             keyword_filter=method == "keyword_rule",
+            candidate_catalog=candidate_catalog,
         )
-        scores = score_report(case, report)
+        scores = score_report(case, report, candidate_numbers)
         error = None
     except (CaseFlagged, ValueError) as exc:
         scores = None
@@ -233,6 +252,7 @@ def evaluate_case(case: HistoricalCase, method: str) -> CaseResult:
         opening_cutoff=case.opening_cutoff.isoformat(),
         repository_commit=case.repository_commit,
         latency_ms=round((perf_counter() - started) * 1000, 2),
+        candidate_pool_size=pool_size,
         error=error,
         scores=scores,
     )
@@ -274,6 +294,11 @@ def aggregate(results: list[CaseResult]) -> dict[str, Any]:
         )
         if results
         else None,
+        "mean_candidate_pool_size": round(
+            sum(item.candidate_pool_size for item in results) / len(results), 2
+        )
+        if results
+        else None,
         "duplicate_retrieval_recall": _mean(complete, "duplicate_retrieval", "found"),
         "duplicate_judgment_accuracy": _mean(complete, "duplicate_judgment", "correct"),
         "issue_type_accuracy": _mean(complete, "issue_type", "correct"),
@@ -304,7 +329,7 @@ def _mean(results: list[CaseResult], field: str, key: str) -> float | None:
 def evaluate_all() -> dict[str, Any]:
     cases = load_cases()
     groups = {
-        method: [evaluate_case(case, method) for case in cases]
+        method: [evaluate_case(case, method, catalog=cases) for case in cases]
         for method in ("controlled", "keyword_rule")
     }
     return {
@@ -325,10 +350,11 @@ def evaluate_all() -> dict[str, Any]:
         },
         "methodology": (
             "Both methods replay the same verified issue text, earlier issue, "
-            "and pinned pytest commit. The keyword-rule baseline filters its "
-            "one earlier-issue fixture by query terms, applies lexical match "
-            "and template rules, and selects type by cue. Controlled responses "
-            "are a smoke comparator, not model quality."
+            "and pinned pytest commit. The keyword-rule baseline searches all "
+            "hash-verified opening issues in the published case catalog that "
+            "precede each cutoff, applies lexical match and template rules, "
+            "and selects type by cue. Controlled responses are a one-pair smoke "
+            "comparator, not model quality."
         ),
     }
 

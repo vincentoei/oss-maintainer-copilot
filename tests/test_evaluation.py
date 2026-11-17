@@ -24,10 +24,12 @@ def report_for(
     duplicate: bool,
     issue_type: str | None,
     later_citation: bool = False,
+    suggested_number: int | None = None,
 ) -> TriageReport:
-    url = f"https://github.com/pytest-dev/pytest/issues/{case.earlier_issue.number}"
+    number = suggested_number or case.earlier_issue.number
+    url = f"https://github.com/pytest-dev/pytest/issues/{number}"
     suggestion = {
-        "issue_number": case.earlier_issue.number,
+        "issue_number": number,
         "title": "Earlier issue",
         "url": url,
         "reason": "Shared failure",
@@ -75,6 +77,9 @@ def test_field_scores_keep_retrieval_judgment_and_reply_review_separate() -> Non
     )
 
     assert scores["duplicate_retrieval"]["found"] is True
+    assert scores["duplicate_retrieval"]["retrieved_issues"] == [
+        case.earlier_issue.number
+    ]
     assert scores["duplicate_judgment"]["correct"] is False
     assert scores["issue_type"]["correct"] is True
     assert scores["missing_details"]["exact"] is True
@@ -106,6 +111,20 @@ def test_citation_check_rejects_post_cutoff_source() -> None:
     ]
 
 
+def test_citation_check_accepts_only_verified_pool_issues() -> None:
+    case = case_for(12081)
+    report = report_for(case, duplicate=False, issue_type=None, suggested_number=7012)
+
+    assert citation_errors(case, report, {3448, 7012}) == []
+    scores = score_report(case, report, {3448, 7012})
+    assert scores["duplicate_retrieval"]["retrieved_issues"] == [7012]
+    assert scores["duplicate_retrieval"]["other_issues_unreviewed"] == [7012]
+    assert citation_errors(case, report) == [
+        "C1: source is outside the evidence cutoff",
+        "C1: unverified earlier issue",
+    ]
+
+
 def test_aggregate_excludes_pending_human_review_from_accuracy() -> None:
     uncertain = case_for(12083)
     result = CaseResult(
@@ -114,6 +133,7 @@ def test_aggregate_excludes_pending_human_review_from_accuracy() -> None:
         opening_cutoff=uncertain.opening_cutoff.isoformat(),
         repository_commit=uncertain.repository_commit,
         latency_ms=10,
+        candidate_pool_size=1,
         error=None,
         scores=score_report(
             uncertain, report_for(uncertain, duplicate=False, issue_type=None)

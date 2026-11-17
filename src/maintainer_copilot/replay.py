@@ -4,6 +4,7 @@ import hashlib
 import json
 import os
 import re
+from collections.abc import Collection
 from dataclasses import dataclass
 from datetime import datetime
 from importlib.resources import files
@@ -13,7 +14,7 @@ from urllib.request import Request, urlopen
 
 from pydantic import BaseModel, Field, model_validator
 
-from maintainer_copilot import ci, documentation, issue_search, model
+from maintainer_copilot import ci, documentation, issue_search, model, pytest_profile
 from maintainer_copilot import source as repository_source
 from maintainer_copilot.triage import IssueUnderReview, TriageReport, triage_issue
 
@@ -150,6 +151,57 @@ class HistoricalCase(BaseModel):
         return self
 
 
+@dataclass(frozen=True)
+class CandidateReference:
+    number: int
+    created_at: datetime
+    content_sha256: str
+
+
+def candidate_references(
+    case: HistoricalCase, catalog: Collection[HistoricalCase]
+) -> tuple[CandidateReference, ...]:
+    """Select recorded openings that are eligible at this case's cutoff."""
+    references: dict[int, CandidateReference] = {}
+
+    def include(reference: CandidateReference) -> None:
+        if (
+            reference.number == case.issue_number
+            or reference.created_at >= case.opening_cutoff
+        ):
+            return
+        previous = references.get(reference.number)
+        if previous is not None and previous != reference:
+            raise CaseFlagged(
+                f"conflicting opening metadata for issue #{reference.number}"
+            )
+        references[reference.number] = reference
+
+    include(
+        CandidateReference(
+            case.earlier_issue.number,
+            case.earlier_issue.created_at,
+            case.earlier_issue.content_sha256,
+        )
+    )
+    for recorded in catalog:
+        include(
+            CandidateReference(
+                recorded.issue_number,
+                recorded.opening_cutoff,
+                recorded.opening_content_sha256,
+            )
+        )
+        include(
+            CandidateReference(
+                recorded.earlier_issue.number,
+                recorded.earlier_issue.created_at,
+                recorded.earlier_issue.content_sha256,
+            )
+        )
+    return tuple(sorted(references.values(), key=lambda item: item.number))
+
+
 def load_case() -> HistoricalCase:
     """Load the public metadata for pytest issue #12081."""
     path = files("maintainer_copilot").joinpath("cases/pytest_12081.json")
@@ -207,7 +259,7 @@ def _verified_issue(
 @dataclass(frozen=True)
 class _FrozenIssues:
     reviewed: issue_search.IssueRecord
-    earlier: issue_search.IssueRecord
+    candidates: tuple[issue_search.IssueRecord, ...]
     keyword_filter: bool = False
 
     def get_issue(self, number: int) -> issue_search.IssueRecord:
@@ -220,14 +272,21 @@ class _FrozenIssues:
     ) -> list[issue_search.IssueRecord]:
         if created_before != self.reviewed.created_at or not query:
             raise issue_search.IssueSearchError("Search is outside the frozen case.")
-        if self.keyword_filter:
-            terms = query.removeprefix("(").removesuffix(")").split(" OR ")
-            text = f"{self.earlier.title}\n{self.earlier.body}"
-            if not any(
-                re.search(rf"\b{re.escape(term)}\b", text, re.I) for term in terms
-            ):
-                return []
-        return [self.earlier]
+        if not self.keyword_filter:
+            return list(self.candidates)
+        terms = query.removeprefix("(").removesuffix(")").split(" OR ")
+        return [
+            candidate
+            for candidate in self.candidates
+            if any(
+                re.search(
+                    rf"\b{re.escape(term)}\b",
+                    f"{candidate.title}\n{candidate.body}",
+                    re.I,
+                )
+                for term in terms
+            )
+        ]
 
 
 _CAPTURE_DOC_PATH = "doc/en/how-to/capture-stdout-stderr.rst"
@@ -238,6 +297,8 @@ _CAPTURE_DOC_LINES = (
 _CAPTURE_SOURCE_LINE = (
     '        """Read and return the captured output so far, resetting the internal'
 )
+_CAPTURE_SOURCE_PATH = "src/_pytest/capture.py"
+_CAPTURE_SOURCE_NUMBER = 935
 
 
 def _capture_topic(commit: str) -> documentation.DocumentationTopic:
@@ -255,6 +316,35 @@ def _capture_topic(commit: str) -> documentation.DocumentationTopic:
         ),
         relevance=r"\b(?:capsys|capfd|capteesys|capsysbinary|capfdbinary)\b",
     )
+
+
+def allowed_case_citation_urls(
+    case: HistoricalCase, candidate_numbers: Collection[int]
+) -> set[str]:
+    """Enumerate issue and pinned repository evidence allowed for this replay."""
+    allowed = {
+        f"https://github.com/pytest-dev/pytest/issues/{number}"
+        for number in candidate_numbers
+    }
+    if case.template_profile == "bug_feature":
+        allowed.update(
+            pytest_profile.citation_url("bug", detail.line, case.repository_commit)
+            for detail in pytest_profile.BUG_DETAILS
+        )
+        allowed.update(
+            pytest_profile.citation_url("feature", detail.line, case.repository_commit)
+            for detail in pytest_profile.FEATURE_DETAILS
+        )
+    if case.issue_number == 12081:
+        allowed.add(_capture_topic(case.repository_commit).url)
+        allowed.add(
+            repository_source.SourceLocation(
+                commit=case.repository_commit,
+                path=_CAPTURE_SOURCE_PATH,
+                line=_CAPTURE_SOURCE_NUMBER,
+            ).source_url
+        )
+    return allowed
 
 
 @dataclass(frozen=True)
@@ -293,8 +383,8 @@ class _PinnedSource:
     ) -> repository_source.SourceExcerpt:
         if (
             location.commit != self.commit
-            or location.path != "src/_pytest/capture.py"
-            or location.line != 935
+            or location.path != _CAPTURE_SOURCE_PATH
+            or location.line != _CAPTURE_SOURCE_NUMBER
         ):
             raise repository_source.SourceUnavailable("Source is outside the cutoff.")
         excerpt = self.reader.get_excerpt(location)
@@ -336,6 +426,7 @@ def replay_case(
     source_reader: repository_source.SourceReader | None = None,
     model_client: model.ModelClient | None = None,
     keyword_filter: bool = False,
+    candidate_catalog: Collection[HistoricalCase] | None = None,
 ) -> TriageReport:
     """Verify public issue text, then triage with only pre-cutoff evidence."""
     case = case or load_case()
@@ -349,11 +440,15 @@ def replay_case(
     )
     if reviewed.title != case.opening_title:
         raise CaseFlagged("the verified opening title changed")
-    earlier = _verified_issue(
-        public_issues,
-        case.earlier_issue.number,
-        case.earlier_issue.created_at,
-        case.earlier_issue.content_sha256,
+    references = candidate_references(case, candidate_catalog or ())
+    candidates = tuple(
+        _verified_issue(
+            public_issues,
+            reference.number,
+            reference.created_at,
+            reference.content_sha256,
+        )
+        for reference in references
     )
     is_capture_case = case.issue_number == 12081
     reader = source_reader or repository_source.PublicRepositorySource()
@@ -363,14 +458,16 @@ def replay_case(
         title=reviewed.title,
         body=reviewed.body,
         source_location=repository_source.SourceLocation(
-            commit=case.repository_commit, path="src/_pytest/capture.py", line=935
+            commit=case.repository_commit,
+            path=_CAPTURE_SOURCE_PATH,
+            line=_CAPTURE_SOURCE_NUMBER,
         )
         if is_capture_case
         else None,
     )
     return triage_issue(
         issue,
-        source=_FrozenIssues(reviewed, earlier, keyword_filter),
+        source=_FrozenIssues(reviewed, candidates, keyword_filter),
         documentation_source=_PinnedDocumentation(topic, case.repository_commit, reader)
         if topic is not None
         else None,

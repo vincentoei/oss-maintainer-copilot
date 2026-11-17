@@ -5,7 +5,8 @@
         "cases": 5,
         "completed": 5,
         "errors": [],
-        "mean_latency_ms": 1764.9,
+        "mean_latency_ms": 1737.04,
+        "mean_candidate_pool_size": 1.0,
         "duplicate_retrieval_recall": 1.0,
         "duplicate_judgment_accuracy": 0.5,
         "issue_type_accuracy": 0.0,
@@ -15,7 +16,7 @@
         "citation_validity_rate": 1.0,
         "issue_type_abstention_appropriateness": 0.0,
         "duplicate_abstention_appropriateness": 0.8,
-        "draft_reply_usefulness": "human_confirmed",
+        "draft_reply_usefulness": "partially_human_confirmed",
         "representative_failures": [
           {
             "issue_number": 7312,
@@ -35,8 +36,9 @@
           }
         ],
         "draft_reply_usefulness_review": {
-          "status": "human_confirmed",
+          "status": "partial_pending_human_confirmation",
           "rated": 5,
+          "pending": 0,
           "ratings": {
             "useful": 0,
             "partly useful": 5,
@@ -52,12 +54,17 @@
           "method": "controlled",
           "opening_cutoff": "2020-06-03T14:20:24+00:00",
           "repository_commit": "61a6ac97054c0bd6f812642b46847c4b7cbede2a",
-          "latency_ms": 1879.48,
+          "latency_ms": 1560.93,
+          "candidate_pool_size": 1,
           "error": null,
           "scores": {
             "duplicate_retrieval": {
               "found": true,
-              "expected_issue": 349
+              "expected_issue": 349,
+              "retrieved_issues": [
+                349
+              ],
+              "other_issues_unreviewed": []
             },
             "duplicate_judgment": {
               "correct": false,
@@ -146,12 +153,17 @@
           "method": "controlled",
           "opening_cutoff": "2022-07-19T20:03:50+00:00",
           "repository_commit": "34a285986e456406b22b62aa563a64331f640e7f",
-          "latency_ms": 1562.69,
+          "latency_ms": 1688.74,
+          "candidate_pool_size": 1,
           "error": null,
           "scores": {
             "duplicate_retrieval": {
               "found": true,
-              "expected_issue": 2959
+              "expected_issue": 2959,
+              "retrieved_issues": [
+                2959
+              ],
+              "other_issues_unreviewed": []
             },
             "duplicate_judgment": {
               "correct": true,
@@ -240,12 +252,17 @@
           "method": "controlled",
           "opening_cutoff": "2024-03-06T00:03:25+00:00",
           "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
-          "latency_ms": 1915.97,
+          "latency_ms": 2155.35,
+          "candidate_pool_size": 1,
           "error": null,
           "scores": {
             "duplicate_retrieval": {
               "found": true,
-              "expected_issue": 3448
+              "expected_issue": 3448,
+              "retrieved_issues": [
+                3448
+              ],
+              "other_issues_unreviewed": []
             },
             "duplicate_judgment": {
               "correct": false,
@@ -362,12 +379,17 @@
           "method": "controlled",
           "opening_cutoff": "2024-03-06T10:53:11+00:00",
           "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
-          "latency_ms": 1564.52,
+          "latency_ms": 1455.81,
+          "candidate_pool_size": 1,
           "error": null,
           "scores": {
             "duplicate_retrieval": {
               "found": true,
-              "expected_issue": 7012
+              "expected_issue": 7012,
+              "retrieved_issues": [
+                7012
+              ],
+              "other_issues_unreviewed": []
             },
             "duplicate_judgment": {
               "correct": null,
@@ -469,12 +491,17 @@
           "method": "controlled",
           "opening_cutoff": "2024-03-21T12:06:34+00:00",
           "repository_commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
-          "latency_ms": 1901.84,
+          "latency_ms": 1824.38,
+          "candidate_pool_size": 1,
           "error": null,
           "scores": {
             "duplicate_retrieval": {
               "found": true,
-              "expected_issue": 7312
+              "expected_issue": 7312,
+              "retrieved_issues": [
+                7312
+              ],
+              "other_issues_unreviewed": []
             },
             "duplicate_judgment": {
               "correct": true,
@@ -565,7 +592,8 @@
         "cases": 5,
         "completed": 5,
         "errors": [],
-        "mean_latency_ms": 2625.06,
+        "mean_latency_ms": 4348.95,
+        "mean_candidate_pool_size": 6.0,
         "duplicate_retrieval_recall": 0.6,
         "duplicate_judgment_accuracy": 0.25,
         "issue_type_accuracy": 0.2,
@@ -575,7 +603,7 @@
         "citation_validity_rate": 1.0,
         "issue_type_abstention_appropriateness": 0.8,
         "duplicate_abstention_appropriateness": 0.8,
-        "draft_reply_usefulness": "human_confirmed",
+        "draft_reply_usefulness": "partially_human_confirmed",
         "representative_failures": [
           {
             "issue_number": 7312,
@@ -599,11 +627,12 @@
           }
         ],
         "draft_reply_usefulness_review": {
-          "status": "human_confirmed",
-          "rated": 5,
+          "status": "partial_pending_human_confirmation",
+          "rated": 3,
+          "pending": 2,
           "ratings": {
             "useful": 0,
-            "partly useful": 3,
+            "partly useful": 1,
             "not useful": 2
           },
           "reviewer": "requesting user",
@@ -616,12 +645,22 @@
           "method": "keyword_rule",
           "opening_cutoff": "2020-06-03T14:20:24+00:00",
           "repository_commit": "61a6ac97054c0bd6f812642b46847c4b7cbede2a",
-          "latency_ms": 1941.33,
+          "latency_ms": 3048.97,
+          "candidate_pool_size": 4,
           "error": null,
           "scores": {
             "duplicate_retrieval": {
               "found": true,
-              "expected_issue": 349
+              "expected_issue": 349,
+              "retrieved_issues": [
+                349,
+                2959,
+                7012
+              ],
+              "other_issues_unreviewed": [
+                2959,
+                7012
+              ]
             },
             "duplicate_judgment": {
               "correct": false,
@@ -643,24 +682,9 @@
             },
             "citation_validity": {
               "valid": true,
-              "checked": 1,
+              "checked": 3,
               "errors": [],
-              "semantic_review_status": "human_confirmed",
-              "semantic_review": {
-                "status": "human_confirmed",
-                "overall": "partly supported",
-                "citations": [
-                  {
-                    "citation_id": "C1",
-                    "source_url": "https://github.com/pytest-dev/pytest/issues/349",
-                    "claim": "- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]",
-                    "support": "partly supported",
-                    "reviewed_location": "Opening example and following explanation in #349; opening use case and proposed parametrization in #7312.",
-                    "reason": "Both request fixture-derived parameter values, supporting relevance. Shared lexical tokens are not a substantive explanation. Neither opening establishes the implied opposing condition; both describe missing functionality."
-                  }
-                ],
-                "note": "Issue citations have null saved passages; checked the hash-matched opening bodies directly. Structural validity alone does not establish semantic support."
-              }
+              "semantic_review_status": "pending_human_review"
             },
             "abstention": {
               "observed_fields": [
@@ -670,37 +694,33 @@
               "duplicate_expected": false,
               "duplicate_observed": false,
               "duplicate_appropriate": true,
-              "other_fields_review_status": "human_confirmed",
-              "semantic_review": {
-                "status": "human_confirmed",
-                "uncertainty_judgment": "insufficient",
-                "reason": "Cautious relevance understates the reviewed duplicate candidate and the unspecified negation suggests an unsupported distinction.",
-                "explicit_duplicate_abstention": false,
-                "missing_details_abstention_appropriate": true,
-                "other_fields_reason": "No missing details are expected, so making no information request is appropriate. Issue-type abstention remains assessed separately by the existing exact score."
-              }
+              "other_fields_review_status": "pending_human_review"
             },
             "draft_reply_usefulness": {
-              "review_status": "human_confirmed",
-              "rating": "partly useful",
+              "review_status": "pending_human_review",
+              "rating": null,
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
-              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]\n- Earlier issue #2959 may be relevant: Shared topic: case, config, def; the same failure or request is not established. [C2]\n- Earlier issue #7012 may be relevant: Shared topic: def, session, single; the same failure or request is not established. [C3]",
               "citations": [
                 {
                   "id": "C1",
                   "source_url": "https://github.com/pytest-dev/pytest/issues/349",
                   "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
                   "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+                  "description": "pytest issue #2959: pytest 3.3.0 immutable fixture params",
+                  "passage": null
+                },
+                {
+                  "id": "C3",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/7012",
+                  "description": "pytest issue #7012: Quotation marks in pytest command collects duplicate tests",
+                  "passage": null
                 }
-              ],
-              "reason": "Links the relevant fixture-parametrization request #349, but does not identify the shared requested behavior or flag a duplicate candidate. The unspecified negated-condition claim is unsupported as a distinction between the reports. No missing detail is expected.",
-              "reviewer": "requesting user",
-              "missing_details_review": {
-                "expected": [],
-                "request_satisfied": true,
-                "reason": "No missing detail is expected; the draft makes no unnecessary information request."
-              },
-              "confirmed_at": "2026-11-17T18:17:39Z"
+              ]
             }
           }
         },
@@ -709,12 +729,22 @@
           "method": "keyword_rule",
           "opening_cutoff": "2022-07-19T20:03:50+00:00",
           "repository_commit": "34a285986e456406b22b62aa563a64331f640e7f",
-          "latency_ms": 1577.37,
+          "latency_ms": 3423.03,
+          "candidate_pool_size": 5,
           "error": null,
           "scores": {
             "duplicate_retrieval": {
               "found": true,
-              "expected_issue": 2959
+              "expected_issue": 2959,
+              "retrieved_issues": [
+                349,
+                2959,
+                7312
+              ],
+              "other_issues_unreviewed": [
+                349,
+                7312
+              ]
             },
             "duplicate_judgment": {
               "correct": true,
@@ -736,24 +766,9 @@
             },
             "citation_validity": {
               "valid": true,
-              "checked": 1,
+              "checked": 3,
               "errors": [],
-              "semantic_review_status": "human_confirmed",
-              "semantic_review": {
-                "status": "human_confirmed",
-                "overall": "supported",
-                "citations": [
-                  {
-                    "citation_id": "C1",
-                    "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
-                    "claim": "- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C1]",
-                    "support": "supported",
-                    "reviewed_location": "Opening description and pytest_configure example in #2959; opening documentation request and dynamic-plugin example in #10156.",
-                    "reason": "Both concern CLI-driven fixture parameters. The earlier frozen-parameter behavior and the new documentation request are distinct, supporting cautious relevance and the lack of an established identical request. The reply does not explain that distinction."
-                  }
-                ],
-                "note": "Issue citations have null saved passages; checked the hash-matched opening bodies directly. Structural validity alone does not establish semantic support."
-              }
+              "semantic_review_status": "pending_human_review"
             },
             "abstention": {
               "observed_fields": [
@@ -763,37 +778,33 @@
               "duplicate_expected": false,
               "duplicate_observed": false,
               "duplicate_appropriate": true,
-              "other_fields_review_status": "human_confirmed",
-              "semantic_review": {
-                "status": "human_confirmed",
-                "uncertainty_judgment": "appropriate but incomplete",
-                "reason": "Avoids a duplicate assertion, consistent with the expected nonduplicate; omits the concrete docs-request versus frozen-parameter distinction.",
-                "explicit_duplicate_abstention": false,
-                "missing_details_abstention_appropriate": true,
-                "other_fields_reason": "No missing details are expected, so making no information request is appropriate. Issue-type abstention remains assessed separately by the existing exact score."
-              }
+              "other_fields_review_status": "pending_human_review"
             },
             "draft_reply_usefulness": {
-              "review_status": "human_confirmed",
-              "rating": "partly useful",
+              "review_status": "pending_human_review",
+              "rating": null,
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
-              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C1]",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #7312 may be relevant: Shared topic: case, config, def; the same failure or request is not established. [C1]\n- Earlier issue #349 may be relevant: Shared topic: arg, but, case; one report negates a shared condition. [C2]\n- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C3]",
               "citations": [
                 {
                   "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+                  "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+                  "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+                  "passage": null
+                },
+                {
+                  "id": "C3",
                   "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
                   "description": "pytest issue #2959: pytest 3.3.0 immutable fixture params",
                   "passage": null
                 }
-              ],
-              "reason": "Links relevant background #2959 and avoids declaring a duplicate, but generic shared tokens do not explain that this is a documentation request for dynamic fixture registration rather than the earlier frozen-parameter bug. No missing detail is expected.",
-              "reviewer": "requesting user",
-              "missing_details_review": {
-                "expected": [],
-                "request_satisfied": true,
-                "reason": "No missing detail is expected; the draft makes no unnecessary information request."
-              },
-              "confirmed_at": "2026-11-17T18:17:39Z"
+              ]
             }
           }
         },
@@ -802,12 +813,17 @@
           "method": "keyword_rule",
           "opening_cutoff": "2024-03-06T00:03:25+00:00",
           "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
-          "latency_ms": 1952.69,
+          "latency_ms": 4583.83,
+          "candidate_pool_size": 6,
           "error": null,
           "scores": {
             "duplicate_retrieval": {
               "found": true,
-              "expected_issue": 3448
+              "expected_issue": 3448,
+              "retrieved_issues": [
+                3448
+              ],
+              "other_issues_unreviewed": []
             },
             "duplicate_judgment": {
               "correct": false,
@@ -923,12 +939,15 @@
           "method": "keyword_rule",
           "opening_cutoff": "2024-03-06T10:53:11+00:00",
           "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
-          "latency_ms": 3384.92,
+          "latency_ms": 5364.82,
+          "candidate_pool_size": 7,
           "error": null,
           "scores": {
             "duplicate_retrieval": {
               "found": false,
-              "expected_issue": 7012
+              "expected_issue": 7012,
+              "retrieved_issues": [],
+              "other_issues_unreviewed": []
             },
             "duplicate_judgment": {
               "correct": null,
@@ -1014,12 +1033,15 @@
           "method": "keyword_rule",
           "opening_cutoff": "2024-03-21T12:06:34+00:00",
           "repository_commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
-          "latency_ms": 4269.01,
+          "latency_ms": 5324.1,
+          "candidate_pool_size": 8,
           "error": null,
           "scores": {
             "duplicate_retrieval": {
               "found": false,
-              "expected_issue": 7312
+              "expected_issue": 7312,
+              "retrieved_issues": [],
+              "other_issues_unreviewed": []
             },
             "duplicate_judgment": {
               "correct": false,
@@ -1096,20 +1118,30 @@
     "github_api_usd": 0,
     "scope": "No paid model calls; public GitHub reads have no per-request charge. CPU, network, and hosting costs excluded."
   },
-  "methodology": "Both methods replay the same verified issue text, earlier issue, and pinned pytest commit. The keyword-rule baseline filters its one earlier-issue fixture by query terms, applies lexical match and template rules, and selects type by cue. Controlled responses are a smoke comparator, not model quality.",
+  "methodology": "Both methods replay the same verified issue text, earlier issue, and pinned pytest commit. The keyword-rule baseline searches all hash-verified opening issues in the published case catalog that precede each cutoff, applies lexical match and template rules, and selects type by cue. Controlled responses are a one-pair smoke comparator, not model quality.",
   "draft_review": {
-    "status": "human_confirmed",
+    "status": "partial_pending_human_confirmation",
     "reviewer": "requesting user",
     "reviewed_on": "2026-11-18",
     "expected_outcomes": "docs/evaluation/first-five-cases.md",
-    "scope": "All 10 saved draft replies, all 12 citation occurrences, missing-detail requests, and uncertainty wording. The requesting user confirmed the recorded assessments.",
-    "evidence_verification": "Fetched the nine distinct public issue opening titles/bodies through GitHub REST and matched all stored SHA-256 hashes. Read both capture passages at the pinned commit and the pinned bug template. Later comments, labels, closures, and linked fixes were not used.",
+    "scope": "Eight unchanged draft replies retain the requesting user’s confirmation. The pooled keyword search changed two replies and their citation lists; those new outputs await review.",
+    "evidence_verification": "The prior human-confirmed review used hash-matched public openings and pinned passages. This pooled run independently verified every pre-cutoff candidate opening before scoring.",
     "rating_scale": {
       "useful": "Addresses the expected triage needs with supported, concrete evidence and appropriate uncertainty.",
       "partly useful": "Provides relevant evidence or a helpful lead but omits an important distinction, request, or explanation, or includes an unsupported claim.",
       "not useful": "Provides no actionable case-specific evidence or request."
     },
-    "human_confirmation": "The requesting user confirmed all recorded usefulness ratings, citation-support checks, and uncertainty judgments in the implementation conversation on 2026-11-18 (Asia/Jakarta).",
-    "confirmed_at": "2026-11-17T18:17:39Z"
+    "human_confirmation": "The requesting user confirmed the eight unchanged replies and their citation judgments on 2026-11-18 (Asia/Jakarta). Confirmation of the updated keyword-rule replies for #7312 and #10156 is pending.",
+    "confirmed_at": "2026-11-17T18:17:39Z",
+    "pending_cases": [
+      {
+        "method": "keyword_rule",
+        "issue_number": 7312
+      },
+      {
+        "method": "keyword_rule",
+        "issue_number": 10156
+      }
+    ]
   }
 }
