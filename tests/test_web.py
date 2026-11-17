@@ -33,6 +33,8 @@ def test_web_interface_submits_issue_to_report_api() -> None:
     assert 'name="source-commit"' in page.text
     assert 'name="source-path"' in page.text
     assert 'name="source-line"' in page.text
+    assert 'id="agent-mode"' in page.text
+    assert '"/api/agent/triage"' in page.text
     assert "source_location: sourceCommit" in page.text
     assert '<ul id="duplicates"' in page.text
     assert '<ul id="related"' in page.text

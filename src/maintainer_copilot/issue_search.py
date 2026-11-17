@@ -226,6 +226,18 @@ class Match:
     score: float
 
 
+MAX_REASON_TERM_CHARS = 64
+
+
+def _reason_terms(terms: set[str], limit: int) -> str:
+    return ", ".join(
+        term
+        if len(term) <= MAX_REASON_TERM_CHARS
+        else term[: MAX_REASON_TERM_CHARS - 3] + "..."
+        for term in sorted(terms)[:limit]
+    )
+
+
 def assess_match(title: str, body: str, candidate: IssueRecord) -> Match | None:
     title_terms = _terms(title)
     body_terms = _terms(body)
@@ -260,7 +272,7 @@ def assess_match(title: str, body: str, candidate: IssueRecord) -> Match | None:
         and not different_polarity
         and not opposing_actions
     ):
-        details = ", ".join(sorted(shared_title | shared_body)[:4])
+        details = _reason_terms(shared_title | shared_body, 4)
         return Match(
             candidate,
             "duplicate",
@@ -269,7 +281,7 @@ def assess_match(title: str, body: str, candidate: IssueRecord) -> Match | None:
         )
     shared_topic = shared_title | shared_body
     if shared_title or len(shared_topic) >= 2:
-        details = ", ".join(sorted(shared_topic)[:3])
+        details = _reason_terms(shared_topic, 3)
         distinction = (
             "the reports describe different fixture scopes"
             if different_scopes

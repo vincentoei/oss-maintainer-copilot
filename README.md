@@ -49,6 +49,24 @@ rejects free-text claims, unknown citations, and labels without an unnegated
 cue in the quote's original issue context. With no model configured, the report
 still works and marks the model suggestion as unavailable.
 
+## Bounded agent report
+
+Select **Use bounded agent** in the web form, or send the same JSON issue body
+to `POST /api/agent/triage`. This path uses the configured `MODEL_NAME` to choose
+up to three actions and one final report selection. The only read actions are
+`search_earlier_issues` for the supplied pytest issue number and `inspect_source`
+for the supplied full commit SHA, path, and line. The server validates each
+action, allows each tool at most once, derives the issue search query itself,
+and caps each tool result at 5,000 characters. Verified documentation passages
+are available as context before the first action. The final selection passes
+through the same report and citation validation as `/api/triage`.
+
+If a tool fails or the agent does not finish within the step limit, the report
+records an abstention. The agent cannot post, edit, or execute commands. The
+agent's usefulness depends on the configured model; model selection and quality
+measurement are separate work, so the controlled-response tests here establish
+behavior and safety boundaries rather than model quality.
+
 Open <http://127.0.0.1:8000> to paste an issue. Enter its pytest issue number
 to search only issues opened before it. For a newly drafted issue without a
 number, the report still checks template details and abstains on earlier issue
