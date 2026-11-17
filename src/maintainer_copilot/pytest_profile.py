@@ -4,6 +4,8 @@ import re
 from dataclasses import dataclass
 from typing import Literal, assert_never
 
+from maintainer_copilot.documentation import DocumentationTopic
+
 type TemplateKind = Literal["bug", "feature"]
 
 TEMPLATE_REVISION = "50234b4e670064c42a4c29cb6258115a2079ba4c"
@@ -11,6 +13,52 @@ TEMPLATE_BASE = (
     f"https://github.com/pytest-dev/pytest/blob/{TEMPLATE_REVISION}/"
     ".github/ISSUE_TEMPLATE/"
 )
+
+DOCUMENTATION_TOPICS = (
+    DocumentationTopic(
+        key="capture",
+        url=(
+            "https://docs.pytest.org/en/stable/how-to/capture-stdout-stderr.html"
+            "#accessing-captured-output-from-a-test-function"
+        ),
+        section="accessing-captured-output-from-a-test-function",
+        passage=(
+            "fixtures allow access to stdout/stderr output created during "
+            "test execution."
+        ),
+        claim=(
+            "pytest documents that capture fixtures let tests access stdout and stderr "
+            "created during execution."
+        ),
+        relevance=r"\b(?:capsys|capfd|capteesys|capsysbinary|capfdbinary)\b",
+    ),
+    DocumentationTopic(
+        key="fixture_scope",
+        url="https://docs.pytest.org/en/stable/how-to/fixtures.html#fixture-scopes",
+        section="fixture-scopes",
+        passage=(
+            "Fixtures are created when first requested by a test, and are "
+            "destroyed based on their scope"
+        ),
+        claim=(
+            "pytest documents that fixture scope determines when a fixture "
+            "is destroyed."
+        ),
+        relevance=(
+            r"\bfixture scopes?\b|\bscope\s*=\s*['\"]"
+            r"(?:function|class|module|package|session)['\"]"
+        ),
+    ),
+)
+
+
+def relevant_documentation_topics(title: str, body: str) -> list[DocumentationTopic]:
+    issue_text = f"{title}\n{body}"
+    return [
+        topic
+        for topic in DOCUMENTATION_TOPICS
+        if re.search(topic.relevance, issue_text, re.I)
+    ]
 
 
 @dataclass(frozen=True)

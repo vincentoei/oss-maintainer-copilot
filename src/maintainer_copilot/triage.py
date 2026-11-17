@@ -1,11 +1,12 @@
 """The Python triage API and its validated report."""
 
 import re
+from collections.abc import Collection
 from uuid import UUID, uuid4
 
 from pydantic import BaseModel, ConfigDict, Field, HttpUrl, model_validator
 
-from maintainer_copilot import issue_search, pytest_profile
+from maintainer_copilot import documentation, issue_search, pytest_profile
 
 
 class IssueUnderReview(BaseModel):
@@ -20,6 +21,12 @@ class Citation(BaseModel):
     id: str
     source_url: HttpUrl
     description: str
+    passage: str | None = None
+
+
+class DocumentationClaim(BaseModel):
+    claim: str
+    citation_id: str
 
 
 class MissingReportDetail(BaseModel):
@@ -47,6 +54,7 @@ class TriageReport(BaseModel):
     duplicate_candidates: list[IssueSuggestion]
     related_issues: list[IssueSuggestion]
     missing_details: list[MissingReportDetail]
+    documentation_claims: list[DocumentationClaim]
     draft_reply: str
     citations: list[Citation]
     abstentions: list[Abstention]
@@ -74,13 +82,41 @@ class TriageReport(BaseModel):
             for detail in self.missing_details
         ):
             raise ValueError("draft reply must cite each requested detail")
+        citation_by_id = {item.id: item for item in self.citations}
+        for claim in self.documentation_claims:
+            citation = citation_by_id.get(claim.citation_id)
+            if citation is None or not citation.passage:
+                raise ValueError("documentation claim must cite a passage")
+        return self
+
+    def validate_documentation_evidence(
+        self, supplied_evidence: Collection[documentation.DocumentationEvidence]
+    ) -> "TriageReport":
+        """Check claims and citations against evidence returned by the source."""
+        supplied = {
+            (item.claim, item.passage.url, item.passage.text)
+            for item in supplied_evidence
+        }
+        citation_by_id = {item.id: item for item in self.citations}
+        for claim in self.documentation_claims:
+            citation = citation_by_id[claim.citation_id]
+            if (
+                claim.claim,
+                str(citation.source_url),
+                citation.passage,
+            ) not in supplied:
+                raise ValueError(
+                    "claim cites evidence not supplied by documentation source"
+                )
         return self
 
 
 def triage_issue(
-    issue: IssueUnderReview, source: issue_search.IssueSource | None = None
+    issue: IssueUnderReview,
+    source: issue_search.IssueSource | None = None,
+    documentation_source: documentation.DocumentationSource | None = None,
 ) -> TriageReport:
-    """Build a reviewable report from pytest templates and earlier issues."""
+    """Build a reviewable report from pytest templates, issues, and documentation."""
     template = pytest_profile.template_for(issue.title, issue.body)
     if template == "bug":
         missing = pytest_profile.missing_bug_details(issue.body)
@@ -179,6 +215,42 @@ def triage_issue(
                 citation_id=citation_id,
             )
         )
+    documentation_claims: list[DocumentationClaim] = []
+    supplied_evidence: list[documentation.DocumentationEvidence] = []
+    doc_source = documentation_source or documentation.PublicDocumentationSource(
+        pytest_profile.DOCUMENTATION_TOPICS
+    )
+    for topic in pytest_profile.relevant_documentation_topics(issue.title, issue.body):
+        try:
+            passage = doc_source.get_passage(topic)
+        except documentation.DocumentationError:
+            passage = None
+        if passage is None or (passage.url, passage.text) != (
+            topic.url,
+            topic.passage,
+        ):
+            abstentions.append(
+                Abstention(
+                    field="documentation_claims",
+                    reason=f"pytest documentation passage unavailable: {topic.key}.",
+                )
+            )
+            continue
+        supplied_evidence.append(
+            documentation.DocumentationEvidence(claim=topic.claim, passage=passage)
+        )
+        citation_id = f"C{len(citations) + 1}"
+        citations.append(
+            Citation(
+                id=citation_id,
+                source_url=HttpUrl(passage.url),
+                description=f"pytest documentation: {topic.key.replace('_', ' ')}",
+                passage=passage.text,
+            )
+        )
+        documentation_claims.append(
+            DocumentationClaim(claim=topic.claim, citation_id=citation_id)
+        )
     if template is None:
         abstentions.append(
             Abstention(
@@ -187,13 +259,15 @@ def triage_issue(
             )
         )
 
-    return TriageReport(
+    report = TriageReport(
         trace_id=uuid4(),
         issue_type=None,
         duplicate_candidates=duplicates,
         related_issues=related,
         missing_details=details,
+        documentation_claims=documentation_claims,
         draft_reply=reply,
         citations=citations,
         abstentions=abstentions,
     )
+    return report.validate_documentation_evidence(supplied_evidence)
