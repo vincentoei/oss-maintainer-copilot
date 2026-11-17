@@ -47,14 +47,14 @@ errors using the existing GitHub CLI credential.
 | Appropriate duplicate abstention | 4 / 5 | 4 / 5 |
 | Mean end-to-end latency | 1,764.90 ms | 2,625.06 ms |
 | Replay errors | 0 | 0 |
-| Draft-reply usefulness (agent review; human confirmation pending) | 5 partly useful | 3 partly useful, 2 not useful |
+| Draft-reply usefulness (human confirmed) | 5 partly useful | 3 partly useful, 2 not useful |
 
 The one uncertain duplicate relationship is excluded from exact judgment
 accuracy. The confirmed expected abstention for #12083 is scored separately:
 neither method explicitly abstained on `duplicate_candidates`, so both score
 4/5 on duplicate abstention. Exact matching cannot establish whether a
-`related_issues` entry adequately conveys uncertainty; the case-level output
-records that relationship as `pending_human_review`.
+`related_issues` entry adequately conveys uncertainty; the requesting user
+confirmed the recorded judgment for that case.
 
 ## Representative failures
 
@@ -68,14 +68,14 @@ records that relationship as `pending_human_review`.
   `type: infrastructure`. The controlled response abstains on all five known
   issue types by design.
 
-## Recorded draft review
+## Human-confirmed draft review
 
-Codex reviewed all ten saved replies on 2026-11-18 against the confirmed
-expectations. These are **agent-authored ratings awaiting human confirmation**;
-the existing `pending_human_review` fields remain pending. The JSON now records
-a rating and reason for every draft, each citation's claim and support judgment,
-missing-detail request checks, and uncertainty judgments. These additions do
-not change the deterministic scores or constitute human verification.
+The requesting user confirmed all ten saved reply ratings and reasons on
+2026-11-18 (Asia/Jakarta), along with the citation-support checks and
+uncertainty judgments. The JSON records the confirmation time, a rating and
+reason for every draft, each citation's claim and support judgment, and
+missing-detail request checks. The saved drafts and deterministic scores did
+not change.
 
 The review fetched all nine distinct issue opening titles/bodies and matched
 their stored SHA-256 hashes. It checked the two pinned capture passages and
@@ -118,9 +118,8 @@ expectation. Neither reply is fully useful. The pinned
 [bug template](https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/1_bug_report.md#L14)
 requests `pip list` output; version information in #12083 does not supply it.
 
-Human confirmation of these recorded ratings, semantic citation assessments,
-and uncertainty judgments is still required before claiming the pending human
-fields are verified. No pending judgment is counted as correct.
+The requesting user confirmed these assessments. The #12083 missing-detail
+and duplicate-abstention failures remain recorded as failures.
 
 ## Reproduce
 

@@ -15,7 +15,7 @@
         "citation_validity_rate": 1.0,
         "issue_type_abstention_appropriateness": 0.0,
         "duplicate_abstention_appropriateness": 0.8,
-        "draft_reply_usefulness": "pending_human_review",
+        "draft_reply_usefulness": "human_confirmed",
         "representative_failures": [
           {
             "issue_number": 7312,
@@ -35,13 +35,15 @@
           }
         ],
         "draft_reply_usefulness_review": {
-          "status": "agent_reviewed_pending_human_confirmation",
+          "status": "human_confirmed",
           "rated": 5,
           "ratings": {
             "useful": 0,
             "partly useful": 5,
             "not useful": 0
-          }
+          },
+          "reviewer": "requesting user",
+          "confirmed_at": "2026-11-17T18:17:39Z"
         }
       },
       "cases": [
@@ -79,9 +81,9 @@
               "valid": true,
               "checked": 1,
               "errors": [],
-              "semantic_review_status": "pending_human_review",
+              "semantic_review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "overall": "partly supported",
                 "citations": [
                   {
@@ -105,9 +107,9 @@
               "duplicate_expected": false,
               "duplicate_observed": false,
               "duplicate_appropriate": true,
-              "other_fields_review_status": "pending_human_review",
+              "other_fields_review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "uncertainty_judgment": "insufficient",
                 "reason": "Cautious relevance understates the reviewed duplicate candidate and the unspecified negation suggests an unsupported distinction.",
                 "explicit_duplicate_abstention": false,
@@ -116,7 +118,7 @@
               }
             },
             "draft_reply_usefulness": {
-              "review_status": "pending_human_review",
+              "review_status": "human_confirmed",
               "rating": "partly useful",
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
               "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]",
@@ -129,13 +131,13 @@
                 }
               ],
               "reason": "Links the relevant fixture-parametrization request #349, but does not identify the shared requested behavior or flag a duplicate candidate. The unspecified negated-condition claim is unsupported as a distinction between the reports. No missing detail is expected.",
-              "reviewer": "Codex (AI assistant)",
-              "agent_review_status": "completed",
+              "reviewer": "requesting user",
               "missing_details_review": {
                 "expected": [],
                 "request_satisfied": true,
                 "reason": "No missing detail is expected; the draft makes no unnecessary information request."
-              }
+              },
+              "confirmed_at": "2026-11-17T18:17:39Z"
             }
           }
         },
@@ -173,9 +175,9 @@
               "valid": true,
               "checked": 1,
               "errors": [],
-              "semantic_review_status": "pending_human_review",
+              "semantic_review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "overall": "supported",
                 "citations": [
                   {
@@ -199,9 +201,9 @@
               "duplicate_expected": false,
               "duplicate_observed": false,
               "duplicate_appropriate": true,
-              "other_fields_review_status": "pending_human_review",
+              "other_fields_review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "uncertainty_judgment": "appropriate but incomplete",
                 "reason": "Avoids a duplicate assertion, consistent with the expected nonduplicate; omits the concrete docs-request versus frozen-parameter distinction.",
                 "explicit_duplicate_abstention": false,
@@ -210,7 +212,7 @@
               }
             },
             "draft_reply_usefulness": {
-              "review_status": "pending_human_review",
+              "review_status": "human_confirmed",
               "rating": "partly useful",
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
               "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C1]",
@@ -223,13 +225,13 @@
                 }
               ],
               "reason": "Links relevant background #2959 and avoids declaring a duplicate, but generic shared tokens do not explain that this is a documentation request for dynamic fixture registration rather than the earlier frozen-parameter bug. No missing detail is expected.",
-              "reviewer": "Codex (AI assistant)",
-              "agent_review_status": "completed",
+              "reviewer": "requesting user",
               "missing_details_review": {
                 "expected": [],
                 "request_satisfied": true,
                 "reason": "No missing detail is expected; the draft makes no unnecessary information request."
-              }
+              },
+              "confirmed_at": "2026-11-17T18:17:39Z"
             }
           }
         },
@@ -267,9 +269,9 @@
               "valid": true,
               "checked": 3,
               "errors": [],
-              "semantic_review_status": "pending_human_review",
+              "semantic_review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "overall": "partly supported",
                 "citations": [
                   {
@@ -309,9 +311,9 @@
               "duplicate_expected": false,
               "duplicate_observed": false,
               "duplicate_appropriate": true,
-              "other_fields_review_status": "pending_human_review",
+              "other_fields_review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "uncertainty_judgment": "insufficient",
                 "reason": "Cautious relevance understates the reviewed duplicate candidate; the negation wording does not explain a supported difference.",
                 "explicit_duplicate_abstention": false,
@@ -320,7 +322,7 @@
               }
             },
             "draft_reply_usefulness": {
-              "review_status": "pending_human_review",
+              "review_status": "human_confirmed",
               "rating": "partly useful",
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
               "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, call; one report negates a shared condition. [C1]\n- pytest documents that capture fixtures let tests access stdout and stderr created during execution. [C2]\n- At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line. [C3]",
@@ -345,13 +347,13 @@
                 }
               ],
               "reason": "Supplies the relevant earlier issue and valid capture documentation/source references, but fails to explain their shared output-loss behavior or identify a duplicate candidate. The negated-condition claim is unsupported as a distinction, and the source sentence merely states that a line exists. No missing detail is expected.",
-              "reviewer": "Codex (AI assistant)",
-              "agent_review_status": "completed",
+              "reviewer": "requesting user",
               "missing_details_review": {
                 "expected": [],
                 "request_satisfied": true,
                 "reason": "No missing detail is expected; the draft makes no unnecessary information request."
-              }
+              },
+              "confirmed_at": "2026-11-17T18:17:39Z"
             }
           }
         },
@@ -371,9 +373,9 @@
               "correct": null,
               "expected": "uncertain",
               "observed": "related_issue",
-              "review_status": "pending_human_review",
+              "review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "expected_uncertainty_satisfied": false,
                 "reason": "The wording says the same failure is not established, which is useful caution. However, the saved report has no duplicate_candidates abstention and the draft does not explicitly state that whether #7012 is a duplicate remains uncertain or explain the differing reproductions.",
                 "failures": [
@@ -400,9 +402,9 @@
               "valid": true,
               "checked": 1,
               "errors": [],
-              "semantic_review_status": "pending_human_review",
+              "semantic_review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "overall": "supported",
                 "citations": [
                   {
@@ -426,9 +428,9 @@
               "duplicate_expected": true,
               "duplicate_observed": false,
               "duplicate_appropriate": false,
-              "other_fields_review_status": "pending_human_review",
+              "other_fields_review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "uncertainty_judgment": "insufficient",
                 "reason": "The wording says the same failure is not established, which is useful caution. However, the saved report has no duplicate_candidates abstention and the draft does not explicitly state that whether #7012 is a duplicate remains uncertain or explain the differing reproductions.",
                 "explicit_duplicate_abstention": false,
@@ -437,7 +439,7 @@
               }
             },
             "draft_reply_usefulness": {
-              "review_status": "pending_human_review",
+              "review_status": "human_confirmed",
               "rating": "partly useful",
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
               "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #7012 may be relevant: Shared topic: collect, collected, duplicate; the same failure or request is not established. [C1]",
@@ -450,15 +452,15 @@
                 }
               ],
               "reason": "Provides a relevant #7012 lead with cautious wording, but omits the required pip list output request and explicit duplicate abstention. It does not explain the pytest 8 file-plus-directory regression versus the pytest 5.4.1 empty-argument reproduction.",
-              "reviewer": "Codex (AI assistant)",
-              "agent_review_status": "completed",
+              "reviewer": "requesting user",
               "missing_details_review": {
                 "expected": [
                   "pip list output"
                 ],
                 "request_satisfied": false,
                 "reason": "Neither the saved missing_details field nor the draft requests pip list output."
-              }
+              },
+              "confirmed_at": "2026-11-17T18:17:39Z"
             }
           }
         },
@@ -496,9 +498,9 @@
               "valid": true,
               "checked": 1,
               "errors": [],
-              "semantic_review_status": "pending_human_review",
+              "semantic_review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "overall": "supported",
                 "citations": [
                   {
@@ -522,9 +524,9 @@
               "duplicate_expected": false,
               "duplicate_observed": false,
               "duplicate_appropriate": true,
-              "other_fields_review_status": "pending_human_review",
+              "other_fields_review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "uncertainty_judgment": "appropriate but incomplete",
                 "reason": "Avoids a duplicate assertion, consistent with the expected nonduplicate; does not explain the feature-request versus repeated-execution distinction.",
                 "explicit_duplicate_abstention": false,
@@ -533,7 +535,7 @@
               }
             },
             "draft_reply_usefulness": {
-              "review_status": "pending_human_review",
+              "review_status": "human_confirmed",
               "rating": "partly useful",
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
               "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #7312 may be relevant: Shared topic: def, fixture, mark; the same failure or request is not established. [C1]",
@@ -546,13 +548,13 @@
                 }
               ],
               "reason": "Links a related fixture-parametrization feature request and avoids claiming the same failure, but does not explain why a request for fixture-supplied parameter values differs from repeated fixture execution with recreated tuples. No missing detail is expected.",
-              "reviewer": "Codex (AI assistant)",
-              "agent_review_status": "completed",
+              "reviewer": "requesting user",
               "missing_details_review": {
                 "expected": [],
                 "request_satisfied": true,
                 "reason": "No missing detail is expected; the draft makes no unnecessary information request."
-              }
+              },
+              "confirmed_at": "2026-11-17T18:17:39Z"
             }
           }
         }
@@ -573,7 +575,7 @@
         "citation_validity_rate": 1.0,
         "issue_type_abstention_appropriateness": 0.8,
         "duplicate_abstention_appropriateness": 0.8,
-        "draft_reply_usefulness": "pending_human_review",
+        "draft_reply_usefulness": "human_confirmed",
         "representative_failures": [
           {
             "issue_number": 7312,
@@ -597,13 +599,15 @@
           }
         ],
         "draft_reply_usefulness_review": {
-          "status": "agent_reviewed_pending_human_confirmation",
+          "status": "human_confirmed",
           "rated": 5,
           "ratings": {
             "useful": 0,
             "partly useful": 3,
             "not useful": 2
-          }
+          },
+          "reviewer": "requesting user",
+          "confirmed_at": "2026-11-17T18:17:39Z"
         }
       },
       "cases": [
@@ -641,9 +645,9 @@
               "valid": true,
               "checked": 1,
               "errors": [],
-              "semantic_review_status": "pending_human_review",
+              "semantic_review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "overall": "partly supported",
                 "citations": [
                   {
@@ -666,9 +670,9 @@
               "duplicate_expected": false,
               "duplicate_observed": false,
               "duplicate_appropriate": true,
-              "other_fields_review_status": "pending_human_review",
+              "other_fields_review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "uncertainty_judgment": "insufficient",
                 "reason": "Cautious relevance understates the reviewed duplicate candidate and the unspecified negation suggests an unsupported distinction.",
                 "explicit_duplicate_abstention": false,
@@ -677,7 +681,7 @@
               }
             },
             "draft_reply_usefulness": {
-              "review_status": "pending_human_review",
+              "review_status": "human_confirmed",
               "rating": "partly useful",
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
               "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]",
@@ -690,13 +694,13 @@
                 }
               ],
               "reason": "Links the relevant fixture-parametrization request #349, but does not identify the shared requested behavior or flag a duplicate candidate. The unspecified negated-condition claim is unsupported as a distinction between the reports. No missing detail is expected.",
-              "reviewer": "Codex (AI assistant)",
-              "agent_review_status": "completed",
+              "reviewer": "requesting user",
               "missing_details_review": {
                 "expected": [],
                 "request_satisfied": true,
                 "reason": "No missing detail is expected; the draft makes no unnecessary information request."
-              }
+              },
+              "confirmed_at": "2026-11-17T18:17:39Z"
             }
           }
         },
@@ -734,9 +738,9 @@
               "valid": true,
               "checked": 1,
               "errors": [],
-              "semantic_review_status": "pending_human_review",
+              "semantic_review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "overall": "supported",
                 "citations": [
                   {
@@ -759,9 +763,9 @@
               "duplicate_expected": false,
               "duplicate_observed": false,
               "duplicate_appropriate": true,
-              "other_fields_review_status": "pending_human_review",
+              "other_fields_review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "uncertainty_judgment": "appropriate but incomplete",
                 "reason": "Avoids a duplicate assertion, consistent with the expected nonduplicate; omits the concrete docs-request versus frozen-parameter distinction.",
                 "explicit_duplicate_abstention": false,
@@ -770,7 +774,7 @@
               }
             },
             "draft_reply_usefulness": {
-              "review_status": "pending_human_review",
+              "review_status": "human_confirmed",
               "rating": "partly useful",
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
               "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C1]",
@@ -783,13 +787,13 @@
                 }
               ],
               "reason": "Links relevant background #2959 and avoids declaring a duplicate, but generic shared tokens do not explain that this is a documentation request for dynamic fixture registration rather than the earlier frozen-parameter bug. No missing detail is expected.",
-              "reviewer": "Codex (AI assistant)",
-              "agent_review_status": "completed",
+              "reviewer": "requesting user",
               "missing_details_review": {
                 "expected": [],
                 "request_satisfied": true,
                 "reason": "No missing detail is expected; the draft makes no unnecessary information request."
-              }
+              },
+              "confirmed_at": "2026-11-17T18:17:39Z"
             }
           }
         },
@@ -827,9 +831,9 @@
               "valid": true,
               "checked": 3,
               "errors": [],
-              "semantic_review_status": "pending_human_review",
+              "semantic_review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "overall": "partly supported",
                 "citations": [
                   {
@@ -868,9 +872,9 @@
               "duplicate_expected": false,
               "duplicate_observed": false,
               "duplicate_appropriate": true,
-              "other_fields_review_status": "pending_human_review",
+              "other_fields_review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "uncertainty_judgment": "insufficient",
                 "reason": "Cautious relevance understates the reviewed duplicate candidate; the negation wording does not explain a supported difference.",
                 "explicit_duplicate_abstention": false,
@@ -879,7 +883,7 @@
               }
             },
             "draft_reply_usefulness": {
-              "review_status": "pending_human_review",
+              "review_status": "human_confirmed",
               "rating": "partly useful",
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
               "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, call; one report negates a shared condition. [C1]\n- pytest documents that capture fixtures let tests access stdout and stderr created during execution. [C2]\n- At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line. [C3]",
@@ -904,13 +908,13 @@
                 }
               ],
               "reason": "Supplies the relevant earlier issue and valid capture documentation/source references, but fails to explain their shared output-loss behavior or identify a duplicate candidate. The negated-condition claim is unsupported as a distinction, and the source sentence merely states that a line exists. No missing detail is expected.",
-              "reviewer": "Codex (AI assistant)",
-              "agent_review_status": "completed",
+              "reviewer": "requesting user",
               "missing_details_review": {
                 "expected": [],
                 "request_satisfied": true,
                 "reason": "No missing detail is expected; the draft makes no unnecessary information request."
-              }
+              },
+              "confirmed_at": "2026-11-17T18:17:39Z"
             }
           }
         },
@@ -930,9 +934,9 @@
               "correct": null,
               "expected": "uncertain",
               "observed": "not_retrieved",
-              "review_status": "pending_human_review",
+              "review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "expected_uncertainty_satisfied": false,
                 "reason": "General draft-reply abstention is not duplicate-specific uncertainty. No earlier issue is discussed and the expected relationship is not explained.",
                 "failures": [
@@ -959,9 +963,9 @@
               "valid": true,
               "checked": 0,
               "errors": [],
-              "semantic_review_status": "pending_human_review",
+              "semantic_review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "overall": "not applicable",
                 "citations": [],
                 "note": "No citations or specific factual evidence claims to verify; this is not a citation-support success."
@@ -976,9 +980,9 @@
               "duplicate_expected": true,
               "duplicate_observed": false,
               "duplicate_appropriate": false,
-              "other_fields_review_status": "pending_human_review",
+              "other_fields_review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "uncertainty_judgment": "insufficient",
                 "reason": "General draft-reply abstention is not duplicate-specific uncertainty. No earlier issue is discussed and the expected relationship is not explained.",
                 "explicit_duplicate_abstention": false,
@@ -987,21 +991,21 @@
               }
             },
             "draft_reply_usefulness": {
-              "review_status": "pending_human_review",
+              "review_status": "human_confirmed",
               "rating": "not useful",
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
               "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
               "citations": [],
               "reason": "Generic fallback provides no case-specific evidence or next step. It omits the required pip list output request, does not retrieve or discuss #7012, and supplies no explicit duplicate abstention.",
-              "reviewer": "Codex (AI assistant)",
-              "agent_review_status": "completed",
+              "reviewer": "requesting user",
               "missing_details_review": {
                 "expected": [
                   "pip list output"
                 ],
                 "request_satisfied": false,
                 "reason": "Neither the saved missing_details field nor the draft requests pip list output."
-              }
+              },
+              "confirmed_at": "2026-11-17T18:17:39Z"
             }
           }
         },
@@ -1039,9 +1043,9 @@
               "valid": true,
               "checked": 0,
               "errors": [],
-              "semantic_review_status": "pending_human_review",
+              "semantic_review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "overall": "not applicable",
                 "citations": [],
                 "note": "No citations or specific factual evidence claims to verify; this is not a citation-support success."
@@ -1057,9 +1061,9 @@
               "duplicate_expected": false,
               "duplicate_observed": false,
               "duplicate_appropriate": true,
-              "other_fields_review_status": "pending_human_review",
+              "other_fields_review_status": "human_confirmed",
               "semantic_review": {
-                "status": "agent_reviewed_pending_human_confirmation",
+                "status": "human_confirmed",
                 "uncertainty_judgment": "insufficient",
                 "reason": "General draft-reply abstention is not duplicate-specific uncertainty. No earlier issue is discussed and the expected relationship is not explained.",
                 "explicit_duplicate_abstention": false,
@@ -1068,19 +1072,19 @@
               }
             },
             "draft_reply_usefulness": {
-              "review_status": "pending_human_review",
+              "review_status": "human_confirmed",
               "rating": "not useful",
               "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
               "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
               "citations": [],
               "reason": "Generic fallback provides no case-specific evidence or next step and does not retrieve #7312 or explain the expected nonduplicate distinction. No missing detail is expected, so declining a specific request does not help triage this report.",
-              "reviewer": "Codex (AI assistant)",
-              "agent_review_status": "completed",
+              "reviewer": "requesting user",
               "missing_details_review": {
                 "expected": [],
                 "request_satisfied": true,
                 "reason": "No missing detail is expected; the draft makes no unnecessary information request."
-              }
+              },
+              "confirmed_at": "2026-11-17T18:17:39Z"
             }
           }
         }
@@ -1094,17 +1098,18 @@
   },
   "methodology": "Both methods replay the same verified issue text, earlier issue, and pinned pytest commit. The keyword-rule baseline filters its one earlier-issue fixture by query terms, applies lexical match and template rules, and selects type by cue. Controlled responses are a smoke comparator, not model quality.",
   "draft_review": {
-    "status": "agent_reviewed_pending_human_confirmation",
-    "reviewer": "Codex (AI assistant)",
+    "status": "human_confirmed",
+    "reviewer": "requesting user",
     "reviewed_on": "2026-11-18",
     "expected_outcomes": "docs/evaluation/first-five-cases.md",
-    "scope": "All 10 saved draft replies, all 12 citation occurrences, missing-detail requests, and uncertainty wording. Ratings are agent-authored; no human verification is claimed.",
+    "scope": "All 10 saved draft replies, all 12 citation occurrences, missing-detail requests, and uncertainty wording. The requesting user confirmed the recorded assessments.",
     "evidence_verification": "Fetched the nine distinct public issue opening titles/bodies through GitHub REST and matched all stored SHA-256 hashes. Read both capture passages at the pinned commit and the pinned bug template. Later comments, labels, closures, and linked fixes were not used.",
     "rating_scale": {
       "useful": "Addresses the expected triage needs with supported, concrete evidence and appropriate uncertainty.",
       "partly useful": "Provides relevant evidence or a helpful lead but omits an important distinction, request, or explanation, or includes an unsupported claim.",
       "not useful": "Provides no actionable case-specific evidence or request."
     },
-    "human_confirmation": "Pending for these new usefulness, citation-support, and uncertainty judgments. Existing confirmed expected outcomes remain separate."
+    "human_confirmation": "The requesting user confirmed all recorded usefulness ratings, citation-support checks, and uncertainty judgments in the implementation conversation on 2026-11-18 (Asia/Jakarta).",
+    "confirmed_at": "2026-11-17T18:17:39Z"
   }
 }
