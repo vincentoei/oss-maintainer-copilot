@@ -1,0 +1,16 @@
+{
+  "issue_number": 12081,
+  "opening_title": "Capture: copy output when using readouterr() instead of consuming it",
+  "opening_cutoff": "2024-03-06T00:03:25Z",
+  "opening_content_sha256": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-17T16:19:00Z",
+  "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+  "repository_commit_at": "2024-03-04T15:44:56Z",
+  "earlier_issue": {
+    "number": 3448,
+    "created_at": "2018-05-04T10:55:56Z",
+    "content_sha256": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+    "last_edited_at": null
+  }
+}

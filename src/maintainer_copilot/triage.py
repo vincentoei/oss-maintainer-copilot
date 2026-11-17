@@ -220,6 +220,11 @@ def triage_issue(
     model_client: model.ModelClient | None = None,
     ci_source: ci.CISource | None = None,
     trace: TraceRecorder | None = None,
+    *,
+    documentation_topics: tuple[documentation.DocumentationTopic, ...] = (
+        pytest_profile.DOCUMENTATION_TOPICS
+    ),
+    template_revision: str = pytest_profile.TEMPLATE_REVISION,
 ) -> TriageReport:
     """Build a reviewable report from pytest templates, issues, and documentation."""
     recorder = trace or TraceRecorder()
@@ -243,7 +248,11 @@ def triage_issue(
         [
             Citation(
                 id=f"C{index}",
-                source_url=HttpUrl(pytest_profile.citation_url(template, detail.line)),
+                source_url=HttpUrl(
+                    pytest_profile.citation_url(
+                        template, detail.line, template_revision
+                    )
+                ),
                 description=f"pytest {template} report template: {detail.name}",
             )
             for index, detail in enumerate(missing, start=1)
@@ -338,9 +347,11 @@ def triage_issue(
     documentation_claims: list[DocumentationClaim] = []
     supplied_evidence: list[documentation.DocumentationEvidence] = []
     doc_source = documentation_source or documentation.PublicDocumentationSource(
-        pytest_profile.DOCUMENTATION_TOPICS
+        documentation_topics
     )
-    for topic in pytest_profile.relevant_documentation_topics(issue.title, issue.body):
+    for topic in pytest_profile.relevant_documentation_topics(
+        issue.title, issue.body, documentation_topics
+    ):
         try:
             with recorder.call(
                 "retrieval", "get_documentation_passage", topic.key
