@@ -1,5 +1,6 @@
 """Historical replay contract: current GitHub activity cannot enter a report."""
 
+import os
 from datetime import UTC, datetime
 
 import pytest
@@ -10,7 +11,9 @@ from maintainer_copilot.model import ModelRequest
 from maintainer_copilot.replay import (
     CaseFlagged,
     ControlledReplayModel,
+    GitHubCommitSource,
     HistoricalCase,
+    RepositoryCommit,
     content_hash,
     load_case,
     replay_case,
@@ -50,17 +53,45 @@ class ChangingGitHub(issue_search.GitHubIssueSource):
 
 
 class ChangingRepository:
-    def __init__(self, commit: str) -> None:
+    def __init__(
+        self,
+        commit: str,
+        committed_at: datetime,
+        pinned_reader: repository_source.SourceReader | None = None,
+    ) -> None:
         self.commit = commit
+        self.committed_at = committed_at
+        self.pinned_reader = pinned_reader
         self.later_code = "a post-cutoff fix"
         self.later_documentation = "a post-cutoff docs change"
         self.reads: list[repository_source.SourceLocation] = []
+        self.commit_reads: list[str] = []
+
+    def get_commit(self, sha: str) -> RepositoryCommit:
+        self.commit_reads.append(sha)
+        return RepositoryCommit(sha, self.committed_at)
 
     def get_excerpt(
         self, location: repository_source.SourceLocation
     ) -> repository_source.SourceExcerpt:
         self.reads.append(location)
-        assert location.commit == self.commit
+        if location.commit != self.commit:
+            later_text = (
+                self.later_documentation
+                if location.path == "doc/en/how-to/capture-stdout-stderr.rst"
+                else self.later_code
+            )
+            return repository_source.SourceExcerpt(
+                commit=location.commit,
+                path=location.path,
+                line=location.line,
+                start_line=location.line,
+                end_line=location.line,
+                lines=[later_text],
+                source_url=location.source_url,
+            )
+        if self.pinned_reader is not None:
+            return self.pinned_reader.get_excerpt(location)
         if location.path == "doc/en/how-to/capture-stdout-stderr.rst":
             assert location.line == 110
             lines = [
@@ -137,16 +168,31 @@ def synthetic_case() -> tuple[HistoricalCase, ChangingGitHub, ChangingRepository
     return (
         case,
         ChangingGitHub(reviewed, earlier),
-        ChangingRepository(case.repository_commit),
+        ChangingRepository(case.repository_commit, case.repository_commit_at),
     )
 
 
 def test_replay_ignores_post_cutoff_activity_in_every_evidence_channel() -> None:
     case, github, repository = synthetic_case()
     model = ObservedModel()
+    later_source = repository_source.SourceLocation(
+        commit="f" * 40, path="src/_pytest/capture.py", line=935
+    )
+    later_documentation = repository_source.SourceLocation(
+        commit="f" * 40,
+        path="doc/en/how-to/capture-stdout-stderr.rst",
+        line=110,
+    )
+    old_later_code = repository.get_excerpt(later_source).lines
+    old_later_docs = repository.get_excerpt(later_documentation).lines
+    repository.reads.clear()
 
     first = replay_case(
-        case, issue_source=github, source_reader=repository, model_client=model
+        case,
+        commit_source=repository,
+        issue_source=github,
+        source_reader=repository,
+        model_client=model,
     )
     assert first.status == "complete"
     assert first.related_issues or first.duplicate_candidates
@@ -164,9 +210,16 @@ def test_replay_ignores_post_cutoff_activity_in_every_evidence_channel() -> None
     github.later_search_results.append("new duplicate after the cutoff")
     repository.later_code = "readouterr now copies output"
     repository.later_documentation = "the docs now explain the fix"
+    assert repository.get_excerpt(later_source).lines != old_later_code
+    assert repository.get_excerpt(later_documentation).lines != old_later_docs
+    repository.reads.clear()
 
     second = replay_case(
-        case, issue_source=github, source_reader=repository, model_client=model
+        case,
+        commit_source=repository,
+        issue_source=github,
+        source_reader=repository,
+        model_client=model,
     )
     assert first.model_dump(exclude={"trace_id"}) == second.model_dump(
         exclude={"trace_id"}
@@ -174,6 +227,7 @@ def test_replay_ignores_post_cutoff_activity_in_every_evidence_channel() -> None
     assert len(model.requests) == 2
     assert model.requests[0] == model.requests[1]
     assert github.reads == [case.issue_number, 3448, case.issue_number, 3448]
+    assert repository.commit_reads == [case.repository_commit] * 2
     assert {location.commit for location in repository.reads} == {
         case.repository_commit
     }
@@ -195,7 +249,11 @@ def test_changed_issue_content_is_flagged_before_model_or_source_reads(
 
     with pytest.raises(CaseFlagged, match="opening content changed"):
         replay_case(
-            case, issue_source=github, source_reader=repository, model_client=model
+            case,
+            commit_source=repository,
+            issue_source=github,
+            source_reader=repository,
+            model_client=model,
         )
     assert model.requests == []
     assert repository.reads == []
@@ -208,7 +266,11 @@ def test_unavailable_issue_is_flagged_before_scoring() -> None:
 
     with pytest.raises(CaseFlagged, match="is unavailable"):
         replay_case(
-            case, issue_source=github, source_reader=repository, model_client=model
+            case,
+            commit_source=repository,
+            issue_source=github,
+            source_reader=repository,
+            model_client=model,
         )
     assert model.requests == []
     assert repository.reads == []
@@ -238,7 +300,11 @@ def test_replay_never_fetches_live_ci_for_an_opening_pr_link(
     monkeypatch.setattr(ci.PublicCISource, "get_checks", live_checks)
     model = ObservedModel()
     report = replay_case(
-        case, issue_source=github, source_reader=repository, model_client=model
+        case,
+        commit_source=repository,
+        issue_source=github,
+        source_reader=repository,
+        model_client=model,
     )
 
     assert live_calls == []
@@ -255,3 +321,88 @@ def test_case_rejects_repository_evidence_after_opening() -> None:
 
     with pytest.raises(ValueError, match="predate the opening cutoff"):
         HistoricalCase.model_validate(data)
+
+
+def test_forged_pre_cutoff_timestamp_cannot_admit_a_later_commit() -> None:
+    case, github, repository = synthetic_case()
+    data = case.model_dump()
+    data["repository_commit"] = "f" * 40
+    forged = HistoricalCase.model_validate(data)
+    repository.committed_at = datetime(2024, 3, 7, tzinfo=UTC)
+    model = ObservedModel()
+
+    with pytest.raises(CaseFlagged, match="commit does not match the cutoff"):
+        replay_case(
+            forged,
+            commit_source=repository,
+            issue_source=github,
+            source_reader=repository,
+            model_client=model,
+        )
+    assert repository.commit_reads == [forged.repository_commit]
+    assert github.reads == []
+    assert repository.reads == []
+    assert model.requests == []
+
+
+@pytest.mark.skipif(
+    os.getenv("RUN_LIVE_REPLAY") != "1", reason="requires public GitHub access"
+)
+def test_recorded_case_ignores_later_activity_with_public_opening_text() -> None:
+    """Use the checked-in case without copying contributor issue bodies into Git."""
+    case = load_case()
+    public_issues = issue_search.GitHubIssueSource()
+    github = ChangingGitHub(
+        public_issues.get_issue(case.issue_number),
+        public_issues.get_issue(case.earlier_issue.number),
+    )
+    repository = ChangingRepository(
+        case.repository_commit,
+        case.repository_commit_at,
+        pinned_reader=repository_source.PublicRepositorySource(),
+    )
+    model = ObservedModel()
+    first = replay_case(
+        case,
+        commit_source=GitHubCommitSource(),
+        issue_source=github,
+        source_reader=repository,
+        model_client=model,
+    )
+    assert first.status == "complete"
+    assert first.documentation_claims and first.source_claims
+    assert [item.issue_number for item in first.related_issues] == [3448]
+    github.comments.append("later maintainer reply reveals a fix")
+    github.labels.append("type: enhancement")
+    github.duplicate_decisions.append("duplicate of #3448")
+    github.later_search_results.append("later duplicate decision")
+    later_location = repository_source.SourceLocation(
+        commit="f" * 40, path="src/_pytest/capture.py", line=935
+    )
+    later_doc_location = repository_source.SourceLocation(
+        commit="f" * 40,
+        path="doc/en/how-to/capture-stdout-stderr.rst",
+        line=110,
+    )
+    before_later_code = repository.get_excerpt(later_location).lines
+    before_later_docs = repository.get_excerpt(later_doc_location).lines
+    repository.later_code = "readouterr now preserves all output"
+    repository.later_documentation = "later documentation describes the fix"
+    assert repository.get_excerpt(later_location).lines != before_later_code
+    assert repository.get_excerpt(later_doc_location).lines != before_later_docs
+    repository.reads.clear()
+
+    second = replay_case(
+        case,
+        commit_source=GitHubCommitSource(),
+        issue_source=github,
+        source_reader=repository,
+        model_client=model,
+    )
+    assert first.model_dump(exclude={"trace_id"}) == second.model_dump(
+        exclude={"trace_id"}
+    )
+    assert model.requests[0] == model.requests[1]
+    assert {location.commit for location in repository.reads} == {
+        case.repository_commit
+    }

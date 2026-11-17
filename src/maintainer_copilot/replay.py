@@ -2,9 +2,13 @@
 
 import hashlib
 import json
+import os
 from dataclasses import dataclass
 from datetime import datetime
 from importlib.resources import files
+from typing import Protocol
+from urllib.error import URLError
+from urllib.request import Request, urlopen
 
 from pydantic import BaseModel, Field, model_validator
 
@@ -15,6 +19,50 @@ from maintainer_copilot.triage import IssueUnderReview, TriageReport, triage_iss
 
 class CaseFlagged(Exception):
     """A historical case cannot safely be scored or replayed."""
+
+
+@dataclass(frozen=True)
+class RepositoryCommit:
+    sha: str
+    committed_at: datetime
+
+
+class CommitSource(Protocol):
+    def get_commit(self, sha: str) -> RepositoryCommit: ...
+
+
+class GitHubCommitSource:
+    """Read the actual commit timestamp from pytest's public Git history."""
+
+    def get_commit(self, sha: str) -> RepositoryCommit:
+        headers = {
+            "Accept": "application/vnd.github+json",
+            "User-Agent": "oss-maintainer-copilot",
+            "X-GitHub-Api-Version": "2022-11-28",
+        }
+        if token := os.getenv("GITHUB_TOKEN"):
+            headers["Authorization"] = f"Bearer {token}"
+        request = Request(
+            f"https://api.github.com/repos/pytest-dev/pytest/git/commits/{sha}",
+            headers=headers,
+        )
+        try:
+            with urlopen(request, timeout=8) as response:
+                body = response.read(65_537)
+            if len(body) > 65_536:
+                raise ValueError("commit response exceeds size limit")
+            data = json.loads(body)
+            if not isinstance(data, dict):
+                raise ValueError("commit response is not an object")
+            committer = data["committer"]
+            if not isinstance(committer, dict):
+                raise ValueError("commit metadata is incomplete")
+            committed_at = datetime.fromisoformat(
+                str(committer["date"]).replace("Z", "+00:00")
+            )
+            return RepositoryCommit(str(data["sha"]), committed_at)
+        except (URLError, TimeoutError, OSError, ValueError, KeyError) as exc:
+            raise CaseFlagged("pytest repository commit is unavailable") from exc
 
 
 class EarlierIssue(BaseModel):
@@ -67,6 +115,20 @@ def load_case() -> HistoricalCase:
 
 def content_hash(issue: issue_search.IssueRecord) -> str:
     return hashlib.sha256(f"{issue.title}\0{issue.body}".encode()).hexdigest()
+
+
+def _verified_commit(case: HistoricalCase, source: CommitSource) -> None:
+    try:
+        commit = source.get_commit(case.repository_commit)
+    except Exception as exc:
+        raise CaseFlagged("pytest repository commit is unavailable") from exc
+    if (
+        commit.sha != case.repository_commit
+        or commit.committed_at.tzinfo is None
+        or commit.committed_at != case.repository_commit_at
+        or commit.committed_at >= case.opening_cutoff
+    ):
+        raise CaseFlagged("pytest repository commit does not match the cutoff")
 
 
 def _verified_issue(
@@ -207,12 +269,14 @@ class _UnavailableHistoricalCI:
 def replay_case(
     case: HistoricalCase | None = None,
     *,
+    commit_source: CommitSource | None = None,
     issue_source: issue_search.IssueSource | None = None,
     source_reader: repository_source.SourceReader | None = None,
     model_client: model.ModelClient | None = None,
 ) -> TriageReport:
     """Verify public issue text, then triage with only pre-cutoff evidence."""
     case = case or load_case()
+    _verified_commit(case, commit_source or GitHubCommitSource())
     public_issues = issue_source or issue_search.GitHubIssueSource()
     reviewed = _verified_issue(
         public_issues,

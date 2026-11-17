@@ -103,16 +103,27 @@ from GitHub, following [ADR-0003](docs/adr/0003-publish-evaluation-metadata.md).
 
 The evidence cutoff is the opening time, March 6, 2024 at 00:03:25 UTC. The
 repository evidence comes from pytest commit `03e54712dd123138aa4c1035a027e17d0dd9a86c`,
-dated March 4, 2024. Template links, documentation, and source inspection use
-that commit. The only earlier issue in this first case is #3448, whose title
-and body were also verified. Replay does not search the live issue index or
-read comments, labels, closures, or duplicate decisions. Linked CI checks are
+dated March 4, 2024. Replay checks that the recorded commit date matches
+GitHub's commit record and precedes the cutoff before reading issue content.
+An unavailable or mismatched commit flags the case. Template links,
+documentation, and source inspection use that commit. The only earlier issue
+in this first case is #3448, whose title and body were also verified. Replay
+does not search the live issue index or read comments, labels, closures, or
+duplicate decisions. Linked CI checks are
 unavailable in the historical view and produce an abstention. The default model
 response is controlled: it selects available cited reply statements and
 abstains on issue type. It is a reproducible smoke replay, not a model quality
 measurement or a scored evaluation outcome. Model selection and `llmfit` are
 planned for issue #21 after #15 and before #16; earlier quality observations
 remain provisional.
+
+The deterministic replay tests run with `pytest`. To check the recorded case
+against public GitHub content and mutate post-cutoff activity in a controlled
+reader, run:
+
+```sh
+RUN_LIVE_REPLAY=1 uv run --no-env-file pytest -q tests/test_replay.py -k recorded_case
+```
 
 Open <http://127.0.0.1:8000> to paste an issue. Enter its pytest issue number
 to search only issues opened before it. For a newly drafted issue without a
