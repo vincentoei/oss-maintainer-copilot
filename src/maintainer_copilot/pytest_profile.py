@@ -8,6 +8,57 @@ from maintainer_copilot.documentation import DocumentationTopic
 
 type TemplateKind = Literal["bug", "feature"]
 
+# The issue-oriented type labels from pytest's public label list. The
+# feature-branch label routes pull requests, so it is not an issue type. A
+# selected label needs an unnegated cue in the quote's original issue context;
+# otherwise the model must return unknown. This is a conservative check, not a
+# correctness score.
+TYPE_EVIDENCE_CUES = {
+    "type: backward compatibility": r"\b(?:backward compatib\w*|breaking change)\b",
+    "type: bug": r"\b(?:bug|broken|crash\w*|fail\w*|error|incorrect|wrong)\b",
+    "type: deprecation": r"\bdeprecat\w*\b",
+    "type: docs": r"\b(?:docs|documentation|guide|manual|typo)\b",
+    "type: enhancement": r"\b(?:feature|enhancement|add|support|allow)\b",
+    "type: infrastructure": r"\b(?:infrastructure|build|release|ci|workflow)\b",
+    "type: performance": r"\b(?:performance|slow|latency|memory|speed)\b",
+    "type: proposal": r"\b(?:proposal|propose|design)\b",
+    "type: question": r"\b(?:question|how|why)\b|\?",
+    "type: refactoring": r"\b(?:refactor\w*|cleanup)\b",
+    "type: regression": r"\b(?:regression|used to work|worked before)\b",
+    "type: removal": r"\bremov\w*\b",
+    "type: selftests": r"\b(?:selftests|pytest test suite)\b",
+}
+TYPE_LABELS = tuple(TYPE_EVIDENCE_CUES)
+
+
+def type_quote_supports_label(label: str, quote: str, issue_text: str) -> bool:
+    cue = TYPE_EVIDENCE_CUES.get(label)
+    if cue is None:
+        return False
+    quote_spans = [
+        (match.start(), match.end())
+        for match in re.finditer(re.escape(quote), issue_text)
+    ]
+    for match in re.finditer(cue, issue_text, re.I):
+        if not any(
+            start <= match.start() and match.end() <= end for start, end in quote_spans
+        ):
+            continue
+        prefix = issue_text[max(0, match.start() - 32) : match.start()]
+        suffix = issue_text[match.end() : match.end() + 32]
+        if not re.search(
+            r"\b(?:no|not|never|without)(?:\s+\w+){0,3}\s*$",
+            prefix,
+            re.I,
+        ) and not re.match(
+            r"\s+(?:is|was|are|were|has|does|can|will)\s+(?:not|no|never)\b",
+            suffix,
+            re.I,
+        ):
+            return True
+    return False
+
+
 TEMPLATE_REVISION = "50234b4e670064c42a4c29cb6258115a2079ba4c"
 TEMPLATE_BASE = (
     f"https://github.com/pytest-dev/pytest/blob/{TEMPLATE_REVISION}/"
