@@ -2,7 +2,8 @@
 
 import re
 from collections.abc import Collection
-from uuid import UUID, uuid4
+from typing import Literal
+from uuid import UUID
 
 from pydantic import (
     BaseModel,
@@ -15,6 +16,7 @@ from pydantic import (
 
 from maintainer_copilot import ci, documentation, issue_search, model, pytest_profile
 from maintainer_copilot import source as repository_source
+from maintainer_copilot.trace import TraceRecorder
 
 
 class IssueUnderReview(BaseModel):
@@ -72,6 +74,7 @@ class IssueSuggestion(BaseModel):
 
 class TriageReport(BaseModel):
     trace_id: UUID
+    status: Literal["complete", "partial"]
     issue_type: str | None
     issue_type_quote: str | None
     duplicate_candidates: list[IssueSuggestion]
@@ -216,8 +219,10 @@ def triage_issue(
     source_reader: repository_source.SourceReader | None = None,
     model_client: model.ModelClient | None = None,
     ci_source: ci.CISource | None = None,
+    trace: TraceRecorder | None = None,
 ) -> TriageReport:
     """Build a reviewable report from pytest templates, issues, and documentation."""
+    recorder = trace or TraceRecorder()
     template = pytest_profile.template_for(issue.title, issue.body)
     if template == "bug":
         missing = pytest_profile.missing_bug_details(issue.body)
@@ -262,23 +267,37 @@ def triage_issue(
     else:
         issue_source = source or issue_search.GitHubIssueSource()
         try:
-            reviewed = issue_source.get_issue(issue.number)
-            candidates = issue_source.search_issues(query, reviewed.created_at)
-            suggestions = [
-                match
-                for candidate in candidates
-                if candidate.number < reviewed.number
-                and candidate.created_at < reviewed.created_at
-                if (
-                    match := issue_search.assess_match(
-                        issue.title, issue.body, candidate
+            with recorder.call(
+                "retrieval", "get_issue", f"pytest issue #{issue.number}"
+            ) as event:
+                reviewed = issue_source.get_issue(issue.number)
+                if reviewed.number != issue.number:
+                    raise issue_search.IssueSearchError("Wrong issue returned.")
+                event.result_count = 1
+            with recorder.call(
+                "retrieval",
+                "search_issues",
+                f"query {query[:256]} before {reviewed.created_at.isoformat()}",
+            ) as search_event:
+                candidates = issue_source.search_issues(query, reviewed.created_at)
+                search_event.result_count = len(candidates)
+            with recorder.call("retrieval", "assess_matches") as event:
+                suggestions = [
+                    match
+                    for candidate in candidates
+                    if candidate.number < reviewed.number
+                    and candidate.created_at < reviewed.created_at
+                    if (
+                        match := issue_search.assess_match(
+                            issue.title, issue.body, candidate
+                        )
                     )
-                )
-                is not None
-            ]
+                    is not None
+                ]
+                event.result_count = len(suggestions)
             search_reason = None
-        except issue_search.IssueSearchError as exc:
-            search_reason = str(exc)
+        except Exception:
+            search_reason = "Earlier pytest issue lookup is unavailable."
     if search_reason is not None:
         abstentions.extend(
             Abstention(field=field, reason=search_reason)
@@ -314,6 +333,8 @@ def triage_issue(
                 citation_id=citation_id,
             )
         )
+    if search_reason is None:
+        search_event.references = [str(item.url) for item in duplicates + related]
     documentation_claims: list[DocumentationClaim] = []
     supplied_evidence: list[documentation.DocumentationEvidence] = []
     doc_source = documentation_source or documentation.PublicDocumentationSource(
@@ -321,13 +342,20 @@ def triage_issue(
     )
     for topic in pytest_profile.relevant_documentation_topics(issue.title, issue.body):
         try:
-            passage = doc_source.get_passage(topic)
-        except documentation.DocumentationError:
+            with recorder.call(
+                "retrieval", "get_documentation_passage", topic.key
+            ) as event:
+                passage = doc_source.get_passage(topic)
+                event.result_count = 1 if passage is not None else 0
+        except Exception:
             passage = None
         if passage is None or (passage.url, passage.text) != (
             topic.url,
             topic.passage,
         ):
+            if event.status == "ok":
+                event.status = "partial"
+                event.error = "Verified documentation passage unavailable."
             abstentions.append(
                 Abstention(
                     field="documentation_claims",
@@ -338,6 +366,7 @@ def triage_issue(
         supplied_evidence.append(
             documentation.DocumentationEvidence(claim=topic.claim, passage=passage)
         )
+        event.references = [passage.url]
         citation_id = f"C{len(citations) + 1}"
         citations.append(
             Citation(
@@ -356,8 +385,12 @@ def triage_issue(
         location = issue.source_location
         reader = source_reader or repository_source.PublicRepositorySource()
         try:
-            excerpt = reader.get_excerpt(location)
-        except repository_source.SourceUnavailable:
+            with recorder.call(
+                "retrieval", "get_source_excerpt", location.source_url
+            ) as event:
+                excerpt = reader.get_excerpt(location)
+                event.result_count = 1
+        except Exception:
             excerpt = None
         if (
             excerpt is None
@@ -368,6 +401,9 @@ def triage_issue(
             or not excerpt.start_line <= location.line <= excerpt.end_line
             or len(excerpt.lines) != excerpt.end_line - excerpt.start_line + 1
         ):
+            if event.status == "ok":
+                event.status = "partial"
+                event.error = "Requested source excerpt unavailable."
             abstentions.append(
                 Abstention(
                     field="source_claims",
@@ -383,6 +419,7 @@ def triage_issue(
             supplied_source_evidence.append(
                 repository_source.SourceEvidence(claim, excerpt, source_line)
             )
+            event.references = [excerpt.source_url]
             citation_id = f"C{len(citations) + 1}"
             citations.append(
                 Citation(
@@ -398,9 +435,17 @@ def triage_issue(
     supplied_ci_evidence: list[ci.CheckResult] = []
     if link := ci.linked_target(issue.title, issue.body):
         try:
-            inspection = (ci_source or ci.PublicCISource()).get_checks(link)
-        except ci.CIUnavailable:
+            with recorder.call(
+                "retrieval", "get_ci_checks", f"{link.kind}:{link.value}"
+            ) as event:
+                inspection = (ci_source or ci.PublicCISource()).get_checks(link)
+                event.result_count = len(inspection.checks)
+        except Exception:
             inspection = ci.CIInspection(())
+        if inspection.partial or not inspection.checks:
+            if event.status == "ok":
+                event.status = "partial"
+                event.error = "Linked CI results unavailable or incomplete."
         if inspection.partial and inspection.checks:
             abstentions.append(
                 Abstention(
@@ -416,6 +461,8 @@ def triage_issue(
                 )
             )
         for check in inspection.checks:
+            if len(event.references) < 10:
+                event.references.append(str(check.url))
             citation_id = f"C{len(citations) + 1}"
             citations.append(
                 Citation(
@@ -477,7 +524,10 @@ def triage_issue(
     )
     try:
         client = model_client or model.OpenAICompatibleModel.from_environment()
-        suggestion = model.generate_validated(client, model_request)
+        with recorder.call(
+            "model", "triage_selection", model.model_identity(client)
+        ) as event:
+            suggestion = model.generate_validated(client, model_request, event)
     except (model.ModelUnavailable, ValidationError, ValueError) as exc:
         issue_type = None
         issue_type_quote = None
@@ -530,7 +580,8 @@ def triage_issue(
             )
 
     report = TriageReport(
-        trace_id=uuid4(),
+        trace_id=recorder.trace_id,
+        status=recorder.status,
         issue_type=issue_type,
         issue_type_quote=issue_type_quote,
         duplicate_candidates=duplicates,
@@ -543,8 +594,10 @@ def triage_issue(
         citations=citations,
         abstentions=abstentions,
     )
-    return (
+    validated = (
         report.validate_documentation_evidence(supplied_evidence)
         .validate_source_evidence(supplied_source_evidence)
         .validate_ci_evidence(supplied_ci_evidence)
     )
+    recorder.save()
+    return validated

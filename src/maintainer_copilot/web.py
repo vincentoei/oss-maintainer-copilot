@@ -2,6 +2,7 @@
 
 from importlib.resources import files
 from typing import Annotated
+from uuid import UUID
 
 from fastapi import Depends, FastAPI, HTTPException, Query
 from fastapi.responses import HTMLResponse
@@ -31,6 +32,7 @@ from maintainer_copilot.source import (
     SourceReader,
     SourceUnavailable,
 )
+from maintainer_copilot.trace import TraceRecord, get_trace
 
 app = FastAPI(title="Open-source Maintainer Copilot")
 
@@ -74,6 +76,14 @@ async def inspect_source(
         return source.get_excerpt(location)
     except SourceUnavailable as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
+
+
+@app.get("/api/traces/{trace_id}", response_model=TraceRecord)
+async def inspect_trace(trace_id: UUID) -> TraceRecord:
+    record = get_trace(trace_id)
+    if record is None:
+        raise HTTPException(status_code=404, detail="Trace not found.")
+    return record
 
 
 @app.post("/api/triage", response_model=TriageReport)

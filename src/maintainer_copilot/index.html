@@ -39,7 +39,10 @@
     <p id="error" role="alert"></p>
     <section id="report" hidden>
       <h2>Triage report</h2>
-      <p><strong>Trace ID:</strong> <span id="trace-id"></span></p>
+      <p><strong>Report status:</strong> <span id="report-status"></span></p>
+      <p><strong>Trace ID:</strong> <a id="trace-link" target="_blank" rel="noopener noreferrer"><span id="trace-id"></span></a></p>
+      <h3>Trace events</h3>
+      <ul id="trace-events"></ul>
       <p><strong>Suggested issue type:</strong> <span id="issue-type"></span></p>
       <p id="issue-type-basis" hidden><strong>Issue text quote:</strong> <span id="issue-type-quote"></span></p>
       <h3>Duplicate candidates</h3>
@@ -117,6 +120,8 @@
           if (!response.ok) throw new Error("Could not create a report.");
           const report = await response.json();
           document.getElementById("trace-id").textContent = report.trace_id;
+          document.getElementById("trace-link").href = `/api/traces/${report.trace_id}`;
+          document.getElementById("report-status").textContent = report.status;
           document.getElementById("issue-type").textContent = report.issue_type ?? "Unknown";
           document.getElementById("issue-type-quote").textContent = report.issue_type_quote ?? "";
           document.getElementById("issue-type-basis").hidden = !report.issue_type_quote;
@@ -182,6 +187,18 @@
             item.textContent = `${abstention.field}: ${abstention.reason}`;
           });
           reportSection.hidden = false;
+          try {
+            const traceResponse = await fetch(`/api/traces/${report.trace_id}`);
+            if (!traceResponse.ok) throw new Error("Trace unavailable");
+            const trace = await traceResponse.json();
+            fillList("trace-events", trace.events, (item, event) => {
+              const tokens = event.input_tokens === null && event.output_tokens === null
+                ? "" : ` · tokens in/out: ${event.input_tokens ?? "?"}/${event.output_tokens ?? "?"}`;
+              item.textContent = `${event.kind}: ${event.name}${event.target ? ` (${event.target})` : ""} · ${event.status} · ${event.started_ms} ms from start · ${event.duration_ms} ms${event.result_count === null ? "" : ` · ${event.result_count} result(s)`}${tokens}${event.references.length ? ` · references: ${event.references.join(", ")}` : ""}${event.error ? ` · ${event.error}` : ""}`;
+            });
+          } catch {
+            document.getElementById("trace-events").textContent = "Trace unavailable in this server process.";
+          }
         } catch {
           error.textContent = "Could not create a report. Check the issue title and try again.";
         }
