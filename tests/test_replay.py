@@ -420,7 +420,7 @@ def test_case_rejects_repository_evidence_after_opening() -> None:
         HistoricalCase.model_validate(data)
 
 
-def test_published_cases_cover_ten_families_and_judgment_types() -> None:
+def test_published_cases_cover_fifteen_families_and_judgment_types() -> None:
     cases = load_cases()
     assert {case.issue_number for case in cases} == {
         7312,
@@ -433,9 +433,23 @@ def test_published_cases_cover_ten_families_and_judgment_types() -> None:
         12116,
         12146,
         12189,
+        12197,
+        12201,
+        12203,
+        12204,
+        12216,
     }
-    assert len({case.issue_family_id for case in cases}) == 10
-    assert all(case.human_review.status == "confirmed" for case in cases)
+    assert len({case.issue_family_id for case in cases}) == 15
+    assert all(
+        case.human_review.status == "confirmed"
+        for case in cases
+        if case.issue_number < 12197
+    )
+    assert all(
+        case.human_review.status == "pending"
+        for case in cases
+        if case.issue_number >= 12197
+    )
     assert [case.expected_outcome.earlier_issue_relationship for case in cases].count(
         "duplicate_candidate"
     ) >= 1

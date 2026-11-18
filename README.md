@@ -125,8 +125,8 @@ reader, run:
 RUN_LIVE_REPLAY=1 uv run --no-env-file pytest -q tests/test_replay.py -k recorded_case
 ```
 
-Ten case metadata files now live in
-[`src/maintainer_copilot/cases/`](src/maintainer_copilot/cases/). Replay all ten
+Fifteen case metadata files now live in
+[`src/maintainer_copilot/cases/`](src/maintainer_copilot/cases/). Replay all fifteen
 with controlled model responses using:
 
 ```sh
@@ -140,13 +140,16 @@ confirmed expected outcomes, individual relationship judgments, provenance
 checks, and the live replay result. All five have reviewer confirmation.
 The [second case review](docs/evaluation/cases-six-through-ten.md) records
 cases 6 through 10, their confirmation provenance, and ambiguous judgments.
+The [third case review](docs/evaluation/cases-eleven-through-fifteen.md) records
+cases 11 through 15, their provenance, difficult topical negatives, and review
+status. Pending outcomes cannot be scored until a human confirms them.
 These controlled replays are smoke checks; model selection and quality
 measurement remain issue #21 work after
 #15 and before #16.
 
 ## Score the first reviewed cases
 
-Run the ten-case field scorer and keyword-rule baseline with public GitHub
+Run the fifteen-case field scorer and keyword-rule baseline with public GitHub
 access:
 
 ```sh

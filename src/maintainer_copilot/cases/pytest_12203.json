@@ -1,0 +1,35 @@
+{
+  "issue_number": 12203,
+  "issue_family_id": "fixture-exception-log-capture",
+  "template_profile": "bug_feature",
+  "opening_title": "Pytest does not capture teardown logs if a fixture throws an exception",
+  "opening_cutoff": "2024-04-10T09:18:43Z",
+  "opening_content_sha256": "aa2546be855758373051d6f6fb6fb5c054046d756240b75632230807dbe3061c",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-18T04:16:51.226671Z",
+  "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+  "repository_commit_at": "2024-04-09T19:26:36Z",
+  "earlier_issue": {
+    "number": 12116,
+    "created_at": "2024-03-13T13:37:51Z",
+    "content_sha256": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "issue_type": "type: bug",
+    "missing_details": [
+      "minimal example"
+    ],
+    "earlier_issue_relationship": "nonduplicate",
+    "rationale": "Reports lost plugin logging when fixture setup raises. Package list, pytest and Fedora versions are supplied. The sketch depends on an undefined Launcher and get_ctr_log and is not a standalone reproduction. #12116 concerns records emitted from child processes; no child process logging is established in this opening.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/12203",
+      "https://github.com/pytest-dev/pytest/issues/12116"
+    ]
+  },
+  "human_review": {
+    "status": "pending",
+    "reviewer": null,
+    "confirmed_at": null
+  }
+}

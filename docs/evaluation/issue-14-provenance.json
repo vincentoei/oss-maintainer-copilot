@@ -1,0 +1,282 @@
+{
+  "verified_at": "2026-11-18T04:16:51.226671Z",
+  "opening_edit_history": {
+    "i12197": {
+      "lastEditedAt": null,
+      "rest_graphql_content_matches": true,
+      "created_at": "2024-04-08T11:30:37Z",
+      "content_sha256": "8388529b44df4edd978ed0b8bbc572913d830907c013154455cc4662918e5bd1"
+    },
+    "i12201": {
+      "lastEditedAt": null,
+      "rest_graphql_content_matches": true,
+      "created_at": "2024-04-09T14:22:08Z",
+      "content_sha256": "18e54c14cdbbb80c34d7dc66f91d6ab23e15ec84503bf59f0ecdf2d79cfd8abc"
+    },
+    "i12203": {
+      "lastEditedAt": null,
+      "rest_graphql_content_matches": true,
+      "created_at": "2024-04-10T09:18:43Z",
+      "content_sha256": "aa2546be855758373051d6f6fb6fb5c054046d756240b75632230807dbe3061c"
+    },
+    "i12204": {
+      "lastEditedAt": null,
+      "rest_graphql_content_matches": true,
+      "created_at": "2024-04-10T10:45:32Z",
+      "content_sha256": "62dec36896ee774efb8621b6838e18b928c3b4eecb9497596f151af6d075dd21"
+    },
+    "i12216": {
+      "lastEditedAt": null,
+      "rest_graphql_content_matches": true,
+      "created_at": "2024-04-15T07:38:50Z",
+      "content_sha256": "fe52fe12b75b3450706561eaff0cb911d116beeebec5077d044bab2d93e8930e"
+    },
+    "i12053": {
+      "lastEditedAt": null,
+      "rest_graphql_content_matches": true,
+      "created_at": "2024-03-03T14:58:35Z",
+      "content_sha256": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff"
+    },
+    "i12146": {
+      "lastEditedAt": null,
+      "rest_graphql_content_matches": true,
+      "created_at": "2024-03-21T12:06:34Z",
+      "content_sha256": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167"
+    },
+    "i12116": {
+      "lastEditedAt": null,
+      "rest_graphql_content_matches": true,
+      "created_at": "2024-03-13T13:37:51Z",
+      "content_sha256": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f"
+    }
+  },
+  "pinned_templates": [
+    {
+      "issue_number": 12197,
+      "repository_commit": "74f05648d5ea9e69d75f27a77972756ee32f6730",
+      "repository_commit_at": "2024-04-08T10:15:01Z",
+      "templates": [
+        {
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+          "requested_detail_lines": {
+            "13": "- [ ] a detailed description of the bug or problem you are having",
+            "14": "- [ ] output of `pip list` from the virtual environment you are using",
+            "15": "- [ ] pytest and operating system versions",
+            "16": "- [ ] minimal example if possible"
+          }
+        },
+        {
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+          "requested_detail_lines": {
+            "13": "#### What's the problem this feature will solve?",
+            "16": "#### Describe the solution you'd like",
+            "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+            "21": "#### Alternative Solutions"
+          }
+        }
+      ]
+    },
+    {
+      "issue_number": 12201,
+      "repository_commit": "17fc20af78d0c7b739806c4e461d2c9b8c30ceeb",
+      "repository_commit_at": "2024-04-09T13:04:42Z",
+      "templates": [
+        {
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+          "requested_detail_lines": {
+            "13": "- [ ] a detailed description of the bug or problem you are having",
+            "14": "- [ ] output of `pip list` from the virtual environment you are using",
+            "15": "- [ ] pytest and operating system versions",
+            "16": "- [ ] minimal example if possible"
+          }
+        },
+        {
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+          "requested_detail_lines": {
+            "13": "#### What's the problem this feature will solve?",
+            "16": "#### Describe the solution you'd like",
+            "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+            "21": "#### Alternative Solutions"
+          }
+        }
+      ]
+    },
+    {
+      "issue_number": 12203,
+      "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+      "repository_commit_at": "2024-04-09T19:26:36Z",
+      "templates": [
+        {
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+          "requested_detail_lines": {
+            "13": "- [ ] a detailed description of the bug or problem you are having",
+            "14": "- [ ] output of `pip list` from the virtual environment you are using",
+            "15": "- [ ] pytest and operating system versions",
+            "16": "- [ ] minimal example if possible"
+          }
+        },
+        {
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+          "requested_detail_lines": {
+            "13": "#### What's the problem this feature will solve?",
+            "16": "#### Describe the solution you'd like",
+            "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+            "21": "#### Alternative Solutions"
+          }
+        }
+      ]
+    },
+    {
+      "issue_number": 12204,
+      "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+      "repository_commit_at": "2024-04-09T19:26:36Z",
+      "templates": [
+        {
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+          "requested_detail_lines": {
+            "13": "- [ ] a detailed description of the bug or problem you are having",
+            "14": "- [ ] output of `pip list` from the virtual environment you are using",
+            "15": "- [ ] pytest and operating system versions",
+            "16": "- [ ] minimal example if possible"
+          }
+        },
+        {
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+          "requested_detail_lines": {
+            "13": "#### What's the problem this feature will solve?",
+            "16": "#### Describe the solution you'd like",
+            "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+            "21": "#### Alternative Solutions"
+          }
+        }
+      ]
+    },
+    {
+      "issue_number": 12216,
+      "repository_commit": "5f6e825a2687f6bb8bc437e67a59c0a92fb16c06",
+      "repository_commit_at": "2024-04-14T00:21:52Z",
+      "templates": [
+        {
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+          "requested_detail_lines": {
+            "13": "- [ ] a detailed description of the bug or problem you are having",
+            "14": "- [ ] output of `pip list` from the virtual environment you are using",
+            "15": "- [ ] pytest and operating system versions",
+            "16": "- [ ] minimal example if possible"
+          }
+        },
+        {
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+          "requested_detail_lines": {
+            "13": "#### What's the problem this feature will solve?",
+            "16": "#### Describe the solution you'd like",
+            "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+            "21": "#### Alternative Solutions"
+          }
+        }
+      ]
+    }
+  ],
+  "controlled_replay": [
+    {
+      "issue_number": 7312,
+      "human_review_status": "confirmed",
+      "status": "complete",
+      "report_status": "complete"
+    },
+    {
+      "issue_number": 10156,
+      "human_review_status": "confirmed",
+      "status": "complete",
+      "report_status": "complete"
+    },
+    {
+      "issue_number": 12053,
+      "human_review_status": "confirmed",
+      "status": "complete",
+      "report_status": "complete"
+    },
+    {
+      "issue_number": 12072,
+      "human_review_status": "confirmed",
+      "status": "complete",
+      "report_status": "complete"
+    },
+    {
+      "issue_number": 12079,
+      "human_review_status": "confirmed",
+      "status": "complete",
+      "report_status": "complete"
+    },
+    {
+      "issue_number": 12081,
+      "human_review_status": "confirmed",
+      "status": "complete",
+      "report_status": "complete"
+    },
+    {
+      "issue_number": 12083,
+      "human_review_status": "confirmed",
+      "status": "complete",
+      "report_status": "complete"
+    },
+    {
+      "issue_number": 12116,
+      "human_review_status": "confirmed",
+      "status": "complete",
+      "report_status": "complete"
+    },
+    {
+      "issue_number": 12146,
+      "human_review_status": "confirmed",
+      "status": "complete",
+      "report_status": "complete"
+    },
+    {
+      "issue_number": 12189,
+      "human_review_status": "confirmed",
+      "status": "complete",
+      "report_status": "complete"
+    },
+    {
+      "issue_number": 12197,
+      "human_review_status": "pending",
+      "status": "complete",
+      "report_status": "complete"
+    },
+    {
+      "issue_number": 12201,
+      "human_review_status": "pending",
+      "status": "complete",
+      "report_status": "complete"
+    },
+    {
+      "issue_number": 12203,
+      "human_review_status": "pending",
+      "status": "complete",
+      "report_status": "complete"
+    },
+    {
+      "issue_number": 12204,
+      "human_review_status": "pending",
+      "status": "complete",
+      "report_status": "complete"
+    },
+    {
+      "issue_number": 12216,
+      "human_review_status": "pending",
+      "status": "complete",
+      "report_status": "complete"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "issue_number": 12201,
+  "issue_family_id": "platform-conditional-parametrization",
+  "template_profile": "bug_feature",
+  "opening_title": "Conditional test parametrization",
+  "opening_cutoff": "2024-04-09T14:22:08Z",
+  "opening_content_sha256": "18e54c14cdbbb80c34d7dc66f91d6ab23e15ec84503bf59f0ecdf2d79cfd8abc",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-18T04:16:51.226671Z",
+  "repository_commit": "17fc20af78d0c7b739806c4e461d2c9b8c30ceeb",
+  "repository_commit_at": "2024-04-09T13:04:42Z",
+  "earlier_issue": {
+    "number": 12146,
+    "created_at": "2024-03-21T12:06:34Z",
+    "content_sha256": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "issue_type": "type: enhancement",
+    "missing_details": [],
+    "earlier_issue_relationship": "nonduplicate",
+    "rationale": "Requests platform-conditional parameter sets for Windows/POSIX path tests. The opening describes skipif plus copied tests as its current workaround, so the empty alternatives heading does not imply a missing detail. #12146 reports repeated execution of a class-scoped fixture with rebuilt tuples; it is not conditional parameter selection.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/12201",
+      "https://github.com/pytest-dev/pytest/issues/12146"
+    ]
+  },
+  "human_review": {
+    "status": "pending",
+    "reviewer": null,
+    "confirmed_at": null
+  }
+}
