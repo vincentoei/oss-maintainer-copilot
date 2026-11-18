@@ -89,3 +89,11 @@ Controlled responses establish replay behavior; the keyword baseline measures
 existing rules against the limited published catalog, not full-history recall.
 Human confirmation of expected outcomes is separate from semantic citation and
 generated draft usefulness review. Pending judgments must not become scored wins.
+
+Live controlled replay completed all fifteen cases without a flagged opening or
+commit. [The evaluation report](issue-14.md) records the subsequent all-fifteen
+scoring attempt: ten completed scores and five pending-confirmation errors per
+method, with raw field-level results in [JSON](issue-14-results.json). The
+confirmation guard remains unchanged. Final deterministic validation passed:
+160 tests passed, two optional live tests skipped; typechecking, lint, and
+formatting passed. Live replay separately exercised all fifteen against GitHub.
