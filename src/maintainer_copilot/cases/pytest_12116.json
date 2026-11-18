@@ -1,0 +1,35 @@
+{
+  "issue_number": 12116,
+  "issue_family_id": "multiprocessing-log-capture",
+  "template_profile": "bug_feature",
+  "opening_title": "Capturing logs does not work with multiprocessing",
+  "opening_cutoff": "2024-03-13T13:37:51Z",
+  "opening_content_sha256": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-18T03:40:46.024646Z",
+  "repository_commit": "c0532dda18a5cfd0e6f67113bb164485fa80eb86",
+  "repository_commit_at": "2024-03-13T13:30:18Z",
+  "earlier_issue": {
+    "number": 12081,
+    "created_at": "2024-03-06T00:03:25Z",
+    "content_sha256": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "issue_type": "type: bug",
+    "missing_details": [],
+    "earlier_issue_relationship": "nonduplicate",
+    "rationale": "Child-process log records do not reach caplog, with a reproducer, package list, OS version, and queue-handler workaround. #12081 concerns readouterr consuming captured stdout/stderr in the same test, not process log forwarding.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/12116",
+      "https://github.com/pytest-dev/pytest/issues/12081",
+      "https://github.com/pytest-dev/pytest/issues/12116#issuecomment-1995587424",
+      "https://github.com/pytest-dev/pytest/issues/12116#issuecomment-1995703367"
+    ]
+  },
+  "human_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user (accepted assistant review judgments)",
+    "confirmed_at": "2026-11-18T03:43:36.270521Z"
+  }
+}

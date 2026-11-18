@@ -1,0 +1,221 @@
+{
+  "verified_at": "2026-11-18T03:40:46.024646Z",
+  "opening_edit_history": {
+    "i12053": {
+      "lastEditedAt": null
+    },
+    "i12072": {
+      "lastEditedAt": null
+    },
+    "i12079": {
+      "lastEditedAt": null
+    },
+    "i12116": {
+      "lastEditedAt": null
+    },
+    "i12189": {
+      "lastEditedAt": null
+    },
+    "i8655": {
+      "lastEditedAt": null
+    },
+    "i12066": {
+      "lastEditedAt": null
+    },
+    "i11871": {
+      "lastEditedAt": null
+    },
+    "i12081": {
+      "lastEditedAt": null
+    }
+  },
+  "pinned_templates": [
+    {
+      "issue_number": 12053,
+      "repository_commit": "00043f7f1047b29fdaeb18e169fe9d6146988cb8",
+      "templates": [
+        {
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+          "requested_detail_lines": {
+            "13": "- [ ] a detailed description of the bug or problem you are having",
+            "14": "- [ ] output of `pip list` from the virtual environment you are using",
+            "15": "- [ ] pytest and operating system versions",
+            "16": "- [ ] minimal example if possible"
+          }
+        },
+        {
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+          "requested_detail_lines": {
+            "13": "#### What's the problem this feature will solve?",
+            "16": "#### Describe the solution you'd like",
+            "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+            "21": "#### Alternative Solutions"
+          }
+        }
+      ]
+    },
+    {
+      "issue_number": 12072,
+      "repository_commit": "0951cbc6e4880ee7dfc9b7e56948d83ee086e74b",
+      "templates": [
+        {
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+          "requested_detail_lines": {
+            "13": "- [ ] a detailed description of the bug or problem you are having",
+            "14": "- [ ] output of `pip list` from the virtual environment you are using",
+            "15": "- [ ] pytest and operating system versions",
+            "16": "- [ ] minimal example if possible"
+          }
+        },
+        {
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+          "requested_detail_lines": {
+            "13": "#### What's the problem this feature will solve?",
+            "16": "#### Describe the solution you'd like",
+            "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+            "21": "#### Alternative Solutions"
+          }
+        }
+      ]
+    },
+    {
+      "issue_number": 12079,
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "templates": [
+        {
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+          "requested_detail_lines": {
+            "13": "- [ ] a detailed description of the bug or problem you are having",
+            "14": "- [ ] output of `pip list` from the virtual environment you are using",
+            "15": "- [ ] pytest and operating system versions",
+            "16": "- [ ] minimal example if possible"
+          }
+        },
+        {
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+          "requested_detail_lines": {
+            "13": "#### What's the problem this feature will solve?",
+            "16": "#### Describe the solution you'd like",
+            "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+            "21": "#### Alternative Solutions"
+          }
+        }
+      ]
+    },
+    {
+      "issue_number": 12116,
+      "repository_commit": "c0532dda18a5cfd0e6f67113bb164485fa80eb86",
+      "templates": [
+        {
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+          "requested_detail_lines": {
+            "13": "- [ ] a detailed description of the bug or problem you are having",
+            "14": "- [ ] output of `pip list` from the virtual environment you are using",
+            "15": "- [ ] pytest and operating system versions",
+            "16": "- [ ] minimal example if possible"
+          }
+        },
+        {
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+          "requested_detail_lines": {
+            "13": "#### What's the problem this feature will solve?",
+            "16": "#### Describe the solution you'd like",
+            "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+            "21": "#### Alternative Solutions"
+          }
+        }
+      ]
+    },
+    {
+      "issue_number": 12189,
+      "repository_commit": "4e3dd21506a9e543c04c63ebff966a9b604d2b9e",
+      "templates": [
+        {
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+          "requested_detail_lines": {
+            "13": "- [ ] a detailed description of the bug or problem you are having",
+            "14": "- [ ] output of `pip list` from the virtual environment you are using",
+            "15": "- [ ] pytest and operating system versions",
+            "16": "- [ ] minimal example if possible"
+          }
+        },
+        {
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+          "requested_detail_lines": {
+            "13": "#### What's the problem this feature will solve?",
+            "16": "#### Describe the solution you'd like",
+            "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+            "21": "#### Alternative Solutions"
+          }
+        }
+      ]
+    }
+  ],
+  "controlled_replay": [
+    {
+      "issue_number": 7312,
+      "status": "complete",
+      "human_review": "confirmed"
+    },
+    {
+      "issue_number": 10156,
+      "status": "complete",
+      "human_review": "confirmed"
+    },
+    {
+      "issue_number": 12053,
+      "status": "complete",
+      "human_review": "confirmed"
+    },
+    {
+      "issue_number": 12072,
+      "status": "complete",
+      "human_review": "confirmed"
+    },
+    {
+      "issue_number": 12079,
+      "status": "complete",
+      "human_review": "confirmed"
+    },
+    {
+      "issue_number": 12081,
+      "status": "complete",
+      "human_review": "confirmed"
+    },
+    {
+      "issue_number": 12083,
+      "status": "complete",
+      "human_review": "confirmed"
+    },
+    {
+      "issue_number": 12116,
+      "status": "complete",
+      "human_review": "confirmed"
+    },
+    {
+      "issue_number": 12146,
+      "status": "complete",
+      "human_review": "confirmed"
+    },
+    {
+      "issue_number": 12189,
+      "status": "complete",
+      "human_review": "confirmed"
+    }
+  ],
+  "outcome_confirmation": {
+    "confirmed_at": "2026-11-18T03:43:36.270521Z",
+    "reviewer": "requesting user",
+    "basis": "The user explicitly accepted the assistant review decisions as their own outcomes. All five proposed outcomes were retained after reviewing the public issue openings; this does not assert an independent human inspection of those openings."
+  }
+}

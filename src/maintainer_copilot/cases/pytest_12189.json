@@ -1,0 +1,36 @@
+{
+  "issue_number": 12189,
+  "issue_family_id": "junit-output-with-capture-disabled",
+  "template_profile": "bug_feature",
+  "opening_title": "No output written to JUnit XML files",
+  "opening_cutoff": "2024-04-05T09:14:51Z",
+  "opening_content_sha256": "7c9d2d1977a430e51c42fb6319ecc3fae01bb9d7f46d01f1921fb1760199785d",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-18T03:40:46.024646Z",
+  "repository_commit": "4e3dd21506a9e543c04c63ebff966a9b604d2b9e",
+  "repository_commit_at": "2024-04-03T22:24:34Z",
+  "earlier_issue": {
+    "number": 12081,
+    "created_at": "2024-03-06T00:03:25Z",
+    "content_sha256": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "issue_type": "type: question",
+    "missing_details": [
+      "pytest and OS versions"
+    ],
+    "earlier_issue_relationship": "nonduplicate",
+    "rationale": "Asks for help obtaining JUnit output while running with -s; the opening does not demonstrate a pytest defect. #12081 requests preserving stdout/stderr after readouterr, which is not used here. A package list and runnable example are present but the Windows path does not identify an OS version.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/12189",
+      "https://github.com/pytest-dev/pytest/issues/12081",
+      "https://github.com/pytest-dev/pytest/issues/12189#issuecomment-5048499343"
+    ]
+  },
+  "human_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user (accepted assistant review judgments)",
+    "confirmed_at": "2026-11-18T03:43:36.270521Z"
+  }
+}
