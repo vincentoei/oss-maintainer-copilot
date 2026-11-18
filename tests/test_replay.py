@@ -420,9 +420,9 @@ def test_case_rejects_repository_evidence_after_opening() -> None:
         HistoricalCase.model_validate(data)
 
 
-def test_published_cases_cover_fifteen_families_and_judgment_types() -> None:
+def test_published_cases_cover_twenty_families_and_judgment_types() -> None:
     cases = load_cases()
-    new_case_numbers = {12197, 12201, 12203, 12204, 12216}
+    new_case_numbers = {12219, 12223, 12224, 12226, 12228}
     assert {case.issue_number for case in cases} == {
         7312,
         10156,
@@ -434,8 +434,13 @@ def test_published_cases_cover_fifteen_families_and_judgment_types() -> None:
         12116,
         12146,
         12189,
+        12197,
+        12201,
+        12203,
+        12204,
+        12216,
     } | new_case_numbers
-    assert len({case.issue_family_id for case in cases}) == 15
+    assert len({case.issue_family_id for case in cases}) == 20
     assert all(case.human_review.status == "confirmed" for case in cases)
     assert all(
         case.expected_outcome.earlier_issue_relationship == "nonduplicate"

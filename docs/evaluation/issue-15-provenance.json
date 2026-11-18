@@ -1,0 +1,330 @@
+{
+  "verified_at": "2026-11-18T05:22:01.108683+00:00",
+  "hash_definition": "SHA-256 of UTF-8 title + NUL + body; no normalization",
+  "openings": {
+    "12219": {
+      "number": 12219,
+      "created_at": "2024-04-16T08:22:38Z",
+      "title": "setUpModule/tearDownModule not invoked",
+      "last_edited_at": null,
+      "content_sha256": "681e48797dfaccd7ce7ff3a86bd5862656e34bfbda83da9364ae7fb8696a891b",
+      "rest_graphql_agree": true
+    },
+    "12223": {
+      "number": 12223,
+      "created_at": "2024-04-17T09:00:30Z",
+      "title": "junit-xml output attribute can be too big to handle with -vv",
+      "last_edited_at": null,
+      "content_sha256": "731ee2132c277f516b51978c67bb77a578a8731a4b726346f248e7934d627e72",
+      "rest_graphql_agree": true
+    },
+    "12224": {
+      "number": 12224,
+      "created_at": "2024-04-18T05:51:07Z",
+      "title": "More granular scripting interface",
+      "last_edited_at": null,
+      "content_sha256": "5c821c047cc326c41148cd48c10d6a5941c05a3164bdb116777930cee6b5a18a",
+      "rest_graphql_agree": true
+    },
+    "12226": {
+      "number": 12226,
+      "created_at": "2024-04-19T11:34:17Z",
+      "title": "support an alternate syntax for \"not\" (as in `pytest -m \"not stuff\"`)",
+      "last_edited_at": null,
+      "content_sha256": "439bb13184ef8ca1b56b2f06094204328cbe9f5bc0b352020573bab713d26ece",
+      "rest_graphql_agree": true
+    },
+    "12228": {
+      "number": 12228,
+      "created_at": "2024-04-19T17:30:10Z",
+      "title": "Documentation request: types/shapes of options in `[tool.pytest.ini_options]`",
+      "last_edited_at": null,
+      "content_sha256": "f701b93585c442aa5d88ee107e892972bc276e92a9cf2746e32907add70d4973",
+      "rest_graphql_agree": true
+    },
+    "4064": {
+      "number": 4064,
+      "created_at": "2018-10-02T14:02:38Z",
+      "title": "Docs: is setUpModule/tearDownModule supported?",
+      "last_edited_at": null,
+      "content_sha256": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+      "rest_graphql_agree": true
+    },
+    "12204": {
+      "number": 12204,
+      "created_at": "2024-04-10T10:45:32Z",
+      "title": "ExceptionGroup traceback of session fixture unlimitedly grows from test to test",
+      "last_edited_at": null,
+      "content_sha256": "62dec36896ee774efb8621b6838e18b928c3b4eecb9497596f151af6d075dd21",
+      "rest_graphql_agree": true
+    },
+    "10156": {
+      "number": 10156,
+      "created_at": "2022-07-19T20:03:50Z",
+      "title": "Document how to build dynamic session-scoped fixtures",
+      "last_edited_at": null,
+      "content_sha256": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+      "rest_graphql_agree": true
+    },
+    "12197": {
+      "number": 12197,
+      "created_at": "2024-04-08T11:30:37Z",
+      "title": "log-disable as pytest.ini configuration option does not have any effect",
+      "last_edited_at": null,
+      "content_sha256": "8388529b44df4edd978ed0b8bbc572913d830907c013154455cc4662918e5bd1",
+      "rest_graphql_agree": true
+    }
+  },
+  "commits": {
+    "12219": {
+      "sha": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "committed_at": "2024-04-15T23:04:19Z"
+    },
+    "12223": {
+      "sha": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "committed_at": "2024-04-15T23:04:19Z"
+    },
+    "12224": {
+      "sha": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "committed_at": "2024-04-15T23:04:19Z"
+    },
+    "12226": {
+      "sha": "ad95d59d6158076768cccd0000b968cd691cb62a",
+      "committed_at": "2024-04-19T02:05:29Z"
+    },
+    "12228": {
+      "sha": "ad95d59d6158076768cccd0000b968cd691cb62a",
+      "committed_at": "2024-04-19T02:05:29Z"
+    }
+  },
+  "templates": {
+    "58844247f7ae4a7a213a73c8af2462253b3d8fc7/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "lines": [
+        "---",
+        "name: \ud83d\udc1b Bug Report",
+        "about: Report errors and problems",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for submitting an issue!",
+        "",
+        "Quick check-list while reporting bugs:",
+        "-->",
+        "",
+        "- [ ] a detailed description of the bug or problem you are having",
+        "- [ ] output of `pip list` from the virtual environment you are using",
+        "- [ ] pytest and operating system versions",
+        "- [ ] minimal example if possible"
+      ]
+    },
+    "58844247f7ae4a7a213a73c8af2462253b3d8fc7/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "lines": [
+        "---",
+        "name: \ud83d\ude80 Feature Request",
+        "about: Ideas for new features and improvements",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for suggesting a feature!",
+        "",
+        "Quick check-list while suggesting features:",
+        "-->",
+        "",
+        "#### What's the problem this feature will solve?",
+        "<!-- What are you trying to do, that you are unable to achieve with pytest as it currently stands? -->",
+        "",
+        "#### Describe the solution you'd like",
+        "<!-- A clear and concise description of what you want to happen. -->",
+        "",
+        "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "",
+        "#### Alternative Solutions",
+        "<!-- Have you tried to workaround the problem using a pytest plugin or other tools? Or a different approach to solving this issue? Please elaborate here. -->",
+        "",
+        "#### Additional context",
+        "<!-- Add any other context, links, etc. about the feature here. -->"
+      ]
+    },
+    "ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "lines": [
+        "---",
+        "name: \ud83d\udc1b Bug Report",
+        "about: Report errors and problems",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for submitting an issue!",
+        "",
+        "Quick check-list while reporting bugs:",
+        "-->",
+        "",
+        "- [ ] a detailed description of the bug or problem you are having",
+        "- [ ] output of `pip list` from the virtual environment you are using",
+        "- [ ] pytest and operating system versions",
+        "- [ ] minimal example if possible"
+      ]
+    },
+    "ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "lines": [
+        "---",
+        "name: \ud83d\ude80 Feature Request",
+        "about: Ideas for new features and improvements",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for suggesting a feature!",
+        "",
+        "Quick check-list while suggesting features:",
+        "-->",
+        "",
+        "#### What's the problem this feature will solve?",
+        "<!-- What are you trying to do, that you are unable to achieve with pytest as it currently stands? -->",
+        "",
+        "#### Describe the solution you'd like",
+        "<!-- A clear and concise description of what you want to happen. -->",
+        "",
+        "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "",
+        "#### Alternative Solutions",
+        "<!-- Have you tried to workaround the problem using a pytest plugin or other tools? Or a different approach to solving this issue? Please elaborate here. -->",
+        "",
+        "#### Additional context",
+        "<!-- Add any other context, links, etc. about the feature here. -->"
+      ]
+    }
+  },
+  "excluded_during_selection": {
+    "12269": "Edited after opening; no verified original",
+    "12270": "Edited after opening; no verified original"
+  },
+  "controlled_replay_integrity": [
+    {
+      "issue_number": 7312,
+      "status": "complete",
+      "error": null,
+      "checks": "Live replay verifies commit SHA/time, opening hash/time/title, and paired earlier opening hash/time before model execution."
+    },
+    {
+      "issue_number": 10156,
+      "status": "complete",
+      "error": null,
+      "checks": "Live replay verifies commit SHA/time, opening hash/time/title, and paired earlier opening hash/time before model execution."
+    },
+    {
+      "issue_number": 12053,
+      "status": "complete",
+      "error": null,
+      "checks": "Live replay verifies commit SHA/time, opening hash/time/title, and paired earlier opening hash/time before model execution."
+    },
+    {
+      "issue_number": 12072,
+      "status": "complete",
+      "error": null,
+      "checks": "Live replay verifies commit SHA/time, opening hash/time/title, and paired earlier opening hash/time before model execution."
+    },
+    {
+      "issue_number": 12079,
+      "status": "complete",
+      "error": null,
+      "checks": "Live replay verifies commit SHA/time, opening hash/time/title, and paired earlier opening hash/time before model execution."
+    },
+    {
+      "issue_number": 12081,
+      "status": "complete",
+      "error": null,
+      "checks": "Live replay verifies commit SHA/time, opening hash/time/title, and paired earlier opening hash/time before model execution."
+    },
+    {
+      "issue_number": 12083,
+      "status": "complete",
+      "error": null,
+      "checks": "Live replay verifies commit SHA/time, opening hash/time/title, and paired earlier opening hash/time before model execution."
+    },
+    {
+      "issue_number": 12116,
+      "status": "complete",
+      "error": null,
+      "checks": "Live replay verifies commit SHA/time, opening hash/time/title, and paired earlier opening hash/time before model execution."
+    },
+    {
+      "issue_number": 12146,
+      "status": "complete",
+      "error": null,
+      "checks": "Live replay verifies commit SHA/time, opening hash/time/title, and paired earlier opening hash/time before model execution."
+    },
+    {
+      "issue_number": 12189,
+      "status": "complete",
+      "error": null,
+      "checks": "Live replay verifies commit SHA/time, opening hash/time/title, and paired earlier opening hash/time before model execution."
+    },
+    {
+      "issue_number": 12197,
+      "status": "complete",
+      "error": null,
+      "checks": "Live replay verifies commit SHA/time, opening hash/time/title, and paired earlier opening hash/time before model execution."
+    },
+    {
+      "issue_number": 12201,
+      "status": "complete",
+      "error": null,
+      "checks": "Live replay verifies commit SHA/time, opening hash/time/title, and paired earlier opening hash/time before model execution."
+    },
+    {
+      "issue_number": 12203,
+      "status": "complete",
+      "error": null,
+      "checks": "Live replay verifies commit SHA/time, opening hash/time/title, and paired earlier opening hash/time before model execution."
+    },
+    {
+      "issue_number": 12204,
+      "status": "complete",
+      "error": null,
+      "checks": "Live replay verifies commit SHA/time, opening hash/time/title, and paired earlier opening hash/time before model execution."
+    },
+    {
+      "issue_number": 12216,
+      "status": "complete",
+      "error": null,
+      "checks": "Live replay verifies commit SHA/time, opening hash/time/title, and paired earlier opening hash/time before model execution."
+    },
+    {
+      "issue_number": 12219,
+      "status": "complete",
+      "error": null,
+      "checks": "Live replay verifies commit SHA/time, opening hash/time/title, and paired earlier opening hash/time before model execution."
+    },
+    {
+      "issue_number": 12223,
+      "status": "complete",
+      "error": null,
+      "checks": "Live replay verifies commit SHA/time, opening hash/time/title, and paired earlier opening hash/time before model execution."
+    },
+    {
+      "issue_number": 12224,
+      "status": "complete",
+      "error": null,
+      "checks": "Live replay verifies commit SHA/time, opening hash/time/title, and paired earlier opening hash/time before model execution."
+    },
+    {
+      "issue_number": 12226,
+      "status": "complete",
+      "error": null,
+      "checks": "Live replay verifies commit SHA/time, opening hash/time/title, and paired earlier opening hash/time before model execution."
+    },
+    {
+      "issue_number": 12228,
+      "status": "complete",
+      "error": null,
+      "checks": "Live replay verifies commit SHA/time, opening hash/time/title, and paired earlier opening hash/time before model execution."
+    }
+  ]
+}

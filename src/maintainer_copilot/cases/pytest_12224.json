@@ -1,0 +1,33 @@
+{
+  "issue_number": 12224,
+  "issue_family_id": "granular-session-scripting-interface",
+  "template_profile": "bug_feature",
+  "opening_title": "More granular scripting interface",
+  "opening_cutoff": "2024-04-18T05:51:07Z",
+  "opening_content_sha256": "5c821c047cc326c41148cd48c10d6a5941c05a3164bdb116777930cee6b5a18a",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-18T05:22:01.108683+00:00",
+  "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+  "repository_commit_at": "2024-04-15T23:04:19Z",
+  "earlier_issue": {
+    "number": 10156,
+    "created_at": "2022-07-19T20:03:50Z",
+    "content_sha256": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "issue_type": "type: enhancement",
+    "missing_details": [],
+    "earlier_issue_relationship": "nonduplicate",
+    "rationale": "Requests explicit collect/start_session/run_test/end APIs to preserve a remote Pyodide session across tests. The opening supplies problem, proposed API, a concrete use case, and the workaround of restarting Pyodide per file. #10156 asks how to document registering dynamic session fixtures, rather than exposing test-run lifecycle APIs.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/12224",
+      "https://github.com/pytest-dev/pytest/issues/10156"
+    ]
+  },
+  "human_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+    "confirmed_at": "2026-11-18T05:23:43.206298+00:00"
+  }
+}

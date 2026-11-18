@@ -1,0 +1,35 @@
+{
+  "issue_number": 12228,
+  "issue_family_id": "toml-option-value-shapes-documentation",
+  "template_profile": "bug_feature",
+  "opening_title": "Documentation request: types/shapes of options in `[tool.pytest.ini_options]`",
+  "opening_cutoff": "2024-04-19T17:30:10Z",
+  "opening_content_sha256": "f701b93585c442aa5d88ee107e892972bc276e92a9cf2746e32907add70d4973",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-18T05:22:01.108683+00:00",
+  "repository_commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
+  "repository_commit_at": "2024-04-19T02:05:29Z",
+  "earlier_issue": {
+    "number": 12197,
+    "created_at": "2024-04-08T11:30:37Z",
+    "content_sha256": "8388529b44df4edd978ed0b8bbc572913d830907c013154455cc4662918e5bd1",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "issue_type": "type: docs",
+    "missing_details": [
+      "alternative solutions"
+    ],
+    "earlier_issue_relationship": "nonduplicate",
+    "rationale": "Requests documentation of TOML value types for configuration options, with addopts string/list examples and concrete questions about argument grouping. The desired documentation, problem and real-world use case are supplied, but no alternative tried or explicit none is stated. #12197 concerns log-disable availability as an ini option rather than documenting TOML value shapes. The GitHub search is investigation of accepted forms, not an alternative solution to the documentation gap.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/12228",
+      "https://github.com/pytest-dev/pytest/issues/12197"
+    ]
+  },
+  "human_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+    "confirmed_at": "2026-11-18T05:23:43.206298+00:00"
+  }
+}
