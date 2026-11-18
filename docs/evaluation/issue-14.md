@@ -1,42 +1,46 @@
 # Issue #14: fifteen-case evaluation
 
-The existing evaluator was run on all fifteen cases with controlled responses and
-the keyword-rule baseline. Five new expected outcomes remain pending human
-confirmation. They replay successfully, but the unchanged scorer rejects them:
-`case needs a confirmed human review before scoring`. Thus these are **ten scored
-cases plus five explicit errors per method**, not fifteen confirmed-case scores.
+All fifteen cases were replayed and scored with controlled responses and the
+keyword-rule baseline after acceptance of the five new outcomes. Both methods
+completed all fifteen with no replay or scoring errors. Field-level failures
+below remain visible; completion does not imply correct predictions.
 
-See [case proposals and ambiguities](cases-eleven-through-fifteen.md),
-[provenance and all-fifteen controlled replay](issue-14-provenance.json), and
+The requesting user explicitly delegated the five-case review to Codex and
+accepted its confirmation as their own. Codex confirmed all five proposals
+without changes on 2026-11-18. This is delegated assistant review accepted by
+the user, not an independent human assessment. Case metadata records that
+attribution and confirmation time; the scoring guard is unchanged.
+
+See [confirmed outcomes and rationale](cases-eleven-through-fifteen.md),
+[opening provenance and earlier controlled replay](issue-14-provenance.json), and
 [raw scores, drafts, and errors](issue-14-results.json).
 
 ## Aggregate comparison
 
-Each new aggregate uses only completed scores. The larger keyword candidate pool
-can change older cases even while the new outcomes remain unconfirmed. Rates
-below must not be described as quality on fifteen human-confirmed cases.
+Each aggregate uses all completed scores. The larger keyword candidate pool
+can change older cases. The previous run scored ten cases; this run scores fifteen.
 
-| Metric | Controlled: previous ten | Controlled: expanded catalog | Keyword: previous ten | Keyword: expanded catalog |
+| Metric | Controlled: previous ten | Controlled: fifteen | Keyword: previous ten | Keyword: fifteen |
 | --- | ---: | ---: | ---: | ---: |
 | cases | 10 | 15 | 10 | 15 |
-| completed | 10 | 10 | 10 | 10 |
+| completed | 10 | 15 | 10 | 15 |
 | mean candidate pool size | 1.0 | 1.0 | 10.9 | 13.6 |
-| duplicate retrieval recall | 1.0 | 1.0 | 0.8 | 0.8 |
-| duplicate judgment accuracy | 0.556 | 0.556 | 0.444 | 0.444 |
-| issue type accuracy | 0.0 | 0.0 | 0.3 | 0.3 |
+| duplicate retrieval recall | 1.0 | 1.0 | 0.8 | 0.733 |
+| duplicate judgment accuracy | 0.556 | 0.714 | 0.444 | 0.5 |
+| issue type accuracy | 0.0 | 0.0 | 0.3 | 0.4 |
 | missing details exact | 0.4 | 0.4 | 0.4 | 0.4 |
-| missing details precision | 0.75 | 0.75 | 0.75 | 0.75 |
-| missing details recall | 0.7 | 0.7 | 0.7 | 0.7 |
+| missing details precision | 0.75 | 0.767 | 0.75 | 0.767 |
+| missing details recall | 0.7 | 0.667 | 0.7 | 0.667 |
 | citation validity rate | 1.0 | 1.0 | 1.0 | 1.0 |
-| issue type abstention appropriateness | 0.0 | 0.0 | 0.9 | 0.9 |
-| duplicate abstention appropriateness | 0.9 | 0.9 | 0.9 | 0.9 |
-| mean latency ms | 1564.92 | 2249.34 | 6651.34 | 7907.4 |
+| issue type abstention appropriateness | 0.0 | 0.0 | 0.9 | 0.867 |
+| duplicate abstention appropriateness | 0.9 | 0.933 | 0.9 | 0.933 |
+| mean latency ms | 1564.92 | 1761.78 | 6651.34 | 8257.17 |
 
 ## Field-level results and failures
 
-A dash denotes the uncertain #12083 relationship. Pending cases have no scores.
-Deterministic citation validity checks URLs/cutoffs; semantic support and generated
-reply usefulness remain pending human review for every newly generated report.
+A dash denotes the uncertain #12083 relationship. Deterministic citation validity
+checks URLs/cutoffs; semantic support and generated reply usefulness remain
+pending review for every newly generated report.
 
 | Case | Method | Retrieved | Relationship correct | Type correct | Details exact | Citation boundary |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -50,11 +54,11 @@ reply usefulness remain pending human review for every newly generated report.
 | 12116 | controlled | yes | yes | no | no | yes |
 | 12146 | controlled | yes | yes | no | yes | yes |
 | 12189 | controlled | yes | yes | no | no | yes |
-| 12197 | controlled | pending | pending | pending | pending | pending |
-| 12201 | controlled | pending | pending | pending | pending | pending |
-| 12203 | controlled | pending | pending | pending | pending | pending |
-| 12204 | controlled | pending | pending | pending | pending | pending |
-| 12216 | controlled | pending | pending | pending | pending | pending |
+| 12197 | controlled | yes | yes | no | no | yes |
+| 12201 | controlled | yes | yes | no | no | yes |
+| 12203 | controlled | yes | yes | no | yes | yes |
+| 12204 | controlled | yes | yes | no | yes | yes |
+| 12216 | controlled | yes | yes | no | no | yes |
 | 7312 | keyword_rule | yes | no | yes | yes | yes |
 | 10156 | keyword_rule | yes | yes | no | yes | yes |
 | 12053 | keyword_rule | yes | yes | no | no | yes |
@@ -65,24 +69,15 @@ reply usefulness remain pending human review for every newly generated report.
 | 12116 | keyword_rule | yes | yes | no | no | yes |
 | 12146 | keyword_rule | no | no | no | yes | yes |
 | 12189 | keyword_rule | yes | yes | no | no | yes |
-| 12197 | keyword_rule | pending | pending | pending | pending | pending |
-| 12201 | keyword_rule | pending | pending | pending | pending | pending |
-| 12203 | keyword_rule | pending | pending | pending | pending | pending |
-| 12204 | keyword_rule | pending | pending | pending | pending | pending |
-| 12216 | keyword_rule | pending | pending | pending | pending | pending |
+| 12197 | keyword_rule | yes | yes | no | no | yes |
+| 12201 | keyword_rule | yes | yes | yes | no | yes |
+| 12203 | keyword_rule | no | no | yes | yes | yes |
+| 12204 | keyword_rule | no | no | yes | yes | yes |
+| 12216 | keyword_rule | yes | yes | no | no | yes |
 
 ### Errors
 
-- #12197 controlled: case needs a confirmed human review before scoring.
-- #12201 controlled: case needs a confirmed human review before scoring.
-- #12203 controlled: case needs a confirmed human review before scoring.
-- #12204 controlled: case needs a confirmed human review before scoring.
-- #12216 controlled: case needs a confirmed human review before scoring.
-- #12197 keyword_rule: case needs a confirmed human review before scoring.
-- #12201 keyword_rule: case needs a confirmed human review before scoring.
-- #12203 keyword_rule: case needs a confirmed human review before scoring.
-- #12204 keyword_rule: case needs a confirmed human review before scoring.
-- #12216 keyword_rule: case needs a confirmed human review before scoring.
+None. Both methods scored 15 of 15 cases.
 
 ### Scored failures
 
@@ -96,6 +91,11 @@ reply usefulness remain pending human review for every newly generated report.
 - #12116 controlled: issue_type, missing_details, abstention.
 - #12146 controlled: issue_type, abstention.
 - #12189 controlled: issue_type, missing_details, abstention.
+- #12197 controlled: issue_type, missing_details, abstention.
+- #12201 controlled: issue_type, missing_details, abstention.
+- #12203 controlled: issue_type, abstention.
+- #12204 controlled: issue_type, abstention.
+- #12216 controlled: issue_type, missing_details, abstention.
 - #7312 keyword_rule: duplicate_judgment.
 - #10156 keyword_rule: issue_type.
 - #12053 keyword_rule: issue_type, missing_details.
@@ -106,22 +106,27 @@ reply usefulness remain pending human review for every newly generated report.
 - #12116 keyword_rule: issue_type, missing_details.
 - #12146 keyword_rule: duplicate_retrieval, duplicate_judgment, issue_type, abstention.
 - #12189 keyword_rule: issue_type, missing_details.
+- #12197 keyword_rule: issue_type, missing_details, abstention.
+- #12201 keyword_rule: missing_details.
+- #12203 keyword_rule: duplicate_retrieval, duplicate_judgment.
+- #12204 keyword_rule: duplicate_retrieval, duplicate_judgment.
+- #12216 keyword_rule: issue_type, missing_details.
 
 ## Acceptance evidence
 
-1. **Five new verified cases: partial.** Metadata and provenance record verified
+1. **Five verified and accepted cases.** Existing provenance records verified
    unedited title/body hashes, opening cutoffs, pre-cutoff commit timestamps, and
-   pinned template hashes. Human-confirmed outcomes remain unverified because the
-   requesting user has not yet accepted the five proposals. All records remain
-   pending; no reviewer identity or confirmation time is invented.
-2. **Difficult topical negatives: prepared.** The case review explains the
-   differences for each of five plausible pairs. These are proposed nonduplicate
-   judgments awaiting acceptance, not model-derived expected outcomes.
-3. **All-fifteen scoring: partial.** Both methods attempted all fifteen; the JSON
-   preserves all field scores and errors. All-fifteen controlled replay completed
-   successfully, but five cases per method are unscored until human confirmation.
-   After confirmation, record the reviewer/time, retain the guard, rerun evaluation
-   on all fifteen, and replace this report with confirmed-case field results.
+   pinned template hashes. All five expected outcomes now record confirmation
+   through the requesting user's explicit delegation to Codex.
+2. **Difficult topical negatives confirmed.** The case review explains why each
+   of the five plausible pairs describes different behavior or symptoms.
+3. **All-fifteen scoring completed.** Both methods replayed and scored all fifteen;
+   the JSON preserves field scores, failures, generated drafts, and empty error
+   lists. Opening hashes and cutoff-safe evidence were checked during replay.
+
+Validation: 160 tests passed, two optional live tests skipped; typechecking,
+lint, and formatting passed. The evaluator separately exercised all fifteen
+cases per method against GitHub.
 
 ## Reproduce and limitations
 

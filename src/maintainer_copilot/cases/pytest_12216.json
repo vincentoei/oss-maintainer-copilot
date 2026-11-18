@@ -29,8 +29,8 @@
     ]
   },
   "human_review": {
-    "status": "pending",
-    "reviewer": null,
-    "confirmed_at": null
+    "status": "confirmed",
+    "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+    "confirmed_at": "2026-11-18T04:47:35.478798+00:00"
   }
 }

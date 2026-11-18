@@ -1,11 +1,19 @@
 # Evaluation cases 11 through 15: issue #14
 
 Five additional pytest openings extend the catalog to fifteen distinct issue
-families. All five propose difficult topical negatives. Expected outcomes below
-are assistant judgments **pending human confirmation**; later maintainer comments
-corroborate context but do not constitute acceptance of these annotations.
+families. All five are confirmed difficult topical negatives.
+On 2026-11-18T04:47:35.478798+00:00,
+Codex reviewed the five openings and their paired earlier issues and confirmed
+all proposed relationships, issue types, and missing details without changes.
 
-| Case | Earlier issue | Proposed relationship | Type | Missing report details |
+The requesting user explicitly delegated this review to Codex and stated,
+"I'll treat your confirmation as my confirmation." The case records therefore
+record confirmation accepted by the requesting user through that delegation.
+This was assistant-performed review, not an independent human assessment.
+Later maintainer comments corroborate context but are not the acceptance source.
+The scorer's confirmation guard remains unchanged.
+
+| Case | Earlier issue | Confirmed relationship | Type | Missing report details |
 | --- | --- | --- | --- | --- |
 | [12197](https://github.com/pytest-dev/pytest/issues/12197) | [12053](https://github.com/pytest-dev/pytest/issues/12053) | Nonduplicate | `type: question` | `pip list output`, `pytest and OS versions`, `minimal example` |
 | [12201](https://github.com/pytest-dev/pytest/issues/12201) | [12146](https://github.com/pytest-dev/pytest/issues/12146) | Nonduplicate | `type: enhancement` | None |
@@ -13,7 +21,7 @@ corroborate context but do not constitute acceptance of these annotations.
 | [12204](https://github.com/pytest-dev/pytest/issues/12204) | [12203](https://github.com/pytest-dev/pytest/issues/12203) | Nonduplicate | `type: bug` | None |
 | [12216](https://github.com/pytest-dev/pytest/issues/12216) | [12146](https://github.com/pytest-dev/pytest/issues/12146) | Nonduplicate | `type: bug` | `pip list output`, `pytest and OS versions` |
 
-## Rationale and ambiguities for human review
+## Confirmed rationale and resolved ambiguities
 
 - **12197 / 12053:** Both compare command-line options with ini configuration,
   but log filtering and debugger selection are different requested behaviors.
@@ -21,13 +29,13 @@ corroborate context but do not constitute acceptance of these annotations.
   option; bug or enhancement would also be defensible descriptions of the desired
   parity. The pytest version is present; only the OS part of the combined version
   field is missing. There is no package list or standalone ini/test/command
-  reproduction. Whether that simple option description suffices as a minimal
-  example is an annotation judgment.
+  reproduction. This review accepts the missing-minimal-example judgment: the
+  option description alone omits the exact configuration and logging test.
 - **12201 / 12146:** Both concern parametrization, but platform-dependent parameter
   selection differs from a class fixture running too often for rebuilt tuples.
   The feature request supplies its Windows/POSIX path use case and describes
   skipif plus copied tests as an alternative despite the empty alternatives
-  section. No additional feature-template detail is proposed as missing.
+  section. No additional feature-template detail is missing.
 - **12203 / 12116:** Both lose log records, but the new report concerns fixture
   setup exceptions; the earlier report concerns records emitted in child
   processes. The opening does not establish that these have the same cause.
@@ -43,7 +51,7 @@ corroborate context but do not constitute acceptance of these annotations.
   version field absent. Expected missing details are therefore empty.
 - **12216 / 12146:** Both involve parametrized fixtures, but dynamically adding
   an unrequested fixture fails to invoke it, whereas the earlier fixture runs
-  too often. Bug is proposed for the demonstrated runtime failure; enhancement
+  too often. Bug is accepted for the demonstrated runtime failure; enhancement
   or question are defensible because the opening seeks a supported way to do
   dynamic injection. pytest 8.1.1 and a runnable example are present. Package
   list and OS version are absent; only OS is missing from the combined field.
@@ -79,7 +87,7 @@ pairs, not new source/documentation fixtures.
   explains repeated raising of a cached exception and notes that the symptom
   also affects ordinary exceptions. That later diagnosis is annotation only.
 - No maintainer response was returned in the initial four-comment read for
-  #12203 or #12216; opening-time rationale above is the basis for their proposals.
+  #12203 or #12216; opening-time rationale above is the basis for their confirmed outcomes.
 
 ## Scope and validation
 
@@ -87,13 +95,9 @@ No local model is selected or called. Model selection and llmfit belong to #21
 after #15 and before #16. All earlier model-quality observations are provisional.
 Controlled responses establish replay behavior; the keyword baseline measures
 existing rules against the limited published catalog, not full-history recall.
-Human confirmation of expected outcomes is separate from semantic citation and
-generated draft usefulness review. Pending judgments must not become scored wins.
+Acceptance of expected outcomes is separate from semantic citation and
+generated draft usefulness review; those judgments remain pending.
 
-Live controlled replay completed all fifteen cases without a flagged opening or
-commit. [The evaluation report](issue-14.md) records the subsequent all-fifteen
-scoring attempt: ten completed scores and five pending-confirmation errors per
-method, with raw field-level results in [JSON](issue-14-results.json). The
-confirmation guard remains unchanged. Final deterministic validation passed:
-160 tests passed, two optional live tests skipped; typechecking, lint, and
-formatting passed. Live replay separately exercised all fifteen against GitHub.
+Live controlled replay previously completed all fifteen cases without a flagged
+opening or commit. [The evaluation report](issue-14.md) and its
+[raw results](issue-14-results.json) track scoring after this confirmation.

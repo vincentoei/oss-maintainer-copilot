@@ -171,8 +171,9 @@ and semantic citation judgments require separate human review; confirming a case
 expected outcome does not confirm its generated report.
 
 [Issue #14's expanded-catalog run](docs/evaluation/issue-14.md) records the
-all-fifteen replay and scoring attempt. Five new expected outcomes remain pending
-human confirmation; the scorer reports those cases as errors until confirmed.
+completed replay and scoring of all fifteen cases. The five new outcomes were
+reviewed by Codex and accepted through the requesting user's explicit delegation;
+the case review records that attribution.
 
 Open <http://127.0.0.1:8000> to paste an issue. Enter its pytest issue number
 to search only issues opened before it. For a newly drafted issue without a

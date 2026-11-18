@@ -436,11 +436,7 @@ def test_published_cases_cover_fifteen_families_and_judgment_types() -> None:
         12189,
     } | new_case_numbers
     assert len({case.issue_family_id for case in cases}) == 15
-    assert all(
-        case.human_review.status == "confirmed"
-        for case in cases
-        if case.issue_number not in new_case_numbers
-    )
+    assert all(case.human_review.status == "confirmed" for case in cases)
     assert all(
         case.expected_outcome.earlier_issue_relationship == "nonduplicate"
         for case in cases
