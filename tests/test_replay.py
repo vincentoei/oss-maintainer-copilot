@@ -422,6 +422,7 @@ def test_case_rejects_repository_evidence_after_opening() -> None:
 
 def test_published_cases_cover_fifteen_families_and_judgment_types() -> None:
     cases = load_cases()
+    new_case_numbers = {12197, 12201, 12203, 12204, 12216}
     assert {case.issue_number for case in cases} == {
         7312,
         10156,
@@ -433,22 +434,17 @@ def test_published_cases_cover_fifteen_families_and_judgment_types() -> None:
         12116,
         12146,
         12189,
-        12197,
-        12201,
-        12203,
-        12204,
-        12216,
-    }
+    } | new_case_numbers
     assert len({case.issue_family_id for case in cases}) == 15
     assert all(
         case.human_review.status == "confirmed"
         for case in cases
-        if case.issue_number < 12197
+        if case.issue_number not in new_case_numbers
     )
     assert all(
-        case.human_review.status == "pending"
+        case.expected_outcome.earlier_issue_relationship == "nonduplicate"
         for case in cases
-        if case.issue_number >= 12197
+        if case.issue_number in new_case_numbers
     )
     assert [case.expected_outcome.earlier_issue_relationship for case in cases].count(
         "duplicate_candidate"
