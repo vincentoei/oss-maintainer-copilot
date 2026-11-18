@@ -420,10 +420,21 @@ def test_case_rejects_repository_evidence_after_opening() -> None:
         HistoricalCase.model_validate(data)
 
 
-def test_published_cases_cover_five_families_and_judgment_types() -> None:
+def test_published_cases_cover_ten_families_and_judgment_types() -> None:
     cases = load_cases()
-    assert {case.issue_number for case in cases} == {7312, 10156, 12081, 12083, 12146}
-    assert len({case.issue_family_id for case in cases}) == 5
+    assert {case.issue_number for case in cases} == {
+        7312,
+        10156,
+        12053,
+        12072,
+        12079,
+        12081,
+        12083,
+        12116,
+        12146,
+        12189,
+    }
+    assert len({case.issue_family_id for case in cases}) == 10
     assert all(case.human_review.status == "confirmed" for case in cases)
     assert [case.expected_outcome.earlier_issue_relationship for case in cases].count(
         "duplicate_candidate"
@@ -436,7 +447,9 @@ def test_published_cases_cover_five_families_and_judgment_types() -> None:
     ) >= 1
 
 
-@pytest.mark.parametrize("number", [7312, 10156, 12083, 12146])
+@pytest.mark.parametrize(
+    "number", [case.issue_number for case in load_cases() if case.issue_number != 12081]
+)
 def test_other_recorded_cases_replay_without_annotation_leakage(number: int) -> None:
     recorded = next(case for case in load_cases() if case.issue_number == number)
     reviewed = issue_search.IssueRecord(

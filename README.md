@@ -125,8 +125,8 @@ reader, run:
 RUN_LIVE_REPLAY=1 uv run --no-env-file pytest -q tests/test_replay.py -k recorded_case
 ```
 
-Five case metadata files now live in
-[`src/maintainer_copilot/cases/`](src/maintainer_copilot/cases/). Replay all five
+Ten case metadata files now live in
+[`src/maintainer_copilot/cases/`](src/maintainer_copilot/cases/). Replay all ten
 with controlled model responses using:
 
 ```sh
@@ -138,18 +138,20 @@ public opening text or pinned commit no longer matches is printed as flagged.
 The [first-five case review](docs/evaluation/first-five-cases.md) records the
 confirmed expected outcomes, individual relationship judgments, provenance
 checks, and the live replay result. All five have reviewer confirmation.
+The [second case review](docs/evaluation/cases-six-through-ten.md) records
+cases 6 through 10, their confirmation provenance, and ambiguous judgments.
 These controlled replays are smoke checks; model selection and quality
 measurement remain issue #21 work after
 #15 and before #16.
 
 ## Score the first reviewed cases
 
-Run the five-case field scorer and keyword-rule baseline with public GitHub
+Run the ten-case field scorer and keyword-rule baseline with public GitHub
 access:
 
 ```sh
 GITHUB_TOKEN="$(gh auth token)" uv run --locked --no-env-file \
-  python -m maintainer_copilot.evaluation > /tmp/issue-12-new-results.json
+  python -m maintainer_copilot.evaluation > /tmp/evaluation-new-results.json
 ```
 
 [Issue #12's methodology and provisional results](docs/evaluation/issue-12.md)
@@ -159,6 +161,11 @@ semantic judgments still awaiting human review. The checked-in
 and confirmed judgments inspectable. The command writes raw scores separately
 so it does not replace the reviewed artifact. No model is selected by this
 evaluation.
+
+[Issue #13's ten-case results](docs/evaluation/issue-13.md) compare aggregate
+and case-level scores with the original five-case run. Generated reply usefulness
+and semantic citation judgments require separate human review; confirming a case's
+expected outcome does not confirm its generated report.
 
 Open <http://127.0.0.1:8000> to paste an issue. Enter its pytest issue number
 to search only issues opened before it. For a newly drafted issue without a
