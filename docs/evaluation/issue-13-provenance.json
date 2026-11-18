@@ -214,8 +214,8 @@
     }
   ],
   "outcome_confirmation": {
-    "confirmed_at": "2026-11-18T03:43:36.270521Z",
+    "confirmed_at": "2026-11-18T03:49:09.532740Z",
     "reviewer": "requesting user",
-    "basis": "The user explicitly accepted the assistant review decisions as their own outcomes. All five proposed outcomes were retained after reviewing the public issue openings; this does not assert an independent human inspection of those openings."
+    "basis": "The user explicitly confirmed all five proposed outcomes, including rationale and ambiguities, with no outcome corrections. For #12072 and #12189 only the OS version is missing, not the pytest version. Generated replies and semantic citation judgments are not confirmed."
   }
 }

@@ -114,8 +114,8 @@ of the expected opening-time judgments above:
 
 [The provenance artifact](issue-13-provenance.json) preserves the edit-history
 check, pinned template hashes and requested lines, and the successful controlled
-replay status for each of the ten cases. Its review statuses record the accepted expected outcomes; they do not
-confirm the generated reports.
+replay status for each of the ten cases. Its review statuses record the
+accepted expected outcomes; they do not confirm the generated reports.
 
 ## Ten-case scoring after confirmation
 
@@ -135,7 +135,7 @@ this run. The [previous five-case results](issue-12.md) remain unchanged.
 | Appropriate issue-type abstention | 0/5 → 0/10 | 4/5 → 9/10 |
 | Appropriate duplicate abstention | 4/5 → 9/10 | 4/5 → 9/10 |
 | Mean candidate pool size | 1 → 1 | 6 → 10.9 |
-| Mean end-to-end latency (ms) | 1737.04 → 1556.06 | 4348.95 → 6583.14 |
+| Mean end-to-end latency (ms) | 1737.04 → 1564.92 | 4348.95 → 6651.34 |
 
 The uncertain #12083 relationship remains excluded from exact duplicate judgment
 accuracy. The larger keyword candidate pool changes the retrieval context;
