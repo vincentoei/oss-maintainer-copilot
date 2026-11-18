@@ -125,8 +125,8 @@ reader, run:
 RUN_LIVE_REPLAY=1 uv run --no-env-file pytest -q tests/test_replay.py -k recorded_case
 ```
 
-Ten case metadata files now live in
-[`src/maintainer_copilot/cases/`](src/maintainer_copilot/cases/). Replay all ten
+Fifteen case metadata files now live in
+[`src/maintainer_copilot/cases/`](src/maintainer_copilot/cases/). Replay all fifteen
 with controlled model responses using:
 
 ```sh
@@ -140,13 +140,16 @@ confirmed expected outcomes, individual relationship judgments, provenance
 checks, and the live replay result. All five have reviewer confirmation.
 The [second case review](docs/evaluation/cases-six-through-ten.md) records
 cases 6 through 10, their confirmation provenance, and ambiguous judgments.
+The [third case review](docs/evaluation/cases-eleven-through-fifteen.md) records
+cases 11 through 15, their provenance, difficult topical negatives, and review
+status. Pending outcomes cannot be scored until a human confirms them.
 These controlled replays are smoke checks; model selection and quality
 measurement remain issue #21 work after
 #15 and before #16.
 
 ## Score the first reviewed cases
 
-Run the ten-case field scorer and keyword-rule baseline with public GitHub
+Run the fifteen-case field scorer and keyword-rule baseline with public GitHub
 access:
 
 ```sh
@@ -166,6 +169,11 @@ evaluation.
 and case-level scores with the original five-case run. Generated reply usefulness
 and semantic citation judgments require separate human review; confirming a case's
 expected outcome does not confirm its generated report.
+
+[Issue #14's expanded-catalog run](docs/evaluation/issue-14.md) records the
+completed replay and scoring of all fifteen cases. The five new outcomes were
+reviewed by Codex and accepted through the requesting user's explicit delegation;
+the case review records that attribution.
 
 Open <http://127.0.0.1:8000> to paste an issue. Enter its pytest issue number
 to search only issues opened before it. For a newly drafted issue without a

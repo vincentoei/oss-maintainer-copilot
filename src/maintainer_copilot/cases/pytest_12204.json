@@ -1,0 +1,33 @@
+{
+  "issue_number": 12204,
+  "issue_family_id": "cached-fixture-exception-traceback-growth",
+  "template_profile": "bug_feature",
+  "opening_title": "ExceptionGroup traceback of session fixture unlimitedly grows from test to test",
+  "opening_cutoff": "2024-04-10T10:45:32Z",
+  "opening_content_sha256": "62dec36896ee774efb8621b6838e18b928c3b4eecb9497596f151af6d075dd21",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-18T04:16:51.226671Z",
+  "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+  "repository_commit_at": "2024-04-09T19:26:36Z",
+  "earlier_issue": {
+    "number": 12203,
+    "created_at": "2024-04-10T09:18:43Z",
+    "content_sha256": "aa2546be855758373051d6f6fb6fb5c054046d756240b75632230807dbe3061c",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "issue_type": "type: bug",
+    "missing_details": [],
+    "earlier_issue_relationship": "nonduplicate",
+    "rationale": "A session fixture raising ExceptionGroup produces tracebacks that grow across tests. #12203 reports missing log records when a fixture raises; these share fixture and exception context but differ in symptom and requested remedy. A package list, OS version and runnable example are supplied. The prose/package list says pytest 8.1.1 while the pasted run says 8.0.0; this inconsistency warrants clarification but is not absence of the combined version detail.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/12204",
+      "https://github.com/pytest-dev/pytest/issues/12203"
+    ]
+  },
+  "human_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+    "confirmed_at": "2026-11-18T04:47:35.478798+00:00"
+  }
+}

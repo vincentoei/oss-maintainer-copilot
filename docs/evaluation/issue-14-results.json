@@ -1,0 +1,2427 @@
+{
+  "methods": {
+    "controlled": {
+      "aggregate": {
+        "cases": 15,
+        "completed": 15,
+        "errors": [],
+        "mean_latency_ms": 1761.78,
+        "mean_candidate_pool_size": 1.0,
+        "duplicate_retrieval_recall": 1.0,
+        "duplicate_judgment_accuracy": 0.714,
+        "issue_type_accuracy": 0.0,
+        "missing_details_exact": 0.4,
+        "missing_details_precision": 0.767,
+        "missing_details_recall": 0.667,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.0,
+        "duplicate_abstention_appropriateness": 0.933,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 7312,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 7312,
+            "field": "abstention"
+          },
+          {
+            "issue_number": 12053,
+            "field": "missing_details"
+          }
+        ]
+      },
+      "cases": [
+        {
+          "issue_number": 7312,
+          "method": "controlled",
+          "opening_cutoff": "2020-06-03T14:20:24+00:00",
+          "repository_commit": "61a6ac97054c0bd6f812642b46847c4b7cbede2a",
+          "latency_ms": 1383.28,
+          "candidate_pool_size": 1,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 349,
+              "retrieved_issues": [
+                349
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": false,
+              "expected": "duplicate_candidate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: enhancement",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 1,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+                  "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 10156,
+          "method": "controlled",
+          "opening_cutoff": "2022-07-19T20:03:50+00:00",
+          "repository_commit": "34a285986e456406b22b62aa563a64331f640e7f",
+          "latency_ms": 1369.17,
+          "candidate_pool_size": 1,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 2959,
+              "retrieved_issues": [
+                2959
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: docs",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 1,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C1]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+                  "description": "pytest issue #2959: pytest 3.3.0 immutable fixture params",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12053,
+          "method": "controlled",
+          "opening_cutoff": "2024-03-03T14:58:35+00:00",
+          "repository_commit": "00043f7f1047b29fdaeb18e169fe9d6146988cb8",
+          "latency_ms": 1747.45,
+          "candidate_pool_size": 1,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 8655,
+              "retrieved_issues": [
+                8655
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: enhancement",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 0.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": [
+                "alternative solutions",
+                "real-world use case"
+              ]
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 3,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Could you add a real-world use case this would enable? [C1]\n- Could you add any workaround or alternative you have tried, or that there is none? [C2]\n- Earlier issue #8655 may be relevant: Shared topic: bit, currently, debugger; one report negates a shared condition. [C3]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/00043f7f1047b29fdaeb18e169fe9d6146988cb8/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+                  "description": "pytest feature report template: real-world use case",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/00043f7f1047b29fdaeb18e169fe9d6146988cb8/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+                  "description": "pytest feature report template: alternative solutions",
+                  "passage": null
+                },
+                {
+                  "id": "C3",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/8655",
+                  "description": "pytest issue #8655: Help text is misleading about the behavior of --pdb",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12072,
+          "method": "controlled",
+          "opening_cutoff": "2024-03-04T13:04:55+00:00",
+          "repository_commit": "0951cbc6e4880ee7dfc9b7e56948d83ee086e74b",
+          "latency_ms": 1532.61,
+          "candidate_pool_size": 1,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 12066,
+              "retrieved_issues": [
+                12066
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": false,
+              "expected": "duplicate_candidate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: bug",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 1.0,
+              "recall": 0.0,
+              "expected": [
+                "minimal example",
+                "pip list output",
+                "pytest and OS versions"
+              ],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 1,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12066 may be relevant: Shared topic: assertion, bootstrap, call_runtest_hook; the same failure or request is not established. [C1]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+                  "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12079,
+          "method": "controlled",
+          "opening_cutoff": "2024-03-05T12:31:13+00:00",
+          "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+          "latency_ms": 1469.85,
+          "candidate_pool_size": 1,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 11871,
+              "retrieved_issues": [
+                11871
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": false,
+              "expected": "duplicate_candidate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: enhancement",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 0.5,
+              "recall": 1.0,
+              "expected": [
+                "alternative solutions"
+              ],
+              "observed": [
+                "alternative solutions",
+                "real-world use case"
+              ]
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 3,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Could you add a real-world use case this would enable? [C1]\n- Could you add any workaround or alternative you have tried, or that there is none? [C2]\n- Earlier issue #11871 may be relevant: Shared topic: additional, all, alternative; the same failure or request is not established. [C3]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+                  "description": "pytest feature report template: real-world use case",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+                  "description": "pytest feature report template: alternative solutions",
+                  "passage": null
+                },
+                {
+                  "id": "C3",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/11871",
+                  "description": "pytest issue #11871: Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12081,
+          "method": "controlled",
+          "opening_cutoff": "2024-03-06T00:03:25+00:00",
+          "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+          "latency_ms": 2239.79,
+          "candidate_pool_size": 1,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 3448,
+              "retrieved_issues": [
+                3448
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": false,
+              "expected": "duplicate_candidate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: enhancement",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 3,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, call; one report negates a shared condition. [C1]\n- pytest documents that capture fixtures let tests access stdout and stderr created during execution. [C2]\n- At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line. [C3]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+                  "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
+                  "description": "pytest documentation: capture",
+                  "passage": "The ``capsys``, ``capsysbinary``, ``capfd``, and ``capfdbinary`` fixtures allow access to stdout/stderr output created during test execution.  Here is"
+                },
+                {
+                  "id": "C3",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+                  "description": "pytest source: src/_pytest/capture.py:935",
+                  "passage": "        \"\"\"Read and return the captured output so far, resetting the internal"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12083,
+          "method": "controlled",
+          "opening_cutoff": "2024-03-06T10:53:11+00:00",
+          "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+          "latency_ms": 2023.33,
+          "candidate_pool_size": 1,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 7012,
+              "retrieved_issues": [
+                7012
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": null,
+              "expected": "uncertain",
+              "observed": "related_issue",
+              "review_status": "pending_human_review"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: regression",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 1.0,
+              "recall": 0.0,
+              "expected": [
+                "pip list output"
+              ],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 1,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": true,
+              "duplicate_observed": false,
+              "duplicate_appropriate": false,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #7012 may be relevant: Shared topic: collect, collected, duplicate; the same failure or request is not established. [C1]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/7012",
+                  "description": "pytest issue #7012: Quotation marks in pytest command collects duplicate tests",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12116,
+          "method": "controlled",
+          "opening_cutoff": "2024-03-13T13:37:51+00:00",
+          "repository_commit": "c0532dda18a5cfd0e6f67113bb164485fa80eb86",
+          "latency_ms": 1518.77,
+          "candidate_pool_size": 1,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 12081,
+              "retrieved_issues": [
+                12081
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: bug",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 0.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": [
+                "pip list output"
+              ]
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 2,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Could you add the output of `pip list` from the virtual environment you are using? [C1]\n- Earlier issue #12081 may be relevant: Shared topic: assert, capturing, code; one report negates a shared condition. [C2]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/c0532dda18a5cfd0e6f67113bb164485fa80eb86/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+                  "description": "pytest bug report template: pip list output",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12081",
+                  "description": "pytest issue #12081: Capture: copy output when using readouterr() instead of consuming it",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12146,
+          "method": "controlled",
+          "opening_cutoff": "2024-03-21T12:06:34+00:00",
+          "repository_commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
+          "latency_ms": 1384.24,
+          "candidate_pool_size": 1,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 7312,
+              "retrieved_issues": [
+                7312
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: bug",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 1,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #7312 may be relevant: Shared topic: def, fixture, mark; the same failure or request is not established. [C1]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+                  "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12189,
+          "method": "controlled",
+          "opening_cutoff": "2024-04-05T09:14:51+00:00",
+          "repository_commit": "4e3dd21506a9e543c04c63ebff966a9b604d2b9e",
+          "latency_ms": 2148.65,
+          "candidate_pool_size": 1,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 12081,
+              "retrieved_issues": [
+                12081
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: question",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 1.0,
+              "recall": 0.0,
+              "expected": [
+                "pytest and OS versions"
+              ],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 1,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12081 may be relevant: Shared topic: any, but, captured; one report negates a shared condition. [C1]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12081",
+                  "description": "pytest issue #12081: Capture: copy output when using readouterr() instead of consuming it",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12197,
+          "method": "controlled",
+          "opening_cutoff": "2024-04-08T11:30:37+00:00",
+          "repository_commit": "74f05648d5ea9e69d75f27a77972756ee32f6730",
+          "latency_ms": 1846.72,
+          "candidate_pool_size": 1,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 12053,
+              "retrieved_issues": [
+                12053
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: question",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 1.0,
+              "recall": 0.0,
+              "expected": [
+                "minimal example",
+                "pip list output",
+                "pytest and OS versions"
+              ],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 1,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12053 may be relevant: Shared topic: configuration, ini, option; one report negates a shared condition. [C1]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12053",
+                  "description": "pytest issue #12053: pdbcls as a configuration option?",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12201,
+          "method": "controlled",
+          "opening_cutoff": "2024-04-09T14:22:08+00:00",
+          "repository_commit": "17fc20af78d0c7b739806c4e461d2c9b8c30ceeb",
+          "latency_ms": 1598.75,
+          "candidate_pool_size": 1,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 12146,
+              "retrieved_issues": [
+                12146
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: enhancement",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 0.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": [
+                "alternative solutions",
+                "real-world use case"
+              ]
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 3,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Could you add a real-world use case this would enable? [C1]\n- Could you add any workaround or alternative you have tried, or that there is none? [C2]\n- Earlier issue #12146 may be relevant: Shared topic: def, list, mark; the same failure or request is not established. [C3]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/17fc20af78d0c7b739806c4e461d2c9b8c30ceeb/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+                  "description": "pytest feature report template: real-world use case",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/17fc20af78d0c7b739806c4e461d2c9b8c30ceeb/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+                  "description": "pytest feature report template: alternative solutions",
+                  "passage": null
+                },
+                {
+                  "id": "C3",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12146",
+                  "description": "pytest issue #12146: Parametrization with Variables Unexpectedly Changes Fixture Scope from Class-Level to Function-Level",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12203,
+          "method": "controlled",
+          "opening_cutoff": "2024-04-10T09:18:43+00:00",
+          "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+          "latency_ms": 1950.59,
+          "candidate_pool_size": 1,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 12116,
+              "retrieved_issues": [
+                12116
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: bug",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [
+                "minimal example"
+              ],
+              "observed": [
+                "minimal example"
+              ]
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 2,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Could you add a minimal example, if possible? [C1]\n- Earlier issue #12116 may be relevant: Shared topic: def, description, detailed; one report negates a shared condition. [C2]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/1f001cd1051a4ca4bef251d93e472e625578aaf7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+                  "description": "pytest bug report template: minimal example",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12116",
+                  "description": "pytest issue #12116: Capturing logs does not work with multiprocessing",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12204,
+          "method": "controlled",
+          "opening_cutoff": "2024-04-10T10:45:32+00:00",
+          "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+          "latency_ms": 1522.47,
+          "candidate_pool_size": 1,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 12203,
+              "retrieved_issues": [
+                12203
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: bug",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 1,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12203 may be relevant: Shared topic: capture, def, example; one report negates a shared condition. [C1]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12203",
+                  "description": "pytest issue #12203: Pytest does not capture teardown logs if a fixture throws an exception",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12216,
+          "method": "controlled",
+          "opening_cutoff": "2024-04-15T07:38:50+00:00",
+          "repository_commit": "5f6e825a2687f6bb8bc437e67a59c0a92fb16c06",
+          "latency_ms": 2691.06,
+          "candidate_pool_size": 1,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 12146,
+              "retrieved_issues": [
+                12146
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: bug",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 1.0,
+              "recall": 0.0,
+              "expected": [
+                "pip list output",
+                "pytest and OS versions"
+              ],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 1,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12146 may be relevant: Shared topic: def, fixture, fixturenames; one report negates a shared condition. [C1]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12146",
+                  "description": "pytest issue #12146: Parametrization with Variables Unexpectedly Changes Fixture Scope from Class-Level to Function-Level",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "keyword_rule": {
+      "aggregate": {
+        "cases": 15,
+        "completed": 15,
+        "errors": [],
+        "mean_latency_ms": 8257.17,
+        "mean_candidate_pool_size": 13.6,
+        "duplicate_retrieval_recall": 0.733,
+        "duplicate_judgment_accuracy": 0.5,
+        "issue_type_accuracy": 0.4,
+        "missing_details_exact": 0.4,
+        "missing_details_precision": 0.767,
+        "missing_details_recall": 0.667,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.867,
+        "duplicate_abstention_appropriateness": 0.933,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12053,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12083,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 12083,
+            "field": "abstention"
+          }
+        ]
+      },
+      "cases": [
+        {
+          "issue_number": 7312,
+          "method": "keyword_rule",
+          "opening_cutoff": "2020-06-03T14:20:24+00:00",
+          "repository_commit": "61a6ac97054c0bd6f812642b46847c4b7cbede2a",
+          "latency_ms": 3273.14,
+          "candidate_pool_size": 4,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 349,
+              "retrieved_issues": [
+                349,
+                2959,
+                7012
+              ],
+              "other_issues_unreviewed": [
+                2959,
+                7012
+              ]
+            },
+            "duplicate_judgment": {
+              "correct": false,
+              "expected": "duplicate_candidate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": true,
+              "expected": "type: enhancement",
+              "observed": "type: enhancement"
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 3,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "missing_details"
+              ],
+              "issue_type_appropriate": true,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]\n- Earlier issue #2959 may be relevant: Shared topic: case, config, def; the same failure or request is not established. [C2]\n- Earlier issue #7012 may be relevant: Shared topic: def, session, single; the same failure or request is not established. [C3]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+                  "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+                  "description": "pytest issue #2959: pytest 3.3.0 immutable fixture params",
+                  "passage": null
+                },
+                {
+                  "id": "C3",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/7012",
+                  "description": "pytest issue #7012: Quotation marks in pytest command collects duplicate tests",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 10156,
+          "method": "keyword_rule",
+          "opening_cutoff": "2022-07-19T20:03:50+00:00",
+          "repository_commit": "34a285986e456406b22b62aa563a64331f640e7f",
+          "latency_ms": 4120.75,
+          "candidate_pool_size": 6,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 2959,
+              "retrieved_issues": [
+                349,
+                2959,
+                7312
+              ],
+              "other_issues_unreviewed": [
+                349,
+                7312
+              ]
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: docs",
+              "observed": "type: infrastructure"
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 3,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "missing_details"
+              ],
+              "issue_type_appropriate": true,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #7312 may be relevant: Shared topic: case, config, def; the same failure or request is not established. [C1]\n- Earlier issue #349 may be relevant: Shared topic: arg, but, case; one report negates a shared condition. [C2]\n- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C3]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+                  "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+                  "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+                  "passage": null
+                },
+                {
+                  "id": "C3",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+                  "description": "pytest issue #2959: pytest 3.3.0 immutable fixture params",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12053,
+          "method": "keyword_rule",
+          "opening_cutoff": "2024-03-03T14:58:35+00:00",
+          "repository_commit": "00043f7f1047b29fdaeb18e169fe9d6146988cb8",
+          "latency_ms": 4951.78,
+          "candidate_pool_size": 8,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 8655,
+              "retrieved_issues": [
+                7312,
+                8655,
+                10156
+              ],
+              "other_issues_unreviewed": [
+                7312,
+                10156
+              ]
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: enhancement",
+              "observed": "type: question"
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 0.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": [
+                "alternative solutions",
+                "real-world use case"
+              ]
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 5,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [],
+              "issue_type_appropriate": true,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Could you add a real-world use case this would enable? [C1]\n- Could you add any workaround or alternative you have tried, or that there is none? [C2]\n- Earlier issue #8655 may be relevant: Shared topic: bit, currently, debugger; one report negates a shared condition. [C3]\n- Earlier issue #7312 may be relevant: Shared topic: case, configuration, currently; the same failure or request is not established. [C4]\n- Earlier issue #10156 may be relevant: Shared topic: case, https, like; one report negates a shared condition. [C5]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/00043f7f1047b29fdaeb18e169fe9d6146988cb8/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+                  "description": "pytest feature report template: real-world use case",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/00043f7f1047b29fdaeb18e169fe9d6146988cb8/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+                  "description": "pytest feature report template: alternative solutions",
+                  "passage": null
+                },
+                {
+                  "id": "C3",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/8655",
+                  "description": "pytest issue #8655: Help text is misleading about the behavior of --pdb",
+                  "passage": null
+                },
+                {
+                  "id": "C4",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+                  "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+                  "passage": null
+                },
+                {
+                  "id": "C5",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/10156",
+                  "description": "pytest issue #10156: Document how to build dynamic session-scoped fixtures",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12072,
+          "method": "keyword_rule",
+          "opening_cutoff": "2024-03-04T13:04:55+00:00",
+          "repository_commit": "0951cbc6e4880ee7dfc9b7e56948d83ee086e74b",
+          "latency_ms": 6925.39,
+          "candidate_pool_size": 10,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 12066,
+              "retrieved_issues": [
+                12066
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": false,
+              "expected": "duplicate_candidate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": true,
+              "expected": "type: bug",
+              "observed": "type: bug"
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 1.0,
+              "recall": 0.0,
+              "expected": [
+                "minimal example",
+                "pip list output",
+                "pytest and OS versions"
+              ],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 1,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "missing_details"
+              ],
+              "issue_type_appropriate": true,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12066 may be relevant: Shared topic: assertion, bootstrap, call_runtest_hook; the same failure or request is not established. [C1]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+                  "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12079,
+          "method": "keyword_rule",
+          "opening_cutoff": "2024-03-05T12:31:13+00:00",
+          "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+          "latency_ms": 7496.61,
+          "candidate_pool_size": 11,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 11871,
+              "retrieved_issues": [
+                10156,
+                11871
+              ],
+              "other_issues_unreviewed": [
+                10156
+              ]
+            },
+            "duplicate_judgment": {
+              "correct": false,
+              "expected": "duplicate_candidate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": true,
+              "expected": "type: enhancement",
+              "observed": "type: enhancement"
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 0.5,
+              "recall": 1.0,
+              "expected": [
+                "alternative solutions"
+              ],
+              "observed": [
+                "alternative solutions",
+                "real-world use case"
+              ]
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 4,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [],
+              "issue_type_appropriate": true,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Could you add a real-world use case this would enable? [C1]\n- Could you add any workaround or alternative you have tried, or that there is none? [C2]\n- Earlier issue #11871 may be relevant: Shared topic: additional, all, alternative; the same failure or request is not established. [C3]\n- Earlier issue #10156 may be relevant: Shared topic: here, like, only; the same failure or request is not established. [C4]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+                  "description": "pytest feature report template: real-world use case",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+                  "description": "pytest feature report template: alternative solutions",
+                  "passage": null
+                },
+                {
+                  "id": "C3",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/11871",
+                  "description": "pytest issue #11871: Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+                  "passage": null
+                },
+                {
+                  "id": "C4",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/10156",
+                  "description": "pytest issue #10156: Document how to build dynamic session-scoped fixtures",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12081,
+          "method": "keyword_rule",
+          "opening_cutoff": "2024-03-06T00:03:25+00:00",
+          "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+          "latency_ms": 7827.3,
+          "candidate_pool_size": 12,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 3448,
+              "retrieved_issues": [
+                3448
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": false,
+              "expected": "duplicate_candidate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: enhancement",
+              "observed": "type: docs"
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 3,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "missing_details"
+              ],
+              "issue_type_appropriate": true,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, call; one report negates a shared condition. [C1]\n- pytest documents that capture fixtures let tests access stdout and stderr created during execution. [C2]\n- At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line. [C3]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+                  "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
+                  "description": "pytest documentation: capture",
+                  "passage": "The ``capsys``, ``capsysbinary``, ``capfd``, and ``capfdbinary`` fixtures allow access to stdout/stderr output created during test execution.  Here is"
+                },
+                {
+                  "id": "C3",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+                  "description": "pytest source: src/_pytest/capture.py:935",
+                  "passage": "        \"\"\"Read and return the captured output so far, resetting the internal"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12083,
+          "method": "keyword_rule",
+          "opening_cutoff": "2024-03-06T10:53:11+00:00",
+          "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+          "latency_ms": 7402.18,
+          "candidate_pool_size": 13,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": false,
+              "expected_issue": 7012,
+              "retrieved_issues": [],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": null,
+              "expected": "uncertain",
+              "observed": "not_retrieved",
+              "review_status": "pending_human_review"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: regression",
+              "observed": "type: bug"
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 1.0,
+              "recall": 0.0,
+              "expected": [
+                "pip list output"
+              ],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 0,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "draft_reply",
+                "missing_details"
+              ],
+              "issue_type_appropriate": true,
+              "duplicate_expected": true,
+              "duplicate_observed": false,
+              "duplicate_appropriate": false,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+              "citations": []
+            }
+          }
+        },
+        {
+          "issue_number": 12116,
+          "method": "keyword_rule",
+          "opening_cutoff": "2024-03-13T13:37:51+00:00",
+          "repository_commit": "c0532dda18a5cfd0e6f67113bb164485fa80eb86",
+          "latency_ms": 10504.53,
+          "candidate_pool_size": 14,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 12081,
+              "retrieved_issues": [
+                12081
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: bug",
+              "observed": "type: enhancement"
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 0.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": [
+                "pip list output"
+              ]
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 2,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [],
+              "issue_type_appropriate": true,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Could you add the output of `pip list` from the virtual environment you are using? [C1]\n- Earlier issue #12081 may be relevant: Shared topic: assert, capturing, code; one report negates a shared condition. [C2]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/c0532dda18a5cfd0e6f67113bb164485fa80eb86/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+                  "description": "pytest bug report template: pip list output",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12081",
+                  "description": "pytest issue #12081: Capture: copy output when using readouterr() instead of consuming it",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12146,
+          "method": "keyword_rule",
+          "opening_cutoff": "2024-03-21T12:06:34+00:00",
+          "repository_commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
+          "latency_ms": 8544.49,
+          "candidate_pool_size": 15,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": false,
+              "expected_issue": 7312,
+              "retrieved_issues": [],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": false,
+              "expected": "nonduplicate",
+              "observed": "not_retrieved",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: bug",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 0,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "draft_reply",
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+              "citations": []
+            }
+          }
+        },
+        {
+          "issue_number": 12189,
+          "method": "keyword_rule",
+          "opening_cutoff": "2024-04-05T09:14:51+00:00",
+          "repository_commit": "4e3dd21506a9e543c04c63ebff966a9b604d2b9e",
+          "latency_ms": 9950.56,
+          "candidate_pool_size": 16,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 12081,
+              "retrieved_issues": [
+                3448,
+                11871,
+                12066,
+                12081,
+                12146
+              ],
+              "other_issues_unreviewed": [
+                3448,
+                11871,
+                12066,
+                12146
+              ]
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: question",
+              "observed": "type: enhancement"
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 1.0,
+              "recall": 0.0,
+              "expected": [
+                "pytest and OS versions"
+              ],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 5,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "missing_details"
+              ],
+              "issue_type_appropriate": true,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12081 may be relevant: Shared topic: any, but, captured; one report negates a shared condition. [C1]\n- Earlier issue #3448 may be relevant: Shared topic: captured, def, err; one report negates a shared condition. [C2]\n- Earlier issue #11871 may be relevant: Shared topic: all, but, command; the same failure or request is not established. [C3]\n- Earlier issue #12066 may be relevant: Shared topic: command, config, environment; one report negates a shared condition. [C4]\n- Earlier issue #12146 may be relevant: Shared topic: conftest, def, import; one report negates a shared condition. [C5]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12081",
+                  "description": "pytest issue #12081: Capture: copy output when using readouterr() instead of consuming it",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+                  "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+                  "passage": null
+                },
+                {
+                  "id": "C3",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/11871",
+                  "description": "pytest issue #11871: Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+                  "passage": null
+                },
+                {
+                  "id": "C4",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+                  "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+                  "passage": null
+                },
+                {
+                  "id": "C5",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12146",
+                  "description": "pytest issue #12146: Parametrization with Variables Unexpectedly Changes Fixture Scope from Class-Level to Function-Level",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12197,
+          "method": "keyword_rule",
+          "opening_cutoff": "2024-04-08T11:30:37+00:00",
+          "repository_commit": "74f05648d5ea9e69d75f27a77972756ee32f6730",
+          "latency_ms": 9441.93,
+          "candidate_pool_size": 17,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 12053,
+              "retrieved_issues": [
+                7312,
+                12053,
+                12066,
+                12189
+              ],
+              "other_issues_unreviewed": [
+                7312,
+                12066,
+                12189
+              ]
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: question",
+              "observed": null
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 1.0,
+              "recall": 0.0,
+              "expected": [
+                "minimal example",
+                "pip list output",
+                "pytest and OS versions"
+              ],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 4,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "issue_type",
+                "missing_details"
+              ],
+              "issue_type_appropriate": false,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12053 may be relevant: Shared topic: configuration, ini, option; one report negates a shared condition. [C1]\n- Earlier issue #12189 may be relevant: Shared topic: any, log, one; the same failure or request is not established. [C2]\n- Earlier issue #7312 may be relevant: Shared topic: being, one; the same failure or request is not established. [C3]\n- Earlier issue #12066 may be relevant: Shared topic: disable, possible; the same failure or request is not established. [C4]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12053",
+                  "description": "pytest issue #12053: pdbcls as a configuration option?",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12189",
+                  "description": "pytest issue #12189: No output written to JUnit XML files",
+                  "passage": null
+                },
+                {
+                  "id": "C3",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+                  "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+                  "passage": null
+                },
+                {
+                  "id": "C4",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+                  "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12201,
+          "method": "keyword_rule",
+          "opening_cutoff": "2024-04-09T14:22:08+00:00",
+          "repository_commit": "17fc20af78d0c7b739806c4e461d2c9b8c30ceeb",
+          "latency_ms": 10187.7,
+          "candidate_pool_size": 18,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 12146,
+              "retrieved_issues": [
+                12146
+              ],
+              "other_issues_unreviewed": []
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": true,
+              "expected": "type: enhancement",
+              "observed": "type: enhancement"
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 0.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": [
+                "alternative solutions",
+                "real-world use case"
+              ]
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 3,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [],
+              "issue_type_appropriate": true,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Could you add a real-world use case this would enable? [C1]\n- Could you add any workaround or alternative you have tried, or that there is none? [C2]\n- Earlier issue #12146 may be relevant: Shared topic: def, list, mark; the same failure or request is not established. [C3]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/17fc20af78d0c7b739806c4e461d2c9b8c30ceeb/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+                  "description": "pytest feature report template: real-world use case",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/17fc20af78d0c7b739806c4e461d2c9b8c30ceeb/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+                  "description": "pytest feature report template: alternative solutions",
+                  "passage": null
+                },
+                {
+                  "id": "C3",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12146",
+                  "description": "pytest issue #12146: Parametrization with Variables Unexpectedly Changes Fixture Scope from Class-Level to Function-Level",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12203,
+          "method": "keyword_rule",
+          "opening_cutoff": "2024-04-10T09:18:43+00:00",
+          "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+          "latency_ms": 10364.02,
+          "candidate_pool_size": 19,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": false,
+              "expected_issue": 12116,
+              "retrieved_issues": [
+                3448,
+                12066,
+                12081
+              ],
+              "other_issues_unreviewed": [
+                3448,
+                12066,
+                12081
+              ]
+            },
+            "duplicate_judgment": {
+              "correct": false,
+              "expected": "nonduplicate",
+              "observed": "not_retrieved",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": true,
+              "expected": "type: bug",
+              "observed": "type: bug"
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [
+                "minimal example"
+              ],
+              "observed": [
+                "minimal example"
+              ]
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 4,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [],
+              "issue_type_appropriate": true,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Could you add a minimal example, if possible? [C1]\n- Earlier issue #12081 may be relevant: Shared topic: actual, but, capture; one report negates a shared condition. [C2]\n- Earlier issue #3448 may be relevant: Shared topic: capture, def, failed; one report negates a shared condition. [C3]\n- Earlier issue #12066 may be relevant: Shared topic: description, detailed, environment; one report negates a shared condition. [C4]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/blob/1f001cd1051a4ca4bef251d93e472e625578aaf7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+                  "description": "pytest bug report template: minimal example",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12081",
+                  "description": "pytest issue #12081: Capture: copy output when using readouterr() instead of consuming it",
+                  "passage": null
+                },
+                {
+                  "id": "C3",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+                  "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+                  "passage": null
+                },
+                {
+                  "id": "C4",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+                  "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12204,
+          "method": "keyword_rule",
+          "opening_cutoff": "2024-04-10T10:45:32+00:00",
+          "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+          "latency_ms": 10926.08,
+          "candidate_pool_size": 20,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": false,
+              "expected_issue": 12203,
+              "retrieved_issues": [
+                12066,
+                12116
+              ],
+              "other_issues_unreviewed": [
+                12066,
+                12116
+              ]
+            },
+            "duplicate_judgment": {
+              "correct": false,
+              "expected": "nonduplicate",
+              "observed": "not_retrieved",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": true,
+              "expected": "type: bug",
+              "observed": "type: bug"
+            },
+            "missing_details": {
+              "exact": true,
+              "precision": 1.0,
+              "recall": 1.0,
+              "expected": [],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 2,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "missing_details"
+              ],
+              "issue_type_appropriate": true,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12066 may be relevant: Shared topic: args, attr, call; one report negates a shared condition. [C1]\n- Earlier issue #12116 may be relevant: Shared topic: code, def, example; one report negates a shared condition. [C2]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+                  "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12116",
+                  "description": "pytest issue #12116: Capturing logs does not work with multiprocessing",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "issue_number": 12216,
+          "method": "keyword_rule",
+          "opening_cutoff": "2024-04-15T07:38:50+00:00",
+          "repository_commit": "5f6e825a2687f6bb8bc437e67a59c0a92fb16c06",
+          "latency_ms": 11941.03,
+          "candidate_pool_size": 21,
+          "error": null,
+          "scores": {
+            "duplicate_retrieval": {
+              "found": true,
+              "expected_issue": 12146,
+              "retrieved_issues": [
+                7312,
+                12146
+              ],
+              "other_issues_unreviewed": [
+                7312
+              ]
+            },
+            "duplicate_judgment": {
+              "correct": true,
+              "expected": "nonduplicate",
+              "observed": "related_issue",
+              "review_status": "exact"
+            },
+            "issue_type": {
+              "correct": false,
+              "expected": "type: bug",
+              "observed": "type: enhancement"
+            },
+            "missing_details": {
+              "exact": false,
+              "precision": 1.0,
+              "recall": 0.0,
+              "expected": [
+                "pip list output",
+                "pytest and OS versions"
+              ],
+              "observed": []
+            },
+            "citation_validity": {
+              "valid": true,
+              "checked": 2,
+              "errors": [],
+              "semantic_review_status": "pending_human_review"
+            },
+            "abstention": {
+              "observed_fields": [
+                "missing_details"
+              ],
+              "issue_type_appropriate": true,
+              "duplicate_expected": false,
+              "duplicate_observed": false,
+              "duplicate_appropriate": true,
+              "other_fields_review_status": "pending_human_review"
+            },
+            "draft_reply_usefulness": {
+              "review_status": "pending_human_review",
+              "rating": null,
+              "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+              "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12146 may be relevant: Shared topic: def, fixture, fixturenames; one report negates a shared condition. [C1]\n- Earlier issue #7312 may be relevant: Shared topic: case, def, fixture; the same failure or request is not established. [C2]",
+              "citations": [
+                {
+                  "id": "C1",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/12146",
+                  "description": "pytest issue #12146: Parametrization with Variables Unexpectedly Changes Fixture Scope from Class-Level to Function-Level",
+                  "passage": null
+                },
+                {
+                  "id": "C2",
+                  "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+                  "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+                  "passage": null
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "cost_assumptions": {
+    "model_api_usd": 0,
+    "github_api_usd": 0,
+    "scope": "No paid model calls; public GitHub reads have no per-request charge. CPU, network, and hosting costs excluded."
+  },
+  "methodology": "Both methods replay the same verified issue text, earlier issue, and pinned pytest commit. The keyword-rule baseline searches all hash-verified opening issues in the published case catalog that precede each cutoff, applies lexical match and template rules, and selects type by cue. Controlled responses are a one-pair smoke comparator, not model quality."
+}

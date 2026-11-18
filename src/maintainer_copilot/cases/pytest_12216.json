@@ -1,0 +1,36 @@
+{
+  "issue_number": 12216,
+  "issue_family_id": "dynamic-usefixtures-injection",
+  "template_profile": "bug_feature",
+  "opening_title": "Adding parameterized fixture in pytest_generate_test is not executing the fixture's code, even if it is marked as \"indirect\"",
+  "opening_cutoff": "2024-04-15T07:38:50Z",
+  "opening_content_sha256": "fe52fe12b75b3450706561eaff0cb911d116beeebec5077d044bab2d93e8930e",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-18T04:16:51.226671Z",
+  "repository_commit": "5f6e825a2687f6bb8bc437e67a59c0a92fb16c06",
+  "repository_commit_at": "2024-04-14T00:21:52Z",
+  "earlier_issue": {
+    "number": 12146,
+    "created_at": "2024-03-21T12:06:34Z",
+    "content_sha256": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "issue_type": "type: bug",
+    "missing_details": [
+      "pip list output",
+      "pytest and OS versions"
+    ],
+    "earlier_issue_relationship": "nonduplicate",
+    "rationale": "Reports a collection error or unexecuted fixture when injecting usefixtures and indirect parametrization in pytest_generate_tests. #12146 reports an already invoked class fixture executing too often with rebuilt tuples. The opening supplies pytest 8.1.1 and a runnable example but lacks a package list and OS version. Bug versus enhancement is ambiguous because the opening also requests a supported way to add a fixture dynamically.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/12216",
+      "https://github.com/pytest-dev/pytest/issues/12146"
+    ]
+  },
+  "human_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+    "confirmed_at": "2026-11-18T04:47:35.478798+00:00"
+  }
+}
