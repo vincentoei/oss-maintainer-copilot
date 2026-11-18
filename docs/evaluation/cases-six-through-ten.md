@@ -9,16 +9,16 @@ model-quality measurements remain provisional.
 
 ## Confirmed outcome review
 
-Review status: **confirmed** on 2026-11-18. The assistant reviewed the public
-issue openings and retained all five proposed judgments, including the
-ambiguities below. The requesting user explicitly accepted the assistant
-decisions as their own outcomes. This records user acceptance, not an
-independent human inspection of the openings. Each JSON record now has
-`human_review.status: confirmed`; the scorer's pending-annotation guard is unchanged.
+Review status: **confirmed** on 2026-11-18. The requesting user explicitly
+confirmed all five proposed outcomes, including their rationale and ambiguities,
+and clarified that only the OS version is missing for #12072 and #12189.
+Each new case records `human_review.status: confirmed`, the requesting user as
+reviewer, and the UTC confirmation time. The scorer's confirmation guard is
+unchanged.
 
 For #12072 and #12189, `pytest and OS versions` is the existing combined
 scoring field: only the OS version is missing; the pytest version is supplied.
-This confirmation covers expected outcomes, not generated reply usefulness or
+Expected-outcome review is separate from generated reply usefulness or
 semantic citation judgments.
 
 | Case | Earlier issue | Relationship | Type | Missing report details |
@@ -114,5 +114,49 @@ of the expected opening-time judgments above:
 
 [The provenance artifact](issue-13-provenance.json) preserves the edit-history
 check, pinned template hashes and requested lines, and the successful controlled
-replay status for each of the ten cases. Its pending review statuses describe
-that smoke run, before human confirmation.
+replay status for each of the ten cases. Its review statuses record the accepted expected outcomes; they do not
+confirm the generated reports.
+
+## Ten-case scoring after confirmation
+
+Both methods completed all ten cases on 2026-11-18 with zero replay errors.
+The live replay verified opening hashes and cutoff-safe evidence before scoring.
+[Raw field-level results, drafts, and errors](issue-13-results.json) preserve
+this run. The [previous five-case results](issue-12.md) remain unchanged.
+
+| Field | Controlled: five → ten | Keyword-rule: five → ten |
+| --- | --- | --- |
+| Known earlier issue surfaced | 5/5 → 10/10 | 3/5 → 8/10 |
+| Duplicate/nonduplicate exact judgment | 2/4 → 5/9 | 1/4 → 4/9 |
+| Issue type exact match | 0/5 → 0/10 | 1/5 → 3/10 |
+| Missing details exact match | 4/5 → 4/10 | 4/5 → 4/10 |
+| Missing details precision / recall (case macro) | 1.0 / 0.8 → 0.75 / 0.7 | 1.0 / 0.8 → 0.75 / 0.7 |
+| Deterministic citation validity | 5/5 → 10/10 | 5/5 → 10/10 |
+| Appropriate issue-type abstention | 0/5 → 0/10 | 4/5 → 9/10 |
+| Appropriate duplicate abstention | 4/5 → 9/10 | 4/5 → 9/10 |
+| Mean candidate pool size | 1 → 1 | 6 → 10.9 |
+| Mean end-to-end latency (ms) | 1737.04 → 1556.06 | 4348.95 → 6583.14 |
+
+The uncertain #12083 relationship remains excluded from exact duplicate judgment
+accuracy. The larger keyword candidate pool changes the retrieval context;
+these figures still do not measure full-history recall. Controlled responses
+abstain on issue type by design and are only a smoke comparator. There were
+zero paid model calls; network latency is included. No local model was selected.
+
+Both methods miss the expected missing-detail set on every new case: #12053
+unnecessarily requests alternatives and a use case; #12072 requests none of
+its three missing fields; #12079 unnecessarily requests a use case; #12116
+requests already-present package information; and #12189 misses the absent OS
+version. The keyword baseline correctly types #12072 and #12079, but calls
+#12053 a question and #12116 and #12189 enhancements. These failures are
+retained rather than changing the confirmed annotations to fit the scorer.
+
+Generated draft usefulness and semantic citation judgments remain pending in
+this run. Expected-outcome acceptance does not confirm those generated outputs,
+and structural citation validity does not establish semantic support. Prior
+reply reviews have not been automatically carried into the expanded run.
+
+Validation: `uv run --locked --no-env-file pytest -q tests/test_evaluation.py
+tests/test_replay.py` passed (26 passed, 2 skipped). Reproduce scoring with the
+command in the previous evaluation, writing to a separate results file; the
+catalog now contains all ten cases.
