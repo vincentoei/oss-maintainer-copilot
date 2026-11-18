@@ -1,0 +1,36 @@
+{
+  "issue_number": 12223,
+  "issue_family_id": "junit-large-failure-message-attribute",
+  "template_profile": "bug_feature",
+  "opening_title": "junit-xml output attribute can be too big to handle with -vv",
+  "opening_cutoff": "2024-04-17T09:00:30Z",
+  "opening_content_sha256": "731ee2132c277f516b51978c67bb77a578a8731a4b726346f248e7934d627e72",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-18T05:22:01.108683+00:00",
+  "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+  "repository_commit_at": "2024-04-15T23:04:19Z",
+  "earlier_issue": {
+    "number": 12204,
+    "created_at": "2024-04-10T10:45:32Z",
+    "content_sha256": "62dec36896ee774efb8621b6838e18b928c3b4eecb9497596f151af6d075dd21",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "issue_type": "type: bug",
+    "missing_details": [
+      "pip list output",
+      "pytest and OS versions"
+    ],
+    "earlier_issue_relationship": "nonduplicate",
+    "rationale": "A large assertion diff with -vv makes a JUnit XML failure message attribute too large for downstream parsers. #12204 describes traceback growth from repeated fixture exceptions, not XML attribute sizing. The two-line test is a standalone reproduction and pytest 8.1.1 is stated; package list and OS version are absent. Bug is proposed for parser breakage; enhancement or question is also defensible for the requested output limit.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/12223",
+      "https://github.com/pytest-dev/pytest/issues/12204"
+    ]
+  },
+  "human_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+    "confirmed_at": "2026-11-18T05:23:43.206298+00:00"
+  }
+}

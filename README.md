@@ -125,8 +125,8 @@ reader, run:
 RUN_LIVE_REPLAY=1 uv run --no-env-file pytest -q tests/test_replay.py -k recorded_case
 ```
 
-Fifteen case metadata files now live in
-[`src/maintainer_copilot/cases/`](src/maintainer_copilot/cases/). Replay all fifteen
+Twenty case metadata files now live in
+[`src/maintainer_copilot/cases/`](src/maintainer_copilot/cases/). Replay all twenty
 with controlled model responses using:
 
 ```sh
@@ -142,14 +142,15 @@ The [second case review](docs/evaluation/cases-six-through-ten.md) records
 cases 6 through 10, their confirmation provenance, and ambiguous judgments.
 The [third case review](docs/evaluation/cases-eleven-through-fifteen.md) records
 cases 11 through 15, their provenance, difficult topical negatives, and review
-status. Pending outcomes cannot be scored until a human confirms them.
+status. The [fourth case review](docs/evaluation/cases-sixteen-through-twenty.md)
+records cases 16 through 20 and their delegated confirmation. Pending outcomes cannot be scored until a human confirms them.
 These controlled replays are smoke checks; model selection and quality
 measurement remain issue #21 work after
 #15 and before #16.
 
 ## Score the first reviewed cases
 
-Run the fifteen-case field scorer and keyword-rule baseline with public GitHub
+Run the twenty-case field scorer and keyword-rule baseline with public GitHub
 access:
 
 ```sh
@@ -174,6 +175,11 @@ expected outcome does not confirm its generated report.
 completed replay and scoring of all fifteen cases. The five new outcomes were
 reviewed by Codex and accepted through the requesting user's explicit delegation;
 the case review records that attribution.
+
+[Issue #15’s twenty-case benchmark](docs/evaluation/issue-15.md) records replay
+integrity, field-level metrics, representative failures, and acceptance evidence.
+All twenty outcomes are confirmed; the new five use Codex review accepted by
+the requesting user. Model quality remains provisional until #21.
 
 Open <http://127.0.0.1:8000> to paste an issue. Enter its pytest issue number
 to search only issues opened before it. For a newly drafted issue without a
