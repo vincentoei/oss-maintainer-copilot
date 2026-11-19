@@ -112,6 +112,12 @@ def test_current_cli_usage_is_not_requested_again_as_an_alternative(
         "Have you tried a wrapper script?",
         "Describe any alternatives you have tried.",
         "Please elaborate here.",
+        "Current workaround is not available.",
+        "My workaround is not implemented yet.",
+        "My workaround is proposed for next release.",
+        "Our workaround is a proposed wrapper.",
+        "Current workaround is unavailable.",
+        "Our workaround is planned.",
     ],
 )
 def test_untried_or_absent_alternatives_still_receive_a_detail_request(
@@ -165,6 +171,33 @@ def test_explicit_absence_of_alternatives_in_prose_is_an_answer(answer: str) -> 
         "A stored debugger-class setting would shorten it.\n\n"
         "Real-world use case\n"
         f"Investigating failures in a billing project.\n\n{answer}\n"
+    )
+
+    assert report["missing_details"] == []
+
+
+def test_instruction_prompts_do_not_supply_feature_details() -> None:
+    report = report_for(
+        "What's the problem this feature will solve?\nDescribe the problem here.\n\n"
+        "Describe the solution you'd like\nDescribe your proposed solution here.\n\n"
+        "Real-world use case\nPlease elaborate here.\n\n"
+        "Alternative Solutions\nTBD\n"
+    )
+
+    assert [item["name"] for item in report["missing_details"]] == [
+        "problem to solve",
+        "proposed solution",
+        "real-world use case",
+        "alternative solutions",
+    ]
+
+
+def test_unsuccessful_attempt_still_supplies_an_alternative() -> None:
+    report = report_for(
+        "What's the problem this feature will solve?\nThe command is lengthy.\n\n"
+        "Describe the solution you'd like\nA setting would shorten it.\n\n"
+        "Real-world use case\nInvestigating failures in a billing project.\n\n"
+        "Alternative Solutions\nI tried a plugin but it did not help.\n"
     )
 
     assert report["missing_details"] == []

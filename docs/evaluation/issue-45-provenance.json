@@ -247,7 +247,9 @@
     ]
   },
   "first_evaluation_profile_sha256": "1a7621858605dc73cbacf4a110db8b5f1b49d0289c10dd069ab45189db4406cb",
-  "final_profile_sha256": "3e9ae15ff2c60d5ada106b0aed110b8a24b2c42588206b814993025c905844a8",
+  "final_profile_sha256": "5030ae943385c3d948c24a41c021ca075c55b62232f3dcf3ff0d973517e0caff",
   "final_model_client_sha256": "7bef4c191bd6511d123c548e7cce91013dd7aae107b82690dc69d09412d861c0",
-  "selected_alias_digest": "3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8"
+  "selected_alias_digest": "3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8",
+  "pre_review_profile_sha256": "3e9ae15ff2c60d5ada106b0aed110b8a24b2c42588206b814993025c905844a8",
+  "final_evaluation_recorded_at": "2026-11-19T19:19:24.054207+00:00"
 }

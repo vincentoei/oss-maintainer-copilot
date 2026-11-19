@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-11-19T19:08:31.293873+00:00",
+  "recorded_at": "2026-11-19T19:19:24.054207+00:00",
   "server": {
     "version": "0.40.16"
   },
@@ -27,7 +27,7 @@
         "cases": 20,
         "completed": 20,
         "errors": [],
-        "mean_latency_ms": 686.35,
+        "mean_latency_ms": 932.24,
         "mean_candidate_pool_size": 17.2,
         "duplicate_retrieval_recall": 0.6,
         "duplicate_judgment_accuracy": 0.421,
@@ -68,7 +68,7 @@
           "method": "local_model",
           "opening_cutoff": "2020-06-03T14:20:24+00:00",
           "repository_commit": "61a6ac97054c0bd6f812642b46847c4b7cbede2a",
-          "latency_ms": 715.934,
+          "latency_ms": 637.548,
           "candidate_pool_size": 5,
           "error": null,
           "scores": {
@@ -147,7 +147,7 @@
             }
           },
           "report": {
-            "trace_id": "414099f1-071a-4e6d-9d0b-571b557c15a9",
+            "trace_id": "a089ce7b-a474-4234-9be2-b74d3d05158a",
             "status": "complete",
             "issue_type": "type: enhancement",
             "issue_type_quote": "Feature Request - Support using session scope-fixtures when using pytest.mark.parametri",
@@ -211,17 +211,17 @@
             ]
           },
           "trace": {
-            "trace_id": "414099f1-071a-4e6d-9d0b-571b557c15a9",
-            "created_at": "2026-11-19T19:08:56.987718Z",
+            "trace_id": "a089ce7b-a474-4234-9be2-b74d3d05158a",
+            "created_at": "2026-11-19T19:19:54.488165Z",
             "status": "complete",
-            "duration_ms": 633.81,
+            "duration_ms": 538.525,
             "events": [
               {
                 "kind": "retrieval",
                 "name": "get_issue",
                 "status": "ok",
-                "started_ms": 0.053,
-                "duration_ms": 0.018,
+                "started_ms": 0.057,
+                "duration_ms": 0.022,
                 "target": "pytest issue #7312",
                 "result_count": 1,
                 "references": [],
@@ -233,8 +233,8 @@
                 "kind": "retrieval",
                 "name": "search_issues",
                 "status": "ok",
-                "started_ms": 0.08,
-                "duration_ms": 0.106,
+                "started_ms": 0.089,
+                "duration_ms": 0.116,
                 "target": "query (parametrize OR fixtures OR session) before 2020-06-03T14:20:24+00:00",
                 "result_count": 3,
                 "references": [
@@ -250,8 +250,8 @@
                 "kind": "retrieval",
                 "name": "assess_matches",
                 "status": "ok",
-                "started_ms": 0.188,
-                "duration_ms": 0.375,
+                "started_ms": 0.208,
+                "duration_ms": 0.482,
                 "target": null,
                 "result_count": 3,
                 "references": [],
@@ -263,8 +263,8 @@
                 "kind": "model",
                 "name": "triage_selection",
                 "status": "ok",
-                "started_ms": 0.649,
-                "duration_ms": 633.121,
+                "started_ms": 0.868,
+                "duration_ms": 537.616,
                 "target": "pytest-triage:coder3b-ctx16k",
                 "result_count": null,
                 "references": [],
@@ -288,15 +288,15 @@
               "input_tokens": 756,
               "output_tokens": 55,
               "error": null,
-              "latency_ms": 633.02
+              "latency_ms": 537.448
             }
           ],
           "gpu_memory": {
             "enabled": true,
             "sample_interval_ms": 500,
             "sample_count": 3,
-            "initial_used_mib": 2740.0,
-            "peak_sampled_used_mib": 2740.0,
+            "initial_used_mib": 2726.0,
+            "peak_sampled_used_mib": 2736.0,
             "error": null,
             "scope": "Device-wide use including other processes; sampled, not true peak."
           }
@@ -306,7 +306,7 @@
           "method": "local_model",
           "opening_cutoff": "2022-07-19T20:03:50+00:00",
           "repository_commit": "34a285986e456406b22b62aa563a64331f640e7f",
-          "latency_ms": 571.385,
+          "latency_ms": 665.169,
           "candidate_pool_size": 7,
           "error": null,
           "scores": {
@@ -385,7 +385,7 @@
             }
           },
           "report": {
-            "trace_id": "d2cbaca6-8398-475d-8680-2ff6eba0b5e6",
+            "trace_id": "90031d11-3ec3-41b4-8da4-19d6fd9bdfd9",
             "status": "complete",
             "issue_type": "type: question",
             "issue_type_quote": "Document how to build dynamic session-scoped fixtures\nMy particular case was that I wanted a session-",
@@ -449,17 +449,17 @@
             ]
           },
           "trace": {
-            "trace_id": "d2cbaca6-8398-475d-8680-2ff6eba0b5e6",
-            "created_at": "2026-11-19T19:08:57.702758Z",
+            "trace_id": "90031d11-3ec3-41b4-8da4-19d6fd9bdfd9",
+            "created_at": "2026-11-19T19:19:55.133410Z",
             "status": "complete",
-            "duration_ms": 490.666,
+            "duration_ms": 572.638,
             "events": [
               {
                 "kind": "retrieval",
                 "name": "get_issue",
                 "status": "ok",
-                "started_ms": 0.079,
-                "duration_ms": 0.02,
+                "started_ms": 0.075,
+                "duration_ms": 0.022,
                 "target": "pytest issue #10156",
                 "result_count": 1,
                 "references": [],
@@ -472,7 +472,7 @@
                 "name": "search_issues",
                 "status": "ok",
                 "started_ms": 0.108,
-                "duration_ms": 0.138,
+                "duration_ms": 0.134,
                 "target": "query (document OR fixtures OR dynamic) before 2022-07-19T20:03:50+00:00",
                 "result_count": 3,
                 "references": [
@@ -488,8 +488,8 @@
                 "kind": "retrieval",
                 "name": "assess_matches",
                 "status": "ok",
-                "started_ms": 0.249,
-                "duration_ms": 0.431,
+                "started_ms": 0.244,
+                "duration_ms": 0.472,
                 "target": null,
                 "result_count": 3,
                 "references": [],
@@ -501,8 +501,8 @@
                 "kind": "model",
                 "name": "triage_selection",
                 "status": "ok",
-                "started_ms": 0.775,
-                "duration_ms": 489.845,
+                "started_ms": 0.817,
+                "duration_ms": 571.781,
                 "target": "pytest-triage:coder3b-ctx16k",
                 "result_count": null,
                 "references": [],
@@ -526,15 +526,15 @@
               "input_tokens": 928,
               "output_tokens": 60,
               "error": null,
-              "latency_ms": 489.757
+              "latency_ms": 571.687
             }
           ],
           "gpu_memory": {
             "enabled": true,
             "sample_interval_ms": 500,
-            "sample_count": 2,
-            "initial_used_mib": 2740.0,
-            "peak_sampled_used_mib": 2740.0,
+            "sample_count": 3,
+            "initial_used_mib": 2736.0,
+            "peak_sampled_used_mib": 2736.0,
             "error": null,
             "scope": "Device-wide use including other processes; sampled, not true peak."
           }
@@ -544,7 +544,7 @@
           "method": "local_model",
           "opening_cutoff": "2024-03-03T14:58:35+00:00",
           "repository_commit": "00043f7f1047b29fdaeb18e169fe9d6146988cb8",
-          "latency_ms": 629.471,
+          "latency_ms": 722.19,
           "candidate_pool_size": 9,
           "error": null,
           "scores": {
@@ -621,7 +621,7 @@
             }
           },
           "report": {
-            "trace_id": "67cf6e8e-fbd2-438d-9cac-7db5bf68f83b",
+            "trace_id": "198fd8e1-de2f-4365-824c-0b00e846597e",
             "status": "complete",
             "issue_type": "type: enhancement",
             "issue_type_quote": "pdbcls as a configuration option?\n#### What's the problem this feature will solve?\r\n\r\nFor some projects, I always",
@@ -680,17 +680,17 @@
             "abstentions": []
           },
           "trace": {
-            "trace_id": "67cf6e8e-fbd2-438d-9cac-7db5bf68f83b",
-            "created_at": "2026-11-19T19:08:58.271282Z",
+            "trace_id": "198fd8e1-de2f-4365-824c-0b00e846597e",
+            "created_at": "2026-11-19T19:19:55.803500Z",
             "status": "complete",
-            "duration_ms": 542.158,
+            "duration_ms": 625.059,
             "events": [
               {
                 "kind": "retrieval",
                 "name": "get_issue",
                 "status": "ok",
-                "started_ms": 0.179,
-                "duration_ms": 0.02,
+                "started_ms": 0.174,
+                "duration_ms": 0.021,
                 "target": "pytest issue #12053",
                 "result_count": 1,
                 "references": [],
@@ -702,8 +702,8 @@
                 "kind": "retrieval",
                 "name": "search_issues",
                 "status": "ok",
-                "started_ms": 0.209,
-                "duration_ms": 0.178,
+                "started_ms": 0.204,
+                "duration_ms": 0.187,
                 "target": "query (configuration OR option OR pdbcls) before 2024-03-03T14:58:35+00:00",
                 "result_count": 3,
                 "references": [
@@ -719,8 +719,8 @@
                 "kind": "retrieval",
                 "name": "assess_matches",
                 "status": "ok",
-                "started_ms": 0.389,
-                "duration_ms": 0.339,
+                "started_ms": 0.393,
+                "duration_ms": 0.36,
                 "target": null,
                 "result_count": 3,
                 "references": [],
@@ -732,8 +732,8 @@
                 "kind": "model",
                 "name": "triage_selection",
                 "status": "ok",
-                "started_ms": 0.804,
-                "duration_ms": 541.309,
+                "started_ms": 0.827,
+                "duration_ms": 624.189,
                 "target": "pytest-triage:coder3b-ctx16k",
                 "result_count": null,
                 "references": [],
@@ -757,15 +757,15 @@
               "input_tokens": 833,
               "output_tokens": 68,
               "error": null,
-              "latency_ms": 541.225
+              "latency_ms": 624.099
             }
           ],
           "gpu_memory": {
             "enabled": true,
             "sample_interval_ms": 500,
             "sample_count": 3,
-            "initial_used_mib": 2740.0,
-            "peak_sampled_used_mib": 2740.0,
+            "initial_used_mib": 2736.0,
+            "peak_sampled_used_mib": 2736.0,
             "error": null,
             "scope": "Device-wide use including other processes; sampled, not true peak."
           }
@@ -775,7 +775,7 @@
           "method": "local_model",
           "opening_cutoff": "2024-03-04T13:04:55+00:00",
           "repository_commit": "0951cbc6e4880ee7dfc9b7e56948d83ee086e74b",
-          "latency_ms": 633.901,
+          "latency_ms": 699.724,
           "candidate_pool_size": 11,
           "error": null,
           "scores": {
@@ -841,7 +841,7 @@
             }
           },
           "report": {
-            "trace_id": "caba33f1-901f-4fda-beca-662229900d2b",
+            "trace_id": "76cfba44-e5df-4fe6-bd8b-72886e4cc29a",
             "status": "complete",
             "issue_type": "type: bug",
             "issue_type_quote": "`flaky` is broken with `pytest` 8.1\n<!--\r\nThanks for submitting an issue!\r\n\r\nQuick check-list whi",
@@ -877,17 +877,17 @@
             ]
           },
           "trace": {
-            "trace_id": "caba33f1-901f-4fda-beca-662229900d2b",
-            "created_at": "2026-11-19T19:08:58.910293Z",
+            "trace_id": "76cfba44-e5df-4fe6-bd8b-72886e4cc29a",
+            "created_at": "2026-11-19T19:19:56.508162Z",
             "status": "complete",
-            "duration_ms": 549.382,
+            "duration_ms": 625.648,
             "events": [
               {
                 "kind": "retrieval",
                 "name": "get_issue",
                 "status": "ok",
-                "started_ms": 0.068,
-                "duration_ms": 0.021,
+                "started_ms": 0.063,
+                "duration_ms": 0.02,
                 "target": "pytest issue #12072",
                 "result_count": 1,
                 "references": [],
@@ -899,8 +899,8 @@
                 "kind": "retrieval",
                 "name": "search_issues",
                 "status": "ok",
-                "started_ms": 0.099,
-                "duration_ms": 0.252,
+                "started_ms": 0.092,
+                "duration_ms": 0.225,
                 "target": "query (broken OR flaky) before 2024-03-04T13:04:55+00:00",
                 "result_count": 1,
                 "references": [
@@ -914,8 +914,8 @@
                 "kind": "retrieval",
                 "name": "assess_matches",
                 "status": "ok",
-                "started_ms": 0.354,
-                "duration_ms": 0.36,
+                "started_ms": 0.319,
+                "duration_ms": 0.285,
                 "target": null,
                 "result_count": 1,
                 "references": [],
@@ -927,8 +927,8 @@
                 "kind": "model",
                 "name": "triage_selection",
                 "status": "ok",
-                "started_ms": 0.799,
-                "duration_ms": 548.542,
+                "started_ms": 0.682,
+                "duration_ms": 624.926,
                 "target": "pytest-triage:coder3b-ctx16k",
                 "result_count": null,
                 "references": [],
@@ -950,15 +950,15 @@
               "input_tokens": 837,
               "output_tokens": 66,
               "error": null,
-              "latency_ms": 548.464
+              "latency_ms": 624.827
             }
           ],
           "gpu_memory": {
             "enabled": true,
             "sample_interval_ms": 500,
             "sample_count": 3,
-            "initial_used_mib": 2740.0,
-            "peak_sampled_used_mib": 2740.0,
+            "initial_used_mib": 2736.0,
+            "peak_sampled_used_mib": 2736.0,
             "error": null,
             "scope": "Device-wide use including other processes; sampled, not true peak."
           }
@@ -968,7 +968,7 @@
           "method": "local_model",
           "opening_cutoff": "2024-03-05T12:31:13+00:00",
           "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
-          "latency_ms": 715.106,
+          "latency_ms": 825.244,
           "candidate_pool_size": 12,
           "error": null,
           "scores": {
@@ -1054,7 +1054,7 @@
             }
           },
           "report": {
-            "trace_id": "3b519aae-45bd-401f-954d-07496f44ad07",
+            "trace_id": "b80335cf-f792-4f8f-a40d-b0d20e40e244",
             "status": "complete",
             "issue_type": "type: enhancement",
             "issue_type_quote": "itional arguments\n<!--\r\nThanks for suggesting a feature!\r\n\r\nQuick check-list while suggesting features:\r\n-->\r\n\r\n#### What's the problem",
@@ -1124,17 +1124,17 @@
             "abstentions": []
           },
           "trace": {
-            "trace_id": "3b519aae-45bd-401f-954d-07496f44ad07",
-            "created_at": "2026-11-19T19:08:59.538912Z",
+            "trace_id": "b80335cf-f792-4f8f-a40d-b0d20e40e244",
+            "created_at": "2026-11-19T19:19:57.214448Z",
             "status": "complete",
-            "duration_ms": 629.344,
+            "duration_ms": 740.269,
             "events": [
               {
                 "kind": "retrieval",
                 "name": "get_issue",
                 "status": "ok",
-                "started_ms": 0.289,
-                "duration_ms": 0.017,
+                "started_ms": 0.341,
+                "duration_ms": 0.02,
                 "target": "pytest issue #12079",
                 "result_count": 1,
                 "references": [],
@@ -1146,8 +1146,8 @@
                 "kind": "retrieval",
                 "name": "search_issues",
                 "status": "ok",
-                "started_ms": 0.314,
-                "duration_ms": 0.344,
+                "started_ms": 0.371,
+                "duration_ms": 0.322,
                 "target": "query (positional OR arguments OR executed) before 2024-03-05T12:31:13+00:00",
                 "result_count": 2,
                 "references": [
@@ -1162,8 +1162,8 @@
                 "kind": "retrieval",
                 "name": "assess_matches",
                 "status": "ok",
-                "started_ms": 0.662,
-                "duration_ms": 0.346,
+                "started_ms": 0.695,
+                "duration_ms": 0.399,
                 "target": null,
                 "result_count": 2,
                 "references": [],
@@ -1175,8 +1175,8 @@
                 "kind": "model",
                 "name": "triage_selection",
                 "status": "ok",
-                "started_ms": 1.074,
-                "duration_ms": 628.227,
+                "started_ms": 1.184,
+                "duration_ms": 738.987,
                 "target": "pytest-triage:coder3b-ctx16k",
                 "result_count": null,
                 "references": [],
@@ -1199,15 +1199,15 @@
               "input_tokens": 1081,
               "output_tokens": 75,
               "error": null,
-              "latency_ms": 628.146
+              "latency_ms": 738.83
             }
           ],
           "gpu_memory": {
             "enabled": true,
             "sample_interval_ms": 500,
             "sample_count": 3,
-            "initial_used_mib": 2740.0,
-            "peak_sampled_used_mib": 2740.0,
+            "initial_used_mib": 2736.0,
+            "peak_sampled_used_mib": 2738.0,
             "error": null,
             "scope": "Device-wide use including other processes; sampled, not true peak."
           }
@@ -1217,7 +1217,7 @@
           "method": "local_model",
           "opening_cutoff": "2024-03-06T00:03:25+00:00",
           "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
-          "latency_ms": 690.147,
+          "latency_ms": 897.512,
           "candidate_pool_size": 13,
           "error": null,
           "scores": {
@@ -1291,7 +1291,7 @@
             }
           },
           "report": {
-            "trace_id": "ab8e2bb3-e0e1-4b44-80be-e67434f7fae9",
+            "trace_id": "5d45bf5e-2ceb-4f23-abe7-50e615a073c7",
             "status": "complete",
             "issue_type": "type: enhancement",
             "issue_type_quote": "t's capfd/capsys fixtures (CaptureFixture) that allow stdout capturing via readouterr() consume stdout, meaning that logs are no long",
@@ -1355,16 +1355,16 @@
             ]
           },
           "trace": {
-            "trace_id": "ab8e2bb3-e0e1-4b44-80be-e67434f7fae9",
-            "created_at": "2026-11-19T19:09:00.261717Z",
+            "trace_id": "5d45bf5e-2ceb-4f23-abe7-50e615a073c7",
+            "created_at": "2026-11-19T19:19:58.034588Z",
             "status": "complete",
-            "duration_ms": 603.729,
+            "duration_ms": 817.344,
             "events": [
               {
                 "kind": "retrieval",
                 "name": "get_issue",
                 "status": "ok",
-                "started_ms": 0.111,
+                "started_ms": 0.104,
                 "duration_ms": 0.018,
                 "target": "pytest issue #12081",
                 "result_count": 1,
@@ -1377,8 +1377,8 @@
                 "kind": "retrieval",
                 "name": "search_issues",
                 "status": "ok",
-                "started_ms": 0.137,
-                "duration_ms": 0.366,
+                "started_ms": 0.132,
+                "duration_ms": 0.345,
                 "target": "query (readouterr OR consuming OR capture) before 2024-03-06T00:03:25+00:00",
                 "result_count": 1,
                 "references": [
@@ -1392,8 +1392,8 @@
                 "kind": "retrieval",
                 "name": "assess_matches",
                 "status": "ok",
-                "started_ms": 0.506,
-                "duration_ms": 0.273,
+                "started_ms": 0.478,
+                "duration_ms": 0.274,
                 "target": null,
                 "result_count": 1,
                 "references": [],
@@ -1405,8 +1405,8 @@
                 "kind": "retrieval",
                 "name": "get_documentation_passage",
                 "status": "ok",
-                "started_ms": 0.816,
-                "duration_ms": 0.02,
+                "started_ms": 0.792,
+                "duration_ms": 0.018,
                 "target": "capture",
                 "result_count": 1,
                 "references": [
@@ -1420,8 +1420,8 @@
                 "kind": "retrieval",
                 "name": "get_source_excerpt",
                 "status": "ok",
-                "started_ms": 0.852,
-                "duration_ms": 0.006,
+                "started_ms": 0.827,
+                "duration_ms": 0.007,
                 "target": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
                 "result_count": 1,
                 "references": [
@@ -1435,8 +1435,8 @@
                 "kind": "model",
                 "name": "triage_selection",
                 "status": "ok",
-                "started_ms": 0.966,
-                "duration_ms": 602.601,
+                "started_ms": 0.937,
+                "duration_ms": 816.354,
                 "target": "pytest-triage:coder3b-ctx16k",
                 "result_count": null,
                 "references": [],
@@ -1460,14 +1460,14 @@
               "input_tokens": 1873,
               "output_tokens": 70,
               "error": null,
-              "latency_ms": 602.445
+              "latency_ms": 816.27
             }
           ],
           "gpu_memory": {
             "enabled": true,
             "sample_interval_ms": 500,
             "sample_count": 3,
-            "initial_used_mib": 2740.0,
+            "initial_used_mib": 2738.0,
             "peak_sampled_used_mib": 2740.0,
             "error": null,
             "scope": "Device-wide use including other processes; sampled, not true peak."
@@ -1478,7 +1478,7 @@
           "method": "local_model",
           "opening_cutoff": "2024-03-06T10:53:11+00:00",
           "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
-          "latency_ms": 740.776,
+          "latency_ms": 875.755,
           "candidate_pool_size": 14,
           "error": null,
           "scores": {
@@ -1534,7 +1534,7 @@
             }
           },
           "report": {
-            "trace_id": "0fbe8aba-cfee-4296-9926-0e63827f144e",
+            "trace_id": "1a56f8bc-a9ee-4c62-a34a-50989f4d2c60",
             "status": "complete",
             "issue_type": "type: bug",
             "issue_type_quote": "d be willing to provide a patch (if it's a real bug of course \ud83d\ude42)\r\n- Reproduced on Pytest 8.0.2 / Linux & macOS\r\n- **I made [a repos",
@@ -1558,16 +1558,16 @@
             ]
           },
           "trace": {
-            "trace_id": "0fbe8aba-cfee-4296-9926-0e63827f144e",
-            "created_at": "2026-11-19T19:09:00.948557Z",
+            "trace_id": "1a56f8bc-a9ee-4c62-a34a-50989f4d2c60",
+            "created_at": "2026-11-19T19:19:58.938180Z",
             "status": "complete",
-            "duration_ms": 657.721,
+            "duration_ms": 792.987,
             "events": [
               {
                 "kind": "retrieval",
                 "name": "get_issue",
                 "status": "ok",
-                "started_ms": 0.12,
+                "started_ms": 0.105,
                 "duration_ms": 0.02,
                 "target": "pytest issue #12083",
                 "result_count": 1,
@@ -1580,8 +1580,8 @@
                 "kind": "retrieval",
                 "name": "search_issues",
                 "status": "ok",
-                "started_ms": 0.149,
-                "duration_ms": 0.315,
+                "started_ms": 0.133,
+                "duration_ms": 0.308,
                 "target": "query (duplicates OR handling) before 2024-03-06T10:53:11+00:00",
                 "result_count": 0,
                 "references": [],
@@ -1593,7 +1593,7 @@
                 "kind": "retrieval",
                 "name": "assess_matches",
                 "status": "ok",
-                "started_ms": 0.466,
+                "started_ms": 0.443,
                 "duration_ms": 0.003,
                 "target": null,
                 "result_count": 0,
@@ -1606,8 +1606,8 @@
                 "kind": "model",
                 "name": "triage_selection",
                 "status": "ok",
-                "started_ms": 0.557,
-                "duration_ms": 657.108,
+                "started_ms": 0.518,
+                "duration_ms": 792.439,
                 "target": "pytest-triage:coder3b-ctx16k",
                 "result_count": null,
                 "references": [],
@@ -1627,7 +1627,7 @@
               "input_tokens": 1206,
               "output_tokens": 76,
               "error": null,
-              "latency_ms": 656.984
+              "latency_ms": 792.316
             }
           ],
           "gpu_memory": {
@@ -1645,7 +1645,7 @@
           "method": "local_model",
           "opening_cutoff": "2024-03-13T13:37:51+00:00",
           "repository_commit": "c0532dda18a5cfd0e6f67113bb164485fa80eb86",
-          "latency_ms": 655.974,
+          "latency_ms": 758.695,
           "candidate_pool_size": 15,
           "error": null,
           "scores": {
@@ -1713,7 +1713,7 @@
             }
           },
           "report": {
-            "trace_id": "e64bb693-53a9-4a38-8d22-9b5ebddd9a86",
+            "trace_id": "e69d4227-c18e-4181-b4d6-210ff5d00dfd",
             "status": "complete",
             "issue_type": "type: bug",
             "issue_type_quote": "ltiprocessing\n### A detailed description of the bug or problem\r\nCapturing logs from spawned processes is not working - all calls to",
@@ -1757,17 +1757,17 @@
             "abstentions": []
           },
           "trace": {
-            "trace_id": "e64bb693-53a9-4a38-8d22-9b5ebddd9a86",
-            "created_at": "2026-11-19T19:09:01.715251Z",
+            "trace_id": "e69d4227-c18e-4181-b4d6-210ff5d00dfd",
+            "created_at": "2026-11-19T19:19:59.824084Z",
             "status": "complete",
-            "duration_ms": 504.912,
+            "duration_ms": 665.159,
             "events": [
               {
                 "kind": "retrieval",
                 "name": "get_issue",
                 "status": "ok",
-                "started_ms": 0.23,
-                "duration_ms": 0.017,
+                "started_ms": 0.197,
+                "duration_ms": 0.018,
                 "target": "pytest issue #12116",
                 "result_count": 1,
                 "references": [],
@@ -1779,8 +1779,8 @@
                 "kind": "retrieval",
                 "name": "search_issues",
                 "status": "ok",
-                "started_ms": 0.256,
-                "duration_ms": 0.457,
+                "started_ms": 0.224,
+                "duration_ms": 0.464,
                 "target": "query (multiprocessing OR capturing OR logs) before 2024-03-13T13:37:51+00:00",
                 "result_count": 1,
                 "references": [
@@ -1794,8 +1794,8 @@
                 "kind": "retrieval",
                 "name": "assess_matches",
                 "status": "ok",
-                "started_ms": 0.716,
-                "duration_ms": 0.369,
+                "started_ms": 0.69,
+                "duration_ms": 0.38,
                 "target": null,
                 "result_count": 1,
                 "references": [],
@@ -1807,8 +1807,8 @@
                 "kind": "model",
                 "name": "triage_selection",
                 "status": "ok",
-                "started_ms": 1.166,
-                "duration_ms": 503.706,
+                "started_ms": 1.152,
+                "duration_ms": 663.97,
                 "target": "pytest-triage:coder3b-ctx16k",
                 "result_count": null,
                 "references": [],
@@ -1830,7 +1830,7 @@
               "input_tokens": 1332,
               "output_tokens": 60,
               "error": null,
-              "latency_ms": 503.628
+              "latency_ms": 663.88
             }
           ],
           "gpu_memory": {
@@ -1848,7 +1848,7 @@
           "method": "local_model",
           "opening_cutoff": "2024-03-21T12:06:34+00:00",
           "repository_commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
-          "latency_ms": 370.99,
+          "latency_ms": 508.578,
           "candidate_pool_size": 16,
           "error": null,
           "scores": {
@@ -1903,7 +1903,7 @@
             }
           },
           "report": {
-            "trace_id": "ec80a3f8-e574-44dc-b451-1596e43dcc83",
+            "trace_id": "659937b6-b243-4983-878f-ee214dca6535",
             "status": "complete",
             "issue_type": null,
             "issue_type_quote": null,
@@ -1931,16 +1931,16 @@
             ]
           },
           "trace": {
-            "trace_id": "ec80a3f8-e574-44dc-b451-1596e43dcc83",
-            "created_at": "2026-11-19T19:09:02.368053Z",
+            "trace_id": "659937b6-b243-4983-878f-ee214dca6535",
+            "created_at": "2026-11-19T19:20:00.567610Z",
             "status": "complete",
-            "duration_ms": 265.331,
+            "duration_ms": 426.267,
             "events": [
               {
                 "kind": "retrieval",
                 "name": "get_issue",
                 "status": "ok",
-                "started_ms": 0.091,
+                "started_ms": 0.436,
                 "duration_ms": 0.02,
                 "target": "pytest issue #12146",
                 "result_count": 1,
@@ -1953,8 +1953,8 @@
                 "kind": "retrieval",
                 "name": "search_issues",
                 "status": "ok",
-                "started_ms": 0.119,
-                "duration_ms": 0.576,
+                "started_ms": 0.465,
+                "duration_ms": 0.601,
                 "target": "query (parametrization OR unexpectedly OR variables) before 2024-03-21T12:06:34+00:00",
                 "result_count": 0,
                 "references": [],
@@ -1966,7 +1966,7 @@
                 "kind": "retrieval",
                 "name": "assess_matches",
                 "status": "ok",
-                "started_ms": 0.698,
+                "started_ms": 1.069,
                 "duration_ms": 0.004,
                 "target": null,
                 "result_count": 0,
@@ -1979,8 +1979,8 @@
                 "kind": "model",
                 "name": "triage_selection",
                 "status": "ok",
-                "started_ms": 0.787,
-                "duration_ms": 264.502,
+                "started_ms": 1.16,
+                "duration_ms": 425.073,
                 "target": "pytest-triage:coder3b-ctx16k",
                 "result_count": null,
                 "references": [],
@@ -2000,7 +2000,7 @@
               "input_tokens": 1375,
               "output_tokens": 26,
               "error": null,
-              "latency_ms": 264.44
+              "latency_ms": 425.023
             }
           ],
           "gpu_memory": {
@@ -2018,7 +2018,7 @@
           "method": "local_model",
           "opening_cutoff": "2024-04-05T09:14:51+00:00",
           "repository_commit": "4e3dd21506a9e543c04c63ebff966a9b604d2b9e",
-          "latency_ms": 998.498,
+          "latency_ms": 1182.97,
           "candidate_pool_size": 17,
           "error": null,
           "scores": {
@@ -2115,7 +2115,7 @@
             }
           },
           "report": {
-            "trace_id": "096b90d0-dc44-420d-8d92-0ecbfa5d252a",
+            "trace_id": "edb0c988-c715-4b32-a67a-78dcf9f7b29f",
             "status": "complete",
             "issue_type": "type: bug",
             "issue_type_quote": "uites>\r\n    <testsuite name=\"pytest\" errors=\"0\" failures=\"0\" skipped=\"0\" tests=\"1\" time=\"0.014\" timestamp=\"2024-04-03T15:37:00.828439\" h",
@@ -2207,16 +2207,16 @@
             ]
           },
           "trace": {
-            "trace_id": "096b90d0-dc44-420d-8d92-0ecbfa5d252a",
-            "created_at": "2026-11-19T19:09:02.713480Z",
+            "trace_id": "edb0c988-c715-4b32-a67a-78dcf9f7b29f",
+            "created_at": "2026-11-19T19:20:01.077031Z",
             "status": "complete",
-            "duration_ms": 920.81,
+            "duration_ms": 1106.423,
             "events": [
               {
                 "kind": "retrieval",
                 "name": "get_issue",
                 "status": "ok",
-                "started_ms": 0.082,
+                "started_ms": 0.078,
                 "duration_ms": 0.02,
                 "target": "pytest issue #12189",
                 "result_count": 1,
@@ -2229,8 +2229,8 @@
                 "kind": "retrieval",
                 "name": "search_issues",
                 "status": "ok",
-                "started_ms": 0.111,
-                "duration_ms": 0.468,
+                "started_ms": 0.106,
+                "duration_ms": 0.489,
                 "target": "query (written OR output OR files) before 2024-04-05T09:14:51+00:00",
                 "result_count": 7,
                 "references": [
@@ -2248,8 +2248,8 @@
                 "kind": "retrieval",
                 "name": "assess_matches",
                 "status": "ok",
-                "started_ms": 0.582,
-                "duration_ms": 1.751,
+                "started_ms": 0.598,
+                "duration_ms": 1.809,
                 "target": null,
                 "result_count": 7,
                 "references": [],
@@ -2261,8 +2261,8 @@
                 "kind": "model",
                 "name": "triage_selection",
                 "status": "ok",
-                "started_ms": 2.478,
-                "duration_ms": 918.282,
+                "started_ms": 2.524,
+                "duration_ms": 1103.859,
                 "target": "pytest-triage:coder3b-ctx16k",
                 "result_count": null,
                 "references": [],
@@ -2288,13 +2288,13 @@
               "input_tokens": 1592,
               "output_tokens": 115,
               "error": null,
-              "latency_ms": 918.154
+              "latency_ms": 1103.751
             }
           ],
           "gpu_memory": {
             "enabled": true,
             "sample_interval_ms": 500,
-            "sample_count": 3,
+            "sample_count": 4,
             "initial_used_mib": 2740.0,
             "peak_sampled_used_mib": 2740.0,
             "error": null,
@@ -2306,7 +2306,7 @@
           "method": "local_model",
           "opening_cutoff": "2024-04-08T11:30:37+00:00",
           "repository_commit": "74f05648d5ea9e69d75f27a77972756ee32f6730",
-          "latency_ms": 506.509,
+          "latency_ms": 497.879,
           "candidate_pool_size": 18,
           "error": null,
           "scores": {
@@ -2398,7 +2398,7 @@
             }
           },
           "report": {
-            "trace_id": "d3b3f2ba-fc99-41a7-9050-b0d085b713bd",
+            "trace_id": "d44af271-2a5b-46d3-8537-aa18a810bc75",
             "status": "complete",
             "issue_type": null,
             "issue_type_quote": null,
@@ -2480,17 +2480,17 @@
             ]
           },
           "trace": {
-            "trace_id": "d3b3f2ba-fc99-41a7-9050-b0d085b713bd",
-            "created_at": "2026-11-19T19:09:03.717262Z",
+            "trace_id": "d44af271-2a5b-46d3-8537-aa18a810bc75",
+            "created_at": "2026-11-19T19:20:03.701203Z",
             "status": "complete",
-            "duration_ms": 415.394,
+            "duration_ms": 418.628,
             "events": [
               {
                 "kind": "retrieval",
                 "name": "get_issue",
                 "status": "ok",
-                "started_ms": 0.047,
-                "duration_ms": 0.019,
+                "started_ms": 0.046,
+                "duration_ms": 0.02,
                 "target": "pytest issue #12197",
                 "result_count": 1,
                 "references": [],
@@ -2502,8 +2502,8 @@
                 "kind": "retrieval",
                 "name": "search_issues",
                 "status": "ok",
-                "started_ms": 0.074,
-                "duration_ms": 0.605,
+                "started_ms": 0.075,
+                "duration_ms": 0.588,
                 "target": "query (configuration OR disable OR effect) before 2024-04-08T11:30:37+00:00",
                 "result_count": 5,
                 "references": [
@@ -2520,8 +2520,8 @@
                 "kind": "retrieval",
                 "name": "assess_matches",
                 "status": "ok",
-                "started_ms": 0.682,
-                "duration_ms": 0.576,
+                "started_ms": 0.665,
+                "duration_ms": 0.598,
                 "target": null,
                 "result_count": 4,
                 "references": [],
@@ -2533,8 +2533,8 @@
                 "kind": "model",
                 "name": "triage_selection",
                 "status": "ok",
-                "started_ms": 1.333,
-                "duration_ms": 413.983,
+                "started_ms": 1.339,
+                "duration_ms": 417.228,
                 "target": "pytest-triage:coder3b-ctx16k",
                 "result_count": null,
                 "references": [],
@@ -2559,7 +2559,7 @@
               "input_tokens": 606,
               "output_tokens": 41,
               "error": null,
-              "latency_ms": 413.915
+              "latency_ms": 417.17
             }
           ],
           "gpu_memory": {
@@ -2577,7 +2577,7 @@
           "method": "local_model",
           "opening_cutoff": "2024-04-09T14:22:08+00:00",
           "repository_commit": "17fc20af78d0c7b739806c4e461d2c9b8c30ceeb",
-          "latency_ms": 672.47,
+          "latency_ms": 801.498,
           "candidate_pool_size": 19,
           "error": null,
           "scores": {
@@ -2652,7 +2652,7 @@
             }
           },
           "report": {
-            "trace_id": "dac1c5fb-2cb8-4298-a2d1-dd71b7af7709",
+            "trace_id": "677a802e-bdf8-47fc-9dbe-b03d6c71e825",
             "status": "complete",
             "issue_type": "type: enhancement",
             "issue_type_quote": "t parametrization\n<!--\r\nThanks for suggesting a feature!\r\n\r\nQuick check-list while suggesting features:\r\n-->\r\n\r\n#### What's the problem",
@@ -2708,17 +2708,17 @@
             "abstentions": []
           },
           "trace": {
-            "trace_id": "dac1c5fb-2cb8-4298-a2d1-dd71b7af7709",
-            "created_at": "2026-11-19T19:09:04.215593Z",
+            "trace_id": "677a802e-bdf8-47fc-9dbe-b03d6c71e825",
+            "created_at": "2026-11-19T19:20:04.202105Z",
             "status": "complete",
-            "duration_ms": 594.023,
+            "duration_ms": 698.153,
             "events": [
               {
                 "kind": "retrieval",
                 "name": "get_issue",
                 "status": "ok",
-                "started_ms": 0.336,
-                "duration_ms": 0.019,
+                "started_ms": 0.306,
+                "duration_ms": 0.018,
                 "target": "pytest issue #12201",
                 "result_count": 1,
                 "references": [],
@@ -2730,8 +2730,8 @@
                 "kind": "retrieval",
                 "name": "search_issues",
                 "status": "ok",
-                "started_ms": 0.364,
-                "duration_ms": 0.445,
+                "started_ms": 0.333,
+                "duration_ms": 0.438,
                 "target": "query (parametrization OR conditional) before 2024-04-09T14:22:08+00:00",
                 "result_count": 1,
                 "references": [
@@ -2745,8 +2745,8 @@
                 "kind": "retrieval",
                 "name": "assess_matches",
                 "status": "ok",
-                "started_ms": 0.811,
-                "duration_ms": 0.257,
+                "started_ms": 0.773,
+                "duration_ms": 0.284,
                 "target": null,
                 "result_count": 1,
                 "references": [],
@@ -2758,8 +2758,8 @@
                 "kind": "model",
                 "name": "triage_selection",
                 "status": "ok",
-                "started_ms": 1.13,
-                "duration_ms": 592.854,
+                "started_ms": 1.118,
+                "duration_ms": 696.996,
                 "target": "pytest-triage:coder3b-ctx16k",
                 "result_count": null,
                 "references": [],
@@ -2782,7 +2782,7 @@
               "input_tokens": 1038,
               "output_tokens": 75,
               "error": null,
-              "latency_ms": 592.774
+              "latency_ms": 696.908
             }
           ],
           "gpu_memory": {
@@ -2800,7 +2800,7 @@
           "method": "local_model",
           "opening_cutoff": "2024-04-10T09:18:43+00:00",
           "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
-          "latency_ms": 698.913,
+          "latency_ms": 878.529,
           "candidate_pool_size": 20,
           "error": null,
           "scores": {
@@ -2888,7 +2888,7 @@
             }
           },
           "report": {
-            "trace_id": "41995d3c-15b9-4c2a-9919-db0586d2d090",
+            "trace_id": "57ff66a7-be01-4710-80e4-d0131282e488",
             "status": "complete",
             "issue_type": "type: bug",
             "issue_type_quote": "()\r\n        except:\r\n            _logger.debug(\"failed to start container, got log: %s\", get_ctr_log())\r\n            raise\r\n```\r\n\r\nHow",
@@ -2960,16 +2960,16 @@
             "abstentions": []
           },
           "trace": {
-            "trace_id": "41995d3c-15b9-4c2a-9919-db0586d2d090",
-            "created_at": "2026-11-19T19:09:04.889769Z",
+            "trace_id": "57ff66a7-be01-4710-80e4-d0131282e488",
+            "created_at": "2026-11-19T19:20:05.002642Z",
             "status": "complete",
-            "duration_ms": 620.337,
+            "duration_ms": 765.951,
             "events": [
               {
                 "kind": "retrieval",
                 "name": "get_issue",
                 "status": "ok",
-                "started_ms": 0.201,
+                "started_ms": 0.198,
                 "duration_ms": 0.017,
                 "target": "pytest issue #12203",
                 "result_count": 1,
@@ -2982,8 +2982,8 @@
                 "kind": "retrieval",
                 "name": "search_issues",
                 "status": "ok",
-                "started_ms": 0.227,
-                "duration_ms": 0.671,
+                "started_ms": 0.224,
+                "duration_ms": 0.652,
                 "target": "query (exception OR teardown OR capture) before 2024-04-10T09:18:43+00:00",
                 "result_count": 3,
                 "references": [
@@ -2999,8 +2999,8 @@
                 "kind": "retrieval",
                 "name": "assess_matches",
                 "status": "ok",
-                "started_ms": 0.901,
-                "duration_ms": 0.733,
+                "started_ms": 0.878,
+                "duration_ms": 0.761,
                 "target": null,
                 "result_count": 3,
                 "references": [],
@@ -3012,8 +3012,8 @@
                 "kind": "model",
                 "name": "triage_selection",
                 "status": "ok",
-                "started_ms": 1.718,
-                "duration_ms": 618.554,
+                "started_ms": 1.72,
+                "duration_ms": 764.167,
                 "target": "pytest-triage:coder3b-ctx16k",
                 "result_count": null,
                 "references": [],
@@ -3035,7 +3035,7 @@
               "input_tokens": 1334,
               "output_tokens": 74,
               "error": null,
-              "latency_ms": 618.412
+              "latency_ms": 764.059
             }
           ],
           "gpu_memory": {
@@ -3053,7 +3053,7 @@
           "method": "local_model",
           "opening_cutoff": "2024-04-10T10:45:32+00:00",
           "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
-          "latency_ms": 859.388,
+          "latency_ms": 3646.66,
           "candidate_pool_size": 21,
           "error": null,
           "scores": {
@@ -3125,7 +3125,7 @@
             }
           },
           "report": {
-            "trace_id": "8942b0ca-0457-4334-bf63-64474f03bb40",
+            "trace_id": "f0bdb091-13ed-4699-a729-52fb10e26b95",
             "status": "complete",
             "issue_type": "type: bug",
             "issue_type_quote": "====================\r\n_________________________ ERROR at setup of test_smth1 _________________________\r\n  + Exception Group Traceback",
@@ -3175,17 +3175,17 @@
             ]
           },
           "trace": {
-            "trace_id": "8942b0ca-0457-4334-bf63-64474f03bb40",
-            "created_at": "2026-11-19T19:09:05.596897Z",
+            "trace_id": "f0bdb091-13ed-4699-a729-52fb10e26b95",
+            "created_at": "2026-11-19T19:20:05.896435Z",
             "status": "complete",
-            "duration_ms": 768.104,
+            "duration_ms": 3552.761,
             "events": [
               {
                 "kind": "retrieval",
                 "name": "get_issue",
                 "status": "ok",
-                "started_ms": 0.485,
-                "duration_ms": 0.02,
+                "started_ms": 0.527,
+                "duration_ms": 0.021,
                 "target": "pytest issue #12204",
                 "result_count": 1,
                 "references": [],
@@ -3197,8 +3197,8 @@
                 "kind": "retrieval",
                 "name": "search_issues",
                 "status": "ok",
-                "started_ms": 0.514,
-                "duration_ms": 0.733,
+                "started_ms": 0.557,
+                "duration_ms": 0.711,
                 "target": "query (exceptiongroup OR unlimitedly OR traceback) before 2024-04-10T10:45:32+00:00",
                 "result_count": 2,
                 "references": [
@@ -3213,8 +3213,8 @@
                 "kind": "retrieval",
                 "name": "assess_matches",
                 "status": "ok",
-                "started_ms": 1.25,
-                "duration_ms": 2.832,
+                "started_ms": 1.271,
+                "duration_ms": 3.027,
                 "target": null,
                 "result_count": 2,
                 "references": [],
@@ -3226,8 +3226,8 @@
                 "kind": "model",
                 "name": "triage_selection",
                 "status": "ok",
-                "started_ms": 4.697,
-                "duration_ms": 763.368,
+                "started_ms": 4.907,
+                "duration_ms": 3547.806,
                 "target": "pytest-triage:coder3b-ctx16k",
                 "result_count": null,
                 "references": [],
@@ -3250,13 +3250,13 @@
               "input_tokens": 14487,
               "output_tokens": 64,
               "error": null,
-              "latency_ms": 763.263
+              "latency_ms": 3547.65
             }
           ],
           "gpu_memory": {
             "enabled": true,
             "sample_interval_ms": 500,
-            "sample_count": 3,
+            "sample_count": 8,
             "initial_used_mib": 2740.0,
             "peak_sampled_used_mib": 2740.0,
             "error": null,
@@ -3268,7 +3268,7 @@
           "method": "local_model",
           "opening_cutoff": "2024-04-15T07:38:50+00:00",
           "repository_commit": "5f6e825a2687f6bb8bc437e67a59c0a92fb16c06",
-          "latency_ms": 753.41,
+          "latency_ms": 862.784,
           "candidate_pool_size": 22,
           "error": null,
           "scores": {
@@ -3344,7 +3344,7 @@
             }
           },
           "report": {
-            "trace_id": "1872c50e-ac17-4df1-8062-622bcf1e7c2c",
+            "trace_id": "57db672b-c2df-4c8c-bec9-9090e27b6d2e",
             "status": "partial",
             "issue_type": null,
             "issue_type_quote": null,
@@ -3402,17 +3402,17 @@
             ]
           },
           "trace": {
-            "trace_id": "1872c50e-ac17-4df1-8062-622bcf1e7c2c",
-            "created_at": "2026-11-19T19:09:06.450901Z",
+            "trace_id": "57db672b-c2df-4c8c-bec9-9090e27b6d2e",
+            "created_at": "2026-11-19T19:20:09.526042Z",
             "status": "partial",
-            "duration_ms": 665.291,
+            "duration_ms": 787.152,
             "events": [
               {
                 "kind": "retrieval",
                 "name": "get_issue",
                 "status": "ok",
-                "started_ms": 0.07,
-                "duration_ms": 0.018,
+                "started_ms": 0.067,
+                "duration_ms": 0.019,
                 "target": "pytest issue #12216",
                 "result_count": 1,
                 "references": [],
@@ -3424,8 +3424,8 @@
                 "kind": "retrieval",
                 "name": "search_issues",
                 "status": "ok",
-                "started_ms": 0.097,
-                "duration_ms": 1.683,
+                "started_ms": 0.095,
+                "duration_ms": 1.425,
                 "target": "query (pytest_generate_test OR parameterized OR executing) before 2024-04-15T07:38:50+00:00",
                 "result_count": 2,
                 "references": [
@@ -3440,8 +3440,8 @@
                 "kind": "retrieval",
                 "name": "assess_matches",
                 "status": "ok",
-                "started_ms": 1.792,
-                "duration_ms": 0.432,
+                "started_ms": 1.524,
+                "duration_ms": 0.405,
                 "target": null,
                 "result_count": 2,
                 "references": [],
@@ -3453,8 +3453,8 @@
                 "kind": "model",
                 "name": "triage_selection",
                 "status": "error",
-                "started_ms": 2.316,
-                "duration_ms": 662.893,
+                "started_ms": 2.019,
+                "duration_ms": 785.049,
                 "target": "pytest-triage:coder3b-ctx16k",
                 "result_count": null,
                 "references": [],
@@ -3476,7 +3476,7 @@
               "input_tokens": 906,
               "output_tokens": 68,
               "error": null,
-              "latency_ms": 662.656
+              "latency_ms": 784.925
             }
           ],
           "gpu_memory": {
@@ -3494,7 +3494,7 @@
           "method": "local_model",
           "opening_cutoff": "2024-04-16T08:22:38+00:00",
           "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
-          "latency_ms": 803.28,
+          "latency_ms": 925.13,
           "candidate_pool_size": 23,
           "error": null,
           "scores": {
@@ -3569,7 +3569,7 @@
             }
           },
           "report": {
-            "trace_id": "6786ec80-4deb-4ef7-af33-a97252edb15a",
+            "trace_id": "6cc3a6b8-c11d-4b16-8234-12dead1a0bb1",
             "status": "complete",
             "issue_type": "type: docs",
             "issue_type_quote": "nding that it's not supported, even though the [docs say it is](https://github.com/pytest-dev/pytest/blob/58844247f7ae4a7a213a73c8af",
@@ -3619,16 +3619,16 @@
             ]
           },
           "trace": {
-            "trace_id": "6786ec80-4deb-4ef7-af33-a97252edb15a",
-            "created_at": "2026-11-19T19:09:07.215456Z",
+            "trace_id": "6cc3a6b8-c11d-4b16-8234-12dead1a0bb1",
+            "created_at": "2026-11-19T19:20:10.402694Z",
             "status": "complete",
-            "duration_ms": 709.673,
+            "duration_ms": 837.521,
             "events": [
               {
                 "kind": "retrieval",
                 "name": "get_issue",
                 "status": "ok",
-                "started_ms": 0.083,
+                "started_ms": 0.073,
                 "duration_ms": 0.02,
                 "target": "pytest issue #12219",
                 "result_count": 1,
@@ -3641,8 +3641,8 @@
                 "kind": "retrieval",
                 "name": "search_issues",
                 "status": "ok",
-                "started_ms": 0.113,
-                "duration_ms": 1.597,
+                "started_ms": 0.102,
+                "duration_ms": 1.632,
                 "target": "query (teardownmodule OR setupmodule OR invoked) before 2024-04-16T08:22:38+00:00",
                 "result_count": 2,
                 "references": [
@@ -3657,8 +3657,8 @@
                 "kind": "retrieval",
                 "name": "assess_matches",
                 "status": "ok",
-                "started_ms": 1.714,
-                "duration_ms": 0.31,
+                "started_ms": 1.737,
+                "duration_ms": 0.369,
                 "target": null,
                 "result_count": 2,
                 "references": [],
@@ -3670,8 +3670,8 @@
                 "kind": "model",
                 "name": "triage_selection",
                 "status": "ok",
-                "started_ms": 2.119,
-                "duration_ms": 707.516,
+                "started_ms": 2.206,
+                "duration_ms": 835.277,
                 "target": "pytest-triage:coder3b-ctx16k",
                 "result_count": null,
                 "references": [],
@@ -3693,7 +3693,7 @@
               "input_tokens": 1163,
               "output_tokens": 84,
               "error": null,
-              "latency_ms": 707.422
+              "latency_ms": 835.189
             }
           ],
           "gpu_memory": {
@@ -3711,7 +3711,7 @@
           "method": "local_model",
           "opening_cutoff": "2024-04-17T09:00:30+00:00",
           "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
-          "latency_ms": 823.073,
+          "latency_ms": 978.92,
           "candidate_pool_size": 24,
           "error": null,
           "scores": {
@@ -3810,7 +3810,7 @@
             }
           },
           "report": {
-            "trace_id": "6022fbca-ec55-4417-9510-a5206dc93ba3",
+            "trace_id": "17b7b45d-0a24-48be-8af4-e045c535fdce",
             "status": "complete",
             "issue_type": "type: bug",
             "issue_type_quote": "andle with -vv\nSuppose you have a test that may fail with a very large diff; say:\r\n```python\r\ndef test_xyz() -> None:\r\n    assert [\"",
@@ -3902,17 +3902,17 @@
             ]
           },
           "trace": {
-            "trace_id": "6022fbca-ec55-4417-9510-a5206dc93ba3",
-            "created_at": "2026-11-19T19:09:08.019654Z",
+            "trace_id": "17b7b45d-0a24-48be-8af4-e045c535fdce",
+            "created_at": "2026-11-19T19:20:11.319954Z",
             "status": "complete",
-            "duration_ms": 722.29,
+            "duration_ms": 890.645,
             "events": [
               {
                 "kind": "retrieval",
                 "name": "get_issue",
                 "status": "ok",
-                "started_ms": 0.08,
-                "duration_ms": 0.02,
+                "started_ms": 0.082,
+                "duration_ms": 0.023,
                 "target": "pytest issue #12223",
                 "result_count": 1,
                 "references": [],
@@ -3924,8 +3924,8 @@
                 "kind": "retrieval",
                 "name": "search_issues",
                 "status": "ok",
-                "started_ms": 0.11,
-                "duration_ms": 1.473,
+                "started_ms": 0.115,
+                "duration_ms": 1.783,
                 "target": "query (attribute OR handle OR output) before 2024-04-17T09:00:30+00:00",
                 "result_count": 8,
                 "references": [
@@ -3943,8 +3943,8 @@
                 "kind": "retrieval",
                 "name": "assess_matches",
                 "status": "ok",
-                "started_ms": 1.586,
-                "duration_ms": 1.679,
+                "started_ms": 1.901,
+                "duration_ms": 2.116,
                 "target": null,
                 "result_count": 8,
                 "references": [],
@@ -3956,8 +3956,8 @@
                 "kind": "model",
                 "name": "triage_selection",
                 "status": "ok",
-                "started_ms": 3.419,
-                "duration_ms": 718.82,
+                "started_ms": 4.142,
+                "duration_ms": 886.459,
                 "target": "pytest-triage:coder3b-ctx16k",
                 "result_count": null,
                 "references": [],
@@ -3983,7 +3983,7 @@
               "input_tokens": 1336,
               "output_tokens": 89,
               "error": null,
-              "latency_ms": 718.725
+              "latency_ms": 886.366
             }
           ],
           "gpu_memory": {
@@ -4001,7 +4001,7 @@
           "method": "local_model",
           "opening_cutoff": "2024-04-18T05:51:07+00:00",
           "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
-          "latency_ms": 638.618,
+          "latency_ms": 777.77,
           "candidate_pool_size": 25,
           "error": null,
           "scores": {
@@ -4063,7 +4063,7 @@
             }
           },
           "report": {
-            "trace_id": "7a0de588-0c62-460d-b0d9-f43c15dfbda9",
+            "trace_id": "3433d86b-ed56-4959-8070-3840fd53aa6d",
             "status": "complete",
             "issue_type": "type: enhancement",
             "issue_type_quote": "cripting interface\n#### What's the problem this feature will solve?\r\nI'm using pytest (running in linux) to run tests in pyodide (in a ",
@@ -4094,17 +4094,17 @@
             "abstentions": []
           },
           "trace": {
-            "trace_id": "7a0de588-0c62-460d-b0d9-f43c15dfbda9",
-            "created_at": "2026-11-19T19:09:08.832375Z",
+            "trace_id": "3433d86b-ed56-4959-8070-3840fd53aa6d",
+            "created_at": "2026-11-19T19:20:12.300079Z",
             "status": "complete",
-            "duration_ms": 555.511,
+            "duration_ms": 691.593,
             "events": [
               {
                 "kind": "retrieval",
                 "name": "get_issue",
                 "status": "ok",
-                "started_ms": 0.37,
-                "duration_ms": 0.021,
+                "started_ms": 0.322,
+                "duration_ms": 0.02,
                 "target": "pytest issue #12224",
                 "result_count": 1,
                 "references": [],
@@ -4116,8 +4116,8 @@
                 "kind": "retrieval",
                 "name": "search_issues",
                 "status": "ok",
-                "started_ms": 0.4,
-                "duration_ms": 1.753,
+                "started_ms": 0.351,
+                "duration_ms": 1.724,
                 "target": "query (interface OR scripting OR granular) before 2024-04-18T05:51:07+00:00",
                 "result_count": 1,
                 "references": [
@@ -4131,8 +4131,8 @@
                 "kind": "retrieval",
                 "name": "assess_matches",
                 "status": "ok",
-                "started_ms": 2.161,
-                "duration_ms": 0.277,
+                "started_ms": 2.078,
+                "duration_ms": 0.238,
                 "target": null,
                 "result_count": 1,
                 "references": [],
@@ -4144,8 +4144,8 @@
                 "kind": "model",
                 "name": "triage_selection",
                 "status": "ok",
-                "started_ms": 2.534,
-                "duration_ms": 552.942,
+                "started_ms": 2.41,
+                "duration_ms": 689.148,
                 "target": "pytest-triage:coder3b-ctx16k",
                 "result_count": null,
                 "references": [],
@@ -4167,7 +4167,7 @@
               "input_tokens": 1123,
               "output_tokens": 67,
               "error": null,
-              "latency_ms": 552.866
+              "latency_ms": 689.067
             }
           ],
           "gpu_memory": {
@@ -4185,7 +4185,7 @@
           "method": "local_model",
           "opening_cutoff": "2024-04-19T11:34:17+00:00",
           "repository_commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
-          "latency_ms": 618.57,
+          "latency_ms": 728.933,
           "candidate_pool_size": 26,
           "error": null,
           "scores": {
@@ -4280,7 +4280,7 @@
             }
           },
           "report": {
-            "trace_id": "f44a953f-edee-45b6-be34-3491c13900f9",
+            "trace_id": "337fa587-4a32-43b1-97d1-e2f1c3cfe81c",
             "status": "complete",
             "issue_type": "type: enhancement",
             "issue_type_quote": "support an alternate syntax for \"not\" (as in `pytest -m \"not stuff\"`)\n#### What's the p",
@@ -4364,17 +4364,17 @@
             "abstentions": []
           },
           "trace": {
-            "trace_id": "f44a953f-edee-45b6-be34-3491c13900f9",
-            "created_at": "2026-11-19T19:09:09.471769Z",
+            "trace_id": "337fa587-4a32-43b1-97d1-e2f1c3cfe81c",
+            "created_at": "2026-11-19T19:20:13.073418Z",
             "status": "complete",
-            "duration_ms": 523.999,
+            "duration_ms": 648.652,
             "events": [
               {
                 "kind": "retrieval",
                 "name": "get_issue",
                 "status": "ok",
-                "started_ms": 0.325,
-                "duration_ms": 0.019,
+                "started_ms": 0.378,
+                "duration_ms": 0.017,
                 "target": "pytest issue #12226",
                 "result_count": 1,
                 "references": [],
@@ -4386,8 +4386,8 @@
                 "kind": "retrieval",
                 "name": "search_issues",
                 "status": "ok",
-                "started_ms": 0.354,
-                "duration_ms": 2.086,
+                "started_ms": 0.403,
+                "duration_ms": 1.973,
                 "target": "query (alternate OR syntax OR stuff) before 2024-04-19T11:34:17+00:00",
                 "result_count": 3,
                 "references": [
@@ -4403,8 +4403,8 @@
                 "kind": "retrieval",
                 "name": "assess_matches",
                 "status": "ok",
-                "started_ms": 2.444,
-                "duration_ms": 0.522,
+                "started_ms": 2.38,
+                "duration_ms": 0.415,
                 "target": null,
                 "result_count": 3,
                 "references": [],
@@ -4416,8 +4416,8 @@
                 "kind": "model",
                 "name": "triage_selection",
                 "status": "ok",
-                "started_ms": 3.05,
-                "duration_ms": 520.907,
+                "started_ms": 2.853,
+                "duration_ms": 645.742,
                 "target": "pytest-triage:coder3b-ctx16k",
                 "result_count": null,
                 "references": [],
@@ -4440,7 +4440,7 @@
               "input_tokens": 973,
               "output_tokens": 63,
               "error": null,
-              "latency_ms": 520.832
+              "latency_ms": 645.623
             }
           ],
           "gpu_memory": {
@@ -4458,7 +4458,7 @@
           "method": "local_model",
           "opening_cutoff": "2024-04-19T17:30:10+00:00",
           "repository_commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
-          "latency_ms": 630.625,
+          "latency_ms": 773.258,
           "candidate_pool_size": 27,
           "error": null,
           "scores": {
@@ -4553,7 +4553,7 @@
             }
           },
           "report": {
-            "trace_id": "df20ace8-72cd-46fe-b98b-01d3af283897",
+            "trace_id": "37768aa9-1e98-4432-813e-0d3cd0315b21",
             "status": "complete",
             "issue_type": "type: docs",
             "issue_type_quote": "Documentation request: types/shapes of options in `[tool.pytest.ini_options]`\n<!--\r\nThanks fo",
@@ -4637,17 +4637,17 @@
             "abstentions": []
           },
           "trace": {
-            "trace_id": "df20ace8-72cd-46fe-b98b-01d3af283897",
-            "created_at": "2026-11-19T19:09:10.098693Z",
+            "trace_id": "37768aa9-1e98-4432-813e-0d3cd0315b21",
+            "created_at": "2026-11-19T19:20:13.806619Z",
             "status": "complete",
-            "duration_ms": 503.059,
+            "duration_ms": 682.081,
             "events": [
               {
                 "kind": "retrieval",
                 "name": "get_issue",
                 "status": "ok",
-                "started_ms": 0.439,
-                "duration_ms": 0.019,
+                "started_ms": 0.413,
+                "duration_ms": 0.018,
                 "target": "pytest issue #12228",
                 "result_count": 1,
                 "references": [],
@@ -4659,8 +4659,8 @@
                 "kind": "retrieval",
                 "name": "search_issues",
                 "status": "ok",
-                "started_ms": 0.467,
-                "duration_ms": 1.639,
+                "started_ms": 0.439,
+                "duration_ms": 1.677,
                 "target": "query (documentation OR ini_options OR options) before 2024-04-19T17:30:10+00:00",
                 "result_count": 3,
                 "references": [
@@ -4676,8 +4676,8 @@
                 "kind": "retrieval",
                 "name": "assess_matches",
                 "status": "ok",
-                "started_ms": 2.109,
-                "duration_ms": 0.74,
+                "started_ms": 2.12,
+                "duration_ms": 0.795,
                 "target": null,
                 "result_count": 3,
                 "references": [],
@@ -4689,8 +4689,8 @@
                 "kind": "model",
                 "name": "triage_selection",
                 "status": "ok",
-                "started_ms": 2.938,
-                "duration_ms": 500.079,
+                "started_ms": 3.003,
+                "duration_ms": 679.034,
                 "target": "pytest-triage:coder3b-ctx16k",
                 "result_count": null,
                 "references": [],
@@ -4713,7 +4713,7 @@
               "input_tokens": 1449,
               "output_tokens": 60,
               "error": null,
-              "latency_ms": 500.002
+              "latency_ms": 678.928
             }
           ],
           "gpu_memory": {
@@ -4801,10 +4801,10 @@
       },
       "template_sha256": "1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320",
       "warmup": {
-        "latency_ms": 407.651,
+        "latency_ms": 2755.411,
         "response": {
           "model": "pytest-triage:coder3b-ctx16k",
-          "created_at": "2026-11-19T19:08:56.3930857Z",
+          "created_at": "2026-11-19T19:19:54.7519183Z",
           "response": "{\"ready\":true}",
           "done": true,
           "done_reason": "stop",
@@ -4854,20 +4854,20 @@
             1866,
             92
           ],
-          "total_duration": 326311300,
-          "load_duration": 5320400,
+          "total_duration": 2777983300,
+          "load_duration": 2621749200,
           "prompt_eval_count": 39,
-          "prompt_eval_cached_count": 38,
-          "prompt_eval_duration": 139058000,
+          "prompt_eval_cached_count": 0,
+          "prompt_eval_duration": 104864000,
           "eval_count": 6,
-          "eval_duration": 149376000
+          "eval_duration": 48700000
         },
         "gpu_memory": {
           "enabled": true,
           "sample_interval_ms": 500,
-          "sample_count": 2,
-          "initial_used_mib": 2740.0,
-          "peak_sampled_used_mib": 2740.0,
+          "sample_count": 6,
+          "initial_used_mib": 5.0,
+          "peak_sampled_used_mib": 2726.0,
           "error": null,
           "scope": "Device-wide use including other processes; sampled, not true peak."
         }
@@ -4889,7 +4889,7 @@
               "parameter_size": "3.1B",
               "quantization_level": "Q4_K_M"
             },
-            "expires_at": "2026-11-20T02:13:56.3942826+07:00",
+            "expires_at": "2026-11-20T02:24:54.7524212+07:00",
             "size_vram": 2730345103,
             "context_length": 16384,
             "runner": "llamacpp"
@@ -4913,7 +4913,7 @@
               "parameter_size": "3.1B",
               "quantization_level": "Q4_K_M"
             },
-            "expires_at": "2026-11-20T02:14:10.645561+07:00",
+            "expires_at": "2026-11-20T02:25:14.2311142+07:00",
             "size_vram": 2730345103,
             "context_length": 16384,
             "runner": "llamacpp"

@@ -363,6 +363,8 @@ def _answer_has_content(answer: str) -> bool:
             r"(?:todo|tbd|n/?a|none|not (?:yet )?provided)[.!]?", text, re.I
         ):
             continue
+        if re.match(r"(?:please\s+)?(?:describe|elaborate)\b", text, re.I):
+            continue
         if re.search(r"\w{3,}", text):
             return True
     return False
@@ -445,20 +447,21 @@ def _has_alternative_detail(body: str) -> bool:
         return True
     for attempt in re.finditer(
         r"\b(?:(?:i|we)\s+(?:have\s+)?tried\s+(?!(?:no|nothing)\b)\S|"
-        r"(?:my|our|current) workaround (?:is|uses?)\s+\S)",
+        r"(?:my|our|current) workaround (?:is|uses?)\s+"
+        r"(?!(?:(?:a|an|the)\s+)?(?:not|no|never|nothing|unavailable|"
+        r"unimplemented|propos\w*|planned)\b)\S)",
         body,
         re.I,
     ):
         if not _hypothetical_prefix(body, attempt.start()):
             return True
     for statement in re.split(r"(?<=[.!?])[ \t]+|\r?\n+", answer):
-        if statement.strip().endswith("?") or re.match(
-            r"(?:please\s+)?(?:describe|elaborate)\b", statement.strip(), re.I
-        ):
+        if statement.strip().endswith("?"):
             continue
         if re.search(
             r"\b(?:no|not|never|nothing|without|if|could|would|might|may|plan|"
-            r"propos\w*)\b|\b(?:haven't|hasn't|didn't|don't|doesn't)\b",
+            r"propos\w*|planned|unavailable|unimplemented)\b|"
+            r"\b(?:haven't|hasn't|didn't|don't|doesn't)\b",
             statement,
             re.I,
         ):

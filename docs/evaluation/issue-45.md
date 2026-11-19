@@ -37,11 +37,11 @@ natural-language completeness classifier.
 | Both heading formats, correct bounds | [API regressions](../../tests/test_feature_details_api.py) | Plain empty use-case section stays missing despite an answered alternative; both heading formats recognize supplied answers |
 | Original and rendered #12053 need no redundant requests | [real HTTP checks](issue-45-api.json), [final browser check](issue-45-web-final.json), [report screenshot](issue-45-web-final.png), [historical run](issue-45-results.json) | Both actual bodies return `missing_details: []`; no “Could you add” requests; historical expected set is unchanged and now matches |
 | Incomplete and hypothetical answers stay missing | [API regressions](../../tests/test_feature_details_api.py) | Empty/comment/placeholder sections, untried or proposed alternatives, version-only usage, negated plugin usage and template prompts remain missing; explicit absence is accepted |
-| Regression tests precede implementation | TDD through `POST /api/triage` and `POST /api/agent/triage` | Observed failures before each corresponding rule correction; 23 new parametrized cases pass. Controlled clients check report behavior only, not real-model quality |
+| Regression tests precede implementation | TDD through `POST /api/triage` and `POST /api/agent/triage` | Observed failures before each corresponding rule correction; 31 new parametrized cases pass. Controlled clients check report behavior only, not real-model quality |
 | Preserve validation and historical provenance | [SHA-256 manifest](issue-45-provenance.json), unchanged model/agent/citation modules | All 53 recorded baseline/case files retain their hashes. Cutoffs, pinned commits, expected outcomes and review provenance are unchanged; existing rejection tests still pass |
-| Same model/settings, fresh twenty-case evidence | [final real run](issue-45-results.json), [initial real run](issue-45-initial-results.json) | Twenty real responses per run, with raw selections, field scores, reports, traces, errors and GPU sampling. Initial run is retained; final run follows additional boilerplate guards. No prior artifacts overwritten |
+| Same model/settings, fresh twenty-case evidence | [final real run](issue-45-results.json), [initial real run](issue-45-initial-results.json), [pre-review run](issue-45-pre-review-results.json) | Twenty real responses per run, with raw selections, field scores, reports, traces, errors and GPU sampling. Earlier runs are retained; final run follows boilerplate and negated-workaround review fixes. No prior artifacts overwritten |
 
-Full suite: **191 passed, 2 skipped**; the two optional live checks remain skipped
+Full suite: **199 passed, 2 skipped**; the two optional live checks remain skipped
 in the ordinary suite. Mypy checks 27 source files successfully; Ruff lint and
 format checks pass. The separate recorded real-inference checks below supply
 live evidence; skipped ordinary tests are not counted as live successes.
@@ -58,7 +58,7 @@ Identity and alias parameters exactly match #21: context **16,384**, temperature
 client SHA-256 is
 `7bef4c191bd6511d123c548e7cce91013dd7aae107b82690dc69d09412d861c0`.
 The final profile SHA-256 is
-`3e9ae15ff2c60d5ada106b0aed110b8a24b2c42588206b814993025c905844a8`.
+`5030ae943385c3d948c24a41c021ca075c55b62232f3dcf3ff0d973517e0caff`.
 The [#21 manifest](issue-21-selection.json) and [setup guide](../local-model.md)
 retain the source/blob identity and hardware/connectivity verification. No paid
 model API is used.
@@ -109,9 +109,9 @@ selection set, rather than independent generalization evidence.
 
 ## Serving and browser observations
 
-Final serial run: mean model-call latency **591.86 ms**, median **597.61 ms**,
-nearest-rank P95 **763.26 ms**, maximum **918.15 ms**. Mean end-to-end replay
-latency is **686.35 ms**; warm-up is **407.65 ms**. Maximum input is 14,487 tokens.
+Final serial run: mean model-call latency **842.20 ms**, median **692.99 ms**,
+nearest-rank P95 **1,103.75 ms**, maximum **3,547.65 ms**. Mean end-to-end replay
+latency is **932.24 ms**; warm-up is **2,755.41 ms**. Maximum input is 14,487 tokens.
 Peak sampled device memory during cases is **2,740 MiB**, on the previously
 verified 8,151 MiB GPU. Ollama reports the alias resident entirely in VRAM with
 context 16,384. Sampling every 500 ms includes other device use and can miss
@@ -123,7 +123,7 @@ and the user's rendered paste. Both have real token-bearing model traces and
 no redundant requests. The final [Chromium browser check](issue-45-web-final.json)
 submits the rendered body through the bounded-agent form, retrieves its matching
 trace and verifies the visible `Missing report details: None`, complete status,
-two successful model calls and no JavaScript errors. Its trace takes 889.49 ms.
+two successful model calls and no JavaScript errors. Its trace takes 892.17 ms.
 The report-only screenshot avoids republishing the contributor's complete body.
 Body hashes identify the temporary inputs; bodies are not added as fixtures.
 
@@ -151,3 +151,28 @@ UV_CACHE_DIR=/tmp/issue-45-uv-cache uv run --locked --no-env-file \
 GitHub access and the running Windows Ollama server are required. Rediscover the
 adapter address after a network restart; do not substitute WSL localhost without
 checking connectivity. Existing output paths are refused to preserve evidence.
+
+## Review
+
+### Standards
+
+No documented-standard violations. The reviewer verified all 53 preserved
+hashes and confirmed the changes respect the glossary and historical-evaluation
+ADRs. One optional Duplicated Code judgment remains: two alternative checks use
+the same sentence-splitting expression. A helper can be considered if segmentation
+changes; it is not a blocker for this focused correction.
+
+### Spec
+
+The first review found two gaps: negative/proposed `workaround is …` statements
+bypassed filtering, and instruction prompts counted as answers outside the
+alternatives section. Regression tests reproduced both before correction.
+The second review independently checked the original counterexamples through
+both APIs with plain and Markdown headings and confirmed both findings resolved.
+The final real-model run, HTTP and browser artifacts were then refreshed.
+Earlier [HTTP](issue-45-pre-review-api.json),
+[browser](issue-45-pre-review-web.json) and
+[screenshot](issue-45-pre-review-web.png) evidence is retained separately.
+
+Final review: Standards — zero violations, one optional maintenance judgment;
+Spec — zero unresolved findings.

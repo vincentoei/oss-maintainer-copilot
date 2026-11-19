@@ -1,0 +1,125 @@
+{
+  "recorded_at": "2026-11-19T19:11:05.696399+00:00",
+  "purpose": "Real HTTP detail-detection checks; not additional historical quality cases",
+  "profile_sha256": "3e9ae15ff2c60d5ada106b0aed110b8a24b2c42588206b814993025c905844a8",
+  "checks": [
+    {
+      "input": "verified_raw_opening",
+      "body_sha256": "91a610aca0c8edcfe844f8cb6ab4a81e07058b0c3ec610e6269ab1b796c7af6b",
+      "number_omitted": "Isolate detail detection from live search; frozen full-catalog case is separately evaluated in issue-45-results.json",
+      "assertions": {
+        "no_missing_details": true,
+        "no_redundant_requests": true,
+        "real_model_usage": true
+      },
+      "report": {
+        "trace_id": "d4410944-fecb-45eb-9049-157cda4102f6",
+        "status": "complete",
+        "issue_type": "type: enhancement",
+        "issue_type_quote": "figuration option?\n#### What's the problem this feature will solve?\r\n\r\nFor some projects, I always use `--pdb` together with `--pdbcls=",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "duplicate_candidates",
+            "reason": "A pytest issue number is needed to search only earlier issues."
+          },
+          {
+            "field": "related_issues",
+            "reason": "A pytest issue number is needed to search only earlier issues."
+          },
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "d4410944-fecb-45eb-9049-157cda4102f6",
+        "created_at": "2026-11-19T19:11:03.048576Z",
+        "status": "complete",
+        "duration_ms": 817.133,
+        "events": [
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 1.783,
+            "duration_ms": 815.222,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 647,
+            "output_tokens": 66,
+            "error": null
+          }
+        ]
+      }
+    },
+    {
+      "input": "user_rendered_paste",
+      "body_sha256": "8716ccf34c94b9421c230ef1daeee39c3d6d451286f17fceb51694743411547f",
+      "number_omitted": "Isolate detail detection from live search; frozen full-catalog case is separately evaluated in issue-45-results.json",
+      "assertions": {
+        "no_missing_details": true,
+        "no_redundant_requests": true,
+        "real_model_usage": true
+      },
+      "report": {
+        "trace_id": "3d23e2b5-64a0-459d-89c4-035f5924b5ae",
+        "status": "complete",
+        "issue_type": "type: enhancement",
+        "issue_type_quote": "a configuration option?\nWhat's the problem this feature will solve?\nFor some projects, I always use --pdb together with --pdbcls=IPytho",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "duplicate_candidates",
+            "reason": "A pytest issue number is needed to search only earlier issues."
+          },
+          {
+            "field": "related_issues",
+            "reason": "A pytest issue number is needed to search only earlier issues."
+          },
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "3d23e2b5-64a0-459d-89c4-035f5924b5ae",
+        "created_at": "2026-11-19T19:11:05.191771Z",
+        "status": "complete",
+        "duration_ms": 503.088,
+        "events": [
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 0.172,
+            "duration_ms": 502.861,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 604,
+            "output_tokens": 62,
+            "error": null
+          }
+        ]
+      }
+    }
+  ]
+}

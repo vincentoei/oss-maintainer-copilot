@@ -1,7 +1,7 @@
 {
-  "recorded_at": "2026-11-19T19:11:05.696399+00:00",
-  "purpose": "Real HTTP detail-detection checks; not additional historical quality cases",
-  "profile_sha256": "3e9ae15ff2c60d5ada106b0aed110b8a24b2c42588206b814993025c905844a8",
+  "recorded_at": "2026-11-19T19:20:24.106531+00:00",
+  "purpose": "Real HTTP detail-detection checks after review fixes; not additional historical quality cases",
+  "profile_sha256": "5030ae943385c3d948c24a41c021ca075c55b62232f3dcf3ff0d973517e0caff",
   "checks": [
     {
       "input": "verified_raw_opening",
@@ -13,7 +13,7 @@
         "real_model_usage": true
       },
       "report": {
-        "trace_id": "d4410944-fecb-45eb-9049-157cda4102f6",
+        "trace_id": "9708f6e5-0f37-4409-b0fc-08754294de39",
         "status": "complete",
         "issue_type": "type: enhancement",
         "issue_type_quote": "figuration option?\n#### What's the problem this feature will solve?\r\n\r\nFor some projects, I always use `--pdb` together with `--pdbcls=",
@@ -41,17 +41,17 @@
         ]
       },
       "trace": {
-        "trace_id": "d4410944-fecb-45eb-9049-157cda4102f6",
-        "created_at": "2026-11-19T19:11:03.048576Z",
+        "trace_id": "9708f6e5-0f37-4409-b0fc-08754294de39",
+        "created_at": "2026-11-19T19:20:22.836863Z",
         "status": "complete",
-        "duration_ms": 817.133,
+        "duration_ms": 724.783,
         "events": [
           {
             "kind": "model",
             "name": "triage_selection",
             "status": "ok",
-            "started_ms": 1.783,
-            "duration_ms": 815.222,
+            "started_ms": 1.857,
+            "duration_ms": 722.758,
             "target": "pytest-triage:coder3b-ctx16k",
             "result_count": null,
             "references": [],
@@ -72,7 +72,7 @@
         "real_model_usage": true
       },
       "report": {
-        "trace_id": "3d23e2b5-64a0-459d-89c4-035f5924b5ae",
+        "trace_id": "9a553c6f-f937-4e02-b97c-1b3190b57c75",
         "status": "complete",
         "issue_type": "type: enhancement",
         "issue_type_quote": "a configuration option?\nWhat's the problem this feature will solve?\nFor some projects, I always use --pdb together with --pdbcls=IPytho",
@@ -100,17 +100,17 @@
         ]
       },
       "trace": {
-        "trace_id": "3d23e2b5-64a0-459d-89c4-035f5924b5ae",
-        "created_at": "2026-11-19T19:11:05.191771Z",
+        "trace_id": "9a553c6f-f937-4e02-b97c-1b3190b57c75",
+        "created_at": "2026-11-19T19:20:23.568122Z",
         "status": "complete",
-        "duration_ms": 503.088,
+        "duration_ms": 536.811,
         "events": [
           {
             "kind": "model",
             "name": "triage_selection",
             "status": "ok",
-            "started_ms": 0.172,
-            "duration_ms": 502.861,
+            "started_ms": 0.168,
+            "duration_ms": 536.603,
             "target": "pytest-triage:coder3b-ctx16k",
             "result_count": null,
             "references": [],
