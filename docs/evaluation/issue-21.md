@@ -218,6 +218,37 @@ DOM/API assertions passed, with no JavaScript errors. Windows also reached the
 WSL app. [Browser JSON](issue-21-web.json) and the screenshot retain the exact
 report/trace. No human is being credited with this check.
 
+## User browser validation after handoff
+
+The user separately ran four browser reports and supplied their visible output:
+fixed synthetic input, bounded synthetic input without tools, bounded source
+inspection, and a live pasted version of #12053. All four trace records were
+independently fetched from the running API and preserved in
+[user-validation evidence](issue-21-user-validation.json). Source inspection
+completed successfully without an issue number; the real #12053 search returned
+784 earlier issues and five related matches. This live run took 25,623.54 ms,
+including 23,359.73 ms for GitHub search and 1,495.97 ms across model calls.
+It illustrates the network cost excluded by the benchmark's warm retrieval cache.
+
+The last report also exposes a pre-existing rule failure. The user's rendered
+copy contains plain template headings, a problem description, proposed setting
+and existing long CLI workaround. The rules nevertheless request all four
+feature details. A deterministic public-triage probe reproduces that result twice
+without a model endpoint call. Adding only Markdown `####` heading markers removes
+the false problem/solution requests; restoring only the TOML code fence does not.
+Changing a controlled model's type selection leaves the missing-detail list
+unchanged. `_section_has_answer` requires Markdown heading markers, and separate
+lexical rules miss the supplied use case and CLI workaround even after restoring
+those markers. The report makes these requests mandatory through
+`required_reply_ids`, so model selection cannot repair them.
+
+This is an **unfixed template-rule quality gap**, not a setup failure or an
+additional historical benchmark result. The reviewed #12053 outcome expects no
+missing details. Its rendered-copy input is not the verified raw opening, and
+its live candidate pool differs from the frozen catalog. No expected outcomes,
+old artifacts or aggregate scores were changed. The user supplied observations;
+the diagnosis is Codex's assessment, not an attributed human semantic rating.
+
 ## Reproduce and review
 
 Follow [the local run guide](../local-model.md) for exact Windows PowerShell and
