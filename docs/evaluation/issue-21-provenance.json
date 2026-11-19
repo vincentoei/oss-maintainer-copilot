@@ -1,0 +1,1087 @@
+{
+  "recorded_at": "2026-11-19T16:55:50.491151+00:00",
+  "purpose": "Integrity acquisition, not real-model quality",
+  "cases": [
+    {
+      "issue_number": 7312,
+      "opening_cutoff": "2020-06-03T14:20:24+00:00",
+      "repository_commit": "61a6ac97054c0bd6f812642b46847c4b7cbede2a",
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user",
+        "confirmed_at": "2026-11-17T17:01:42Z"
+      },
+      "integrity": "passed",
+      "opening_content_sha256": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+      "verified_candidate_count": 5,
+      "controlled_report_status": "complete",
+      "verified_repository_commit_at": "2020-06-02T23:25:02+00:00",
+      "verified_candidate_hashes": {
+        "349": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+        "2959": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+        "3448": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+        "4064": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+        "7012": "d2e9ae265fab86d85e1866c8a59a825c40a0f5e2049e778996e7ac15389b01fb"
+      },
+      "case_metadata_sha256": "0992e433b73d83254b677ea112516e0fd52b3a296b19adabf576909cc3220410",
+      "case_metadata_unchanged_from_main": true
+    },
+    {
+      "issue_number": 10156,
+      "opening_cutoff": "2022-07-19T20:03:50+00:00",
+      "repository_commit": "34a285986e456406b22b62aa563a64331f640e7f",
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user",
+        "confirmed_at": "2026-11-17T17:01:42Z"
+      },
+      "integrity": "passed",
+      "opening_content_sha256": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+      "verified_candidate_count": 7,
+      "controlled_report_status": "complete",
+      "verified_repository_commit_at": "2022-07-16T02:08:21+00:00",
+      "verified_candidate_hashes": {
+        "349": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+        "2959": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+        "3448": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+        "4064": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+        "7012": "d2e9ae265fab86d85e1866c8a59a825c40a0f5e2049e778996e7ac15389b01fb",
+        "7312": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+        "8655": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f"
+      },
+      "case_metadata_sha256": "983745427c9875dbf4838d24b458abc0ba4cb0e04b8fdd6cd13a364f1361e189",
+      "case_metadata_unchanged_from_main": true
+    },
+    {
+      "issue_number": 12053,
+      "opening_cutoff": "2024-03-03T14:58:35+00:00",
+      "repository_commit": "00043f7f1047b29fdaeb18e169fe9d6146988cb8",
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user",
+        "confirmed_at": "2026-11-18T03:49:09.532740Z"
+      },
+      "integrity": "passed",
+      "opening_content_sha256": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+      "verified_candidate_count": 9,
+      "controlled_report_status": "complete",
+      "verified_repository_commit_at": "2024-03-03T13:45:34+00:00",
+      "verified_candidate_hashes": {
+        "349": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+        "2959": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+        "3448": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+        "4064": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+        "7012": "d2e9ae265fab86d85e1866c8a59a825c40a0f5e2049e778996e7ac15389b01fb",
+        "7312": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+        "8655": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f",
+        "10156": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+        "11871": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320"
+      },
+      "case_metadata_sha256": "ed6fd3c5d1fa9b70d761c926d1593f31125a425f95f5e34af291ab97c2276066",
+      "case_metadata_unchanged_from_main": true
+    },
+    {
+      "issue_number": 12072,
+      "opening_cutoff": "2024-03-04T13:04:55+00:00",
+      "repository_commit": "0951cbc6e4880ee7dfc9b7e56948d83ee086e74b",
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user",
+        "confirmed_at": "2026-11-18T03:49:09.532740Z"
+      },
+      "integrity": "passed",
+      "opening_content_sha256": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7",
+      "verified_candidate_count": 11,
+      "controlled_report_status": "complete",
+      "verified_repository_commit_at": "2024-03-04T13:01:53+00:00",
+      "verified_candidate_hashes": {
+        "349": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+        "2959": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+        "3448": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+        "4064": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+        "7012": "d2e9ae265fab86d85e1866c8a59a825c40a0f5e2049e778996e7ac15389b01fb",
+        "7312": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+        "8655": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f",
+        "10156": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+        "11871": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320",
+        "12053": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+        "12066": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8"
+      },
+      "case_metadata_sha256": "b3128c04ad13b5b7a3bcc8945ed6c642ddbc1b5bfed17a9a6a72d1956592a155",
+      "case_metadata_unchanged_from_main": true
+    },
+    {
+      "issue_number": 12079,
+      "opening_cutoff": "2024-03-05T12:31:13+00:00",
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user",
+        "confirmed_at": "2026-11-18T03:49:09.532740Z"
+      },
+      "integrity": "passed",
+      "opening_content_sha256": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a",
+      "verified_candidate_count": 12,
+      "controlled_report_status": "complete",
+      "verified_repository_commit_at": "2024-03-04T15:44:56+00:00",
+      "verified_candidate_hashes": {
+        "349": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+        "2959": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+        "3448": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+        "4064": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+        "7012": "d2e9ae265fab86d85e1866c8a59a825c40a0f5e2049e778996e7ac15389b01fb",
+        "7312": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+        "8655": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f",
+        "10156": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+        "11871": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320",
+        "12053": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+        "12066": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8",
+        "12072": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7"
+      },
+      "case_metadata_sha256": "6d84b025b88ae66b1fa541c0ded03c8f8a49a948bfb7992a6787e188339f46d8",
+      "case_metadata_unchanged_from_main": true
+    },
+    {
+      "issue_number": 12081,
+      "opening_cutoff": "2024-03-06T00:03:25+00:00",
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user",
+        "confirmed_at": "2026-11-17T17:01:42Z"
+      },
+      "integrity": "passed",
+      "opening_content_sha256": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+      "verified_candidate_count": 13,
+      "controlled_report_status": "complete",
+      "verified_repository_commit_at": "2024-03-04T15:44:56+00:00",
+      "verified_candidate_hashes": {
+        "349": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+        "2959": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+        "3448": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+        "4064": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+        "7012": "d2e9ae265fab86d85e1866c8a59a825c40a0f5e2049e778996e7ac15389b01fb",
+        "7312": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+        "8655": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f",
+        "10156": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+        "11871": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320",
+        "12053": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+        "12066": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8",
+        "12072": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7",
+        "12079": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a"
+      },
+      "case_metadata_sha256": "4910b848e2358728dbb530cd619b3bb80ead941951282e96d0b38765708bcb4a",
+      "case_metadata_unchanged_from_main": true
+    },
+    {
+      "issue_number": 12083,
+      "opening_cutoff": "2024-03-06T10:53:11+00:00",
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user",
+        "confirmed_at": "2026-11-17T17:01:42Z"
+      },
+      "integrity": "passed",
+      "attempts": [
+        {
+          "integrity": "flagged",
+          "error": "pytest issue #12083 is unavailable"
+        },
+        {
+          "integrity": "passed"
+        }
+      ],
+      "opening_content_sha256": "39d659d7c54b6d5cd1e336a628b516d771f3e9dc98636701165e8cc70e9e9064",
+      "controlled_report_status": "complete",
+      "verified_candidate_count": 14,
+      "verified_repository_commit_at": "2024-03-04T15:44:56+00:00",
+      "verified_candidate_hashes": {
+        "349": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+        "2959": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+        "3448": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+        "4064": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+        "7012": "d2e9ae265fab86d85e1866c8a59a825c40a0f5e2049e778996e7ac15389b01fb",
+        "7312": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+        "8655": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f",
+        "10156": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+        "11871": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320",
+        "12053": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+        "12066": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8",
+        "12072": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7",
+        "12079": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a",
+        "12081": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5"
+      },
+      "case_metadata_sha256": "92c2e45f9cfb992bac40ec2e4cf6522ad1a1b77b2ea3ce3e1f58fe9d0e8cbe9e",
+      "case_metadata_unchanged_from_main": true
+    },
+    {
+      "issue_number": 12116,
+      "opening_cutoff": "2024-03-13T13:37:51+00:00",
+      "repository_commit": "c0532dda18a5cfd0e6f67113bb164485fa80eb86",
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user",
+        "confirmed_at": "2026-11-18T03:49:09.532740Z"
+      },
+      "integrity": "passed",
+      "opening_content_sha256": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+      "verified_candidate_count": 15,
+      "controlled_report_status": "complete",
+      "verified_repository_commit_at": "2024-03-13T13:30:18+00:00",
+      "verified_candidate_hashes": {
+        "349": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+        "2959": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+        "3448": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+        "4064": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+        "7012": "d2e9ae265fab86d85e1866c8a59a825c40a0f5e2049e778996e7ac15389b01fb",
+        "7312": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+        "8655": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f",
+        "10156": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+        "11871": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320",
+        "12053": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+        "12066": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8",
+        "12072": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7",
+        "12079": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a",
+        "12081": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+        "12083": "39d659d7c54b6d5cd1e336a628b516d771f3e9dc98636701165e8cc70e9e9064"
+      },
+      "case_metadata_sha256": "ed0cb4e78487c39d378baf60cb55262d6e66cb2f8f9e978961805904013579d3",
+      "case_metadata_unchanged_from_main": true
+    },
+    {
+      "issue_number": 12146,
+      "opening_cutoff": "2024-03-21T12:06:34+00:00",
+      "repository_commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user",
+        "confirmed_at": "2026-11-17T17:01:42Z"
+      },
+      "integrity": "passed",
+      "opening_content_sha256": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+      "verified_candidate_count": 16,
+      "controlled_report_status": "complete",
+      "verified_repository_commit_at": "2024-03-20T09:21:40+00:00",
+      "verified_candidate_hashes": {
+        "349": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+        "2959": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+        "3448": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+        "4064": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+        "7012": "d2e9ae265fab86d85e1866c8a59a825c40a0f5e2049e778996e7ac15389b01fb",
+        "7312": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+        "8655": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f",
+        "10156": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+        "11871": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320",
+        "12053": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+        "12066": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8",
+        "12072": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7",
+        "12079": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a",
+        "12081": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+        "12083": "39d659d7c54b6d5cd1e336a628b516d771f3e9dc98636701165e8cc70e9e9064",
+        "12116": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f"
+      },
+      "case_metadata_sha256": "df3ffaf6d69d84ef729c19df9334c90da7bda592f3cf37de7e4475cc5ebd24bb",
+      "case_metadata_unchanged_from_main": true
+    },
+    {
+      "issue_number": 12189,
+      "opening_cutoff": "2024-04-05T09:14:51+00:00",
+      "repository_commit": "4e3dd21506a9e543c04c63ebff966a9b604d2b9e",
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user",
+        "confirmed_at": "2026-11-18T03:49:09.532740Z"
+      },
+      "integrity": "passed",
+      "opening_content_sha256": "7c9d2d1977a430e51c42fb6319ecc3fae01bb9d7f46d01f1921fb1760199785d",
+      "verified_candidate_count": 17,
+      "controlled_report_status": "complete",
+      "verified_repository_commit_at": "2024-04-03T22:24:34+00:00",
+      "verified_candidate_hashes": {
+        "349": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+        "2959": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+        "3448": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+        "4064": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+        "7012": "d2e9ae265fab86d85e1866c8a59a825c40a0f5e2049e778996e7ac15389b01fb",
+        "7312": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+        "8655": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f",
+        "10156": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+        "11871": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320",
+        "12053": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+        "12066": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8",
+        "12072": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7",
+        "12079": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a",
+        "12081": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+        "12083": "39d659d7c54b6d5cd1e336a628b516d771f3e9dc98636701165e8cc70e9e9064",
+        "12116": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+        "12146": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167"
+      },
+      "case_metadata_sha256": "421a4bc8e0087f0bc5e9c9398a8b232ee06618cc42ab69e7d40a76bc2a9aa76d",
+      "case_metadata_unchanged_from_main": true
+    },
+    {
+      "issue_number": 12197,
+      "opening_cutoff": "2024-04-08T11:30:37+00:00",
+      "repository_commit": "74f05648d5ea9e69d75f27a77972756ee32f6730",
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+        "confirmed_at": "2026-11-18T04:47:35.478798Z"
+      },
+      "integrity": "passed",
+      "opening_content_sha256": "8388529b44df4edd978ed0b8bbc572913d830907c013154455cc4662918e5bd1",
+      "verified_candidate_count": 18,
+      "controlled_report_status": "complete",
+      "verified_repository_commit_at": "2024-04-08T10:15:01+00:00",
+      "verified_candidate_hashes": {
+        "349": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+        "2959": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+        "3448": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+        "4064": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+        "7012": "d2e9ae265fab86d85e1866c8a59a825c40a0f5e2049e778996e7ac15389b01fb",
+        "7312": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+        "8655": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f",
+        "10156": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+        "11871": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320",
+        "12053": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+        "12066": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8",
+        "12072": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7",
+        "12079": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a",
+        "12081": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+        "12083": "39d659d7c54b6d5cd1e336a628b516d771f3e9dc98636701165e8cc70e9e9064",
+        "12116": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+        "12146": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+        "12189": "7c9d2d1977a430e51c42fb6319ecc3fae01bb9d7f46d01f1921fb1760199785d"
+      },
+      "case_metadata_sha256": "dbd2744a8cef0f0c843a8b95a660a01cd313b99168addeb9b4e1a017c4545be7",
+      "case_metadata_unchanged_from_main": true
+    },
+    {
+      "issue_number": 12201,
+      "opening_cutoff": "2024-04-09T14:22:08+00:00",
+      "repository_commit": "17fc20af78d0c7b739806c4e461d2c9b8c30ceeb",
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+        "confirmed_at": "2026-11-18T04:47:35.478798Z"
+      },
+      "integrity": "passed",
+      "attempts": [
+        {
+          "integrity": "flagged",
+          "error": "pytest repository commit is unavailable"
+        },
+        {
+          "integrity": "passed"
+        }
+      ],
+      "opening_content_sha256": "18e54c14cdbbb80c34d7dc66f91d6ab23e15ec84503bf59f0ecdf2d79cfd8abc",
+      "controlled_report_status": "complete",
+      "verified_candidate_count": 19,
+      "verified_repository_commit_at": "2024-04-09T13:04:42+00:00",
+      "verified_candidate_hashes": {
+        "349": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+        "2959": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+        "3448": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+        "4064": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+        "7012": "d2e9ae265fab86d85e1866c8a59a825c40a0f5e2049e778996e7ac15389b01fb",
+        "7312": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+        "8655": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f",
+        "10156": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+        "11871": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320",
+        "12053": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+        "12066": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8",
+        "12072": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7",
+        "12079": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a",
+        "12081": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+        "12083": "39d659d7c54b6d5cd1e336a628b516d771f3e9dc98636701165e8cc70e9e9064",
+        "12116": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+        "12146": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+        "12189": "7c9d2d1977a430e51c42fb6319ecc3fae01bb9d7f46d01f1921fb1760199785d",
+        "12197": "8388529b44df4edd978ed0b8bbc572913d830907c013154455cc4662918e5bd1"
+      },
+      "case_metadata_sha256": "c30b947247a62001012e360ebe2f41eec69ff22144bffa30ce4bda2541c98994",
+      "case_metadata_unchanged_from_main": true
+    },
+    {
+      "issue_number": 12203,
+      "opening_cutoff": "2024-04-10T09:18:43+00:00",
+      "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+        "confirmed_at": "2026-11-18T04:47:35.478798Z"
+      },
+      "integrity": "passed",
+      "attempts": [
+        {
+          "integrity": "flagged",
+          "error": "pytest repository commit is unavailable"
+        },
+        {
+          "integrity": "passed"
+        }
+      ],
+      "opening_content_sha256": "aa2546be855758373051d6f6fb6fb5c054046d756240b75632230807dbe3061c",
+      "controlled_report_status": "complete",
+      "verified_candidate_count": 20,
+      "verified_repository_commit_at": "2024-04-09T19:26:36+00:00",
+      "verified_candidate_hashes": {
+        "349": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+        "2959": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+        "3448": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+        "4064": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+        "7012": "d2e9ae265fab86d85e1866c8a59a825c40a0f5e2049e778996e7ac15389b01fb",
+        "7312": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+        "8655": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f",
+        "10156": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+        "11871": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320",
+        "12053": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+        "12066": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8",
+        "12072": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7",
+        "12079": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a",
+        "12081": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+        "12083": "39d659d7c54b6d5cd1e336a628b516d771f3e9dc98636701165e8cc70e9e9064",
+        "12116": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+        "12146": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+        "12189": "7c9d2d1977a430e51c42fb6319ecc3fae01bb9d7f46d01f1921fb1760199785d",
+        "12197": "8388529b44df4edd978ed0b8bbc572913d830907c013154455cc4662918e5bd1",
+        "12201": "18e54c14cdbbb80c34d7dc66f91d6ab23e15ec84503bf59f0ecdf2d79cfd8abc"
+      },
+      "case_metadata_sha256": "36506900241de58416d382fc2c0182a7a763f6197335a8b4a5c0f9b7101eeb62",
+      "case_metadata_unchanged_from_main": true
+    },
+    {
+      "issue_number": 12204,
+      "opening_cutoff": "2024-04-10T10:45:32+00:00",
+      "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+        "confirmed_at": "2026-11-18T04:47:35.478798Z"
+      },
+      "integrity": "passed",
+      "opening_content_sha256": "62dec36896ee774efb8621b6838e18b928c3b4eecb9497596f151af6d075dd21",
+      "verified_candidate_count": 21,
+      "controlled_report_status": "complete",
+      "verified_repository_commit_at": "2024-04-09T19:26:36+00:00",
+      "verified_candidate_hashes": {
+        "349": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+        "2959": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+        "3448": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+        "4064": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+        "7012": "d2e9ae265fab86d85e1866c8a59a825c40a0f5e2049e778996e7ac15389b01fb",
+        "7312": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+        "8655": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f",
+        "10156": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+        "11871": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320",
+        "12053": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+        "12066": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8",
+        "12072": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7",
+        "12079": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a",
+        "12081": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+        "12083": "39d659d7c54b6d5cd1e336a628b516d771f3e9dc98636701165e8cc70e9e9064",
+        "12116": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+        "12146": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+        "12189": "7c9d2d1977a430e51c42fb6319ecc3fae01bb9d7f46d01f1921fb1760199785d",
+        "12197": "8388529b44df4edd978ed0b8bbc572913d830907c013154455cc4662918e5bd1",
+        "12201": "18e54c14cdbbb80c34d7dc66f91d6ab23e15ec84503bf59f0ecdf2d79cfd8abc",
+        "12203": "aa2546be855758373051d6f6fb6fb5c054046d756240b75632230807dbe3061c"
+      },
+      "case_metadata_sha256": "6470a49115e3e5be498f03d443619c1201bda819b017b81a7b234d3330fc5a26",
+      "case_metadata_unchanged_from_main": true
+    },
+    {
+      "issue_number": 12216,
+      "opening_cutoff": "2024-04-15T07:38:50+00:00",
+      "repository_commit": "5f6e825a2687f6bb8bc437e67a59c0a92fb16c06",
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+        "confirmed_at": "2026-11-18T04:47:35.478798Z"
+      },
+      "integrity": "passed",
+      "opening_content_sha256": "fe52fe12b75b3450706561eaff0cb911d116beeebec5077d044bab2d93e8930e",
+      "verified_candidate_count": 22,
+      "controlled_report_status": "complete",
+      "verified_repository_commit_at": "2024-04-14T00:21:52+00:00",
+      "verified_candidate_hashes": {
+        "349": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+        "2959": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+        "3448": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+        "4064": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+        "7012": "d2e9ae265fab86d85e1866c8a59a825c40a0f5e2049e778996e7ac15389b01fb",
+        "7312": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+        "8655": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f",
+        "10156": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+        "11871": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320",
+        "12053": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+        "12066": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8",
+        "12072": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7",
+        "12079": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a",
+        "12081": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+        "12083": "39d659d7c54b6d5cd1e336a628b516d771f3e9dc98636701165e8cc70e9e9064",
+        "12116": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+        "12146": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+        "12189": "7c9d2d1977a430e51c42fb6319ecc3fae01bb9d7f46d01f1921fb1760199785d",
+        "12197": "8388529b44df4edd978ed0b8bbc572913d830907c013154455cc4662918e5bd1",
+        "12201": "18e54c14cdbbb80c34d7dc66f91d6ab23e15ec84503bf59f0ecdf2d79cfd8abc",
+        "12203": "aa2546be855758373051d6f6fb6fb5c054046d756240b75632230807dbe3061c",
+        "12204": "62dec36896ee774efb8621b6838e18b928c3b4eecb9497596f151af6d075dd21"
+      },
+      "case_metadata_sha256": "819252c1ed9a3a8e5f3af2d444a596e340b508e2db12a4ecfff4c3ebe81556f5",
+      "case_metadata_unchanged_from_main": true
+    },
+    {
+      "issue_number": 12219,
+      "opening_cutoff": "2024-04-16T08:22:38+00:00",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+        "confirmed_at": "2026-11-18T05:23:43.206298Z"
+      },
+      "integrity": "passed",
+      "opening_content_sha256": "681e48797dfaccd7ce7ff3a86bd5862656e34bfbda83da9364ae7fb8696a891b",
+      "verified_candidate_count": 23,
+      "controlled_report_status": "complete",
+      "verified_repository_commit_at": "2024-04-15T23:04:19+00:00",
+      "verified_candidate_hashes": {
+        "349": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+        "2959": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+        "3448": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+        "4064": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+        "7012": "d2e9ae265fab86d85e1866c8a59a825c40a0f5e2049e778996e7ac15389b01fb",
+        "7312": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+        "8655": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f",
+        "10156": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+        "11871": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320",
+        "12053": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+        "12066": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8",
+        "12072": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7",
+        "12079": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a",
+        "12081": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+        "12083": "39d659d7c54b6d5cd1e336a628b516d771f3e9dc98636701165e8cc70e9e9064",
+        "12116": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+        "12146": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+        "12189": "7c9d2d1977a430e51c42fb6319ecc3fae01bb9d7f46d01f1921fb1760199785d",
+        "12197": "8388529b44df4edd978ed0b8bbc572913d830907c013154455cc4662918e5bd1",
+        "12201": "18e54c14cdbbb80c34d7dc66f91d6ab23e15ec84503bf59f0ecdf2d79cfd8abc",
+        "12203": "aa2546be855758373051d6f6fb6fb5c054046d756240b75632230807dbe3061c",
+        "12204": "62dec36896ee774efb8621b6838e18b928c3b4eecb9497596f151af6d075dd21",
+        "12216": "fe52fe12b75b3450706561eaff0cb911d116beeebec5077d044bab2d93e8930e"
+      },
+      "case_metadata_sha256": "5bd50ed87d7d9a821a4063b5f86caba93f7eee0078797fcc27dba60bc97005ce",
+      "case_metadata_unchanged_from_main": true
+    },
+    {
+      "issue_number": 12223,
+      "opening_cutoff": "2024-04-17T09:00:30+00:00",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+        "confirmed_at": "2026-11-18T05:23:43.206298Z"
+      },
+      "integrity": "passed",
+      "opening_content_sha256": "731ee2132c277f516b51978c67bb77a578a8731a4b726346f248e7934d627e72",
+      "verified_candidate_count": 24,
+      "controlled_report_status": "complete",
+      "verified_repository_commit_at": "2024-04-15T23:04:19+00:00",
+      "verified_candidate_hashes": {
+        "349": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+        "2959": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+        "3448": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+        "4064": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+        "7012": "d2e9ae265fab86d85e1866c8a59a825c40a0f5e2049e778996e7ac15389b01fb",
+        "7312": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+        "8655": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f",
+        "10156": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+        "11871": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320",
+        "12053": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+        "12066": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8",
+        "12072": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7",
+        "12079": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a",
+        "12081": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+        "12083": "39d659d7c54b6d5cd1e336a628b516d771f3e9dc98636701165e8cc70e9e9064",
+        "12116": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+        "12146": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+        "12189": "7c9d2d1977a430e51c42fb6319ecc3fae01bb9d7f46d01f1921fb1760199785d",
+        "12197": "8388529b44df4edd978ed0b8bbc572913d830907c013154455cc4662918e5bd1",
+        "12201": "18e54c14cdbbb80c34d7dc66f91d6ab23e15ec84503bf59f0ecdf2d79cfd8abc",
+        "12203": "aa2546be855758373051d6f6fb6fb5c054046d756240b75632230807dbe3061c",
+        "12204": "62dec36896ee774efb8621b6838e18b928c3b4eecb9497596f151af6d075dd21",
+        "12216": "fe52fe12b75b3450706561eaff0cb911d116beeebec5077d044bab2d93e8930e",
+        "12219": "681e48797dfaccd7ce7ff3a86bd5862656e34bfbda83da9364ae7fb8696a891b"
+      },
+      "case_metadata_sha256": "d40ddce9c57dd5198204ed13cf5f579afa6331663fe794007c6188850ca39d69",
+      "case_metadata_unchanged_from_main": true
+    },
+    {
+      "issue_number": 12224,
+      "opening_cutoff": "2024-04-18T05:51:07+00:00",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+        "confirmed_at": "2026-11-18T05:23:43.206298Z"
+      },
+      "integrity": "passed",
+      "opening_content_sha256": "5c821c047cc326c41148cd48c10d6a5941c05a3164bdb116777930cee6b5a18a",
+      "verified_candidate_count": 25,
+      "controlled_report_status": "complete",
+      "verified_repository_commit_at": "2024-04-15T23:04:19+00:00",
+      "verified_candidate_hashes": {
+        "349": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+        "2959": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+        "3448": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+        "4064": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+        "7012": "d2e9ae265fab86d85e1866c8a59a825c40a0f5e2049e778996e7ac15389b01fb",
+        "7312": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+        "8655": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f",
+        "10156": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+        "11871": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320",
+        "12053": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+        "12066": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8",
+        "12072": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7",
+        "12079": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a",
+        "12081": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+        "12083": "39d659d7c54b6d5cd1e336a628b516d771f3e9dc98636701165e8cc70e9e9064",
+        "12116": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+        "12146": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+        "12189": "7c9d2d1977a430e51c42fb6319ecc3fae01bb9d7f46d01f1921fb1760199785d",
+        "12197": "8388529b44df4edd978ed0b8bbc572913d830907c013154455cc4662918e5bd1",
+        "12201": "18e54c14cdbbb80c34d7dc66f91d6ab23e15ec84503bf59f0ecdf2d79cfd8abc",
+        "12203": "aa2546be855758373051d6f6fb6fb5c054046d756240b75632230807dbe3061c",
+        "12204": "62dec36896ee774efb8621b6838e18b928c3b4eecb9497596f151af6d075dd21",
+        "12216": "fe52fe12b75b3450706561eaff0cb911d116beeebec5077d044bab2d93e8930e",
+        "12219": "681e48797dfaccd7ce7ff3a86bd5862656e34bfbda83da9364ae7fb8696a891b",
+        "12223": "731ee2132c277f516b51978c67bb77a578a8731a4b726346f248e7934d627e72"
+      },
+      "case_metadata_sha256": "0ac8128e09c5b7159935a879da077645d86adcc32ecc8a2f55259223735da25f",
+      "case_metadata_unchanged_from_main": true
+    },
+    {
+      "issue_number": 12226,
+      "opening_cutoff": "2024-04-19T11:34:17+00:00",
+      "repository_commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+        "confirmed_at": "2026-11-18T05:23:43.206298Z"
+      },
+      "integrity": "passed",
+      "opening_content_sha256": "439bb13184ef8ca1b56b2f06094204328cbe9f5bc0b352020573bab713d26ece",
+      "verified_candidate_count": 26,
+      "controlled_report_status": "complete",
+      "verified_repository_commit_at": "2024-04-19T02:05:29+00:00",
+      "verified_candidate_hashes": {
+        "349": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+        "2959": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+        "3448": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+        "4064": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+        "7012": "d2e9ae265fab86d85e1866c8a59a825c40a0f5e2049e778996e7ac15389b01fb",
+        "7312": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+        "8655": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f",
+        "10156": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+        "11871": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320",
+        "12053": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+        "12066": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8",
+        "12072": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7",
+        "12079": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a",
+        "12081": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+        "12083": "39d659d7c54b6d5cd1e336a628b516d771f3e9dc98636701165e8cc70e9e9064",
+        "12116": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+        "12146": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+        "12189": "7c9d2d1977a430e51c42fb6319ecc3fae01bb9d7f46d01f1921fb1760199785d",
+        "12197": "8388529b44df4edd978ed0b8bbc572913d830907c013154455cc4662918e5bd1",
+        "12201": "18e54c14cdbbb80c34d7dc66f91d6ab23e15ec84503bf59f0ecdf2d79cfd8abc",
+        "12203": "aa2546be855758373051d6f6fb6fb5c054046d756240b75632230807dbe3061c",
+        "12204": "62dec36896ee774efb8621b6838e18b928c3b4eecb9497596f151af6d075dd21",
+        "12216": "fe52fe12b75b3450706561eaff0cb911d116beeebec5077d044bab2d93e8930e",
+        "12219": "681e48797dfaccd7ce7ff3a86bd5862656e34bfbda83da9364ae7fb8696a891b",
+        "12223": "731ee2132c277f516b51978c67bb77a578a8731a4b726346f248e7934d627e72",
+        "12224": "5c821c047cc326c41148cd48c10d6a5941c05a3164bdb116777930cee6b5a18a"
+      },
+      "case_metadata_sha256": "c2e250119a6ebaef317e155198e23fd477ec5e6119fcebb9ef98303478798b57",
+      "case_metadata_unchanged_from_main": true
+    },
+    {
+      "issue_number": 12228,
+      "opening_cutoff": "2024-04-19T17:30:10+00:00",
+      "repository_commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+        "confirmed_at": "2026-11-18T05:23:43.206298Z"
+      },
+      "integrity": "passed",
+      "opening_content_sha256": "f701b93585c442aa5d88ee107e892972bc276e92a9cf2746e32907add70d4973",
+      "verified_candidate_count": 27,
+      "controlled_report_status": "complete",
+      "verified_repository_commit_at": "2024-04-19T02:05:29+00:00",
+      "verified_candidate_hashes": {
+        "349": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+        "2959": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+        "3448": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+        "4064": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+        "7012": "d2e9ae265fab86d85e1866c8a59a825c40a0f5e2049e778996e7ac15389b01fb",
+        "7312": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+        "8655": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f",
+        "10156": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+        "11871": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320",
+        "12053": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+        "12066": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8",
+        "12072": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7",
+        "12079": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a",
+        "12081": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+        "12083": "39d659d7c54b6d5cd1e336a628b516d771f3e9dc98636701165e8cc70e9e9064",
+        "12116": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+        "12146": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+        "12189": "7c9d2d1977a430e51c42fb6319ecc3fae01bb9d7f46d01f1921fb1760199785d",
+        "12197": "8388529b44df4edd978ed0b8bbc572913d830907c013154455cc4662918e5bd1",
+        "12201": "18e54c14cdbbb80c34d7dc66f91d6ab23e15ec84503bf59f0ecdf2d79cfd8abc",
+        "12203": "aa2546be855758373051d6f6fb6fb5c054046d756240b75632230807dbe3061c",
+        "12204": "62dec36896ee774efb8621b6838e18b928c3b4eecb9497596f151af6d075dd21",
+        "12216": "fe52fe12b75b3450706561eaff0cb911d116beeebec5077d044bab2d93e8930e",
+        "12219": "681e48797dfaccd7ce7ff3a86bd5862656e34bfbda83da9364ae7fb8696a891b",
+        "12223": "731ee2132c277f516b51978c67bb77a578a8731a4b726346f248e7934d627e72",
+        "12224": "5c821c047cc326c41148cd48c10d6a5941c05a3164bdb116777930cee6b5a18a",
+        "12226": "439bb13184ef8ca1b56b2f06094204328cbe9f5bc0b352020573bab713d26ece"
+      },
+      "case_metadata_sha256": "5ab617c754cf8ea8eb428bd62c2ec556347010b7e6e878f378b38d486da719d1",
+      "case_metadata_unchanged_from_main": true
+    }
+  ],
+  "baseline_sha256": {
+    "docs/evaluation/issue-12-results.json": "265a30a7701506e17cc61c7bfc4d17a5646969cb6ddf859a4ca64e4a9e88c663",
+    "docs/evaluation/issue-13-provenance.json": "c13f172e9977593bc18303a0482301859a97ad3d626375c6910d50471d3daa1e",
+    "docs/evaluation/issue-13-results.json": "ff6f76e2d76247ce76d2352893fb14a4a0cea5390f42e2e641aae3f4fac07172",
+    "docs/evaluation/issue-14-provenance.json": "f13fa6f9e86122f801e064f153381a5e1ec3a6ea236c1c9ceb9b0df9238198cc",
+    "docs/evaluation/issue-14-results.json": "06851329042b01454eccfb14b385c5a4034ab30e3ba44b818eb9778bfba005a2",
+    "docs/evaluation/issue-15-provenance.json": "e7b5e2e9bcc4a8ca804158f7de16883a77b46cd29e21b1559eee08f939dd81ea",
+    "docs/evaluation/issue-15-results.json": "6991f57674475f350b86203321c02a09a650baeb7b7e718020a8cbb0eb743ea5"
+  },
+  "template_verification": [
+    {
+      "commit": "00043f7f1047b29fdaeb18e169fe9d6146988cb8",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "requested_lines": {
+        "13": "- [ ] a detailed description of the bug or problem you are having",
+        "14": "- [ ] output of `pip list` from the virtual environment you are using",
+        "15": "- [ ] pytest and operating system versions",
+        "16": "- [ ] minimal example if possible"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "00043f7f1047b29fdaeb18e169fe9d6146988cb8",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "requested_lines": {
+        "13": "#### What's the problem this feature will solve?",
+        "16": "#### Describe the solution you'd like",
+        "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "21": "#### Alternative Solutions"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "requested_lines": {
+        "13": "- [ ] a detailed description of the bug or problem you are having",
+        "14": "- [ ] output of `pip list` from the virtual environment you are using",
+        "15": "- [ ] pytest and operating system versions",
+        "16": "- [ ] minimal example if possible"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "requested_lines": {
+        "13": "#### What's the problem this feature will solve?",
+        "16": "#### Describe the solution you'd like",
+        "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "21": "#### Alternative Solutions"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "0951cbc6e4880ee7dfc9b7e56948d83ee086e74b",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "requested_lines": {
+        "13": "- [ ] a detailed description of the bug or problem you are having",
+        "14": "- [ ] output of `pip list` from the virtual environment you are using",
+        "15": "- [ ] pytest and operating system versions",
+        "16": "- [ ] minimal example if possible"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "0951cbc6e4880ee7dfc9b7e56948d83ee086e74b",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "requested_lines": {
+        "13": "#### What's the problem this feature will solve?",
+        "16": "#### Describe the solution you'd like",
+        "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "21": "#### Alternative Solutions"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "17fc20af78d0c7b739806c4e461d2c9b8c30ceeb",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "requested_lines": {
+        "13": "- [ ] a detailed description of the bug or problem you are having",
+        "14": "- [ ] output of `pip list` from the virtual environment you are using",
+        "15": "- [ ] pytest and operating system versions",
+        "16": "- [ ] minimal example if possible"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "17fc20af78d0c7b739806c4e461d2c9b8c30ceeb",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "requested_lines": {
+        "13": "#### What's the problem this feature will solve?",
+        "16": "#### Describe the solution you'd like",
+        "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "21": "#### Alternative Solutions"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "requested_lines": {
+        "13": "- [ ] a detailed description of the bug or problem you are having",
+        "14": "- [ ] output of `pip list` from the virtual environment you are using",
+        "15": "- [ ] pytest and operating system versions",
+        "16": "- [ ] minimal example if possible"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "requested_lines": {
+        "13": "#### What's the problem this feature will solve?",
+        "16": "#### Describe the solution you'd like",
+        "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "21": "#### Alternative Solutions"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "34a285986e456406b22b62aa563a64331f640e7f",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "requested_lines": {
+        "13": "- [ ] a detailed description of the bug or problem you are having",
+        "14": "- [ ] output of `pip list` from the virtual environment you are using",
+        "15": "- [ ] pytest and operating system versions",
+        "16": "- [ ] minimal example if possible"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "34a285986e456406b22b62aa563a64331f640e7f",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "requested_lines": {
+        "13": "#### What's the problem this feature will solve?",
+        "16": "#### Describe the solution you'd like",
+        "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "21": "#### Alternative Solutions"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "requested_lines": {
+        "13": "- [ ] a detailed description of the bug or problem you are having",
+        "14": "- [ ] output of `pip list` from the virtual environment you are using",
+        "15": "- [ ] pytest and operating system versions",
+        "16": "- [ ] minimal example if possible"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "requested_lines": {
+        "13": "#### What's the problem this feature will solve?",
+        "16": "#### Describe the solution you'd like",
+        "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "21": "#### Alternative Solutions"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "4e3dd21506a9e543c04c63ebff966a9b604d2b9e",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "requested_lines": {
+        "13": "- [ ] a detailed description of the bug or problem you are having",
+        "14": "- [ ] output of `pip list` from the virtual environment you are using",
+        "15": "- [ ] pytest and operating system versions",
+        "16": "- [ ] minimal example if possible"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "4e3dd21506a9e543c04c63ebff966a9b604d2b9e",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "requested_lines": {
+        "13": "#### What's the problem this feature will solve?",
+        "16": "#### Describe the solution you'd like",
+        "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "21": "#### Alternative Solutions"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "requested_lines": {
+        "13": "- [ ] a detailed description of the bug or problem you are having",
+        "14": "- [ ] output of `pip list` from the virtual environment you are using",
+        "15": "- [ ] pytest and operating system versions",
+        "16": "- [ ] minimal example if possible"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "requested_lines": {
+        "13": "#### What's the problem this feature will solve?",
+        "16": "#### Describe the solution you'd like",
+        "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "21": "#### Alternative Solutions"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "5f6e825a2687f6bb8bc437e67a59c0a92fb16c06",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "requested_lines": {
+        "13": "- [ ] a detailed description of the bug or problem you are having",
+        "14": "- [ ] output of `pip list` from the virtual environment you are using",
+        "15": "- [ ] pytest and operating system versions",
+        "16": "- [ ] minimal example if possible"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "5f6e825a2687f6bb8bc437e67a59c0a92fb16c06",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "requested_lines": {
+        "13": "#### What's the problem this feature will solve?",
+        "16": "#### Describe the solution you'd like",
+        "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "21": "#### Alternative Solutions"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "61a6ac97054c0bd6f812642b46847c4b7cbede2a",
+      "path": ".github/ISSUE_TEMPLATE.md",
+      "sha256": "102fb9ed8861cc52d082f2cf33914a9c30ce3e9748a21fbb3c7befdf780190c2",
+      "requested_lines": {},
+      "status": "read"
+    },
+    {
+      "commit": "74f05648d5ea9e69d75f27a77972756ee32f6730",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "requested_lines": {
+        "13": "- [ ] a detailed description of the bug or problem you are having",
+        "14": "- [ ] output of `pip list` from the virtual environment you are using",
+        "15": "- [ ] pytest and operating system versions",
+        "16": "- [ ] minimal example if possible"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "74f05648d5ea9e69d75f27a77972756ee32f6730",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "requested_lines": {
+        "13": "#### What's the problem this feature will solve?",
+        "16": "#### Describe the solution you'd like",
+        "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "21": "#### Alternative Solutions"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "requested_lines": {
+        "13": "- [ ] a detailed description of the bug or problem you are having",
+        "14": "- [ ] output of `pip list` from the virtual environment you are using",
+        "15": "- [ ] pytest and operating system versions",
+        "16": "- [ ] minimal example if possible"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "requested_lines": {
+        "13": "#### What's the problem this feature will solve?",
+        "16": "#### Describe the solution you'd like",
+        "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "21": "#### Alternative Solutions"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "c0532dda18a5cfd0e6f67113bb164485fa80eb86",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "requested_lines": {
+        "13": "- [ ] a detailed description of the bug or problem you are having",
+        "14": "- [ ] output of `pip list` from the virtual environment you are using",
+        "15": "- [ ] pytest and operating system versions",
+        "16": "- [ ] minimal example if possible"
+      },
+      "status": "read"
+    },
+    {
+      "commit": "c0532dda18a5cfd0e6f67113bb164485fa80eb86",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "requested_lines": {
+        "13": "#### What's the problem this feature will solve?",
+        "16": "#### Describe the solution you'd like",
+        "19": "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "21": "#### Alternative Solutions"
+      },
+      "status": "read"
+    }
+  ]
+}

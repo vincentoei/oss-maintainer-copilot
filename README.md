@@ -47,7 +47,8 @@ uv run --no-env-file uvicorn maintainer_copilot.web:app --reload
 ```
 
 To enable model suggestions, set `MODEL_NAME` to a model served by an
-[OpenAI-compatible chat-completions endpoint](https://github.com/ollama/ollama/blob/main/docs/api/openai-compatibility.mdx).
+[OpenAI-compatible chat-completions endpoint](https://docs.ollama.com/api/openai-compatibility)
+with JSON-schema structured output support.
 `MODEL_BASE_URL` defaults to `http://127.0.0.1:11434/v1` (Ollama's local
 endpoint). For example, after starting a local model server:
 
@@ -56,12 +57,20 @@ MODEL_NAME=your-model-name uv run --no-env-file uvicorn maintainer_copilot.web:a
 ```
 
 Set `MODEL_BASE_URL` if your server uses a different URL. The model receives the
-issue title and body plus the report's available citation-backed statements. It
+issue title and body, mechanically valid issue-text quote options, and the
+report's available citation-backed statements. It
 returns a pytest type label or unknown, an exact quote from the issue for a
 suggested label, and citation IDs to include in the draft reply. The server
 rejects free-text claims, unknown citations, and labels without an unnegated
 cue in the quote's original issue context. With no model configured, the report
 still works and marks the model suggestion as unavailable.
+
+The [tested Windows Ollama / WSL app guide](docs/local-model.md) serves
+Qwen2.5 Coder 3B Instruct Q4_K_M with 16K context and no paid model API.
+[Issue #21's measurements](docs/evaluation/issue-21.md) record all three local
+candidates, twenty-case field scores, GPU memory, serving errors and real
+API/browser/agent checks. Windows and WSL connectivity is verified explicitly;
+their localhost addresses are not assumed interchangeable.
 
 ## Bounded agent report
 
@@ -113,9 +122,9 @@ duplicate decisions. Linked CI checks are
 unavailable in the historical view and produce an abstention. The default model
 response is controlled: it selects available cited reply statements and
 abstains on issue type. It is a reproducible smoke replay, not a model quality
-measurement or a scored evaluation outcome. Model selection and `llmfit` are
-planned for issue #21 after #15 and before #16; earlier quality observations
-remain provisional.
+measurement or a scored evaluation outcome. Real-model selection and `llmfit`
+results are recorded in [issue #21](docs/evaluation/issue-21.md); earlier quality
+observations remain provisional.
 
 The deterministic replay tests run with `pytest`. To check the recorded case
 against public GitHub content and mutate post-cutoff activity in a controlled
@@ -144,9 +153,9 @@ The [third case review](docs/evaluation/cases-eleven-through-fifteen.md) records
 cases 11 through 15, their provenance, difficult topical negatives, and review
 status. The [fourth case review](docs/evaluation/cases-sixteen-through-twenty.md)
 records cases 16 through 20 and their delegated confirmation. Pending outcomes cannot be scored until a human confirms them.
-These controlled replays are smoke checks; model selection and quality
-measurement remain issue #21 work after
-#15 and before #16.
+These controlled replays are smoke checks. The separate
+[issue #21 real-model run](docs/evaluation/issue-21.md) evaluates all twenty cases;
+the full workflow comparison remains #16.
 
 ## Score the first reviewed cases
 
@@ -179,7 +188,9 @@ the case review records that attribution.
 [Issue #15’s twenty-case benchmark](docs/evaluation/issue-15.md) records replay
 integrity, field-level metrics, representative failures, and acceptance evidence.
 All twenty outcomes are confirmed; the new five use Codex review accepted by
-the requesting user. Model quality remains provisional until #21.
+the requesting user. [Issue #21](docs/evaluation/issue-21.md) records real local
+model responses; semantic report review remains pending and earlier quality
+observations remain provisional.
 
 Open <http://127.0.0.1:8000> to paste an issue. Enter its pytest issue number
 to search only issues opened before it. For a newly drafted issue without a

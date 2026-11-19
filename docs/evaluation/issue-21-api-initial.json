@@ -1,0 +1,95 @@
+{
+  "purpose": "Initial real-inference API integration smoke; synthetic input, not historical quality evidence",
+  "request": {
+    "title": "Bug: collection fails",
+    "body": "pytest errors when collecting tests."
+  },
+  "latency_ms": 20056.29,
+  "report": {
+    "trace_id": "e555abf4-de49-4c91-9a76-69628b2eac9d",
+    "status": "partial",
+    "issue_type": null,
+    "issue_type_quote": null,
+    "duplicate_candidates": [],
+    "related_issues": [],
+    "missing_details": [
+      {
+        "name": "pip list output",
+        "request": "the output of `pip list` from the virtual environment you are using",
+        "citation_id": "C1"
+      },
+      {
+        "name": "pytest and OS versions",
+        "request": "your pytest and operating system versions",
+        "citation_id": "C2"
+      },
+      {
+        "name": "minimal example",
+        "request": "a minimal example, if possible",
+        "citation_id": "C3"
+      }
+    ],
+    "documentation_claims": [],
+    "source_claims": [],
+    "ci_results": [],
+    "draft_reply": "Thanks for sharing this issue. Could you add the following details?\n- the output of `pip list` from the virtual environment you are using [C1]\n- your pytest and operating system versions [C2]\n- a minimal example, if possible [C3]",
+    "citations": [
+      {
+        "id": "C1",
+        "source_url": "https://github.com/pytest-dev/pytest/blob/50234b4e670064c42a4c29cb6258115a2079ba4c/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+        "description": "pytest bug report template: pip list output",
+        "passage": null,
+        "source_location": null
+      },
+      {
+        "id": "C2",
+        "source_url": "https://github.com/pytest-dev/pytest/blob/50234b4e670064c42a4c29cb6258115a2079ba4c/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+        "description": "pytest bug report template: pytest and OS versions",
+        "passage": null,
+        "source_location": null
+      },
+      {
+        "id": "C3",
+        "source_url": "https://github.com/pytest-dev/pytest/blob/50234b4e670064c42a4c29cb6258115a2079ba4c/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "description": "pytest bug report template: minimal example",
+        "passage": null,
+        "source_location": null
+      }
+    ],
+    "abstentions": [
+      {
+        "field": "duplicate_candidates",
+        "reason": "A pytest issue number is needed to search only earlier issues."
+      },
+      {
+        "field": "related_issues",
+        "reason": "A pytest issue number is needed to search only earlier issues."
+      },
+      {
+        "field": "issue_type",
+        "reason": "Model unavailable; no issue type suggestion was produced."
+      }
+    ]
+  },
+  "trace": {
+    "trace_id": "e555abf4-de49-4c91-9a76-69628b2eac9d",
+    "created_at": "2026-11-19T16:58:50.663940Z",
+    "status": "partial",
+    "duration_ms": 20033.351,
+    "events": [
+      {
+        "kind": "model",
+        "name": "triage_selection",
+        "status": "error",
+        "started_ms": 0.921,
+        "duration_ms": 20032.14,
+        "target": "pytest-triage:coder3b-ctx8k",
+        "result_count": null,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": "Call failed."
+      }
+    ]
+  }
+}

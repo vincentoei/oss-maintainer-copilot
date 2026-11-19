@@ -1,0 +1,33 @@
+{
+  "purpose": "Recreate measured configuration through Windows CLI and the checked-in Modelfile, under a temporary alias",
+  "windows_cli_exit_code": 0,
+  "modelfile_sha256": "f3e2bb1fd9923861d1cd5b47144a49021e13b9ba191c88a93674e9667089eb53",
+  "selected_digest": "3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8",
+  "recreated_identity": {
+    "name": "pytest-triage:reproduction-check",
+    "model": "pytest-triage:reproduction-check",
+    "modified_at": "2026-11-20T00:36:39.4931067+07:00",
+    "size": 1929912340,
+    "digest": "3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8",
+    "details": {
+      "parent_model": "qwen2.5-coder:3b-instruct-q4_K_M",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "3.1B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 2048,
+      "runner": "llamacpp"
+    },
+    "capabilities": [
+      "completion",
+      "tools",
+      "insert"
+    ]
+  },
+  "parameters": "top_p                          0.8\nnum_ctx                        16384\nrepeat_penalty                 1\nseed                           42\ntemperature                    0\ntop_k                          20",
+  "exact_manifest_digest_matches": true
+}

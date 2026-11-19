@@ -1,0 +1,613 @@
+{
+  "recorded_at": "2026-11-19T17:27:28.609Z",
+  "purpose": "Real browser form submission and DOM verification; no intercepted or controlled model response",
+  "browser": "159.0.8154.6",
+  "playwright": "1.65.1",
+  "input": {
+    "title": "Bug: collection fails for linked pytest commit",
+    "body": "Relevant commit: https://github.com/pytest-dev/pytest/commit/3eafe99bb0f020667d84026373af59a34fc7f474"
+  },
+  "assertions": {
+    "real_http_report_ok": true,
+    "report_complete": true,
+    "rendered_type_matches_api": true,
+    "rendered_draft_matches_api": true,
+    "rendered_status_matches_api": true,
+    "trace_link_matches_api": true,
+    "trace_api_ok": true,
+    "rendered_ci_matches_api": true,
+    "rendered_citations_match_api": true,
+    "no_javascript_errors": true
+  },
+  "rendered": {
+    "status": "complete",
+    "issue_type": "type: bug",
+    "draft_reply": "Thanks for sharing this issue.\n- Could you add the output of `pip list` from the virtual environment you are using? [C1]\n- Could you add your pytest and operating system versions? [C2]\n- Could you add a minimal example, if possible? [C3]",
+    "trace_id": "d3636992-2cab-4db7-aa2b-e9e18560713f",
+    "trace_href": "/api/traces/d3636992-2cab-4db7-aa2b-e9e18560713f",
+    "ci_count": 36,
+    "citation_count": 39,
+    "trace_events": "retrieval: get_ci_checks (commit:3eafe99bb0f020667d84026373af59a34fc7f474) \u00b7 ok \u00b7 0.12 ms from start \u00b7 1425.57 ms \u00b7 36 result(s) \u00b7 references: https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135687349389, https://github.com/pytest-dev/pytest/runs/135683253138, https://github.com/pytest-dev/pytest/runs/135679123634, https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140790, https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140399, https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140317, https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140162, https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140150, https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140103, https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140065\nmodel: triage_selection (pytest-triage:coder3b-ctx16k) \u00b7 ok \u00b7 1425.807 ms from start \u00b7 672.138 ms \u00b7 tokens in/out: 674/57"
+  },
+  "report": {
+    "trace_id": "d3636992-2cab-4db7-aa2b-e9e18560713f",
+    "status": "complete",
+    "issue_type": "type: bug",
+    "issue_type_quote": "Bug: collection fails for linked pytest commit\nRelevant commit: https://github.com/",
+    "duplicate_candidates": [],
+    "related_issues": [],
+    "missing_details": [
+      {
+        "name": "pip list output",
+        "request": "the output of `pip list` from the virtual environment you are using",
+        "citation_id": "C1"
+      },
+      {
+        "name": "pytest and OS versions",
+        "request": "your pytest and operating system versions",
+        "citation_id": "C2"
+      },
+      {
+        "name": "minimal example",
+        "request": "a minimal example, if possible",
+        "citation_id": "C3"
+      }
+    ],
+    "documentation_claims": [],
+    "source_claims": [],
+    "ci_results": [
+      {
+        "check_name": "check",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C4"
+      },
+      {
+        "check_name": "codecov/patch",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C5"
+      },
+      {
+        "check_name": "codecov/patch",
+        "conclusion": "failure",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C6"
+      },
+      {
+        "check_name": "build (macos-py312)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C7"
+      },
+      {
+        "check_name": "build (ubuntu-py310-unittest-twisted24)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C8"
+      },
+      {
+        "check_name": "build (windows-py312)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C9"
+      },
+      {
+        "check_name": "build (macos-py310)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C10"
+      },
+      {
+        "check_name": "build (ubuntu-py310-lsof-numpy-pexpect)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C11"
+      },
+      {
+        "check_name": "build (plugins)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C12"
+      },
+      {
+        "check_name": "build (windows-py310-unittest-asynctest)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C13"
+      },
+      {
+        "check_name": "build (macos-py314)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C14"
+      },
+      {
+        "check_name": "build (macos-py313)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C15"
+      },
+      {
+        "check_name": "build (doctesting)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C16"
+      },
+      {
+        "check_name": "build (ubuntu-pypy3-xdist)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C17"
+      },
+      {
+        "check_name": "build (windows-py313)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C18"
+      },
+      {
+        "check_name": "build (ubuntu-py315)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C19"
+      },
+      {
+        "check_name": "build (ubuntu-py310-freeze)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C20"
+      },
+      {
+        "check_name": "build (windows-py314)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C21"
+      },
+      {
+        "check_name": "build (macos-py315)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C22"
+      },
+      {
+        "check_name": "build (windows-py315)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C23"
+      },
+      {
+        "check_name": "build (ubuntu-py314)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C24"
+      },
+      {
+        "check_name": "build (ubuntu-py311)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C25"
+      },
+      {
+        "check_name": "build (ubuntu-py310-unittest-asynctest)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C26"
+      },
+      {
+        "check_name": "build (ubuntu-py310-pluggy)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C27"
+      },
+      {
+        "check_name": "build (ubuntu-py313-pexpect)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C28"
+      },
+      {
+        "check_name": "build (windows-py310-pluggy)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C29"
+      },
+      {
+        "check_name": "build (ubuntu-py310-xdist)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C30"
+      },
+      {
+        "check_name": "build (ubuntu-py310-unittest-twisted25)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C31"
+      },
+      {
+        "check_name": "build (windows-py311)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C32"
+      },
+      {
+        "check_name": "build (ubuntu-py312)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C33"
+      },
+      {
+        "check_name": "build (windows-py310-unittest-twisted25)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C34"
+      },
+      {
+        "check_name": "build (windows-py310-xdist)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C35"
+      },
+      {
+        "check_name": "build (windows-py310-unittest-twisted24)",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C36"
+      },
+      {
+        "check_name": "Changelog entry",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C37"
+      },
+      {
+        "check_name": "package",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C38"
+      },
+      {
+        "check_name": "Changelog entry",
+        "conclusion": "success",
+        "commit": "3eafe99bb0f020667d84026373af59a34fc7f474",
+        "citation_id": "C39"
+      }
+    ],
+    "draft_reply": "Thanks for sharing this issue.\n- Could you add the output of `pip list` from the virtual environment you are using? [C1]\n- Could you add your pytest and operating system versions? [C2]\n- Could you add a minimal example, if possible? [C3]",
+    "citations": [
+      {
+        "id": "C1",
+        "source_url": "https://github.com/pytest-dev/pytest/blob/50234b4e670064c42a4c29cb6258115a2079ba4c/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+        "description": "pytest bug report template: pip list output",
+        "passage": null,
+        "source_location": null
+      },
+      {
+        "id": "C2",
+        "source_url": "https://github.com/pytest-dev/pytest/blob/50234b4e670064c42a4c29cb6258115a2079ba4c/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+        "description": "pytest bug report template: pytest and OS versions",
+        "passage": null,
+        "source_location": null
+      },
+      {
+        "id": "C3",
+        "source_url": "https://github.com/pytest-dev/pytest/blob/50234b4e670064c42a4c29cb6258115a2079ba4c/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "description": "pytest bug report template: minimal example",
+        "passage": null,
+        "source_location": null
+      },
+      {
+        "id": "C4",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135687349389",
+        "description": "pytest CI check: check",
+        "passage": "check: success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C5",
+        "source_url": "https://github.com/pytest-dev/pytest/runs/135683253138",
+        "description": "pytest CI check: codecov/patch",
+        "passage": "codecov/patch: success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C6",
+        "source_url": "https://github.com/pytest-dev/pytest/runs/135679123634",
+        "description": "pytest CI check: codecov/patch",
+        "passage": "codecov/patch: failure at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C7",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140790",
+        "description": "pytest CI check: build (macos-py312)",
+        "passage": "build (macos-py312): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C8",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140399",
+        "description": "pytest CI check: build (ubuntu-py310-unittest-twisted24)",
+        "passage": "build (ubuntu-py310-unittest-twisted24): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C9",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140317",
+        "description": "pytest CI check: build (windows-py312)",
+        "passage": "build (windows-py312): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C10",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140162",
+        "description": "pytest CI check: build (macos-py310)",
+        "passage": "build (macos-py310): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C11",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140150",
+        "description": "pytest CI check: build (ubuntu-py310-lsof-numpy-pexpect)",
+        "passage": "build (ubuntu-py310-lsof-numpy-pexpect): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C12",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140103",
+        "description": "pytest CI check: build (plugins)",
+        "passage": "build (plugins): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C13",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140065",
+        "description": "pytest CI check: build (windows-py310-unittest-asynctest)",
+        "passage": "build (windows-py310-unittest-asynctest): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C14",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140044",
+        "description": "pytest CI check: build (macos-py314)",
+        "passage": "build (macos-py314): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C15",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139997",
+        "description": "pytest CI check: build (macos-py313)",
+        "passage": "build (macos-py313): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C16",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139946",
+        "description": "pytest CI check: build (doctesting)",
+        "passage": "build (doctesting): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C17",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139944",
+        "description": "pytest CI check: build (ubuntu-pypy3-xdist)",
+        "passage": "build (ubuntu-pypy3-xdist): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C18",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139927",
+        "description": "pytest CI check: build (windows-py313)",
+        "passage": "build (windows-py313): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C19",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139925",
+        "description": "pytest CI check: build (ubuntu-py315)",
+        "passage": "build (ubuntu-py315): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C20",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139913",
+        "description": "pytest CI check: build (ubuntu-py310-freeze)",
+        "passage": "build (ubuntu-py310-freeze): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C21",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139911",
+        "description": "pytest CI check: build (windows-py314)",
+        "passage": "build (windows-py314): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C22",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139909",
+        "description": "pytest CI check: build (macos-py315)",
+        "passage": "build (macos-py315): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C23",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139906",
+        "description": "pytest CI check: build (windows-py315)",
+        "passage": "build (windows-py315): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C24",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139867",
+        "description": "pytest CI check: build (ubuntu-py314)",
+        "passage": "build (ubuntu-py314): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C25",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139862",
+        "description": "pytest CI check: build (ubuntu-py311)",
+        "passage": "build (ubuntu-py311): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C26",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139851",
+        "description": "pytest CI check: build (ubuntu-py310-unittest-asynctest)",
+        "passage": "build (ubuntu-py310-unittest-asynctest): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C27",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139848",
+        "description": "pytest CI check: build (ubuntu-py310-pluggy)",
+        "passage": "build (ubuntu-py310-pluggy): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C28",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139841",
+        "description": "pytest CI check: build (ubuntu-py313-pexpect)",
+        "passage": "build (ubuntu-py313-pexpect): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C29",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139833",
+        "description": "pytest CI check: build (windows-py310-pluggy)",
+        "passage": "build (windows-py310-pluggy): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C30",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139830",
+        "description": "pytest CI check: build (ubuntu-py310-xdist)",
+        "passage": "build (ubuntu-py310-xdist): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C31",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139813",
+        "description": "pytest CI check: build (ubuntu-py310-unittest-twisted25)",
+        "passage": "build (ubuntu-py310-unittest-twisted25): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C32",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139812",
+        "description": "pytest CI check: build (windows-py311)",
+        "passage": "build (windows-py311): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C33",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139810",
+        "description": "pytest CI check: build (ubuntu-py312)",
+        "passage": "build (ubuntu-py312): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C34",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139785",
+        "description": "pytest CI check: build (windows-py310-unittest-twisted25)",
+        "passage": "build (windows-py310-unittest-twisted25): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C35",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139735",
+        "description": "pytest CI check: build (windows-py310-xdist)",
+        "passage": "build (windows-py310-xdist): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C36",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678139716",
+        "description": "pytest CI check: build (windows-py310-unittest-twisted24)",
+        "passage": "build (windows-py310-unittest-twisted24): success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C37",
+        "source_url": "https://github.com/pytest-dev/pytest/runs/135677903273",
+        "description": "pytest CI check: Changelog entry",
+        "passage": "Changelog entry: success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C38",
+        "source_url": "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135677827362",
+        "description": "pytest CI check: package",
+        "passage": "package: success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      },
+      {
+        "id": "C39",
+        "source_url": "https://github.com/pytest-dev/pytest/runs/135677826795",
+        "description": "pytest CI check: Changelog entry",
+        "passage": "Changelog entry: success at commit 3eafe99bb0f020667d84026373af59a34fc7f474",
+        "source_location": null
+      }
+    ],
+    "abstentions": [
+      {
+        "field": "duplicate_candidates",
+        "reason": "A pytest issue number is needed to search only earlier issues."
+      },
+      {
+        "field": "related_issues",
+        "reason": "A pytest issue number is needed to search only earlier issues."
+      }
+    ]
+  },
+  "trace": {
+    "trace_id": "d3636992-2cab-4db7-aa2b-e9e18560713f",
+    "created_at": "2026-11-19T17:27:26.267388Z",
+    "status": "complete",
+    "duration_ms": 2098.045,
+    "events": [
+      {
+        "kind": "retrieval",
+        "name": "get_ci_checks",
+        "status": "ok",
+        "started_ms": 0.12,
+        "duration_ms": 1425.57,
+        "target": "commit:3eafe99bb0f020667d84026373af59a34fc7f474",
+        "result_count": 36,
+        "references": [
+          "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135687349389",
+          "https://github.com/pytest-dev/pytest/runs/135683253138",
+          "https://github.com/pytest-dev/pytest/runs/135679123634",
+          "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140790",
+          "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140399",
+          "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140317",
+          "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140162",
+          "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140150",
+          "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140103",
+          "https://github.com/pytest-dev/pytest/actions/runs/44557610122/job/135678140065"
+        ],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "model",
+        "name": "triage_selection",
+        "status": "ok",
+        "started_ms": 1425.807,
+        "duration_ms": 672.138,
+        "target": "pytest-triage:coder3b-ctx16k",
+        "result_count": null,
+        "references": [],
+        "input_tokens": 674,
+        "output_tokens": 57,
+        "error": null
+      }
+    ]
+  },
+  "javascript_errors": [],
+  "screenshot": "issue-21-web.png",
+  "contradictory_check_names": [
+    "codecov/patch"
+  ]
+}

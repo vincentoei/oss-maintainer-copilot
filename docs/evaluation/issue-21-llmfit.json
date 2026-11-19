@@ -1,0 +1,1827 @@
+{
+  "status": "hardware_fit_estimates_only_not_model_quality",
+  "llmfit_version": "1.1.10",
+  "environment": "Windows executable invoked from WSL through PowerShell",
+  "context_estimate_tokens": 8192,
+  "probes": [
+    {
+      "arguments": [
+        "--max-context",
+        "8192",
+        "recommend",
+        "--use-case",
+        "coding",
+        "--min-fit",
+        "good",
+        "--limit",
+        "8",
+        "--json"
+      ],
+      "limitation": "Combines NVIDIA and Intel GPU memory into 9.96 GiB; not accepted as single-NVIDIA-GPU fit evidence.",
+      "output": {
+        "models": [
+          {
+            "best_quant": "AWQ-4bit",
+            "capabilities": [
+              "Tool Use"
+            ],
+            "capability_ids": [
+              "tool_use"
+            ],
+            "category": "Coding",
+            "context_length": 32768,
+            "disk_size_gb": 3.81,
+            "effective_context_length": 8192,
+            "estimate_basis": {
+              "assumed_context": 8192,
+              "ddr_bandwidth_gbps": null,
+              "efficiency": 0.55,
+              "gpu_bandwidth_gbps": 256.0,
+              "local_calibration": null,
+              "method": "gpu_bandwidth_roofline"
+            },
+            "estimated_tps": 37.0,
+            "fit_label": "Perfect",
+            "fit_level": "Perfect",
+            "gguf_sources": [],
+            "installed": false,
+            "is_moe": false,
+            "license": "apache-2.0",
+            "measured_tps": null,
+            "memory_available_gb": 9.96,
+            "memory_required_gb": 4.75,
+            "moe_offloaded_gb": null,
+            "name": "Orion-zhen/Qwen2.5-Coder-7B-Instruct-AWQ",
+            "notes": [
+              "Context capped at 8192 tokens for estimation (model supports up to 32768; use --max-context to override)",
+              "Insufficient VRAM and system RAM",
+              "Need 3.9 GB VRAM or 4.3 GB system RAM",
+              "Baseline estimated speed: 37.0 tok/s"
+            ],
+            "ollama_name": null,
+            "parameter_count": "7.6B",
+            "params_b": 7.62,
+            "provider": "orion-zhen",
+            "release_date": "2024-09-20",
+            "run_mode": "GPU",
+            "run_mode_label": "GPU",
+            "runtime": "vLLM",
+            "runtime_label": "vLLM",
+            "score": 91.3,
+            "score_components": {
+              "context": 100.0,
+              "fit": 100.0,
+              "quality": 85.7,
+              "speed": 92.4
+            },
+            "supports_tp": [
+              1,
+              2,
+              4
+            ],
+            "total_memory_gb": 4.75,
+            "usable_context": 32768,
+            "use_case": "Code generation and completion",
+            "utilization_pct": 47.6,
+            "verify_command": null
+          },
+          {
+            "best_quant": "GPTQ-Int4",
+            "capabilities": [
+              "Tool Use"
+            ],
+            "capability_ids": [
+              "tool_use"
+            ],
+            "category": "Coding",
+            "context_length": 32768,
+            "disk_size_gb": 3.81,
+            "effective_context_length": 8192,
+            "estimate_basis": {
+              "assumed_context": 8192,
+              "ddr_bandwidth_gbps": null,
+              "efficiency": 0.55,
+              "gpu_bandwidth_gbps": 256.0,
+              "local_calibration": null,
+              "method": "gpu_bandwidth_roofline"
+            },
+            "estimated_tps": 37.0,
+            "fit_label": "Perfect",
+            "fit_level": "Perfect",
+            "gguf_sources": [],
+            "installed": false,
+            "is_moe": false,
+            "license": "apache-2.0",
+            "measured_tps": null,
+            "memory_available_gb": 9.96,
+            "memory_required_gb": 4.75,
+            "moe_offloaded_gb": null,
+            "name": "Qwen/Qwen2.5-Coder-7B-Instruct-GPTQ-Int4",
+            "notes": [
+              "Context capped at 8192 tokens for estimation (model supports up to 32768; use --max-context to override)",
+              "Insufficient VRAM and system RAM",
+              "Need 3.9 GB VRAM or 4.3 GB system RAM",
+              "Baseline estimated speed: 37.0 tok/s"
+            ],
+            "ollama_name": null,
+            "parameter_count": "7.6B",
+            "params_b": 7.62,
+            "provider": "Alibaba",
+            "release_date": "2024-09-20",
+            "run_mode": "GPU",
+            "run_mode_label": "GPU",
+            "runtime": "vLLM",
+            "runtime_label": "vLLM",
+            "score": 91.3,
+            "score_components": {
+              "context": 100.0,
+              "fit": 100.0,
+              "quality": 85.7,
+              "speed": 92.4
+            },
+            "supports_tp": [
+              1,
+              2,
+              4
+            ],
+            "total_memory_gb": 4.75,
+            "usable_context": 32768,
+            "use_case": "Code generation and completion",
+            "utilization_pct": 47.6,
+            "verify_command": null
+          },
+          {
+            "best_quant": "Q8_0",
+            "capabilities": [
+              "Tool Use"
+            ],
+            "capability_ids": [
+              "tool_use"
+            ],
+            "category": "Coding",
+            "context_length": 32768,
+            "disk_size_gb": 3.33,
+            "effective_context_length": 8192,
+            "estimate_basis": {
+              "assumed_context": 8192,
+              "ddr_bandwidth_gbps": null,
+              "efficiency": 0.55,
+              "gpu_bandwidth_gbps": 256.0,
+              "local_calibration": null,
+              "method": "gpu_bandwidth_roofline"
+            },
+            "estimated_tps": 44.4,
+            "fit_label": "Perfect",
+            "fit_level": "Perfect",
+            "gguf_sources": [],
+            "installed": false,
+            "is_moe": false,
+            "license": null,
+            "measured_tps": null,
+            "memory_available_gb": 9.96,
+            "memory_required_gb": 4.11,
+            "moe_offloaded_gb": null,
+            "name": "unsloth/Qwen2.5-Coder-3B-bnb-4bit",
+            "notes": [
+              "Context capped at 8192 tokens for estimation (model supports up to 32768; use --max-context to override)",
+              "GPU: model loaded into VRAM",
+              "Best quantization for hardware: Q8_0 (model default: Q4_K_M)",
+              "Baseline estimated speed: 44.4 tok/s"
+            ],
+            "ollama_name": null,
+            "parameter_count": "3.2B",
+            "params_b": 3.17,
+            "provider": "unsloth",
+            "release_date": null,
+            "run_mode": "GPU",
+            "run_mode_label": "GPU",
+            "runtime": "llama.cpp",
+            "runtime_label": "llama.cpp",
+            "score": 86.9,
+            "score_components": {
+              "context": 100.0,
+              "fit": 100.0,
+              "quality": 73.7,
+              "speed": 100.0
+            },
+            "supports_tp": [
+              1,
+              2
+            ],
+            "total_memory_gb": 4.11,
+            "usable_context": 32768,
+            "use_case": "Code generation and completion",
+            "utilization_pct": 41.3,
+            "verify_command": "llama-bench -m <path-to-Q8_0-gguf> -ngl 99 -p 512 -n 128"
+          },
+          {
+            "best_quant": "Q8_0",
+            "capabilities": [
+              "Tool Use"
+            ],
+            "capability_ids": [
+              "tool_use"
+            ],
+            "category": "Coding",
+            "context_length": 32768,
+            "disk_size_gb": 3.24,
+            "effective_context_length": 8192,
+            "estimate_basis": {
+              "assumed_context": 8192,
+              "ddr_bandwidth_gbps": null,
+              "efficiency": 0.55,
+              "gpu_bandwidth_gbps": 256.0,
+              "local_calibration": null,
+              "method": "gpu_bandwidth_roofline"
+            },
+            "estimated_tps": 45.6,
+            "fit_label": "Perfect",
+            "fit_level": "Perfect",
+            "gguf_sources": [
+              {
+                "provider": "bartowski",
+                "repo": "bartowski/Qwen2.5-Coder-3B-GGUF"
+              },
+              {
+                "provider": "mradermacher",
+                "repo": "mradermacher/Qwen2.5-Coder-3B-GGUF"
+              }
+            ],
+            "installed": false,
+            "is_moe": false,
+            "license": "qwen-research",
+            "measured_tps": null,
+            "memory_available_gb": 9.96,
+            "memory_required_gb": 4.02,
+            "moe_offloaded_gb": null,
+            "name": "Qwen/Qwen2.5-Coder-3B",
+            "notes": [
+              "Context capped at 8192 tokens for estimation (model supports up to 32768; use --max-context to override)",
+              "GPU: model loaded into VRAM",
+              "Best quantization for hardware: Q8_0 (model default: Q4_K_M)",
+              "Baseline estimated speed: 45.6 tok/s"
+            ],
+            "ollama_name": null,
+            "parameter_count": "3.1B",
+            "params_b": 3.09,
+            "provider": "Alibaba",
+            "release_date": "2024-11-08",
+            "run_mode": "GPU",
+            "run_mode_label": "GPU",
+            "runtime": "llama.cpp",
+            "runtime_label": "llama.cpp",
+            "score": 86.9,
+            "score_components": {
+              "context": 100.0,
+              "fit": 100.0,
+              "quality": 73.7,
+              "speed": 100.0
+            },
+            "supports_tp": [
+              1,
+              2
+            ],
+            "total_memory_gb": 4.02,
+            "usable_context": 32768,
+            "use_case": "Code generation and completion",
+            "utilization_pct": 40.4,
+            "verify_command": "llama-bench -m <path-to-Q8_0-gguf> -ngl 99 -p 512 -n 128"
+          },
+          {
+            "best_quant": "Q8_0",
+            "capabilities": [
+              "Tool Use"
+            ],
+            "capability_ids": [
+              "tool_use"
+            ],
+            "category": "Coding",
+            "context_length": 32768,
+            "disk_size_gb": 3.33,
+            "effective_context_length": 8192,
+            "estimate_basis": {
+              "assumed_context": 8192,
+              "ddr_bandwidth_gbps": null,
+              "efficiency": 0.55,
+              "gpu_bandwidth_gbps": 256.0,
+              "local_calibration": null,
+              "method": "gpu_bandwidth_roofline"
+            },
+            "estimated_tps": 44.4,
+            "fit_label": "Perfect",
+            "fit_level": "Perfect",
+            "gguf_sources": [],
+            "installed": false,
+            "is_moe": false,
+            "license": "apache-2.0",
+            "measured_tps": null,
+            "memory_available_gb": 9.96,
+            "memory_required_gb": 4.11,
+            "moe_offloaded_gb": null,
+            "name": "unsloth/Qwen2.5-Coder-3B-Instruct-bnb-4bit",
+            "notes": [
+              "Context capped at 8192 tokens for estimation (model supports up to 32768; use --max-context to override)",
+              "GPU: model loaded into VRAM",
+              "Best quantization for hardware: Q8_0 (model default: Q4_K_M)",
+              "Baseline estimated speed: 44.4 tok/s"
+            ],
+            "ollama_name": null,
+            "parameter_count": "3.2B",
+            "params_b": 3.17,
+            "provider": "unsloth",
+            "release_date": null,
+            "run_mode": "GPU",
+            "run_mode_label": "GPU",
+            "runtime": "llama.cpp",
+            "runtime_label": "llama.cpp",
+            "score": 86.9,
+            "score_components": {
+              "context": 100.0,
+              "fit": 100.0,
+              "quality": 73.7,
+              "speed": 100.0
+            },
+            "supports_tp": [
+              1,
+              2
+            ],
+            "total_memory_gb": 4.11,
+            "usable_context": 32768,
+            "use_case": "Code generation and completion",
+            "utilization_pct": 41.3,
+            "verify_command": "llama-bench -m <path-to-Q8_0-gguf> -ngl 99 -p 512 -n 128"
+          },
+          {
+            "best_quant": "Q8_0",
+            "capabilities": [
+              "Tool Use"
+            ],
+            "capability_ids": [
+              "tool_use"
+            ],
+            "category": "Coding",
+            "context_length": 32768,
+            "disk_size_gb": 3.24,
+            "effective_context_length": 8192,
+            "estimate_basis": {
+              "assumed_context": 8192,
+              "ddr_bandwidth_gbps": null,
+              "efficiency": 0.55,
+              "gpu_bandwidth_gbps": 256.0,
+              "local_calibration": null,
+              "method": "gpu_bandwidth_roofline"
+            },
+            "estimated_tps": 45.6,
+            "fit_label": "Perfect",
+            "fit_level": "Perfect",
+            "gguf_sources": [],
+            "installed": false,
+            "is_moe": false,
+            "license": null,
+            "measured_tps": null,
+            "memory_available_gb": 9.96,
+            "memory_required_gb": 4.02,
+            "moe_offloaded_gb": null,
+            "name": "ryzdfm/qwen2.5-coder-3b-claude_opus_4.6-distilled",
+            "notes": [
+              "Context capped at 8192 tokens for estimation (model supports up to 32768; use --max-context to override)",
+              "GPU: model loaded into VRAM",
+              "Best quantization for hardware: Q8_0 (model default: Q4_K_M)",
+              "Baseline estimated speed: 45.6 tok/s"
+            ],
+            "ollama_name": null,
+            "parameter_count": "3.1B",
+            "params_b": 3.09,
+            "provider": "ryzdfm",
+            "release_date": null,
+            "run_mode": "GPU",
+            "run_mode_label": "GPU",
+            "runtime": "llama.cpp",
+            "runtime_label": "llama.cpp",
+            "score": 86.9,
+            "score_components": {
+              "context": 100.0,
+              "fit": 100.0,
+              "quality": 73.7,
+              "speed": 100.0
+            },
+            "supports_tp": [
+              1,
+              2
+            ],
+            "total_memory_gb": 4.02,
+            "usable_context": 32768,
+            "use_case": "Code generation and completion",
+            "utilization_pct": 40.4,
+            "verify_command": "llama-bench -m <path-to-Q8_0-gguf> -ngl 99 -p 512 -n 128"
+          },
+          {
+            "best_quant": "Q8_0",
+            "capabilities": [
+              "Tool Use"
+            ],
+            "capability_ids": [
+              "tool_use"
+            ],
+            "category": "Coding",
+            "context_length": 32768,
+            "disk_size_gb": 3.24,
+            "effective_context_length": 8192,
+            "estimate_basis": {
+              "assumed_context": 8192,
+              "ddr_bandwidth_gbps": null,
+              "efficiency": 0.55,
+              "gpu_bandwidth_gbps": 256.0,
+              "local_calibration": null,
+              "method": "gpu_bandwidth_roofline"
+            },
+            "estimated_tps": 45.6,
+            "fit_label": "Perfect",
+            "fit_level": "Perfect",
+            "gguf_sources": [
+              {
+                "provider": "bartowski",
+                "repo": "bartowski/Qwen2.5-Coder-3B-Instruct-abliterated-GGUF"
+              },
+              {
+                "provider": "mradermacher",
+                "repo": "mradermacher/Qwen2.5-Coder-3B-Instruct-abliterated-GGUF"
+              }
+            ],
+            "installed": false,
+            "is_moe": false,
+            "license": null,
+            "measured_tps": null,
+            "memory_available_gb": 9.96,
+            "memory_required_gb": 4.02,
+            "moe_offloaded_gb": null,
+            "name": "huihui-ai/Qwen2.5-Coder-3B-Instruct-abliterated",
+            "notes": [
+              "Context capped at 8192 tokens for estimation (model supports up to 32768; use --max-context to override)",
+              "GPU: model loaded into VRAM",
+              "Best quantization for hardware: Q8_0 (model default: Q4_K_M)",
+              "Baseline estimated speed: 45.6 tok/s"
+            ],
+            "ollama_name": null,
+            "parameter_count": "3.1B",
+            "params_b": 3.09,
+            "provider": "huihui-ai",
+            "release_date": null,
+            "run_mode": "GPU",
+            "run_mode_label": "GPU",
+            "runtime": "llama.cpp",
+            "runtime_label": "llama.cpp",
+            "score": 86.9,
+            "score_components": {
+              "context": 100.0,
+              "fit": 100.0,
+              "quality": 73.7,
+              "speed": 100.0
+            },
+            "supports_tp": [
+              1,
+              2
+            ],
+            "total_memory_gb": 4.02,
+            "usable_context": 32768,
+            "use_case": "Code generation and completion",
+            "utilization_pct": 40.4,
+            "verify_command": "llama-bench -m <path-to-Q8_0-gguf> -ngl 99 -p 512 -n 128"
+          },
+          {
+            "best_quant": "Q8_0",
+            "capabilities": [
+              "Tool Use"
+            ],
+            "capability_ids": [
+              "tool_use"
+            ],
+            "category": "Coding",
+            "context_length": 32768,
+            "disk_size_gb": 3.24,
+            "effective_context_length": 8192,
+            "estimate_basis": {
+              "assumed_context": 8192,
+              "ddr_bandwidth_gbps": null,
+              "efficiency": 0.55,
+              "gpu_bandwidth_gbps": 256.0,
+              "local_calibration": null,
+              "method": "gpu_bandwidth_roofline"
+            },
+            "estimated_tps": 45.6,
+            "fit_label": "Perfect",
+            "fit_level": "Perfect",
+            "gguf_sources": [
+              {
+                "provider": "unsloth",
+                "repo": "unsloth/Qwen2.5-Coder-3B-Instruct-GGUF"
+              },
+              {
+                "provider": "bartowski",
+                "repo": "bartowski/Qwen2.5-Coder-3B-Instruct-GGUF"
+              },
+              {
+                "provider": "mradermacher",
+                "repo": "mradermacher/Qwen2.5-Coder-3B-Instruct-GGUF"
+              }
+            ],
+            "installed": false,
+            "is_moe": false,
+            "license": "qwen-research",
+            "measured_tps": null,
+            "memory_available_gb": 9.96,
+            "memory_required_gb": 4.02,
+            "moe_offloaded_gb": null,
+            "name": "Qwen/Qwen2.5-Coder-3B-Instruct",
+            "notes": [
+              "Context capped at 8192 tokens for estimation (model supports up to 32768; use --max-context to override)",
+              "GPU: model loaded into VRAM",
+              "Best quantization for hardware: Q8_0 (model default: Q4_K_M)",
+              "Baseline estimated speed: 45.6 tok/s"
+            ],
+            "ollama_name": null,
+            "parameter_count": "3.1B",
+            "params_b": 3.09,
+            "provider": "Alibaba",
+            "release_date": "2024-11-06",
+            "run_mode": "GPU",
+            "run_mode_label": "GPU",
+            "runtime": "llama.cpp",
+            "runtime_label": "llama.cpp",
+            "score": 86.9,
+            "score_components": {
+              "context": 100.0,
+              "fit": 100.0,
+              "quality": 73.7,
+              "speed": 100.0
+            },
+            "supports_tp": [
+              1,
+              2
+            ],
+            "total_memory_gb": 4.02,
+            "usable_context": 32768,
+            "use_case": "Code generation and completion",
+            "utilization_pct": 40.4,
+            "verify_command": "llama-bench -m <path-to-Q8_0-gguf> -ngl 99 -p 512 -n 128"
+          }
+        ],
+        "system": {
+          "available_ram_gb": 1.81,
+          "backend": "CUDA",
+          "cpu_cores": 20,
+          "cpu_name": "Intel(R) Core(TM) Ultra 7 255HX",
+          "gpu_available_gb": null,
+          "gpu_count": 2,
+          "gpu_name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "gpu_vram_gb": 7.96,
+          "gpus": [
+            {
+              "backend": "CUDA",
+              "count": 1,
+              "memory_bandwidth_gbps": 256.0,
+              "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+              "unified_memory": false,
+              "vram_gb": 7.96
+            },
+            {
+              "backend": "SYCL",
+              "count": 1,
+              "memory_bandwidth_gbps": null,
+              "name": "Intel(R) Graphics",
+              "unified_memory": false,
+              "vram_gb": 2.0
+            }
+          ],
+          "has_gpu": true,
+          "total_ram_gb": 15.43,
+          "unified_memory": false
+        }
+      }
+    },
+    {
+      "arguments": [
+        "--memory",
+        "7.96G",
+        "--max-context",
+        "8192",
+        "recommend",
+        "--runtime",
+        "llamacpp",
+        "--use-case",
+        "coding",
+        "--min-fit",
+        "good",
+        "--limit",
+        "5",
+        "--json"
+      ],
+      "limitation": "Memory override uses measured NVIDIA capacity. Catalog formats and quantization estimates still require verification against actual Ollama artifacts; no inference performed.",
+      "output": {
+        "models": [
+          {
+            "best_quant": "Q8_0",
+            "capabilities": [
+              "Tool Use"
+            ],
+            "capability_ids": [
+              "tool_use"
+            ],
+            "category": "Coding",
+            "context_length": 32768,
+            "disk_size_gb": 3.33,
+            "effective_context_length": 8192,
+            "estimate_basis": {
+              "assumed_context": 8192,
+              "ddr_bandwidth_gbps": null,
+              "efficiency": 0.55,
+              "gpu_bandwidth_gbps": 256.0,
+              "local_calibration": null,
+              "method": "gpu_bandwidth_roofline"
+            },
+            "estimated_tps": 44.4,
+            "fit_label": "Perfect",
+            "fit_level": "Perfect",
+            "gguf_sources": [],
+            "installed": false,
+            "is_moe": false,
+            "license": "apache-2.0",
+            "measured_tps": null,
+            "memory_available_gb": 7.96,
+            "memory_required_gb": 4.11,
+            "moe_offloaded_gb": null,
+            "name": "unsloth/Qwen2.5-Coder-3B-Instruct-bnb-4bit",
+            "notes": [
+              "Context capped at 8192 tokens for estimation (model supports up to 32768; use --max-context to override)",
+              "GPU: model loaded into VRAM",
+              "Best quantization for hardware: Q8_0 (model default: Q4_K_M)",
+              "Baseline estimated speed: 44.4 tok/s"
+            ],
+            "ollama_name": null,
+            "parameter_count": "3.2B",
+            "params_b": 3.17,
+            "provider": "unsloth",
+            "release_date": null,
+            "run_mode": "GPU",
+            "run_mode_label": "GPU",
+            "runtime": "llama.cpp",
+            "runtime_label": "llama.cpp",
+            "score": 86.9,
+            "score_components": {
+              "context": 100.0,
+              "fit": 100.0,
+              "quality": 73.7,
+              "speed": 100.0
+            },
+            "supports_tp": [
+              1,
+              2
+            ],
+            "total_memory_gb": 4.11,
+            "usable_context": 32768,
+            "use_case": "Code generation and completion",
+            "utilization_pct": 51.7,
+            "verify_command": "llama-bench -m <path-to-Q8_0-gguf> -ngl 99 -p 512 -n 128"
+          },
+          {
+            "best_quant": "Q8_0",
+            "capabilities": [
+              "Tool Use"
+            ],
+            "capability_ids": [
+              "tool_use"
+            ],
+            "category": "Coding",
+            "context_length": 32768,
+            "disk_size_gb": 3.24,
+            "effective_context_length": 8192,
+            "estimate_basis": {
+              "assumed_context": 8192,
+              "ddr_bandwidth_gbps": null,
+              "efficiency": 0.55,
+              "gpu_bandwidth_gbps": 256.0,
+              "local_calibration": null,
+              "method": "gpu_bandwidth_roofline"
+            },
+            "estimated_tps": 45.6,
+            "fit_label": "Perfect",
+            "fit_level": "Perfect",
+            "gguf_sources": [
+              {
+                "provider": "bartowski",
+                "repo": "bartowski/Qwen2.5-Coder-3B-GGUF"
+              },
+              {
+                "provider": "mradermacher",
+                "repo": "mradermacher/Qwen2.5-Coder-3B-GGUF"
+              }
+            ],
+            "installed": false,
+            "is_moe": false,
+            "license": "qwen-research",
+            "measured_tps": null,
+            "memory_available_gb": 7.96,
+            "memory_required_gb": 4.02,
+            "moe_offloaded_gb": null,
+            "name": "Qwen/Qwen2.5-Coder-3B",
+            "notes": [
+              "Context capped at 8192 tokens for estimation (model supports up to 32768; use --max-context to override)",
+              "GPU: model loaded into VRAM",
+              "Best quantization for hardware: Q8_0 (model default: Q4_K_M)",
+              "Baseline estimated speed: 45.6 tok/s"
+            ],
+            "ollama_name": null,
+            "parameter_count": "3.1B",
+            "params_b": 3.09,
+            "provider": "Alibaba",
+            "release_date": "2024-11-08",
+            "run_mode": "GPU",
+            "run_mode_label": "GPU",
+            "runtime": "llama.cpp",
+            "runtime_label": "llama.cpp",
+            "score": 86.9,
+            "score_components": {
+              "context": 100.0,
+              "fit": 100.0,
+              "quality": 73.7,
+              "speed": 100.0
+            },
+            "supports_tp": [
+              1,
+              2
+            ],
+            "total_memory_gb": 4.02,
+            "usable_context": 32768,
+            "use_case": "Code generation and completion",
+            "utilization_pct": 50.5,
+            "verify_command": "llama-bench -m <path-to-Q8_0-gguf> -ngl 99 -p 512 -n 128"
+          },
+          {
+            "best_quant": "Q8_0",
+            "capabilities": [
+              "Tool Use"
+            ],
+            "capability_ids": [
+              "tool_use"
+            ],
+            "category": "Coding",
+            "context_length": 32768,
+            "disk_size_gb": 3.24,
+            "effective_context_length": 8192,
+            "estimate_basis": {
+              "assumed_context": 8192,
+              "ddr_bandwidth_gbps": null,
+              "efficiency": 0.55,
+              "gpu_bandwidth_gbps": 256.0,
+              "local_calibration": null,
+              "method": "gpu_bandwidth_roofline"
+            },
+            "estimated_tps": 45.6,
+            "fit_label": "Perfect",
+            "fit_level": "Perfect",
+            "gguf_sources": [],
+            "installed": false,
+            "is_moe": false,
+            "license": null,
+            "measured_tps": null,
+            "memory_available_gb": 7.96,
+            "memory_required_gb": 4.02,
+            "moe_offloaded_gb": null,
+            "name": "ryzdfm/qwen2.5-coder-3b-claude_opus_4.6-distilled",
+            "notes": [
+              "Context capped at 8192 tokens for estimation (model supports up to 32768; use --max-context to override)",
+              "GPU: model loaded into VRAM",
+              "Best quantization for hardware: Q8_0 (model default: Q4_K_M)",
+              "Baseline estimated speed: 45.6 tok/s"
+            ],
+            "ollama_name": null,
+            "parameter_count": "3.1B",
+            "params_b": 3.09,
+            "provider": "ryzdfm",
+            "release_date": null,
+            "run_mode": "GPU",
+            "run_mode_label": "GPU",
+            "runtime": "llama.cpp",
+            "runtime_label": "llama.cpp",
+            "score": 86.9,
+            "score_components": {
+              "context": 100.0,
+              "fit": 100.0,
+              "quality": 73.7,
+              "speed": 100.0
+            },
+            "supports_tp": [
+              1,
+              2
+            ],
+            "total_memory_gb": 4.02,
+            "usable_context": 32768,
+            "use_case": "Code generation and completion",
+            "utilization_pct": 50.5,
+            "verify_command": "llama-bench -m <path-to-Q8_0-gguf> -ngl 99 -p 512 -n 128"
+          },
+          {
+            "best_quant": "Q8_0",
+            "capabilities": [
+              "Tool Use"
+            ],
+            "capability_ids": [
+              "tool_use"
+            ],
+            "category": "Coding",
+            "context_length": 32768,
+            "disk_size_gb": 3.33,
+            "effective_context_length": 8192,
+            "estimate_basis": {
+              "assumed_context": 8192,
+              "ddr_bandwidth_gbps": null,
+              "efficiency": 0.55,
+              "gpu_bandwidth_gbps": 256.0,
+              "local_calibration": null,
+              "method": "gpu_bandwidth_roofline"
+            },
+            "estimated_tps": 44.4,
+            "fit_label": "Perfect",
+            "fit_level": "Perfect",
+            "gguf_sources": [],
+            "installed": false,
+            "is_moe": false,
+            "license": null,
+            "measured_tps": null,
+            "memory_available_gb": 7.96,
+            "memory_required_gb": 4.11,
+            "moe_offloaded_gb": null,
+            "name": "unsloth/Qwen2.5-Coder-3B-bnb-4bit",
+            "notes": [
+              "Context capped at 8192 tokens for estimation (model supports up to 32768; use --max-context to override)",
+              "GPU: model loaded into VRAM",
+              "Best quantization for hardware: Q8_0 (model default: Q4_K_M)",
+              "Baseline estimated speed: 44.4 tok/s"
+            ],
+            "ollama_name": null,
+            "parameter_count": "3.2B",
+            "params_b": 3.17,
+            "provider": "unsloth",
+            "release_date": null,
+            "run_mode": "GPU",
+            "run_mode_label": "GPU",
+            "runtime": "llama.cpp",
+            "runtime_label": "llama.cpp",
+            "score": 86.9,
+            "score_components": {
+              "context": 100.0,
+              "fit": 100.0,
+              "quality": 73.7,
+              "speed": 100.0
+            },
+            "supports_tp": [
+              1,
+              2
+            ],
+            "total_memory_gb": 4.11,
+            "usable_context": 32768,
+            "use_case": "Code generation and completion",
+            "utilization_pct": 51.7,
+            "verify_command": "llama-bench -m <path-to-Q8_0-gguf> -ngl 99 -p 512 -n 128"
+          },
+          {
+            "best_quant": "Q8_0",
+            "capabilities": [
+              "Tool Use"
+            ],
+            "capability_ids": [
+              "tool_use"
+            ],
+            "category": "Coding",
+            "context_length": 32768,
+            "disk_size_gb": 3.24,
+            "effective_context_length": 8192,
+            "estimate_basis": {
+              "assumed_context": 8192,
+              "ddr_bandwidth_gbps": null,
+              "efficiency": 0.55,
+              "gpu_bandwidth_gbps": 256.0,
+              "local_calibration": null,
+              "method": "gpu_bandwidth_roofline"
+            },
+            "estimated_tps": 45.6,
+            "fit_label": "Perfect",
+            "fit_level": "Perfect",
+            "gguf_sources": [
+              {
+                "provider": "unsloth",
+                "repo": "unsloth/Qwen2.5-Coder-3B-Instruct-GGUF"
+              },
+              {
+                "provider": "bartowski",
+                "repo": "bartowski/Qwen2.5-Coder-3B-Instruct-GGUF"
+              },
+              {
+                "provider": "mradermacher",
+                "repo": "mradermacher/Qwen2.5-Coder-3B-Instruct-GGUF"
+              }
+            ],
+            "installed": false,
+            "is_moe": false,
+            "license": "qwen-research",
+            "measured_tps": null,
+            "memory_available_gb": 7.96,
+            "memory_required_gb": 4.02,
+            "moe_offloaded_gb": null,
+            "name": "Qwen/Qwen2.5-Coder-3B-Instruct",
+            "notes": [
+              "Context capped at 8192 tokens for estimation (model supports up to 32768; use --max-context to override)",
+              "GPU: model loaded into VRAM",
+              "Best quantization for hardware: Q8_0 (model default: Q4_K_M)",
+              "Baseline estimated speed: 45.6 tok/s"
+            ],
+            "ollama_name": null,
+            "parameter_count": "3.1B",
+            "params_b": 3.09,
+            "provider": "Alibaba",
+            "release_date": "2024-11-06",
+            "run_mode": "GPU",
+            "run_mode_label": "GPU",
+            "runtime": "llama.cpp",
+            "runtime_label": "llama.cpp",
+            "score": 86.9,
+            "score_components": {
+              "context": 100.0,
+              "fit": 100.0,
+              "quality": 73.7,
+              "speed": 100.0
+            },
+            "supports_tp": [
+              1,
+              2
+            ],
+            "total_memory_gb": 4.02,
+            "usable_context": 32768,
+            "use_case": "Code generation and completion",
+            "utilization_pct": 50.5,
+            "verify_command": "llama-bench -m <path-to-Q8_0-gguf> -ngl 99 -p 512 -n 128"
+          }
+        ],
+        "system": {
+          "available_ram_gb": 2.05,
+          "backend": "CUDA",
+          "cpu_cores": 20,
+          "cpu_name": "Intel(R) Core(TM) Ultra 7 255HX",
+          "gpu_available_gb": null,
+          "gpu_count": 2,
+          "gpu_name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "gpu_vram_gb": 7.96,
+          "gpus": [
+            {
+              "backend": "CUDA",
+              "count": 1,
+              "memory_bandwidth_gbps": 256.0,
+              "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+              "unified_memory": false,
+              "vram_gb": 7.96
+            },
+            {
+              "backend": "SYCL",
+              "count": 1,
+              "memory_bandwidth_gbps": null,
+              "name": "Intel(R) Graphics",
+              "unified_memory": false,
+              "vram_gb": 2.0
+            }
+          ],
+          "has_gpu": true,
+          "total_ram_gb": 15.43,
+          "unified_memory": false
+        }
+      }
+    },
+    {
+      "arguments": [
+        "--memory",
+        "7.96G",
+        "--max-context",
+        "8192",
+        "info",
+        "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "--json"
+      ],
+      "limitation": "Hardware fit estimate only; best_quant is an estimate, not the downloaded Ollama quantization.",
+      "output": {
+        "models": [
+          {
+            "best_quant": "Q6_K",
+            "capabilities": [
+              "Tool Use"
+            ],
+            "capability_ids": [
+              "tool_use"
+            ],
+            "category": "Coding",
+            "context_length": 32768,
+            "disk_size_gb": 6.09,
+            "effective_context_length": 8192,
+            "estimate_basis": {
+              "assumed_context": 8192,
+              "ddr_bandwidth_gbps": null,
+              "efficiency": 0.55,
+              "gpu_bandwidth_gbps": 256.0,
+              "local_calibration": null,
+              "method": "gpu_bandwidth_roofline"
+            },
+            "estimated_tps": 24.7,
+            "fit_label": "Perfect",
+            "fit_level": "Perfect",
+            "gguf_sources": [
+              {
+                "provider": "unsloth",
+                "repo": "unsloth/Qwen2.5-Coder-7B-Instruct-GGUF"
+              },
+              {
+                "provider": "bartowski",
+                "repo": "bartowski/Qwen2.5-Coder-7B-Instruct-GGUF"
+              },
+              {
+                "provider": "mradermacher",
+                "repo": "mradermacher/Qwen2.5-Coder-7B-Instruct-GGUF"
+              }
+            ],
+            "installed": false,
+            "is_moe": false,
+            "license": "apache-2.0",
+            "measured_tps": null,
+            "memory_available_gb": 7.96,
+            "memory_required_gb": 7.03,
+            "moe_offloaded_gb": null,
+            "name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+            "notes": [
+              "Context capped at 8192 tokens for estimation (model supports up to 32768; use --max-context to override)",
+              "GPU: model loaded into VRAM",
+              "Best quantization for hardware: Q6_K (model default: Q4_K_M)",
+              "Baseline estimated speed: 24.7 tok/s"
+            ],
+            "ollama_name": "qwen2.5-coder:7b",
+            "parameter_count": "7.6B",
+            "params_b": 7.62,
+            "provider": "Alibaba",
+            "release_date": "2024-09-17",
+            "run_mode": "GPU",
+            "run_mode_label": "GPU",
+            "runtime": "llama.cpp",
+            "runtime_label": "llama.cpp",
+            "score": 81.0,
+            "score_components": {
+              "context": 100.0,
+              "fit": 65.7,
+              "quality": 87.7,
+              "speed": 61.6
+            },
+            "supports_tp": [
+              1,
+              2,
+              4
+            ],
+            "total_memory_gb": 7.03,
+            "usable_context": 25605,
+            "use_case": "Code generation and completion",
+            "utilization_pct": 88.3,
+            "verify_command": "llama-bench -m <path-to-Q6_K-gguf> -ngl 99 -p 512 -n 128"
+          }
+        ],
+        "system": {
+          "available_ram_gb": 2.18,
+          "backend": "CUDA",
+          "cpu_cores": 20,
+          "cpu_name": "Intel(R) Core(TM) Ultra 7 255HX",
+          "gpu_available_gb": null,
+          "gpu_count": 2,
+          "gpu_name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "gpu_vram_gb": 7.96,
+          "gpus": [
+            {
+              "backend": "CUDA",
+              "count": 1,
+              "memory_bandwidth_gbps": 256.0,
+              "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+              "unified_memory": false,
+              "vram_gb": 7.96
+            },
+            {
+              "backend": "SYCL",
+              "count": 1,
+              "memory_bandwidth_gbps": null,
+              "name": "Intel(R) Graphics",
+              "unified_memory": false,
+              "vram_gb": 2.0
+            }
+          ],
+          "has_gpu": true,
+          "total_ram_gb": 15.43,
+          "unified_memory": false
+        }
+      }
+    },
+    {
+      "arguments": [
+        "--memory",
+        "7.96G",
+        "--max-context",
+        "8192",
+        "info",
+        "Qwen/Qwen3-4B",
+        "--json"
+      ],
+      "limitation": "Hardware fit estimate only; best_quant is an estimate, not the downloaded Ollama quantization.",
+      "output": {
+        "models": [
+          {
+            "best_quant": "Q8_0",
+            "capabilities": [
+              "Tool Use"
+            ],
+            "capability_ids": [
+              "tool_use"
+            ],
+            "category": "General",
+            "context_length": 40960,
+            "disk_size_gb": 4.22,
+            "effective_context_length": 8192,
+            "estimate_basis": {
+              "assumed_context": 8192,
+              "ddr_bandwidth_gbps": null,
+              "efficiency": 0.55,
+              "gpu_bandwidth_gbps": 256.0,
+              "local_calibration": null,
+              "method": "gpu_bandwidth_roofline"
+            },
+            "estimated_tps": 35.0,
+            "fit_label": "Perfect",
+            "fit_level": "Perfect",
+            "gguf_sources": [
+              {
+                "provider": "unsloth",
+                "repo": "unsloth/Qwen3-4B-GGUF"
+              },
+              {
+                "provider": "ggml-org",
+                "repo": "ggml-org/Qwen3-4B-GGUF"
+              },
+              {
+                "provider": "mradermacher",
+                "repo": "mradermacher/Qwen3-4B-GGUF"
+              }
+            ],
+            "installed": false,
+            "is_moe": false,
+            "license": "apache-2.0",
+            "measured_tps": null,
+            "memory_available_gb": 7.96,
+            "memory_required_gb": 5.85,
+            "moe_offloaded_gb": null,
+            "name": "Qwen/Qwen3-4B",
+            "notes": [
+              "Context capped at 8192 tokens for estimation (model supports up to 40960; use --max-context to override)",
+              "GPU: model loaded into VRAM",
+              "Best quantization for hardware: Q8_0 (model default: Q4_K_M)",
+              "Baseline estimated speed: 35.0 tok/s"
+            ],
+            "ollama_name": "qwen3:4b",
+            "parameter_count": "4.0B",
+            "params_b": 4.02,
+            "provider": "Alibaba",
+            "release_date": "2025-04-27",
+            "run_mode": "GPU",
+            "run_mode_label": "GPU",
+            "runtime": "llama.cpp",
+            "runtime_label": "llama.cpp",
+            "score": 81.6,
+            "score_components": {
+              "context": 100.0,
+              "fit": 98.5,
+              "quality": 68.0,
+              "speed": 87.5
+            },
+            "supports_tp": [
+              1,
+              2,
+              4,
+              8
+            ],
+            "total_memory_gb": 5.85,
+            "usable_context": 23566,
+            "use_case": "General purpose text generation",
+            "utilization_pct": 73.5,
+            "verify_command": "llama-bench -m <path-to-Q8_0-gguf> -ngl 99 -p 512 -n 128"
+          }
+        ],
+        "system": {
+          "available_ram_gb": 2.18,
+          "backend": "CUDA",
+          "cpu_cores": 20,
+          "cpu_name": "Intel(R) Core(TM) Ultra 7 255HX",
+          "gpu_available_gb": null,
+          "gpu_count": 2,
+          "gpu_name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "gpu_vram_gb": 7.96,
+          "gpus": [
+            {
+              "backend": "CUDA",
+              "count": 1,
+              "memory_bandwidth_gbps": 256.0,
+              "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+              "unified_memory": false,
+              "vram_gb": 7.96
+            },
+            {
+              "backend": "SYCL",
+              "count": 1,
+              "memory_bandwidth_gbps": null,
+              "name": "Intel(R) Graphics",
+              "unified_memory": false,
+              "vram_gb": 2.0
+            }
+          ],
+          "has_gpu": true,
+          "total_ram_gb": 15.43,
+          "unified_memory": false
+        }
+      }
+    },
+    {
+      "arguments": [
+        "--memory",
+        "7.96G",
+        "--max-context",
+        "8192",
+        "info",
+        "Qwen/Qwen3-4B-Instruct-2507",
+        "--json"
+      ],
+      "limitation": "Hardware fit estimate only; actual Ollama identity and serving behavior unverified.",
+      "output": {
+        "models": [
+          {
+            "best_quant": "Q8_0",
+            "capabilities": [
+              "Tool Use"
+            ],
+            "capability_ids": [
+              "tool_use"
+            ],
+            "category": "Chat",
+            "context_length": 262144,
+            "disk_size_gb": 4.22,
+            "effective_context_length": 8192,
+            "estimate_basis": {
+              "assumed_context": 8192,
+              "ddr_bandwidth_gbps": null,
+              "efficiency": 0.55,
+              "gpu_bandwidth_gbps": 256.0,
+              "local_calibration": null,
+              "method": "gpu_bandwidth_roofline"
+            },
+            "estimated_tps": 35.0,
+            "fit_label": "Perfect",
+            "fit_level": "Perfect",
+            "gguf_sources": [
+              {
+                "provider": "unsloth",
+                "repo": "unsloth/Qwen3-4B-Instruct-2507-GGUF"
+              },
+              {
+                "provider": "mradermacher",
+                "repo": "mradermacher/Qwen3-4B-Instruct-2507-GGUF"
+              }
+            ],
+            "installed": false,
+            "is_moe": false,
+            "license": "apache-2.0",
+            "measured_tps": null,
+            "memory_available_gb": 7.96,
+            "memory_required_gb": 5.85,
+            "moe_offloaded_gb": null,
+            "name": "Qwen/Qwen3-4B-Instruct-2507",
+            "notes": [
+              "Context capped at 8192 tokens for estimation (model supports up to 262144; use --max-context to override)",
+              "GPU: model loaded into VRAM",
+              "Best quantization for hardware: Q8_0 (model default: Q4_K_M)",
+              "Baseline estimated speed: 35.0 tok/s"
+            ],
+            "ollama_name": "qwen3:4b",
+            "parameter_count": "4.0B",
+            "params_b": 4.02,
+            "provider": "Alibaba",
+            "release_date": "2025-08-06",
+            "run_mode": "GPU",
+            "run_mode_label": "GPU",
+            "runtime": "llama.cpp",
+            "runtime_label": "llama.cpp",
+            "score": 83.6,
+            "score_components": {
+              "context": 100.0,
+              "fit": 98.5,
+              "quality": 70.4,
+              "speed": 87.5
+            },
+            "supports_tp": [
+              1,
+              2,
+              4,
+              8
+            ],
+            "total_memory_gb": 5.85,
+            "usable_context": 23566,
+            "use_case": "Instruction following, chat",
+            "utilization_pct": 73.5,
+            "verify_command": "llama-bench -m <path-to-Q8_0-gguf> -ngl 99 -p 512 -n 128"
+          }
+        ],
+        "system": {
+          "available_ram_gb": 2.25,
+          "backend": "CUDA",
+          "cpu_cores": 20,
+          "cpu_name": "Intel(R) Core(TM) Ultra 7 255HX",
+          "gpu_available_gb": null,
+          "gpu_count": 2,
+          "gpu_name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "gpu_vram_gb": 7.96,
+          "gpus": [
+            {
+              "backend": "CUDA",
+              "count": 1,
+              "memory_bandwidth_gbps": 256.0,
+              "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+              "unified_memory": false,
+              "vram_gb": 7.96
+            },
+            {
+              "backend": "SYCL",
+              "count": 1,
+              "memory_bandwidth_gbps": null,
+              "name": "Intel(R) Graphics",
+              "unified_memory": false,
+              "vram_gb": 2.0
+            }
+          ],
+          "has_gpu": true,
+          "total_ram_gb": 15.43,
+          "unified_memory": false
+        }
+      }
+    }
+  ],
+  "context_16384_q4_plans": [
+    {
+      "estimate_notice": "Estimate-based output using current llmfit fit/speed heuristics; not an exact benchmark.",
+      "model_name": "Qwen/Qwen2.5-Coder-3B-Instruct",
+      "provider": "Alibaba",
+      "context": 16384,
+      "quantization": "Q4_K_M",
+      "kv_quant": "fp16",
+      "target_tps": null,
+      "minimum": {
+        "vram_gb": 2.85234443904,
+        "ram_gb": 8.0,
+        "cpu_cores": 4
+      },
+      "recommended": {
+        "vram_gb": 3.422813326848,
+        "ram_gb": 12.0,
+        "cpu_cores": 8
+      },
+      "run_paths": [
+        {
+          "path": "gpu",
+          "feasible": true,
+          "minimum": {
+            "vram_gb": 2.85234443904,
+            "ram_gb": 8.0,
+            "cpu_cores": 4
+          },
+          "recommended": {
+            "vram_gb": 3.422813326848,
+            "ram_gb": 12.0,
+            "cpu_cores": 8
+          },
+          "estimated_tps": 91.25262309812942,
+          "fit_level": "Perfect",
+          "notes": [
+            "Estimated from quant/context memory and fit headroom thresholds"
+          ]
+        },
+        {
+          "path": "cpu_offload",
+          "feasible": true,
+          "minimum": {
+            "vram_gb": 2.0,
+            "ram_gb": 2.85234443904,
+            "cpu_cores": 4
+          },
+          "recommended": {
+            "vram_gb": 4.0,
+            "ram_gb": 3.422813326848,
+            "cpu_cores": 8
+          },
+          "estimated_tps": 45.62631154906471,
+          "fit_level": "TooTight",
+          "notes": [
+            "RAM is the primary memory pool for CPU offload"
+          ]
+        },
+        {
+          "path": "cpu_only",
+          "feasible": true,
+          "minimum": {
+            "vram_gb": null,
+            "ram_gb": 2.85234443904,
+            "cpu_cores": 4
+          },
+          "recommended": {
+            "vram_gb": null,
+            "ram_gb": 3.422813326848,
+            "cpu_cores": 8
+          },
+          "estimated_tps": 7.825819772087448,
+          "fit_level": "TooTight",
+          "notes": [
+            "CPU-only fit is always capped at Marginal in current heuristics"
+          ]
+        }
+      ],
+      "current": {
+        "fit_level": "Perfect",
+        "run_mode": "Gpu",
+        "estimated_tps": 91.25262309812942
+      },
+      "upgrade_deltas": [
+        {
+          "resource": "vram_gb",
+          "add_gb": 0.0,
+          "add_cores": null,
+          "target_fit": "Good",
+          "path": "gpu",
+          "description": "+0.0 GB VRAM -> Good"
+        },
+        {
+          "resource": "vram_gb",
+          "add_gb": 0.0,
+          "add_cores": null,
+          "target_fit": "Perfect",
+          "path": "gpu",
+          "description": "+0.0 GB VRAM -> Perfect"
+        },
+        {
+          "resource": "ram_gb",
+          "add_gb": 7.547061920166016,
+          "add_cores": null,
+          "target_fit": "Marginal",
+          "path": "gpu",
+          "description": "+7.5 GB RAM -> Runnable"
+        }
+      ],
+      "kv_alternatives": [
+        {
+          "kv_quant": "fp16",
+          "memory_required_gb": 2.85234443904,
+          "kv_cache_gb": 0.5625,
+          "savings_fraction": 0.0,
+          "note": null,
+          "supported": true
+        },
+        {
+          "kv_quant": "fp8",
+          "memory_required_gb": 2.57109443904,
+          "kv_cache_gb": 0.28125,
+          "savings_fraction": 0.5,
+          "note": "vLLM and llama.cpp builds with fp8 KV support",
+          "supported": true
+        },
+        {
+          "kv_quant": "q8_0",
+          "memory_required_gb": 2.57109443904,
+          "kv_cache_gb": 0.28125,
+          "savings_fraction": 0.5,
+          "note": "llama.cpp --cache-type-k q8_0 --cache-type-v q8_0",
+          "supported": true
+        },
+        {
+          "kv_quant": "q4_0",
+          "memory_required_gb": 2.43046943904,
+          "kv_cache_gb": 0.140625,
+          "savings_fraction": 0.75,
+          "note": "llama.cpp --cache-type-k q4_0 --cache-type-v q4_0 (quality drop)",
+          "supported": true
+        },
+        {
+          "kv_quant": "tq",
+          "memory_required_gb": 2.38546943904,
+          "kv_cache_gb": 0.095625,
+          "savings_fraction": 0.83,
+          "note": "Experimental: not in upstream vLLM, see 0xSero/turboquant",
+          "supported": true
+        }
+      ]
+    },
+    {
+      "estimate_notice": "Estimate-based output using current llmfit fit/speed heuristics; not an exact benchmark.",
+      "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+      "provider": "Alibaba",
+      "context": 16384,
+      "quantization": "Q4_K_M",
+      "kv_quant": "fp16",
+      "target_tps": null,
+      "minimum": {
+        "vram_gb": 5.08303149568,
+        "ram_gb": 8.0,
+        "cpu_cores": 4
+      },
+      "recommended": {
+        "vram_gb": 6.099637794816,
+        "ram_gb": 12.0,
+        "cpu_cores": 8
+      },
+      "run_paths": [
+        {
+          "path": "gpu",
+          "feasible": true,
+          "minimum": {
+            "vram_gb": 5.08303149568,
+            "ram_gb": 8.0,
+            "cpu_cores": 4
+          },
+          "recommended": {
+            "vram_gb": 6.099637794816,
+            "ram_gb": 12.0,
+            "cpu_cores": 8
+          },
+          "estimated_tps": 70.00677029111233,
+          "fit_level": "Perfect",
+          "notes": [
+            "Estimated from quant/context memory and fit headroom thresholds"
+          ]
+        },
+        {
+          "path": "cpu_offload",
+          "feasible": true,
+          "minimum": {
+            "vram_gb": 2.0,
+            "ram_gb": 5.08303149568,
+            "cpu_cores": 4
+          },
+          "recommended": {
+            "vram_gb": 4.0,
+            "ram_gb": 6.099637794816,
+            "cpu_cores": 8
+          },
+          "estimated_tps": 35.003385145556166,
+          "fit_level": "TooTight",
+          "notes": [
+            "RAM is the primary memory pool for CPU offload"
+          ]
+        },
+        {
+          "path": "cpu_only",
+          "feasible": true,
+          "minimum": {
+            "vram_gb": null,
+            "ram_gb": 5.08303149568,
+            "cpu_cores": 4
+          },
+          "recommended": {
+            "vram_gb": null,
+            "ram_gb": 6.099637794816,
+            "cpu_cores": 8
+          },
+          "estimated_tps": 6.00377664250839,
+          "fit_level": "TooTight",
+          "notes": [
+            "CPU-only fit is always capped at Marginal in current heuristics"
+          ]
+        }
+      ],
+      "current": {
+        "fit_level": "Perfect",
+        "run_mode": "Gpu",
+        "estimated_tps": 70.00677029111233
+      },
+      "upgrade_deltas": [
+        {
+          "resource": "vram_gb",
+          "add_gb": 0.0,
+          "add_cores": null,
+          "target_fit": "Good",
+          "path": "gpu",
+          "description": "+0.0 GB VRAM -> Good"
+        },
+        {
+          "resource": "vram_gb",
+          "add_gb": 0.0,
+          "add_cores": null,
+          "target_fit": "Perfect",
+          "path": "gpu",
+          "description": "+0.0 GB VRAM -> Perfect"
+        },
+        {
+          "resource": "ram_gb",
+          "add_gb": 7.551433563232422,
+          "add_cores": null,
+          "target_fit": "Marginal",
+          "path": "gpu",
+          "description": "+7.6 GB RAM -> Runnable"
+        }
+      ],
+      "kv_alternatives": [
+        {
+          "kv_quant": "fp16",
+          "memory_required_gb": 5.08303149568,
+          "kv_cache_gb": 2.25,
+          "savings_fraction": 0.0,
+          "note": null,
+          "supported": true
+        },
+        {
+          "kv_quant": "fp8",
+          "memory_required_gb": 3.95803149568,
+          "kv_cache_gb": 1.125,
+          "savings_fraction": 0.5,
+          "note": "vLLM and llama.cpp builds with fp8 KV support",
+          "supported": true
+        },
+        {
+          "kv_quant": "q8_0",
+          "memory_required_gb": 3.95803149568,
+          "kv_cache_gb": 1.125,
+          "savings_fraction": 0.5,
+          "note": "llama.cpp --cache-type-k q8_0 --cache-type-v q8_0",
+          "supported": true
+        },
+        {
+          "kv_quant": "q4_0",
+          "memory_required_gb": 3.39553149568,
+          "kv_cache_gb": 0.5625,
+          "savings_fraction": 0.75,
+          "note": "llama.cpp --cache-type-k q4_0 --cache-type-v q4_0 (quality drop)",
+          "supported": true
+        },
+        {
+          "kv_quant": "tq",
+          "memory_required_gb": 3.2155314956799996,
+          "kv_cache_gb": 0.3825,
+          "savings_fraction": 0.83,
+          "note": "Experimental: not in upstream vLLM, see 0xSero/turboquant",
+          "supported": true
+        }
+      ]
+    },
+    {
+      "estimate_notice": "Estimate-based output using current llmfit fit/speed heuristics; not an exact benchmark.",
+      "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "provider": "Alibaba",
+      "context": 16384,
+      "quantization": "Q4_K_M",
+      "kv_quant": "fp16",
+      "target_tps": null,
+      "minimum": {
+        "vram_gb": 5.79205757696,
+        "ram_gb": 8.0,
+        "cpu_cores": 4
+      },
+      "recommended": {
+        "vram_gb": 7.1,
+        "ram_gb": 12.0,
+        "cpu_cores": 8
+      },
+      "run_paths": [
+        {
+          "path": "gpu",
+          "feasible": true,
+          "minimum": {
+            "vram_gb": 5.79205757696,
+            "ram_gb": 8.0,
+            "cpu_cores": 4
+          },
+          "recommended": {
+            "vram_gb": 7.1,
+            "ram_gb": 12.0,
+            "cpu_cores": 8
+          },
+          "estimated_tps": 36.97665179913933,
+          "fit_level": "Perfect",
+          "notes": [
+            "Estimated from quant/context memory and fit headroom thresholds"
+          ]
+        },
+        {
+          "path": "cpu_offload",
+          "feasible": true,
+          "minimum": {
+            "vram_gb": 2.0,
+            "ram_gb": 5.79205757696,
+            "cpu_cores": 4
+          },
+          "recommended": {
+            "vram_gb": 4.0,
+            "ram_gb": 6.950469092351999,
+            "cpu_cores": 8
+          },
+          "estimated_tps": 18.488325899569666,
+          "fit_level": "TooTight",
+          "notes": [
+            "RAM is the primary memory pool for CPU offload"
+          ]
+        },
+        {
+          "path": "cpu_only",
+          "feasible": true,
+          "minimum": {
+            "vram_gb": null,
+            "ram_gb": 5.79205757696,
+            "cpu_cores": 4
+          },
+          "recommended": {
+            "vram_gb": null,
+            "ram_gb": 6.950469092351999,
+            "cpu_cores": 8
+          },
+          "estimated_tps": 3.1711155573480636,
+          "fit_level": "TooTight",
+          "notes": [
+            "CPU-only fit is always capped at Marginal in current heuristics"
+          ]
+        }
+      ],
+      "current": {
+        "fit_level": "Perfect",
+        "run_mode": "Gpu",
+        "estimated_tps": 36.97665179913933
+      },
+      "upgrade_deltas": [
+        {
+          "resource": "vram_gb",
+          "add_gb": 0.0,
+          "add_cores": null,
+          "target_fit": "Good",
+          "path": "gpu",
+          "description": "+0.0 GB VRAM -> Good"
+        },
+        {
+          "resource": "vram_gb",
+          "add_gb": 0.0,
+          "add_cores": null,
+          "target_fit": "Perfect",
+          "path": "gpu",
+          "description": "+0.0 GB VRAM -> Perfect"
+        },
+        {
+          "resource": "ram_gb",
+          "add_gb": 7.117710113525391,
+          "add_cores": null,
+          "target_fit": "Marginal",
+          "path": "gpu",
+          "description": "+7.1 GB RAM -> Runnable"
+        }
+      ],
+      "kv_alternatives": [
+        {
+          "kv_quant": "fp16",
+          "memory_required_gb": 5.79205757696,
+          "kv_cache_gb": 0.875,
+          "savings_fraction": 0.0,
+          "note": null,
+          "supported": true
+        },
+        {
+          "kv_quant": "fp8",
+          "memory_required_gb": 5.35455757696,
+          "kv_cache_gb": 0.4375,
+          "savings_fraction": 0.5,
+          "note": "vLLM and llama.cpp builds with fp8 KV support",
+          "supported": true
+        },
+        {
+          "kv_quant": "q8_0",
+          "memory_required_gb": 5.35455757696,
+          "kv_cache_gb": 0.4375,
+          "savings_fraction": 0.5,
+          "note": "llama.cpp --cache-type-k q8_0 --cache-type-v q8_0",
+          "supported": true
+        },
+        {
+          "kv_quant": "q4_0",
+          "memory_required_gb": 5.13580757696,
+          "kv_cache_gb": 0.21875,
+          "savings_fraction": 0.75,
+          "note": "llama.cpp --cache-type-k q4_0 --cache-type-v q4_0 (quality drop)",
+          "supported": true
+        },
+        {
+          "kv_quant": "tq",
+          "memory_required_gb": 5.065807576959999,
+          "kv_cache_gb": 0.14875000000000002,
+          "savings_fraction": 0.83,
+          "note": "Experimental: not in upstream vLLM, see 0xSero/turboquant",
+          "supported": true
+        }
+      ]
+    }
+  ]
+}

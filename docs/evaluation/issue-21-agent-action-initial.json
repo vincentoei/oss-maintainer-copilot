@@ -1,0 +1,14 @@
+{
+  "purpose": "Raw agent action-format diagnostic, synthetic input, no documentation context; not task quality",
+  "response": {
+    "output": {
+      "tool": "search_earlier_issues",
+      "arguments": {
+        "issue_number": "12081"
+      }
+    },
+    "input_tokens": 301,
+    "output_tokens": 25,
+    "error": null
+  }
+}

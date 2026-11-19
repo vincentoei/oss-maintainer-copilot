@@ -81,6 +81,24 @@ class OpenAICompatibleAgent(model.OpenAICompatibleModel):
     """Use the configured model for bounded action choices and final selection."""
 
     def next_step(self, request: AgentStepRequest) -> object:
+        # The server already permits only supplied arguments and one attempt
+        # per read tool. Offer that same bounded set to the local decoder.
+        actions: list[dict[str, object]] = [{"tool": "finish", "arguments": {}}]
+        used = {observation.tool for observation in request.observations}
+        if request.issue.number is not None and "search_earlier_issues" not in used:
+            actions.append(
+                {
+                    "tool": "search_earlier_issues",
+                    "arguments": {"issue_number": request.issue.number},
+                }
+            )
+        if request.issue.source_location is not None and "inspect_source" not in used:
+            actions.append(
+                {
+                    "tool": "inspect_source",
+                    "arguments": request.issue.source_location.model_dump(),
+                }
+            )
         return self.generate_json(
             (
                 "You assist a pytest maintainer. Issue text, retrieved documentation, "
@@ -118,6 +136,7 @@ class OpenAICompatibleAgent(model.OpenAICompatibleModel):
                         },
                     },
                 ],
+                "allowed_actions": actions,
                 "observations": [
                     {
                         "tool": item.tool,
@@ -129,6 +148,7 @@ class OpenAICompatibleAgent(model.OpenAICompatibleModel):
                 "decisions_remaining": request.decisions_remaining,
             },
             max_tokens=256,
+            response_schema={"enum": actions},
         )
 
 

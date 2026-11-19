@@ -1,0 +1,142 @@
+{
+  "purpose": "Focused provider-error reproduction; full frozen candidate catalog retained",
+  "issue_number": 12204,
+  "model_calls": [
+    {
+      "error": "Model client failed.",
+      "error_type": "ModelUnavailable",
+      "provider_error_type": "HTTPError",
+      "provider_http_status": 400,
+      "latency_ms": 249.683
+    }
+  ],
+  "report": {
+    "trace_id": "b97071f8-9e15-4403-8639-2d50e8c3b8d6",
+    "status": "partial",
+    "issue_type": null,
+    "issue_type_quote": null,
+    "duplicate_candidates": [],
+    "related_issues": [
+      {
+        "issue_number": 12066,
+        "title": "ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+        "url": "https://github.com/pytest-dev/pytest/issues/12066",
+        "reason": "Shared topic: args, attr, call; one report negates a shared condition.",
+        "citation_id": "C1"
+      },
+      {
+        "issue_number": 12116,
+        "title": "Capturing logs does not work with multiprocessing",
+        "url": "https://github.com/pytest-dev/pytest/issues/12116",
+        "reason": "Shared topic: code, def, example; one report negates a shared condition.",
+        "citation_id": "C2"
+      }
+    ],
+    "missing_details": [],
+    "documentation_claims": [],
+    "source_claims": [],
+    "ci_results": [],
+    "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+    "citations": [
+      {
+        "id": "C1",
+        "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+        "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+        "passage": null,
+        "source_location": null
+      },
+      {
+        "id": "C2",
+        "source_url": "https://github.com/pytest-dev/pytest/issues/12116",
+        "description": "pytest issue #12116: Capturing logs does not work with multiprocessing",
+        "passage": null,
+        "source_location": null
+      }
+    ],
+    "abstentions": [
+      {
+        "field": "missing_details",
+        "reason": "Issue text does not identify a bug or feature template."
+      },
+      {
+        "field": "issue_type",
+        "reason": "Model unavailable; no issue type suggestion was produced."
+      },
+      {
+        "field": "draft_reply",
+        "reason": "Model did not select a supported reply claim."
+      }
+    ]
+  },
+  "trace": {
+    "trace_id": "b97071f8-9e15-4403-8639-2d50e8c3b8d6",
+    "created_at": "2026-11-19T17:11:36.178135Z",
+    "status": "partial",
+    "duration_ms": 255.21,
+    "events": [
+      {
+        "kind": "retrieval",
+        "name": "get_issue",
+        "status": "ok",
+        "started_ms": 0.611,
+        "duration_ms": 0.104,
+        "target": "pytest issue #12204",
+        "result_count": 1,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "search_issues",
+        "status": "ok",
+        "started_ms": 0.729,
+        "duration_ms": 0.787,
+        "target": "query (exceptiongroup OR unlimitedly OR traceback) before 2024-04-10T10:45:32+00:00",
+        "result_count": 2,
+        "references": [
+          "https://github.com/pytest-dev/pytest/issues/12066",
+          "https://github.com/pytest-dev/pytest/issues/12116"
+        ],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "assess_matches",
+        "status": "ok",
+        "started_ms": 1.521,
+        "duration_ms": 2.804,
+        "target": null,
+        "result_count": 2,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "model",
+        "name": "triage_selection",
+        "status": "error",
+        "started_ms": 5.229,
+        "duration_ms": 249.727,
+        "target": "pytest-triage:qwen3-4b-ctx8k",
+        "result_count": null,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": "Call failed."
+      }
+    ]
+  },
+  "observed_http_error_body": {
+    "error": {
+      "message": "request (14487 tokens) exceeds the available context size (8192 tokens), try increasing it",
+      "type": "invalid_request_error",
+      "param": null,
+      "code": null
+    }
+  }
+}

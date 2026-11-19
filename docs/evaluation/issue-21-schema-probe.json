@@ -1,0 +1,70 @@
+{
+  "purpose": "Serving capability diagnostic, not task quality",
+  "request": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "string",
+          "enum": [
+            "right"
+          ]
+        }
+      },
+      "required": [
+        "x"
+      ],
+      "additionalProperties": false
+    },
+    "messages": [
+      {
+        "role": "user",
+        "content": "Return only {\"x\":\"wrong\"}."
+      }
+    ]
+  },
+  "responses": {
+    "openai_compatible": {
+      "id": "chatcmpl-847",
+      "object": "chat.completion",
+      "created": 1795108046,
+      "model": "pytest-triage:qwen3-4b-ctx8k",
+      "system_fingerprint": "fp_ollama",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "{\"x\":\"right\"}"
+          },
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 16,
+        "prompt_tokens_details": {
+          "cached_tokens": 1
+        },
+        "completion_tokens": 6,
+        "total_tokens": 22
+      }
+    },
+    "native": {
+      "model": "pytest-triage:qwen3-4b-ctx8k",
+      "created_at": "2026-11-19T17:07:26.5807762Z",
+      "message": {
+        "role": "assistant",
+        "content": "{\"x\":\"right\"}"
+      },
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 78506400,
+      "load_duration": 4160000,
+      "prompt_eval_count": 16,
+      "prompt_eval_cached_count": 15,
+      "prompt_eval_duration": 10065000,
+      "eval_count": 6,
+      "eval_duration": 62171000
+    }
+  }
+}

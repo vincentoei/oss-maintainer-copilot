@@ -1,0 +1,4779 @@
+{
+  "method": "local_model",
+  "model_name": "pytest-triage:qwen3-4b-ctx8k",
+  "model_call_count": 20,
+  "model_error_count": 2,
+  "aggregate": {
+    "cases": 20,
+    "completed": 20,
+    "errors": [],
+    "mean_latency_ms": 1064.31,
+    "mean_candidate_pool_size": 17.2,
+    "duplicate_retrieval_recall": 0.6,
+    "duplicate_judgment_accuracy": 0.421,
+    "issue_type_accuracy": 0.55,
+    "missing_details_exact": 0.35,
+    "missing_details_precision": 0.775,
+    "missing_details_recall": 0.65,
+    "citation_validity_rate": 1.0,
+    "issue_type_abstention_appropriateness": 0.8,
+    "duplicate_abstention_appropriateness": 0.95,
+    "draft_reply_usefulness": "pending_human_review",
+    "representative_failures": [
+      {
+        "issue_number": 7312,
+        "field": "duplicate_judgment"
+      },
+      {
+        "issue_number": 10156,
+        "field": "issue_type"
+      },
+      {
+        "issue_number": 12053,
+        "field": "missing_details"
+      },
+      {
+        "issue_number": 12083,
+        "field": "duplicate_retrieval"
+      },
+      {
+        "issue_number": 12083,
+        "field": "abstention"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "issue_number": 7312,
+      "method": "local_model",
+      "opening_cutoff": "2020-06-03T14:20:24+00:00",
+      "repository_commit": "61a6ac97054c0bd6f812642b46847c4b7cbede2a",
+      "latency_ms": 982.197,
+      "candidate_pool_size": 5,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 349,
+          "retrieved_issues": [
+            349,
+            2959,
+            7012
+          ],
+          "other_issues_unreviewed": [
+            2959,
+            7012
+          ]
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "duplicate_candidate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: enhancement",
+          "observed": "type: enhancement"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 3,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]\n- Earlier issue #2959 may be relevant: Shared topic: case, config, def; the same failure or request is not established. [C2]\n- Earlier issue #7012 may be relevant: Shared topic: def, session, single; the same failure or request is not established. [C3]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+              "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+              "description": "pytest issue #2959: pytest 3.3.0 immutable fixture params",
+              "passage": null
+            },
+            {
+              "id": "C3",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/7012",
+              "description": "pytest issue #7012: Quotation marks in pytest command collects duplicate tests",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "cb833497-1ab2-47f2-b319-525d890514a5",
+        "status": "complete",
+        "issue_type": "type: enhancement",
+        "issue_type_quote": "Feature Request - Support using session scope-fixtures when using pytest.mark.parametri",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 349,
+            "title": "Using fixtures in pytest.mark.parametrize",
+            "url": "https://github.com/pytest-dev/pytest/issues/349",
+            "reason": "Shared topic: case, currently, def; one report negates a shared condition.",
+            "citation_id": "C1"
+          },
+          {
+            "issue_number": 2959,
+            "title": "pytest 3.3.0 immutable fixture params",
+            "url": "https://github.com/pytest-dev/pytest/issues/2959",
+            "reason": "Shared topic: case, config, def; the same failure or request is not established.",
+            "citation_id": "C2"
+          },
+          {
+            "issue_number": 7012,
+            "title": "Quotation marks in pytest command collects duplicate tests",
+            "url": "https://github.com/pytest-dev/pytest/issues/7012",
+            "reason": "Shared topic: def, session, single; the same failure or request is not established.",
+            "citation_id": "C3"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]\n- Earlier issue #2959 may be relevant: Shared topic: case, config, def; the same failure or request is not established. [C2]\n- Earlier issue #7012 may be relevant: Shared topic: def, session, single; the same failure or request is not established. [C3]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+            "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+            "description": "pytest issue #2959: pytest 3.3.0 immutable fixture params",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/7012",
+            "description": "pytest issue #7012: Quotation marks in pytest command collects duplicate tests",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "cb833497-1ab2-47f2-b319-525d890514a5",
+        "created_at": "2026-11-19T17:09:21.017636Z",
+        "status": "complete",
+        "duration_ms": 871.686,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.114,
+            "duration_ms": 0.033,
+            "target": "pytest issue #7312",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.161,
+            "duration_ms": 0.157,
+            "target": "query (parametrize OR fixtures OR session) before 2020-06-03T14:20:24+00:00",
+            "result_count": 3,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/349",
+              "https://github.com/pytest-dev/pytest/issues/2959",
+              "https://github.com/pytest-dev/pytest/issues/7012"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.321,
+            "duration_ms": 0.454,
+            "target": null,
+            "result_count": 3,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 0.994,
+            "duration_ms": 870.502,
+            "target": "pytest-triage:qwen3-4b-ctx8k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 756,
+            "output_tokens": 55,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "response": {
+            "issue_type": "type: enhancement",
+            "issue_type_quote": "Feature Request - Support using session scope-fixtures when using pytest.mark.parametri",
+            "reply_citation_ids": [
+              "C1",
+              "C2",
+              "C3"
+            ]
+          },
+          "input_tokens": 756,
+          "output_tokens": 55,
+          "error": null,
+          "latency_ms": 870.409
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 3,
+        "initial_used_mib": 3834.0,
+        "peak_sampled_used_mib": 3834.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 10156,
+      "method": "local_model",
+      "opening_cutoff": "2022-07-19T20:03:50+00:00",
+      "repository_commit": "34a285986e456406b22b62aa563a64331f640e7f",
+      "latency_ms": 768.072,
+      "candidate_pool_size": 7,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 2959,
+          "retrieved_issues": [
+            349,
+            2959,
+            7312
+          ],
+          "other_issues_unreviewed": [
+            349,
+            7312
+          ]
+        },
+        "duplicate_judgment": {
+          "correct": true,
+          "expected": "nonduplicate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: docs",
+          "observed": "type: question"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 3,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C3]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+              "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+              "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+              "passage": null
+            },
+            {
+              "id": "C3",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+              "description": "pytest issue #2959: pytest 3.3.0 immutable fixture params",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "ff95d7ad-6643-4208-b6d2-1d22acfd658d",
+        "status": "complete",
+        "issue_type": "type: question",
+        "issue_type_quote": "Document how to build dynamic session-scoped fixtures\nMy particular case was that I wanted a session-",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 7312,
+            "title": "Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+            "url": "https://github.com/pytest-dev/pytest/issues/7312",
+            "reason": "Shared topic: case, config, def; the same failure or request is not established.",
+            "citation_id": "C1"
+          },
+          {
+            "issue_number": 349,
+            "title": "Using fixtures in pytest.mark.parametrize",
+            "url": "https://github.com/pytest-dev/pytest/issues/349",
+            "reason": "Shared topic: arg, but, case; one report negates a shared condition.",
+            "citation_id": "C2"
+          },
+          {
+            "issue_number": 2959,
+            "title": "pytest 3.3.0 immutable fixture params",
+            "url": "https://github.com/pytest-dev/pytest/issues/2959",
+            "reason": "Shared topic: case, com, config; the same failure or request is not established.",
+            "citation_id": "C3"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C3]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+            "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+            "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+            "description": "pytest issue #2959: pytest 3.3.0 immutable fixture params",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "ff95d7ad-6643-4208-b6d2-1d22acfd658d",
+        "created_at": "2026-11-19T17:09:21.962944Z",
+        "status": "complete",
+        "duration_ms": 690.439,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.283,
+            "duration_ms": 0.02,
+            "target": "pytest issue #10156",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.311,
+            "duration_ms": 0.178,
+            "target": "query (document OR fixtures OR dynamic) before 2022-07-19T20:03:50+00:00",
+            "result_count": 3,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/7312",
+              "https://github.com/pytest-dev/pytest/issues/349",
+              "https://github.com/pytest-dev/pytest/issues/2959"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.493,
+            "duration_ms": 0.41,
+            "target": null,
+            "result_count": 3,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 0.995,
+            "duration_ms": 689.398,
+            "target": "pytest-triage:qwen3-4b-ctx8k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 928,
+            "output_tokens": 52,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "response": {
+            "issue_type": "type: question",
+            "issue_type_quote": "Document how to build dynamic session-scoped fixtures\nMy particular case was that I wanted a session-",
+            "reply_citation_ids": [
+              "C3"
+            ]
+          },
+          "input_tokens": 928,
+          "output_tokens": 52,
+          "error": null,
+          "latency_ms": 689.321
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 3,
+        "initial_used_mib": 3834.0,
+        "peak_sampled_used_mib": 3834.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12053,
+      "method": "local_model",
+      "opening_cutoff": "2024-03-03T14:58:35+00:00",
+      "repository_commit": "00043f7f1047b29fdaeb18e169fe9d6146988cb8",
+      "latency_ms": 958.038,
+      "candidate_pool_size": 9,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 8655,
+          "retrieved_issues": [
+            7312,
+            8655,
+            10156
+          ],
+          "other_issues_unreviewed": [
+            7312,
+            10156
+          ]
+        },
+        "duplicate_judgment": {
+          "correct": true,
+          "expected": "nonduplicate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: enhancement",
+          "observed": "type: enhancement"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 0.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": [
+            "alternative solutions",
+            "real-world use case"
+          ]
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 5,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Could you add a real-world use case this would enable? [C1]\n- Could you add any workaround or alternative you have tried, or that there is none? [C2]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/00043f7f1047b29fdaeb18e169fe9d6146988cb8/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+              "description": "pytest feature report template: real-world use case",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/00043f7f1047b29fdaeb18e169fe9d6146988cb8/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+              "description": "pytest feature report template: alternative solutions",
+              "passage": null
+            },
+            {
+              "id": "C3",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/8655",
+              "description": "pytest issue #8655: Help text is misleading about the behavior of --pdb",
+              "passage": null
+            },
+            {
+              "id": "C4",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+              "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+              "passage": null
+            },
+            {
+              "id": "C5",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/10156",
+              "description": "pytest issue #10156: Document how to build dynamic session-scoped fixtures",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "f07ca242-cbd5-421c-a684-4005d0062d5f",
+        "status": "complete",
+        "issue_type": "type: enhancement",
+        "issue_type_quote": "pdbcls as a configuration option?\n#### What's the problem this feature will solve?\r\n\r\nFor some projects, I always",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 8655,
+            "title": "Help text is misleading about the behavior of --pdb",
+            "url": "https://github.com/pytest-dev/pytest/issues/8655",
+            "reason": "Shared topic: bit, currently, debugger; one report negates a shared condition.",
+            "citation_id": "C3"
+          },
+          {
+            "issue_number": 7312,
+            "title": "Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+            "url": "https://github.com/pytest-dev/pytest/issues/7312",
+            "reason": "Shared topic: case, configuration, currently; the same failure or request is not established.",
+            "citation_id": "C4"
+          },
+          {
+            "issue_number": 10156,
+            "title": "Document how to build dynamic session-scoped fixtures",
+            "url": "https://github.com/pytest-dev/pytest/issues/10156",
+            "reason": "Shared topic: case, https, like; one report negates a shared condition.",
+            "citation_id": "C5"
+          }
+        ],
+        "missing_details": [
+          {
+            "name": "real-world use case",
+            "request": "a real-world use case this would enable",
+            "citation_id": "C1"
+          },
+          {
+            "name": "alternative solutions",
+            "request": "any workaround or alternative you have tried, or that there is none",
+            "citation_id": "C2"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add a real-world use case this would enable? [C1]\n- Could you add any workaround or alternative you have tried, or that there is none? [C2]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/00043f7f1047b29fdaeb18e169fe9d6146988cb8/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+            "description": "pytest feature report template: real-world use case",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/00043f7f1047b29fdaeb18e169fe9d6146988cb8/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+            "description": "pytest feature report template: alternative solutions",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/8655",
+            "description": "pytest issue #8655: Help text is misleading about the behavior of --pdb",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C4",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+            "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C5",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/10156",
+            "description": "pytest issue #10156: Document how to build dynamic session-scoped fixtures",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": []
+      },
+      "trace": {
+        "trace_id": "f07ca242-cbd5-421c-a684-4005d0062d5f",
+        "created_at": "2026-11-19T17:09:22.740664Z",
+        "status": "complete",
+        "duration_ms": 861.631,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.826,
+            "duration_ms": 0.024,
+            "target": "pytest issue #12053",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.858,
+            "duration_ms": 0.208,
+            "target": "query (configuration OR option OR pdbcls) before 2024-03-03T14:58:35+00:00",
+            "result_count": 3,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/8655",
+              "https://github.com/pytest-dev/pytest/issues/7312",
+              "https://github.com/pytest-dev/pytest/issues/10156"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 1.069,
+            "duration_ms": 0.331,
+            "target": null,
+            "result_count": 3,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 1.462,
+            "duration_ms": 860.119,
+            "target": "pytest-triage:qwen3-4b-ctx8k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1028,
+            "output_tokens": 64,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "response": {
+            "issue_type": "type: enhancement",
+            "issue_type_quote": "pdbcls as a configuration option?\n#### What's the problem this feature will solve?\r\n\r\nFor some projects, I always",
+            "reply_citation_ids": [
+              "C1",
+              "C2"
+            ]
+          },
+          "input_tokens": 1028,
+          "output_tokens": 64,
+          "error": null,
+          "latency_ms": 860.014
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 3,
+        "initial_used_mib": 3834.0,
+        "peak_sampled_used_mib": 3834.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12072,
+      "method": "local_model",
+      "opening_cutoff": "2024-03-04T13:04:55+00:00",
+      "repository_commit": "0951cbc6e4880ee7dfc9b7e56948d83ee086e74b",
+      "latency_ms": 1047.86,
+      "candidate_pool_size": 11,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 12066,
+          "retrieved_issues": [
+            12066
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "duplicate_candidate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: bug",
+          "observed": "type: bug"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "minimal example",
+            "pip list output",
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12066 may be relevant: Shared topic: assertion, bootstrap, call_runtest_hook; the same failure or request is not established. [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+              "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "11ddda5d-ea67-4319-a761-8e81e8338bcb",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "`flaky` is broken with `pytest` 8.1\n<!--\r\nThanks for submitting an issue!\r\n\r\nQuick check-list whi",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12066,
+            "title": "ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "reason": "Shared topic: assertion, bootstrap, call_runtest_hook; the same failure or request is not established.",
+            "citation_id": "C1"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12066 may be relevant: Shared topic: assertion, bootstrap, call_runtest_hook; the same failure or request is not established. [C1]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "11ddda5d-ea67-4319-a761-8e81e8338bcb",
+        "created_at": "2026-11-19T17:09:23.700666Z",
+        "status": "complete",
+        "duration_ms": 937.694,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.07,
+            "duration_ms": 0.023,
+            "target": "pytest issue #12072",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.104,
+            "duration_ms": 0.309,
+            "target": "query (broken OR flaky) before 2024-03-04T13:04:55+00:00",
+            "result_count": 1,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/12066"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.416,
+            "duration_ms": 0.307,
+            "target": null,
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 0.802,
+            "duration_ms": 936.839,
+            "target": "pytest-triage:qwen3-4b-ctx8k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 837,
+            "output_tokens": 66,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "response": {
+            "issue_type": "type: bug",
+            "issue_type_quote": "`flaky` is broken with `pytest` 8.1\n<!--\r\nThanks for submitting an issue!\r\n\r\nQuick check-list whi",
+            "reply_citation_ids": [
+              "C1"
+            ]
+          },
+          "input_tokens": 837,
+          "output_tokens": 66,
+          "error": null,
+          "latency_ms": 936.737
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 3,
+        "initial_used_mib": 3834.0,
+        "peak_sampled_used_mib": 3834.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12079,
+      "method": "local_model",
+      "opening_cutoff": "2024-03-05T12:31:13+00:00",
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "latency_ms": 1226.986,
+      "candidate_pool_size": 12,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 11871,
+          "retrieved_issues": [
+            10156,
+            11871
+          ],
+          "other_issues_unreviewed": [
+            10156
+          ]
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "duplicate_candidate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: enhancement",
+          "observed": "type: enhancement"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 0.5,
+          "recall": 1.0,
+          "expected": [
+            "alternative solutions"
+          ],
+          "observed": [
+            "alternative solutions",
+            "real-world use case"
+          ]
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 4,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Could you add a real-world use case this would enable? [C1]\n- Could you add any workaround or alternative you have tried, or that there is none? [C2]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+              "description": "pytest feature report template: real-world use case",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+              "description": "pytest feature report template: alternative solutions",
+              "passage": null
+            },
+            {
+              "id": "C3",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/11871",
+              "description": "pytest issue #11871: Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+              "passage": null
+            },
+            {
+              "id": "C4",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/10156",
+              "description": "pytest issue #10156: Document how to build dynamic session-scoped fixtures",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "4ce26094-7047-4dc9-9424-91fb90ad949a",
+        "status": "complete",
+        "issue_type": "type: enhancement",
+        "issue_type_quote": "itional arguments\n<!--\r\nThanks for suggesting a feature!\r\n\r\nQuick check-list while suggesting features:\r\n-->\r\n\r\n#### What's the problem",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 11871,
+            "title": "Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+            "url": "https://github.com/pytest-dev/pytest/issues/11871",
+            "reason": "Shared topic: additional, all, alternative; the same failure or request is not established.",
+            "citation_id": "C3"
+          },
+          {
+            "issue_number": 10156,
+            "title": "Document how to build dynamic session-scoped fixtures",
+            "url": "https://github.com/pytest-dev/pytest/issues/10156",
+            "reason": "Shared topic: here, like, only; the same failure or request is not established.",
+            "citation_id": "C4"
+          }
+        ],
+        "missing_details": [
+          {
+            "name": "real-world use case",
+            "request": "a real-world use case this would enable",
+            "citation_id": "C1"
+          },
+          {
+            "name": "alternative solutions",
+            "request": "any workaround or alternative you have tried, or that there is none",
+            "citation_id": "C2"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add a real-world use case this would enable? [C1]\n- Could you add any workaround or alternative you have tried, or that there is none? [C2]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+            "description": "pytest feature report template: real-world use case",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+            "description": "pytest feature report template: alternative solutions",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/11871",
+            "description": "pytest issue #11871: Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C4",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/10156",
+            "description": "pytest issue #10156: Document how to build dynamic session-scoped fixtures",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": []
+      },
+      "trace": {
+        "trace_id": "4ce26094-7047-4dc9-9424-91fb90ad949a",
+        "created_at": "2026-11-19T17:09:24.753741Z",
+        "status": "complete",
+        "duration_ms": 1077.546,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.278,
+            "duration_ms": 0.021,
+            "target": "pytest issue #12079",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.311,
+            "duration_ms": 0.481,
+            "target": "query (positional OR arguments OR executed) before 2024-03-05T12:31:13+00:00",
+            "result_count": 2,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/11871",
+              "https://github.com/pytest-dev/pytest/issues/10156"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.796,
+            "duration_ms": 0.407,
+            "target": null,
+            "result_count": 2,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 1.284,
+            "duration_ms": 1076.218,
+            "target": "pytest-triage:qwen3-4b-ctx8k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1081,
+            "output_tokens": 73,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "response": {
+            "issue_type": "type: enhancement",
+            "issue_type_quote": "itional arguments\n<!--\r\nThanks for suggesting a feature!\r\n\r\nQuick check-list while suggesting features:\r\n-->\r\n\r\n#### What's the problem",
+            "reply_citation_ids": [
+              "C1",
+              "C2"
+            ]
+          },
+          "input_tokens": 1081,
+          "output_tokens": 73,
+          "error": null,
+          "latency_ms": 1076.123
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 4,
+        "initial_used_mib": 3834.0,
+        "peak_sampled_used_mib": 3834.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12081,
+      "method": "local_model",
+      "opening_cutoff": "2024-03-06T00:03:25+00:00",
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "latency_ms": 1277.708,
+      "candidate_pool_size": 13,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 3448,
+          "retrieved_issues": [
+            3448
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "duplicate_candidate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: enhancement",
+          "observed": "type: bug"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 3,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, call; one report negates a shared condition. [C1]\n- pytest documents that capture fixtures let tests access stdout and stderr created during execution. [C2]\n- At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line. [C3]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+              "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
+              "description": "pytest documentation: capture",
+              "passage": "The ``capsys``, ``capsysbinary``, ``capfd``, and ``capfdbinary`` fixtures allow access to stdout/stderr output created during test execution.  Here is"
+            },
+            {
+              "id": "C3",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+              "description": "pytest source: src/_pytest/capture.py:935",
+              "passage": "        \"\"\"Read and return the captured output so far, resetting the internal"
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "82f3dcd2-d7b2-42dc-af5c-b08d9f830dab",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "ected:\r\n```\r\n================================== FAILURES ===================================\r\n______________________________ test_result",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 3448,
+            "title": "capture: keep all output for \"Captured stdout call\" etc",
+            "url": "https://github.com/pytest-dev/pytest/issues/3448",
+            "reason": "Shared topic: assert, assertionerror, call; one report negates a shared condition.",
+            "citation_id": "C1"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [
+          {
+            "claim": "pytest documents that capture fixtures let tests access stdout and stderr created during execution.",
+            "citation_id": "C2"
+          }
+        ],
+        "source_claims": [
+          {
+            "claim": "At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line.",
+            "citation_id": "C3"
+          }
+        ],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, call; one report negates a shared condition. [C1]\n- pytest documents that capture fixtures let tests access stdout and stderr created during execution. [C2]\n- At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line. [C3]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+            "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
+            "description": "pytest documentation: capture",
+            "passage": "The ``capsys``, ``capsysbinary``, ``capfd``, and ``capfdbinary`` fixtures allow access to stdout/stderr output created during test execution.  Here is",
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+            "description": "pytest source: src/_pytest/capture.py:935",
+            "passage": "        \"\"\"Read and return the captured output so far, resetting the internal",
+            "source_location": {
+              "commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+              "path": "src/_pytest/capture.py",
+              "line": 935
+            }
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "82f3dcd2-d7b2-42dc-af5c-b08d9f830dab",
+        "created_at": "2026-11-19T17:09:25.971362Z",
+        "status": "complete",
+        "duration_ms": 1190.634,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.106,
+            "duration_ms": 0.018,
+            "target": "pytest issue #12081",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.133,
+            "duration_ms": 0.426,
+            "target": "query (readouterr OR consuming OR capture) before 2024-03-06T00:03:25+00:00",
+            "result_count": 1,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/3448"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.562,
+            "duration_ms": 0.277,
+            "target": null,
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_documentation_passage",
+            "status": "ok",
+            "started_ms": 0.933,
+            "duration_ms": 0.023,
+            "target": "capture",
+            "result_count": 1,
+            "references": [
+              "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_source_excerpt",
+            "status": "ok",
+            "started_ms": 0.974,
+            "duration_ms": 0.007,
+            "target": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+            "result_count": 1,
+            "references": [
+              "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 1.092,
+            "duration_ms": 1189.489,
+            "target": "pytest-triage:qwen3-4b-ctx8k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1873,
+            "output_tokens": 68,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "response": {
+            "issue_type": "type: bug",
+            "issue_type_quote": "ected:\r\n```\r\n================================== FAILURES ===================================\r\n______________________________ test_result",
+            "reply_citation_ids": [
+              "C1",
+              "C2",
+              "C3"
+            ]
+          },
+          "input_tokens": 1873,
+          "output_tokens": 68,
+          "error": null,
+          "latency_ms": 1189.395
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 4,
+        "initial_used_mib": 3834.0,
+        "peak_sampled_used_mib": 3834.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12083,
+      "method": "local_model",
+      "opening_cutoff": "2024-03-06T10:53:11+00:00",
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "latency_ms": 1023.321,
+      "candidate_pool_size": 14,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 7012,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": null,
+          "expected": "uncertain",
+          "observed": "not_retrieved",
+          "review_status": "pending_human_review"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: regression",
+          "observed": "type: question"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "pip list output"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": true,
+          "duplicate_observed": false,
+          "duplicate_appropriate": false,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+          "citations": []
+        }
+      },
+      "report": {
+        "trace_id": "9cc6cd35-97b8-424f-980e-90c82ced406d",
+        "status": "complete",
+        "issue_type": "type: question",
+        "issue_type_quote": "the test collection and the behavior is expected?\r\n\r\n## Additional information\r\n\r\n- With a bit of guidance, I would be willing to",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "9cc6cd35-97b8-424f-980e-90c82ced406d",
+        "created_at": "2026-11-19T17:09:27.250674Z",
+        "status": "complete",
+        "duration_ms": 932.801,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.106,
+            "duration_ms": 0.019,
+            "target": "pytest issue #12083",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.134,
+            "duration_ms": 0.376,
+            "target": "query (duplicates OR handling) before 2024-03-06T10:53:11+00:00",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.512,
+            "duration_ms": 0.004,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 0.584,
+            "duration_ms": 932.182,
+            "target": "pytest-triage:qwen3-4b-ctx8k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1206,
+            "output_tokens": 61,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "response": {
+            "issue_type": "type: question",
+            "issue_type_quote": "the test collection and the behavior is expected?\r\n\r\n## Additional information\r\n\r\n- With a bit of guidance, I would be willing to",
+            "reply_citation_ids": []
+          },
+          "input_tokens": 1206,
+          "output_tokens": 61,
+          "error": null,
+          "latency_ms": 932.056
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 3,
+        "initial_used_mib": 3834.0,
+        "peak_sampled_used_mib": 3834.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12116,
+      "method": "local_model",
+      "opening_cutoff": "2024-03-13T13:37:51+00:00",
+      "repository_commit": "c0532dda18a5cfd0e6f67113bb164485fa80eb86",
+      "latency_ms": 996.836,
+      "candidate_pool_size": 15,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 12081,
+          "retrieved_issues": [
+            12081
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": true,
+          "expected": "nonduplicate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: bug",
+          "observed": "type: bug"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 0.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": [
+            "pip list output"
+          ]
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 2,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Could you add the output of `pip list` from the virtual environment you are using? [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/c0532dda18a5cfd0e6f67113bb164485fa80eb86/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+              "description": "pytest bug report template: pip list output",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12081",
+              "description": "pytest issue #12081: Capture: copy output when using readouterr() instead of consuming it",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "db28ac6a-e694-4980-978f-bb44549d5a40",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "ltiprocessing\n### A detailed description of the bug or problem\r\nCapturing logs from spawned processes is not working - all calls to",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12081,
+            "title": "Capture: copy output when using readouterr() instead of consuming it",
+            "url": "https://github.com/pytest-dev/pytest/issues/12081",
+            "reason": "Shared topic: assert, capturing, code; one report negates a shared condition.",
+            "citation_id": "C2"
+          }
+        ],
+        "missing_details": [
+          {
+            "name": "pip list output",
+            "request": "the output of `pip list` from the virtual environment you are using",
+            "citation_id": "C1"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add the output of `pip list` from the virtual environment you are using? [C1]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/c0532dda18a5cfd0e6f67113bb164485fa80eb86/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+            "description": "pytest bug report template: pip list output",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12081",
+            "description": "pytest issue #12081: Capture: copy output when using readouterr() instead of consuming it",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": []
+      },
+      "trace": {
+        "trace_id": "db28ac6a-e694-4980-978f-bb44549d5a40",
+        "created_at": "2026-11-19T17:09:28.279092Z",
+        "status": "complete",
+        "duration_ms": 907.102,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.739,
+            "duration_ms": 0.016,
+            "target": "pytest issue #12116",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.763,
+            "duration_ms": 0.594,
+            "target": "query (multiprocessing OR capturing OR logs) before 2024-03-13T13:37:51+00:00",
+            "result_count": 1,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/12081"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 1.36,
+            "duration_ms": 0.43,
+            "target": null,
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 1.888,
+            "duration_ms": 905.174,
+            "target": "pytest-triage:qwen3-4b-ctx8k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1332,
+            "output_tokens": 60,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "response": {
+            "issue_type": "type: bug",
+            "issue_type_quote": "ltiprocessing\n### A detailed description of the bug or problem\r\nCapturing logs from spawned processes is not working - all calls to",
+            "reply_citation_ids": [
+              "C1"
+            ]
+          },
+          "input_tokens": 1332,
+          "output_tokens": 60,
+          "error": null,
+          "latency_ms": 905.092
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 3,
+        "initial_used_mib": 3834.0,
+        "peak_sampled_used_mib": 3834.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12146,
+      "method": "local_model",
+      "opening_cutoff": "2024-03-21T12:06:34+00:00",
+      "repository_commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
+      "latency_ms": 714.138,
+      "candidate_pool_size": 16,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 7312,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: bug",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+          "citations": []
+        }
+      },
+      "report": {
+        "trace_id": "be162e90-6617-4d90-b789-85af54fb3a4c",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          },
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "be162e90-6617-4d90-b789-85af54fb3a4c",
+        "created_at": "2026-11-19T17:09:29.280762Z",
+        "status": "complete",
+        "duration_ms": 601.03,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.088,
+            "duration_ms": 0.02,
+            "target": "pytest issue #12146",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.118,
+            "duration_ms": 0.696,
+            "target": "query (parametrization OR unexpectedly OR variables) before 2024-03-21T12:06:34+00:00",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.818,
+            "duration_ms": 0.005,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 0.909,
+            "duration_ms": 600.081,
+            "target": "pytest-triage:qwen3-4b-ctx8k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1375,
+            "output_tokens": 26,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "response": {
+            "issue_type": null,
+            "issue_type_quote": null,
+            "reply_citation_ids": []
+          },
+          "input_tokens": 1375,
+          "output_tokens": 26,
+          "error": null,
+          "latency_ms": 600.031
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 3,
+        "initial_used_mib": 3834.0,
+        "peak_sampled_used_mib": 3834.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12189,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-05T09:14:51+00:00",
+      "repository_commit": "4e3dd21506a9e543c04c63ebff966a9b604d2b9e",
+      "latency_ms": 1638.661,
+      "candidate_pool_size": 17,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 12081,
+          "retrieved_issues": [
+            3448,
+            11871,
+            12066,
+            12081,
+            12146
+          ],
+          "other_issues_unreviewed": [
+            3448,
+            11871,
+            12066,
+            12146
+          ]
+        },
+        "duplicate_judgment": {
+          "correct": true,
+          "expected": "nonduplicate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: question",
+          "observed": "type: bug"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 5,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12081 may be relevant: Shared topic: any, but, captured; one report negates a shared condition. [C1]\n- Earlier issue #3448 may be relevant: Shared topic: captured, def, err; one report negates a shared condition. [C2]\n- Earlier issue #11871 may be relevant: Shared topic: all, but, command; the same failure or request is not established. [C3]\n- Earlier issue #12066 may be relevant: Shared topic: command, config, environment; one report negates a shared condition. [C4]\n- Earlier issue #12146 may be relevant: Shared topic: conftest, def, import; one report negates a shared condition. [C5]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12081",
+              "description": "pytest issue #12081: Capture: copy output when using readouterr() instead of consuming it",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+              "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+              "passage": null
+            },
+            {
+              "id": "C3",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/11871",
+              "description": "pytest issue #11871: Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+              "passage": null
+            },
+            {
+              "id": "C4",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+              "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+              "passage": null
+            },
+            {
+              "id": "C5",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12146",
+              "description": "pytest issue #12146: Parametrization with Variables Unexpectedly Changes Fixture Scope from Class-Level to Function-Level",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "544a68c4-f190-4c0d-b034-b6c15b903a90",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "uites>\r\n    <testsuite name=\"pytest\" errors=\"0\" failures=\"0\" skipped=\"0\" tests=\"1\" time=\"0.014\" timestamp=\"2024-04-03T15:37:00.828439\" h",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12081,
+            "title": "Capture: copy output when using readouterr() instead of consuming it",
+            "url": "https://github.com/pytest-dev/pytest/issues/12081",
+            "reason": "Shared topic: any, but, captured; one report negates a shared condition.",
+            "citation_id": "C1"
+          },
+          {
+            "issue_number": 3448,
+            "title": "capture: keep all output for \"Captured stdout call\" etc",
+            "url": "https://github.com/pytest-dev/pytest/issues/3448",
+            "reason": "Shared topic: captured, def, err; one report negates a shared condition.",
+            "citation_id": "C2"
+          },
+          {
+            "issue_number": 11871,
+            "title": "Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+            "url": "https://github.com/pytest-dev/pytest/issues/11871",
+            "reason": "Shared topic: all, but, command; the same failure or request is not established.",
+            "citation_id": "C3"
+          },
+          {
+            "issue_number": 12066,
+            "title": "ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "reason": "Shared topic: command, config, environment; one report negates a shared condition.",
+            "citation_id": "C4"
+          },
+          {
+            "issue_number": 12146,
+            "title": "Parametrization with Variables Unexpectedly Changes Fixture Scope from Class-Level to Function-Level",
+            "url": "https://github.com/pytest-dev/pytest/issues/12146",
+            "reason": "Shared topic: conftest, def, import; one report negates a shared condition.",
+            "citation_id": "C5"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12081 may be relevant: Shared topic: any, but, captured; one report negates a shared condition. [C1]\n- Earlier issue #3448 may be relevant: Shared topic: captured, def, err; one report negates a shared condition. [C2]\n- Earlier issue #11871 may be relevant: Shared topic: all, but, command; the same failure or request is not established. [C3]\n- Earlier issue #12066 may be relevant: Shared topic: command, config, environment; one report negates a shared condition. [C4]\n- Earlier issue #12146 may be relevant: Shared topic: conftest, def, import; one report negates a shared condition. [C5]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12081",
+            "description": "pytest issue #12081: Capture: copy output when using readouterr() instead of consuming it",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+            "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/11871",
+            "description": "pytest issue #11871: Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C4",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C5",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12146",
+            "description": "pytest issue #12146: Parametrization with Variables Unexpectedly Changes Fixture Scope from Class-Level to Function-Level",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "544a68c4-f190-4c0d-b034-b6c15b903a90",
+        "created_at": "2026-11-19T17:09:29.996811Z",
+        "status": "complete",
+        "duration_ms": 1532.828,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.074,
+            "duration_ms": 0.019,
+            "target": "pytest issue #12189",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.101,
+            "duration_ms": 0.593,
+            "target": "query (written OR output OR files) before 2024-04-05T09:14:51+00:00",
+            "result_count": 7,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/12081",
+              "https://github.com/pytest-dev/pytest/issues/3448",
+              "https://github.com/pytest-dev/pytest/issues/11871",
+              "https://github.com/pytest-dev/pytest/issues/12066",
+              "https://github.com/pytest-dev/pytest/issues/12146"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.697,
+            "duration_ms": 1.618,
+            "target": null,
+            "result_count": 7,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 3.166,
+            "duration_ms": 1529.595,
+            "target": "pytest-triage:qwen3-4b-ctx8k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1592,
+            "output_tokens": 115,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "response": {
+            "issue_type": "type: bug",
+            "issue_type_quote": "uites>\r\n    <testsuite name=\"pytest\" errors=\"0\" failures=\"0\" skipped=\"0\" tests=\"1\" time=\"0.014\" timestamp=\"2024-04-03T15:37:00.828439\" h",
+            "reply_citation_ids": [
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5"
+            ]
+          },
+          "input_tokens": 1592,
+          "output_tokens": 115,
+          "error": null,
+          "latency_ms": 1529.411
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 4,
+        "initial_used_mib": 3834.0,
+        "peak_sampled_used_mib": 3834.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12197,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-08T11:30:37+00:00",
+      "repository_commit": "74f05648d5ea9e69d75f27a77972756ee32f6730",
+      "latency_ms": 634.444,
+      "candidate_pool_size": 18,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 12053,
+          "retrieved_issues": [
+            7312,
+            12053,
+            12066,
+            12189
+          ],
+          "other_issues_unreviewed": [
+            7312,
+            12066,
+            12189
+          ]
+        },
+        "duplicate_judgment": {
+          "correct": true,
+          "expected": "nonduplicate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: question",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "minimal example",
+            "pip list output",
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 4,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12053",
+              "description": "pytest issue #12053: pdbcls as a configuration option?",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12189",
+              "description": "pytest issue #12189: No output written to JUnit XML files",
+              "passage": null
+            },
+            {
+              "id": "C3",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+              "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+              "passage": null
+            },
+            {
+              "id": "C4",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+              "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "8250c009-c219-48bf-b8a8-ea46fe3f0e02",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12053,
+            "title": "pdbcls as a configuration option?",
+            "url": "https://github.com/pytest-dev/pytest/issues/12053",
+            "reason": "Shared topic: configuration, ini, option; one report negates a shared condition.",
+            "citation_id": "C1"
+          },
+          {
+            "issue_number": 12189,
+            "title": "No output written to JUnit XML files",
+            "url": "https://github.com/pytest-dev/pytest/issues/12189",
+            "reason": "Shared topic: any, log, one; the same failure or request is not established.",
+            "citation_id": "C2"
+          },
+          {
+            "issue_number": 7312,
+            "title": "Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+            "url": "https://github.com/pytest-dev/pytest/issues/7312",
+            "reason": "Shared topic: being, one; the same failure or request is not established.",
+            "citation_id": "C3"
+          },
+          {
+            "issue_number": 12066,
+            "title": "ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "reason": "Shared topic: disable, possible; the same failure or request is not established.",
+            "citation_id": "C4"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12053",
+            "description": "pytest issue #12053: pdbcls as a configuration option?",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12189",
+            "description": "pytest issue #12189: No output written to JUnit XML files",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+            "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C4",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          },
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "8250c009-c219-48bf-b8a8-ea46fe3f0e02",
+        "created_at": "2026-11-19T17:09:31.632953Z",
+        "status": "complete",
+        "duration_ms": 507.455,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.051,
+            "duration_ms": 0.022,
+            "target": "pytest issue #12197",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.082,
+            "duration_ms": 0.799,
+            "target": "query (configuration OR disable OR effect) before 2024-04-08T11:30:37+00:00",
+            "result_count": 5,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/12053",
+              "https://github.com/pytest-dev/pytest/issues/12189",
+              "https://github.com/pytest-dev/pytest/issues/7312",
+              "https://github.com/pytest-dev/pytest/issues/12066"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.885,
+            "duration_ms": 0.742,
+            "target": null,
+            "result_count": 4,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 1.713,
+            "duration_ms": 505.696,
+            "target": "pytest-triage:qwen3-4b-ctx8k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 606,
+            "output_tokens": 26,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "response": {
+            "issue_type": null,
+            "issue_type_quote": null,
+            "reply_citation_ids": []
+          },
+          "input_tokens": 606,
+          "output_tokens": 26,
+          "error": null,
+          "latency_ms": 505.653
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 3,
+        "initial_used_mib": 3834.0,
+        "peak_sampled_used_mib": 3834.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12201,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-09T14:22:08+00:00",
+      "repository_commit": "17fc20af78d0c7b739806c4e461d2c9b8c30ceeb",
+      "latency_ms": 1092.59,
+      "candidate_pool_size": 19,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 12146,
+          "retrieved_issues": [
+            12146
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": true,
+          "expected": "nonduplicate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: enhancement",
+          "observed": "type: enhancement"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 0.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": [
+            "alternative solutions",
+            "real-world use case"
+          ]
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 3,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Could you add a real-world use case this would enable? [C1]\n- Could you add any workaround or alternative you have tried, or that there is none? [C2]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/17fc20af78d0c7b739806c4e461d2c9b8c30ceeb/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+              "description": "pytest feature report template: real-world use case",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/17fc20af78d0c7b739806c4e461d2c9b8c30ceeb/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+              "description": "pytest feature report template: alternative solutions",
+              "passage": null
+            },
+            {
+              "id": "C3",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12146",
+              "description": "pytest issue #12146: Parametrization with Variables Unexpectedly Changes Fixture Scope from Class-Level to Function-Level",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "7ea10b0d-7bd7-4dc6-8281-f007e98d11c5",
+        "status": "complete",
+        "issue_type": "type: enhancement",
+        "issue_type_quote": "t parametrization\n<!--\r\nThanks for suggesting a feature!\r\n\r\nQuick check-list while suggesting features:\r\n-->\r\n\r\n#### What's the problem",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12146,
+            "title": "Parametrization with Variables Unexpectedly Changes Fixture Scope from Class-Level to Function-Level",
+            "url": "https://github.com/pytest-dev/pytest/issues/12146",
+            "reason": "Shared topic: def, list, mark; the same failure or request is not established.",
+            "citation_id": "C3"
+          }
+        ],
+        "missing_details": [
+          {
+            "name": "real-world use case",
+            "request": "a real-world use case this would enable",
+            "citation_id": "C1"
+          },
+          {
+            "name": "alternative solutions",
+            "request": "any workaround or alternative you have tried, or that there is none",
+            "citation_id": "C2"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add a real-world use case this would enable? [C1]\n- Could you add any workaround or alternative you have tried, or that there is none? [C2]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/17fc20af78d0c7b739806c4e461d2c9b8c30ceeb/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+            "description": "pytest feature report template: real-world use case",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/17fc20af78d0c7b739806c4e461d2c9b8c30ceeb/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+            "description": "pytest feature report template: alternative solutions",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12146",
+            "description": "pytest issue #12146: Parametrization with Variables Unexpectedly Changes Fixture Scope from Class-Level to Function-Level",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": []
+      },
+      "trace": {
+        "trace_id": "7ea10b0d-7bd7-4dc6-8281-f007e98d11c5",
+        "created_at": "2026-11-19T17:09:32.258090Z",
+        "status": "complete",
+        "duration_ms": 988.159,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.219,
+            "duration_ms": 0.017,
+            "target": "pytest issue #12201",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.244,
+            "duration_ms": 0.483,
+            "target": "query (parametrization OR conditional) before 2024-04-09T14:22:08+00:00",
+            "result_count": 1,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/12146"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.731,
+            "duration_ms": 0.282,
+            "target": null,
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 1.078,
+            "duration_ms": 987.019,
+            "target": "pytest-triage:qwen3-4b-ctx8k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1038,
+            "output_tokens": 75,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "response": {
+            "issue_type": "type: enhancement",
+            "issue_type_quote": "t parametrization\n<!--\r\nThanks for suggesting a feature!\r\n\r\nQuick check-list while suggesting features:\r\n-->\r\n\r\n#### What's the problem",
+            "reply_citation_ids": [
+              "C1",
+              "C2"
+            ]
+          },
+          "input_tokens": 1038,
+          "output_tokens": 75,
+          "error": null,
+          "latency_ms": 986.894
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 3,
+        "initial_used_mib": 3834.0,
+        "peak_sampled_used_mib": 3834.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12203,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-10T09:18:43+00:00",
+      "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+      "latency_ms": 1635.687,
+      "candidate_pool_size": 20,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12116,
+          "retrieved_issues": [
+            3448,
+            12066,
+            12081
+          ],
+          "other_issues_unreviewed": [
+            3448,
+            12066,
+            12081
+          ]
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: bug",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [
+            "minimal example"
+          ],
+          "observed": [
+            "minimal example"
+          ]
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 4,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "issue_type"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. Could you add the following details?\n- a minimal example, if possible [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/1f001cd1051a4ca4bef251d93e472e625578aaf7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+              "description": "pytest bug report template: minimal example",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12081",
+              "description": "pytest issue #12081: Capture: copy output when using readouterr() instead of consuming it",
+              "passage": null
+            },
+            {
+              "id": "C3",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+              "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+              "passage": null
+            },
+            {
+              "id": "C4",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+              "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "33df071e-5763-4f96-815f-a3646e59a1fb",
+        "status": "partial",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12081,
+            "title": "Capture: copy output when using readouterr() instead of consuming it",
+            "url": "https://github.com/pytest-dev/pytest/issues/12081",
+            "reason": "Shared topic: actual, but, capture; one report negates a shared condition.",
+            "citation_id": "C2"
+          },
+          {
+            "issue_number": 3448,
+            "title": "capture: keep all output for \"Captured stdout call\" etc",
+            "url": "https://github.com/pytest-dev/pytest/issues/3448",
+            "reason": "Shared topic: capture, def, failed; one report negates a shared condition.",
+            "citation_id": "C3"
+          },
+          {
+            "issue_number": 12066,
+            "title": "ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "reason": "Shared topic: description, detailed, environment; one report negates a shared condition.",
+            "citation_id": "C4"
+          }
+        ],
+        "missing_details": [
+          {
+            "name": "minimal example",
+            "request": "a minimal example, if possible",
+            "citation_id": "C1"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. Could you add the following details?\n- a minimal example, if possible [C1]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/1f001cd1051a4ca4bef251d93e472e625578aaf7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+            "description": "pytest bug report template: minimal example",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12081",
+            "description": "pytest issue #12081: Capture: copy output when using readouterr() instead of consuming it",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+            "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C4",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "issue_type",
+            "reason": "Model output failed validation; no issue type was suggested."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "33df071e-5763-4f96-815f-a3646e59a1fb",
+        "created_at": "2026-11-19T17:09:33.359397Z",
+        "status": "partial",
+        "duration_ms": 1524.493,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.388,
+            "duration_ms": 0.016,
+            "target": "pytest issue #12203",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.413,
+            "duration_ms": 0.684,
+            "target": "query (exception OR teardown OR capture) before 2024-04-10T09:18:43+00:00",
+            "result_count": 3,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/12081",
+              "https://github.com/pytest-dev/pytest/issues/3448",
+              "https://github.com/pytest-dev/pytest/issues/12066"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 1.1,
+            "duration_ms": 0.773,
+            "target": null,
+            "result_count": 3,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "error",
+            "started_ms": 1.964,
+            "duration_ms": 1522.414,
+            "target": "pytest-triage:qwen3-4b-ctx8k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1334,
+            "output_tokens": 109,
+            "error": "Call failed."
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "response": {
+            "issue_type": "type: bug",
+            "issue_type_quote": "          2024.2.2\r\ncharset-normalizer   3.3.2\r\ndeprecation          2.1.0\r\nexecnet              2.1.1\r\nfilelock             3.13.4\r\nidna  ",
+            "reply_citation_ids": [
+              "C1",
+              "C2",
+              "C3",
+              "C4"
+            ]
+          },
+          "input_tokens": 1334,
+          "output_tokens": 109,
+          "error": null,
+          "latency_ms": 1522.119
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 4,
+        "initial_used_mib": 3834.0,
+        "peak_sampled_used_mib": 3834.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12204,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-10T10:45:32+00:00",
+      "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+      "latency_ms": 245.108,
+      "candidate_pool_size": 21,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12203,
+          "retrieved_issues": [
+            12066,
+            12116
+          ],
+          "other_issues_unreviewed": [
+            12066,
+            12116
+          ]
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: bug",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 2,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+              "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12116",
+              "description": "pytest issue #12116: Capturing logs does not work with multiprocessing",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "fbcad559-611f-4ed2-b6e0-3d9ca3cafe20",
+        "status": "partial",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12066,
+            "title": "ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "reason": "Shared topic: args, attr, call; one report negates a shared condition.",
+            "citation_id": "C1"
+          },
+          {
+            "issue_number": 12116,
+            "title": "Capturing logs does not work with multiprocessing",
+            "url": "https://github.com/pytest-dev/pytest/issues/12116",
+            "reason": "Shared topic: code, def, example; one report negates a shared condition.",
+            "citation_id": "C2"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12116",
+            "description": "pytest issue #12116: Capturing logs does not work with multiprocessing",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model unavailable; no issue type suggestion was produced."
+          },
+          {
+            "field": "draft_reply",
+            "reason": "Model did not select a supported reply claim."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "fbcad559-611f-4ed2-b6e0-3d9ca3cafe20",
+        "created_at": "2026-11-19T17:09:34.995664Z",
+        "status": "partial",
+        "duration_ms": 140.661,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.601,
+            "duration_ms": 0.024,
+            "target": "pytest issue #12204",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.636,
+            "duration_ms": 1.076,
+            "target": "query (exceptiongroup OR unlimitedly OR traceback) before 2024-04-10T10:45:32+00:00",
+            "result_count": 2,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/12066",
+              "https://github.com/pytest-dev/pytest/issues/12116"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 1.716,
+            "duration_ms": 3.71,
+            "target": null,
+            "result_count": 2,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "error",
+            "started_ms": 6.191,
+            "duration_ms": 134.358,
+            "target": "pytest-triage:qwen3-4b-ctx8k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": "Call failed."
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "error": "Model client failed.",
+          "latency_ms": 134.309
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 2,
+        "initial_used_mib": 3834.0,
+        "peak_sampled_used_mib": 3834.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12216,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-15T07:38:50+00:00",
+      "repository_commit": "5f6e825a2687f6bb8bc437e67a59c0a92fb16c06",
+      "latency_ms": 1007.844,
+      "candidate_pool_size": 22,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 12146,
+          "retrieved_issues": [
+            7312,
+            12146
+          ],
+          "other_issues_unreviewed": [
+            7312
+          ]
+        },
+        "duplicate_judgment": {
+          "correct": true,
+          "expected": "nonduplicate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: bug",
+          "observed": "type: bug"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "pip list output",
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 2,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12146 may be relevant: Shared topic: def, fixture, fixturenames; one report negates a shared condition. [C1]\n- Earlier issue #7312 may be relevant: Shared topic: case, def, fixture; the same failure or request is not established. [C2]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12146",
+              "description": "pytest issue #12146: Parametrization with Variables Unexpectedly Changes Fixture Scope from Class-Level to Function-Level",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+              "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "5a9d4f5b-c2f9-4b0a-bbd4-a5bef2d49391",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "\n\r\nIn this form, the code results in collection error, claiming `In test_me: function uses no fixture 'myfix'`\r\nIf the commented out ",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12146,
+            "title": "Parametrization with Variables Unexpectedly Changes Fixture Scope from Class-Level to Function-Level",
+            "url": "https://github.com/pytest-dev/pytest/issues/12146",
+            "reason": "Shared topic: def, fixture, fixturenames; one report negates a shared condition.",
+            "citation_id": "C1"
+          },
+          {
+            "issue_number": 7312,
+            "title": "Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+            "url": "https://github.com/pytest-dev/pytest/issues/7312",
+            "reason": "Shared topic: case, def, fixture; the same failure or request is not established.",
+            "citation_id": "C2"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12146 may be relevant: Shared topic: def, fixture, fixturenames; one report negates a shared condition. [C1]\n- Earlier issue #7312 may be relevant: Shared topic: case, def, fixture; the same failure or request is not established. [C2]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12146",
+            "description": "pytest issue #12146: Parametrization with Variables Unexpectedly Changes Fixture Scope from Class-Level to Function-Level",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+            "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "5a9d4f5b-c2f9-4b0a-bbd4-a5bef2d49391",
+        "created_at": "2026-11-19T17:09:35.232190Z",
+        "status": "complete",
+        "duration_ms": 913.016,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.071,
+            "duration_ms": 0.02,
+            "target": "pytest issue #12216",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.101,
+            "duration_ms": 1.576,
+            "target": "query (pytest_generate_test OR parameterized OR executing) before 2024-04-15T07:38:50+00:00",
+            "result_count": 2,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/12146",
+              "https://github.com/pytest-dev/pytest/issues/7312"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 1.682,
+            "duration_ms": 0.412,
+            "target": null,
+            "result_count": 2,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 2.182,
+            "duration_ms": 910.789,
+            "target": "pytest-triage:qwen3-4b-ctx8k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 906,
+            "output_tokens": 71,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "response": {
+            "issue_type": "type: bug",
+            "issue_type_quote": "\n\r\nIn this form, the code results in collection error, claiming `In test_me: function uses no fixture 'myfix'`\r\nIf the commented out ",
+            "reply_citation_ids": [
+              "C1",
+              "C2"
+            ]
+          },
+          "input_tokens": 906,
+          "output_tokens": 71,
+          "error": null,
+          "latency_ms": 910.695
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 3,
+        "initial_used_mib": 3834.0,
+        "peak_sampled_used_mib": 3834.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12219,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-16T08:22:38+00:00",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "latency_ms": 1231.195,
+      "candidate_pool_size": 23,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 4064,
+          "retrieved_issues": [
+            4064,
+            12216
+          ],
+          "other_issues_unreviewed": [
+            12216
+          ]
+        },
+        "duplicate_judgment": {
+          "correct": true,
+          "expected": "nonduplicate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: bug",
+          "observed": "type: enhancement"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "minimal example",
+            "pip list output",
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 2,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/4064",
+              "description": "pytest issue #4064: Docs: is setUpModule/tearDownModule supported?",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12216",
+              "description": "pytest issue #12216: Adding parameterized fixture in pytest_generate_test is not executing the fixture's code, even if it is marked as \"indirect\"",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "ab853a95-cf15-4fe8-8e8d-c444038b3070",
+        "status": "complete",
+        "issue_type": "type: enhancement",
+        "issue_type_quote": "===============\r\n```\r\n\r\nIf on the other hand, I add the following to `conftest.py`, the setup/teardown methods are called:\r\n\r\n```py",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 4064,
+            "title": "Docs: is setUpModule/tearDownModule supported?",
+            "url": "https://github.com/pytest-dev/pytest/issues/4064",
+            "reason": "Shared topic: blob, but, com; one report negates a shared condition.",
+            "citation_id": "C1"
+          },
+          {
+            "issue_number": 12216,
+            "title": "Adding parameterized fixture in pytest_generate_test is not executing the fixture's code, even if it is marked as \"indirect\"",
+            "url": "https://github.com/pytest-dev/pytest/issues/12216",
+            "reason": "Shared topic: add, but, com; one report negates a shared condition.",
+            "citation_id": "C2"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/4064",
+            "description": "pytest issue #4064: Docs: is setUpModule/tearDownModule supported?",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12216",
+            "description": "pytest issue #12216: Adding parameterized fixture in pytest_generate_test is not executing the fixture's code, even if it is marked as \"indirect\"",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "ab853a95-cf15-4fe8-8e8d-c444038b3070",
+        "created_at": "2026-11-19T17:09:36.248827Z",
+        "status": "complete",
+        "duration_ms": 1084.886,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.068,
+            "duration_ms": 0.022,
+            "target": "pytest issue #12219",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.099,
+            "duration_ms": 1.804,
+            "target": "query (teardownmodule OR setupmodule OR invoked) before 2024-04-16T08:22:38+00:00",
+            "result_count": 2,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/4064",
+              "https://github.com/pytest-dev/pytest/issues/12216"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 1.907,
+            "duration_ms": 0.318,
+            "target": null,
+            "result_count": 2,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 2.322,
+            "duration_ms": 1082.514,
+            "target": "pytest-triage:qwen3-4b-ctx8k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1163,
+            "output_tokens": 71,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "response": {
+            "issue_type": "type: enhancement",
+            "issue_type_quote": "===============\r\n```\r\n\r\nIf on the other hand, I add the following to `conftest.py`, the setup/teardown methods are called:\r\n\r\n```py",
+            "reply_citation_ids": []
+          },
+          "input_tokens": 1163,
+          "output_tokens": 71,
+          "error": null,
+          "latency_ms": 1082.379
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 4,
+        "initial_used_mib": 3834.0,
+        "peak_sampled_used_mib": 3834.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12223,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-17T09:00:30+00:00",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "latency_ms": 1404.136,
+      "candidate_pool_size": 24,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12204,
+          "retrieved_issues": [
+            3448,
+            12079,
+            12081,
+            12116,
+            12189
+          ],
+          "other_issues_unreviewed": [
+            3448,
+            12079,
+            12081,
+            12116,
+            12189
+          ]
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: bug",
+          "observed": "type: bug"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "pip list output",
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 5,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12189 may be relevant: Shared topic: anything, but, classname; one report negates a shared condition. [C1]\n- Earlier issue #12081 may be relevant: Shared topic: assert, assertionerror, both; the same failure or request is not established. [C2]\n- Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, def; the same failure or request is not established. [C3]\n- Earlier issue #12116 may be relevant: Shared topic: assert, correctly, def; one report negates a shared condition. [C4]\n- Earlier issue #12079 may be relevant: Shared topic: file, like, only; the same failure or request is not established. [C5]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12189",
+              "description": "pytest issue #12189: No output written to JUnit XML files",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12081",
+              "description": "pytest issue #12081: Capture: copy output when using readouterr() instead of consuming it",
+              "passage": null
+            },
+            {
+              "id": "C3",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+              "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+              "passage": null
+            },
+            {
+              "id": "C4",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12116",
+              "description": "pytest issue #12116: Capturing logs does not work with multiprocessing",
+              "passage": null
+            },
+            {
+              "id": "C5",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12079",
+              "description": "pytest issue #12079: Read tests to be executed from a file instead of from positional arguments",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "7968ced0-2bf6-42c6-81c3-9a031af3c262",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "andle with -vv\nSuppose you have a test that may fail with a very large diff; say:\r\n```python\r\ndef test_xyz() -> None:\r\n    assert [\"",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12189,
+            "title": "No output written to JUnit XML files",
+            "url": "https://github.com/pytest-dev/pytest/issues/12189",
+            "reason": "Shared topic: anything, but, classname; one report negates a shared condition.",
+            "citation_id": "C1"
+          },
+          {
+            "issue_number": 12081,
+            "title": "Capture: copy output when using readouterr() instead of consuming it",
+            "url": "https://github.com/pytest-dev/pytest/issues/12081",
+            "reason": "Shared topic: assert, assertionerror, both; the same failure or request is not established.",
+            "citation_id": "C2"
+          },
+          {
+            "issue_number": 3448,
+            "title": "capture: keep all output for \"Captured stdout call\" etc",
+            "url": "https://github.com/pytest-dev/pytest/issues/3448",
+            "reason": "Shared topic: assert, assertionerror, def; the same failure or request is not established.",
+            "citation_id": "C3"
+          },
+          {
+            "issue_number": 12116,
+            "title": "Capturing logs does not work with multiprocessing",
+            "url": "https://github.com/pytest-dev/pytest/issues/12116",
+            "reason": "Shared topic: assert, correctly, def; one report negates a shared condition.",
+            "citation_id": "C4"
+          },
+          {
+            "issue_number": 12079,
+            "title": "Read tests to be executed from a file instead of from positional arguments",
+            "url": "https://github.com/pytest-dev/pytest/issues/12079",
+            "reason": "Shared topic: file, like, only; the same failure or request is not established.",
+            "citation_id": "C5"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12189 may be relevant: Shared topic: anything, but, classname; one report negates a shared condition. [C1]\n- Earlier issue #12081 may be relevant: Shared topic: assert, assertionerror, both; the same failure or request is not established. [C2]\n- Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, def; the same failure or request is not established. [C3]\n- Earlier issue #12116 may be relevant: Shared topic: assert, correctly, def; one report negates a shared condition. [C4]\n- Earlier issue #12079 may be relevant: Shared topic: file, like, only; the same failure or request is not established. [C5]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12189",
+            "description": "pytest issue #12189: No output written to JUnit XML files",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12081",
+            "description": "pytest issue #12081: Capture: copy output when using readouterr() instead of consuming it",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+            "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C4",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12116",
+            "description": "pytest issue #12116: Capturing logs does not work with multiprocessing",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C5",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12079",
+            "description": "pytest issue #12079: Read tests to be executed from a file instead of from positional arguments",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "7968ced0-2bf6-42c6-81c3-9a031af3c262",
+        "created_at": "2026-11-19T17:09:37.475577Z",
+        "status": "complete",
+        "duration_ms": 1302.319,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.074,
+            "duration_ms": 0.022,
+            "target": "pytest issue #12223",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.106,
+            "duration_ms": 1.715,
+            "target": "query (attribute OR handle OR output) before 2024-04-17T09:00:30+00:00",
+            "result_count": 8,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/12189",
+              "https://github.com/pytest-dev/pytest/issues/12081",
+              "https://github.com/pytest-dev/pytest/issues/3448",
+              "https://github.com/pytest-dev/pytest/issues/12116",
+              "https://github.com/pytest-dev/pytest/issues/12079"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 1.837,
+            "duration_ms": 1.834,
+            "target": null,
+            "result_count": 8,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 3.795,
+            "duration_ms": 1298.47,
+            "target": "pytest-triage:qwen3-4b-ctx8k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1336,
+            "output_tokens": 89,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "response": {
+            "issue_type": "type: bug",
+            "issue_type_quote": "andle with -vv\nSuppose you have a test that may fail with a very large diff; say:\r\n```python\r\ndef test_xyz() -> None:\r\n    assert [\"",
+            "reply_citation_ids": [
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5"
+            ]
+          },
+          "input_tokens": 1336,
+          "output_tokens": 89,
+          "error": null,
+          "latency_ms": 1298.367
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 4,
+        "initial_used_mib": 3834.0,
+        "peak_sampled_used_mib": 3836.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12224,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-18T05:51:07+00:00",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "latency_ms": 1117.805,
+      "candidate_pool_size": 25,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 10156,
+          "retrieved_issues": [
+            11871
+          ],
+          "other_issues_unreviewed": [
+            11871
+          ]
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: enhancement",
+          "observed": "type: enhancement"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #11871 may be relevant: Shared topic: additional, alternative, but; one report negates a shared condition. [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/11871",
+              "description": "pytest issue #11871: Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "c09efd6e-8d1b-4e76-9e3d-66715793f9c8",
+        "status": "complete",
+        "issue_type": "type: enhancement",
+        "issue_type_quote": "cripting interface\n#### What's the problem this feature will solve?\r\nI'm using pytest (running in linux) to run tests in pyodide (in a ",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 11871,
+            "title": "Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+            "url": "https://github.com/pytest-dev/pytest/issues/11871",
+            "reason": "Shared topic: additional, alternative, but; one report negates a shared condition.",
+            "citation_id": "C1"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #11871 may be relevant: Shared topic: additional, alternative, but; one report negates a shared condition. [C1]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/11871",
+            "description": "pytest issue #11871: Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": []
+      },
+      "trace": {
+        "trace_id": "c09efd6e-8d1b-4e76-9e3d-66715793f9c8",
+        "created_at": "2026-11-19T17:09:38.880964Z",
+        "status": "complete",
+        "duration_ms": 1026.111,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.167,
+            "duration_ms": 0.023,
+            "target": "pytest issue #12224",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.2,
+            "duration_ms": 1.926,
+            "target": "query (interface OR scripting OR granular) before 2024-04-18T05:51:07+00:00",
+            "result_count": 1,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/11871"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 2.131,
+            "duration_ms": 0.266,
+            "target": null,
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 2.498,
+            "duration_ms": 1023.574,
+            "target": "pytest-triage:qwen3-4b-ctx8k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1123,
+            "output_tokens": 71,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "response": {
+            "issue_type": "type: enhancement",
+            "issue_type_quote": "cripting interface\n#### What's the problem this feature will solve?\r\nI'm using pytest (running in linux) to run tests in pyodide (in a ",
+            "reply_citation_ids": [
+              "C1"
+            ]
+          },
+          "input_tokens": 1123,
+          "output_tokens": 71,
+          "error": null,
+          "latency_ms": 1023.493
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 3,
+        "initial_used_mib": 3836.0,
+        "peak_sampled_used_mib": 3836.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12226,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-19T11:34:17+00:00",
+      "repository_commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
+      "latency_ms": 1005.961,
+      "candidate_pool_size": 26,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12197,
+          "retrieved_issues": [
+            349,
+            7312,
+            12224
+          ],
+          "other_issues_unreviewed": [
+            349,
+            7312,
+            12224
+          ]
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: enhancement",
+          "observed": "type: enhancement"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 0.5,
+          "recall": 1.0,
+          "expected": [
+            "alternative solutions"
+          ],
+          "observed": [
+            "alternative solutions",
+            "real-world use case"
+          ]
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 5,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Could you add a real-world use case this would enable? [C1]\n- Could you add any workaround or alternative you have tried, or that there is none? [C2]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+              "description": "pytest feature report template: real-world use case",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+              "description": "pytest feature report template: alternative solutions",
+              "passage": null
+            },
+            {
+              "id": "C3",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12224",
+              "description": "pytest issue #12224: More granular scripting interface",
+              "passage": null
+            },
+            {
+              "id": "C4",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+              "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+              "passage": null
+            },
+            {
+              "id": "C5",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+              "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "dd598c8e-2970-4227-a2a4-cf73f6921545",
+        "status": "complete",
+        "issue_type": "type: enhancement",
+        "issue_type_quote": "support an alternate syntax for \"not\" (as in `pytest -m \"not stuff\"`)\n#### What's the p",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12224,
+            "title": "More granular scripting interface",
+            "url": "https://github.com/pytest-dev/pytest/issues/12224",
+            "reason": "Shared topic: additional, alternative, context; one report negates a shared condition.",
+            "citation_id": "C3"
+          },
+          {
+            "issue_number": 7312,
+            "title": "Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+            "url": "https://github.com/pytest-dev/pytest/issues/7312",
+            "reason": "Shared topic: like, problem, solve; the same failure or request is not established.",
+            "citation_id": "C4"
+          },
+          {
+            "issue_number": 349,
+            "title": "Using fixtures in pytest.mark.parametrize",
+            "url": "https://github.com/pytest-dev/pytest/issues/349",
+            "reason": "Shared topic: like, syntax, what; the same failure or request is not established.",
+            "citation_id": "C5"
+          }
+        ],
+        "missing_details": [
+          {
+            "name": "real-world use case",
+            "request": "a real-world use case this would enable",
+            "citation_id": "C1"
+          },
+          {
+            "name": "alternative solutions",
+            "request": "any workaround or alternative you have tried, or that there is none",
+            "citation_id": "C2"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add a real-world use case this would enable? [C1]\n- Could you add any workaround or alternative you have tried, or that there is none? [C2]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+            "description": "pytest feature report template: real-world use case",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+            "description": "pytest feature report template: alternative solutions",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12224",
+            "description": "pytest issue #12224: More granular scripting interface",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C4",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+            "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C5",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+            "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": []
+      },
+      "trace": {
+        "trace_id": "dd598c8e-2970-4227-a2a4-cf73f6921545",
+        "created_at": "2026-11-19T17:09:39.990536Z",
+        "status": "complete",
+        "duration_ms": 920.152,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.208,
+            "duration_ms": 0.017,
+            "target": "pytest issue #12226",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.234,
+            "duration_ms": 1.829,
+            "target": "query (alternate OR syntax OR stuff) before 2024-04-19T11:34:17+00:00",
+            "result_count": 3,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/12224",
+              "https://github.com/pytest-dev/pytest/issues/7312",
+              "https://github.com/pytest-dev/pytest/issues/349"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 2.067,
+            "duration_ms": 0.414,
+            "target": null,
+            "result_count": 3,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 2.542,
+            "duration_ms": 917.567,
+            "target": "pytest-triage:qwen3-4b-ctx8k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 973,
+            "output_tokens": 63,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "response": {
+            "issue_type": "type: enhancement",
+            "issue_type_quote": "support an alternate syntax for \"not\" (as in `pytest -m \"not stuff\"`)\n#### What's the p",
+            "reply_citation_ids": [
+              "C1",
+              "C2"
+            ]
+          },
+          "input_tokens": 973,
+          "output_tokens": 63,
+          "error": null,
+          "latency_ms": 917.491
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 3,
+        "initial_used_mib": 3836.0,
+        "peak_sampled_used_mib": 3836.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12228,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-19T17:30:10+00:00",
+      "repository_commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
+      "latency_ms": 1277.695,
+      "candidate_pool_size": 27,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12197,
+          "retrieved_issues": [
+            2959,
+            12053,
+            12081
+          ],
+          "other_issues_unreviewed": [
+            2959,
+            12053,
+            12081
+          ]
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: docs",
+          "observed": "type: docs"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 0.5,
+          "recall": 1.0,
+          "expected": [
+            "alternative solutions"
+          ],
+          "observed": [
+            "alternative solutions",
+            "real-world use case"
+          ]
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 5,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Could you add a real-world use case this would enable? [C1]\n- Could you add any workaround or alternative you have tried, or that there is none? [C2]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+              "description": "pytest feature report template: real-world use case",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+              "description": "pytest feature report template: alternative solutions",
+              "passage": null
+            },
+            {
+              "id": "C3",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12053",
+              "description": "pytest issue #12053: pdbcls as a configuration option?",
+              "passage": null
+            },
+            {
+              "id": "C4",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12081",
+              "description": "pytest issue #12081: Capture: copy output when using readouterr() instead of consuming it",
+              "passage": null
+            },
+            {
+              "id": "C5",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+              "description": "pytest issue #2959: pytest 3.3.0 immutable fixture params",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "926b2290-fa3a-400f-bb76-feb0f45f0df2",
+        "status": "complete",
+        "issue_type": "type: docs",
+        "issue_type_quote": "Documentation request: types/shapes of options in `[tool.pytest.ini_options]`\n<!--\r\nThanks fo",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12053,
+            "title": "pdbcls as a configuration option?",
+            "url": "https://github.com/pytest-dev/pytest/issues/12053",
+            "reason": "Shared topic: bit, case, configuration; one report negates a shared condition.",
+            "citation_id": "C3"
+          },
+          {
+            "issue_number": 12081,
+            "title": "Capture: copy output when using readouterr() instead of consuming it",
+            "url": "https://github.com/pytest-dev/pytest/issues/12081",
+            "reason": "Shared topic: additional, any, because; the same failure or request is not established.",
+            "citation_id": "C4"
+          },
+          {
+            "issue_number": 2959,
+            "title": "pytest 3.3.0 immutable fixture params",
+            "url": "https://github.com/pytest-dev/pytest/issues/2959",
+            "reason": "Shared topic: case, com, github; one report negates a shared condition.",
+            "citation_id": "C5"
+          }
+        ],
+        "missing_details": [
+          {
+            "name": "real-world use case",
+            "request": "a real-world use case this would enable",
+            "citation_id": "C1"
+          },
+          {
+            "name": "alternative solutions",
+            "request": "any workaround or alternative you have tried, or that there is none",
+            "citation_id": "C2"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add a real-world use case this would enable? [C1]\n- Could you add any workaround or alternative you have tried, or that there is none? [C2]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+            "description": "pytest feature report template: real-world use case",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+            "description": "pytest feature report template: alternative solutions",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12053",
+            "description": "pytest issue #12053: pdbcls as a configuration option?",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C4",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12081",
+            "description": "pytest issue #12081: Capture: copy output when using readouterr() instead of consuming it",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C5",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+            "description": "pytest issue #2959: pytest 3.3.0 immutable fixture params",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": []
+      },
+      "trace": {
+        "trace_id": "926b2290-fa3a-400f-bb76-feb0f45f0df2",
+        "created_at": "2026-11-19T17:09:41.007923Z",
+        "status": "complete",
+        "duration_ms": 1092.153,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.334,
+            "duration_ms": 0.018,
+            "target": "pytest issue #12228",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.361,
+            "duration_ms": 1.821,
+            "target": "query (documentation OR ini_options OR options) before 2024-04-19T17:30:10+00:00",
+            "result_count": 3,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/12053",
+              "https://github.com/pytest-dev/pytest/issues/12081",
+              "https://github.com/pytest-dev/pytest/issues/2959"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 2.187,
+            "duration_ms": 0.778,
+            "target": null,
+            "result_count": 3,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 3.068,
+            "duration_ms": 1089.031,
+            "target": "pytest-triage:qwen3-4b-ctx8k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1449,
+            "output_tokens": 61,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "response": {
+            "issue_type": "type: docs",
+            "issue_type_quote": "Documentation request: types/shapes of options in `[tool.pytest.ini_options]`\n<!--\r\nThanks fo",
+            "reply_citation_ids": [
+              "C1",
+              "C2"
+            ]
+          },
+          "input_tokens": 1449,
+          "output_tokens": 61,
+          "error": null,
+          "latency_ms": 1088.93
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 4,
+        "initial_used_mib": 3836.0,
+        "peak_sampled_used_mib": 3836.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    }
+  ],
+  "methodology": "Real endpoint responses through the existing fixed replay and field scorer. Keyword retrieval covers verified pre-cutoff catalog openings. Duplicate matching and missing details remain rules; the model controls type and selection of supplied reply statements. Semantic judgments remain pending. This is not the full workflow comparison in #16.",
+  "recorded_at": "2026-11-19T17:09:42.234045+00:00",
+  "model_client_sha256": "7bef4c191bd6511d123c548e7cce91013dd7aae107b82690dc69d09412d861c0",
+  "serving_after": {
+    "models": [
+      {
+        "name": "pytest-triage:qwen3-4b-ctx8k",
+        "model": "pytest-triage:qwen3-4b-ctx8k",
+        "size": 3877571133,
+        "digest": "972144c577de4d1d7e8b030e5ada25aa6f7e3cde941bdb793b94273b4bc49843",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3",
+          "families": [
+            "qwen3"
+          ],
+          "parameter_size": "4.0B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-11-20T00:14:42.2180755+07:00",
+        "size_vram": 3877571133,
+        "context_length": 8192,
+        "runner": "llamacpp"
+      }
+    ]
+  },
+  "measurement_conditions": "Provisional schema-enum and type-evidence-options diagnostic; model and browser downloads overlapped. Same cutoffs, expected outcomes, scorer and validator."
+}
