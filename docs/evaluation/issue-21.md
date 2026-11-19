@@ -123,6 +123,8 @@ public evidence with a controlled integrity smoke, then reuses those reads while
 revalidating every case before real inference. Timed cases therefore use warm
 retrieval caches. Downloads were finished for the final run. These are serial,
 observational laptop timings, not a controlled throughput/thermal benchmark.
+Replay and warm-up wall times include synchronous GPU sampling overhead;
+the separately measured model-call timings exclude it.
 Warm-up is a real short response before timing cases; it is not a quality case.
 The 500 ms `nvidia-smi` sampler includes other device use and can miss brief peaks.
 Warm-up samples can include the previously loaded model; the table uses case
@@ -235,3 +237,5 @@ Validation: the full deterministic suite passed **168 tests**, with two optional
 live tests skipped. The separate real evaluation and HTTP/browser runs above
 were executed, not inferred from those tests. Mypy, Ruff lint, Ruff format check,
 JSON/link validation and unchanged-baseline hash checks passed.
+Separate standards and spec reviews against the starting main commit found no
+actionable findings. The timing-overhead caveat above was clarified during review.
