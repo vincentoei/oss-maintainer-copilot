@@ -1,0 +1,85 @@
+{
+  "recorded_at": "2026-11-19T19:12:42.025Z",
+  "purpose": "Final-code user-paste browser reproduction, number omitted to isolate detail detection; the numbered live-search check is preserved separately",
+  "body_sha256": "8716ccf34c94b9421c230ef1daeee39c3d6d451286f17fceb51694743411547f",
+  "input_note": "User-provided rendered opening; full body remains a temporary input, not republished",
+  "browser": "159.0.8154.6",
+  "assertions": {
+    "real_http_ok": true,
+    "missing_details_empty": true,
+    "rendered_missing_details_none": true,
+    "no_redundant_detail_request": true,
+    "trace_matches": true,
+    "real_model_events": true,
+    "no_javascript_errors": true
+  },
+  "rendered": {
+    "status": "complete",
+    "missing_details": "None",
+    "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+    "issue_type": "type: enhancement"
+  },
+  "report": {
+    "trace_id": "be126d6b-8a13-44cf-bacc-54d01d9b9f24",
+    "status": "complete",
+    "issue_type": "type: enhancement",
+    "issue_type_quote": "a configuration option?\nWhat's the problem this feature will solve?\nFor some projects, I always use --pdb together with --pdbcls=IPytho",
+    "duplicate_candidates": [],
+    "related_issues": [],
+    "missing_details": [],
+    "documentation_claims": [],
+    "source_claims": [],
+    "ci_results": [],
+    "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+    "citations": [],
+    "abstentions": [
+      {
+        "field": "duplicate_candidates",
+        "reason": "A pytest issue number is needed to search only earlier issues."
+      },
+      {
+        "field": "related_issues",
+        "reason": "A pytest issue number is needed to search only earlier issues."
+      },
+      {
+        "field": "draft_reply",
+        "reason": "No supported reply claim was selected."
+      }
+    ]
+  },
+  "trace": {
+    "trace_id": "be126d6b-8a13-44cf-bacc-54d01d9b9f24",
+    "created_at": "2026-11-19T19:12:41.006957Z",
+    "status": "complete",
+    "duration_ms": 889.492,
+    "events": [
+      {
+        "kind": "model",
+        "name": "agent_action",
+        "status": "ok",
+        "started_ms": 0.048,
+        "duration_ms": 403.054,
+        "target": "pytest-triage:coder3b-ctx16k",
+        "result_count": null,
+        "references": [],
+        "input_tokens": 421,
+        "output_tokens": 12,
+        "error": null
+      },
+      {
+        "kind": "model",
+        "name": "triage_selection",
+        "status": "ok",
+        "started_ms": 403.337,
+        "duration_ms": 486.117,
+        "target": "pytest-triage:coder3b-ctx16k",
+        "result_count": null,
+        "references": [],
+        "input_tokens": 604,
+        "output_tokens": 62,
+        "error": null
+      }
+    ]
+  },
+  "javascript_errors": []
+}

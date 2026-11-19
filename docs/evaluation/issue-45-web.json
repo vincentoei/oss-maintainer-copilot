@@ -1,0 +1,247 @@
+{
+  "recorded_at": "2026-11-19T19:06:09.187Z",
+  "purpose": "Real user-paste reproduction through the browser and bounded-agent HTTP API; live integration, not a frozen historical quality case",
+  "body_sha256": "8716ccf34c94b9421c230ef1daeee39c3d6d451286f17fceb51694743411547f",
+  "input_note": "User-provided rendered opening; full body remains a temporary input, not republished",
+  "browser": "159.0.8154.6",
+  "assertions": {
+    "real_http_ok": true,
+    "missing_details_empty": true,
+    "rendered_missing_details_none": true,
+    "no_redundant_detail_request": true,
+    "trace_matches": true,
+    "real_model_events": true,
+    "no_javascript_errors": true
+  },
+  "rendered": {
+    "status": "complete",
+    "missing_details": "None",
+    "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #3141 may be relevant: Shared topic: https, option, pdbcls; one report negates a shared condition. [C1]\n- Earlier issue #10952 may be relevant: Shared topic: describe, docs, ini_options; one report negates a shared condition. [C2]\n- Earlier issue #5039 may be relevant: Shared topic: bit, case, debugger; the same failure or request is not established. [C3]\n- Earlier issue #7417 may be relevant: Shared topic: configuration, file, option; the same failure or request is not established. [C4]\n- Earlier issue #11495 may be relevant: Shared topic: describe, like, option; the same failure or request is not established. [C5]",
+    "issue_type": "type: enhancement"
+  },
+  "report": {
+    "trace_id": "c1af0a91-be12-46e6-be56-3585379f031b",
+    "status": "complete",
+    "issue_type": "type: enhancement",
+    "issue_type_quote": "a configuration option?\nWhat's the problem this feature will solve?\nFor some projects, I always use --pdb together with --pdbcls=IPytho",
+    "duplicate_candidates": [],
+    "related_issues": [
+      {
+        "issue_number": 3141,
+        "title": "Add docs and examples for the '--pdbcls' option",
+        "url": "https://github.com/pytest-dev/pytest/issues/3141",
+        "reason": "Shared topic: https, option, pdbcls; one report negates a shared condition.",
+        "citation_id": "C1"
+      },
+      {
+        "issue_number": 10952,
+        "title": "`capture` option in `ini_options`",
+        "url": "https://github.com/pytest-dev/pytest/issues/10952",
+        "reason": "Shared topic: describe, docs, ini_options; one report negates a shared condition.",
+        "citation_id": "C2"
+      },
+      {
+        "issue_number": 5039,
+        "title": "4.4.0 regression for pdbcls",
+        "url": "https://github.com/pytest-dev/pytest/issues/5039",
+        "reason": "Shared topic: bit, case, debugger; the same failure or request is not established.",
+        "citation_id": "C3"
+      },
+      {
+        "issue_number": 7417,
+        "title": "allow logger specific level configuration for the logfile option",
+        "url": "https://github.com/pytest-dev/pytest/issues/7417",
+        "reason": "Shared topic: configuration, file, option; the same failure or request is not established.",
+        "citation_id": "C4"
+      },
+      {
+        "issue_number": 11495,
+        "title": "option to denote tests using a decorator",
+        "url": "https://github.com/pytest-dev/pytest/issues/11495",
+        "reason": "Shared topic: describe, like, option; the same failure or request is not established.",
+        "citation_id": "C5"
+      }
+    ],
+    "missing_details": [],
+    "documentation_claims": [],
+    "source_claims": [],
+    "ci_results": [],
+    "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #3141 may be relevant: Shared topic: https, option, pdbcls; one report negates a shared condition. [C1]\n- Earlier issue #10952 may be relevant: Shared topic: describe, docs, ini_options; one report negates a shared condition. [C2]\n- Earlier issue #5039 may be relevant: Shared topic: bit, case, debugger; the same failure or request is not established. [C3]\n- Earlier issue #7417 may be relevant: Shared topic: configuration, file, option; the same failure or request is not established. [C4]\n- Earlier issue #11495 may be relevant: Shared topic: describe, like, option; the same failure or request is not established. [C5]",
+    "citations": [
+      {
+        "id": "C1",
+        "source_url": "https://github.com/pytest-dev/pytest/issues/3141",
+        "description": "pytest issue #3141: Add docs and examples for the '--pdbcls' option",
+        "passage": null,
+        "source_location": null
+      },
+      {
+        "id": "C2",
+        "source_url": "https://github.com/pytest-dev/pytest/issues/10952",
+        "description": "pytest issue #10952: `capture` option in `ini_options`",
+        "passage": null,
+        "source_location": null
+      },
+      {
+        "id": "C3",
+        "source_url": "https://github.com/pytest-dev/pytest/issues/5039",
+        "description": "pytest issue #5039: 4.4.0 regression for pdbcls",
+        "passage": null,
+        "source_location": null
+      },
+      {
+        "id": "C4",
+        "source_url": "https://github.com/pytest-dev/pytest/issues/7417",
+        "description": "pytest issue #7417: allow logger specific level configuration for the logfile option",
+        "passage": null,
+        "source_location": null
+      },
+      {
+        "id": "C5",
+        "source_url": "https://github.com/pytest-dev/pytest/issues/11495",
+        "description": "pytest issue #11495: option to denote tests using a decorator",
+        "passage": null,
+        "source_location": null
+      }
+    ],
+    "abstentions": []
+  },
+  "trace": {
+    "trace_id": "c1af0a91-be12-46e6-be56-3585379f031b",
+    "created_at": "2026-11-19T19:05:44.547097Z",
+    "status": "complete",
+    "duration_ms": 23313.519,
+    "events": [
+      {
+        "kind": "model",
+        "name": "agent_action",
+        "status": "ok",
+        "started_ms": 0.351,
+        "duration_ms": 507.697,
+        "target": "pytest-triage:coder3b-ctx16k",
+        "result_count": null,
+        "references": [],
+        "input_tokens": 450,
+        "output_tokens": 23,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "get_issue",
+        "status": "ok",
+        "started_ms": 508.259,
+        "duration_ms": 523.469,
+        "target": "pytest issue #12053",
+        "result_count": 1,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "search_issues",
+        "status": "ok",
+        "started_ms": 1031.757,
+        "duration_ms": 20970.032,
+        "target": "query (configuration OR option OR pdbcls) before 2024-03-03T14:58:35+00:00",
+        "result_count": 784,
+        "references": [
+          "https://github.com/pytest-dev/pytest/issues/3141",
+          "https://github.com/pytest-dev/pytest/issues/10952",
+          "https://github.com/pytest-dev/pytest/issues/5039",
+          "https://github.com/pytest-dev/pytest/issues/7417",
+          "https://github.com/pytest-dev/pytest/issues/11495"
+        ],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "tool",
+        "name": "search_earlier_issues",
+        "status": "ok",
+        "started_ms": 508.112,
+        "duration_ms": 21625.378,
+        "target": "pytest issue #12053",
+        "result_count": 5,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "model",
+        "name": "agent_action",
+        "status": "ok",
+        "started_ms": 22133.514,
+        "duration_ms": 380.391,
+        "target": "pytest-triage:coder3b-ctx16k",
+        "result_count": null,
+        "references": [],
+        "input_tokens": 813,
+        "output_tokens": 12,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "get_issue",
+        "status": "ok",
+        "started_ms": 22516.382,
+        "duration_ms": 0.023,
+        "target": "pytest issue #12053",
+        "result_count": 1,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "search_issues",
+        "status": "ok",
+        "started_ms": 22516.419,
+        "duration_ms": 0.006,
+        "target": "query (configuration OR option OR pdbcls) before 2024-03-03T14:58:35+00:00",
+        "result_count": 5,
+        "references": [
+          "https://github.com/pytest-dev/pytest/issues/3141",
+          "https://github.com/pytest-dev/pytest/issues/10952",
+          "https://github.com/pytest-dev/pytest/issues/5039",
+          "https://github.com/pytest-dev/pytest/issues/7417",
+          "https://github.com/pytest-dev/pytest/issues/11495"
+        ],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "assess_matches",
+        "status": "ok",
+        "started_ms": 22516.427,
+        "duration_ms": 0.39,
+        "target": null,
+        "result_count": 5,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "model",
+        "name": "triage_selection",
+        "status": "ok",
+        "started_ms": 22517.151,
+        "duration_ms": 796.187,
+        "target": "pytest-triage:coder3b-ctx16k",
+        "result_count": null,
+        "references": [],
+        "input_tokens": 918,
+        "output_tokens": 81,
+        "error": null
+      }
+    ]
+  },
+  "javascript_errors": []
+}
