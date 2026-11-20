@@ -152,6 +152,24 @@ GitHub access and the running Windows Ollama server are required. Rediscover the
 adapter address after a network restart; do not substitute WSL localhost without
 checking connectivity. Existing output paths are refused to preserve evidence.
 
+## User-operated confirmation
+
+After restoring the stopped application server, the user refreshed the Windows
+browser and submitted the rendered #12053 report again. Their pasted report
+shows complete status, `type: enhancement`, no missing details, and no redundant
+detail requests. The matching trace
+`7795db58-8eb5-46be-a0c3-1359ad965a4e` was independently retrieved from the local
+API and is preserved in [the user-validation record](issue-45-user-validation.json).
+Report fields are transcribed from the user's paste; this is not an additional
+frozen historical evaluation case or human approval of the suggested relationships.
+
+The trace records three successful real model calls totaling **1,557.49 ms**
+within **27,217.07 ms** overall. The uncached earlier-issue search takes
+**24,604.01 ms** for 784 results and returns five candidates to the report.
+Their relevance, semantic citation support and draft usefulness still await
+review; GPU memory was not sampled for this user-operated run. Search performance
+and the heuristic relationship explanations remain separate from this detail fix.
+
 ## Review
 
 ### Standards
