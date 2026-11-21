@@ -31,11 +31,11 @@
   },
   "summary": {
     "cases": 20,
-    "reply_usefulness_reviewed": 3,
-    "reply_usefulness_pending": 17,
+    "reply_usefulness_reviewed": 4,
+    "reply_usefulness_pending": 16,
     "rating_counts": {
       "useful": 0,
-      "partly useful": 1,
+      "partly useful": 2,
       "not useful": 2
     },
     "separate_semantic_judgments": "Citation support, relationship labels and other-field abstention reviews remain pending"
@@ -201,13 +201,36 @@
       "report_sha256": "be82c0f2a2d2d7eb3c954db1c451d2d67f9545ef5d586288906bc25b9f1bc7c6",
       "draft_reply_sha256": "6fe49562694a308497cdf5d947460198c2316f136ef57badb94ffd8601b8c883",
       "draft_reply_usefulness": {
-        "review_status": "pending_human_review",
-        "rating": null,
-        "reason": null
+        "review_status": "human_confirmed",
+        "rating": "partly useful",
+        "reason": "Linking #12066 gives the maintainer a strong lead, but the draft understates the match: both report flaky failing to import call_runtest_hook with pytest 8.1, supporting a duplicate candidate. It offers no explanation or next step and does not request the missing environment details or reproducer.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T14:13:07.665161+00:00",
+        "confirmation_method": "Explicit user rating and reason in this conversation; reason preserved verbatim"
       },
       "citation_support_review_status": "pending_human_review",
       "relationship_review_status": "pending_human_review",
-      "other_field_abstention_review_status": "pending_human_review"
+      "other_field_abstention_review_status": "pending_human_review",
+      "evidence_presented": {
+        "format": "Codex paraphrases of the hash-verified issue opening and cited opening, plus the exact saved draft reply and report summary in chat",
+        "verified_openings": [
+          {
+            "issue_number": 12072,
+            "content_sha256": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7",
+            "created_at": "2024-03-04T13:04:55+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 12066,
+            "content_sha256": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8",
+            "created_at": "2024-03-04T10:18:30+00:00",
+            "verification": "matched recorded opening title/body hash"
+          }
+        ],
+        "later_activity": "excluded",
+        "additional_reference_scope": "The reporter mentions #12069; its body was not presented or used as additional retrieved evidence",
+        "question_scope": "Overall draft-reply usefulness only; separate citation, relationship and abstention labels were not requested"
+      }
     },
     {
       "issue_number": 12079,
@@ -466,5 +489,5 @@
       "other_field_abstention_review_status": "pending_human_review"
     }
   ],
-  "updated_at": "2026-11-21T13:54:35.702478+00:00"
+  "updated_at": "2026-11-21T14:13:07.666572+00:00"
 }

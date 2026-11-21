@@ -179,7 +179,7 @@ and the requesting user's explicit rating, verbatim reason and recording time.
 These ratings apply to complete application replies from this specific run;
 they do not automatically transfer to #21 comparator runs or controlled baselines.
 
-Progress: **3 of 20 reply-usefulness reviews complete; 17 pending**. For #7312,
+Progress: **4 of 20 reply-usefulness reviews complete; 16 pending**. For #7312,
 the user rated the exact saved reply **partly useful**: #349 is a promising
 fixture-derived-parameter lead, but the explanation relies on generic word
 overlap, does not explain a potential duplicate, fails to distinguish #2959's
@@ -195,6 +195,13 @@ For #12053, the user rated the exact saved reply **not useful**: it does not
 address configuring the debugger class or suggest a next step. It does not
 explain #8655's debugger-option connection, while the fixture-parametrization
 issues and generic word overlap add noise rather than help assess the enhancement.
+
+For #12072, the user rated the exact saved reply **partly useful**: #12066 is
+a strong lead because both openings describe `flaky` failing to import
+`call_runtest_hook` with pytest 8.1. The draft understates that match, provides
+no explanation or next step, and does not ask for missing environment details
+or a reproducer. This explanation remains part of the usefulness rating rather
+than a separately confirmed duplicate or citation-support label.
 
 The user saw paraphrases of hash-verified opening texts, the exact saved draft
 and a report summary in chat. Later activity was excluded. This is a recorded
