@@ -179,7 +179,7 @@ and the requesting user's explicit rating, verbatim reason and recording time.
 These ratings apply to complete application replies from this specific run;
 they do not automatically transfer to #21 comparator runs or controlled baselines.
 
-Progress: **16 of 20 reply-usefulness reviews complete; 4 pending**. For #7312,
+Progress: **17 of 20 reply-usefulness reviews complete; 3 pending**. For #7312,
 the user rated the exact saved reply **partly useful**: #349 is a promising
 fixture-derived-parameter lead, but the explanation relies on generic word
 overlap, does not explain a potential duplicate, fails to distinguish #2959's
@@ -269,6 +269,12 @@ For #12219, the user rated the exact saved reply **not useful**: it repeats
 the already cited #4064 without explaining relevance. It misses the discrepancy
 between the working example and affected project and should request a minimized
 failing example to investigate why the hooks do not run.
+
+For #12223, the user rated the exact saved reply **not useful**: it does not
+address shortening the XML message attribute while retaining the detailed body.
+The user identifies #12189 as a different JUnit XML symptom and the other links
+as offering no clear investigative lead; word overlap does not help assess the
+reported tool failures or proposed change.
 
 The user saw paraphrases of hash-verified opening texts, the exact saved draft
 and a report summary in chat. Later activity was excluded. This is a recorded

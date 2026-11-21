@@ -31,12 +31,12 @@
   },
   "summary": {
     "cases": 20,
-    "reply_usefulness_reviewed": 16,
-    "reply_usefulness_pending": 4,
+    "reply_usefulness_reviewed": 17,
+    "reply_usefulness_pending": 3,
     "rating_counts": {
       "useful": 0,
       "partly useful": 4,
-      "not useful": 12
+      "not useful": 13
     },
     "separate_semantic_judgments": "Citation support, relationship labels and other-field abstention reviews remain pending"
   },
@@ -844,13 +844,60 @@
       "report_sha256": "2083f054504fd506b20c93787219f92fb6bc52b27c125f7d9fbb324269defcbd",
       "draft_reply_sha256": "b4de0ea6b2cdb044c016ba4f7e1d596dab9371e4ffc1196ad0a6514d6dda5b4b",
       "draft_reply_usefulness": {
-        "review_status": "pending_human_review",
-        "rating": null,
-        "reason": null
+        "review_status": "human_confirmed",
+        "rating": "not useful",
+        "reason": "The draft does not address shortening the message attribute while preserving the detailed failure body. #12189 concerns a different JUnit XML symptom, and the other links offer no clear investigative lead. Generic word overlap does not help assess the reported tool failures or requested change.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T15:33:27.727246+00:00",
+        "confirmation_method": "Explicit user rating and reason in this conversation; reason preserved verbatim"
       },
       "citation_support_review_status": "pending_human_review",
       "relationship_review_status": "pending_human_review",
-      "other_field_abstention_review_status": "pending_human_review"
+      "other_field_abstention_review_status": "pending_human_review",
+      "evidence_presented": {
+        "format": "Codex paraphrases of the hash-verified issue opening and five retrieved openings, including the attribute-versus-element-body distinction, plus the exact saved draft reply and report summary in chat",
+        "verified_openings": [
+          {
+            "issue_number": 12223,
+            "content_sha256": "731ee2132c277f516b51978c67bb77a578a8731a4b726346f248e7934d627e72",
+            "created_at": "2024-04-17T09:00:30+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 12189,
+            "content_sha256": "7c9d2d1977a430e51c42fb6319ecc3fae01bb9d7f46d01f1921fb1760199785d",
+            "created_at": "2024-04-05T09:14:51+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 12081,
+            "content_sha256": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+            "created_at": "2024-03-06T00:03:25+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 3448,
+            "content_sha256": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+            "created_at": "2018-05-04T10:55:56+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 12116,
+            "content_sha256": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+            "created_at": "2024-03-13T13:37:51+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 12079,
+            "content_sha256": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a",
+            "created_at": "2024-03-05T12:31:13+00:00",
+            "verification": "matched recorded opening title/body hash"
+          }
+        ],
+        "later_activity": "excluded",
+        "reported_behavior_scope": "Parser truncation/crash behavior was presented as the reporter’s statement, not independently reproduced",
+        "question_scope": "Overall draft-reply usefulness only; separate citation, relationship and abstention labels were not requested"
+      }
     },
     {
       "issue_number": 12224,
@@ -901,5 +948,5 @@
       "other_field_abstention_review_status": "pending_human_review"
     }
   ],
-  "updated_at": "2026-11-21T15:29:09.249313+00:00"
+  "updated_at": "2026-11-21T15:33:27.728514+00:00"
 }
