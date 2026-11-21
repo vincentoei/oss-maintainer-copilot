@@ -40,7 +40,15 @@ class _ObservedModel(model.OpenAICompatibleModel):
 
     def generate(self, request: model.ModelRequest) -> object:
         started = perf_counter()
-        call: dict[str, Any] = {}
+        call: dict[str, Any] = {
+            "request": {
+                "issue_content_sha256": hashlib.sha256(
+                    (request.issue_title + "\0" + request.issue_body).encode()
+                ).hexdigest(),
+                "required_reply_ids": list(request.required_reply_ids),
+                "reply_statements": [asdict(item) for item in request.reply_statements],
+            }
+        }
         try:
             response = self.client.generate(request)
             if isinstance(response, model.ModelResponse):

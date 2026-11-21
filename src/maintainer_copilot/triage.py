@@ -16,6 +16,7 @@ from pydantic import (
 
 from maintainer_copilot import ci, documentation, issue_search, model, pytest_profile
 from maintainer_copilot import source as repository_source
+from maintainer_copilot.follow_up import supported_follow_up
 from maintainer_copilot.trace import TraceRecorder
 
 
@@ -507,6 +508,19 @@ def triage_issue(
             )
         )
 
+    follow_up = supported_follow_up(issue.body) if issue.number is not None else None
+    follow_up_id = f"C{len(citations) + 1}"
+    if follow_up is not None:
+        citations.append(
+            Citation(
+                id=follow_up_id,
+                source_url=HttpUrl(
+                    f"https://github.com/pytest-dev/pytest/issues/{issue.number}"
+                ),
+                description="Submitted issue under review: investigative follow-up",
+                passage=follow_up.passage,
+            )
+        )
     citation_by_id = {item.id: item for item in citations}
     reply_statements = [
         model.ReplyStatement(
@@ -532,6 +546,14 @@ def triage_issue(
         )
         for claim in documentation_claims + source_claims
     )
+    if follow_up is not None:
+        reply_statements.append(
+            model.ReplyStatement(
+                follow_up_id,
+                follow_up.text,
+                str(citation_by_id[follow_up_id].source_url),
+            )
+        )
     model_request = model.ModelRequest(
         issue_title=issue.title,
         issue_body=issue.body,

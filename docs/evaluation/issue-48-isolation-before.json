@@ -1,0 +1,1780 @@
+{
+  "scope": "Controlled select-all supplied statements only; not real-model quality",
+  "cases": [
+    {
+      "issue_number": 7312,
+      "template_profile": "generic",
+      "content_sha256": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+      "opening_cutoff": "2020-06-03T14:20:24+00:00",
+      "repository_commit": "61a6ac97054c0bd6f812642b46847c4b7cbede2a",
+      "required_reply_ids": [],
+      "available_statements": [
+        {
+          "citation_id": "C1",
+          "text": "Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/349"
+        },
+        {
+          "citation_id": "C2",
+          "text": "Earlier issue #2959 may be relevant: Shared topic: case, config, def; the same failure or request is not established.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/2959"
+        },
+        {
+          "citation_id": "C3",
+          "text": "Earlier issue #7012 may be relevant: Shared topic: def, session, single; the same failure or request is not established.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/7012"
+        }
+      ],
+      "controlled_report": {
+        "trace_id": "dc344318-8c5d-4c5a-92f4-4d902c22101f",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 349,
+            "title": "Using fixtures in pytest.mark.parametrize",
+            "url": "https://github.com/pytest-dev/pytest/issues/349",
+            "reason": "Shared topic: case, currently, def; one report negates a shared condition.",
+            "citation_id": "C1"
+          },
+          {
+            "issue_number": 2959,
+            "title": "pytest 3.3.0 immutable fixture params",
+            "url": "https://github.com/pytest-dev/pytest/issues/2959",
+            "reason": "Shared topic: case, config, def; the same failure or request is not established.",
+            "citation_id": "C2"
+          },
+          {
+            "issue_number": 7012,
+            "title": "Quotation marks in pytest command collects duplicate tests",
+            "url": "https://github.com/pytest-dev/pytest/issues/7012",
+            "reason": "Shared topic: def, session, single; the same failure or request is not established.",
+            "citation_id": "C3"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #349 may be relevant: Shared topic: case, currently, def; one report negates a shared condition. [C1]\n- Earlier issue #2959 may be relevant: Shared topic: case, config, def; the same failure or request is not established. [C2]\n- Earlier issue #7012 may be relevant: Shared topic: def, session, single; the same failure or request is not established. [C3]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+            "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+            "description": "pytest issue #2959: pytest 3.3.0 immutable fixture params",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/7012",
+            "description": "pytest issue #7012: Quotation marks in pytest command collects duplicate tests",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 10156,
+      "template_profile": "bug_feature",
+      "content_sha256": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+      "opening_cutoff": "2022-07-19T20:03:50+00:00",
+      "repository_commit": "34a285986e456406b22b62aa563a64331f640e7f",
+      "required_reply_ids": [],
+      "available_statements": [
+        {
+          "citation_id": "C1",
+          "text": "Earlier issue #7312 may be relevant: Shared topic: case, config, def; the same failure or request is not established.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/7312"
+        },
+        {
+          "citation_id": "C2",
+          "text": "Earlier issue #349 may be relevant: Shared topic: arg, but, case; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/349"
+        },
+        {
+          "citation_id": "C3",
+          "text": "Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/2959"
+        }
+      ],
+      "controlled_report": {
+        "trace_id": "d527fa6a-3f41-4dc5-8ccd-5aeb9a061d95",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 7312,
+            "title": "Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+            "url": "https://github.com/pytest-dev/pytest/issues/7312",
+            "reason": "Shared topic: case, config, def; the same failure or request is not established.",
+            "citation_id": "C1"
+          },
+          {
+            "issue_number": 349,
+            "title": "Using fixtures in pytest.mark.parametrize",
+            "url": "https://github.com/pytest-dev/pytest/issues/349",
+            "reason": "Shared topic: arg, but, case; one report negates a shared condition.",
+            "citation_id": "C2"
+          },
+          {
+            "issue_number": 2959,
+            "title": "pytest 3.3.0 immutable fixture params",
+            "url": "https://github.com/pytest-dev/pytest/issues/2959",
+            "reason": "Shared topic: case, com, config; the same failure or request is not established.",
+            "citation_id": "C3"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #7312 may be relevant: Shared topic: case, config, def; the same failure or request is not established. [C1]\n- Earlier issue #349 may be relevant: Shared topic: arg, but, case; one report negates a shared condition. [C2]\n- Earlier issue #2959 may be relevant: Shared topic: case, com, config; the same failure or request is not established. [C3]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+            "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+            "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+            "description": "pytest issue #2959: pytest 3.3.0 immutable fixture params",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 12053,
+      "template_profile": "bug_feature",
+      "content_sha256": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+      "opening_cutoff": "2024-03-03T14:58:35+00:00",
+      "repository_commit": "00043f7f1047b29fdaeb18e169fe9d6146988cb8",
+      "required_reply_ids": [],
+      "available_statements": [
+        {
+          "citation_id": "C1",
+          "text": "Earlier issue #8655 may be relevant: Shared topic: bit, currently, debugger; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/8655"
+        },
+        {
+          "citation_id": "C2",
+          "text": "Earlier issue #7312 may be relevant: Shared topic: case, configuration, currently; the same failure or request is not established.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/7312"
+        },
+        {
+          "citation_id": "C3",
+          "text": "Earlier issue #10156 may be relevant: Shared topic: case, https, like; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/10156"
+        }
+      ],
+      "controlled_report": {
+        "trace_id": "a623b492-76a0-40a0-aaca-1625bf6e9e11",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 8655,
+            "title": "Help text is misleading about the behavior of --pdb",
+            "url": "https://github.com/pytest-dev/pytest/issues/8655",
+            "reason": "Shared topic: bit, currently, debugger; one report negates a shared condition.",
+            "citation_id": "C1"
+          },
+          {
+            "issue_number": 7312,
+            "title": "Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+            "url": "https://github.com/pytest-dev/pytest/issues/7312",
+            "reason": "Shared topic: case, configuration, currently; the same failure or request is not established.",
+            "citation_id": "C2"
+          },
+          {
+            "issue_number": 10156,
+            "title": "Document how to build dynamic session-scoped fixtures",
+            "url": "https://github.com/pytest-dev/pytest/issues/10156",
+            "reason": "Shared topic: case, https, like; one report negates a shared condition.",
+            "citation_id": "C3"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #8655 may be relevant: Shared topic: bit, currently, debugger; one report negates a shared condition. [C1]\n- Earlier issue #7312 may be relevant: Shared topic: case, configuration, currently; the same failure or request is not established. [C2]\n- Earlier issue #10156 may be relevant: Shared topic: case, https, like; one report negates a shared condition. [C3]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/8655",
+            "description": "pytest issue #8655: Help text is misleading about the behavior of --pdb",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+            "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/10156",
+            "description": "pytest issue #10156: Document how to build dynamic session-scoped fixtures",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 12072,
+      "template_profile": "bug_feature",
+      "content_sha256": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7",
+      "opening_cutoff": "2024-03-04T13:04:55+00:00",
+      "repository_commit": "0951cbc6e4880ee7dfc9b7e56948d83ee086e74b",
+      "required_reply_ids": [],
+      "available_statements": [
+        {
+          "citation_id": "C1",
+          "text": "Earlier issue #12066 may be relevant: Shared topic: assertion, bootstrap, call_runtest_hook; the same failure or request is not established.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12066"
+        }
+      ],
+      "controlled_report": {
+        "trace_id": "34a4a6b8-6752-4211-86ec-8c7f77fc67a5",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12066,
+            "title": "ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "reason": "Shared topic: assertion, bootstrap, call_runtest_hook; the same failure or request is not established.",
+            "citation_id": "C1"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12066 may be relevant: Shared topic: assertion, bootstrap, call_runtest_hook; the same failure or request is not established. [C1]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 12079,
+      "template_profile": "bug_feature",
+      "content_sha256": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a",
+      "opening_cutoff": "2024-03-05T12:31:13+00:00",
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "required_reply_ids": [
+        "C1",
+        "C2"
+      ],
+      "available_statements": [
+        {
+          "citation_id": "C1",
+          "text": "Could you add a real-world use case this would enable?",
+          "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L19"
+        },
+        {
+          "citation_id": "C2",
+          "text": "Could you add any workaround or alternative you have tried, or that there is none?",
+          "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L21"
+        },
+        {
+          "citation_id": "C3",
+          "text": "Earlier issue #11871 may be relevant: Shared topic: additional, all, alternative; the same failure or request is not established.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/11871"
+        },
+        {
+          "citation_id": "C4",
+          "text": "Earlier issue #10156 may be relevant: Shared topic: here, like, only; the same failure or request is not established.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/10156"
+        }
+      ],
+      "controlled_report": {
+        "trace_id": "45db809b-95fa-49f0-b42e-cf081c350bb9",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 11871,
+            "title": "Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+            "url": "https://github.com/pytest-dev/pytest/issues/11871",
+            "reason": "Shared topic: additional, all, alternative; the same failure or request is not established.",
+            "citation_id": "C3"
+          },
+          {
+            "issue_number": 10156,
+            "title": "Document how to build dynamic session-scoped fixtures",
+            "url": "https://github.com/pytest-dev/pytest/issues/10156",
+            "reason": "Shared topic: here, like, only; the same failure or request is not established.",
+            "citation_id": "C4"
+          }
+        ],
+        "missing_details": [
+          {
+            "name": "real-world use case",
+            "request": "a real-world use case this would enable",
+            "citation_id": "C1"
+          },
+          {
+            "name": "alternative solutions",
+            "request": "any workaround or alternative you have tried, or that there is none",
+            "citation_id": "C2"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add a real-world use case this would enable? [C1]\n- Could you add any workaround or alternative you have tried, or that there is none? [C2]\n- Earlier issue #11871 may be relevant: Shared topic: additional, all, alternative; the same failure or request is not established. [C3]\n- Earlier issue #10156 may be relevant: Shared topic: here, like, only; the same failure or request is not established. [C4]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+            "description": "pytest feature report template: real-world use case",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+            "description": "pytest feature report template: alternative solutions",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/11871",
+            "description": "pytest issue #11871: Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C4",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/10156",
+            "description": "pytest issue #10156: Document how to build dynamic session-scoped fixtures",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 12081,
+      "template_profile": "bug_feature",
+      "content_sha256": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+      "opening_cutoff": "2024-03-06T00:03:25+00:00",
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "required_reply_ids": [],
+      "available_statements": [
+        {
+          "citation_id": "C1",
+          "text": "Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, call; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/3448"
+        },
+        {
+          "citation_id": "C2",
+          "text": "pytest documents that capture fixtures let tests access stdout and stderr created during execution.",
+          "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110"
+        },
+        {
+          "citation_id": "C3",
+          "text": "At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line.",
+          "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935"
+        }
+      ],
+      "controlled_report": {
+        "trace_id": "5be074ec-c663-4442-983b-9f91147785ed",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 3448,
+            "title": "capture: keep all output for \"Captured stdout call\" etc",
+            "url": "https://github.com/pytest-dev/pytest/issues/3448",
+            "reason": "Shared topic: assert, assertionerror, call; one report negates a shared condition.",
+            "citation_id": "C1"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [
+          {
+            "claim": "pytest documents that capture fixtures let tests access stdout and stderr created during execution.",
+            "citation_id": "C2"
+          }
+        ],
+        "source_claims": [
+          {
+            "claim": "At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line.",
+            "citation_id": "C3"
+          }
+        ],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, call; one report negates a shared condition. [C1]\n- pytest documents that capture fixtures let tests access stdout and stderr created during execution. [C2]\n- At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line. [C3]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+            "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
+            "description": "pytest documentation: capture",
+            "passage": "The ``capsys``, ``capsysbinary``, ``capfd``, and ``capfdbinary`` fixtures allow access to stdout/stderr output created during test execution.  Here is",
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+            "description": "pytest source: src/_pytest/capture.py:935",
+            "passage": "        \"\"\"Read and return the captured output so far, resetting the internal",
+            "source_location": {
+              "commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+              "path": "src/_pytest/capture.py",
+              "line": 935
+            }
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 12083,
+      "template_profile": "bug_feature",
+      "content_sha256": "39d659d7c54b6d5cd1e336a628b516d771f3e9dc98636701165e8cc70e9e9064",
+      "opening_cutoff": "2024-03-06T10:53:11+00:00",
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "required_reply_ids": [],
+      "available_statements": [],
+      "controlled_report": {
+        "trace_id": "df6feb5a-4ba2-4632-862d-b0e1fb9fc521",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          },
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 12116,
+      "template_profile": "bug_feature",
+      "content_sha256": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+      "opening_cutoff": "2024-03-13T13:37:51+00:00",
+      "repository_commit": "c0532dda18a5cfd0e6f67113bb164485fa80eb86",
+      "required_reply_ids": [
+        "C1"
+      ],
+      "available_statements": [
+        {
+          "citation_id": "C1",
+          "text": "Could you add the output of `pip list` from the virtual environment you are using?",
+          "source_url": "https://github.com/pytest-dev/pytest/blob/c0532dda18a5cfd0e6f67113bb164485fa80eb86/.github/ISSUE_TEMPLATE/1_bug_report.md#L14"
+        },
+        {
+          "citation_id": "C2",
+          "text": "Earlier issue #12081 may be relevant: Shared topic: assert, capturing, code; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12081"
+        }
+      ],
+      "controlled_report": {
+        "trace_id": "a92ae101-412a-4eee-966e-17c225931199",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12081,
+            "title": "Capture: copy output when using readouterr() instead of consuming it",
+            "url": "https://github.com/pytest-dev/pytest/issues/12081",
+            "reason": "Shared topic: assert, capturing, code; one report negates a shared condition.",
+            "citation_id": "C2"
+          }
+        ],
+        "missing_details": [
+          {
+            "name": "pip list output",
+            "request": "the output of `pip list` from the virtual environment you are using",
+            "citation_id": "C1"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add the output of `pip list` from the virtual environment you are using? [C1]\n- Earlier issue #12081 may be relevant: Shared topic: assert, capturing, code; one report negates a shared condition. [C2]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/c0532dda18a5cfd0e6f67113bb164485fa80eb86/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+            "description": "pytest bug report template: pip list output",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12081",
+            "description": "pytest issue #12081: Capture: copy output when using readouterr() instead of consuming it",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 12146,
+      "template_profile": "bug_feature",
+      "content_sha256": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+      "opening_cutoff": "2024-03-21T12:06:34+00:00",
+      "repository_commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
+      "required_reply_ids": [],
+      "available_statements": [],
+      "controlled_report": {
+        "trace_id": "c48e54f3-1e8b-4705-88c0-b3cb916515c6",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          },
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 12189,
+      "template_profile": "bug_feature",
+      "content_sha256": "7c9d2d1977a430e51c42fb6319ecc3fae01bb9d7f46d01f1921fb1760199785d",
+      "opening_cutoff": "2024-04-05T09:14:51+00:00",
+      "repository_commit": "4e3dd21506a9e543c04c63ebff966a9b604d2b9e",
+      "required_reply_ids": [],
+      "available_statements": [
+        {
+          "citation_id": "C1",
+          "text": "Earlier issue #12081 may be relevant: Shared topic: any, but, captured; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12081"
+        },
+        {
+          "citation_id": "C2",
+          "text": "Earlier issue #3448 may be relevant: Shared topic: captured, def, err; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/3448"
+        },
+        {
+          "citation_id": "C3",
+          "text": "Earlier issue #11871 may be relevant: Shared topic: all, but, command; the same failure or request is not established.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/11871"
+        },
+        {
+          "citation_id": "C4",
+          "text": "Earlier issue #12066 may be relevant: Shared topic: command, config, environment; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12066"
+        },
+        {
+          "citation_id": "C5",
+          "text": "Earlier issue #12146 may be relevant: Shared topic: conftest, def, import; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12146"
+        }
+      ],
+      "controlled_report": {
+        "trace_id": "44218fea-2b53-4b68-a57a-89f64cc47aa2",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12081,
+            "title": "Capture: copy output when using readouterr() instead of consuming it",
+            "url": "https://github.com/pytest-dev/pytest/issues/12081",
+            "reason": "Shared topic: any, but, captured; one report negates a shared condition.",
+            "citation_id": "C1"
+          },
+          {
+            "issue_number": 3448,
+            "title": "capture: keep all output for \"Captured stdout call\" etc",
+            "url": "https://github.com/pytest-dev/pytest/issues/3448",
+            "reason": "Shared topic: captured, def, err; one report negates a shared condition.",
+            "citation_id": "C2"
+          },
+          {
+            "issue_number": 11871,
+            "title": "Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+            "url": "https://github.com/pytest-dev/pytest/issues/11871",
+            "reason": "Shared topic: all, but, command; the same failure or request is not established.",
+            "citation_id": "C3"
+          },
+          {
+            "issue_number": 12066,
+            "title": "ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "reason": "Shared topic: command, config, environment; one report negates a shared condition.",
+            "citation_id": "C4"
+          },
+          {
+            "issue_number": 12146,
+            "title": "Parametrization with Variables Unexpectedly Changes Fixture Scope from Class-Level to Function-Level",
+            "url": "https://github.com/pytest-dev/pytest/issues/12146",
+            "reason": "Shared topic: conftest, def, import; one report negates a shared condition.",
+            "citation_id": "C5"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12081 may be relevant: Shared topic: any, but, captured; one report negates a shared condition. [C1]\n- Earlier issue #3448 may be relevant: Shared topic: captured, def, err; one report negates a shared condition. [C2]\n- Earlier issue #11871 may be relevant: Shared topic: all, but, command; the same failure or request is not established. [C3]\n- Earlier issue #12066 may be relevant: Shared topic: command, config, environment; one report negates a shared condition. [C4]\n- Earlier issue #12146 may be relevant: Shared topic: conftest, def, import; one report negates a shared condition. [C5]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12081",
+            "description": "pytest issue #12081: Capture: copy output when using readouterr() instead of consuming it",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+            "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/11871",
+            "description": "pytest issue #11871: Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C4",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C5",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12146",
+            "description": "pytest issue #12146: Parametrization with Variables Unexpectedly Changes Fixture Scope from Class-Level to Function-Level",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 12197,
+      "template_profile": "bug_feature",
+      "content_sha256": "8388529b44df4edd978ed0b8bbc572913d830907c013154455cc4662918e5bd1",
+      "opening_cutoff": "2024-04-08T11:30:37+00:00",
+      "repository_commit": "74f05648d5ea9e69d75f27a77972756ee32f6730",
+      "required_reply_ids": [],
+      "available_statements": [
+        {
+          "citation_id": "C1",
+          "text": "Earlier issue #12053 may be relevant: Shared topic: configuration, ini, option; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12053"
+        },
+        {
+          "citation_id": "C2",
+          "text": "Earlier issue #12189 may be relevant: Shared topic: any, log, one; the same failure or request is not established.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12189"
+        },
+        {
+          "citation_id": "C3",
+          "text": "Earlier issue #7312 may be relevant: Shared topic: being, one; the same failure or request is not established.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/7312"
+        },
+        {
+          "citation_id": "C4",
+          "text": "Earlier issue #12066 may be relevant: Shared topic: disable, possible; the same failure or request is not established.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12066"
+        }
+      ],
+      "controlled_report": {
+        "trace_id": "ea82043f-6f2e-48a7-bcda-3c279ef91265",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12053,
+            "title": "pdbcls as a configuration option?",
+            "url": "https://github.com/pytest-dev/pytest/issues/12053",
+            "reason": "Shared topic: configuration, ini, option; one report negates a shared condition.",
+            "citation_id": "C1"
+          },
+          {
+            "issue_number": 12189,
+            "title": "No output written to JUnit XML files",
+            "url": "https://github.com/pytest-dev/pytest/issues/12189",
+            "reason": "Shared topic: any, log, one; the same failure or request is not established.",
+            "citation_id": "C2"
+          },
+          {
+            "issue_number": 7312,
+            "title": "Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+            "url": "https://github.com/pytest-dev/pytest/issues/7312",
+            "reason": "Shared topic: being, one; the same failure or request is not established.",
+            "citation_id": "C3"
+          },
+          {
+            "issue_number": 12066,
+            "title": "ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "reason": "Shared topic: disable, possible; the same failure or request is not established.",
+            "citation_id": "C4"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12053 may be relevant: Shared topic: configuration, ini, option; one report negates a shared condition. [C1]\n- Earlier issue #12189 may be relevant: Shared topic: any, log, one; the same failure or request is not established. [C2]\n- Earlier issue #7312 may be relevant: Shared topic: being, one; the same failure or request is not established. [C3]\n- Earlier issue #12066 may be relevant: Shared topic: disable, possible; the same failure or request is not established. [C4]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12053",
+            "description": "pytest issue #12053: pdbcls as a configuration option?",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12189",
+            "description": "pytest issue #12189: No output written to JUnit XML files",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+            "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C4",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 12201,
+      "template_profile": "bug_feature",
+      "content_sha256": "18e54c14cdbbb80c34d7dc66f91d6ab23e15ec84503bf59f0ecdf2d79cfd8abc",
+      "opening_cutoff": "2024-04-09T14:22:08+00:00",
+      "repository_commit": "17fc20af78d0c7b739806c4e461d2c9b8c30ceeb",
+      "required_reply_ids": [
+        "C1",
+        "C2"
+      ],
+      "available_statements": [
+        {
+          "citation_id": "C1",
+          "text": "Could you add a real-world use case this would enable?",
+          "source_url": "https://github.com/pytest-dev/pytest/blob/17fc20af78d0c7b739806c4e461d2c9b8c30ceeb/.github/ISSUE_TEMPLATE/2_feature_request.md#L19"
+        },
+        {
+          "citation_id": "C2",
+          "text": "Could you add any workaround or alternative you have tried, or that there is none?",
+          "source_url": "https://github.com/pytest-dev/pytest/blob/17fc20af78d0c7b739806c4e461d2c9b8c30ceeb/.github/ISSUE_TEMPLATE/2_feature_request.md#L21"
+        },
+        {
+          "citation_id": "C3",
+          "text": "Earlier issue #12146 may be relevant: Shared topic: def, list, mark; the same failure or request is not established.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12146"
+        }
+      ],
+      "controlled_report": {
+        "trace_id": "59909e87-20ee-4071-a740-3f08e3d824f7",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12146,
+            "title": "Parametrization with Variables Unexpectedly Changes Fixture Scope from Class-Level to Function-Level",
+            "url": "https://github.com/pytest-dev/pytest/issues/12146",
+            "reason": "Shared topic: def, list, mark; the same failure or request is not established.",
+            "citation_id": "C3"
+          }
+        ],
+        "missing_details": [
+          {
+            "name": "real-world use case",
+            "request": "a real-world use case this would enable",
+            "citation_id": "C1"
+          },
+          {
+            "name": "alternative solutions",
+            "request": "any workaround or alternative you have tried, or that there is none",
+            "citation_id": "C2"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add a real-world use case this would enable? [C1]\n- Could you add any workaround or alternative you have tried, or that there is none? [C2]\n- Earlier issue #12146 may be relevant: Shared topic: def, list, mark; the same failure or request is not established. [C3]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/17fc20af78d0c7b739806c4e461d2c9b8c30ceeb/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+            "description": "pytest feature report template: real-world use case",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/17fc20af78d0c7b739806c4e461d2c9b8c30ceeb/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+            "description": "pytest feature report template: alternative solutions",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12146",
+            "description": "pytest issue #12146: Parametrization with Variables Unexpectedly Changes Fixture Scope from Class-Level to Function-Level",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 12203,
+      "template_profile": "bug_feature",
+      "content_sha256": "aa2546be855758373051d6f6fb6fb5c054046d756240b75632230807dbe3061c",
+      "opening_cutoff": "2024-04-10T09:18:43+00:00",
+      "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+      "required_reply_ids": [
+        "C1"
+      ],
+      "available_statements": [
+        {
+          "citation_id": "C1",
+          "text": "Could you add a minimal example, if possible?",
+          "source_url": "https://github.com/pytest-dev/pytest/blob/1f001cd1051a4ca4bef251d93e472e625578aaf7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16"
+        },
+        {
+          "citation_id": "C2",
+          "text": "Earlier issue #12081 may be relevant: Shared topic: actual, but, capture; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12081"
+        },
+        {
+          "citation_id": "C3",
+          "text": "Earlier issue #3448 may be relevant: Shared topic: capture, def, failed; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/3448"
+        },
+        {
+          "citation_id": "C4",
+          "text": "Earlier issue #12066 may be relevant: Shared topic: description, detailed, environment; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12066"
+        }
+      ],
+      "controlled_report": {
+        "trace_id": "e7fba605-649f-4dc7-b21b-665c6881b890",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12081,
+            "title": "Capture: copy output when using readouterr() instead of consuming it",
+            "url": "https://github.com/pytest-dev/pytest/issues/12081",
+            "reason": "Shared topic: actual, but, capture; one report negates a shared condition.",
+            "citation_id": "C2"
+          },
+          {
+            "issue_number": 3448,
+            "title": "capture: keep all output for \"Captured stdout call\" etc",
+            "url": "https://github.com/pytest-dev/pytest/issues/3448",
+            "reason": "Shared topic: capture, def, failed; one report negates a shared condition.",
+            "citation_id": "C3"
+          },
+          {
+            "issue_number": 12066,
+            "title": "ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "reason": "Shared topic: description, detailed, environment; one report negates a shared condition.",
+            "citation_id": "C4"
+          }
+        ],
+        "missing_details": [
+          {
+            "name": "minimal example",
+            "request": "a minimal example, if possible",
+            "citation_id": "C1"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add a minimal example, if possible? [C1]\n- Earlier issue #12081 may be relevant: Shared topic: actual, but, capture; one report negates a shared condition. [C2]\n- Earlier issue #3448 may be relevant: Shared topic: capture, def, failed; one report negates a shared condition. [C3]\n- Earlier issue #12066 may be relevant: Shared topic: description, detailed, environment; one report negates a shared condition. [C4]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/1f001cd1051a4ca4bef251d93e472e625578aaf7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+            "description": "pytest bug report template: minimal example",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12081",
+            "description": "pytest issue #12081: Capture: copy output when using readouterr() instead of consuming it",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+            "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C4",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 12204,
+      "template_profile": "bug_feature",
+      "content_sha256": "62dec36896ee774efb8621b6838e18b928c3b4eecb9497596f151af6d075dd21",
+      "opening_cutoff": "2024-04-10T10:45:32+00:00",
+      "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+      "required_reply_ids": [],
+      "available_statements": [
+        {
+          "citation_id": "C1",
+          "text": "Earlier issue #12066 may be relevant: Shared topic: args, attr, call; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12066"
+        },
+        {
+          "citation_id": "C2",
+          "text": "Earlier issue #12116 may be relevant: Shared topic: code, def, example; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12116"
+        }
+      ],
+      "controlled_report": {
+        "trace_id": "950b8020-c912-4898-9ede-d80f60af3ad2",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12066,
+            "title": "ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "reason": "Shared topic: args, attr, call; one report negates a shared condition.",
+            "citation_id": "C1"
+          },
+          {
+            "issue_number": 12116,
+            "title": "Capturing logs does not work with multiprocessing",
+            "url": "https://github.com/pytest-dev/pytest/issues/12116",
+            "reason": "Shared topic: code, def, example; one report negates a shared condition.",
+            "citation_id": "C2"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12066 may be relevant: Shared topic: args, attr, call; one report negates a shared condition. [C1]\n- Earlier issue #12116 may be relevant: Shared topic: code, def, example; one report negates a shared condition. [C2]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12116",
+            "description": "pytest issue #12116: Capturing logs does not work with multiprocessing",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 12216,
+      "template_profile": "bug_feature",
+      "content_sha256": "fe52fe12b75b3450706561eaff0cb911d116beeebec5077d044bab2d93e8930e",
+      "opening_cutoff": "2024-04-15T07:38:50+00:00",
+      "repository_commit": "5f6e825a2687f6bb8bc437e67a59c0a92fb16c06",
+      "required_reply_ids": [],
+      "available_statements": [
+        {
+          "citation_id": "C1",
+          "text": "Earlier issue #12146 may be relevant: Shared topic: def, fixture, fixturenames; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12146"
+        },
+        {
+          "citation_id": "C2",
+          "text": "Earlier issue #7312 may be relevant: Shared topic: case, def, fixture; the same failure or request is not established.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/7312"
+        }
+      ],
+      "controlled_report": {
+        "trace_id": "eb2a43e2-fd6f-4042-b376-7184290c0a65",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12146,
+            "title": "Parametrization with Variables Unexpectedly Changes Fixture Scope from Class-Level to Function-Level",
+            "url": "https://github.com/pytest-dev/pytest/issues/12146",
+            "reason": "Shared topic: def, fixture, fixturenames; one report negates a shared condition.",
+            "citation_id": "C1"
+          },
+          {
+            "issue_number": 7312,
+            "title": "Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+            "url": "https://github.com/pytest-dev/pytest/issues/7312",
+            "reason": "Shared topic: case, def, fixture; the same failure or request is not established.",
+            "citation_id": "C2"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12146 may be relevant: Shared topic: def, fixture, fixturenames; one report negates a shared condition. [C1]\n- Earlier issue #7312 may be relevant: Shared topic: case, def, fixture; the same failure or request is not established. [C2]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12146",
+            "description": "pytest issue #12146: Parametrization with Variables Unexpectedly Changes Fixture Scope from Class-Level to Function-Level",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+            "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 12219,
+      "template_profile": "bug_feature",
+      "content_sha256": "681e48797dfaccd7ce7ff3a86bd5862656e34bfbda83da9364ae7fb8696a891b",
+      "opening_cutoff": "2024-04-16T08:22:38+00:00",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "required_reply_ids": [],
+      "available_statements": [
+        {
+          "citation_id": "C1",
+          "text": "Earlier issue #4064 may be relevant: Shared topic: blob, but, com; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/4064"
+        },
+        {
+          "citation_id": "C2",
+          "text": "Earlier issue #12216 may be relevant: Shared topic: add, but, com; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12216"
+        }
+      ],
+      "controlled_report": {
+        "trace_id": "ce879420-904b-459e-84cb-336d591f4d34",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 4064,
+            "title": "Docs: is setUpModule/tearDownModule supported?",
+            "url": "https://github.com/pytest-dev/pytest/issues/4064",
+            "reason": "Shared topic: blob, but, com; one report negates a shared condition.",
+            "citation_id": "C1"
+          },
+          {
+            "issue_number": 12216,
+            "title": "Adding parameterized fixture in pytest_generate_test is not executing the fixture's code, even if it is marked as \"indirect\"",
+            "url": "https://github.com/pytest-dev/pytest/issues/12216",
+            "reason": "Shared topic: add, but, com; one report negates a shared condition.",
+            "citation_id": "C2"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #4064 may be relevant: Shared topic: blob, but, com; one report negates a shared condition. [C1]\n- Earlier issue #12216 may be relevant: Shared topic: add, but, com; one report negates a shared condition. [C2]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/4064",
+            "description": "pytest issue #4064: Docs: is setUpModule/tearDownModule supported?",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12216",
+            "description": "pytest issue #12216: Adding parameterized fixture in pytest_generate_test is not executing the fixture's code, even if it is marked as \"indirect\"",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 12223,
+      "template_profile": "bug_feature",
+      "content_sha256": "731ee2132c277f516b51978c67bb77a578a8731a4b726346f248e7934d627e72",
+      "opening_cutoff": "2024-04-17T09:00:30+00:00",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "required_reply_ids": [],
+      "available_statements": [
+        {
+          "citation_id": "C1",
+          "text": "Earlier issue #12189 may be relevant: Shared topic: anything, but, classname; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12189"
+        },
+        {
+          "citation_id": "C2",
+          "text": "Earlier issue #12081 may be relevant: Shared topic: assert, assertionerror, both; the same failure or request is not established.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12081"
+        },
+        {
+          "citation_id": "C3",
+          "text": "Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, def; the same failure or request is not established.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/3448"
+        },
+        {
+          "citation_id": "C4",
+          "text": "Earlier issue #12116 may be relevant: Shared topic: assert, correctly, def; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12116"
+        },
+        {
+          "citation_id": "C5",
+          "text": "Earlier issue #12079 may be relevant: Shared topic: file, like, only; the same failure or request is not established.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12079"
+        }
+      ],
+      "controlled_report": {
+        "trace_id": "ff245b7c-fe89-41d8-be27-5ec30ce5baa0",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12189,
+            "title": "No output written to JUnit XML files",
+            "url": "https://github.com/pytest-dev/pytest/issues/12189",
+            "reason": "Shared topic: anything, but, classname; one report negates a shared condition.",
+            "citation_id": "C1"
+          },
+          {
+            "issue_number": 12081,
+            "title": "Capture: copy output when using readouterr() instead of consuming it",
+            "url": "https://github.com/pytest-dev/pytest/issues/12081",
+            "reason": "Shared topic: assert, assertionerror, both; the same failure or request is not established.",
+            "citation_id": "C2"
+          },
+          {
+            "issue_number": 3448,
+            "title": "capture: keep all output for \"Captured stdout call\" etc",
+            "url": "https://github.com/pytest-dev/pytest/issues/3448",
+            "reason": "Shared topic: assert, assertionerror, def; the same failure or request is not established.",
+            "citation_id": "C3"
+          },
+          {
+            "issue_number": 12116,
+            "title": "Capturing logs does not work with multiprocessing",
+            "url": "https://github.com/pytest-dev/pytest/issues/12116",
+            "reason": "Shared topic: assert, correctly, def; one report negates a shared condition.",
+            "citation_id": "C4"
+          },
+          {
+            "issue_number": 12079,
+            "title": "Read tests to be executed from a file instead of from positional arguments",
+            "url": "https://github.com/pytest-dev/pytest/issues/12079",
+            "reason": "Shared topic: file, like, only; the same failure or request is not established.",
+            "citation_id": "C5"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12189 may be relevant: Shared topic: anything, but, classname; one report negates a shared condition. [C1]\n- Earlier issue #12081 may be relevant: Shared topic: assert, assertionerror, both; the same failure or request is not established. [C2]\n- Earlier issue #3448 may be relevant: Shared topic: assert, assertionerror, def; the same failure or request is not established. [C3]\n- Earlier issue #12116 may be relevant: Shared topic: assert, correctly, def; one report negates a shared condition. [C4]\n- Earlier issue #12079 may be relevant: Shared topic: file, like, only; the same failure or request is not established. [C5]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12189",
+            "description": "pytest issue #12189: No output written to JUnit XML files",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12081",
+            "description": "pytest issue #12081: Capture: copy output when using readouterr() instead of consuming it",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+            "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C4",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12116",
+            "description": "pytest issue #12116: Capturing logs does not work with multiprocessing",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C5",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12079",
+            "description": "pytest issue #12079: Read tests to be executed from a file instead of from positional arguments",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 12224,
+      "template_profile": "bug_feature",
+      "content_sha256": "5c821c047cc326c41148cd48c10d6a5941c05a3164bdb116777930cee6b5a18a",
+      "opening_cutoff": "2024-04-18T05:51:07+00:00",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "required_reply_ids": [],
+      "available_statements": [
+        {
+          "citation_id": "C1",
+          "text": "Earlier issue #11871 may be relevant: Shared topic: additional, alternative, but; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/11871"
+        }
+      ],
+      "controlled_report": {
+        "trace_id": "d7296c0b-d0ca-4676-942e-dc40a5d50f28",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 11871,
+            "title": "Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+            "url": "https://github.com/pytest-dev/pytest/issues/11871",
+            "reason": "Shared topic: additional, alternative, but; one report negates a shared condition.",
+            "citation_id": "C1"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #11871 may be relevant: Shared topic: additional, alternative, but; one report negates a shared condition. [C1]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/11871",
+            "description": "pytest issue #11871: Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 12226,
+      "template_profile": "bug_feature",
+      "content_sha256": "439bb13184ef8ca1b56b2f06094204328cbe9f5bc0b352020573bab713d26ece",
+      "opening_cutoff": "2024-04-19T11:34:17+00:00",
+      "repository_commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
+      "required_reply_ids": [
+        "C1",
+        "C2"
+      ],
+      "available_statements": [
+        {
+          "citation_id": "C1",
+          "text": "Could you add a real-world use case this would enable?",
+          "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L19"
+        },
+        {
+          "citation_id": "C2",
+          "text": "Could you add any workaround or alternative you have tried, or that there is none?",
+          "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21"
+        },
+        {
+          "citation_id": "C3",
+          "text": "Earlier issue #12224 may be relevant: Shared topic: additional, alternative, context; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12224"
+        },
+        {
+          "citation_id": "C4",
+          "text": "Earlier issue #7312 may be relevant: Shared topic: like, problem, solve; the same failure or request is not established.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/7312"
+        },
+        {
+          "citation_id": "C5",
+          "text": "Earlier issue #349 may be relevant: Shared topic: like, syntax, what; the same failure or request is not established.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/349"
+        }
+      ],
+      "controlled_report": {
+        "trace_id": "8acfc4bb-63b4-4723-af9c-c6d66a365e57",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12224,
+            "title": "More granular scripting interface",
+            "url": "https://github.com/pytest-dev/pytest/issues/12224",
+            "reason": "Shared topic: additional, alternative, context; one report negates a shared condition.",
+            "citation_id": "C3"
+          },
+          {
+            "issue_number": 7312,
+            "title": "Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+            "url": "https://github.com/pytest-dev/pytest/issues/7312",
+            "reason": "Shared topic: like, problem, solve; the same failure or request is not established.",
+            "citation_id": "C4"
+          },
+          {
+            "issue_number": 349,
+            "title": "Using fixtures in pytest.mark.parametrize",
+            "url": "https://github.com/pytest-dev/pytest/issues/349",
+            "reason": "Shared topic: like, syntax, what; the same failure or request is not established.",
+            "citation_id": "C5"
+          }
+        ],
+        "missing_details": [
+          {
+            "name": "real-world use case",
+            "request": "a real-world use case this would enable",
+            "citation_id": "C1"
+          },
+          {
+            "name": "alternative solutions",
+            "request": "any workaround or alternative you have tried, or that there is none",
+            "citation_id": "C2"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add a real-world use case this would enable? [C1]\n- Could you add any workaround or alternative you have tried, or that there is none? [C2]\n- Earlier issue #12224 may be relevant: Shared topic: additional, alternative, context; one report negates a shared condition. [C3]\n- Earlier issue #7312 may be relevant: Shared topic: like, problem, solve; the same failure or request is not established. [C4]\n- Earlier issue #349 may be relevant: Shared topic: like, syntax, what; the same failure or request is not established. [C5]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+            "description": "pytest feature report template: real-world use case",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+            "description": "pytest feature report template: alternative solutions",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12224",
+            "description": "pytest issue #12224: More granular scripting interface",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C4",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/7312",
+            "description": "pytest issue #7312: Feature Request - Support using session scope-fixtures when using pytest.mark.parametrize ",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C5",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+            "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          }
+        ]
+      }
+    },
+    {
+      "issue_number": 12228,
+      "template_profile": "bug_feature",
+      "content_sha256": "f701b93585c442aa5d88ee107e892972bc276e92a9cf2746e32907add70d4973",
+      "opening_cutoff": "2024-04-19T17:30:10+00:00",
+      "repository_commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
+      "required_reply_ids": [
+        "C1",
+        "C2"
+      ],
+      "available_statements": [
+        {
+          "citation_id": "C1",
+          "text": "Could you add a real-world use case this would enable?",
+          "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L19"
+        },
+        {
+          "citation_id": "C2",
+          "text": "Could you add any workaround or alternative you have tried, or that there is none?",
+          "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21"
+        },
+        {
+          "citation_id": "C3",
+          "text": "Earlier issue #12053 may be relevant: Shared topic: bit, case, configuration; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12053"
+        },
+        {
+          "citation_id": "C4",
+          "text": "Earlier issue #12081 may be relevant: Shared topic: additional, any, because; the same failure or request is not established.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/12081"
+        },
+        {
+          "citation_id": "C5",
+          "text": "Earlier issue #2959 may be relevant: Shared topic: case, com, github; one report negates a shared condition.",
+          "source_url": "https://github.com/pytest-dev/pytest/issues/2959"
+        }
+      ],
+      "controlled_report": {
+        "trace_id": "054f48a1-02e6-479b-a91d-acb0ea2c50ee",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12053,
+            "title": "pdbcls as a configuration option?",
+            "url": "https://github.com/pytest-dev/pytest/issues/12053",
+            "reason": "Shared topic: bit, case, configuration; one report negates a shared condition.",
+            "citation_id": "C3"
+          },
+          {
+            "issue_number": 12081,
+            "title": "Capture: copy output when using readouterr() instead of consuming it",
+            "url": "https://github.com/pytest-dev/pytest/issues/12081",
+            "reason": "Shared topic: additional, any, because; the same failure or request is not established.",
+            "citation_id": "C4"
+          },
+          {
+            "issue_number": 2959,
+            "title": "pytest 3.3.0 immutable fixture params",
+            "url": "https://github.com/pytest-dev/pytest/issues/2959",
+            "reason": "Shared topic: case, com, github; one report negates a shared condition.",
+            "citation_id": "C5"
+          }
+        ],
+        "missing_details": [
+          {
+            "name": "real-world use case",
+            "request": "a real-world use case this would enable",
+            "citation_id": "C1"
+          },
+          {
+            "name": "alternative solutions",
+            "request": "any workaround or alternative you have tried, or that there is none",
+            "citation_id": "C2"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add a real-world use case this would enable? [C1]\n- Could you add any workaround or alternative you have tried, or that there is none? [C2]\n- Earlier issue #12053 may be relevant: Shared topic: bit, case, configuration; one report negates a shared condition. [C3]\n- Earlier issue #12081 may be relevant: Shared topic: additional, any, because; the same failure or request is not established. [C4]\n- Earlier issue #2959 may be relevant: Shared topic: case, com, github; one report negates a shared condition. [C5]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+            "description": "pytest feature report template: real-world use case",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+            "description": "pytest feature report template: alternative solutions",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12053",
+            "description": "pytest issue #12053: pdbcls as a configuration option?",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C4",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12081",
+            "description": "pytest issue #12081: Capture: copy output when using readouterr() instead of consuming it",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C5",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/2959",
+            "description": "pytest issue #2959: pytest 3.3.0 immutable fixture params",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          }
+        ]
+      }
+    }
+  ]
+}

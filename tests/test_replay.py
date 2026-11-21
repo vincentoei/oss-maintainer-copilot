@@ -239,7 +239,10 @@ def test_keyword_baseline_filters_the_frozen_candidate_by_query_terms() -> None:
     case, github, repository = synthetic_case()
     earlier = github.issues[case.earlier_issue.number]
     github.issues[earlier.number] = issue_search.IssueRecord(
-        earlier.number, "Some report", "captured visible", earlier.created_at
+        earlier.number,
+        "Some report",
+        "capfd.readouterr() resets streams",
+        earlier.created_at,
     )
     data = case.model_dump()
     data["earlier_issue"]["content_sha256"] = content_hash(
@@ -254,6 +257,19 @@ def test_keyword_baseline_filters_the_frozen_candidate_by_query_terms() -> None:
         source_reader=repository,
         model_client=ControlledReplayModel(),
     )
+    # The paired input still supports a capture connection, but deliberately
+    # differs from the query's title terms. Filtering is a retrieval concern.
+    data = case.model_dump()
+    review = github.issues[case.issue_number]
+    github.issues[case.issue_number] = issue_search.IssueRecord(
+        review.number,
+        "Feature: preserve retained buffers",
+        review.body,
+        review.created_at,
+    )
+    data["opening_title"] = github.issues[case.issue_number].title
+    data["opening_content_sha256"] = content_hash(github.issues[case.issue_number])
+    case = HistoricalCase.model_validate(data)
     filtered = replay_case(
         case,
         commit_source=repository,

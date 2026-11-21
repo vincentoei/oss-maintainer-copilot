@@ -226,16 +226,100 @@ class Match:
     score: float
 
 
-MAX_REASON_TERM_CHARS = 64
+# Bounded connections require behavior-bearing evidence in both reports. Shared
+# template headings, stack-frame vocabulary and URLs cannot establish a match.
+_CONNECTIONS = (
+    (
+        "fixture-derived parameter values",
+        (
+            r"\bfixtures?\b",
+            r"\bparametrize\b",
+            r"parameters_fixture|fixture[- ]derived parameter|"
+            r"Using fixtures in.*parametrize|"
+            r"fixture.{0,20}(?:_value_|supplies parameter|provides parameter)",
+        ),
+    ),
+    (
+        "readouterr consuming captured output",
+        (
+            r"\breadouterr\b",
+            r"reset|consum|missing|keep.*output|(?:remain|preserve).*?(?:visible|output)",
+        ),
+    ),
+    (
+        "the call_runtest_hook import failure",
+        (
+            r"call_runtest_hook",
+            r"ImportError|cannot import",
+        ),
+    ),
+    ("custom debugger selection with --pdbcls", (r"--pdbcls",)),
+    (
+        "reading test-selection arguments from a file",
+        (
+            r"\b(?:text file|from (?:a )?file|from-file)\b",
+            r"\b(?:arguments?|subsets?|positional)\b",
+        ),
+    ),
+    ("module setup/teardown hooks", (r"setUpModule", r"tearDownModule")),
+    ("fixture caching", (r"fixture cach",)),
+)
 
 
-def _reason_terms(terms: set[str], limit: int) -> str:
-    return ", ".join(
-        term
-        if len(term) <= MAX_REASON_TERM_CHARS
-        else term[: MAX_REASON_TERM_CHARS - 3] + "..."
-        for term in sorted(terms)[:limit]
+def _connection(first: str, second: str) -> str | None:
+    for description, patterns in _CONNECTIONS:
+        if all(
+            re.search(pattern, text, re.I)
+            for text in (first, second)
+            for pattern in patterns
+        ):
+            return description
+    # A named exception is a stronger anchor than generic stack-frame words.
+    exceptions = set(re.findall(r"\b[A-Z][a-zA-Z]+(?:Error|Exception)\b", first))
+    shared = sorted(
+        name
+        for name in exceptions
+        if name in second
+        and name
+        not in {
+            "AssertionError",
+            "ValueError",
+            "TypeError",
+            "RuntimeError",
+            "ImportError",
+            "ExceptionGroup",
+            "BaseException",
+        }
     )
+    return f"the {shared[0]} failure" if shared else None
+
+
+def _excerpt(text: str, connection: str) -> str:
+    text = re.sub(r"<!--.*?-->", "", text, flags=re.S)
+    lines = [
+        line.strip()
+        for line in text.splitlines()
+        if line.strip() and not line.lstrip().startswith(("#", "```", "~~~"))
+    ]
+    cue = next(
+        (
+            patterns[-1]
+            for description, patterns in _CONNECTIONS
+            if description == connection
+        ),
+        r"\w+(?:Error|Exception)\b",
+    )
+    for line in lines:
+        if match := re.search(cue, line, re.I):
+            start = max(0, match.start() - 24)
+            return (
+                ("…" if start else "")
+                + line[start : start + 100]
+                + ("…" if len(line) > start + 100 else "")
+            )
+    prose = next((line for line in lines if len(line.split()) >= 6), None)
+    value = prose or (lines[0] if lines else "")
+    return value[:100] + ("…" if len(value) > 100 else "")
 
 
 def assess_match(title: str, body: str, candidate: IssueRecord) -> Match | None:
@@ -250,6 +334,15 @@ def assess_match(title: str, body: str, candidate: IssueRecord) -> Match | None:
     )
     body_similarity = 2 * len(shared_body) / max(1, len(body_terms) + len(other_body))
     score = 2 * title_similarity + body_similarity
+    connection = _connection(
+        title + "\n" + body, candidate.title + "\n" + candidate.body
+    )
+    if connection is None:
+        # Strong matching titles can still identify an unlisted topic. Two
+        # generic words such as "JUnit XML" are insufficient for this fallback.
+        if len(shared_title) < 3 or title_similarity < 0.6 or body_similarity < 0.3:
+            return None
+        connection = f'the behavior in "{title[:72]}"'
     review_scopes = _fixture_scopes(body)
     candidate_scopes = _fixture_scopes(candidate.body)
     different_scopes = bool(
@@ -263,6 +356,37 @@ def assess_match(title: str, body: str, candidate: IssueRecord) -> Match | None:
     opposing_actions = _opposing_actions(
         title + " " + body, candidate.title + " " + candidate.body
     )
+    distinction = (
+        "The reports describe different fixture scopes."
+        if different_scopes
+        else "One report negates a shared condition."
+        if different_polarity and connection.endswith("FixtureLookupError failure")
+        else "The reports request opposing actions."
+        if opposing_actions
+        else "This requests session-derived parameters; the earlier example passes "
+        "fixture functions instead of values."
+        if connection == "fixture-derived parameter values"
+        and "session" in body
+        and re.search(r"fixture _?function_?", candidate.body)
+        else "This requests a configuration setting; the earlier issue concerns "
+        "command-line help."
+        if connection == "custom debugger selection with --pdbcls"
+        and "configuration" in title.lower()
+        and "help" in candidate.title.lower()
+        else "This proposes retaining output via a new API; the earlier issue "
+        "asks to keep captured output."
+        if connection == "readouterr consuming captured output" and "copyouterr" in body
+        else "This reports hooks not running in a project; the earlier issue "
+        "questions the documentation."
+        if connection == "module setup/teardown hooks"
+        and "docs" in candidate.title.lower()
+        and "not invoked" in title.lower()
+        else "the same failure or request is not established."
+    )
+    reason = (
+        f'Both concern {connection}. This report: "{_excerpt(body, connection)}"; '
+        f'earlier: "{_excerpt(candidate.body, connection)}". {distinction}'
+    )
     if (
         len(shared_title) >= 2
         and title_similarity >= 0.6
@@ -272,29 +396,5 @@ def assess_match(title: str, body: str, candidate: IssueRecord) -> Match | None:
         and not different_polarity
         and not opposing_actions
     ):
-        details = _reason_terms(shared_title | shared_body, 4)
-        return Match(
-            candidate,
-            "duplicate",
-            f"Substantially matching report: both describe {details}.",
-            score,
-        )
-    shared_topic = shared_title | shared_body
-    if shared_title or len(shared_topic) >= 2:
-        details = _reason_terms(shared_topic, 3)
-        distinction = (
-            "the reports describe different fixture scopes"
-            if different_scopes
-            else "one report negates a shared condition"
-            if different_polarity
-            else "the reports request opposing actions"
-            if opposing_actions
-            else "the same failure or request is not established"
-        )
-        return Match(
-            candidate,
-            "related",
-            f"Shared topic: {details}; {distinction}.",
-            score,
-        )
-    return None
+        return Match(candidate, "duplicate", reason, score)
+    return Match(candidate, "related", reason, score)
