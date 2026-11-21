@@ -179,11 +179,17 @@ and the requesting user's explicit rating, verbatim reason and recording time.
 These ratings apply to complete application replies from this specific run;
 they do not automatically transfer to #21 comparator runs or controlled baselines.
 
-Progress: **1 of 20 reply-usefulness reviews complete; 19 pending**. For #7312,
+Progress: **2 of 20 reply-usefulness reviews complete; 18 pending**. For #7312,
 the user rated the exact saved reply **partly useful**: #349 is a promising
 fixture-derived-parameter lead, but the explanation relies on generic word
 overlap, does not explain a potential duplicate, fails to distinguish #2959's
 regression, includes apparently unrelated #7012, and gives no clear next step.
+
+For #10156, the user rated the exact saved reply **not useful**: it does not
+address whether the documentation contribution is welcome, whether the example
+is understood correctly, or where it belongs. It repeats the reporter's #2959
+reference without explaining the connection to the implementation; generic
+word overlap offers little help in responding to the proposal.
 
 The user saw paraphrases of hash-verified opening texts, the exact saved draft
 and a report summary in chat. Later activity was excluded. This is a recorded

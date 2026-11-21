@@ -31,12 +31,12 @@
   },
   "summary": {
     "cases": 20,
-    "reply_usefulness_reviewed": 1,
-    "reply_usefulness_pending": 19,
+    "reply_usefulness_reviewed": 2,
+    "reply_usefulness_pending": 18,
     "rating_counts": {
       "useful": 0,
       "partly useful": 1,
-      "not useful": 0
+      "not useful": 1
     },
     "separate_semantic_judgments": "Citation support, relationship labels and other-field abstention reviews remain pending"
   },
@@ -99,13 +99,48 @@
       "report_sha256": "324f6cfccdf92a7104a3300c43c5cb7a0fd4dbe9d073a3c6127b59b4d6ae6147",
       "draft_reply_sha256": "d1456b977fd6b92e04c24cdcf7853fd68c49aec46e8c0b2fb8297301dc14959b",
       "draft_reply_usefulness": {
-        "review_status": "pending_human_review",
-        "rating": null,
-        "reason": null
+        "review_status": "human_confirmed",
+        "rating": "not useful",
+        "reason": "The draft does not address whether the documentation contribution is welcome, whether the workaround is understood correctly, or where the example belongs. It repeats #2959, which the reporter already cited, without explaining its connection to their implementation. Generic word overlap offers little help in assessing or responding to the proposal.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T11:43:28.057208+00:00",
+        "confirmation_method": "Explicit user rating and reason in this conversation; reason preserved verbatim"
       },
       "citation_support_review_status": "pending_human_review",
       "relationship_review_status": "pending_human_review",
-      "other_field_abstention_review_status": "pending_human_review"
+      "other_field_abstention_review_status": "pending_human_review",
+      "evidence_presented": {
+        "format": "Codex paraphrases of the hash-verified issue opening and three cited openings, plus the exact saved draft reply and report summary in chat",
+        "verified_openings": [
+          {
+            "issue_number": 10156,
+            "content_sha256": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+            "created_at": "2022-07-19T20:03:50+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 7312,
+            "content_sha256": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+            "created_at": "2020-06-03T14:20:24+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 349,
+            "content_sha256": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+            "created_at": "2013-08-30T19:48:51+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 2959,
+            "content_sha256": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+            "created_at": "2017-11-28T09:02:11+00:00",
+            "verification": "matched recorded opening title/body hash"
+          }
+        ],
+        "later_activity": "excluded",
+        "linked_comment_scope": "The opening references an earlier #2959 workaround comment; its content was not independently presented or used as additional evidence",
+        "question_scope": "Overall draft-reply usefulness only; separate citation, relationship and abstention labels were not requested"
+      }
     },
     {
       "issue_number": 12053,
@@ -395,5 +430,6 @@
       "relationship_review_status": "pending_human_review",
       "other_field_abstention_review_status": "pending_human_review"
     }
-  ]
+  ],
+  "updated_at": "2026-11-21T11:43:28.060682+00:00"
 }
