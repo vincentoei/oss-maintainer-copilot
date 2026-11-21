@@ -1,0 +1,439 @@
+{
+  "recorded_at": "2026-11-19T18:38:27.844306+00:00",
+  "purpose": "User-operated browser integration checks and deterministic diagnosis; additional live observations, not historical benchmark quality cases",
+  "model": "pytest-triage:coder3b-ctx16k",
+  "observations": [
+    {
+      "name": "fixed_synthetic",
+      "trace_id": "4730dd25-b091-410f-ae6f-7cf81e615fd3",
+      "user_reported_status": "complete",
+      "user_reported_type": "type: bug",
+      "independently_read_trace": {
+        "trace_id": "4730dd25-b091-410f-ae6f-7cf81e615fd3",
+        "created_at": "2026-11-19T18:06:53.101657Z",
+        "status": "complete",
+        "duration_ms": 3140.858,
+        "events": [
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 0.32,
+            "duration_ms": 3140.418,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 616,
+            "output_tokens": 50,
+            "error": null
+          }
+        ]
+      },
+      "real_model_call_ms": 3140.418
+    },
+    {
+      "name": "agent_synthetic_no_tools",
+      "trace_id": "7ce85c6c-58dd-432d-a91b-83622c7e3ba2",
+      "user_reported_status": "complete",
+      "user_reported_type": "type: bug",
+      "independently_read_trace": {
+        "trace_id": "7ce85c6c-58dd-432d-a91b-83622c7e3ba2",
+        "created_at": "2026-11-19T18:11:05.026750Z",
+        "status": "complete",
+        "duration_ms": 785.462,
+        "events": [
+          {
+            "kind": "model",
+            "name": "agent_action",
+            "status": "ok",
+            "started_ms": 0.046,
+            "duration_ms": 400.783,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 243,
+            "output_tokens": 12,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 401.029,
+            "duration_ms": 384.378,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 616,
+            "output_tokens": 50,
+            "error": null
+          }
+        ]
+      },
+      "real_model_call_ms": 785.161
+    },
+    {
+      "name": "agent_source_inspection",
+      "trace_id": "f8149728-7318-4d2c-a68a-10f4d659f85f",
+      "user_reported_status": "complete",
+      "user_reported_type": "type: bug",
+      "independently_read_trace": {
+        "trace_id": "f8149728-7318-4d2c-a68a-10f4d659f85f",
+        "created_at": "2026-11-19T18:14:31.402723Z",
+        "status": "complete",
+        "duration_ms": 2815.031,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_documentation_passage",
+            "status": "ok",
+            "started_ms": 0.056,
+            "duration_ms": 529.661,
+            "target": "capture",
+            "result_count": 1,
+            "references": [
+              "https://docs.pytest.org/en/stable/how-to/capture-stdout-stderr.html#accessing-captured-output-from-a-test-function"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_documentation_passage",
+            "status": "ok",
+            "started_ms": 529.736,
+            "duration_ms": 403.627,
+            "target": "fixture_scope",
+            "result_count": 1,
+            "references": [
+              "https://docs.pytest.org/en/stable/how-to/fixtures.html#fixture-scopes"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "agent_action",
+            "status": "ok",
+            "started_ms": 933.42,
+            "duration_ms": 742.453,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 494,
+            "output_tokens": 66,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_source_excerpt",
+            "status": "ok",
+            "started_ms": 1676.41,
+            "duration_ms": 364.468,
+            "target": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "tool",
+            "name": "inspect_source",
+            "status": "ok",
+            "started_ms": 1676.187,
+            "duration_ms": 364.813,
+            "target": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "agent_action",
+            "status": "ok",
+            "started_ms": 2041.012,
+            "duration_ms": 191.569,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 681,
+            "output_tokens": 12,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_documentation_passage",
+            "status": "ok",
+            "started_ms": 2232.892,
+            "duration_ms": 0.013,
+            "target": "capture",
+            "result_count": 1,
+            "references": [
+              "https://docs.pytest.org/en/stable/how-to/capture-stdout-stderr.html#accessing-captured-output-from-a-test-function"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_documentation_passage",
+            "status": "ok",
+            "started_ms": 2232.939,
+            "duration_ms": 0.005,
+            "target": "fixture_scope",
+            "result_count": 1,
+            "references": [
+              "https://docs.pytest.org/en/stable/how-to/fixtures.html#fixture-scopes"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_source_excerpt",
+            "status": "ok",
+            "started_ms": 2232.957,
+            "duration_ms": 0.014,
+            "target": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+            "result_count": 1,
+            "references": [
+              "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 2233.094,
+            "duration_ms": 581.819,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 877,
+            "output_tokens": 58,
+            "error": null
+          }
+        ]
+      },
+      "real_model_call_ms": 1515.841
+    },
+    {
+      "name": "agent_live_pasted_12053",
+      "trace_id": "3d89596e-315d-4074-a64d-ab54280013d3",
+      "user_reported_status": "complete",
+      "user_reported_type": "type: enhancement",
+      "live_search_result_count": 784,
+      "returned_related_count": 5,
+      "user_reported_missing_details": [
+        "problem to solve",
+        "proposed solution",
+        "real-world use case",
+        "alternative solutions"
+      ],
+      "independently_read_trace": {
+        "trace_id": "3d89596e-315d-4074-a64d-ab54280013d3",
+        "created_at": "2026-11-19T18:23:16.659451Z",
+        "status": "complete",
+        "duration_ms": 25623.542,
+        "events": [
+          {
+            "kind": "model",
+            "name": "agent_action",
+            "status": "ok",
+            "started_ms": 0.054,
+            "duration_ms": 500.218,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 450,
+            "output_tokens": 23,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 500.422,
+            "duration_ms": 644.713,
+            "target": "pytest issue #12053",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 1145.158,
+            "duration_ms": 23359.727,
+            "target": "query (configuration OR option OR pdbcls) before 2024-03-03T14:58:35+00:00",
+            "result_count": 784,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/3141",
+              "https://github.com/pytest-dev/pytest/issues/10952",
+              "https://github.com/pytest-dev/pytest/issues/5039",
+              "https://github.com/pytest-dev/pytest/issues/7417",
+              "https://github.com/pytest-dev/pytest/issues/11495"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "tool",
+            "name": "search_earlier_issues",
+            "status": "ok",
+            "started_ms": 500.352,
+            "duration_ms": 24125.573,
+            "target": "pytest issue #12053",
+            "result_count": 5,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "agent_action",
+            "status": "ok",
+            "started_ms": 24625.949,
+            "duration_ms": 369.355,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 813,
+            "output_tokens": 12,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 24995.86,
+            "duration_ms": 0.023,
+            "target": "pytest issue #12053",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 24995.914,
+            "duration_ms": 0.012,
+            "target": "query (configuration OR option OR pdbcls) before 2024-03-03T14:58:35+00:00",
+            "result_count": 5,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/3141",
+              "https://github.com/pytest-dev/pytest/issues/10952",
+              "https://github.com/pytest-dev/pytest/issues/5039",
+              "https://github.com/pytest-dev/pytest/issues/7417",
+              "https://github.com/pytest-dev/pytest/issues/11495"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 24995.93,
+            "duration_ms": 0.963,
+            "target": null,
+            "result_count": 5,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 24997.086,
+            "duration_ms": 626.395,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1308,
+            "output_tokens": 77,
+            "error": null
+          }
+        ]
+      },
+      "real_model_call_ms": 1495.968
+    }
+  ],
+  "diagnosis": {
+    "assessment_attribution": "Codex diagnosis; the user supplied UI output and form text, not an independent semantic rating",
+    "issue_number": 12053,
+    "reviewed_expected_missing_details": [],
+    "fixture_body_sha256": "8716ccf34c94b9421c230ef1daeee39c3d6d451286f17fceb51694743411547f",
+    "fixture_note": "Transcribed from user code block with terminal newline; browser byte-for-byte input hash is unavailable. Full contributor body is not republished. This rendered-copy variant is not the hash-verified historical opening.",
+    "minimal_synthetic_input": "What's the problem this feature will solve?\nThe debugger command is too long.\n",
+    "red_assertion": "problem to solve must not be requested when the supplied problem heading has a meaningful answer",
+    "baseline_reproductions": 2,
+    "probes": [
+      {
+        "probe": "exact user paste",
+        "missing_details": [
+          "problem to solve",
+          "proposed solution",
+          "real-world use case",
+          "alternative solutions"
+        ]
+      },
+      {
+        "probe": "only Markdown heading markers added",
+        "missing_details": [
+          "real-world use case",
+          "alternative solutions"
+        ]
+      },
+      {
+        "probe": "only TOML code fence added",
+        "missing_details": [
+          "problem to solve",
+          "proposed solution",
+          "real-world use case",
+          "alternative solutions"
+        ]
+      },
+      {
+        "probe": "only controlled type selection changed to enhancement",
+        "observed_type": "type: enhancement",
+        "missing_details": [
+          "problem to solve",
+          "proposed solution",
+          "real-world use case",
+          "alternative solutions"
+        ]
+      }
+    ],
+    "cause": "_section_has_answer requires Markdown heading markers; plain rendered headings are ignored. Separate lexical rules do not recognize the provided use case or existing CLI workaround.",
+    "code_locations": [
+      "src/maintainer_copilot/pytest_profile.py:_section_has_answer",
+      "src/maintainer_copilot/pytest_profile.py:missing_feature_details",
+      "src/maintainer_copilot/triage.py:required_reply_ids"
+    ],
+    "model_endpoint_calls_in_diagnosis": 0,
+    "fix_status": "not implemented; pre-existing template-rule quality gap recorded within issue #21 scope",
+    "existing_case_metadata_and_baselines_changed": false
+  }
+}
