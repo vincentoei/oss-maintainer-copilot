@@ -179,7 +179,7 @@ and the requesting user's explicit rating, verbatim reason and recording time.
 These ratings apply to complete application replies from this specific run;
 they do not automatically transfer to #21 comparator runs or controlled baselines.
 
-Progress: **12 of 20 reply-usefulness reviews complete; 8 pending**. For #7312,
+Progress: **13 of 20 reply-usefulness reviews complete; 7 pending**. For #7312,
 the user rated the exact saved reply **partly useful**: #349 is a promising
 fixture-derived-parameter lead, but the explanation relies on generic word
 overlap, does not explain a potential duplicate, fails to distinguish #2959's
@@ -246,6 +246,11 @@ For #12201, the user rated the exact saved reply **not useful**: both requested
 details already appear in the opening. Windows/POSIX path testing is the use
 case, and duplicated tests with `skipif` are the current workaround. The draft
 overlooks this content and gives no guidance on conditional parametrization.
+
+For #12203, the user rated the exact saved reply **partly useful**: a standalone
+minimal example is missing, so the request could help reproduction. It would be
+more actionable if it acknowledged the supplied sketch and requested a runnable
+fixture and test showing logging configuration, the exception and missing output.
 
 The user saw paraphrases of hash-verified opening texts, the exact saved draft
 and a report summary in chat. Later activity was excluded. This is a recorded

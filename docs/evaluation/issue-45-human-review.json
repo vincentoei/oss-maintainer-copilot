@@ -31,11 +31,11 @@
   },
   "summary": {
     "cases": 20,
-    "reply_usefulness_reviewed": 12,
-    "reply_usefulness_pending": 8,
+    "reply_usefulness_reviewed": 13,
+    "reply_usefulness_pending": 7,
     "rating_counts": {
       "useful": 0,
-      "partly useful": 3,
+      "partly useful": 4,
       "not useful": 9
     },
     "separate_semantic_judgments": "Citation support, relationship labels and other-field abstention reviews remain pending"
@@ -646,13 +646,59 @@
       "report_sha256": "06f75caa1c896d2df6b9aac509732bd9bb57d1849d6ae5d766235f6c3e305c5a",
       "draft_reply_sha256": "5ba2b20723d9e837dc2e75a7c2b6a8a2239a62f91e30671fb47872b7077eb25d",
       "draft_reply_usefulness": {
-        "review_status": "pending_human_review",
-        "rating": null,
-        "reason": null
+        "review_status": "human_confirmed",
+        "rating": "partly useful",
+        "reason": "A standalone minimal example is missing, so the request could help reproduce the logging failure. It would be more actionable if it acknowledged the supplied sketch and asked for a runnable fixture and test showing the logging configuration, exception and missing output.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T15:20:44.612027+00:00",
+        "confirmation_method": "Explicit user rating and reason in this conversation; reason preserved verbatim"
       },
       "citation_support_review_status": "pending_human_review",
       "relationship_review_status": "pending_human_review",
-      "other_field_abstention_review_status": "pending_human_review"
+      "other_field_abstention_review_status": "pending_human_review",
+      "evidence_presented": {
+        "format": "Codex paraphrases of the hash-verified issue opening, three related openings and pinned bug-template requirement, plus the exact saved draft reply and report summary in chat",
+        "verified_openings": [
+          {
+            "issue_number": 12203,
+            "content_sha256": "aa2546be855758373051d6f6fb6fb5c054046d756240b75632230807dbe3061c",
+            "created_at": "2024-04-10T09:18:43+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 12081,
+            "content_sha256": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+            "created_at": "2024-03-06T00:03:25+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 3448,
+            "content_sha256": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+            "created_at": "2018-05-04T10:55:56+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 12066,
+            "content_sha256": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8",
+            "created_at": "2024-03-04T10:18:30+00:00",
+            "verification": "matched recorded opening title/body hash"
+          }
+        ],
+        "verified_artifacts": [
+          {
+            "commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+            "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+            "lines": [
+              16
+            ],
+            "content_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+            "verification": "Read from GitHub at pinned commit; verified Git blob SHA against returned bytes"
+          }
+        ],
+        "later_activity": "excluded",
+        "external_implementation_scope": "The opening includes a plugin implementation link; its contents were not retrieved or used as additional evidence in the review presentation",
+        "question_scope": "Overall draft-reply usefulness only; separate citation, relationship and abstention labels were not requested"
+      }
     },
     {
       "issue_number": 12204,
@@ -767,5 +813,5 @@
       "other_field_abstention_review_status": "pending_human_review"
     }
   ],
-  "updated_at": "2026-11-21T15:18:28.522425+00:00"
+  "updated_at": "2026-11-21T15:20:44.613341+00:00"
 }
