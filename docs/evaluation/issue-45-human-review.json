@@ -31,12 +31,12 @@
   },
   "summary": {
     "cases": 20,
-    "reply_usefulness_reviewed": 7,
-    "reply_usefulness_pending": 13,
+    "reply_usefulness_reviewed": 8,
+    "reply_usefulness_pending": 12,
     "rating_counts": {
       "useful": 0,
       "partly useful": 3,
-      "not useful": 4
+      "not useful": 5
     },
     "separate_semantic_judgments": "Citation support, relationship labels and other-field abstention reviews remain pending"
   },
@@ -395,13 +395,46 @@
       "report_sha256": "9ae03d68fb3e10e386613518658642419d8dc5e23a474d6f8a1906cfbe5da525",
       "draft_reply_sha256": "e0df0fb67a2519c3035d3bf672504e28c855db90ea353ad598393ceabedbbb85",
       "draft_reply_usefulness": {
-        "review_status": "pending_human_review",
-        "rating": null,
-        "reason": null
+        "review_status": "human_confirmed",
+        "rating": "not useful",
+        "reason": "The draft requests package information already supplied in the opening. It does not address the missing child-process log records, the provided reproducer and workaround, or the request for guidance on contributing multiprocessing support.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T14:34:28.844237+00:00",
+        "confirmation_method": "Explicit user rating and reason in this conversation; reason preserved verbatim"
       },
       "citation_support_review_status": "pending_human_review",
       "relationship_review_status": "pending_human_review",
-      "other_field_abstention_review_status": "pending_human_review"
+      "other_field_abstention_review_status": "pending_human_review",
+      "evidence_presented": {
+        "format": "Codex paraphrases of the hash-verified issue opening, related opening and pinned bug-template requirement, plus the exact saved draft reply and report summary in chat",
+        "verified_openings": [
+          {
+            "issue_number": 12116,
+            "content_sha256": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+            "created_at": "2024-03-13T13:37:51+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 12081,
+            "content_sha256": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+            "created_at": "2024-03-06T00:03:25+00:00",
+            "verification": "matched recorded opening title/body hash"
+          }
+        ],
+        "verified_artifacts": [
+          {
+            "commit": "c0532dda18a5cfd0e6f67113bb164485fa80eb86",
+            "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+            "lines": [
+              14
+            ],
+            "content_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+            "verification": "Read from GitHub at pinned commit; verified Git blob SHA against returned bytes"
+          }
+        ],
+        "later_activity": "excluded",
+        "question_scope": "Overall draft-reply usefulness only; separate citation, relationship and abstention labels were not requested"
+      }
     },
     {
       "issue_number": 12146,
@@ -596,5 +629,5 @@
       "other_field_abstention_review_status": "pending_human_review"
     }
   ],
-  "updated_at": "2026-11-21T14:29:43.811405+00:00"
+  "updated_at": "2026-11-21T14:34:28.845965+00:00"
 }
