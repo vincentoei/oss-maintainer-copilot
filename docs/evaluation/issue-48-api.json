@@ -1,0 +1,1472 @@
+{
+  "recorded_at": "2026-11-21T16:59:33.351143+00:00",
+  "scope": "Real existing API and bounded-agent integration with content-verified original openings and frozen eligible keyword candidate catalog. Ordinary live documentation source; separate from historical field scoring. No controlled model responses.",
+  "cases": [
+    {
+      "issue_number": 12116,
+      "endpoint": "/api/triage",
+      "input_content_sha256": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+      "latency_ms": 679.207,
+      "assertions": {
+        "http_ok": true,
+        "matching_trace": true,
+        "real_model_usage": true,
+        "model_calls_bounded": true,
+        "supplied_packages_not_requested": true
+      },
+      "report": {
+        "trace_id": "7a9558f0-f592-4356-82e5-be531a580ba3",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "ltiprocessing\n### A detailed description of the bug or problem\r\nCapturing logs from spawned processes is not working - all calls to",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "7a9558f0-f592-4356-82e5-be531a580ba3",
+        "created_at": "2026-11-21T16:59:25.770407Z",
+        "status": "complete",
+        "duration_ms": 649.46,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.748,
+            "duration_ms": 0.03,
+            "target": "pytest issue #12116",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.791,
+            "duration_ms": 0.582,
+            "target": "query (multiprocessing OR capturing OR logs) before 2024-03-13T13:37:51+00:00",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 1.377,
+            "duration_ms": 0.388,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 3.271,
+            "duration_ms": 646.032,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1203,
+            "output_tokens": 57,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "system_prompt_sha256": "54ffa800a34e4a43af8968a0acedf709965ce6c305b7fd84872a6d31e6af971f",
+          "user_data_sha256": "d03815093756ae3667cf3722ecb6f1bc7284bcc6440b9f924caa08fa3d765930",
+          "max_tokens": 256,
+          "schema_sha256": "3fc905bf1d0c4e706c91dbb3e3325885f288d490d36e832f939953cd06bea797",
+          "output": {
+            "issue_type": "type: bug",
+            "issue_type_quote": "ltiprocessing\n### A detailed description of the bug or problem\r\nCapturing logs from spawned processes is not working - all calls to",
+            "reply_citation_ids": []
+          },
+          "input_tokens": 1203,
+          "output_tokens": 57,
+          "error": null
+        }
+      ]
+    },
+    {
+      "issue_number": 12116,
+      "endpoint": "/api/agent/triage",
+      "input_content_sha256": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+      "latency_ms": 1028.099,
+      "assertions": {
+        "http_ok": true,
+        "matching_trace": true,
+        "real_model_usage": true,
+        "model_calls_bounded": true,
+        "supplied_packages_not_requested": true
+      },
+      "report": {
+        "trace_id": "73ae0b38-fb41-4fc5-93bb-7cb0d27bafc6",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "ltiprocessing\n### A detailed description of the bug or problem\r\nCapturing logs from spawned processes is not working - all calls to",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "73ae0b38-fb41-4fc5-93bb-7cb0d27bafc6",
+        "created_at": "2026-11-21T16:59:26.426271Z",
+        "status": "complete",
+        "duration_ms": 1024.927,
+        "events": [
+          {
+            "kind": "model",
+            "name": "agent_action",
+            "status": "ok",
+            "started_ms": 0.063,
+            "duration_ms": 373.207,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 998,
+            "output_tokens": 23,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 373.408,
+            "duration_ms": 0.009,
+            "target": "pytest issue #12116",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 373.426,
+            "duration_ms": 0.559,
+            "target": "query (multiprocessing OR capturing OR logs) before 2024-03-13T13:37:51+00:00",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "tool",
+            "name": "search_earlier_issues",
+            "status": "ok",
+            "started_ms": 373.32,
+            "duration_ms": 0.917,
+            "target": "pytest issue #12116",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "agent_action",
+            "status": "ok",
+            "started_ms": 374.244,
+            "duration_ms": 160.002,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 998,
+            "output_tokens": 12,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 534.44,
+            "duration_ms": 0.019,
+            "target": "pytest issue #12116",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 534.47,
+            "duration_ms": 0.006,
+            "target": "query (multiprocessing OR capturing OR logs) before 2024-03-13T13:37:51+00:00",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 534.478,
+            "duration_ms": 0.004,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 535.467,
+            "duration_ms": 489.376,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1203,
+            "output_tokens": 57,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "system_prompt_sha256": "5e7186d61341ef1a30bd50c1899f924fc5757eed02e8eef47454a6b27608f3ef",
+          "user_data_sha256": "1762514f626c9890918c800c58225df4439364ded7fea88c471b3c4cee425ccc",
+          "max_tokens": 256,
+          "schema_sha256": "3e035f41bbbbc8505aa78a02ae5a7b8a649024d1db56349f4d53246770830507",
+          "output": {
+            "tool": "search_earlier_issues",
+            "arguments": {
+              "issue_number": 12116
+            }
+          },
+          "input_tokens": 998,
+          "output_tokens": 23,
+          "error": null
+        },
+        {
+          "system_prompt_sha256": "5e7186d61341ef1a30bd50c1899f924fc5757eed02e8eef47454a6b27608f3ef",
+          "user_data_sha256": "ced60c9c47a87132ffe0db6d443c823be013e46d22c598f44d8ec39abec5aabb",
+          "max_tokens": 256,
+          "schema_sha256": "4117bc7cc2cad0094abd918f5151c1d01da51b98706ab0586c04968817459290",
+          "output": {
+            "tool": "finish",
+            "arguments": {}
+          },
+          "input_tokens": 998,
+          "output_tokens": 12,
+          "error": null
+        },
+        {
+          "system_prompt_sha256": "54ffa800a34e4a43af8968a0acedf709965ce6c305b7fd84872a6d31e6af971f",
+          "user_data_sha256": "d03815093756ae3667cf3722ecb6f1bc7284bcc6440b9f924caa08fa3d765930",
+          "max_tokens": 256,
+          "schema_sha256": "3fc905bf1d0c4e706c91dbb3e3325885f288d490d36e832f939953cd06bea797",
+          "output": {
+            "issue_type": "type: bug",
+            "issue_type_quote": "ltiprocessing\n### A detailed description of the bug or problem\r\nCapturing logs from spawned processes is not working - all calls to",
+            "reply_citation_ids": []
+          },
+          "input_tokens": 1203,
+          "output_tokens": 57,
+          "error": null
+        }
+      ]
+    },
+    {
+      "issue_number": 12146,
+      "endpoint": "/api/triage",
+      "input_content_sha256": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+      "latency_ms": 829.161,
+      "assertions": {
+        "http_ok": true,
+        "matching_trace": true,
+        "real_model_usage": true,
+        "model_calls_bounded": true,
+        "targeted_comparison": true
+      },
+      "report": {
+        "trace_id": "674e89b8-a36b-4c5a-b691-42e52613bd15",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [
+          {
+            "claim": "pytest documents that fixture scope determines when a fixture is destroyed.",
+            "citation_id": "C1"
+          }
+        ],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- The supplied scenarios use different pytest versions (8.1.1 / 7.4.4). Could you compare both scenarios using the same pytest version and identical tuple values, including their order, changing only how the values are constructed? Please include fixture setup/teardown output from both runs. [C2]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://docs.pytest.org/en/stable/how-to/fixtures.html#fixture-scopes",
+            "description": "pytest documentation: fixture scope",
+            "passage": "Fixtures are created when first requested by a test, and are destroyed based on their scope",
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12146",
+            "description": "Submitted issue under review: investigative follow-up",
+            "passage": "pytest-8.1.1\npytest-7.4.4\npytest         8.1.1",
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "674e89b8-a36b-4c5a-b691-42e52613bd15",
+        "created_at": "2026-11-21T16:59:27.454499Z",
+        "status": "complete",
+        "duration_ms": 826.781,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.132,
+            "duration_ms": 0.022,
+            "target": "pytest issue #12146",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.167,
+            "duration_ms": 0.911,
+            "target": "query (parametrization OR unexpectedly OR variables) before 2024-03-21T12:06:34+00:00",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 1.081,
+            "duration_ms": 0.008,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_documentation_passage",
+            "status": "ok",
+            "started_ms": 1.124,
+            "duration_ms": 479.602,
+            "target": "fixture_scope",
+            "result_count": 1,
+            "references": [
+              "https://docs.pytest.org/en/stable/how-to/fixtures.html#fixture-scopes"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 481.275,
+            "duration_ms": 345.439,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1549,
+            "output_tokens": 29,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "system_prompt_sha256": "54ffa800a34e4a43af8968a0acedf709965ce6c305b7fd84872a6d31e6af971f",
+          "user_data_sha256": "8283ac90bab660e6816df5003db718e4c851c232f868f9013ad32d03ce822a75",
+          "max_tokens": 256,
+          "schema_sha256": "f9f87a545218870117c68fa9ece42b9b61208b48555bd5d377b85da058bcea20",
+          "output": {
+            "issue_type": null,
+            "issue_type_quote": null,
+            "reply_citation_ids": [
+              "C2"
+            ]
+          },
+          "input_tokens": 1549,
+          "output_tokens": 29,
+          "error": null
+        }
+      ]
+    },
+    {
+      "issue_number": 12146,
+      "endpoint": "/api/agent/triage",
+      "input_content_sha256": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+      "latency_ms": 1064.455,
+      "assertions": {
+        "http_ok": true,
+        "matching_trace": true,
+        "real_model_usage": true,
+        "model_calls_bounded": true,
+        "targeted_comparison": true
+      },
+      "report": {
+        "trace_id": "2e06bde6-95f9-4658-8806-6d49eb431051",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [
+          {
+            "claim": "pytest documents that fixture scope determines when a fixture is destroyed.",
+            "citation_id": "C1"
+          }
+        ],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- The supplied scenarios use different pytest versions (8.1.1 / 7.4.4). Could you compare both scenarios using the same pytest version and identical tuple values, including their order, changing only how the values are constructed? Please include fixture setup/teardown output from both runs. [C2]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://docs.pytest.org/en/stable/how-to/fixtures.html#fixture-scopes",
+            "description": "pytest documentation: fixture scope",
+            "passage": "Fixtures are created when first requested by a test, and are destroyed based on their scope",
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12146",
+            "description": "Submitted issue under review: investigative follow-up",
+            "passage": "pytest-8.1.1\npytest-7.4.4\npytest         8.1.1",
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "2e06bde6-95f9-4658-8806-6d49eb431051",
+        "created_at": "2026-11-21T16:59:28.283403Z",
+        "status": "complete",
+        "duration_ms": 1061.288,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_documentation_passage",
+            "status": "ok",
+            "started_ms": 0.038,
+            "duration_ms": 152.723,
+            "target": "fixture_scope",
+            "result_count": 1,
+            "references": [
+              "https://docs.pytest.org/en/stable/how-to/fixtures.html#fixture-scopes"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "agent_action",
+            "status": "ok",
+            "started_ms": 152.791,
+            "duration_ms": 457.97,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1402,
+            "output_tokens": 23,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 610.888,
+            "duration_ms": 0.009,
+            "target": "pytest issue #12146",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 610.907,
+            "duration_ms": 0.674,
+            "target": "query (parametrization OR unexpectedly OR variables) before 2024-03-21T12:06:34+00:00",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "tool",
+            "name": "search_earlier_issues",
+            "status": "ok",
+            "started_ms": 610.802,
+            "duration_ms": 0.796,
+            "target": "pytest issue #12146",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "agent_action",
+            "status": "ok",
+            "started_ms": 611.604,
+            "duration_ms": 151.921,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1402,
+            "output_tokens": 12,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 763.651,
+            "duration_ms": 0.018,
+            "target": "pytest issue #12146",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 763.678,
+            "duration_ms": 0.004,
+            "target": "query (parametrization OR unexpectedly OR variables) before 2024-03-21T12:06:34+00:00",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 763.684,
+            "duration_ms": 0.003,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_documentation_passage",
+            "status": "ok",
+            "started_ms": 763.727,
+            "duration_ms": 0.005,
+            "target": "fixture_scope",
+            "result_count": 1,
+            "references": [
+              "https://docs.pytest.org/en/stable/how-to/fixtures.html#fixture-scopes"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 763.944,
+            "duration_ms": 297.259,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1549,
+            "output_tokens": 29,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "system_prompt_sha256": "5e7186d61341ef1a30bd50c1899f924fc5757eed02e8eef47454a6b27608f3ef",
+          "user_data_sha256": "d6c2d1545628e31669f0efceb459757fb307560c6ab98a22b3d97c3fa87cecd0",
+          "max_tokens": 256,
+          "schema_sha256": "201665ea1ce21a828022aa9bb848f4dd7455dc63ae4b7b9d717b558a76aa07a8",
+          "output": {
+            "tool": "search_earlier_issues",
+            "arguments": {
+              "issue_number": 12146
+            }
+          },
+          "input_tokens": 1402,
+          "output_tokens": 23,
+          "error": null
+        },
+        {
+          "system_prompt_sha256": "5e7186d61341ef1a30bd50c1899f924fc5757eed02e8eef47454a6b27608f3ef",
+          "user_data_sha256": "029c5de1f81467c35ff9fecc932d8498014d5aaec0b3a8f0c00b492ade7208b0",
+          "max_tokens": 256,
+          "schema_sha256": "4117bc7cc2cad0094abd918f5151c1d01da51b98706ab0586c04968817459290",
+          "output": {
+            "tool": "finish",
+            "arguments": {}
+          },
+          "input_tokens": 1402,
+          "output_tokens": 12,
+          "error": null
+        },
+        {
+          "system_prompt_sha256": "54ffa800a34e4a43af8968a0acedf709965ce6c305b7fd84872a6d31e6af971f",
+          "user_data_sha256": "8283ac90bab660e6816df5003db718e4c851c232f868f9013ad32d03ce822a75",
+          "max_tokens": 256,
+          "schema_sha256": "f9f87a545218870117c68fa9ece42b9b61208b48555bd5d377b85da058bcea20",
+          "output": {
+            "issue_type": null,
+            "issue_type_quote": null,
+            "reply_citation_ids": [
+              "C2"
+            ]
+          },
+          "input_tokens": 1549,
+          "output_tokens": 29,
+          "error": null
+        }
+      ]
+    },
+    {
+      "issue_number": 12219,
+      "endpoint": "/api/triage",
+      "input_content_sha256": "681e48797dfaccd7ce7ff3a86bd5862656e34bfbda83da9364ae7fb8696a891b",
+      "latency_ms": 986.976,
+      "assertions": {
+        "http_ok": true,
+        "matching_trace": true,
+        "real_model_usage": true,
+        "model_calls_bounded": true,
+        "minimized_failing_case": true
+      },
+      "report": {
+        "trace_id": "57822dc7-a277-4b53-ac5d-c298c2528e39",
+        "status": "complete",
+        "issue_type": "type: docs",
+        "issue_type_quote": "nding that it's not supported, even though the [docs say it is](https://github.com/pytest-dev/pytest/blob/58844247f7ae4a7a213a73c8af",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 4064,
+            "title": "Docs: is setUpModule/tearDownModule supported?",
+            "url": "https://github.com/pytest-dev/pytest/issues/4064",
+            "reason": "Both concern module setup/teardown hooks. This report: \"\u2026test `setUpModule` and `tearDownModule`.\"; earlier: \"\u2026ay that setUpModule and tearDownModule are not supported:\". This reports hooks not running; the earlier issue questions the documentation.",
+            "citation_id": "C1"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [
+          {
+            "claim": "pytest documents that fixture scope determines when a fixture is destroyed.",
+            "citation_id": "C2"
+          }
+        ],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- You report that the hook works in the minimized example. Could you reduce the affected project's case to a minimized failing example, including its module layout, configuration and exact command? Compare that with the working example to isolate what prevents the hook from running. [C3]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/4064",
+            "description": "pytest issue #4064: Docs: is setUpModule/tearDownModule supported?",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://docs.pytest.org/en/stable/how-to/fixtures.html#fixture-scopes",
+            "description": "pytest documentation: fixture scope",
+            "passage": "Fixtures are created when first requested by a test, and are destroyed based on their scope",
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12219",
+            "description": "Submitted issue under review: investigative follow-up",
+            "passage": "Interestingly, the hook does seem to be honored in a minimized example.",
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "57822dc7-a277-4b53-ac5d-c298c2528e39",
+        "created_at": "2026-11-21T16:59:29.348366Z",
+        "status": "complete",
+        "duration_ms": 983.145,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.102,
+            "duration_ms": 0.023,
+            "target": "pytest issue #12219",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.14,
+            "duration_ms": 2.45,
+            "target": "query (teardownmodule OR setupmodule OR invoked) before 2024-04-16T08:22:38+00:00",
+            "result_count": 2,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/4064"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 2.599,
+            "duration_ms": 0.581,
+            "target": null,
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_documentation_passage",
+            "status": "ok",
+            "started_ms": 3.253,
+            "duration_ms": 219.75,
+            "target": "fixture_scope",
+            "result_count": 1,
+            "references": [
+              "https://docs.pytest.org/en/stable/how-to/fixtures.html#fixture-scopes"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 223.566,
+            "duration_ms": 759.499,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1312,
+            "output_tokens": 84,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "system_prompt_sha256": "54ffa800a34e4a43af8968a0acedf709965ce6c305b7fd84872a6d31e6af971f",
+          "user_data_sha256": "a6fad029eb87bed1e250ca6849d84bb948c158c93cafa3897b833a53ccef6acf",
+          "max_tokens": 256,
+          "schema_sha256": "e0733153ff25ec923cb17ee371ffbe9e43e1275624711dc6ff7537fabc512ee3",
+          "output": {
+            "issue_type": "type: docs",
+            "issue_type_quote": "nding that it's not supported, even though the [docs say it is](https://github.com/pytest-dev/pytest/blob/58844247f7ae4a7a213a73c8af",
+            "reply_citation_ids": [
+              "C3"
+            ]
+          },
+          "input_tokens": 1312,
+          "output_tokens": 84,
+          "error": null
+        }
+      ]
+    },
+    {
+      "issue_number": 12219,
+      "endpoint": "/api/agent/triage",
+      "input_content_sha256": "681e48797dfaccd7ce7ff3a86bd5862656e34bfbda83da9364ae7fb8696a891b",
+      "latency_ms": 1420.778,
+      "assertions": {
+        "http_ok": true,
+        "matching_trace": true,
+        "real_model_usage": true,
+        "model_calls_bounded": true,
+        "minimized_failing_case": true
+      },
+      "report": {
+        "trace_id": "6ea127e1-a468-4797-82ff-195bdb4f93e0",
+        "status": "complete",
+        "issue_type": "type: docs",
+        "issue_type_quote": "nding that it's not supported, even though the [docs say it is](https://github.com/pytest-dev/pytest/blob/58844247f7ae4a7a213a73c8af",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 4064,
+            "title": "Docs: is setUpModule/tearDownModule supported?",
+            "url": "https://github.com/pytest-dev/pytest/issues/4064",
+            "reason": "Both concern module setup/teardown hooks. This report: \"\u2026test `setUpModule` and `tearDownModule`.\"; earlier: \"\u2026ay that setUpModule and tearDownModule are not supported:\". This reports hooks not running; the earlier issue questions the documentation.",
+            "citation_id": "C1"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [
+          {
+            "claim": "pytest documents that fixture scope determines when a fixture is destroyed.",
+            "citation_id": "C2"
+          }
+        ],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- You report that the hook works in the minimized example. Could you reduce the affected project's case to a minimized failing example, including its module layout, configuration and exact command? Compare that with the working example to isolate what prevents the hook from running. [C3]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/4064",
+            "description": "pytest issue #4064: Docs: is setUpModule/tearDownModule supported?",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://docs.pytest.org/en/stable/how-to/fixtures.html#fixture-scopes",
+            "description": "pytest documentation: fixture scope",
+            "passage": "Fixtures are created when first requested by a test, and are destroyed based on their scope",
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12219",
+            "description": "Submitted issue under review: investigative follow-up",
+            "passage": "Interestingly, the hook does seem to be honored in a minimized example.",
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "6ea127e1-a468-4797-82ff-195bdb4f93e0",
+        "created_at": "2026-11-21T16:59:30.335426Z",
+        "status": "complete",
+        "duration_ms": 1417.656,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_documentation_passage",
+            "status": "ok",
+            "started_ms": 0.067,
+            "duration_ms": 177.932,
+            "target": "fixture_scope",
+            "result_count": 1,
+            "references": [
+              "https://docs.pytest.org/en/stable/how-to/fixtures.html#fixture-scopes"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "agent_action",
+            "status": "ok",
+            "started_ms": 178.026,
+            "duration_ms": 357.765,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 859,
+            "output_tokens": 23,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 535.919,
+            "duration_ms": 0.007,
+            "target": "pytest issue #12219",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 535.938,
+            "duration_ms": 2.323,
+            "target": "query (teardownmodule OR setupmodule OR invoked) before 2024-04-16T08:22:38+00:00",
+            "result_count": 2,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/4064"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "tool",
+            "name": "search_earlier_issues",
+            "status": "ok",
+            "started_ms": 535.838,
+            "duration_ms": 2.933,
+            "target": "pytest issue #12219",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "agent_action",
+            "status": "ok",
+            "started_ms": 538.78,
+            "duration_ms": 163.041,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 972,
+            "output_tokens": 12,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 701.924,
+            "duration_ms": 0.018,
+            "target": "pytest issue #12219",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 701.952,
+            "duration_ms": 0.004,
+            "target": "query (teardownmodule OR setupmodule OR invoked) before 2024-04-16T08:22:38+00:00",
+            "result_count": 1,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/4064"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 701.958,
+            "duration_ms": 0.258,
+            "target": null,
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_documentation_passage",
+            "status": "ok",
+            "started_ms": 702.285,
+            "duration_ms": 0.006,
+            "target": "fixture_scope",
+            "result_count": 1,
+            "references": [
+              "https://docs.pytest.org/en/stable/how-to/fixtures.html#fixture-scopes"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 702.627,
+            "duration_ms": 714.951,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1312,
+            "output_tokens": 84,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "system_prompt_sha256": "5e7186d61341ef1a30bd50c1899f924fc5757eed02e8eef47454a6b27608f3ef",
+          "user_data_sha256": "387d316984ed743b5d45333ddf248f6213fab60f13dc029a8357ecbaaf8c6702",
+          "max_tokens": 256,
+          "schema_sha256": "3f3de1be0e14f5406cf8eb0810769beec6ae9eb43dd9b4839fd826e80e85c22f",
+          "output": {
+            "tool": "search_earlier_issues",
+            "arguments": {
+              "issue_number": 12219
+            }
+          },
+          "input_tokens": 859,
+          "output_tokens": 23,
+          "error": null
+        },
+        {
+          "system_prompt_sha256": "5e7186d61341ef1a30bd50c1899f924fc5757eed02e8eef47454a6b27608f3ef",
+          "user_data_sha256": "9d7dafc8c96e9da78491a071bdaf60b67d847cb216a4b0439754bddac699cba7",
+          "max_tokens": 256,
+          "schema_sha256": "4117bc7cc2cad0094abd918f5151c1d01da51b98706ab0586c04968817459290",
+          "output": {
+            "tool": "finish",
+            "arguments": {}
+          },
+          "input_tokens": 972,
+          "output_tokens": 12,
+          "error": null
+        },
+        {
+          "system_prompt_sha256": "54ffa800a34e4a43af8968a0acedf709965ce6c305b7fd84872a6d31e6af971f",
+          "user_data_sha256": "a6fad029eb87bed1e250ca6849d84bb948c158c93cafa3897b833a53ccef6acf",
+          "max_tokens": 256,
+          "schema_sha256": "e0733153ff25ec923cb17ee371ffbe9e43e1275624711dc6ff7537fabc512ee3",
+          "output": {
+            "issue_type": "type: docs",
+            "issue_type_quote": "nding that it's not supported, even though the [docs say it is](https://github.com/pytest-dev/pytest/blob/58844247f7ae4a7a213a73c8af",
+            "reply_citation_ids": [
+              "C3"
+            ]
+          },
+          "input_tokens": 1312,
+          "output_tokens": 84,
+          "error": null
+        }
+      ]
+    },
+    {
+      "issue_number": 12224,
+      "endpoint": "/api/triage",
+      "input_content_sha256": "5c821c047cc326c41148cd48c10d6a5941c05a3164bdb116777930cee6b5a18a",
+      "latency_ms": 552.536,
+      "assertions": {
+        "http_ok": true,
+        "matching_trace": true,
+        "real_model_usage": true,
+        "model_calls_bounded": true,
+        "argument_file_mismatch_removed": true
+      },
+      "report": {
+        "trace_id": "308cc9b9-011d-4774-b9ca-30de890f717f",
+        "status": "complete",
+        "issue_type": "type: enhancement",
+        "issue_type_quote": "cripting interface\n#### What's the problem this feature will solve?\r\nI'm using pytest (running in linux) to run tests in pyodide (in a ",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "308cc9b9-011d-4774-b9ca-30de890f717f",
+        "created_at": "2026-11-21T16:59:31.755935Z",
+        "status": "complete",
+        "duration_ms": 549.636,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 2.14,
+            "duration_ms": 0.017,
+            "target": "pytest issue #12224",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 2.165,
+            "duration_ms": 1.916,
+            "target": "query (interface OR scripting OR granular) before 2024-04-18T05:51:07+00:00",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 4.094,
+            "duration_ms": 0.208,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 5.628,
+            "duration_ms": 543.922,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1091,
+            "output_tokens": 64,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "system_prompt_sha256": "54ffa800a34e4a43af8968a0acedf709965ce6c305b7fd84872a6d31e6af971f",
+          "user_data_sha256": "b0c4699b777fa73417d11caf083785368a062e4267bf2df89ad583cf4d99d52e",
+          "max_tokens": 256,
+          "schema_sha256": "31086225865844a343c8412c90f38935d2f09ab826173209c08c15be72f28616",
+          "output": {
+            "issue_type": "type: enhancement",
+            "issue_type_quote": "cripting interface\n#### What's the problem this feature will solve?\r\nI'm using pytest (running in linux) to run tests in pyodide (in a ",
+            "reply_citation_ids": []
+          },
+          "input_tokens": 1091,
+          "output_tokens": 64,
+          "error": null
+        }
+      ]
+    },
+    {
+      "issue_number": 12224,
+      "endpoint": "/api/agent/triage",
+      "input_content_sha256": "5c821c047cc326c41148cd48c10d6a5941c05a3164bdb116777930cee6b5a18a",
+      "latency_ms": 1043.501,
+      "assertions": {
+        "http_ok": true,
+        "matching_trace": true,
+        "real_model_usage": true,
+        "model_calls_bounded": true,
+        "argument_file_mismatch_removed": true
+      },
+      "report": {
+        "trace_id": "6b265432-2193-40d4-89ac-e28248400c1b",
+        "status": "complete",
+        "issue_type": "type: enhancement",
+        "issue_type_quote": "cripting interface\n#### What's the problem this feature will solve?\r\nI'm using pytest (running in linux) to run tests in pyodide (in a ",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "6b265432-2193-40d4-89ac-e28248400c1b",
+        "created_at": "2026-11-21T16:59:32.308448Z",
+        "status": "complete",
+        "duration_ms": 1041.24,
+        "events": [
+          {
+            "kind": "model",
+            "name": "agent_action",
+            "status": "ok",
+            "started_ms": 0.088,
+            "duration_ms": 351.689,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 847,
+            "output_tokens": 23,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 351.908,
+            "duration_ms": 0.007,
+            "target": "pytest issue #12224",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 351.924,
+            "duration_ms": 2.061,
+            "target": "query (interface OR scripting OR granular) before 2024-04-18T05:51:07+00:00",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "tool",
+            "name": "search_earlier_issues",
+            "status": "ok",
+            "started_ms": 351.822,
+            "duration_ms": 2.378,
+            "target": "pytest issue #12224",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "agent_action",
+            "status": "ok",
+            "started_ms": 354.209,
+            "duration_ms": 150.744,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 847,
+            "output_tokens": 12,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 505.509,
+            "duration_ms": 0.019,
+            "target": "pytest issue #12224",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 505.54,
+            "duration_ms": 0.006,
+            "target": "query (interface OR scripting OR granular) before 2024-04-18T05:51:07+00:00",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 505.549,
+            "duration_ms": 0.012,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 507.513,
+            "duration_ms": 533.682,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1091,
+            "output_tokens": 64,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "system_prompt_sha256": "5e7186d61341ef1a30bd50c1899f924fc5757eed02e8eef47454a6b27608f3ef",
+          "user_data_sha256": "cf58baacd03b1f815830618f6feea8f017f0bdff86da5c81e36af4cfb3b567ba",
+          "max_tokens": 256,
+          "schema_sha256": "6ce574b8ea98342e3d618df0c36fdd63dd424449b0664c9e43a0097435cb363e",
+          "output": {
+            "tool": "search_earlier_issues",
+            "arguments": {
+              "issue_number": 12224
+            }
+          },
+          "input_tokens": 847,
+          "output_tokens": 23,
+          "error": null
+        },
+        {
+          "system_prompt_sha256": "5e7186d61341ef1a30bd50c1899f924fc5757eed02e8eef47454a6b27608f3ef",
+          "user_data_sha256": "3c2d395197ba47a53fffbe54b85468ff8a810724a904ab904e78b93899484e6a",
+          "max_tokens": 256,
+          "schema_sha256": "4117bc7cc2cad0094abd918f5151c1d01da51b98706ab0586c04968817459290",
+          "output": {
+            "tool": "finish",
+            "arguments": {}
+          },
+          "input_tokens": 847,
+          "output_tokens": 12,
+          "error": null
+        },
+        {
+          "system_prompt_sha256": "54ffa800a34e4a43af8968a0acedf709965ce6c305b7fd84872a6d31e6af971f",
+          "user_data_sha256": "b0c4699b777fa73417d11caf083785368a062e4267bf2df89ad583cf4d99d52e",
+          "max_tokens": 256,
+          "schema_sha256": "31086225865844a343c8412c90f38935d2f09ab826173209c08c15be72f28616",
+          "output": {
+            "issue_type": "type: enhancement",
+            "issue_type_quote": "cripting interface\n#### What's the problem this feature will solve?\r\nI'm using pytest (running in linux) to run tests in pyodide (in a ",
+            "reply_citation_ids": []
+          },
+          "input_tokens": 1091,
+          "output_tokens": 64,
+          "error": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "recorded_at": "2026-11-21T16:44:14.262907+00:00",
+  "ollama_url": "http://172.17.48.1:11434",
+  "server": {
+    "version": "0.40.16"
+  },
+  "identity": {
+    "name": "pytest-triage:coder3b-ctx16k",
+    "model": "pytest-triage:coder3b-ctx16k",
+    "modified_at": "2026-11-20T00:13:19.6628884+07:00",
+    "size": 1929912340,
+    "digest": "3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8",
+    "details": {
+      "parent_model": "qwen2.5-coder:3b-instruct-q4_K_M",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "3.1B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 2048,
+      "runner": "llamacpp"
+    },
+    "capabilities": [
+      "completion",
+      "tools",
+      "insert"
+    ]
+  },
+  "parameters": {
+    "repeat_penalty": "1",
+    "seed": "42",
+    "temperature": "0",
+    "top_k": "20",
+    "top_p": "0.8",
+    "num_ctx": "16384"
+  },
+  "expected": {
+    "num_ctx": 16384,
+    "temperature": 0,
+    "seed": 42,
+    "top_k": 20,
+    "top_p": 0.8,
+    "repeat_penalty": 1
+  },
+  "verification": "exact baseline digest, Q4_K_M and alias parameters passed"
+}

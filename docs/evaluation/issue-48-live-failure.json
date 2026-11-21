@@ -1,0 +1,34 @@
+{
+  "stage": "warmup before any scored inference",
+  "artifact": "issue-48-initial-results.json",
+  "serving_verification": "issue-48-serving.json",
+  "http_status": 500,
+  "provider_error": "llama-server process has terminated: exit status 1: cudaMalloc failed: out of memory; failed to allocate CUDA0 buffer of size 202403968; failed to initialize the context: failed to allocate compute pp buffers",
+  "retry": "Same warm-up reproduced HTTP 500; no inference success claimed",
+  "environment": {
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "windows_free_physical_memory_kib": 1200780,
+    "windows_total_visible_memory_kib": 16184696,
+    "gpu_memory_total_mib": 8151,
+    "gpu_memory_used_mib_after_failure": 5,
+    "nvidia_driver": "592.01",
+    "wsl_route": "default via 172.17.48.1 dev eth0",
+    "wsl_localhost": "unreachable",
+    "ollama_version": "0.40.16",
+    "serving_after_failure": {
+      "models": []
+    }
+  },
+  "cause_status": "CUDA allocation failure confirmed; low Windows free RAM observed, causal relation unproven. No app rule or model setting changed to work around it.",
+  "recovery": {
+    "user_action": "Requesting user closed applications",
+    "windows_free_physical_memory_kib": 5886352,
+    "warmup_success": true,
+    "elapsed_seconds": 3.22,
+    "model_digest": "3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8",
+    "context_length": 16384,
+    "size_equals_size_vram": true,
+    "evidence": "issue-48-results.json contains fresh subsequent warmup, serving state and twenty real calls"
+  }
+}

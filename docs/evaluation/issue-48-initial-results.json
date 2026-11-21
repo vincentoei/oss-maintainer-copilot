@@ -1,0 +1,103 @@
+{
+  "recorded_at": "2026-11-21T16:44:14.265035+00:00",
+  "server": {
+    "version": "0.40.16"
+  },
+  "ollama_url": "http://172.17.48.1:11434",
+  "python_version": "3.12.3",
+  "generation": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "response_format": "json_schema (triage selection)",
+    "model_client_sha256": "7bef4c191bd6511d123c548e7cce91013dd7aae107b82690dc69d09412d861c0",
+    "client_timeout_seconds": 20,
+    "other_settings": "See each model's recorded parameters and serving state."
+  },
+  "cost_assumptions": {
+    "model_api_usd": 0,
+    "scope": "Local Ollama; electricity, hardware and network costs excluded."
+  },
+  "models": {},
+  "integrity_preflight": [
+    {
+      "issue_number": 7312,
+      "integrity": "passed"
+    },
+    {
+      "issue_number": 10156,
+      "integrity": "passed"
+    },
+    {
+      "issue_number": 12053,
+      "integrity": "passed"
+    },
+    {
+      "issue_number": 12072,
+      "integrity": "passed"
+    },
+    {
+      "issue_number": 12079,
+      "integrity": "passed"
+    },
+    {
+      "issue_number": 12081,
+      "integrity": "passed"
+    },
+    {
+      "issue_number": 12083,
+      "integrity": "passed"
+    },
+    {
+      "issue_number": 12116,
+      "integrity": "passed"
+    },
+    {
+      "issue_number": 12146,
+      "integrity": "passed"
+    },
+    {
+      "issue_number": 12189,
+      "integrity": "passed"
+    },
+    {
+      "issue_number": 12197,
+      "integrity": "passed"
+    },
+    {
+      "issue_number": 12201,
+      "integrity": "passed"
+    },
+    {
+      "issue_number": 12203,
+      "integrity": "passed"
+    },
+    {
+      "issue_number": 12204,
+      "integrity": "passed"
+    },
+    {
+      "issue_number": 12216,
+      "integrity": "passed"
+    },
+    {
+      "issue_number": 12219,
+      "integrity": "passed"
+    },
+    {
+      "issue_number": 12223,
+      "integrity": "passed"
+    },
+    {
+      "issue_number": 12224,
+      "integrity": "passed"
+    },
+    {
+      "issue_number": 12226,
+      "integrity": "passed"
+    },
+    {
+      "issue_number": 12228,
+      "integrity": "passed"
+    }
+  ]
+}

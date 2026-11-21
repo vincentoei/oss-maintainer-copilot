@@ -297,6 +297,9 @@ def allowed_case_citation_urls(
         f"https://github.com/pytest-dev/pytest/issues/{number}"
         for number in candidate_numbers
     }
+    # The content-verified opening itself can support an investigative question.
+    # It remains ineligible as an earlier duplicate/related suggestion.
+    allowed.add(f"https://github.com/pytest-dev/pytest/issues/{case.issue_number}")
     if case.template_profile == "bug_feature":
         allowed.update(
             pytest_profile.citation_url("bug", detail.line, case.repository_commit)

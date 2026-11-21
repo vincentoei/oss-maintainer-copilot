@@ -102,7 +102,7 @@ def validate_suggestion(raw: object, request: ModelRequest) -> ModelSuggestion:
     ):
         raise ValueError("reply refers to evidence not supplied to the model")
     if not set(request.required_reply_ids).issubset(suggestion.reply_citation_ids):
-        raise ValueError("reply omits requested missing details")
+        raise ValueError("reply omits required evidence-backed statements")
     return suggestion
 
 
@@ -175,7 +175,10 @@ class OpenAICompatibleModel:
                 "supplied citation IDs for reply_citation_ids. Do not "
                 "write free "
                 "text claims. Include all required_reply_ids. Use [] when "
-                "no evidence supports a reply."
+                "no evidence supports a reply. Prioritize supplied investigative "
+                "questions addressing this issue over broad contextual statements "
+                "about earlier issues. Select a supported investigative question "
+                "when available, together with all required_reply_ids."
             ),
             {
                 "issue_title": request.issue_title,

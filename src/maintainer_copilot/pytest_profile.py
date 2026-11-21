@@ -291,6 +291,15 @@ def missing_bug_details(body: str) -> list[TemplateDetail]:
 def _has_pip_list_output(body: str) -> bool:
     package_row = re.compile(r"^[\w.-]+\s+\d+(?:\.\d+)+(?:\S*)$")
     lines = body.splitlines()
+    # pip's own table header is stronger evidence than the reporter's heading.
+    # Require actual rows, so a copied empty table is still missing.
+    for index, line in enumerate(lines):
+        if re.fullmatch(r"\s*Package\s+Version\s*", line, re.I):
+            rows = lines[index + 1 :]
+            if rows and re.fullmatch(r"\s*-+\s+-+\s*", rows[0]):
+                rows = rows[1:]
+            if rows and package_row.fullmatch(rows[0].strip()):
+                return True
     for index, line in enumerate(lines):
         heading = re.match(
             r"(?i)^\s*(?:#{1,6}\s+)?(?:pip list|packages installed)\s*(?::\s*(.*))?$",
@@ -375,6 +384,26 @@ def _section_has_answer(body: str, heading: str) -> bool:
 
 
 def _has_concrete_scenario(body: str) -> bool:
+    if re.search(
+        r"\b(?:i'm|i am|we are)\s+(?:currently\s+)?writing tests\b[^\n]{20,}",
+        body,
+        re.I,
+    ) or re.search(
+        r"\bi want to (?:run|collect)\b[^\n]{10,}\btests\b[^\n]*\bto \w+",
+        body,
+        re.I,
+    ):
+        return True
+    if re.search(r"\bci (?:systems?|scripts?|pipelines?)\b", body, re.I) and re.search(
+        r"\b(?:bash|shell)\b[^\n]{10,}", body, re.I
+    ):
+        return True
+    if (
+        re.search(r"\b(?:docs|documentation)\b", body, re.I)
+        and re.search(r"\b(?:toml|pyproject\.toml|ini_options)\b", body, re.I)
+        and re.search(r"`[^`\n]*(?:=|addopts)[^`\n]*`", body)
+    ):
+        return True
     for sentence in re.split(r"[.!?\n]+", body):
         if len(sentence.split()) < 12:
             continue
@@ -445,6 +474,13 @@ def _has_alternative_detail(body: str) -> bool:
             return True
     if _has_current_alternative(body):
         return True
+    if re.search(
+        r"\b(?:i'm|i am|we are)\s+(?:currently\s+)?making use of\s+"
+        r"(?:the\s+)?`[^`\n]+`[^\n]*\bcopy\b[^\n]*\btests\b",
+        body,
+        re.I,
+    ):
+        return True
     for attempt in re.finditer(
         r"\b(?:(?:i|we)\s+(?:have\s+)?tried\s+(?!(?:no|nothing)\b)\S|"
         r"(?:my|our|current) workaround (?:is|uses?)\s+"
@@ -497,7 +533,7 @@ def missing_feature_details(body: str) -> list[TemplateDetail]:
         _section_has_answer(body, "Use case")
         or _section_has_answer(body, "Real-world use case")
         or re.search(
-            r"\b(?:for example|e\.g\.)\s*[:,]?\s*\w[^\n]{20,}",
+            r"\b(?:for example|e\.g\.)\s*[:,]?\s*\S[^\n]{20,}",
             without_comments,
             re.I,
         )

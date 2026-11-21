@@ -1,0 +1,473 @@
+{
+  "source": {
+    "artifact": "docs/evaluation/issue-48-results.json",
+    "sha256": "7cbe49f05bf833c801cf2a5124cacf55a75504f0607f07b12ff630f89f5b2a89",
+    "model_name": "pytest-triage:coder3b-ctx16k",
+    "run_recorded_at": "2026-11-21T16:57:58.869292+00:00"
+  },
+  "rubric": {
+    "question": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+    "ratings": [
+      "useful",
+      "partly useful",
+      "not useful"
+    ],
+    "unsure": "Keep review pending; do not invent a rating"
+  },
+  "summary": {
+    "cases": 20,
+    "reply_usefulness_reviewed": 20,
+    "reply_usefulness_pending": 0,
+    "rating_counts": {
+      "useful": 3,
+      "partly useful": 7,
+      "not useful": 10
+    },
+    "comparison_to_before": {
+      "artifact": "docs/evaluation/issue-45-human-review.json",
+      "sha256": "e46a36a4b6f98e676cf0ffe2714b69d6a81b398e19d7f2ad830c808bffa1116f",
+      "rating_counts": {
+        "useful": 0,
+        "partly useful": 5,
+        "not useful": 15
+      },
+      "case_counts": {
+        "improved": 5,
+        "unchanged": 15,
+        "regressed": 0
+      },
+      "issue_numbers": {
+        "improved": [
+          12053,
+          12081,
+          12146,
+          12204,
+          12219
+        ],
+        "unchanged": [
+          7312,
+          10156,
+          12072,
+          12079,
+          12083,
+          12116,
+          12189,
+          12197,
+          12201,
+          12203,
+          12216,
+          12223,
+          12224,
+          12226,
+          12228
+        ],
+        "regressed": []
+      }
+    },
+    "separate_semantic_judgments": "Citation support, separate relationship labels and other-field abstention judgments remain pending_human_review."
+  },
+  "scope": "Fresh run ratings only; no rating transferred from #45.",
+  "cases": [
+    {
+      "issue_number": 7312,
+      "opening_cutoff": "2020-06-03T14:20:24+00:00",
+      "repository_commit": "61a6ac97054c0bd6f812642b46847c4b7cbede2a",
+      "trace_id": "c341bfaf-db61-4703-86d0-5c6d814dbbfc",
+      "report_sha256": "92b19531120ebaaccd3370ee6a60e3f883f5674487388fba67bb4bbaca090227",
+      "draft_reply_sha256": "5170e68fab39943ba15c1e650f725115d575d21d14bb5f390ce13b3f5b9b71fd",
+      "before_rating": "partly useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "human_confirmed",
+        "rating": "partly useful",
+        "reason": "Explains the shared fixture-derived parametrization request and the differing examples. It provides a relevant lead, but stops short of explaining the potential duplicate relationship or a concrete next step.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T17:07:51.345571+00:00",
+        "confirmation_method": "Explicit twenty-row user review table of the final After replies in issue-48-human-review.md; reasons preserved verbatim."
+      },
+      "separate_semantic_judgments": "pending_human_review",
+      "usefulness_change": "unchanged"
+    },
+    {
+      "issue_number": 10156,
+      "opening_cutoff": "2022-07-19T20:03:50+00:00",
+      "repository_commit": "34a285986e456406b22b62aa563a64331f640e7f",
+      "trace_id": "e456cadf-5689-4716-a745-3b14d766d492",
+      "report_sha256": "956b054c9f5fb174f3bb836d0550337b6bb424207acb6991f9577eae88363442",
+      "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "human_confirmed",
+        "rating": "not useful",
+        "reason": "The generic abstention does not address the documentation proposal, assess the workaround, or help determine where the example belongs.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T17:07:51.345571+00:00",
+        "confirmation_method": "Explicit twenty-row user review table of the final After replies in issue-48-human-review.md; reasons preserved verbatim."
+      },
+      "separate_semantic_judgments": "pending_human_review",
+      "usefulness_change": "unchanged"
+    },
+    {
+      "issue_number": 12053,
+      "opening_cutoff": "2024-03-03T14:58:35+00:00",
+      "repository_commit": "00043f7f1047b29fdaeb18e169fe9d6146988cb8",
+      "trace_id": "8c859641-57e0-4a24-9889-3199d2d81ef9",
+      "report_sha256": "5017abc90bb66d7c507e6ccc578649a3f080a23b391c286d3399357bab6a3f64",
+      "draft_reply_sha256": "273644575705d32b7f9d6e7b0821abb7a1ac5ebc7f9f95fe74a4fc7b8560497e",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "human_confirmed",
+        "rating": "partly useful",
+        "reason": "Clearly distinguishes the configuration request from #8655’s command-line help issue. That context is relevant, but it provides no guidance on configuring the debugger class or assessing the enhancement.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T17:07:51.345571+00:00",
+        "confirmation_method": "Explicit twenty-row user review table of the final After replies in issue-48-human-review.md; reasons preserved verbatim."
+      },
+      "separate_semantic_judgments": "pending_human_review",
+      "usefulness_change": "improved"
+    },
+    {
+      "issue_number": 12072,
+      "opening_cutoff": "2024-03-04T13:04:55+00:00",
+      "repository_commit": "0951cbc6e4880ee7dfc9b7e56948d83ee086e74b",
+      "trace_id": "346d87f0-598b-49fb-b1bb-d1afa3bf2c90",
+      "report_sha256": "63104280c822969271dc5fad825a01eff6af103393e8c5da0a7759d6dad34705",
+      "draft_reply_sha256": "e8982f210fc8c0eab2076a3fada9d711ab3087edd772a7bf2530b37d85863099",
+      "before_rating": "partly useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "human_confirmed",
+        "rating": "partly useful",
+        "reason": "Identifies and quotes the matching import error, giving a strong investigative lead. The unexplained statement that the same failure is not established understates the match; missing environment details and a reproducer are not requested.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T17:07:51.345571+00:00",
+        "confirmation_method": "Explicit twenty-row user review table of the final After replies in issue-48-human-review.md; reasons preserved verbatim."
+      },
+      "separate_semantic_judgments": "pending_human_review",
+      "usefulness_change": "unchanged"
+    },
+    {
+      "issue_number": 12079,
+      "opening_cutoff": "2024-03-05T12:31:13+00:00",
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "trace_id": "52a13bc6-17d0-4f4f-8694-68281698dce2",
+      "report_sha256": "2e9ec103d44fc0a8db28d12500792b940d7bf0d6f3947281fd1f4422bc3f4b83",
+      "draft_reply_sha256": "cd8f5db29951d793fb662d5f09913f886576e9fabc1d192e0cf0f71a70670d11",
+      "before_rating": "partly useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "human_confirmed",
+        "rating": "partly useful",
+        "reason": "Appropriately asks about attempted alternatives without repeating the supplied use case. However, the final reply omits #11871 and its closely matching request to read test-selection arguments from a file.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T17:07:51.345571+00:00",
+        "confirmation_method": "Explicit twenty-row user review table of the final After replies in issue-48-human-review.md; reasons preserved verbatim."
+      },
+      "separate_semantic_judgments": "pending_human_review",
+      "usefulness_change": "unchanged"
+    },
+    {
+      "issue_number": 12081,
+      "opening_cutoff": "2024-03-06T00:03:25+00:00",
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "trace_id": "c764b5a7-d64c-48dc-8e0d-4d1a7d64b90b",
+      "report_sha256": "eaa439664f319906be96895e87a9f0fce451bbb83e3f2429ba5a1928513ce467",
+      "draft_reply_sha256": "cbef87d516bee97c01f8cdb3e5597bca53429bf3f7f437d7d485caeeb78fdbfb",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "human_confirmed",
+        "rating": "partly useful",
+        "reason": "Explains the shared output-consumption behavior and suggests comparing the proposed API with #3448. The documentation statement remains generic, and the source reference still fails to explain that readouterr() resets the buffer.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T17:07:51.345571+00:00",
+        "confirmation_method": "Explicit twenty-row user review table of the final After replies in issue-48-human-review.md; reasons preserved verbatim."
+      },
+      "separate_semantic_judgments": "pending_human_review",
+      "usefulness_change": "improved"
+    },
+    {
+      "issue_number": 12083,
+      "opening_cutoff": "2024-03-06T10:53:11+00:00",
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "trace_id": "58f87f4d-13db-4f81-95e6-d246c3096abf",
+      "report_sha256": "dd35fbee188d2ca02183c8ed08653d7f24ccbd2fe1fc422c4843bca86ea5b395",
+      "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "human_confirmed",
+        "rating": "not useful",
+        "reason": "The abstention provides no help investigating the demonstrated collection difference or clarifying whether the behavior is intentional.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T17:07:51.345571+00:00",
+        "confirmation_method": "Explicit twenty-row user review table of the final After replies in issue-48-human-review.md; reasons preserved verbatim."
+      },
+      "separate_semantic_judgments": "pending_human_review",
+      "usefulness_change": "unchanged"
+    },
+    {
+      "issue_number": 12116,
+      "opening_cutoff": "2024-03-13T13:37:51+00:00",
+      "repository_commit": "c0532dda18a5cfd0e6f67113bb164485fa80eb86",
+      "trace_id": "e4991d69-3b38-41fc-9a1a-36abf4ed6674",
+      "report_sha256": "bf1a26a92a750cf7a864b98903c630fc77dbb9f2e3d1e396236b0ce2f114de9e",
+      "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "human_confirmed",
+        "rating": "not useful",
+        "reason": "Avoids requesting the already supplied package list, but gives no guidance about child-process logging, the reproducer, or the proposed multiprocessing support.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T17:07:51.345571+00:00",
+        "confirmation_method": "Explicit twenty-row user review table of the final After replies in issue-48-human-review.md; reasons preserved verbatim."
+      },
+      "separate_semantic_judgments": "pending_human_review",
+      "usefulness_change": "unchanged"
+    },
+    {
+      "issue_number": 12146,
+      "opening_cutoff": "2024-03-21T12:06:34+00:00",
+      "repository_commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
+      "trace_id": "c3356dd5-b9f2-441c-a765-9cb4e2d72944",
+      "report_sha256": "401484d3c755fe17820ab4d6f6616c52aeeac2e6c24d1beb5ac62e82bb8976ca",
+      "draft_reply_sha256": "e19947d515514499027d456bdc5a6e3e60ed2baf09ccfede37c427ad238f083f",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "human_confirmed",
+        "rating": "useful",
+        "reason": "Identifies the version mismatch and requests a controlled comparison with identical tuple values and order. Asking for setup/teardown output provides a concrete way to isolate the reported behavior without assuming its cause.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T17:07:51.345571+00:00",
+        "confirmation_method": "Explicit twenty-row user review table of the final After replies in issue-48-human-review.md; reasons preserved verbatim."
+      },
+      "separate_semantic_judgments": "pending_human_review",
+      "usefulness_change": "improved"
+    },
+    {
+      "issue_number": 12189,
+      "opening_cutoff": "2024-04-05T09:14:51+00:00",
+      "repository_commit": "4e3dd21506a9e543c04c63ebff966a9b604d2b9e",
+      "trace_id": "4f8dc763-1235-489a-ab33-10971b79af1f",
+      "report_sha256": "188aff9c6db474d6401480fc53cc19f4c59317ead6b7916937479dd01b8b0670",
+      "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "human_confirmed",
+        "rating": "not useful",
+        "reason": "The abstention does not examine the supplied command or suggest investigating how -s, capture and JUnit output interact.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T17:07:51.345571+00:00",
+        "confirmation_method": "Explicit twenty-row user review table of the final After replies in issue-48-human-review.md; reasons preserved verbatim."
+      },
+      "separate_semantic_judgments": "pending_human_review",
+      "usefulness_change": "unchanged"
+    },
+    {
+      "issue_number": 12197,
+      "opening_cutoff": "2024-04-08T11:30:37+00:00",
+      "repository_commit": "74f05648d5ea9e69d75f27a77972756ee32f6730",
+      "trace_id": "e7eb4bff-378a-4263-bb92-66fe8d475279",
+      "report_sha256": "da2903c844ab1aca80930027edde893f9cbc291c3a97d1880ca507b4d02ef1b3",
+      "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "human_confirmed",
+        "rating": "not useful",
+        "reason": "Provides no investigation of the CLI-versus-ini behavior and does not request the missing configuration snippet or reproducing test.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T17:07:51.345571+00:00",
+        "confirmation_method": "Explicit twenty-row user review table of the final After replies in issue-48-human-review.md; reasons preserved verbatim."
+      },
+      "separate_semantic_judgments": "pending_human_review",
+      "usefulness_change": "unchanged"
+    },
+    {
+      "issue_number": 12201,
+      "opening_cutoff": "2024-04-09T14:22:08+00:00",
+      "repository_commit": "17fc20af78d0c7b739806c4e461d2c9b8c30ceeb",
+      "trace_id": "13350da4-7dec-47d4-8913-59772f125834",
+      "report_sha256": "8fd8d7804f8407b9b5a2ac06ea1f49843a2abd43491549f8bf1c2e64be4782da",
+      "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "human_confirmed",
+        "rating": "not useful",
+        "reason": "Removes the redundant information requests, but the resulting abstention offers no help assessing platform-dependent parameter values or the existing duplication-and-skipif workaround.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T17:07:51.345571+00:00",
+        "confirmation_method": "Explicit twenty-row user review table of the final After replies in issue-48-human-review.md; reasons preserved verbatim."
+      },
+      "separate_semantic_judgments": "pending_human_review",
+      "usefulness_change": "unchanged"
+    },
+    {
+      "issue_number": 12203,
+      "opening_cutoff": "2024-04-10T09:18:43+00:00",
+      "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+      "trace_id": "a3589870-cc93-4b6d-bcc4-421ffe837e2f",
+      "report_sha256": "850e8cc78640d96ff5dc8e81e0f74f78fb15e96ad1bbc44756c64f95ebed4660",
+      "draft_reply_sha256": "5ba2b20723d9e837dc2e75a7c2b6a8a2239a62f91e30671fb47872b7077eb25d",
+      "before_rating": "partly useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "human_confirmed",
+        "rating": "partly useful",
+        "reason": "Correctly requests a missing minimal example. It should acknowledge the existing sketch and specify that a runnable fixture/test with logging configuration and the exception path is needed.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T17:07:51.345571+00:00",
+        "confirmation_method": "Explicit twenty-row user review table of the final After replies in issue-48-human-review.md; reasons preserved verbatim."
+      },
+      "separate_semantic_judgments": "pending_human_review",
+      "usefulness_change": "unchanged"
+    },
+    {
+      "issue_number": 12204,
+      "opening_cutoff": "2024-04-10T10:45:32+00:00",
+      "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+      "trace_id": "2a726a30-4e0f-497c-a6f6-c452a62852b1",
+      "report_sha256": "831668e11a9c75bd33caf5fc8ab2a136bbd9f6d9d6e46643c35b71743ecaa9cc",
+      "draft_reply_sha256": "aa15ef4d2766ef2532c4e09dde90d014d609bc8c4edca1f73fb0970542cf5088",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "human_confirmed",
+        "rating": "useful",
+        "reason": "Accurately identifies the conflicting pytest and pluggy versions and asks which environment produced the output. This is a focused clarification that helps reproduce the traceback growth without inventing a diagnosis.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T17:07:51.345571+00:00",
+        "confirmation_method": "Explicit twenty-row user review table of the final After replies in issue-48-human-review.md; reasons preserved verbatim."
+      },
+      "separate_semantic_judgments": "pending_human_review",
+      "usefulness_change": "improved"
+    },
+    {
+      "issue_number": 12216,
+      "opening_cutoff": "2024-04-15T07:38:50+00:00",
+      "repository_commit": "5f6e825a2687f6bb8bc437e67a59c0a92fb16c06",
+      "trace_id": "ce1bdd65-23c0-4594-8996-ca0858734813",
+      "report_sha256": "af4b5d95c87b90b1ae3d6de91ac013394a4c789a797c3b13510c035114875bda",
+      "draft_reply_sha256": "5c68764a303e44810843a02ede679c6c973ba0d416557915d9e77123ff7f8831",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "human_confirmed",
+        "rating": "not useful",
+        "reason": "The fallback offers no guidance or targeted follow-up about the collection error and unexecuted fixture body despite the supplied reproducer.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T17:07:51.345571+00:00",
+        "confirmation_method": "Explicit twenty-row user review table of the final After replies in issue-48-human-review.md; reasons preserved verbatim."
+      },
+      "separate_semantic_judgments": "pending_human_review",
+      "usefulness_change": "unchanged"
+    },
+    {
+      "issue_number": 12219,
+      "opening_cutoff": "2024-04-16T08:22:38+00:00",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "trace_id": "f8dcf6ed-9ad4-4bfc-9d91-f856f4eabc61",
+      "report_sha256": "9deb906a236aaf61c99a3b2c2bb6006a2a076a03a31d2a8b79f94d0f5b171f5f",
+      "draft_reply_sha256": "b7ebc8e171d750d28732192a6249725ba7742e34bc2ad79cf2c9b77ef230e921",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "human_confirmed",
+        "rating": "useful",
+        "reason": "Acknowledges that the small example works and requests a minimized failing case with layout, configuration and command. Comparing the two gives a concrete investigative next step without asserting a cause.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T17:07:51.345571+00:00",
+        "confirmation_method": "Explicit twenty-row user review table of the final After replies in issue-48-human-review.md; reasons preserved verbatim."
+      },
+      "separate_semantic_judgments": "pending_human_review",
+      "usefulness_change": "improved"
+    },
+    {
+      "issue_number": 12223,
+      "opening_cutoff": "2024-04-17T09:00:30+00:00",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "trace_id": "043aae87-6109-431e-a74f-bf1a3519d8b8",
+      "report_sha256": "333bad5e5805a0d90d9d19d120f494ad50fdc781f4888f988471e1a1561d69ec",
+      "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "human_confirmed",
+        "rating": "not useful",
+        "reason": "The abstention does not address the oversized message attribute, downstream tool failures, or the request to preserve the detailed failure body.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T17:07:51.345571+00:00",
+        "confirmation_method": "Explicit twenty-row user review table of the final After replies in issue-48-human-review.md; reasons preserved verbatim."
+      },
+      "separate_semantic_judgments": "pending_human_review",
+      "usefulness_change": "unchanged"
+    },
+    {
+      "issue_number": 12224,
+      "opening_cutoff": "2024-04-18T05:51:07+00:00",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "trace_id": "5a2d771f-2384-4922-812d-9e729f5cee98",
+      "report_sha256": "285f15906f340bb6c02a9e40c1f4cebe1ce8c68df31310b3294751ce8d498d82",
+      "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "human_confirmed",
+        "rating": "not useful",
+        "reason": "Gives no help assessing the requested session-control API, repeated fixture initialization, or costly Pyodide workaround.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T17:07:51.345571+00:00",
+        "confirmation_method": "Explicit twenty-row user review table of the final After replies in issue-48-human-review.md; reasons preserved verbatim."
+      },
+      "separate_semantic_judgments": "pending_human_review",
+      "usefulness_change": "unchanged"
+    },
+    {
+      "issue_number": 12226,
+      "opening_cutoff": "2024-04-19T11:34:17+00:00",
+      "repository_commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
+      "trace_id": "4778c13d-ed11-4e65-9b97-8648f2fc77e5",
+      "report_sha256": "ba80f2fef12d4d6871affae9fef35f94340364b6fbc604705725da36412f15c6",
+      "draft_reply_sha256": "cd8f5db29951d793fb662d5f09913f886576e9fabc1d192e0cf0f71a70670d11",
+      "before_rating": "partly useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "human_confirmed",
+        "rating": "partly useful",
+        "reason": "Asking about attempted alternatives is appropriate and no longer repeats the supplied use case. A concrete failing CI command and the limitations of existing quoting approaches would make the follow-up more actionable.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T17:07:51.345571+00:00",
+        "confirmation_method": "Explicit twenty-row user review table of the final After replies in issue-48-human-review.md; reasons preserved verbatim."
+      },
+      "separate_semantic_judgments": "pending_human_review",
+      "usefulness_change": "unchanged"
+    },
+    {
+      "issue_number": 12228,
+      "opening_cutoff": "2024-04-19T17:30:10+00:00",
+      "repository_commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
+      "trace_id": "0b3ee4b3-b7c9-4374-b244-d1edf685672e",
+      "report_sha256": "7d65ac56023d89bd445229c953b840ac0126b6b92c5fa151d832efa05e084429",
+      "draft_reply_sha256": "cd8f5db29951d793fb662d5f09913f886576e9fabc1d192e0cf0f71a70670d11",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "human_confirmed",
+        "rating": "not useful",
+        "reason": "Asking for workarounds does little to assess this already concrete documentation gap. The reply does not address accepted TOML types or argument interpretation within addopts arrays.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T17:07:51.345571+00:00",
+        "confirmation_method": "Explicit twenty-row user review table of the final After replies in issue-48-human-review.md; reasons preserved verbatim."
+      },
+      "separate_semantic_judgments": "pending_human_review",
+      "usefulness_change": "unchanged"
+    }
+  ],
+  "review_recorded_at": "2026-11-21T17:07:51.345571+00:00"
+}

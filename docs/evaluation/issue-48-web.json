@@ -1,0 +1,281 @@
+{
+  "recorded_at": "2026-11-21T17:00:40.409Z",
+  "browser": "159.0.8154.6",
+  "scope": "Existing web bounded-agent report, real Ollama; verified frozen issue candidates, ordinary live documentation, separate from historical field scoring",
+  "input_content_sha256": "681e48797dfaccd7ce7ff3a86bd5862656e34bfbda83da9364ae7fb8696a891b",
+  "assertions": {
+    "http_ok": true,
+    "targeted_follow_up": true,
+    "rendered_reply_matches": true,
+    "matching_trace": true,
+    "real_usage": true,
+    "model_calls_bounded": true,
+    "no_javascript_errors": true
+  },
+  "rendered": {
+    "status": "complete",
+    "draft_reply": "Thanks for sharing this issue.\n- You report that the hook works in the minimized example. Could you reduce the affected project's case to a minimized failing example, including its module layout, configuration and exact command? Compare that with the working example to isolate what prevents the hook from running. [C3]",
+    "missing_details": "None"
+  },
+  "report": {
+    "trace_id": "b3922bc0-4afc-4209-a7e4-80f0269d9e34",
+    "status": "complete",
+    "issue_type": "type: docs",
+    "issue_type_quote": "nding that it's not supported, even though the [docs say it is](https://github.com/pytest-dev/pytest/blob/58844247f7ae4a7a213a73c8af",
+    "duplicate_candidates": [],
+    "related_issues": [
+      {
+        "issue_number": 4064,
+        "title": "Docs: is setUpModule/tearDownModule supported?",
+        "url": "https://github.com/pytest-dev/pytest/issues/4064",
+        "reason": "Both concern module setup/teardown hooks. This report: \"…test `setUpModule` and `tearDownModule`.\"; earlier: \"…ay that setUpModule and tearDownModule are not supported:\". This reports hooks not running; the earlier issue questions the documentation.",
+        "citation_id": "C1"
+      }
+    ],
+    "missing_details": [],
+    "documentation_claims": [
+      {
+        "claim": "pytest documents that fixture scope determines when a fixture is destroyed.",
+        "citation_id": "C2"
+      }
+    ],
+    "source_claims": [],
+    "ci_results": [],
+    "draft_reply": "Thanks for sharing this issue.\n- You report that the hook works in the minimized example. Could you reduce the affected project's case to a minimized failing example, including its module layout, configuration and exact command? Compare that with the working example to isolate what prevents the hook from running. [C3]",
+    "citations": [
+      {
+        "id": "C1",
+        "source_url": "https://github.com/pytest-dev/pytest/issues/4064",
+        "description": "pytest issue #4064: Docs: is setUpModule/tearDownModule supported?",
+        "passage": null,
+        "source_location": null
+      },
+      {
+        "id": "C2",
+        "source_url": "https://docs.pytest.org/en/stable/how-to/fixtures.html#fixture-scopes",
+        "description": "pytest documentation: fixture scope",
+        "passage": "Fixtures are created when first requested by a test, and are destroyed based on their scope",
+        "source_location": null
+      },
+      {
+        "id": "C3",
+        "source_url": "https://github.com/pytest-dev/pytest/issues/12219",
+        "description": "Submitted issue under review: investigative follow-up",
+        "passage": "Interestingly, the hook does seem to be honored in a minimized example.",
+        "source_location": null
+      }
+    ],
+    "abstentions": [
+      {
+        "field": "missing_details",
+        "reason": "Issue text does not identify a bug or feature template."
+      }
+    ]
+  },
+  "trace": {
+    "trace_id": "b3922bc0-4afc-4209-a7e4-80f0269d9e34",
+    "created_at": "2026-11-21T17:00:38.409077Z",
+    "status": "complete",
+    "duration_ms": 1841.758,
+    "events": [
+      {
+        "kind": "retrieval",
+        "name": "get_documentation_passage",
+        "status": "ok",
+        "started_ms": 0.049,
+        "duration_ms": 332.954,
+        "target": "fixture_scope",
+        "result_count": 1,
+        "references": [
+          "https://docs.pytest.org/en/stable/how-to/fixtures.html#fixture-scopes"
+        ],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "model",
+        "name": "agent_action",
+        "status": "ok",
+        "started_ms": 333.038,
+        "duration_ms": 477.298,
+        "target": "pytest-triage:coder3b-ctx16k",
+        "result_count": null,
+        "references": [],
+        "input_tokens": 810,
+        "output_tokens": 23,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "get_issue",
+        "status": "ok",
+        "started_ms": 810.478,
+        "duration_ms": 0.008,
+        "target": "pytest issue #12219",
+        "result_count": 1,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "search_issues",
+        "status": "ok",
+        "started_ms": 810.499,
+        "duration_ms": 2.338,
+        "target": "query (teardownmodule OR setupmodule OR invoked) before 2024-04-16T08:22:38+00:00",
+        "result_count": 2,
+        "references": [
+          "https://github.com/pytest-dev/pytest/issues/4064"
+        ],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "tool",
+        "name": "search_earlier_issues",
+        "status": "ok",
+        "started_ms": 810.393,
+        "duration_ms": 2.986,
+        "target": "pytest issue #12219",
+        "result_count": 1,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "model",
+        "name": "agent_action",
+        "status": "ok",
+        "started_ms": 813.391,
+        "duration_ms": 156.63,
+        "target": "pytest-triage:coder3b-ctx16k",
+        "result_count": null,
+        "references": [],
+        "input_tokens": 923,
+        "output_tokens": 12,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "get_issue",
+        "status": "ok",
+        "started_ms": 970.174,
+        "duration_ms": 0.023,
+        "target": "pytest issue #12219",
+        "result_count": 1,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "search_issues",
+        "status": "ok",
+        "started_ms": 970.214,
+        "duration_ms": 0.008,
+        "target": "query (teardownmodule OR setupmodule OR invoked) before 2024-04-16T08:22:38+00:00",
+        "result_count": 1,
+        "references": [
+          "https://github.com/pytest-dev/pytest/issues/4064"
+        ],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "assess_matches",
+        "status": "ok",
+        "started_ms": 970.226,
+        "duration_ms": 0.444,
+        "target": null,
+        "result_count": 1,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "get_documentation_passage",
+        "status": "ok",
+        "started_ms": 970.848,
+        "duration_ms": 0.013,
+        "target": "fixture_scope",
+        "result_count": 1,
+        "references": [
+          "https://docs.pytest.org/en/stable/how-to/fixtures.html#fixture-scopes"
+        ],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "model",
+        "name": "triage_selection",
+        "status": "ok",
+        "started_ms": 971.685,
+        "duration_ms": 870.012,
+        "target": "pytest-triage:coder3b-ctx16k",
+        "result_count": null,
+        "references": [],
+        "input_tokens": 1259,
+        "output_tokens": 84,
+        "error": null
+      }
+    ]
+  },
+  "javascript_errors": [],
+  "model_calls": [
+    {
+      "system_prompt_sha256": "5e7186d61341ef1a30bd50c1899f924fc5757eed02e8eef47454a6b27608f3ef",
+      "user_data_sha256": "0eda89f66d83f137eb9e2fd9568257f2883fa5564b0c6077174835d3064710e8",
+      "max_tokens": 256,
+      "schema_sha256": "3f3de1be0e14f5406cf8eb0810769beec6ae9eb43dd9b4839fd826e80e85c22f",
+      "output": {
+        "tool": "search_earlier_issues",
+        "arguments": {
+          "issue_number": 12219
+        }
+      },
+      "input_tokens": 810,
+      "output_tokens": 23,
+      "error": null
+    },
+    {
+      "system_prompt_sha256": "5e7186d61341ef1a30bd50c1899f924fc5757eed02e8eef47454a6b27608f3ef",
+      "user_data_sha256": "97253ecfeda6e87cd56ca33de2e019382cc5b1df7121f183ec6721c8447f2ade",
+      "max_tokens": 256,
+      "schema_sha256": "4117bc7cc2cad0094abd918f5151c1d01da51b98706ab0586c04968817459290",
+      "output": {
+        "tool": "finish",
+        "arguments": {}
+      },
+      "input_tokens": 923,
+      "output_tokens": 12,
+      "error": null
+    },
+    {
+      "system_prompt_sha256": "54ffa800a34e4a43af8968a0acedf709965ce6c305b7fd84872a6d31e6af971f",
+      "user_data_sha256": "8baf5166959260eead1997231d40a281853babd6980186f76bb72061d99386ba",
+      "max_tokens": 256,
+      "schema_sha256": "ecb8ed0b37e8e609009659bc94738a53b63fa8396430cc812a7b91e4d6051fec",
+      "output": {
+        "issue_type": "type: docs",
+        "issue_type_quote": "nding that it's not supported, even though the [docs say it is](https://github.com/pytest-dev/pytest/blob/58844247f7ae4a7a213a73c8af",
+        "reply_citation_ids": [
+          "C3"
+        ]
+      },
+      "input_tokens": 1259,
+      "output_tokens": 84,
+      "error": null
+    }
+  ]
+}

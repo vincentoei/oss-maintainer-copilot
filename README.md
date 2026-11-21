@@ -275,3 +275,6 @@ uv run --no-env-file pytest
 GitHub Actions runs these checks on pushes and pull requests. The template
 citations point to pytest commit `50234b4e670064c42a4c29cb6258115a2079ba4c`;
 issue-search API fixtures use fixed records and require no network access.
+
+Issue #48: [diagnosis, bounded fixes and evaluation evidence](docs/evaluation/issue-48.md).
+Final human review: 3 useful, 7 partly useful and 10 not useful; retrieval-score regressions and remaining failures are recorded.
