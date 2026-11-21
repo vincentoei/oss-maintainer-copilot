@@ -31,12 +31,12 @@
   },
   "summary": {
     "cases": 20,
-    "reply_usefulness_reviewed": 2,
-    "reply_usefulness_pending": 18,
+    "reply_usefulness_reviewed": 3,
+    "reply_usefulness_pending": 17,
     "rating_counts": {
       "useful": 0,
       "partly useful": 1,
-      "not useful": 1
+      "not useful": 2
     },
     "separate_semantic_judgments": "Citation support, relationship labels and other-field abstention reviews remain pending"
   },
@@ -150,13 +150,48 @@
       "report_sha256": "e462b678a57dd2de1300afeecdfaa099ef377559779e27cc10634451b9ebc197",
       "draft_reply_sha256": "d846461ad3566ef797bd70d2c60d1bb4aa379368e41973f2668ff846812bf8ef",
       "draft_reply_usefulness": {
-        "review_status": "pending_human_review",
-        "rating": null,
-        "reason": null
+        "review_status": "human_confirmed",
+        "rating": "not useful",
+        "reason": "The draft does not address storing the debugger class in configuration or suggest a next step. #8655 provides debugger-option context, but the draft never explains that connection. The fixture-parametrization issues add noise, and generic word overlap does not help a maintainer assess the requested enhancement.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T13:54:35.700783+00:00",
+        "confirmation_method": "Explicit user rating and reason in this conversation; reason preserved verbatim"
       },
       "citation_support_review_status": "pending_human_review",
       "relationship_review_status": "pending_human_review",
-      "other_field_abstention_review_status": "pending_human_review"
+      "other_field_abstention_review_status": "pending_human_review",
+      "evidence_presented": {
+        "format": "Codex paraphrases of the hash-verified issue opening and three cited openings, plus the exact saved draft reply and report summary in chat",
+        "verified_openings": [
+          {
+            "issue_number": 12053,
+            "content_sha256": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+            "created_at": "2024-03-03T14:58:35+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 8655,
+            "content_sha256": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f",
+            "created_at": "2021-05-10T15:32:33+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 7312,
+            "content_sha256": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+            "created_at": "2020-06-03T14:20:24+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 10156,
+            "content_sha256": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+            "created_at": "2022-07-19T20:03:50+00:00",
+            "verification": "matched recorded opening title/body hash"
+          }
+        ],
+        "later_activity": "excluded",
+        "live_report_scope": "The user was told this frozen historical report uses a different candidate catalog from their live browser report",
+        "question_scope": "Overall draft-reply usefulness only; separate citation, relationship and abstention labels were not requested"
+      }
     },
     {
       "issue_number": 12072,
@@ -431,5 +466,5 @@
       "other_field_abstention_review_status": "pending_human_review"
     }
   ],
-  "updated_at": "2026-11-21T11:43:28.060682+00:00"
+  "updated_at": "2026-11-21T13:54:35.702478+00:00"
 }
