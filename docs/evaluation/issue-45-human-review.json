@@ -31,12 +31,12 @@
   },
   "summary": {
     "cases": 20,
-    "reply_usefulness_reviewed": 19,
-    "reply_usefulness_pending": 1,
+    "reply_usefulness_reviewed": 20,
+    "reply_usefulness_pending": 0,
     "rating_counts": {
       "useful": 0,
       "partly useful": 5,
-      "not useful": 14
+      "not useful": 15
     },
     "separate_semantic_judgments": "Citation support, relationship labels and other-field abstention reviews remain pending"
   },
@@ -1008,14 +1008,62 @@
       "report_sha256": "f67f6281bc66fe4a4567b38ac0b3fc88bc49c8b5cd02cc75ff84b5fbf79c5893",
       "draft_reply_sha256": "b0677ead0721eb9f53ceb1a8a8375480dbe480d347ac626057fea9e46bc0423f",
       "draft_reply_usefulness": {
-        "review_status": "pending_human_review",
-        "rating": null,
-        "reason": null
+        "review_status": "human_confirmed",
+        "rating": "not useful",
+        "reason": "The reporter already supplies a concrete documentation gap, an addopts example and the pages needing clarification. Asking for a use case repeats that information, while requesting workarounds adds little to assessing the documentation change. The draft does not address accepted TOML types or how array elements are interpreted.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T15:47:03.149501+00:00",
+        "confirmation_method": "Explicit user rating and reason in this conversation; reason preserved verbatim"
       },
       "citation_support_review_status": "pending_human_review",
       "relationship_review_status": "pending_human_review",
-      "other_field_abstention_review_status": "pending_human_review"
+      "other_field_abstention_review_status": "pending_human_review",
+      "evidence_presented": {
+        "format": "Codex paraphrases of the hash-verified issue opening, three related openings and pinned feature-template requirements, plus the exact saved draft reply and report summary in chat",
+        "verified_openings": [
+          {
+            "issue_number": 12228,
+            "content_sha256": "f701b93585c442aa5d88ee107e892972bc276e92a9cf2746e32907add70d4973",
+            "created_at": "2024-04-19T17:30:10+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 12053,
+            "content_sha256": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+            "created_at": "2024-03-03T14:58:35+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 12081,
+            "content_sha256": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+            "created_at": "2024-03-06T00:03:25+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 2959,
+            "content_sha256": "11bd1e59fb944c9f42074409673ce9ad67c7c57fb21c7474452c70a1269726c5",
+            "created_at": "2017-11-28T09:02:11+00:00",
+            "verification": "matched recorded opening title/body hash"
+          }
+        ],
+        "verified_artifacts": [
+          {
+            "commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "lines": [
+              19,
+              21,
+              22
+            ],
+            "content_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+            "verification": "Read from GitHub at pinned commit; verified Git blob SHA against returned bytes"
+          }
+        ],
+        "linked_content_scope": "The opening links documentation and GitHub search results; those linked contents were not independently checked or presented as additional evidence for this review",
+        "later_activity": "excluded",
+        "question_scope": "Overall draft-reply usefulness only; separate citation, relationship and abstention labels were not requested"
+      }
     }
   ],
-  "updated_at": "2026-11-21T15:43:50.504617+00:00"
+  "updated_at": "2026-11-21T15:47:03.149501+00:00"
 }

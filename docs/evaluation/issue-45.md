@@ -179,7 +179,10 @@ and the requesting user's explicit rating, verbatim reason and recording time.
 These ratings apply to complete application replies from this specific run;
 they do not automatically transfer to #21 comparator runs or controlled baselines.
 
-Progress: **19 of 20 reply-usefulness reviews complete; 1 pending**. For #7312,
+Progress: **20 of 20 reply-usefulness reviews complete; none pending**. The
+ratings are **0 useful, 5 partly useful (25%) and 15 not useful (75%)**.
+
+For #7312,
 the user rated the exact saved reply **partly useful**: #349 is a promising
 fixture-derived-parameter lead, but the explanation relies on generic word
 overlap, does not explain a potential duplicate, fails to distinguish #2959's
@@ -287,6 +290,21 @@ attempted alternatives could help because none are described, but asking for a
 use case overlooks the stated quoting difficulty in Bash-based CI scripts. A
 more useful follow-up would request a concrete failing command and ask why
 existing quoting approaches are unsuitable.
+
+For #12228, the user rated the exact saved reply **not useful**: the opening
+already supplies a concrete documentation gap, an `addopts` example and pages
+needing clarification. Asking for a use case repeats that information, while
+requesting workarounds adds little. The draft does not address accepted TOML
+types or the interpretation of array elements.
+
+These ratings show poor reply usefulness for this application run: none of the
+twenty replies was rated fully useful. Recurring reasons include requests for
+already supplied information, generic word-overlap explanations, irrelevant
+issue links and missing targeted next steps. This measures the combined
+application output, including retrieval and rule-generated text; it does not
+isolate the model as the cause or establish that changing models alone would
+fix these failures. No raw response, expected outcome or historical evidence
+cutoff was changed during this review.
 
 The user saw paraphrases of hash-verified opening texts, the exact saved draft
 and a report summary in chat. Later activity was excluded. This is a recorded
