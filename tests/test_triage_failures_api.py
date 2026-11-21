@@ -111,7 +111,7 @@ def test_conflicting_versions_get_a_targeted_clarification(endpoint: str) -> Non
     [
         (
             "I'm currently writing tests that use Windows and POSIX paths to check "
-            "cross-platform behavior. I'm making use of `pytest.mark.skipif` and "
+            "cross-platform behavior. I'm making use of the `pytest.mark.skipif` and "
             "copy my tests because only parameters differ.",
             "Allow conditional parametrization.",
             [],
@@ -358,4 +358,154 @@ def test_untrusted_model_cannot_add_a_diagnosis_to_follow_up(
     assert report["status"] == "partial"
     assert "fixture cache is broken" not in report["draft_reply"]
     assert "C999" not in report["draft_reply"]
+    assert any("validation" in a["reason"] for a in report["abstentions"])
+
+
+@pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+@pytest.mark.parametrize(
+    "claim",
+    [
+        "The hook is not honored in the minimized example.",
+        "The hook never works in the minimized example.",
+        "The hook might work in the minimized example.",
+        "Does the hook work in the minimized example?",
+        "The hook works in the project, not the minimized example.",
+    ],
+)
+def test_negated_working_example_does_not_create_a_false_acknowledgement(
+    endpoint: str,
+    claim: str,
+) -> None:
+    report = report_for(
+        "Module hooks",
+        "setUpModule is not called.\n" + claim,
+        endpoint,
+        EarlierIssues([]),
+    )
+    assert "hook works" not in report["draft_reply"]
+    assert "cannot substantiate" in report["draft_reply"]
+
+
+@pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+@pytest.mark.parametrize("error", ["AttributeError", "KeyError", "IndexError"])
+def test_builtin_exception_alone_does_not_link_different_operations(
+    endpoint: str,
+    error: str,
+) -> None:
+    report = report_for(
+        f"Database teardown raises {error}",
+        f"Async database cleanup: {error}: close_async is unavailable.",
+        endpoint,
+        EarlierIssues(
+            [
+                IssueRecord(
+                    400,
+                    f"Ini parser raises {error}",
+                    f"Ini parser: {error}: get.",
+                    datetime(2024, 4, 1, tzinfo=UTC),
+                )
+            ]
+        ),
+    )
+    assert report["related_issues"] == report["duplicate_candidates"] == []
+
+
+@pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+def test_working_project_is_not_confused_with_failing_minimized_example(
+    endpoint: str,
+) -> None:
+    report = report_for(
+        "Module hooks",
+        "setUpModule is involved.\nThe hook works in the full "
+        "project, but the minimized example raises RuntimeError.",
+        endpoint,
+        EarlierIssues([]),
+    )
+    assert "hook works in the minimized example" not in report["draft_reply"]
+
+
+@pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+def test_hidden_template_comments_cannot_establish_a_relationship(
+    endpoint: str,
+) -> None:
+    report = report_for(
+        "Log file truncated",
+        "Log file truncates during teardown.\n<!-- Template: --pdbcls -->",
+        endpoint,
+        EarlierIssues(
+            [
+                IssueRecord(
+                    400,
+                    "Choose custom debugger",
+                    "Use --pdbcls to select a debugger.",
+                    datetime(2024, 4, 1, tzinfo=UTC),
+                )
+            ]
+        ),
+    )
+    assert report["related_issues"] == report["duplicate_candidates"] == []
+
+
+@pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+def test_relationship_does_not_invent_an_earlier_request(endpoint: str) -> None:
+    report = report_for(
+        "Propose copyouterr API",
+        "I propose copyouterr because readouterr consumes output.",
+        endpoint,
+        EarlierIssues(
+            [
+                IssueRecord(
+                    400,
+                    "Document readouterr behavior",
+                    "readouterr resets captured output. This behavior is expected.",
+                    datetime(2024, 4, 1, tzinfo=UTC),
+                )
+            ]
+        ),
+    )
+    assert report["related_issues"]
+    assert "asks to keep" not in report["related_issues"][0]["reason"]
+
+
+@pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+def test_supported_investigative_question_cannot_be_silently_omitted(
+    endpoint: str,
+) -> None:
+    class OmitStatements(SelectAllStatements):
+        def generate(self, request: ModelRequest) -> object:
+            return {
+                "issue_type": None,
+                "issue_type_quote": None,
+                "reply_citation_ids": [],
+            }
+
+    async def controlled_client() -> OmitStatements:
+        return OmitStatements()
+
+    async def issues() -> IssueSource:
+        return EarlierIssues([])
+
+    async def request() -> httpx2.Response:
+        async with httpx2.AsyncClient(
+            transport=httpx2.ASGITransport(app=app), base_url="http://testserver"
+        ) as client:
+            return await client.post(
+                endpoint,
+                json={
+                    "number": 500,
+                    "title": "Investigate output",
+                    "body": "pytest 8.1.1\npluggy 1.4.0\npytest-8.0.0, pluggy-1.3.0",
+                },
+            )
+
+    app.dependency_overrides[get_model_client] = controlled_client
+    app.dependency_overrides[get_agent_client] = controlled_client
+    app.dependency_overrides[get_issue_source] = issues
+    try:
+        response = asyncio.run(request())
+    finally:
+        app.dependency_overrides.clear()
+    assert response.status_code == 200
+    report = response.json()
+    assert report["status"] == "partial"
     assert any("validation" in a["reason"] for a in report["abstentions"])

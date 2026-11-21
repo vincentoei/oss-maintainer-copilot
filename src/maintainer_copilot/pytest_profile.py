@@ -476,7 +476,7 @@ def _has_alternative_detail(body: str) -> bool:
         return True
     if re.search(
         r"\b(?:i'm|i am|we are)\s+(?:currently\s+)?making use of\s+"
-        r"`[^`\n]+`[^\n]*\bcopy\b[^\n]*\btests\b",
+        r"(?:the\s+)?`[^`\n]+`[^\n]*\bcopy\b[^\n]*\btests\b",
         body,
         re.I,
     ):

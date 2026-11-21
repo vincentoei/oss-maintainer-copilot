@@ -558,7 +558,10 @@ def triage_issue(
         issue_title=issue.title,
         issue_body=issue.body,
         reply_statements=tuple(reply_statements),
-        required_reply_ids=tuple(detail.citation_id for detail in details),
+        # The model may select context, but must not silently discard a vetted
+        # investigative question in favor of a less useful contextual link.
+        required_reply_ids=tuple(detail.citation_id for detail in details)
+        + ((follow_up_id,) if follow_up is not None else ()),
     )
     try:
         client = model_client or model.OpenAICompatibleModel.from_environment()

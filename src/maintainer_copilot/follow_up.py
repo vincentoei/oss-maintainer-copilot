@@ -64,16 +64,26 @@ def supported_follow_up(body: str) -> FollowUp | None:
         return FollowUp(
             f"The opening contains conflicting version evidence ({listed}). "
             "Could you confirm which pytest/pluggy versions produced the output "
-            "and rerun the supplied reproducer in that environment?",
+            "using that run's environment?",
             "\n".join(dict.fromkeys(version_lines)),
         )
     working = re.search(
-        r"[^\r\n]*\b(?:hook|example)\b[^\r\n]*\b(?:honored|works?|succeeds?)\b"
-        r"[^\r\n]*\b(?:minimi[sz]ed|example)\b[^\r\n]*",
+        r"[^.\r\n!?]*\b(?:hook|example)\b[^.!?\r\n]*"
+        r"\b(?:honored|works?|succeeds?)\s+(?:in|for|with)\s+"
+        r"(?:the|a|this)\s+minimi[sz]ed example[^.!?\r\n]*(?:[.!?]|$)",
         body,
         re.I,
     )
-    if working and re.search(r"setUpModule|tearDownModule", body):
+    if (
+        working
+        and not re.search(
+            r"\b(?:not|never|no|without|fails?|doesn't|cannot|can't|"
+            r"might|may|could|would|should|if|whether)\b|\?",
+            working.group(0),
+            re.I,
+        )
+        and re.search(r"setUpModule|tearDownModule", body)
+    ):
         return FollowUp(
             "You report that the hook works in the minimized example. Could you "
             "reduce the affected project's case to a minimized failing example, "

@@ -1,0 +1,146 @@
+FFFFFFFFFFFFFFFFFFFF                                                     [100%]
+=================================== FAILURES ===================================
+______ test_package_table_without_a_pip_heading_is_supplied[/api/triage] _______
+tests/test_triage_failures_api.py:88: in test_package_table_without_a_pip_heading_is_supplied
+    assert report["missing_details"] == []
+E   AssertionError: assert [{'name': 'pi...on_id': 'C1'}] == []
+E     
+E     Left contains one more item: {'name': 'pip list output', 'request': 'the output of `pip list` from the virtual environment you are using', 'citation_id': 'C1'}
+E     Use -v to get more diff
+___ test_package_table_without_a_pip_heading_is_supplied[/api/agent/triage] ____
+tests/test_triage_failures_api.py:88: in test_package_table_without_a_pip_heading_is_supplied
+    assert report["missing_details"] == []
+E   AssertionError: assert [{'name': 'pi...on_id': 'C1'}] == []
+E     
+E     Left contains one more item: {'name': 'pip list output', 'request': 'the output of `pip list` from the virtual environment you are using', 'citation_id': 'C1'}
+E     Use -v to get more diff
+_____ test_conflicting_versions_get_a_targeted_clarification[/api/triage] ______
+tests/test_triage_failures_api.py:103: in test_conflicting_versions_get_a_targeted_clarification
+    assert "which pytest/pluggy versions produced" in report["draft_reply"]
+E   AssertionError: assert 'which pytest/pluggy versions produced' in 'Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.'
+__ test_conflicting_versions_get_a_targeted_clarification[/api/agent/triage] ___
+tests/test_triage_failures_api.py:103: in test_conflicting_versions_get_a_targeted_clarification
+    assert "which pytest/pluggy versions produced" in report["draft_reply"]
+E   AssertionError: assert 'which pytest/pluggy versions produced' in 'Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.'
+_ test_concrete_feature_scenarios_are_acknowledged[problem0-Allow conditional parametrization.-missing0-/api/triage] _
+tests/test_triage_failures_api.py:150: in test_concrete_feature_scenarios_are_acknowledged
+    assert [d["name"] for d in report["missing_details"]] == missing
+E   AssertionError: assert ['real-world ...ve solutions'] == []
+E     
+E     Left contains 2 more items, first extra item: 'real-world use case'
+E     Use -v to get more diff
+_ test_concrete_feature_scenarios_are_acknowledged[problem0-Allow conditional parametrization.-missing0-/api/agent/triage] _
+tests/test_triage_failures_api.py:150: in test_concrete_feature_scenarios_are_acknowledged
+    assert [d["name"] for d in report["missing_details"]] == missing
+E   AssertionError: assert ['real-world ...ve solutions'] == []
+E     
+E     Left contains 2 more items, first extra item: 'real-world use case'
+E     Use -v to get more diff
+_ test_concrete_feature_scenarios_are_acknowledged[CI systems rely on Bash scripts and passing quotes into bash is tricky.-Allow marker negation without quotation marks.-missing1-/api/triage] _
+tests/test_triage_failures_api.py:150: in test_concrete_feature_scenarios_are_acknowledged
+    assert [d["name"] for d in report["missing_details"]] == missing
+E   AssertionError: assert ['real-world ...ve solutions'] == ['alternative solutions']
+E     
+E     At index 0 diff: 'real-world use case' != 'alternative solutions'
+E     Left contains one more item: 'alternative solutions'
+E     Use -v to get more diff
+_ test_concrete_feature_scenarios_are_acknowledged[CI systems rely on Bash scripts and passing quotes into bash is tricky.-Allow marker negation without quotation marks.-missing1-/api/agent/triage] _
+tests/test_triage_failures_api.py:150: in test_concrete_feature_scenarios_are_acknowledged
+    assert [d["name"] for d in report["missing_details"]] == missing
+E   AssertionError: assert ['real-world ...ve solutions'] == ['alternative solutions']
+E     
+E     At index 0 diff: 'real-world use case' != 'alternative solutions'
+E     Left contains one more item: 'alternative solutions'
+E     Use -v to get more diff
+_ test_concrete_feature_scenarios_are_acknowledged[problem2-Document accepted configuration types on the configuration-options page.-missing2-/api/triage] _
+tests/test_triage_failures_api.py:150: in test_concrete_feature_scenarios_are_acknowledged
+    assert [d["name"] for d in report["missing_details"]] == missing
+E   AssertionError: assert ['real-world ...ve solutions'] == ['alternative solutions']
+E     
+E     At index 0 diff: 'real-world use case' != 'alternative solutions'
+E     Left contains one more item: 'alternative solutions'
+E     Use -v to get more diff
+_ test_concrete_feature_scenarios_are_acknowledged[problem2-Document accepted configuration types on the configuration-options page.-missing2-/api/agent/triage] _
+tests/test_triage_failures_api.py:150: in test_concrete_feature_scenarios_are_acknowledged
+    assert [d["name"] for d in report["missing_details"]] == missing
+E   AssertionError: assert ['real-world ...ve solutions'] == ['alternative solutions']
+E     
+E     At index 0 diff: 'real-world use case' != 'alternative solutions'
+E     Left contains one more item: 'alternative solutions'
+E     Use -v to get more diff
+_ test_concrete_feature_scenarios_are_acknowledged[I want to run selected subsets of tests to investigate dependencies between tests.-Read selected test names from a file.-missing3-/api/triage] _
+tests/test_triage_failures_api.py:150: in test_concrete_feature_scenarios_are_acknowledged
+    assert [d["name"] for d in report["missing_details"]] == missing
+E   AssertionError: assert ['real-world ...ve solutions'] == ['alternative solutions']
+E     
+E     At index 0 diff: 'real-world use case' != 'alternative solutions'
+E     Left contains one more item: 'alternative solutions'
+E     Use -v to get more diff
+_ test_concrete_feature_scenarios_are_acknowledged[I want to run selected subsets of tests to investigate dependencies between tests.-Read selected test names from a file.-missing3-/api/agent/triage] _
+tests/test_triage_failures_api.py:150: in test_concrete_feature_scenarios_are_acknowledged
+    assert [d["name"] for d in report["missing_details"]] == missing
+E   AssertionError: assert ['real-world ...ve solutions'] == ['alternative solutions']
+E     
+E     At index 0 diff: 'real-world use case' != 'alternative solutions'
+E     Left contains one more item: 'alternative solutions'
+E     Use -v to get more diff
+_ test_template_overlap_does_not_link_session_control_to_argument_files[/api/triage] _
+tests/test_triage_failures_api.py:196: in test_template_overlap_does_not_link_session_control_to_argument_files
+    assert report["related_issues"] == []
+E   AssertionError: assert [{'issue_numb...ished.', ...}] == []
+E     
+E     Left contains one more item: {'issue_number': 400, 'title': 'Read test selection arguments from a file', 'url': 'https://github.com/pytest-dev/pyte...sues/400', 'reason': 'Shared topic: alternative, describe, each; the same failure or request is not established.', ...}
+E     Use -v to get more diff
+_ test_template_overlap_does_not_link_session_control_to_argument_files[/api/agent/triage] _
+tests/test_triage_failures_api.py:196: in test_template_overlap_does_not_link_session_control_to_argument_files
+    assert report["related_issues"] == []
+E   AssertionError: assert [{'issue_numb...ished.', ...}] == []
+E     
+E     Left contains one more item: {'issue_number': 400, 'title': 'Read test selection arguments from a file', 'url': 'https://github.com/pytest-dev/pyte...sues/400', 'reason': 'Shared topic: alternative, describe, each; the same failure or request is not established.', ...}
+E     Use -v to get more diff
+____ test_fixture_parameter_connection_explains_both_requests[/api/triage] _____
+tests/test_triage_failures_api.py:223: in test_fixture_parameter_connection_explains_both_requests
+    assert "fixture-derived parameter values" in matches[0]["reason"]
+E   AssertionError: assert 'fixture-derived parameter values' in 'Shared topic: fixture, mark, parametrize; the same failure or request is not established.'
+_ test_fixture_parameter_connection_explains_both_requests[/api/agent/triage] __
+tests/test_triage_failures_api.py:223: in test_fixture_parameter_connection_explains_both_requests
+    assert "fixture-derived parameter values" in matches[0]["reason"]
+E   AssertionError: assert 'fixture-derived parameter values' in 'Shared topic: fixture, mark, parametrize; the same failure or request is not established.'
+_ test_supported_comparison_is_available_without_claiming_a_root_cause[body0-same pytest version and identical tuple values-/api/triage] _
+tests/test_triage_failures_api.py:255: in test_supported_comparison_is_available_without_claiming_a_root_cause
+    assert expected in report["draft_reply"]
+E   AssertionError: assert 'same pytest version and identical tuple values' in 'Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.'
+_ test_supported_comparison_is_available_without_claiming_a_root_cause[body0-same pytest version and identical tuple values-/api/agent/triage] _
+tests/test_triage_failures_api.py:255: in test_supported_comparison_is_available_without_claiming_a_root_cause
+    assert expected in report["draft_reply"]
+E   AssertionError: assert 'same pytest version and identical tuple values' in 'Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.'
+_ test_supported_comparison_is_available_without_claiming_a_root_cause[body1-minimized failing example-/api/triage] _
+tests/test_triage_failures_api.py:255: in test_supported_comparison_is_available_without_claiming_a_root_cause
+    assert expected in report["draft_reply"]
+E   AssertionError: assert 'minimized failing example' in 'Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.'
+_ test_supported_comparison_is_available_without_claiming_a_root_cause[body1-minimized failing example-/api/agent/triage] _
+tests/test_triage_failures_api.py:255: in test_supported_comparison_is_available_without_claiming_a_root_cause
+    assert expected in report["draft_reply"]
+E   AssertionError: assert 'minimized failing example' in 'Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.'
+=========================== short test summary info ============================
+FAILED tests/test_triage_failures_api.py::test_package_table_without_a_pip_heading_is_supplied[/api/triage]
+FAILED tests/test_triage_failures_api.py::test_package_table_without_a_pip_heading_is_supplied[/api/agent/triage]
+FAILED tests/test_triage_failures_api.py::test_conflicting_versions_get_a_targeted_clarification[/api/triage]
+FAILED tests/test_triage_failures_api.py::test_conflicting_versions_get_a_targeted_clarification[/api/agent/triage]
+FAILED tests/test_triage_failures_api.py::test_concrete_feature_scenarios_are_acknowledged[problem0-Allow conditional parametrization.-missing0-/api/triage]
+FAILED tests/test_triage_failures_api.py::test_concrete_feature_scenarios_are_acknowledged[problem0-Allow conditional parametrization.-missing0-/api/agent/triage]
+FAILED tests/test_triage_failures_api.py::test_concrete_feature_scenarios_are_acknowledged[CI systems rely on Bash scripts and passing quotes into bash is tricky.-Allow marker negation without quotation marks.-missing1-/api/triage]
+FAILED tests/test_triage_failures_api.py::test_concrete_feature_scenarios_are_acknowledged[CI systems rely on Bash scripts and passing quotes into bash is tricky.-Allow marker negation without quotation marks.-missing1-/api/agent/triage]
+FAILED tests/test_triage_failures_api.py::test_concrete_feature_scenarios_are_acknowledged[problem2-Document accepted configuration types on the configuration-options page.-missing2-/api/triage]
+FAILED tests/test_triage_failures_api.py::test_concrete_feature_scenarios_are_acknowledged[problem2-Document accepted configuration types on the configuration-options page.-missing2-/api/agent/triage]
+FAILED tests/test_triage_failures_api.py::test_concrete_feature_scenarios_are_acknowledged[I want to run selected subsets of tests to investigate dependencies between tests.-Read selected test names from a file.-missing3-/api/triage]
+FAILED tests/test_triage_failures_api.py::test_concrete_feature_scenarios_are_acknowledged[I want to run selected subsets of tests to investigate dependencies between tests.-Read selected test names from a file.-missing3-/api/agent/triage]
+FAILED tests/test_triage_failures_api.py::test_template_overlap_does_not_link_session_control_to_argument_files[/api/triage]
+FAILED tests/test_triage_failures_api.py::test_template_overlap_does_not_link_session_control_to_argument_files[/api/agent/triage]
+FAILED tests/test_triage_failures_api.py::test_fixture_parameter_connection_explains_both_requests[/api/triage]
+FAILED tests/test_triage_failures_api.py::test_fixture_parameter_connection_explains_both_requests[/api/agent/triage]
+FAILED tests/test_triage_failures_api.py::test_supported_comparison_is_available_without_claiming_a_root_cause[body0-same pytest version and identical tuple values-/api/triage]
+FAILED tests/test_triage_failures_api.py::test_supported_comparison_is_available_without_claiming_a_root_cause[body0-same pytest version and identical tuple values-/api/agent/triage]
+FAILED tests/test_triage_failures_api.py::test_supported_comparison_is_available_without_claiming_a_root_cause[body1-minimized failing example-/api/triage]
+FAILED tests/test_triage_failures_api.py::test_supported_comparison_is_available_without_claiming_a_root_cause[body1-minimized failing example-/api/agent/triage]
+20 failed, 34 deselected in 0.25s

@@ -619,3 +619,39 @@ def test_recorded_case_ignores_later_activity_with_public_opening_text() -> None
     assert {location.commit for location in repository.reads} == {
         case.repository_commit
     }
+
+
+def test_verified_opening_citations_still_reject_newer_issues() -> None:
+    from pydantic import HttpUrl
+
+    from maintainer_copilot.evaluation import score_report
+
+    case, github, repository = synthetic_case()
+    reviewed = github.issues[case.issue_number]
+    github.issues[case.issue_number] = issue_search.IssueRecord(
+        reviewed.number,
+        reviewed.title,
+        reviewed.body + "\npytest 8.1.1\npluggy 1.4.0\n"
+        "platform linux -- pytest-8.0.0, pluggy-1.3.0\n",
+        reviewed.created_at,
+    )
+    data = case.model_dump()
+    data["opening_content_sha256"] = content_hash(github.issues[case.issue_number])
+    case = HistoricalCase.model_validate(data)
+    report = replay_case(
+        case,
+        commit_source=repository,
+        issue_source=github,
+        source_reader=repository,
+    )
+    opening = next(
+        c
+        for c in report.citations
+        if str(c.source_url).endswith(f"/issues/{case.issue_number}")
+    )
+    assert "conflicting version evidence" in report.draft_reply
+    assert score_report(case, report)["citation_validity"]["valid"]
+    opening.source_url = HttpUrl(
+        f"https://github.com/pytest-dev/pytest/issues/{case.issue_number + 1}"
+    )
+    assert not score_report(case, report)["citation_validity"]["valid"]

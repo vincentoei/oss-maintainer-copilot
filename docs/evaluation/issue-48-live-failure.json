@@ -20,5 +20,15 @@
       "models": []
     }
   },
-  "cause_status": "CUDA allocation failure confirmed; low Windows free RAM observed, causal relation unproven. No app rule or model setting changed to work around it."
+  "cause_status": "CUDA allocation failure confirmed; low Windows free RAM observed, causal relation unproven. No app rule or model setting changed to work around it.",
+  "recovery": {
+    "user_action": "Requesting user closed applications",
+    "windows_free_physical_memory_kib": 5886352,
+    "warmup_success": true,
+    "elapsed_seconds": 3.22,
+    "model_digest": "3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8",
+    "context_length": 16384,
+    "size_equals_size_vram": true,
+    "evidence": "issue-48-results.json contains fresh subsequent warmup, serving state and twenty real calls"
+  }
 }

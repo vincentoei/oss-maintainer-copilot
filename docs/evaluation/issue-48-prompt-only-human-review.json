@@ -1,0 +1,365 @@
+{
+  "source": {
+    "artifact": "docs/evaluation/issue-48-results.json",
+    "sha256": "199a049210004612794df48fd9fa3ff5582caded57d49d99f29a90f547d4a031",
+    "model_name": "pytest-triage:coder3b-ctx16k",
+    "run_recorded_at": "2026-11-21T16:56:01.393447+00:00"
+  },
+  "rubric": {
+    "question": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+    "ratings": [
+      "useful",
+      "partly useful",
+      "not useful"
+    ],
+    "unsure": "Keep review pending; do not invent a rating"
+  },
+  "summary": {
+    "cases": 20,
+    "reply_usefulness_reviewed": 0,
+    "reply_usefulness_pending": 20
+  },
+  "scope": "Fresh run ratings only; no rating transferred from #45.",
+  "cases": [
+    {
+      "issue_number": 7312,
+      "opening_cutoff": "2020-06-03T14:20:24+00:00",
+      "repository_commit": "61a6ac97054c0bd6f812642b46847c4b7cbede2a",
+      "trace_id": "a897c839-f50d-4e36-aeb5-620bf7737b6a",
+      "report_sha256": "4042d4ff19040a4acd7c2c5fdba5aa156216c8a19768580db3c1c3b41e29f777",
+      "draft_reply_sha256": "5170e68fab39943ba15c1e650f725115d575d21d14bb5f390ce13b3f5b9b71fd",
+      "before_rating": "partly useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "pending_human_review",
+        "rating": null,
+        "reason": null,
+        "reviewer": null
+      },
+      "separate_semantic_judgments": "pending_human_review"
+    },
+    {
+      "issue_number": 10156,
+      "opening_cutoff": "2022-07-19T20:03:50+00:00",
+      "repository_commit": "34a285986e456406b22b62aa563a64331f640e7f",
+      "trace_id": "d7825996-263c-4a8e-a41e-4e7c98ea0676",
+      "report_sha256": "9a8e5b4856412b9906a84001f3e8e65a04a0cb6a8789f8b46a16af49b3bb2d81",
+      "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "pending_human_review",
+        "rating": null,
+        "reason": null,
+        "reviewer": null
+      },
+      "separate_semantic_judgments": "pending_human_review"
+    },
+    {
+      "issue_number": 12053,
+      "opening_cutoff": "2024-03-03T14:58:35+00:00",
+      "repository_commit": "00043f7f1047b29fdaeb18e169fe9d6146988cb8",
+      "trace_id": "020dbb71-3796-48b6-b1a4-01212a056f47",
+      "report_sha256": "5448a61e23db3f312b9649022f4f39071c3875b84238b01708c839369db4b6cb",
+      "draft_reply_sha256": "273644575705d32b7f9d6e7b0821abb7a1ac5ebc7f9f95fe74a4fc7b8560497e",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "pending_human_review",
+        "rating": null,
+        "reason": null,
+        "reviewer": null
+      },
+      "separate_semantic_judgments": "pending_human_review"
+    },
+    {
+      "issue_number": 12072,
+      "opening_cutoff": "2024-03-04T13:04:55+00:00",
+      "repository_commit": "0951cbc6e4880ee7dfc9b7e56948d83ee086e74b",
+      "trace_id": "d9b75a33-d946-4edf-a683-45dd038dea9a",
+      "report_sha256": "8e81973419e5a6673c19961fd6879a4b080938ae985737a1734208393e258b0c",
+      "draft_reply_sha256": "e8982f210fc8c0eab2076a3fada9d711ab3087edd772a7bf2530b37d85863099",
+      "before_rating": "partly useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "pending_human_review",
+        "rating": null,
+        "reason": null,
+        "reviewer": null
+      },
+      "separate_semantic_judgments": "pending_human_review"
+    },
+    {
+      "issue_number": 12079,
+      "opening_cutoff": "2024-03-05T12:31:13+00:00",
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "trace_id": "ea604207-c1d9-4a60-b571-0efef0a33e20",
+      "report_sha256": "f2d18de2701ba78d4f7c7c7e7c175fc51af442b9574800e6b522ccd5d726f6ed",
+      "draft_reply_sha256": "cd8f5db29951d793fb662d5f09913f886576e9fabc1d192e0cf0f71a70670d11",
+      "before_rating": "partly useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "pending_human_review",
+        "rating": null,
+        "reason": null,
+        "reviewer": null
+      },
+      "separate_semantic_judgments": "pending_human_review"
+    },
+    {
+      "issue_number": 12081,
+      "opening_cutoff": "2024-03-06T00:03:25+00:00",
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "trace_id": "e9638e1a-9ab6-40cc-9022-012cc8fbd9df",
+      "report_sha256": "88adc1f0ace1b5e3b8011ea98ca0eb263de7657439fcb416d76e07b20c034d1e",
+      "draft_reply_sha256": "cbef87d516bee97c01f8cdb3e5597bca53429bf3f7f437d7d485caeeb78fdbfb",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "pending_human_review",
+        "rating": null,
+        "reason": null,
+        "reviewer": null
+      },
+      "separate_semantic_judgments": "pending_human_review"
+    },
+    {
+      "issue_number": 12083,
+      "opening_cutoff": "2024-03-06T10:53:11+00:00",
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "trace_id": "cf39b6fa-6524-47e0-801d-bed98e54d4b0",
+      "report_sha256": "7e77ad0245ec110ed3eea8bdcfc111ca9cd671bcce708d6f19d916f60b861501",
+      "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "pending_human_review",
+        "rating": null,
+        "reason": null,
+        "reviewer": null
+      },
+      "separate_semantic_judgments": "pending_human_review"
+    },
+    {
+      "issue_number": 12116,
+      "opening_cutoff": "2024-03-13T13:37:51+00:00",
+      "repository_commit": "c0532dda18a5cfd0e6f67113bb164485fa80eb86",
+      "trace_id": "7ec410a1-c723-43b6-b17f-10e5b1790ef7",
+      "report_sha256": "e24e59a6b048006b0375be0d5da1cce13f61643ebfc047c0ba91cd8bfe5ed106",
+      "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "pending_human_review",
+        "rating": null,
+        "reason": null,
+        "reviewer": null
+      },
+      "separate_semantic_judgments": "pending_human_review"
+    },
+    {
+      "issue_number": 12146,
+      "opening_cutoff": "2024-03-21T12:06:34+00:00",
+      "repository_commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
+      "trace_id": "1655aa42-dc12-48f8-b696-da5d8d38fdb4",
+      "report_sha256": "1a67f9b8765259e7fd82e630784fada5eac3b257cddcc721a18e4ac07d5b6925",
+      "draft_reply_sha256": "e19947d515514499027d456bdc5a6e3e60ed2baf09ccfede37c427ad238f083f",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "pending_human_review",
+        "rating": null,
+        "reason": null,
+        "reviewer": null
+      },
+      "separate_semantic_judgments": "pending_human_review"
+    },
+    {
+      "issue_number": 12189,
+      "opening_cutoff": "2024-04-05T09:14:51+00:00",
+      "repository_commit": "4e3dd21506a9e543c04c63ebff966a9b604d2b9e",
+      "trace_id": "11ab9676-cb84-4630-897b-84603ab03df5",
+      "report_sha256": "3821a01e50f3f95c4618ed86b91d8d46b77e1bda8cd3528b8a1b4cd33c5a30ad",
+      "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "pending_human_review",
+        "rating": null,
+        "reason": null,
+        "reviewer": null
+      },
+      "separate_semantic_judgments": "pending_human_review"
+    },
+    {
+      "issue_number": 12197,
+      "opening_cutoff": "2024-04-08T11:30:37+00:00",
+      "repository_commit": "74f05648d5ea9e69d75f27a77972756ee32f6730",
+      "trace_id": "03a75ab5-05db-4c84-9ec0-5eb0ecdb813b",
+      "report_sha256": "96e2905e72f4d220a9c41a68ea8fd2dafc8fb9fa655d8173b94c3e547588ac12",
+      "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "pending_human_review",
+        "rating": null,
+        "reason": null,
+        "reviewer": null
+      },
+      "separate_semantic_judgments": "pending_human_review"
+    },
+    {
+      "issue_number": 12201,
+      "opening_cutoff": "2024-04-09T14:22:08+00:00",
+      "repository_commit": "17fc20af78d0c7b739806c4e461d2c9b8c30ceeb",
+      "trace_id": "d0fa021f-7eb2-4e58-9732-f886943f1b55",
+      "report_sha256": "2ba057bb0c753a9cc3205264294c804394975941431a25e8830ab1718fa408b8",
+      "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "pending_human_review",
+        "rating": null,
+        "reason": null,
+        "reviewer": null
+      },
+      "separate_semantic_judgments": "pending_human_review"
+    },
+    {
+      "issue_number": 12203,
+      "opening_cutoff": "2024-04-10T09:18:43+00:00",
+      "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+      "trace_id": "7340ca77-ab8b-4a6b-a12d-7b18f538b945",
+      "report_sha256": "ef7ab1861c0ff1e094fa63b8d2bc5c8316547327de8e76c36a722f5d37a4cd76",
+      "draft_reply_sha256": "5ba2b20723d9e837dc2e75a7c2b6a8a2239a62f91e30671fb47872b7077eb25d",
+      "before_rating": "partly useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "pending_human_review",
+        "rating": null,
+        "reason": null,
+        "reviewer": null
+      },
+      "separate_semantic_judgments": "pending_human_review"
+    },
+    {
+      "issue_number": 12204,
+      "opening_cutoff": "2024-04-10T10:45:32+00:00",
+      "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+      "trace_id": "3e8e3b96-e151-410c-84a2-1b37946dbde2",
+      "report_sha256": "ef7e34b61bb6bbd496e1c0b5a7b3b38c37d17aa27c8944888b164188187e38e5",
+      "draft_reply_sha256": "aa15ef4d2766ef2532c4e09dde90d014d609bc8c4edca1f73fb0970542cf5088",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "pending_human_review",
+        "rating": null,
+        "reason": null,
+        "reviewer": null
+      },
+      "separate_semantic_judgments": "pending_human_review"
+    },
+    {
+      "issue_number": 12216,
+      "opening_cutoff": "2024-04-15T07:38:50+00:00",
+      "repository_commit": "5f6e825a2687f6bb8bc437e67a59c0a92fb16c06",
+      "trace_id": "35c1ed82-5b09-4b00-b51f-fa8ca6b631d6",
+      "report_sha256": "95d0e2c1182033188c808239ec2bec188384e0e0e8dc507808a09ef13b12b5db",
+      "draft_reply_sha256": "5c68764a303e44810843a02ede679c6c973ba0d416557915d9e77123ff7f8831",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "pending_human_review",
+        "rating": null,
+        "reason": null,
+        "reviewer": null
+      },
+      "separate_semantic_judgments": "pending_human_review"
+    },
+    {
+      "issue_number": 12219,
+      "opening_cutoff": "2024-04-16T08:22:38+00:00",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "trace_id": "7a91d1af-167f-4dfa-984e-6a31f2f36463",
+      "report_sha256": "3a827e9c22df974a0d637ad52f8d051442001d9cbb4a177783bc7491dd1d8b3d",
+      "draft_reply_sha256": "18edb10d77de37a27f484fad0452254b46ed79238432e4212a179bf09b1e62ca",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "pending_human_review",
+        "rating": null,
+        "reason": null,
+        "reviewer": null
+      },
+      "separate_semantic_judgments": "pending_human_review"
+    },
+    {
+      "issue_number": 12223,
+      "opening_cutoff": "2024-04-17T09:00:30+00:00",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "trace_id": "55a557a9-2933-4786-8514-45264b8adffe",
+      "report_sha256": "796f9019ef6bb50e48ff152fc93077a54480b6288060011949c00f7953a8d813",
+      "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "pending_human_review",
+        "rating": null,
+        "reason": null,
+        "reviewer": null
+      },
+      "separate_semantic_judgments": "pending_human_review"
+    },
+    {
+      "issue_number": 12224,
+      "opening_cutoff": "2024-04-18T05:51:07+00:00",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "trace_id": "e3631217-bfe6-4489-b3c4-8e738cf544e6",
+      "report_sha256": "af8150812f2eb17c4ba6975e60ac9db96bdca9cac41e3825f20e890250b55e32",
+      "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "pending_human_review",
+        "rating": null,
+        "reason": null,
+        "reviewer": null
+      },
+      "separate_semantic_judgments": "pending_human_review"
+    },
+    {
+      "issue_number": 12226,
+      "opening_cutoff": "2024-04-19T11:34:17+00:00",
+      "repository_commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
+      "trace_id": "4ae7abd4-5cf3-4490-8da4-75234e10c3c2",
+      "report_sha256": "bbb35a7b57971600605c1e5552d540fd57b534de5a36ad4d70587fb26865e779",
+      "draft_reply_sha256": "cd8f5db29951d793fb662d5f09913f886576e9fabc1d192e0cf0f71a70670d11",
+      "before_rating": "partly useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "pending_human_review",
+        "rating": null,
+        "reason": null,
+        "reviewer": null
+      },
+      "separate_semantic_judgments": "pending_human_review"
+    },
+    {
+      "issue_number": 12228,
+      "opening_cutoff": "2024-04-19T17:30:10+00:00",
+      "repository_commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
+      "trace_id": "317ad5c3-d9a5-42fd-a37d-8fafdae1cb50",
+      "report_sha256": "5f306b526b07e3bc8e839887580f9b95e5946b6862c3e50e7ec9ca2f69473654",
+      "draft_reply_sha256": "cd8f5db29951d793fb662d5f09913f886576e9fabc1d192e0cf0f71a70670d11",
+      "before_rating": "not useful",
+      "real_response_received": true,
+      "draft_reply_usefulness": {
+        "review_status": "pending_human_review",
+        "rating": null,
+        "reason": null,
+        "reviewer": null
+      },
+      "separate_semantic_judgments": "pending_human_review"
+    }
+  ]
+}
