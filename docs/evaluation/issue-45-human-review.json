@@ -31,12 +31,12 @@
   },
   "summary": {
     "cases": 20,
-    "reply_usefulness_reviewed": 14,
-    "reply_usefulness_pending": 6,
+    "reply_usefulness_reviewed": 15,
+    "reply_usefulness_pending": 5,
     "rating_counts": {
       "useful": 0,
       "partly useful": 4,
-      "not useful": 10
+      "not useful": 11
     },
     "separate_semantic_judgments": "Citation support, relationship labels and other-field abstention reviews remain pending"
   },
@@ -753,13 +753,43 @@
       "report_sha256": "20ef3a9dbcbfbc687491b76f9d2281da043c923ec97e833e47a7fc1da1ca3356",
       "draft_reply_sha256": "5c68764a303e44810843a02ede679c6c973ba0d416557915d9e77123ff7f8831",
       "draft_reply_usefulness": {
-        "review_status": "pending_human_review",
-        "rating": null,
-        "reason": null
+        "review_status": "human_confirmed",
+        "rating": "not useful",
+        "reason": "The fallback does not acknowledge the collection error or the fixture body failing to execute. It offers no guidance, targeted clarification or next step despite the supplied reproducer, so it gives the maintainer no help responding to the fixture-injection question.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T15:25:30.018682+00:00",
+        "confirmation_method": "Explicit user rating and reason in this conversation; reason preserved verbatim"
       },
       "citation_support_review_status": "pending_human_review",
       "relationship_review_status": "pending_human_review",
-      "other_field_abstention_review_status": "pending_human_review"
+      "other_field_abstention_review_status": "pending_human_review",
+      "evidence_presented": {
+        "format": "Codex paraphrases of the hash-verified issue opening and two retrieved openings, plus the exact saved fallback reply and partial-report summary in chat",
+        "verified_openings": [
+          {
+            "issue_number": 12216,
+            "content_sha256": "fe52fe12b75b3450706561eaff0cb911d116beeebec5077d044bab2d93e8930e",
+            "created_at": "2024-04-15T07:38:50+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 12146,
+            "content_sha256": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+            "created_at": "2024-03-21T12:06:34+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 7312,
+            "content_sha256": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+            "created_at": "2020-06-03T14:20:24+00:00",
+            "verification": "matched recorded opening title/body hash"
+          }
+        ],
+        "later_activity": "excluded",
+        "validation_failure_scope": "The user was told the model responded but its selection failed server-side validation. The judgment rates the visible fallback usefulness, not the appropriateness of rejecting the selection",
+        "external_discussion_scope": "The opening links discussion #12205; its comments were not retrieved or used as additional evidence in the review presentation",
+        "question_scope": "Overall draft-reply usefulness only; separate citation, relationship and abstention labels were not requested"
+      }
     },
     {
       "issue_number": 12219,
@@ -842,5 +872,5 @@
       "other_field_abstention_review_status": "pending_human_review"
     }
   ],
-  "updated_at": "2026-11-21T15:23:22.871259+00:00"
+  "updated_at": "2026-11-21T15:25:30.020031+00:00"
 }
