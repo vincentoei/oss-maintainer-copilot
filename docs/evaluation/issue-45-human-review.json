@@ -31,12 +31,12 @@
   },
   "summary": {
     "cases": 20,
-    "reply_usefulness_reviewed": 15,
-    "reply_usefulness_pending": 5,
+    "reply_usefulness_reviewed": 16,
+    "reply_usefulness_pending": 4,
     "rating_counts": {
       "useful": 0,
       "partly useful": 4,
-      "not useful": 11
+      "not useful": 12
     },
     "separate_semantic_judgments": "Citation support, relationship labels and other-field abstention reviews remain pending"
   },
@@ -799,13 +799,42 @@
       "report_sha256": "5af4116826754170868ff390b755a7879446820edcd00d66feb4482664e427db",
       "draft_reply_sha256": "0fddca44bd0b66d8dbf87e56f9511f98851d15eb74f6e14111a419bbb7cc2c94",
       "draft_reply_usefulness": {
-        "review_status": "pending_human_review",
-        "rating": null,
-        "reason": null
+        "review_status": "human_confirmed",
+        "rating": "not useful",
+        "reason": "The draft repeats #4064, which the reporter already cited, without explaining its relevance. It misses the key discrepancy between the working example and the affected project and should request a minimized failing example to help identify what prevents the hooks from running.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T15:29:09.247993+00:00",
+        "confirmation_method": "Explicit user rating and reason in this conversation; reason preserved verbatim"
       },
       "citation_support_review_status": "pending_human_review",
       "relationship_review_status": "pending_human_review",
-      "other_field_abstention_review_status": "pending_human_review"
+      "other_field_abstention_review_status": "pending_human_review",
+      "evidence_presented": {
+        "format": "Codex paraphrases of the hash-verified issue opening and two retrieved openings, including the working small example versus failing-project distinction, plus the exact saved draft reply and report summary in chat",
+        "verified_openings": [
+          {
+            "issue_number": 12219,
+            "content_sha256": "681e48797dfaccd7ce7ff3a86bd5862656e34bfbda83da9364ae7fb8696a891b",
+            "created_at": "2024-04-16T08:22:38+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 4064,
+            "content_sha256": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9",
+            "created_at": "2018-10-02T14:02:38+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 12216,
+            "content_sha256": "fe52fe12b75b3450706561eaff0cb911d116beeebec5077d044bab2d93e8930e",
+            "created_at": "2024-04-15T07:38:50+00:00",
+            "verification": "matched recorded opening title/body hash"
+          }
+        ],
+        "later_activity": "excluded",
+        "external_link_scope": "Linked project contents were not retrieved; the documentation-support statement was presented as the reporter’s claim from the opening",
+        "question_scope": "Overall draft-reply usefulness only; separate citation, relationship and abstention labels were not requested"
+      }
     },
     {
       "issue_number": 12223,
@@ -872,5 +901,5 @@
       "other_field_abstention_review_status": "pending_human_review"
     }
   ],
-  "updated_at": "2026-11-21T15:25:30.020031+00:00"
+  "updated_at": "2026-11-21T15:29:09.249313+00:00"
 }

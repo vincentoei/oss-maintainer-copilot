@@ -179,7 +179,7 @@ and the requesting user's explicit rating, verbatim reason and recording time.
 These ratings apply to complete application replies from this specific run;
 they do not automatically transfer to #21 comparator runs or controlled baselines.
 
-Progress: **15 of 20 reply-usefulness reviews complete; 5 pending**. For #7312,
+Progress: **16 of 20 reply-usefulness reviews complete; 4 pending**. For #7312,
 the user rated the exact saved reply **partly useful**: #349 is a promising
 fixture-derived-parameter lead, but the explanation relies on generic word
 overlap, does not explain a potential duplicate, fails to distinguish #2959's
@@ -264,6 +264,11 @@ acknowledge the collection error or fixture body not executing, and supplies
 no guidance, targeted clarification or next step despite the reproducer. This
 rating concerns fallback usefulness; the recorded validation failure and
 separate judgment about rejection/abstention appropriateness are preserved.
+
+For #12219, the user rated the exact saved reply **not useful**: it repeats
+the already cited #4064 without explaining relevance. It misses the discrepancy
+between the working example and affected project and should request a minimized
+failing example to investigate why the hooks do not run.
 
 The user saw paraphrases of hash-verified opening texts, the exact saved draft
 and a report summary in chat. Later activity was excluded. This is a recorded
