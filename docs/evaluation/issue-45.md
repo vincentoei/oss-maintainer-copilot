@@ -179,7 +179,7 @@ and the requesting user's explicit rating, verbatim reason and recording time.
 These ratings apply to complete application replies from this specific run;
 they do not automatically transfer to #21 comparator runs or controlled baselines.
 
-Progress: **5 of 20 reply-usefulness reviews complete; 15 pending**. For #7312,
+Progress: **6 of 20 reply-usefulness reviews complete; 14 pending**. For #7312,
 the user rated the exact saved reply **partly useful**: #349 is a promising
 fixture-derived-parameter lead, but the explanation relies on generic word
 overlap, does not explain a potential duplicate, fails to distinguish #2959's
@@ -208,6 +208,12 @@ alternatives is appropriate because that section is empty, but requesting a
 use case overlooks the stated test-interdependency investigation. The draft
 also omits #11871, which the user identifies as a strong potential duplicate
 that would help assess the request.
+
+For #12081, the user rated the exact saved reply **not useful**: repeating the
+already linked #3448 does not explain the matching behavior or potential
+duplicate. The documentation statement is too general, and the source sentence
+does not explain the buffer reset. The reply does not address retaining output,
+the proposed API change or documentation improvements.
 
 The user saw paraphrases of hash-verified opening texts, the exact saved draft
 and a report summary in chat. Later activity was excluded. This is a recorded
