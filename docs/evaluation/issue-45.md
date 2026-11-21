@@ -101,11 +101,13 @@ Other representative gaps remain: #7312's duplicate is treated as related;
 #12072 misses expected bug details; #12079 requests a use case already present.
 These are not resolved by this focused fix.
 
-Semantic citation support, usefulness of draft replies, unreviewed retrieved
-relationships, and abstentions outside the explicitly scored fields still need
-human review. Structural citation validity is not semantic correctness. All
-quality observations remain provisional on the same small, previously reviewed
-selection set, rather than independent generalization evidence.
+Human review of all twenty final-run draft replies is complete: **0 useful,
+5 partly useful and 15 not useful**; the [review companion](issue-45-human-review.json)
+preserves the explicit ratings and reasons. Semantic citation support, separate
+retrieved-relationship judgments and abstentions outside the explicitly scored
+fields still need human review. Structural citation validity is not semantic
+correctness. These results apply to the same small, previously reviewed selection
+set, rather than independent generalization evidence.
 
 ## Serving and browser observations
 
