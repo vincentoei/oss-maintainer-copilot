@@ -6,9 +6,11 @@ rendered pytest #12053 opening now produce **no missing-detail requests**, using
 the same local model. This is a deterministic template-rule fix; it does not
 establish an improvement in model reasoning.
 
-Branch `fix/issue-45-feature-details` starts at `605bafb`, on top of the completed
-#21 implementation because those changes are not yet on `main`. The earlier
-#21 measurements remain historical artifacts. Model selection, search performance,
+Work on `fix/issue-45-feature-details` originally started at `605bafb`, on top
+of #21 before it reached `main`. After PR #46 merged as `9f95f91`, only the #45
+commits were rebased onto that updated `main` for PR #47. The rebase preserved
+the reviewed file contents exactly; the recorded original base and earlier
+measurements remain historical provenance. Model selection, search performance,
 the full workflow comparison in #16 and second-repository support in #33 are
 outside this change.
 
