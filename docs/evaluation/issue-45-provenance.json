@@ -1,0 +1,255 @@
+{
+  "recorded_at": "2026-11-19T19:01:28.337966+00:00",
+  "base_commit": "605bafb",
+  "baseline_sha256": {
+    "docs/evaluation/issue-12-results.json": "265a30a7701506e17cc61c7bfc4d17a5646969cb6ddf859a4ca64e4a9e88c663",
+    "docs/evaluation/issue-12.md": "a3fb6c6c533933f598edc4eec16ef6b3baaa9b754b0f1649105c78a89cb13986",
+    "docs/evaluation/issue-13-provenance.json": "c13f172e9977593bc18303a0482301859a97ad3d626375c6910d50471d3daa1e",
+    "docs/evaluation/issue-13-results.json": "ff6f76e2d76247ce76d2352893fb14a4a0cea5390f42e2e641aae3f4fac07172",
+    "docs/evaluation/issue-13.md": "002e90dbf31b5afbc18135889db84c5816d5f5cc03e49607aeb26c69363128ce",
+    "docs/evaluation/issue-14-provenance.json": "f13fa6f9e86122f801e064f153381a5e1ec3a6ea236c1c9ceb9b0df9238198cc",
+    "docs/evaluation/issue-14-results.json": "06851329042b01454eccfb14b385c5a4034ab30e3ba44b818eb9778bfba005a2",
+    "docs/evaluation/issue-14.md": "8180fb0b068c7ebc34b512a9065c1125d47076aad75afa6f4e75936232335f43",
+    "docs/evaluation/issue-15-provenance.json": "e7b5e2e9bcc4a8ca804158f7de16883a77b46cd29e21b1559eee08f939dd81ea",
+    "docs/evaluation/issue-15-results.json": "6991f57674475f350b86203321c02a09a650baeb7b7e718020a8cbb0eb743ea5",
+    "docs/evaluation/issue-15.md": "537a361f061b162242b866667934c729521f6f4cbac438f50061601373831a26",
+    "docs/evaluation/issue-21-agent-action-initial.json": "f6a3b84cc53229b91f059af15e27ecb9d212ee37ff70e0f8ba81b59dcb98fab7",
+    "docs/evaluation/issue-21-api-initial.json": "03a743aa5eb0a283cfbf2ef71d1a2a4e3164896e4106a44eb2ad2b1aaf977160",
+    "docs/evaluation/issue-21-api-warm.json": "dd669df98629404609669c949c11b39655daa6c074383ee9bb1db1c50f7277af",
+    "docs/evaluation/issue-21-coder3b-initial.json": "920cfa0d42cbd3a1c7c9a26d3a5565669844a7a601895ae50f77c93fe2185b0b",
+    "docs/evaluation/issue-21-integration-bounded.json": "39ffcbe6c749ae94203910c689f1a0be9b981627f6a91c7236f4fb7364461a07",
+    "docs/evaluation/issue-21-integration-final.json": "6572a29acd501701a854421792a375b1ae020078ea4841e99affe32214f5e83c",
+    "docs/evaluation/issue-21-integration.json": "74ba78ed8166ef604517e6e3a7216c64f9283c1a34008472536e33b694fb0276",
+    "docs/evaluation/issue-21-llmfit.json": "3b6652be202130bb241651f7a4ac8bb10269fb7563d7f09184a459f07a4097e5",
+    "docs/evaluation/issue-21-provenance.json": "9b7bad2ba63e45eaf4e28695f58657077561a54e59b773b4407533fa8e5cd1f3",
+    "docs/evaluation/issue-21-provider-error.json": "6972d53dd3fd5913ffcd062b0e024fbb8d6316f70c67b9a5dcc432bc51afac19",
+    "docs/evaluation/issue-21-qwen3-4b-initial.json": "02df25ab3d46d3fdcdc1540ad252dc55e3d021fdcc19da1d78c6834644cd1e11",
+    "docs/evaluation/issue-21-qwen3-4b-options.json": "a1b2f580e4c129520704f6144fd91f43923c34655e72f9e8ccebd46ec2acdea9",
+    "docs/evaluation/issue-21-qwen3-4b-schema.json": "9362d9e70877230113920224b0bd83c8baa79d4d66010522c7b96fb39b3d1657",
+    "docs/evaluation/issue-21-reproduction.json": "95d50dcaefd782d3fa3c4295bf42d52c8f615c7b5d0129cb850c2deb335345ee",
+    "docs/evaluation/issue-21-results.json": "43bda5d0d5e0aa1cf1e0bbcdce05ad4d09fe7d611c02f1012d262fc692e52e42",
+    "docs/evaluation/issue-21-schema-probe.json": "b52d80f3c2c357ea762942424f1ea9464f7cd11f403719a1285b923e75ed2894",
+    "docs/evaluation/issue-21-selection.json": "a0dd45d823b78a65c5d52829992011fb3628240d0b8457e72f949ca36ba1aaa6",
+    "docs/evaluation/issue-21-serving-initial.json": "594c05957d16aa887eea7b7c833f5400d927f8e2f8b0438c62d883fa3120dc4f",
+    "docs/evaluation/issue-21-user-validation.json": "a5b4e753ff503c6dd5403bb35a8bf912ee758064a83ffdd1440d7c1b03aa92c7",
+    "docs/evaluation/issue-21-web.json": "a5654889a12d6f823a5a421060c8011f18317c558f5a2103a83a3c2486f4313e",
+    "docs/evaluation/issue-21-web.png": "77e3e4e359be9fb101b30fc56e39601d581b6ea6ae5bad033cf556ab024e1a89",
+    "docs/evaluation/issue-21.md": "2687e84c921538107a1e304f9fb926b1fae1e982e9164975dbbb30efb2a60191",
+    "src/maintainer_copilot/cases/pytest_10156.json": "983745427c9875dbf4838d24b458abc0ba4cb0e04b8fdd6cd13a364f1361e189",
+    "src/maintainer_copilot/cases/pytest_12053.json": "ed6fd3c5d1fa9b70d761c926d1593f31125a425f95f5e34af291ab97c2276066",
+    "src/maintainer_copilot/cases/pytest_12072.json": "b3128c04ad13b5b7a3bcc8945ed6c642ddbc1b5bfed17a9a6a72d1956592a155",
+    "src/maintainer_copilot/cases/pytest_12079.json": "6d84b025b88ae66b1fa541c0ded03c8f8a49a948bfb7992a6787e188339f46d8",
+    "src/maintainer_copilot/cases/pytest_12081.json": "4910b848e2358728dbb530cd619b3bb80ead941951282e96d0b38765708bcb4a",
+    "src/maintainer_copilot/cases/pytest_12083.json": "92c2e45f9cfb992bac40ec2e4cf6522ad1a1b77b2ea3ce3e1f58fe9d0e8cbe9e",
+    "src/maintainer_copilot/cases/pytest_12116.json": "ed0cb4e78487c39d378baf60cb55262d6e66cb2f8f9e978961805904013579d3",
+    "src/maintainer_copilot/cases/pytest_12146.json": "df3ffaf6d69d84ef729c19df9334c90da7bda592f3cf37de7e4475cc5ebd24bb",
+    "src/maintainer_copilot/cases/pytest_12189.json": "421a4bc8e0087f0bc5e9c9398a8b232ee06618cc42ab69e7d40a76bc2a9aa76d",
+    "src/maintainer_copilot/cases/pytest_12197.json": "dbd2744a8cef0f0c843a8b95a660a01cd313b99168addeb9b4e1a017c4545be7",
+    "src/maintainer_copilot/cases/pytest_12201.json": "c30b947247a62001012e360ebe2f41eec69ff22144bffa30ce4bda2541c98994",
+    "src/maintainer_copilot/cases/pytest_12203.json": "36506900241de58416d382fc2c0182a7a763f6197335a8b4a5c0f9b7101eeb62",
+    "src/maintainer_copilot/cases/pytest_12204.json": "6470a49115e3e5be498f03d443619c1201bda819b017b81a7b234d3330fc5a26",
+    "src/maintainer_copilot/cases/pytest_12216.json": "819252c1ed9a3a8e5f3af2d444a596e340b508e2db12a4ecfff4c3ebe81556f5",
+    "src/maintainer_copilot/cases/pytest_12219.json": "5bd50ed87d7d9a821a4063b5f86caba93f7eee0078797fcc27dba60bc97005ce",
+    "src/maintainer_copilot/cases/pytest_12223.json": "d40ddce9c57dd5198204ed13cf5f579afa6331663fe794007c6188850ca39d69",
+    "src/maintainer_copilot/cases/pytest_12224.json": "0ac8128e09c5b7159935a879da077645d86adcc32ecc8a2f55259223735da25f",
+    "src/maintainer_copilot/cases/pytest_12226.json": "c2e250119a6ebaef317e155198e23fd477ec5e6119fcebb9ef98303478798b57",
+    "src/maintainer_copilot/cases/pytest_12228.json": "5ab617c754cf8ea8eb428bd62c2ec556347010b7e6e878f378b38d486da719d1",
+    "src/maintainer_copilot/cases/pytest_7312.json": "0992e433b73d83254b677ea112516e0fd52b3a296b19adabf576909cc3220410"
+  },
+  "rule_smoke": {
+    "purpose": "Controlled regression checks for missing-detail rules only; not real-model quality evidence",
+    "cases": [
+      {
+        "issue_number": 7312,
+        "expected": [],
+        "previous": [],
+        "observed": []
+      },
+      {
+        "issue_number": 10156,
+        "expected": [],
+        "previous": [],
+        "observed": []
+      },
+      {
+        "issue_number": 12053,
+        "expected": [],
+        "previous": [
+          "alternative solutions",
+          "real-world use case"
+        ],
+        "observed": []
+      },
+      {
+        "issue_number": 12072,
+        "expected": [
+          "pip list output",
+          "pytest and OS versions",
+          "minimal example"
+        ],
+        "previous": [],
+        "observed": []
+      },
+      {
+        "issue_number": 12079,
+        "expected": [
+          "alternative solutions"
+        ],
+        "previous": [
+          "alternative solutions",
+          "real-world use case"
+        ],
+        "observed": [
+          "real-world use case",
+          "alternative solutions"
+        ]
+      },
+      {
+        "issue_number": 12081,
+        "expected": [],
+        "previous": [],
+        "observed": []
+      },
+      {
+        "issue_number": 12083,
+        "expected": [
+          "pip list output"
+        ],
+        "previous": [],
+        "observed": []
+      },
+      {
+        "issue_number": 12116,
+        "expected": [],
+        "previous": [
+          "pip list output"
+        ],
+        "observed": [
+          "pip list output"
+        ]
+      },
+      {
+        "issue_number": 12146,
+        "expected": [],
+        "previous": [],
+        "observed": []
+      },
+      {
+        "issue_number": 12189,
+        "expected": [
+          "pytest and OS versions"
+        ],
+        "previous": [],
+        "observed": []
+      },
+      {
+        "issue_number": 12197,
+        "expected": [
+          "pip list output",
+          "pytest and OS versions",
+          "minimal example"
+        ],
+        "previous": [],
+        "observed": []
+      },
+      {
+        "issue_number": 12201,
+        "expected": [],
+        "previous": [
+          "alternative solutions",
+          "real-world use case"
+        ],
+        "observed": [
+          "real-world use case",
+          "alternative solutions"
+        ]
+      },
+      {
+        "issue_number": 12203,
+        "expected": [
+          "minimal example"
+        ],
+        "previous": [
+          "minimal example"
+        ],
+        "observed": [
+          "minimal example"
+        ]
+      },
+      {
+        "issue_number": 12204,
+        "expected": [],
+        "previous": [],
+        "observed": []
+      },
+      {
+        "issue_number": 12216,
+        "expected": [
+          "pip list output",
+          "pytest and OS versions"
+        ],
+        "previous": [],
+        "observed": []
+      },
+      {
+        "issue_number": 12219,
+        "expected": [
+          "pip list output",
+          "pytest and OS versions",
+          "minimal example"
+        ],
+        "previous": [],
+        "observed": []
+      },
+      {
+        "issue_number": 12223,
+        "expected": [
+          "pip list output",
+          "pytest and OS versions"
+        ],
+        "previous": [],
+        "observed": []
+      },
+      {
+        "issue_number": 12224,
+        "expected": [],
+        "previous": [],
+        "observed": []
+      },
+      {
+        "issue_number": 12226,
+        "expected": [
+          "alternative solutions"
+        ],
+        "previous": [
+          "alternative solutions",
+          "real-world use case"
+        ],
+        "observed": [
+          "real-world use case",
+          "alternative solutions"
+        ]
+      },
+      {
+        "issue_number": 12228,
+        "expected": [
+          "alternative solutions"
+        ],
+        "previous": [
+          "alternative solutions",
+          "real-world use case"
+        ],
+        "observed": [
+          "real-world use case",
+          "alternative solutions"
+        ]
+      }
+    ]
+  },
+  "first_evaluation_profile_sha256": "1a7621858605dc73cbacf4a110db8b5f1b49d0289c10dd069ab45189db4406cb",
+  "final_profile_sha256": "5030ae943385c3d948c24a41c021ca075c55b62232f3dcf3ff0d973517e0caff",
+  "final_model_client_sha256": "7bef4c191bd6511d123c548e7cce91013dd7aae107b82690dc69d09412d861c0",
+  "selected_alias_digest": "3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8",
+  "pre_review_profile_sha256": "3e9ae15ff2c60d5ada106b0aed110b8a24b2c42588206b814993025c905844a8",
+  "final_evaluation_recorded_at": "2026-11-19T19:19:24.054207+00:00"
+}

@@ -328,17 +328,50 @@ def _has_minimal_example(body: str) -> bool:
     return False
 
 
-def _section_has_answer(body: str, heading: str) -> bool:
+_FEATURE_SECTION_HEADINGS = (
+    "What's the problem this feature will solve?",
+    "Describe the solution you'd like",
+    "Use case",
+    "Real-world use case",
+    "Alternative Solutions",
+    "Additional context",
+)
+
+
+def _section_answer(body: str, heading: str) -> str:
     without_comments = re.sub(r"<!--.*?-->", "", body, flags=re.DOTALL)
     match = re.search(
-        rf"(?im)^\s*#{{1,6}}\s*{re.escape(heading)}\s*$", without_comments
+        rf"(?im)^[ \t]*(?:#{{1,6}}[ \t]+)?{re.escape(heading)}[ \t]*\r?$",
+        without_comments,
     )
     if match is None:
-        return False
+        return ""
     remainder = without_comments[match.end() :]
-    next_heading = re.search(r"(?m)^\s*#{1,6}\s+", remainder)
+    known_headings = "|".join(re.escape(item) for item in _FEATURE_SECTION_HEADINGS)
+    next_heading = re.search(
+        rf"(?im)^[ \t]*(?:#{{1,6}}[ \t]+[^\r\n]*|(?:{known_headings})[ \t]*)\r?$",
+        remainder,
+    )
     answer = remainder[: next_heading.start()] if next_heading else remainder
-    return bool(re.search(r"\w{3,}", answer))
+    return answer.strip()
+
+
+def _answer_has_content(answer: str) -> bool:
+    for line in answer.splitlines():
+        text = line.strip().strip("*_. ")
+        if text.startswith(("```", "~~~")) or re.fullmatch(
+            r"(?:todo|tbd|n/?a|none|not (?:yet )?provided)[.!]?", text, re.I
+        ):
+            continue
+        if re.match(r"(?:please\s+)?(?:describe|elaborate)\b", text, re.I):
+            continue
+        if re.search(r"\w{3,}", text):
+            return True
+    return False
+
+
+def _section_has_answer(body: str, heading: str) -> bool:
+    return _answer_has_content(_section_answer(body, heading))
 
 
 def _has_concrete_scenario(body: str) -> bool:
@@ -357,14 +390,109 @@ def _has_concrete_scenario(body: str) -> bool:
     return False
 
 
+def _hypothetical_prefix(body: str, start: int) -> bool:
+    return bool(
+        re.search(
+            r"\b(?:if|unless|could|would|might|may|should|can|will|whether)\s*$",
+            body[max(0, start - 48) : start],
+            re.I,
+        )
+    )
+
+
+def _has_current_alternative(body: str) -> bool:
+    """Recognize a current concrete approach, rather than version metadata."""
+    for match in re.finditer(
+        r"\b(?:i|we)\s+(?:(?:currently|already|always|usually|often|normally)\s+)*"
+        r"(?:use|run|invoke)\s+([^\r\n]+)",
+        body,
+        re.I,
+    ):
+        if _hypothetical_prefix(body, match.start()):
+            continue
+        approach = re.split(r"(?<=[.!?])[ \t]+", match.group(1), maxsplit=1)[0].strip()
+        if re.match(r"(?:no|not|neither|nothing)\b", approach, re.I):
+            continue
+        for marker in re.finditer(
+            r"--[a-z][\w-]*|\b(?:script|alias|plugin|wrapper)\b", approach, re.I
+        ):
+            if not re.search(
+                r"\b(?:no|not|without|neither)(?:\s+\w+){0,2}\s*$",
+                approach[max(0, marker.start() - 32) : marker.start()],
+                re.I,
+            ):
+                return True
+    return False
+
+
+def _has_alternative_detail(body: str) -> bool:
+    answer = _section_answer(body, "Alternative Solutions")
+    # Explicitly reporting that none exists answers the template's "or none"
+    # question. Saying an approach has not been tried does not.
+    if re.fullmatch(
+        r"(?:none|no alternatives(?: exist| are available)?)[.!]?",
+        answer,
+        re.I,
+    ):
+        return True
+    for statement in re.split(r"(?<=[.!?])[ \t]+|\r?\n+", body):
+        if re.fullmatch(
+            r"(?:there (?:are|is) )?no (?:other )?(?:alternatives?|workarounds?)"
+            r"(?: (?:exist|are available|available))?[.!]?",
+            statement.strip(),
+            re.I,
+        ):
+            return True
+    if _has_current_alternative(body):
+        return True
+    for attempt in re.finditer(
+        r"\b(?:(?:i|we)\s+(?:have\s+)?tried\s+(?!(?:no|nothing)\b)\S|"
+        r"(?:my|our|current) workaround (?:is|uses?)\s+"
+        r"(?!(?:(?:a|an|the)\s+)?(?:not|no|never|nothing|unavailable|"
+        r"unimplemented|propos\w*|planned)\b)\S)",
+        body,
+        re.I,
+    ):
+        if not _hypothetical_prefix(body, attempt.start()):
+            return True
+    for statement in re.split(r"(?<=[.!?])[ \t]+|\r?\n+", answer):
+        if statement.strip().endswith("?"):
+            continue
+        if re.search(
+            r"\b(?:no|not|never|nothing|without|if|could|would|might|may|plan|"
+            r"propos\w*|planned|unavailable|unimplemented)\b|"
+            r"\b(?:haven't|hasn't|didn't|don't|doesn't)\b",
+            statement,
+            re.I,
+        ):
+            continue
+        if re.fullmatch(
+            r"(?:i|we)\s+(?:currently\s+)?use\s+\S+\s+v?\d[\w.-]*[.!]?",
+            statement.strip(),
+            re.I,
+        ):
+            continue
+        if _answer_has_content(statement):
+            return True
+    return False
+
+
 def missing_feature_details(body: str) -> list[TemplateDetail]:
     without_comments = re.sub(r"<!--.*?-->", "", body, flags=re.DOTALL)
     has_problem = _section_has_answer(
         body, "What's the problem this feature will solve?"
-    ) or bool(re.search(r"\b(?:i cannot|i can't|i need|the problem is)\b", body, re.I))
+    ) or bool(
+        re.search(
+            r"\b(?:i cannot|i can't|i need|the problem is)\b", without_comments, re.I
+        )
+    )
     has_solution = _section_has_answer(
         body, "Describe the solution you'd like"
-    ) or bool(re.search(r"\b(?:i would like|please add|the solution is)\b", body, re.I))
+    ) or bool(
+        re.search(
+            r"\b(?:i would like|please add|the solution is)\b", without_comments, re.I
+        )
+    )
     has_use_case = bool(
         _section_has_answer(body, "Use case")
         or _section_has_answer(body, "Real-world use case")
@@ -375,16 +503,15 @@ def missing_feature_details(body: str) -> list[TemplateDetail]:
         )
         or re.search(
             r"\b(?:we (?:maintain|use|run|manage)|our (?:test suite|monorepo|"
-            r"repository|project)|in our|in (?:a|an|the) (?:\w+\s+){0,2}"
-            r"(?:project|repository|monorepo|test suite))\b[^.!?\n]{25,}",
+            r"repository|project)|in our|(?:in|for) "
+            r"(?:a|an|the|my|our|some|several|many) (?:\w+\s+){0,2}"
+            r"(?:projects?|repositories|monorepos?|test suites?))\b[^.!?\n]{25,}",
             without_comments,
             re.I,
         )
         or _has_concrete_scenario(without_comments)
     )
-    has_alternatives = _section_has_answer(body, "Alternative Solutions") or bool(
-        re.search(r"\b(?:i tried|workaround|no alternatives)\b", without_comments, re.I)
-    )
+    has_alternatives = _has_alternative_detail(without_comments)
     provided = (has_problem, has_solution, has_use_case, has_alternatives)
     return _missing_details(FEATURE_DETAILS, provided)
 

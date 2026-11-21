@@ -71,6 +71,8 @@ Qwen2.5 Coder 3B Instruct Q4_K_M with 16K context and no paid model API.
 candidates, twenty-case field scores, GPU memory, serving errors and real
 API/browser/agent checks. Windows and WSL connectivity is verified explicitly;
 their localhost addresses are not assumed interchangeable.
+The [issue #45 follow-up](docs/evaluation/issue-45.md) fixes redundant feature
+detail requests found during that validation and records a fresh twenty-case run.
 
 ## Bounded agent report
 
