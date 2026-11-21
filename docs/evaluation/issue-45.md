@@ -170,6 +170,30 @@ Their relevance, semantic citation support and draft usefulness still await
 review; GPU memory was not sampled for this user-operated run. Search performance
 and the heuristic relationship explanations remain separate from this detail fix.
 
+## Human review of saved replies
+
+[The human-review companion](issue-45-human-review.json) annotates the final
+selected-model run without changing its raw outputs or expected outcomes. It
+records source-artifact, report and draft hashes, the model identity/settings,
+and the requesting user's explicit rating, verbatim reason and recording time.
+These ratings apply to complete application replies from this specific run;
+they do not automatically transfer to #21 comparator runs or controlled baselines.
+
+Progress: **1 of 20 reply-usefulness reviews complete; 19 pending**. For #7312,
+the user rated the exact saved reply **partly useful**: #349 is a promising
+fixture-derived-parameter lead, but the explanation relies on generic word
+overlap, does not explain a potential duplicate, fails to distinguish #2959's
+regression, includes apparently unrelated #7012, and gives no clear next step.
+
+The user saw paraphrases of hash-verified opening texts, the exact saved draft
+and a report summary in chat. Later activity was excluded. This is a recorded
+user judgment, not a claim that the reviewer independently fetched every source.
+Citation support, separate relationship labels and other-field abstention
+judgments remain pending; comments within the usefulness reason are preserved
+without silently converting them into those additional labels. The source
+results JSON retains its original pending-review fields; the companion records
+the subsequent human review.
+
 ## Review
 
 ### Standards
