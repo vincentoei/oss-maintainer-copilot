@@ -31,12 +31,12 @@
   },
   "summary": {
     "cases": 20,
-    "reply_usefulness_reviewed": 6,
-    "reply_usefulness_pending": 14,
+    "reply_usefulness_reviewed": 7,
+    "reply_usefulness_pending": 13,
     "rating_counts": {
       "useful": 0,
       "partly useful": 3,
-      "not useful": 3
+      "not useful": 4
     },
     "separate_semantic_judgments": "Citation support, relationship labels and other-field abstention reviews remain pending"
   },
@@ -362,13 +362,30 @@
       "report_sha256": "b259545132b0b4440d7782bf023ae8cb1d1ece99b037de1cb054013d1b323bdf",
       "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
       "draft_reply_usefulness": {
-        "review_status": "pending_human_review",
-        "rating": null,
-        "reason": null
+        "review_status": "human_confirmed",
+        "rating": "not useful",
+        "reason": "The draft does not acknowledge the demonstrated collection regression or the reporter’s question about intended behavior. Its vague abstention gives the maintainer no explanation, targeted follow-up, or next step despite the concrete reproduction details supplied.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T14:29:43.810193+00:00",
+        "confirmation_method": "Explicit user rating and reason in this conversation; reason preserved verbatim"
       },
       "citation_support_review_status": "pending_human_review",
       "relationship_review_status": "pending_human_review",
-      "other_field_abstention_review_status": "pending_human_review"
+      "other_field_abstention_review_status": "pending_human_review",
+      "evidence_presented": {
+        "format": "Codex paraphrase of the hash-verified issue opening, plus the exact saved draft reply and report summary in chat",
+        "verified_openings": [
+          {
+            "issue_number": 12083,
+            "content_sha256": "39d659d7c54b6d5cd1e336a628b516d771f3e9dc98636701165e8cc70e9e9064",
+            "created_at": "2024-03-06T10:53:11+00:00",
+            "verification": "matched recorded opening title/body hash"
+          }
+        ],
+        "later_activity": "excluded",
+        "external_reproduction_scope": "The opening links an external reproduction repository; its current contents were not presented or used as additional evidence",
+        "question_scope": "Overall draft-reply usefulness only; separate citation, relationship and abstention labels were not requested"
+      }
     },
     {
       "issue_number": 12116,
@@ -579,5 +596,5 @@
       "other_field_abstention_review_status": "pending_human_review"
     }
   ],
-  "updated_at": "2026-11-21T14:26:18.154793+00:00"
+  "updated_at": "2026-11-21T14:29:43.811405+00:00"
 }

@@ -179,7 +179,7 @@ and the requesting user's explicit rating, verbatim reason and recording time.
 These ratings apply to complete application replies from this specific run;
 they do not automatically transfer to #21 comparator runs or controlled baselines.
 
-Progress: **6 of 20 reply-usefulness reviews complete; 14 pending**. For #7312,
+Progress: **7 of 20 reply-usefulness reviews complete; 13 pending**. For #7312,
 the user rated the exact saved reply **partly useful**: #349 is a promising
 fixture-derived-parameter lead, but the explanation relies on generic word
 overlap, does not explain a potential duplicate, fails to distinguish #2959's
@@ -214,6 +214,11 @@ already linked #3448 does not explain the matching behavior or potential
 duplicate. The documentation statement is too general, and the source sentence
 does not explain the buffer reset. The reply does not address retaining output,
 the proposed API change or documentation improvements.
+
+For #12083, the user rated the exact saved reply **not useful**: the generic
+abstention does not acknowledge the demonstrated collection regression or the
+question about intended behavior, and offers no explanation, targeted follow-up
+or next step despite the reproduction details provided.
 
 The user saw paraphrases of hash-verified opening texts, the exact saved draft
 and a report summary in chat. Later activity was excluded. This is a recorded
