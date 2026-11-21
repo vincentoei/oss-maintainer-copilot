@@ -14,8 +14,11 @@ overlap, and includes three supported investigative questions. This is a bounded
 application improvement, not evidence of better model reasoning. Substantial
 limitations remain: known-earlier-issue retrieval and the existing relationship
 score regress, four known duplicate leads remain classified as related, and many
-replies still abstain without useful guidance. **Fresh human usefulness review is
-pending**, so no human-quality improvement is claimed.
+replies still abstain without useful guidance. Explicit human review of the final
+run rates **3 useful, 7 partly useful and 10 not useful**, compared with #45's
+0 useful, 5 partly useful and 15 not useful. Five rating categories improve,
+fifteen are unchanged and none regress. This is a modest observed improvement on
+the same development-informed cases; half the replies remain not useful.
 
 ## Cause and changes
 
@@ -82,7 +85,7 @@ scoreable report and does not mean the model selection passed validation.
 | Type / duplicate abstention appropriateness | 0.850 / 0.950 | 0.850 / 0.950 |
 | Model validation failures | 1 | 1 |
 | Transport / integrity / scoring errors | 0 / 0 / 0 | 0 / 0 / 0 |
-| Human usefulness | 0 useful, 5 partly, 15 not | 20 pending |
+| Human usefulness | 0 useful, 5 partly, 15 not | 3 useful, 7 partly, 10 not |
 
 The existing retrieval metric includes curated nonduplicate pairs. Six such
 previously surfaced pairs are now withheld, reducing recall and exact judgment
@@ -98,40 +101,56 @@ that every removed suggestion was noise.
 keeps a partial report and explicit abstention. The report renderer passes the
 rejection through. That remains an unresolved model-choice failure.
 
-| Case | Observed final application change | Fresh human delta |
+| Case | Observed final application change | Human rating: #45 → #48 |
 | --- | --- | --- |
-| #7312 | #349 connection explained; #2959/#7012 removed; still related, not duplicate | Pending |
-| #10156 | Weak fixture-overlap suggestions removed; contribution guidance still absent | Pending |
-| #12053 | Only debugger connection retained and differentiated from CLI-help request | Pending |
-| #12072 | Specific import failure explained; still related; missing-detail template gap remains | Pending |
-| #12079 | Supplied use case no longer requested; absent alternative still requested; model still omits #11871 in draft | Pending |
-| #12081 | readouterr connection explained; documentation/source wording still general | Pending |
-| #12083 | No fabricated version conflict; still abstains without targeted guidance | Pending |
-| #12116 | Supplied package table no longer requested; still lacks multiprocessing contribution guidance | Pending |
-| #12146 | Required same-version/same-tuple comparison included | Pending |
-| #12189 | Unsubstantiated capture suggestions removed; still lacks targeted JUnit investigation | Pending |
-| #12197 | Weak configuration-topic suggestions removed; supported ini behavior still unresolved | Pending |
-| #12201 | Supplied path-testing use case and copied-test workaround no longer requested; otherwise abstains | Pending |
-| #12203 | Generic minimal-example request retained; targeted logging example still not supplied | Pending |
-| #12204 | Required conflicting pytest/pluggy version clarification included | Pending |
-| #12216 | Invalid type selection still rejected; partial fallback remains | Pending |
-| #12219 | Required minimized failing example request included; issue type still mismatches expected bug | Pending |
-| #12223 | Generic assertion/JUnit overlap removed; requested XML change still unresolved | Pending |
-| #12224 | Misleading #11871 argument-file link removed; no verified lifecycle API recommendation | Pending |
-| #12226 | Bash/CI use case no longer requested; absent alternative still requested | Pending |
-| #12228 | Concrete documentation use case no longer requested; alternative request retained for unchanged expected outcome, usefulness disputed | Pending |
+| #7312 | #349 connection explained; #2959/#7012 removed; still related, not duplicate | partly useful → partly useful (unchanged) |
+| #10156 | Weak fixture-overlap suggestions removed; contribution guidance still absent | not useful → not useful (unchanged) |
+| #12053 | Only debugger connection retained and differentiated from CLI-help request | not useful → partly useful (improved) |
+| #12072 | Specific import failure explained; still related; missing-detail template gap remains | partly useful → partly useful (unchanged) |
+| #12079 | Supplied use case no longer requested; absent alternative still requested; model still omits #11871 in draft | partly useful → partly useful (unchanged) |
+| #12081 | readouterr connection explained; documentation/source wording still general | not useful → partly useful (improved) |
+| #12083 | No fabricated version conflict; still abstains without targeted guidance | not useful → not useful (unchanged) |
+| #12116 | Supplied package table no longer requested; still lacks multiprocessing contribution guidance | not useful → not useful (unchanged) |
+| #12146 | Required same-version/same-tuple comparison included | not useful → useful (improved) |
+| #12189 | Unsubstantiated capture suggestions removed; still lacks targeted JUnit investigation | not useful → not useful (unchanged) |
+| #12197 | Weak configuration-topic suggestions removed; supported ini behavior still unresolved | not useful → not useful (unchanged) |
+| #12201 | Supplied path-testing use case and copied-test workaround no longer requested; otherwise abstains | not useful → not useful (unchanged) |
+| #12203 | Generic minimal-example request retained; targeted logging example still not supplied | partly useful → partly useful (unchanged) |
+| #12204 | Required conflicting pytest/pluggy version clarification included | not useful → useful (improved) |
+| #12216 | Invalid type selection still rejected; partial fallback remains | not useful → not useful (unchanged) |
+| #12219 | Required minimized failing example request included; issue type still mismatches expected bug | not useful → useful (improved) |
+| #12223 | Generic assertion/JUnit overlap removed; requested XML change still unresolved | not useful → not useful (unchanged) |
+| #12224 | Misleading #11871 argument-file link removed; no verified lifecycle API recommendation | not useful → not useful (unchanged) |
+| #12226 | Bash/CI use case no longer requested; absent alternative still requested | partly useful → partly useful (unchanged) |
+| #12228 | Concrete documentation use case no longer requested; alternative request retained for unchanged expected outcome, usefulness disputed | not useful → not useful (unchanged) |
 
 The [review presentation](issue-48-human-review.md) contains all twenty final
 replies with before replies/ratings/reasons, opening links, cutoffs, pinned commits,
 relationship reasons and citations. The [fresh review record](issue-48-human-review.json)
-fingerprints each exact report and draft; all new ratings are null pending explicit
-review. Original ratings are not transferred. Citation support, separate
-relationship labels and other-field abstention judgments remain separately pending.
-The user has been asked to rate all twenty using the same rubric. **Next human
-action:** provide a usefulness rating and reason for each final reply; unsure stays
-pending. Only then can human improvements, unchanged failures and regressions be
-reported. These development-informed twenty cases are regression evidence, not an
-independent generalization test. No maintainer-time-saved claim is made.
+fingerprints each exact report and draft and preserves all twenty explicit user
+ratings and verbatim reasons. All twenty are reviewed, with none unsure. Original
+ratings are preserved separately and not transferred. The immutable real-run
+artifact retains its at-generation pending markers; the fingerprint-matched review
+companion is authoritative for the subsequent human judgments.
+
+The three newly useful replies (#12146, #12204, #12219) ask for focused comparisons
+or clarifications without inventing a cause. #12053 and #12081 move from not useful
+to partly useful because their relationship explanations now provide relevant
+context, while still missing substantive guidance. #7312, #12072, #12079, #12203
+and #12226 remain partly useful. The other ten remain not useful: removing a
+redundant request or noisy relationship often leaves an unhelpful abstention.
+In particular, #12116 and #12201 remain not useful despite corrected detail rules;
+#12228 still asks for workarounds that do little to assess a concrete documentation
+gap. These unchanged failures are not counted as human-quality improvements.
+There are no regressions in usefulness rating categories; the measured retrieval
+and exact relationship-score regressions above remain disclosed separately.
+
+Citation support, separate relationship labels and other-field abstention judgments
+remain pending. The user's usefulness reasons are not automatically promoted to
+those labels. **Next separate human action:** review those semantic judgments if
+confirmation is needed. These development-informed twenty cases are regression
+evidence, not an independent generalization test. No maintainer-time-saved claim
+is made.
 
 ## Serving, latency and measurement limits
 

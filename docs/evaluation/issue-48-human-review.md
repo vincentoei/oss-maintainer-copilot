@@ -1,8 +1,8 @@
 # Issue #48: twenty-reply human review
 
-Rate each new reply **useful**, **partly useful**, or **not useful**, with a reason. Unsure stays pending. Rubric: Does the reply ask for needed details and explain relevant evidence without misleading claims?
+The requesting user explicitly reviewed all twenty final After replies: **3 useful, 7 partly useful, 10 not useful**; none unsure. Ratings improved for five cases, stayed unchanged for fifteen, and regressed for none. Rubric: Does the reply ask for needed details and explain relevant evidence without misleading claims?
 
-Before ratings belong only to #45. New ratings, separate citation support, relationship labels and other-field abstention judgments are pending until explicitly reviewed. These development-informed cases provide regression evidence, not independent generalization evidence.
+Before ratings belong only to #45. Final #48 usefulness ratings and verbatim reasons below are confirmed by the requesting user. Separate citation support, relationship labels and other-field abstention judgments remain pending; usefulness reasons do not automatically confirm those judgments. These development-informed cases provide regression evidence, not independent generalization evidence.
 
 ## #7312
 
@@ -36,7 +36,9 @@ Missing details: none
 - Relationship #349: Both concern fixture-derived parameter values. This report: "…t.mark.parametrize("x", parameters_fixture=my_fixture)"; earlier: "…est function is not the fixture _value_ but the fixture _function_.". This requests session-derived parameters; the earlier example passes fixture functions instead of values.
 - [C1: pytest issue #349: Using fixtures in pytest.mark.parametrize](https://github.com/pytest-dev/pytest/issues/349)
 
-New usefulness rating: **pending**. Reason: **pending**.
+New usefulness rating: **partly useful**. Reason: Explains the shared fixture-derived parametrization request and the differing examples. It provides a relevant lead, but stops short of explaining the potential duplicate relationship or a concrete next step.
+
+Rating category versus #45: **unchanged**.
 
 ## #10156
 
@@ -67,7 +69,9 @@ Report status: complete; type: type: question.
 Missing details: none
 
 
-New usefulness rating: **pending**. Reason: **pending**.
+New usefulness rating: **not useful**. Reason: The generic abstention does not address the documentation proposal, assess the workaround, or help determine where the example belongs.
+
+Rating category versus #45: **unchanged**.
 
 ## #12053
 
@@ -101,7 +105,9 @@ Missing details: none
 - Relationship #8655: Both concern custom debugger selection with --pdbcls. This report: "… `--pdb` together with `--pdbcls=IPython.terminal.debugger:TerminalPdb`.  Unfortunately, `pytest --p…"; earlier: "The [help string for --pdbcls](https://github.com/pytest-dev/pytest/blob/f28421cc7068b13ba63c1f60cc2…". This requests a configuration setting; the earlier issue concerns command-line help.
 - [C1: pytest issue #8655: Help text is misleading about the behavior of --pdb](https://github.com/pytest-dev/pytest/issues/8655)
 
-New usefulness rating: **pending**. Reason: **pending**.
+New usefulness rating: **partly useful**. Reason: Clearly distinguishes the configuration request from #8655’s command-line help issue. That context is relevant, but it provides no guidance on configuring the debugger class or assessing the enhancement.
+
+Rating category versus #45: **improved**.
 
 ## #12072
 
@@ -129,7 +135,9 @@ Missing details: none
 - Relationship #12066: Both concern the call_runtest_hook import failure. This report: "ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner' (/home/travis/miniconda/en…"; earlier: "ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner' (/home/runner/miniconda3/e…". the same failure or request is not established.
 - [C1: pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'](https://github.com/pytest-dev/pytest/issues/12066)
 
-New usefulness rating: **pending**. Reason: **pending**.
+New usefulness rating: **partly useful**. Reason: Identifies and quotes the matching import error, giving a strong investigative lead. The unexplained statement that the same failure is not established understates the match; missing environment details and a reproducer are not requested.
+
+Rating category versus #45: **unchanged**.
 
 ## #12079
 
@@ -163,7 +171,9 @@ Missing details: alternative solutions
 - [C1: pytest feature report template: alternative solutions](https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L21)
 - [C2: pytest issue #11871: Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument](https://github.com/pytest-dev/pytest/issues/11871)
 
-New usefulness rating: **pending**. Reason: **pending**.
+New usefulness rating: **partly useful**. Reason: Appropriately asks about attempted alternatives without repeating the supplied use case. However, the final reply omits #11871 and its closely matching request to read test-selection arguments from a file.
+
+Rating category versus #45: **unchanged**.
 
 ## #12081
 
@@ -203,7 +213,9 @@ Missing details: none
 - [C3: pytest source: src/_pytest/capture.py:935](https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935)
   Evidence:         """Read and return the captured output so far, resetting the internal
 
-New usefulness rating: **pending**. Reason: **pending**.
+New usefulness rating: **partly useful**. Reason: Explains the shared output-consumption behavior and suggests comparing the proposed API with #3448. The documentation statement remains generic, and the source reference still fails to explain that readouterr() resets the buffer.
+
+Rating category versus #45: **improved**.
 
 ## #12083
 
@@ -225,7 +237,9 @@ Report status: complete; type: type: bug.
 Missing details: none
 
 
-New usefulness rating: **pending**. Reason: **pending**.
+New usefulness rating: **not useful**. Reason: The abstention provides no help investigating the demonstrated collection difference or clarifying whether the behavior is intentional.
+
+Rating category versus #45: **unchanged**.
 
 ## #12116
 
@@ -251,7 +265,9 @@ Report status: complete; type: type: bug.
 Missing details: none
 
 
-New usefulness rating: **pending**. Reason: **pending**.
+New usefulness rating: **not useful**. Reason: Avoids requesting the already supplied package list, but gives no guidance about child-process logging, the reproducer, or the proposed multiprocessing support.
+
+Rating category versus #45: **unchanged**.
 
 ## #12146
 
@@ -276,7 +292,9 @@ Missing details: none
 - [C1: Submitted issue under review: investigative follow-up](https://github.com/pytest-dev/pytest/issues/12146)
   Evidence: pytest-8.1.1 / pytest-7.4.4 / pytest         8.1.1
 
-New usefulness rating: **pending**. Reason: **pending**.
+New usefulness rating: **useful**. Reason: Identifies the version mismatch and requests a controlled comparison with identical tuple values and order. Asking for setup/teardown output provides a concrete way to isolate the reported behavior without assuming its cause.
+
+Rating category versus #45: **improved**.
 
 ## #12189
 
@@ -313,7 +331,9 @@ Report status: complete; type: type: bug.
 Missing details: none
 
 
-New usefulness rating: **pending**. Reason: **pending**.
+New usefulness rating: **not useful**. Reason: The abstention does not examine the supplied command or suggest investigating how -s, capture and JUnit output interact.
+
+Rating category versus #45: **unchanged**.
 
 ## #12197
 
@@ -347,7 +367,9 @@ Report status: complete; type: None.
 Missing details: none
 
 
-New usefulness rating: **pending**. Reason: **pending**.
+New usefulness rating: **not useful**. Reason: Provides no investigation of the CLI-versus-ini behavior and does not request the missing configuration snippet or reproducing test.
+
+Rating category versus #45: **unchanged**.
 
 ## #12201
 
@@ -375,7 +397,9 @@ Report status: complete; type: type: enhancement.
 Missing details: none
 
 
-New usefulness rating: **pending**. Reason: **pending**.
+New usefulness rating: **not useful**. Reason: Removes the redundant information requests, but the resulting abstention offers no help assessing platform-dependent parameter values or the existing duplication-and-skipif workaround.
+
+Rating category versus #45: **unchanged**.
 
 ## #12203
 
@@ -407,7 +431,9 @@ Missing details: minimal example
 
 - [C1: pytest bug report template: minimal example](https://github.com/pytest-dev/pytest/blob/1f001cd1051a4ca4bef251d93e472e625578aaf7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16)
 
-New usefulness rating: **pending**. Reason: **pending**.
+New usefulness rating: **partly useful**. Reason: Correctly requests a missing minimal example. It should acknowledge the existing sketch and specify that a runnable fixture/test with logging configuration and the exception path is needed.
+
+Rating category versus #45: **unchanged**.
 
 ## #12204
 
@@ -438,7 +464,9 @@ Missing details: none
 - [C1: Submitted issue under review: investigative follow-up](https://github.com/pytest-dev/pytest/issues/12204)
   Evidence: pytest    8.1.1 / pytest-8.0.0 / pluggy    1.4.0 / pluggy-1.3.0
 
-New usefulness rating: **pending**. Reason: **pending**.
+New usefulness rating: **useful**. Reason: Accurately identifies the conflicting pytest and pluggy versions and asks which environment produced the output. This is a focused clarification that helps reproduce the traceback growth without inventing a diagnosis.
+
+Rating category versus #45: **improved**.
 
 ## #12216
 
@@ -464,7 +492,9 @@ Report status: partial; type: None.
 Missing details: none
 
 
-New usefulness rating: **pending**. Reason: **pending**.
+New usefulness rating: **not useful**. Reason: The fallback offers no guidance or targeted follow-up about the collection error and unexecuted fixture body despite the supplied reproducer.
+
+Rating category versus #45: **unchanged**.
 
 ## #12219
 
@@ -496,7 +526,9 @@ Missing details: none
 - [C2: Submitted issue under review: investigative follow-up](https://github.com/pytest-dev/pytest/issues/12219)
   Evidence: Interestingly, the hook does seem to be honored in a minimized example.
 
-New usefulness rating: **pending**. Reason: **pending**.
+New usefulness rating: **useful**. Reason: Acknowledges that the small example works and requests a minimized failing case with layout, configuration and command. Comparing the two gives a concrete investigative next step without asserting a cause.
+
+Rating category versus #45: **improved**.
 
 ## #12223
 
@@ -533,7 +565,9 @@ Report status: complete; type: type: bug.
 Missing details: none
 
 
-New usefulness rating: **pending**. Reason: **pending**.
+New usefulness rating: **not useful**. Reason: The abstention does not address the oversized message attribute, downstream tool failures, or the request to preserve the detailed failure body.
+
+Rating category versus #45: **unchanged**.
 
 ## #12224
 
@@ -558,7 +592,9 @@ Report status: complete; type: type: enhancement.
 Missing details: none
 
 
-New usefulness rating: **pending**. Reason: **pending**.
+New usefulness rating: **not useful**. Reason: Gives no help assessing the requested session-control API, repeated fixture initialization, or costly Pyodide workaround.
+
+Rating category versus #45: **unchanged**.
 
 ## #12226
 
@@ -592,7 +628,9 @@ Missing details: alternative solutions
 
 - [C1: pytest feature report template: alternative solutions](https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21)
 
-New usefulness rating: **pending**. Reason: **pending**.
+New usefulness rating: **partly useful**. Reason: Asking about attempted alternatives is appropriate and no longer repeats the supplied use case. A concrete failing CI command and the limitations of existing quoting approaches would make the follow-up more actionable.
+
+Rating category versus #45: **unchanged**.
 
 ## #12228
 
@@ -626,4 +664,6 @@ Missing details: alternative solutions
 
 - [C1: pytest feature report template: alternative solutions](https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21)
 
-New usefulness rating: **pending**. Reason: **pending**.
+New usefulness rating: **not useful**. Reason: Asking for workarounds does little to assess this already concrete documentation gap. The reply does not address accepted TOML types or argument interpretation within addopts arrays.
+
+Rating category versus #45: **unchanged**.

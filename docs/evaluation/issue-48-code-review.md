@@ -28,5 +28,9 @@ and keeps human usefulness judgments pending.
 Focused verification: **85 passed, 2 optional live tests skipped**.
 
 Total remaining findings: **0 Standards, 0 Spec**; neither axis has an outstanding
-reported defect. Fresh human usefulness ratings remain an open acceptance item,
-not an inferred pass or an independent model-quality endorsement.
+reported defect. At code-review time, fresh human usefulness ratings remained
+an open acceptance item. The requesting user subsequently reviewed all twenty
+final replies: 3 useful, 7 partly useful and 10 not useful. Those explicit ratings
+are recorded in the [review companion](issue-48-human-review.json), separately from
+this code review. Neither code review nor usefulness ratings confirm the separately
+pending semantic citation, relationship and other-field abstention judgments.

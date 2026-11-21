@@ -112,14 +112,14 @@
   "model_selection_schema_after_sha256": "414784b8ebba56d2fde81362711b1b85e9bedc7532ef83e27274d6a900b4b12e",
   "final_artifact_sha256": {
     "docs/evaluation/issue-48-api.json": "d486c72548e35eef7975e569aa65b3635508a748706b3a4bda854793e60f3bed",
-    "docs/evaluation/issue-48-code-review.md": "35d5b22cc1d16d0b0e46880b171d3b3f47c277769d86189d51504974dedfeb99",
+    "docs/evaluation/issue-48-code-review.md": "4f7f2584324d07d331b37ef6823095d1186a6d23d5124fcbb9c7c715c6ebda82",
     "docs/evaluation/issue-48-diagnosis.md": "5808c80f9a0d1ad9aad75c5137c22764df8a98f4551f0a85c3d711e99cae8581",
     "docs/evaluation/issue-48-first-inference-human-review.json": "74f627812be45b25650523a785459ffd82f2a48a34c5491860cefa1f5afc5db5",
     "docs/evaluation/issue-48-first-inference-human-review.md": "21baad8a59b3184d637154df05e700c652a859507d740571ef83916aa7c1eb3c",
     "docs/evaluation/issue-48-first-inference-results.json": "7ec8068f42c517b3a27ae5654c01c2a3fd8d99e7ce59097d7937bb4f0c22d17b",
     "docs/evaluation/issue-48-green-after.txt": "1de7ba2f18978ca2e85acb788311b335ba2741764defa5f9301b9be835c2ce22",
-    "docs/evaluation/issue-48-human-review.json": "5d93239e780a17d08b0542260b73bc6da8022465d5035fbf91773c255bd512c5",
-    "docs/evaluation/issue-48-human-review.md": "d554e87356d8729d0d68c8ab51de798fc05a9ce00c47cbc95f2b212a9cb4deb7",
+    "docs/evaluation/issue-48-human-review.json": "32f69f55d2978cb3cc73ca6cb8a5d0b6ec8b8703edc45870880e3c12acb30e40",
+    "docs/evaluation/issue-48-human-review.md": "8aa1f1362644b5f46defdca56b40c143ef5c1c4ffdfd1faf11b41554318e28d0",
     "docs/evaluation/issue-48-initial-results.json": "44fb32ed74b6e88e2eb049f3918855e12181e549b49578431474907bb7ed4343",
     "docs/evaluation/issue-48-isolation-after.json": "321e28350a87b948c8945d5e45e94be46f0be7e83c303aec8f134be52d78beed",
     "docs/evaluation/issue-48-isolation-before.json": "ddd78ecec7a0ed0a2ab15a008dade5ce02153e2deb788fd284c41a976d1abfb2",
@@ -138,6 +138,14 @@
     "docs/evaluation/issue-48-serving.json": "e3102e8105d02bda3e816c686cc042f5ab16f775edfbd9ecd494f022a19013c9",
     "docs/evaluation/issue-48-web.json": "f87d85b0d97a2dec8abfa5c454c5f3ec72602dbee6d023667f130573dc24c386",
     "docs/evaluation/issue-48-web.png": "3d1f3699d8bd9c4cb998551996668129f528b27dc4ac59ad779499012cca2ae6",
-    "docs/evaluation/issue-48.md": "6b866f171d4b3b03b8deda6797cda238e319b0a9fe57b5dd02d41afbf8eacc5f"
-  }
+    "docs/evaluation/issue-48.md": "2d710f79e2ccfe128f5ea1c546823a6d31326ca6883ed78b3ef123612517f53b"
+  },
+  "pre_human_review_artifact_sha256": {
+    "docs/evaluation/issue-48-human-review.json": "5d93239e780a17d08b0542260b73bc6da8022465d5035fbf91773c255bd512c5",
+    "docs/evaluation/issue-48-human-review.md": "d554e87356d8729d0d68c8ab51de798fc05a9ce00c47cbc95f2b212a9cb4deb7",
+    "docs/evaluation/issue-48.md": "6b866f171d4b3b03b8deda6797cda238e319b0a9fe57b5dd02d41afbf8eacc5f",
+    "docs/evaluation/issue-48-code-review.md": "35d5b22cc1d16d0b0e46880b171d3b3f47c277769d86189d51504974dedfeb99"
+  },
+  "human_review_recorded_at": "2026-11-21T17:07:51.345571+00:00",
+  "human_review_provenance_note": "Explicit twenty-row review from requesting user for the final After replies only; report/draft/source fingerprints verified before recording. Baseline, raw model responses and provisional-run reviews unchanged. Separate semantic judgments remain pending."
 }

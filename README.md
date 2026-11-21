@@ -277,4 +277,4 @@ citations point to pytest commit `50234b4e670064c42a4c29cb6258115a2079ba4c`;
 issue-search API fixtures use fixed records and require no network access.
 
 Issue #48: [diagnosis, bounded fixes and evaluation evidence](docs/evaluation/issue-48.md).
-Fresh final-run usefulness review is pending; retrieval-score regressions and remaining failures are recorded.
+Final human review: 3 useful, 7 partly useful and 10 not useful; retrieval-score regressions and remaining failures are recorded.
