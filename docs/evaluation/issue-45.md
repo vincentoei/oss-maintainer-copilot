@@ -179,7 +179,7 @@ and the requesting user's explicit rating, verbatim reason and recording time.
 These ratings apply to complete application replies from this specific run;
 they do not automatically transfer to #21 comparator runs or controlled baselines.
 
-Progress: **13 of 20 reply-usefulness reviews complete; 7 pending**. For #7312,
+Progress: **14 of 20 reply-usefulness reviews complete; 6 pending**. For #7312,
 the user rated the exact saved reply **partly useful**: #349 is a promising
 fixture-derived-parameter lead, but the explanation relies on generic word
 overlap, does not explain a potential duplicate, fails to distinguish #2959's
@@ -251,6 +251,13 @@ For #12203, the user rated the exact saved reply **partly useful**: a standalone
 minimal example is missing, so the request could help reproduction. It would be
 more actionable if it acknowledged the supplied sketch and requested a runnable
 fixture and test showing logging configuration, the exception and missing output.
+
+For #12204, the user rated the exact saved reply **not useful**: neither cited
+issue explains the growing exception tracebacks. The draft ignores the
+reproducer and does not ask which pytest/pluggy versions produced the output,
+despite the conflicting package list and session header. The review presentation
+summarized the hash-verified opening's extensive traceback rather than showing
+the complete expanded logs.
 
 The user saw paraphrases of hash-verified opening texts, the exact saved draft
 and a report summary in chat. Later activity was excluded. This is a recorded
