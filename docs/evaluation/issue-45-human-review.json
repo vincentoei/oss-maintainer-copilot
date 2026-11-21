@@ -31,12 +31,12 @@
   },
   "summary": {
     "cases": 20,
-    "reply_usefulness_reviewed": 9,
-    "reply_usefulness_pending": 11,
+    "reply_usefulness_reviewed": 10,
+    "reply_usefulness_pending": 10,
     "rating_counts": {
       "useful": 0,
       "partly useful": 3,
-      "not useful": 6
+      "not useful": 7
     },
     "separate_semantic_judgments": "Citation support, relationship labels and other-field abstention reviews remain pending"
   },
@@ -476,13 +476,60 @@
       "report_sha256": "63a4ea8f156811b987a78513436b66b720000d3e6cf5e9d3a104edf6cd07612d",
       "draft_reply_sha256": "a6ed2652f78f432eb1866955b4f436c31e8baf42cc683902061d7b4420ca293c",
       "draft_reply_usefulness": {
-        "review_status": "pending_human_review",
-        "rating": null,
-        "reason": null
+        "review_status": "human_confirmed",
+        "rating": "not useful",
+        "reason": "The draft does not examine the key interaction between -s, output capture and JUnit logging, or suggest a targeted check. The readouterr() reports concern a different capture scenario, while the other links add unrelated noise. Generic word overlap does not help answer the reporter’s configuration question.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T15:11:01.904061+00:00",
+        "confirmation_method": "Explicit user rating and reason in this conversation; reason preserved verbatim"
       },
       "citation_support_review_status": "pending_human_review",
       "relationship_review_status": "pending_human_review",
-      "other_field_abstention_review_status": "pending_human_review"
+      "other_field_abstention_review_status": "pending_human_review",
+      "evidence_presented": {
+        "format": "Codex paraphrases of the hash-verified issue opening and five cited openings, including the original pytest command, plus the exact saved draft reply and report summary in chat",
+        "verified_openings": [
+          {
+            "issue_number": 12189,
+            "content_sha256": "7c9d2d1977a430e51c42fb6319ecc3fae01bb9d7f46d01f1921fb1760199785d",
+            "created_at": "2024-04-05T09:14:51+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 12081,
+            "content_sha256": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+            "created_at": "2024-03-06T00:03:25+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 3448,
+            "content_sha256": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7",
+            "created_at": "2018-05-04T10:55:56+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 11871,
+            "content_sha256": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320",
+            "created_at": "2024-01-28T13:22:06+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 12066,
+            "content_sha256": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8",
+            "created_at": "2024-03-04T10:18:30+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 12146,
+            "content_sha256": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+            "created_at": "2024-03-21T12:06:34+00:00",
+            "verification": "matched recorded opening title/body hash"
+          }
+        ],
+        "later_activity": "excluded",
+        "additional_reference_scope": "The opening references #6945; its body was not presented or used as additional retrieved evidence",
+        "question_scope": "Overall draft-reply usefulness only; separate citation, relationship and abstention labels were not requested"
+      }
     },
     {
       "issue_number": 12197,
@@ -645,5 +692,5 @@
       "other_field_abstention_review_status": "pending_human_review"
     }
   ],
-  "updated_at": "2026-11-21T14:37:54.143409+00:00"
+  "updated_at": "2026-11-21T15:11:01.905409+00:00"
 }

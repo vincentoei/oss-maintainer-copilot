@@ -179,7 +179,7 @@ and the requesting user's explicit rating, verbatim reason and recording time.
 These ratings apply to complete application replies from this specific run;
 they do not automatically transfer to #21 comparator runs or controlled baselines.
 
-Progress: **9 of 20 reply-usefulness reviews complete; 11 pending**. For #7312,
+Progress: **10 of 20 reply-usefulness reviews complete; 10 pending**. For #7312,
 the user rated the exact saved reply **partly useful**: #349 is a promising
 fixture-derived-parameter lead, but the explanation relies on generic word
 overlap, does not explain a potential duplicate, fails to distinguish #2959's
@@ -229,6 +229,12 @@ For #12146, the user rated the exact saved reply **not useful**: it gives no
 targeted help despite the examples and should request a comparison with the
 same pytest version and identical tuple values to remove the confounding
 differences before investigating the apparent fixture-scope change.
+
+For #12189, the user rated the exact saved reply **not useful**: it does not
+examine the interaction between `-s`, output capture and JUnit logging or suggest
+a targeted check. The user identifies the `readouterr()` reports as a different
+capture scenario and the other links as unrelated noise; generic word overlap
+does not help answer the configuration question.
 
 The user saw paraphrases of hash-verified opening texts, the exact saved draft
 and a report summary in chat. Later activity was excluded. This is a recorded
