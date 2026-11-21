@@ -31,12 +31,12 @@
   },
   "summary": {
     "cases": 20,
-    "reply_usefulness_reviewed": 11,
-    "reply_usefulness_pending": 9,
+    "reply_usefulness_reviewed": 12,
+    "reply_usefulness_pending": 8,
     "rating_counts": {
       "useful": 0,
       "partly useful": 3,
-      "not useful": 8
+      "not useful": 9
     },
     "separate_semantic_judgments": "Citation support, relationship labels and other-field abstention reviews remain pending"
   },
@@ -595,13 +595,48 @@
       "report_sha256": "80107f682ea97139d16417f9cdbb18bd75b2cc3b9311d6ef7ff8c4add1482360",
       "draft_reply_sha256": "b0677ead0721eb9f53ceb1a8a8375480dbe480d347ac626057fea9e46bc0423f",
       "draft_reply_usefulness": {
-        "review_status": "pending_human_review",
-        "rating": null,
-        "reason": null
+        "review_status": "human_confirmed",
+        "rating": "not useful",
+        "reason": "Both requests ask for information already supplied: testing Windows/POSIX paths is the use case, and duplicated tests with skipif are the current workaround. The draft overlooks that content and offers no guidance on the proposed conditional parametrization.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T15:18:28.520826+00:00",
+        "confirmation_method": "Explicit user rating and reason in this conversation; reason preserved verbatim"
       },
       "citation_support_review_status": "pending_human_review",
       "relationship_review_status": "pending_human_review",
-      "other_field_abstention_review_status": "pending_human_review"
+      "other_field_abstention_review_status": "pending_human_review",
+      "evidence_presented": {
+        "format": "Codex paraphrases of the hash-verified issue opening, related opening and pinned feature-template requirements, plus the exact saved draft reply and report summary in chat",
+        "verified_openings": [
+          {
+            "issue_number": 12201,
+            "content_sha256": "18e54c14cdbbb80c34d7dc66f91d6ab23e15ec84503bf59f0ecdf2d79cfd8abc",
+            "created_at": "2024-04-09T14:22:08+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 12146,
+            "content_sha256": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+            "created_at": "2024-03-21T12:06:34+00:00",
+            "verification": "matched recorded opening title/body hash"
+          }
+        ],
+        "verified_artifacts": [
+          {
+            "commit": "17fc20af78d0c7b739806c4e461d2c9b8c30ceeb",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "lines": [
+              19,
+              21,
+              22
+            ],
+            "content_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+            "verification": "Read from GitHub at pinned commit; verified Git blob SHA against returned bytes"
+          }
+        ],
+        "later_activity": "excluded",
+        "question_scope": "Overall draft-reply usefulness only; separate citation, relationship and abstention labels were not requested"
+      }
     },
     {
       "issue_number": 12203,
@@ -732,5 +767,5 @@
       "other_field_abstention_review_status": "pending_human_review"
     }
   ],
-  "updated_at": "2026-11-21T15:12:56.536634+00:00"
+  "updated_at": "2026-11-21T15:18:28.522425+00:00"
 }

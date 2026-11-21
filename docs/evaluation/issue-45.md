@@ -179,7 +179,7 @@ and the requesting user's explicit rating, verbatim reason and recording time.
 These ratings apply to complete application replies from this specific run;
 they do not automatically transfer to #21 comparator runs or controlled baselines.
 
-Progress: **11 of 20 reply-usefulness reviews complete; 9 pending**. For #7312,
+Progress: **12 of 20 reply-usefulness reviews complete; 8 pending**. For #7312,
 the user rated the exact saved reply **partly useful**: #349 is a promising
 fixture-derived-parameter lead, but the explanation relies on generic word
 overlap, does not explain a potential duplicate, fails to distinguish #2959's
@@ -241,6 +241,11 @@ address whether `log_disable` is a supported ini setting or request the actual
 configuration and a reproducer. It explains no actionable connection to #12053;
 the remaining links and generic word overlap add noise instead of helping
 investigate the behavior.
+
+For #12201, the user rated the exact saved reply **not useful**: both requested
+details already appear in the opening. Windows/POSIX path testing is the use
+case, and duplicated tests with `skipif` are the current workaround. The draft
+overlooks this content and gives no guidance on conditional parametrization.
 
 The user saw paraphrases of hash-verified opening texts, the exact saved draft
 and a report summary in chat. Later activity was excluded. This is a recorded
