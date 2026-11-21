@@ -179,7 +179,7 @@ and the requesting user's explicit rating, verbatim reason and recording time.
 These ratings apply to complete application replies from this specific run;
 they do not automatically transfer to #21 comparator runs or controlled baselines.
 
-Progress: **17 of 20 reply-usefulness reviews complete; 3 pending**. For #7312,
+Progress: **18 of 20 reply-usefulness reviews complete; 2 pending**. For #7312,
 the user rated the exact saved reply **partly useful**: #349 is a promising
 fixture-derived-parameter lead, but the explanation relies on generic word
 overlap, does not explain a potential duplicate, fails to distinguish #2959's
@@ -275,6 +275,12 @@ address shortening the XML message attribute while retaining the detailed body.
 The user identifies #12189 as a different JUnit XML symptom and the other links
 as offering no clear investigative lead; word overlap does not help assess the
 reported tool failures or proposed change.
+
+For #12224, the user rated the exact saved reply **not useful**: #11871 concerns
+supplying test-selection arguments rather than controlling a session across
+individual test runs. The draft does not address the proposed API, repeated
+fixture initialization or costly Pyodide workaround, so it gives no useful
+basis for assessing the enhancement.
 
 The user saw paraphrases of hash-verified opening texts, the exact saved draft
 and a report summary in chat. Later activity was excluded. This is a recorded

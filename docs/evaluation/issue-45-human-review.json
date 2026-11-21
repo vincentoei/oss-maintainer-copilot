@@ -31,12 +31,12 @@
   },
   "summary": {
     "cases": 20,
-    "reply_usefulness_reviewed": 17,
-    "reply_usefulness_pending": 3,
+    "reply_usefulness_reviewed": 18,
+    "reply_usefulness_pending": 2,
     "rating_counts": {
       "useful": 0,
       "partly useful": 4,
-      "not useful": 13
+      "not useful": 14
     },
     "separate_semantic_judgments": "Citation support, relationship labels and other-field abstention reviews remain pending"
   },
@@ -907,13 +907,35 @@
       "report_sha256": "f96e8023351d3d55923ba79fa7c2e1598cf80d688041a21723f5443274fea2b1",
       "draft_reply_sha256": "1ae0ce50ba9de1f45b8964a8d1a1728a36427f1538fc59ed0a552816617eb802",
       "draft_reply_usefulness": {
-        "review_status": "pending_human_review",
-        "rating": null,
-        "reason": null
+        "review_status": "human_confirmed",
+        "rating": "not useful",
+        "reason": "#11871 concerns supplying test-selection arguments, not controlling a session across individual test runs. The draft does not address the proposed API, repeated fixture initialization, or the costly Pyodide workaround, so it offers no useful basis for assessing the enhancement.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T15:39:34.244321+00:00",
+        "confirmation_method": "Explicit user rating and reason in this conversation; reason preserved verbatim"
       },
       "citation_support_review_status": "pending_human_review",
       "relationship_review_status": "pending_human_review",
-      "other_field_abstention_review_status": "pending_human_review"
+      "other_field_abstention_review_status": "pending_human_review",
+      "evidence_presented": {
+        "format": "Codex paraphrases of the hash-verified issue opening and cited opening, plus the exact saved draft reply and report summary in chat",
+        "verified_openings": [
+          {
+            "issue_number": 12224,
+            "content_sha256": "5c821c047cc326c41148cd48c10d6a5941c05a3164bdb116777930cee6b5a18a",
+            "created_at": "2024-04-18T05:51:07+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 11871,
+            "content_sha256": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320",
+            "created_at": "2024-01-28T13:22:06+00:00",
+            "verification": "matched recorded opening title/body hash"
+          }
+        ],
+        "later_activity": "excluded",
+        "question_scope": "Overall draft-reply usefulness only; separate citation, relationship and abstention labels were not requested"
+      }
     },
     {
       "issue_number": 12226,
@@ -948,5 +970,5 @@
       "other_field_abstention_review_status": "pending_human_review"
     }
   ],
-  "updated_at": "2026-11-21T15:33:27.728514+00:00"
+  "updated_at": "2026-11-21T15:39:34.244321+00:00"
 }
