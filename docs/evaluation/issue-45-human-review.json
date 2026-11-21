@@ -31,11 +31,11 @@
   },
   "summary": {
     "cases": 20,
-    "reply_usefulness_reviewed": 4,
-    "reply_usefulness_pending": 16,
+    "reply_usefulness_reviewed": 5,
+    "reply_usefulness_pending": 15,
     "rating_counts": {
       "useful": 0,
-      "partly useful": 2,
+      "partly useful": 3,
       "not useful": 2
     },
     "separate_semantic_judgments": "Citation support, relationship labels and other-field abstention reviews remain pending"
@@ -240,13 +240,54 @@
       "report_sha256": "760f115d9582c5544a21f7b62b2e137b70411df346a715f6f1918909c9d40b4a",
       "draft_reply_sha256": "b0677ead0721eb9f53ceb1a8a8375480dbe480d347ac626057fea9e46bc0423f",
       "draft_reply_usefulness": {
-        "review_status": "pending_human_review",
-        "rating": null,
-        "reason": null
+        "review_status": "human_confirmed",
+        "rating": "partly useful",
+        "reason": "Asking about attempted alternatives is appropriate because that section is empty. Asking for a real-world use case overlooks the stated goal of investigating dependencies between tests. The draft also omits #11871, a strong potential duplicate that would help the maintainer assess the request.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T14:19:02.915442+00:00",
+        "confirmation_method": "Explicit user rating and reason in this conversation; reason preserved verbatim"
       },
       "citation_support_review_status": "pending_human_review",
       "relationship_review_status": "pending_human_review",
-      "other_field_abstention_review_status": "pending_human_review"
+      "other_field_abstention_review_status": "pending_human_review",
+      "evidence_presented": {
+        "format": "Codex paraphrases of the hash-verified issue opening, two retrieved openings and pinned template requirements, plus the exact saved draft reply and report summary in chat",
+        "verified_openings": [
+          {
+            "issue_number": 12079,
+            "content_sha256": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a",
+            "created_at": "2024-03-05T12:31:13+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 11871,
+            "content_sha256": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320",
+            "created_at": "2024-01-28T13:22:06+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 10156,
+            "content_sha256": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+            "created_at": "2022-07-19T20:03:50+00:00",
+            "verification": "matched recorded opening title/body hash"
+          }
+        ],
+        "verified_artifacts": [
+          {
+            "commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "lines": [
+              19,
+              21,
+              22
+            ],
+            "content_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+            "verification": "Read from GitHub at pinned commit; verified Git blob SHA against returned bytes"
+          }
+        ],
+        "later_activity": "excluded",
+        "question_scope": "Overall draft-reply usefulness only; separate citation, relationship and abstention labels were not requested"
+      }
     },
     {
       "issue_number": 12081,
@@ -489,5 +530,5 @@
       "other_field_abstention_review_status": "pending_human_review"
     }
   ],
-  "updated_at": "2026-11-21T14:13:07.666572+00:00"
+  "updated_at": "2026-11-21T14:19:02.917230+00:00"
 }

@@ -179,7 +179,7 @@ and the requesting user's explicit rating, verbatim reason and recording time.
 These ratings apply to complete application replies from this specific run;
 they do not automatically transfer to #21 comparator runs or controlled baselines.
 
-Progress: **4 of 20 reply-usefulness reviews complete; 16 pending**. For #7312,
+Progress: **5 of 20 reply-usefulness reviews complete; 15 pending**. For #7312,
 the user rated the exact saved reply **partly useful**: #349 is a promising
 fixture-derived-parameter lead, but the explanation relies on generic word
 overlap, does not explain a potential duplicate, fails to distinguish #2959's
@@ -202,6 +202,12 @@ a strong lead because both openings describe `flaky` failing to import
 no explanation or next step, and does not ask for missing environment details
 or a reproducer. This explanation remains part of the usefulness rating rather
 than a separately confirmed duplicate or citation-support label.
+
+For #12079, the user rated the exact saved reply **partly useful**: asking about
+alternatives is appropriate because that section is empty, but requesting a
+use case overlooks the stated test-interdependency investigation. The draft
+also omits #11871, which the user identifies as a strong potential duplicate
+that would help assess the request.
 
 The user saw paraphrases of hash-verified opening texts, the exact saved draft
 and a report summary in chat. Later activity was excluded. This is a recorded
