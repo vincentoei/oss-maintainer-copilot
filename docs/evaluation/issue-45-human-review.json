@@ -31,11 +31,11 @@
   },
   "summary": {
     "cases": 20,
-    "reply_usefulness_reviewed": 18,
-    "reply_usefulness_pending": 2,
+    "reply_usefulness_reviewed": 19,
+    "reply_usefulness_pending": 1,
     "rating_counts": {
       "useful": 0,
-      "partly useful": 4,
+      "partly useful": 5,
       "not useful": 14
     },
     "separate_semantic_judgments": "Citation support, relationship labels and other-field abstention reviews remain pending"
@@ -945,13 +945,60 @@
       "report_sha256": "d100b49111c093e3a906c5842c10d798cb34d6fc6e8ddeb61889014785f9814b",
       "draft_reply_sha256": "b0677ead0721eb9f53ceb1a8a8375480dbe480d347ac626057fea9e46bc0423f",
       "draft_reply_usefulness": {
-        "review_status": "pending_human_review",
-        "rating": null,
-        "reason": null
+        "review_status": "human_confirmed",
+        "rating": "partly useful",
+        "reason": "Asking about attempted alternatives could help because none are described. Asking for a use case overlooks the stated difficulty quoting marker expressions in Bash-based CI scripts. A more useful follow-up would ask for a concrete failing command and why existing quoting approaches are unsuitable.",
+        "reviewer": "requesting user",
+        "recorded_at": "2026-11-21T15:43:50.504617+00:00",
+        "confirmation_method": "Explicit user rating and reason in this conversation; reason preserved verbatim"
       },
       "citation_support_review_status": "pending_human_review",
       "relationship_review_status": "pending_human_review",
-      "other_field_abstention_review_status": "pending_human_review"
+      "other_field_abstention_review_status": "pending_human_review",
+      "evidence_presented": {
+        "format": "Codex paraphrases of the hash-verified issue opening, three related openings and pinned feature-template requirements, plus the exact saved draft reply and report summary in chat",
+        "verified_openings": [
+          {
+            "issue_number": 12226,
+            "content_sha256": "439bb13184ef8ca1b56b2f06094204328cbe9f5bc0b352020573bab713d26ece",
+            "created_at": "2024-04-19T11:34:17+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 12224,
+            "content_sha256": "5c821c047cc326c41148cd48c10d6a5941c05a3164bdb116777930cee6b5a18a",
+            "created_at": "2024-04-18T05:51:07+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 7312,
+            "content_sha256": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+            "created_at": "2020-06-03T14:20:24+00:00",
+            "verification": "matched recorded opening title/body hash"
+          },
+          {
+            "issue_number": 349,
+            "content_sha256": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397",
+            "created_at": "2013-08-30T19:48:51+00:00",
+            "verification": "matched recorded opening title/body hash"
+          }
+        ],
+        "verified_artifacts": [
+          {
+            "commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "lines": [
+              19,
+              21,
+              22
+            ],
+            "content_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+            "verification": "Read from GitHub at pinned commit; verified Git blob SHA against returned bytes"
+          }
+        ],
+        "later_activity": "excluded",
+        "question_scope": "Overall draft-reply usefulness only; separate citation, relationship and abstention labels were not requested"
+      }
     },
     {
       "issue_number": 12228,
@@ -970,5 +1017,5 @@
       "other_field_abstention_review_status": "pending_human_review"
     }
   ],
-  "updated_at": "2026-11-21T15:39:34.244321+00:00"
+  "updated_at": "2026-11-21T15:43:50.504617+00:00"
 }

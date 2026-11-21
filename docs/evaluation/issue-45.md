@@ -179,7 +179,7 @@ and the requesting user's explicit rating, verbatim reason and recording time.
 These ratings apply to complete application replies from this specific run;
 they do not automatically transfer to #21 comparator runs or controlled baselines.
 
-Progress: **18 of 20 reply-usefulness reviews complete; 2 pending**. For #7312,
+Progress: **19 of 20 reply-usefulness reviews complete; 1 pending**. For #7312,
 the user rated the exact saved reply **partly useful**: #349 is a promising
 fixture-derived-parameter lead, but the explanation relies on generic word
 overlap, does not explain a potential duplicate, fails to distinguish #2959's
@@ -281,6 +281,12 @@ supplying test-selection arguments rather than controlling a session across
 individual test runs. The draft does not address the proposed API, repeated
 fixture initialization or costly Pyodide workaround, so it gives no useful
 basis for assessing the enhancement.
+
+For #12226, the user rated the exact saved reply **partly useful**: asking about
+attempted alternatives could help because none are described, but asking for a
+use case overlooks the stated quoting difficulty in Bash-based CI scripts. A
+more useful follow-up would request a concrete failing command and ask why
+existing quoting approaches are unsuitable.
 
 The user saw paraphrases of hash-verified opening texts, the exact saved draft
 and a report summary in chat. Later activity was excluded. This is a recorded
