@@ -21,6 +21,9 @@ from maintainer_copilot.web import (
 class SelectAllStatements:
     """Controlled isolation of supplied choices; never model-quality evidence."""
 
+    def __init__(self, drafting: bool = False) -> None:
+        self.drafting = drafting
+
     def next_step(self, request: AgentStepRequest) -> object:
         if request.issue.number is not None and not request.observations:
             return {
@@ -36,14 +39,20 @@ class SelectAllStatements:
             "issue_type": None,
             "issue_type_quote": None,
             "reply_citation_ids": [s.citation_id for s in request.reply_statements],
+            **({"draft": None} if request.drafting else {}),
         }
 
 
 def report_for(
-    title: str, body: str, endpoint: str, source: IssueSource | None = None
+    title: str,
+    body: str,
+    endpoint: str,
+    source: IssueSource | None = None,
+    *,
+    drafting: bool = False,
 ) -> dict[str, Any]:
     async def controlled_client() -> SelectAllStatements:
-        return SelectAllStatements()
+        return SelectAllStatements(drafting)
 
     async def request() -> httpx2.Response:
         async with httpx2.AsyncClient(
@@ -75,7 +84,10 @@ def report_for(
 
 
 @pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
-def test_package_table_without_a_pip_heading_is_supplied(endpoint: str) -> None:
+@pytest.mark.parametrize("drafting", [False, True])
+def test_package_table_without_a_pip_heading_is_supplied(
+    endpoint: str, drafting: bool
+) -> None:
     report = report_for(
         "Bug: fixture lookup fails",
         "Fixture lookup fails while collecting this module.\n"
@@ -84,6 +96,7 @@ def test_package_table_without_a_pip_heading_is_supplied(endpoint: str) -> None:
         "pytest 8.1.1 on Ubuntu 22.04\n"
         "```python\ndef test_lookup():\n    assert False\n```",
         endpoint,
+        drafting=drafting,
     )
     assert report["missing_details"] == []
     assert "pip list" not in report["draft_reply"]
@@ -165,8 +178,10 @@ class EarlierIssues:
 
 
 @pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+@pytest.mark.parametrize("drafting", [False, True])
 def test_template_overlap_does_not_link_session_control_to_argument_files(
     endpoint: str,
+    drafting: bool,
 ) -> None:
     source = EarlierIssues(
         [
@@ -191,13 +206,17 @@ def test_template_overlap_does_not_link_session_control_to_argument_files(
         "Currently restart Pyodide per file.",
         endpoint,
         source,
+        drafting=drafting,
     )
     assert report["duplicate_candidates"] == []
     assert report["related_issues"] == []
 
 
 @pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
-def test_fixture_parameter_connection_explains_both_requests(endpoint: str) -> None:
+@pytest.mark.parametrize("drafting", [False, True])
+def test_fixture_parameter_connection_explains_both_requests(
+    endpoint: str, drafting: bool
+) -> None:
     source = EarlierIssues(
         [
             IssueRecord(
@@ -217,6 +236,7 @@ def test_fixture_parameter_connection_explains_both_requests(endpoint: str) -> N
         "so the fixture supplies parameter values.",
         endpoint,
         source,
+        drafting=drafting,
     )
     matches = report["duplicate_candidates"] + report["related_issues"]
     assert [s["issue_number"] for s in matches] == [400]
@@ -269,12 +289,14 @@ def test_insufficient_evidence_does_not_invent_an_investigation(endpoint: str) -
 
 
 @pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
-def test_genuinely_absent_packages_stay_missing(endpoint: str) -> None:
+@pytest.mark.parametrize("drafting", [False, True])
+def test_genuinely_absent_packages_stay_missing(endpoint: str, drafting: bool) -> None:
     report = report_for(
         "Bug: collection fails",
         "The suite errors while collecting tests.\nPackage Version\n--- ---\n"
         "pytest 8.1.1 on Ubuntu 22.04\n",
         endpoint,
+        drafting=drafting,
     )
     assert "pip list output" in [d["name"] for d in report["missing_details"]]
 

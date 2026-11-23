@@ -1,5 +1,5 @@
 {
-  "decision": "retain baseline: drafting validation failed; human reviews still pending; issue not complete",
+  "decision": "retain baseline: all explicit human reviews complete; development mean gain -0.4 and pilot gains 0.0 fail frozen +0.4 gates; no further tuning",
   "development_iterations": 2,
   "total_dispatches": 85,
   "development_dispatches": 58,
@@ -175,9 +175,22 @@
         }
       },
       "usefulness_change": "regressed",
-      "unsupported_claims": "pending_human_review",
       "control_usefulness": "partly useful",
-      "candidate_usefulness": "not useful"
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: both concern fixture-derived parameters; the current request uses session-derived configuration, while the earlier example passes fixture functions rather than their values. This supports relevance, not a confirmed duplicate decision.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention does not use the available relationship evidence.",
+          "reviewer": "requesting user"
+        }
+      }
     },
     {
       "issue_number": 10156,
@@ -285,9 +298,22 @@
         }
       },
       "usefulness_change": "unchanged",
-      "unsupported_claims": "pending_human_review",
       "control_usefulness": "not useful",
-      "candidate_usefulness": "not useful"
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention does not help assess the concrete proposal.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. The abstention supplies no useful response to the proposal.",
+          "reviewer": "requesting user"
+        }
+      }
     },
     {
       "issue_number": 12053,
@@ -409,9 +435,22 @@
         }
       },
       "usefulness_change": "regressed",
-      "unsupported_claims": "pending_human_review",
       "control_usefulness": "partly useful",
-      "candidate_usefulness": "not useful"
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention leaves relevant evidence unused.",
+          "reviewer": "requesting user"
+        },
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: both concern --pdbcls; the present request concerns persistent configuration and the earlier issue concerns CLI help. The truncated quotation is weak exposition, but the distinction is supported by the opening summaries.",
+          "reviewer": "requesting user"
+        }
+      }
     },
     {
       "issue_number": 12072,
@@ -544,9 +583,22 @@
         }
       },
       "usefulness_change": "regressed",
-      "unsupported_claims": "pending_human_review",
       "control_usefulness": "partly useful",
-      "candidate_usefulness": "not useful"
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "contains_unsupported_qualification",
+          "reason": "Supported: both report the call_runtest_hook import failure. Unsupported as written: \u201cthe same failure \u2026 is not established\u201d discounts the matching observable failure. A shared underlying cause remains unproven; that narrower qualification would be appropriate.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention leaves a strong relevant lead unused.",
+          "reviewer": "requesting user"
+        }
+      }
     },
     {
       "issue_number": 12079,
@@ -687,9 +739,22 @@
         }
       },
       "usefulness_change": "unchanged",
-      "unsupported_claims": "pending_human_review",
       "control_usefulness": "partly useful",
-      "candidate_usefulness": "partly useful"
+      "candidate_usefulness": "partly useful",
+      "explicit_human_semantic_review": {
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: attempted alternatives are absent. The reply makes no relationship claim; an evidence link outside the reply does not explain that relationship.",
+          "reviewer": "requesting user"
+        },
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: attempted alternatives are absent. No relationship assertion appears in the reply.",
+          "reviewer": "requesting user"
+        }
+      }
     },
     {
       "issue_number": 12081,
@@ -840,9 +905,22 @@
         }
       },
       "usefulness_change": "regressed",
-      "unsupported_claims": "pending_human_review",
       "control_usefulness": "partly useful",
-      "candidate_usefulness": "not useful"
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Substantive supporting evidence remains unused.",
+          "reviewer": "requesting user"
+        },
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: both reports concern readouterr() consuming captured output; the current proposal names copyouterr; the documentation describes access to stdout/stderr; the supplied source excerpt supports the location statement. No supported evidence here establishes equivalence of the proposed APIs.",
+          "reviewer": "requesting user"
+        }
+      }
     },
     {
       "issue_number": 12083,
@@ -956,9 +1034,22 @@
         }
       },
       "usefulness_change": "unchanged",
-      "unsupported_claims": "pending_human_review",
       "control_usefulness": "not useful",
-      "candidate_usefulness": "not useful"
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention supplies no diagnostic comparison.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. The absence of a diagnosis does not prevent asking a targeted follow-up.",
+          "reviewer": "requesting user"
+        }
+      }
     },
     {
       "issue_number": 12116,
@@ -1066,9 +1157,22 @@
         }
       },
       "usefulness_change": "unchanged",
-      "unsupported_claims": "pending_human_review",
       "control_usefulness": "not useful",
-      "candidate_usefulness": "not useful"
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention avoids an invented diagnosis but offers no next step.",
+          "reviewer": "requesting user"
+        },
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. It avoids redundant package requests but provides no substantive assistance.",
+          "reviewer": "requesting user"
+        }
+      }
     },
     {
       "issue_number": 12146,
@@ -1192,9 +1296,22 @@
         }
       },
       "usefulness_change": "regressed",
-      "unsupported_claims": "pending_human_review",
       "control_usefulness": "useful",
-      "candidate_usefulness": "not useful"
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: the supplied runs use different pytest versions and tuple ordering. The requested comparison addresses those confounders without assuming a cause. New comparable output is needed, so this is not a redundant request.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Available evidence supports a specific clarification.",
+          "reviewer": "requesting user"
+        }
+      }
     },
     {
       "issue_number": 12189,
@@ -1308,9 +1425,22 @@
         }
       },
       "usefulness_change": "unchanged",
-      "unsupported_claims": "pending_human_review",
       "control_usefulness": "not useful",
-      "candidate_usefulness": "not useful"
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention misses an opportunity for a targeted comparison.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention does not advance investigation.",
+          "reviewer": "requesting user"
+        }
+      }
     },
     {
       "issue_number": 12197,
@@ -1427,9 +1557,22 @@
         }
       },
       "usefulness_change": "unchanged",
-      "unsupported_claims": "pending_human_review",
       "control_usefulness": "not useful",
-      "candidate_usefulness": "not useful"
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention overlooks concrete missing details.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. A targeted information request remains possible.",
+          "reviewer": "requesting user"
+        }
+      }
     },
     {
       "issue_number": 12201,
@@ -1535,9 +1678,22 @@
         }
       },
       "usefulness_change": "unchanged",
-      "unsupported_claims": "pending_human_review",
       "control_usefulness": "not useful",
-      "candidate_usefulness": "not useful"
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention avoids redundant requests but adds no guidance.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Removing unnecessary questions has not produced a useful response.",
+          "reviewer": "requesting user"
+        }
+      }
     },
     {
       "issue_number": 12203,
@@ -1662,9 +1818,22 @@
         }
       },
       "usefulness_change": "unchanged",
-      "unsupported_claims": "pending_human_review",
       "control_usefulness": "partly useful",
-      "candidate_usefulness": "partly useful"
+      "candidate_usefulness": "partly useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: the sketch depends on external helpers and lacks a standalone runnable test. The request is not redundant when interpreted as asking for a runnable reproducer.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: no standalone runnable example is supplied. It should distinguish that missing artifact from the sketch already present.",
+          "reviewer": "requesting user"
+        }
+      }
     },
     {
       "issue_number": 12204,
@@ -1789,9 +1958,22 @@
         }
       },
       "usefulness_change": "unchanged",
-      "unsupported_claims": "pending_human_review",
       "control_usefulness": "not useful",
-      "candidate_usefulness": "not useful"
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention is unnecessarily broad given the conflicting version evidence.",
+          "reviewer": "requesting user"
+        },
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention leaves an actionable discrepancy unexplained.",
+          "reviewer": "requesting user"
+        }
+      }
     },
     {
       "issue_number": 12216,
@@ -1906,9 +2088,22 @@
         }
       },
       "usefulness_change": "unchanged",
-      "unsupported_claims": "pending_human_review",
       "control_usefulness": "not useful",
-      "candidate_usefulness": "not useful"
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. The fallback offers no targeted clarification despite the reproducer.",
+          "reviewer": "requesting user"
+        },
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. The abstention has no useful follow-up.",
+          "reviewer": "requesting user"
+        }
+      }
     },
     {
       "issue_number": 12219,
@@ -2053,9 +2248,22 @@
         }
       },
       "usefulness_change": "regressed",
-      "unsupported_claims": "pending_human_review",
       "control_usefulness": "useful",
-      "candidate_usefulness": "not useful"
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. The supplied evidence supports a targeted follow-up despite the abstention.",
+          "reviewer": "requesting user"
+        },
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: the reporter says the minimized example works while the project case fails. The requested failing example is distinct from the example already supplied; no particular cause is asserted.",
+          "reviewer": "requesting user"
+        }
+      }
     },
     {
       "issue_number": 12223,
@@ -2169,9 +2377,22 @@
         }
       },
       "usefulness_change": "unchanged",
-      "unsupported_claims": "pending_human_review",
       "control_usefulness": "not useful",
-      "candidate_usefulness": "not useful"
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention supplies no investigative next step.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. No useful follow-up accompanies the abstention.",
+          "reviewer": "requesting user"
+        }
+      }
     },
     {
       "issue_number": 12224,
@@ -2279,9 +2500,22 @@
         }
       },
       "usefulness_change": "unchanged",
-      "unsupported_claims": "pending_human_review",
       "control_usefulness": "not useful",
-      "candidate_usefulness": "not useful"
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention gives no help assessing the requested API.",
+          "reviewer": "requesting user"
+        },
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. No concrete follow-up accompanies the abstention.",
+          "reviewer": "requesting user"
+        }
+      }
     },
     {
       "issue_number": 12226,
@@ -2406,9 +2640,22 @@
         }
       },
       "usefulness_change": "unchanged",
-      "unsupported_claims": "pending_human_review",
       "control_usefulness": "partly useful",
-      "candidate_usefulness": "partly useful"
+      "candidate_usefulness": "partly useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: alternatives are not described; the question permits \u201cnone\u201d rather than assuming an alternative exists. No redundant use-case request.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: alternatives are not described, and the question explicitly allows that none were tried.",
+          "reviewer": "requesting user"
+        }
+      }
     },
     {
       "issue_number": 12228,
@@ -2536,9 +2783,22 @@
         }
       },
       "usefulness_change": "unchanged",
-      "unsupported_claims": "pending_human_review",
       "control_usefulness": "not useful",
-      "candidate_usefulness": "not useful"
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported, narrowly: attempted workarounds are not described. The template supports asking about alternatives, but does not establish that they are necessary to assess this documentation request.",
+          "reviewer": "requesting user"
+        },
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported, narrowly: attempted alternatives are not supplied. Their necessity for resolving this documentation gap is not established.",
+          "reviewer": "requesting user"
+        }
+      }
     }
   ],
   "pilot": {
@@ -2549,9 +2809,59 @@
       "full_gpu_residency_verified": true,
       "input_tokens": 6253,
       "output_tokens": 270,
-      "usefulness": "pending_human_review",
-      "semantic_support": "pending_human_review",
-      "alias_blob_matches_shortlist": true
+      "usefulness": "human_confirmed",
+      "semantic_support": "human_confirmed_with_separate_presupposition_applicability_and_abstention_judgments",
+      "alias_blob_matches_shortlist": true,
+      "usefulness_counts": {
+        "not useful": 4,
+        "partly useful": 1,
+        "useful": 0
+      },
+      "mean_paired_gain_vs_A": 0.0,
+      "usefulness_changes_vs_A": {
+        "unchanged": 5
+      },
+      "per_case_human_comparison": [
+        {
+          "issue_number": 11902,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P03"
+        },
+        {
+          "issue_number": 11940,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P05"
+        },
+        {
+          "issue_number": 11973,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P09"
+        },
+        {
+          "issue_number": 11906,
+          "control_rating": "partly useful",
+          "arm_rating": "partly useful",
+          "change": "unchanged",
+          "code": "P10"
+        },
+        {
+          "issue_number": 11945,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P13"
+        }
+      ],
+      "human_confirmed_unsupported_presupposition_or_applicability_replies": 3,
+      "human_confirmed_unjustified_blanket_abstention_replies": 2,
+      "counting_note": "Counts of replies, not individual claims. Abstention judgments do not classify fabricated technical explanations. All arms have identical reviewed problems on the same cases.",
+      "promotion_passes": null
     },
     "B": {
       "partial_reports": 5,
@@ -2560,9 +2870,59 @@
       "full_gpu_residency_verified": true,
       "input_tokens": 5295,
       "output_tokens": 492,
-      "usefulness": "pending_human_review",
-      "semantic_support": "pending_human_review",
-      "alias_blob_matches_shortlist": true
+      "usefulness": "human_confirmed",
+      "semantic_support": "human_confirmed_with_separate_presupposition_applicability_and_abstention_judgments",
+      "alias_blob_matches_shortlist": true,
+      "usefulness_counts": {
+        "not useful": 4,
+        "partly useful": 1,
+        "useful": 0
+      },
+      "mean_paired_gain_vs_A": 0.0,
+      "usefulness_changes_vs_A": {
+        "unchanged": 5
+      },
+      "per_case_human_comparison": [
+        {
+          "issue_number": 11940,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P04"
+        },
+        {
+          "issue_number": 11902,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P08"
+        },
+        {
+          "issue_number": 11973,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P16"
+        },
+        {
+          "issue_number": 11945,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P17"
+        },
+        {
+          "issue_number": 11906,
+          "control_rating": "partly useful",
+          "arm_rating": "partly useful",
+          "change": "unchanged",
+          "code": "P18"
+        }
+      ],
+      "human_confirmed_unsupported_presupposition_or_applicability_replies": 3,
+      "human_confirmed_unjustified_blanket_abstention_replies": 2,
+      "counting_note": "Counts of replies, not individual claims. Abstention judgments do not classify fabricated technical explanations. All arms have identical reviewed problems on the same cases.",
+      "promotion_passes": false
     },
     "C": {
       "partial_reports": 5,
@@ -2571,9 +2931,59 @@
       "full_gpu_residency_verified": true,
       "input_tokens": 5295,
       "output_tokens": 522,
-      "usefulness": "pending_human_review",
-      "semantic_support": "pending_human_review",
-      "alias_blob_matches_shortlist": true
+      "usefulness": "human_confirmed",
+      "semantic_support": "human_confirmed_with_separate_presupposition_applicability_and_abstention_judgments",
+      "alias_blob_matches_shortlist": true,
+      "usefulness_counts": {
+        "not useful": 4,
+        "partly useful": 1,
+        "useful": 0
+      },
+      "mean_paired_gain_vs_A": 0.0,
+      "usefulness_changes_vs_A": {
+        "unchanged": 5
+      },
+      "per_case_human_comparison": [
+        {
+          "issue_number": 11940,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P06"
+        },
+        {
+          "issue_number": 11906,
+          "control_rating": "partly useful",
+          "arm_rating": "partly useful",
+          "change": "unchanged",
+          "code": "P07"
+        },
+        {
+          "issue_number": 11973,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P12"
+        },
+        {
+          "issue_number": 11945,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P19"
+        },
+        {
+          "issue_number": 11902,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P20"
+        }
+      ],
+      "human_confirmed_unsupported_presupposition_or_applicability_replies": 3,
+      "human_confirmed_unjustified_blanket_abstention_replies": 2,
+      "counting_note": "Counts of replies, not individual claims. Abstention judgments do not classify fabricated technical explanations. All arms have identical reviewed problems on the same cases.",
+      "promotion_passes": false
     },
     "D": {
       "partial_reports": 5,
@@ -2582,9 +2992,59 @@
       "full_gpu_residency_verified": true,
       "input_tokens": 5295,
       "output_tokens": 272,
-      "usefulness": "pending_human_review",
-      "semantic_support": "pending_human_review",
-      "alias_blob_matches_shortlist": true
+      "usefulness": "human_confirmed",
+      "semantic_support": "human_confirmed_with_separate_presupposition_applicability_and_abstention_judgments",
+      "alias_blob_matches_shortlist": true,
+      "usefulness_counts": {
+        "not useful": 4,
+        "partly useful": 1,
+        "useful": 0
+      },
+      "mean_paired_gain_vs_A": 0.0,
+      "usefulness_changes_vs_A": {
+        "unchanged": 5
+      },
+      "per_case_human_comparison": [
+        {
+          "issue_number": 11902,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P01"
+        },
+        {
+          "issue_number": 11973,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P02"
+        },
+        {
+          "issue_number": 11945,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P11"
+        },
+        {
+          "issue_number": 11906,
+          "control_rating": "partly useful",
+          "arm_rating": "partly useful",
+          "change": "unchanged",
+          "code": "P14"
+        },
+        {
+          "issue_number": 11940,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P15"
+        }
+      ],
+      "human_confirmed_unsupported_presupposition_or_applicability_replies": 3,
+      "human_confirmed_unjustified_blanket_abstention_replies": 2,
+      "counting_note": "Counts of replies, not individual claims. Abstention judgments do not classify fabricated technical explanations. All arms have identical reviewed problems on the same cases.",
+      "promotion_passes": false
     }
   },
   "web_dispatches": 3,
@@ -2593,5 +3053,33 @@
     "regressed": 6,
     "unchanged": 14
   },
-  "development_mean_paired_usefulness_gain": -0.4
+  "development_mean_paired_usefulness_gain": -0.4,
+  "human_review_counts": {
+    "development": 40,
+    "pilot": 20,
+    "pending": 0
+  },
+  "field_score_provenance": "Per-case control_scores/candidate_scores retain original automated evaluator output. Their at-generation pending usefulness/semantic markers are immutable historical state; human-review.json and pilot-human-review.json are authoritative current judgments.",
+  "promotion_gates": {
+    "required_development_mean_gain": 0.4,
+    "observed_development_mean_gain": -0.4,
+    "development_gain_passes": false,
+    "required_pilot_mean_gain": 0.4,
+    "pilot_mean_gain_by_candidate": {
+      "B": 0.0,
+      "C": 0.0,
+      "D": 0.0
+    },
+    "pilot_gain_passes": false,
+    "required_larger_model_gain_vs_B": 0.2,
+    "larger_model_gain_vs_B": {
+      "C": 0.0,
+      "D": 0.0
+    },
+    "candidate_validation": "fails in every development/pilot candidate report",
+    "resource_limits": "pass at sampled resolution; true peak memory remains unverified",
+    "human_reply_reviews_complete": 60,
+    "promoted_candidate": null,
+    "decision": "retain legacy selected 3B application/model"
+  }
 }

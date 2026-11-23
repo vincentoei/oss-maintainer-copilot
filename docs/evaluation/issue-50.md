@@ -3,8 +3,9 @@
 Decision: **retain the working legacy application/model**. The frozen candidate
 fails validation in every development and reserved report. Do not adopt it or
 tune again under this issue. This is a negative application-contract result,
-not proof about inherent model quality. **Issue #50 remains incomplete pending
-twenty explicit human pilot reply/semantic reviews and the limitations below; it is not merged.**
+not proof about inherent model quality. **The bounded evaluation and all sixty
+explicit human reply reviews are complete. No candidate passes promotion.
+Merge status is tracked in #50; limitations below are retained, not claims of success.**
 
 Started from updated main cc44852c7db55840f233f952c411dd485a8660a8 on
 feat/issue-50-evidence-drafting. The [protocol](issue-50-protocol.md) was committed
@@ -38,7 +39,9 @@ cases cannot subsequently be described as unseen.
 ## Results
 
 [Summary and per-case field evidence](issue-50/summary.json), [request ledger](issue-50/requests.jsonl),
-raw responses, reports and traces are retained in issue-50/. Failure reports are
+raw responses, reports and traces are retained in issue-50/. Nested field scores
+retain the original automated evaluator state; the human review companions are
+authoritative for current usefulness/semantic judgments. Failure reports are
 scoreable reports, not validated model successes.
 
 | Measurement | Corrected A: legacy 3B | B: drafting 3B |
@@ -66,6 +69,8 @@ changing model size did not rescue this frozen implementation.
 | --- | ---: | ---: | ---: | ---: |
 | Cases / responses | 5/5 | 5/5 | 5/5 | 5/5 |
 | Partial reports | 0 | 5 | 5 | 5 |
+| Human usefulness (useful/partly/not) | 0/1/4 | 0/1/4 | 0/1/4 | 0/1/4 |
+| Paired usefulness gain versus A | reference | 0.0 | 0.0 | 0.0 |
 | End-to-end p95 | 0.938 s | 1.974 s | 5.894 s | 6.488 s |
 | Peak sampled GPU use | 2742 MiB | 2742 MiB | 5002 MiB | 5356 MiB |
 | Input / output tokens | 6253/270 | 5295/492 | 5295/522 | 5295/272 |
@@ -95,11 +100,27 @@ Twenty-six replies across both arms contain no substantive claims; these are not
 labelled supported. Full verbatim reasons and semantic judgments are retained in
 [development review](issue-50/development-review-method.md). Separate relationship,
 redundancy and abstention observations are preserved without inventing complete
-independent field labels. Pilot usefulness and semantic judgments remain pending.
+independent field labels.
+
+The requesting user independently reviewed all twenty pilot replies against the
+original openings, without consulting candidate identities. Every arm rates
+0 useful / 1 partly useful / 4 not useful: zero improvements, five unchanged,
+zero regressions relative to pilot A. All drafting pilot gains are 0.0, failing
+the required +0.4; none beats B by the additional +0.2 model-selection threshold.
+[Verbatim pilot judgments](issue-50/pilot-review-method.md) distinguish unsupported
+question presuppositions, unjustified applicability of bug-template questions,
+redundant requests and unjustified blanket abstentions. Each arm has the same
+three replies containing unsupported presupposition/applicability and two replies
+with unjustified blanket abstention. These are counts of replies, not individual
+claims. Generic fallbacks are not classified as fabricated technical explanations.
+No relationship is asserted in any pilot reply; human review marks that N/A,
+while expected earlier-issue judgments remain uncertain.
 [Forty development replies](issue-50/human-review.md) and
 [twenty pilot replies](issue-50/pilot-human-review.md) use anonymous shuffled codes,
-matching fingerprints and separate identity keys. The development JSON companion records all forty explicit reviews; the pilot
-companion remains pending. Pilot expectation confirmation does not approve generated replies.
+matching fingerprints and separate identity keys. The development and pilot JSON companions record all sixty explicit reviews and
+exact report/draft fingerprints. Raw immutable inference artifacts and original
+presentation sheets retain their at-generation pending markers; the fingerprint-
+matched review companions are authoritative for subsequent human judgments.
 
 ## Acceptance evidence
 
@@ -108,17 +129,21 @@ companion remains pending. Pilot expectation confirmation does not approve gener
 | Freeze protocol and limits | Protocol commit/publication precede implementation. Same-model A/B measures application effects; frozen B/C/D isolates model serving identity with identical task inputs. Schedule deviation disclosed. |
 | Preserve baseline/boundaries | Baseline manifest passes; main catalog untouched. Metadata-only pilot, verified cutoffs/hashes/commits, recorded selection exposure. #12204 over-budget opening flagged rather than truncated. |
 | Structured drafting on both interfaces | Opt-in MODEL_DRAFTING=1 or drafting model/agent classes. Exact context quotes/IDs, extractive factual explanations, generated questions or explicit null. Legacy is default and rollback. Structural validity is not semantic proof. |
-| Public regressions and safety | 276 tests pass, two ordinary live tests skipped; Ruff and strict mypy pass. Public regressions cover empty choices, null abstention, unknown IDs, false quotes, source references, malformed output, injection/paraphrases/quoted injection and citation-marker escaping. Existing #48 supplied-detail/relationship tests remain passing. New generated-question redundancy/relationship semantic regressions remain incomplete; limited lexical rejection does not prove semantic support. Read-only tools, four-call cap, tool bounds, 20 s timeout/65536-byte response and partial reports retained; experimental output limit increases to 512 as predeclared. |
+| Public regressions and safety | 284 tests pass, two ordinary live tests skipped; Ruff and strict mypy pass. Public regressions cover empty choices, null abstention, unknown IDs, false quotes, source references, malformed output, injection/paraphrases/quoted injection and citation-marker escaping. Existing #48 supplied-versus-absent-detail and substantive-versus-misleading-relationship regressions now also run at both APIs with the drafting contract and explicit draft abstention. Free-text question redundancy/relationship semantic guarantees remain unverified: no accepted real candidate draft demonstrates them, and limited lexical rejection cannot prove semantic support. This failed candidate is not promoted; any behavior repair requires a new issue. Read-only tools, four-call cap, tool bounds, 20 s timeout/65536-byte response and partial reports retained; experimental output limit increases to 512 as predeclared. |
 | Same 3B then frozen 3B/4B/7B | Corrected 3B control/candidate precede pilot; preserved serving snapshots and blobs confirm identities/settings/residency. B/C/D input/prompt/schema hashes match. A empty-packet and schedule confounders disclosed. |
-| Preserve outputs and explicit reviews | Real responses/reports/traces/errors, schema/prompt/input/evidence hashes and serving records preserved. Pilot expectations explicitly reviewed. **Forty development reviews explicitly confirmed; twenty pilot reviews pending**; no labels or reasons invented/transferred. |
-| Per-case quality/resources | summary.json contains per-case field comparisons and pending human fields; raw artifacts preserve tokens/errors/latency/GPU. Development human changes and unsupported qualification are recorded; pilot human changes and unsupported claims remain pending. Separate relationship/other-field labels remain incomplete. Five pilot cases are not independent generalization proof. |
-| API/web and retain/adopt decision | Four counted real calls through both HTTP interfaces yield HTTP 200 partial reports with bounded traces. Browser renders both a preserved genuine response and a fresh browser-triggered real response/trace with no JS errors. The fresh check used three model calls, displayed the partial report, and retained its failed selection; successful rendering is not successful drafting. Threshold promotion cannot pass with failed candidates/incomplete human evidence: retain baseline. No merge or #16 handoff yet. |
+| Preserve outputs and explicit reviews | Real responses/reports/traces/errors, schema/prompt/input/evidence hashes and serving records preserved. Pilot expectations explicitly reviewed. **All forty development and twenty pilot reply reviews explicitly confirmed**; no labels or reasons invented/transferred. |
+| Per-case quality/resources | summary.json contains per-case field/human comparisons; raw artifacts preserve tokens/errors/latency/GPU. All sixty fresh usefulness/semantic reviews and per-case changes are recorded. Pilot relationship, redundancy and abstention judgments are explicit; complete independent development field labels remain limited to what the user actually reviewed. Five pilot cases are not independent generalization proof. |
+| API/web and retain/adopt decision | Four counted real calls through both HTTP interfaces yield HTTP 200 partial reports with bounded traces. Browser renders both a preserved genuine response and a fresh browser-triggered real response/trace with no JS errors. The fresh check used three model calls, displayed the partial report, and retained its failed selection; successful rendering is not successful drafting. Threshold promotion fails on development gain (-0.4), pilot gain (0.0) and candidate validation failures: retain baseline. Merge status is tracked in #50; #16/#33 implementation is excluded. |
 
-## Required next human actions and limits
+## Decision and remaining limits
 
-Review P01–P20 with fresh usefulness ratings/reasons and separate semantic,
-redundancy, relationship and abstention judgments; unsure stays pending.
-R01–R40 reviews are recorded. Their ratings establish a development regression.
+No human reply review is pending. R01–R40 establish a development regression;
+P01–P20 establish no pilot usefulness gain. The declared usefulness gates fail,
+so retain the baseline regardless of the feasible larger models. These five
+selection cases are not independent generalization evidence. Free-text semantic
+guarantees and complete independent development field labels remain unverified
+as specified in the acceptance matrix; they cannot be claimed from exact quotes,
+unaccepted model outputs, or these usefulness reviews.
 The [fresh browser check](issue-50/web-live.json) passed display/trace checks; its
 model selection still failed. A pre-startup navigation failure dispatched no inference
 and is preserved separately. No further prompt/schema/rule tuning is

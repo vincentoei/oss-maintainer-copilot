@@ -278,3 +278,8 @@ issue-search API fixtures use fixed records and require no network access.
 
 Issue #48: [diagnosis, bounded fixes and evaluation evidence](docs/evaluation/issue-48.md).
 Final human review: 3 useful, 7 partly useful and 10 not useful; retrieval-score regressions and remaining failures are recorded.
+
+Issue #50: [bounded drafting experiment and retain-baseline decision](docs/evaluation/issue-50.md).
+All sixty replies received explicit human review. Drafting failed the frozen
+promotion thresholds; the default remains the selected 3B selection-only path.
+The experimental MODEL_DRAFTING=1 path is retained for inspection, not promoted.

@@ -1,0 +1,21 @@
+code	issue	rating	reason
+P01	11902	not useful	Offers no investigation of restricted-directory collection and does not request the missing package or OS information.
+P02	11973	not useful	Requests a use case and workaround already supplied: discovering plugins without the naming convention and avoiding manual list additions.
+P03	11902	not useful	The blanket abstention overlooks both the concrete collection failure and available information requests.
+P04	11940	not useful	Applies a bug-report checklist to a specified API enhancement without explaining why environment details or a reproducer are needed.
+P05	11940	not useful	Does not assess the proposed usage-error API or private-parser workaround; the requested bug-report details have no established relevance.
+P06	11940	not useful	Requests environment information and a minimal example instead of engaging with the documented plugin flag-conflict use case.
+P07	11906	partly useful	The package-list request is appropriate, but pytest/Windows versions and a minimal warning example are already supplied.
+P08	11902	not useful	Gives no targeted follow-up despite the reproducer, permission error and missing environment information.
+P09	11973	not useful	Both questions overlook information in the opening; neither advances assessment of classifier-based plugin-list generation.
+P10	11906	partly useful	Requests the missing package list, but unnecessarily repeats requests for versions and a reproducer.
+P11	11945	not useful	Does not engage with the nested-versus-inner comparison or request missing package/OS details.
+P12	11973	not useful	Treats the supplied plugin examples and manual-addition workaround as missing.
+P13	11945	not useful	The abstention provides no assistance investigating the concrete comparison discrepancy.
+P14	11906	partly useful	One request fills a real information gap; the version and minimal-example requests duplicate the opening.
+P15	11940	not useful	Gives no reason these bug-template details would help assess the enhancement and ignores the existing workaround.
+P16	11973	not useful	Repeats use-case and alternatives questions already answered by the plugin examples and current manual list maintenance.
+P17	11945	not useful	Supplies neither an explanation nor an actionable follow-up on the demonstrated comparison behavior.
+P18	11906	partly useful	Asking for installed packages helps, but the other two requests disregard supplied versions and runnable code.
+P19	11945	not useful	Leaves the concrete reproducer unexplored and does not ask for genuinely missing environment details.
+P20	11902	not useful	Provides no investigative next step or request for the missing package and OS information.

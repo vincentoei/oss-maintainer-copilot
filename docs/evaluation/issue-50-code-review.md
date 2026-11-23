@@ -27,11 +27,33 @@ use evidence_enabled and receive identical passage payloads. A capturing-client
 review confirmed matching packets and 512-token limits without inference.
 The initial unmatched control remains preserved and excluded from promotion.
 
-Remaining requirements: generated-question regressions for supplied/absent detail
-and substantive/misleading relationships are incomplete; semantic support cannot
-be inferred from a quotation. Human usefulness/semantic judgments remain pending.
-Pilot inference and resource/model evidence are recorded separately when complete.
+Final controlled regressions also cover supplied/absent detail and substantive/
+misleading relationships through the drafting contract at both APIs. They establish
+preservation of upstream behavior with explicit draft abstention, not semantic
+correctness of arbitrary generated questions. All sixty human usefulness/semantic
+reviews and four-arm pilot/resource results are now recorded. No accepted real
+candidate establishes the remaining free-text semantic guarantees.
 No additional tuning is authorized after the final development iteration or pilot.
 
 Summary: zero unresolved hard standards violations; experimental requirements
-remain incomplete until the explicit review gates and acceptance evidence close.
+have documented negative results and explicit limitations; all human review gates are closed.
+
+## Final review after explicit human pilot judgments
+
+Fresh Standards and Spec reviewers inspected the final branch against
+cc44852c7db55840f233f952c411dd485a8660a8. Standards: zero material merge blockers;
+optional assembly/tuple-type heuristics remain. The reviewer verified all twenty
+pilot fingerprints and 85 unique request IDs. Spec: all sixty report/draft
+fingerprints independently match. Development/pilot promotion gates fail.
+AC3–4 are partial for demonstrated generated-question semantics; controlled null-
+draft regressions establish retained upstream behavior, not arbitrary semantic
+rejection. This acknowledged negative result does not require retuning or prevent
+merging the retained baseline plus evidence. Initial stale review-status wording
+and ambiguous nested automatic scoring markers were corrected. All sixty human
+reviews are complete; original automated/raw pending markers remain historical
+state with explicit companion precedence. Final deterministic checks: 284 pass,
+two ordinary live tests skipped; whole-repo Ruff/format and strict mypy pass.
+
+Summary: Standards has zero material findings. Spec retains two disclosed partial
+capability criteria (AC3–4); the failed candidate is not promoted. Merge status
+is tracked in #50 before any #16 handoff.
