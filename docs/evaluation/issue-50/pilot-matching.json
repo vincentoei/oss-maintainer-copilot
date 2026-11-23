@@ -1,0 +1,28 @@
+[
+  {
+    "issue_number": 11902,
+    "all_arm_evidence_matches": true,
+    "BCD_prompt_schema_input_matches": true
+  },
+  {
+    "issue_number": 11906,
+    "all_arm_evidence_matches": false,
+    "BCD_prompt_schema_input_matches": true,
+    "empty_packet_representation_note": "A omits the optional field, B/C/D serialize []; all contain zero passages and the same full opening. Exact serialized representation differs; normalized evidence set matches."
+  },
+  {
+    "issue_number": 11945,
+    "all_arm_evidence_matches": true,
+    "BCD_prompt_schema_input_matches": true
+  },
+  {
+    "issue_number": 11940,
+    "all_arm_evidence_matches": true,
+    "BCD_prompt_schema_input_matches": true
+  },
+  {
+    "issue_number": 11973,
+    "all_arm_evidence_matches": true,
+    "BCD_prompt_schema_input_matches": true
+  }
+]

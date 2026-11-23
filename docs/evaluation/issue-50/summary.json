@@ -1,0 +1,3085 @@
+{
+  "decision": "retain baseline: all explicit human reviews complete; development mean gain -0.4 and pilot gains 0.0 fail frozen +0.4 gates; no further tuning",
+  "development_iterations": 2,
+  "total_dispatches": 85,
+  "development_dispatches": 58,
+  "api_smoke_dispatches": 4,
+  "pilot_dispatches": 20,
+  "warmups": 0,
+  "control": {
+    "cases": 20,
+    "real_requests": 19,
+    "partial_reports": 2,
+    "model_trace_errors": 2,
+    "p95_end_to_end_ms": 7377.577,
+    "peak_sampled_gpu_mib": 2740.0,
+    "input_tokens": 26193,
+    "output_tokens": 1192,
+    "quality_reviews": "human_confirmed",
+    "field_scores": {
+      "issue_type_accuracy": 0.6,
+      "missing_details_exact": 0.65,
+      "existing_relationship_exact": 0.10526315789473684,
+      "citation_structural_validity": 1.0
+    },
+    "usefulness_counts": {
+      "not useful": 11,
+      "useful": 2,
+      "partly useful": 7
+    },
+    "human_confirmed_unsupported_qualifications": 1
+  },
+  "candidate": {
+    "cases": 20,
+    "real_requests": 19,
+    "partial_reports": 20,
+    "model_trace_errors": 20,
+    "p95_end_to_end_ms": 3644.35,
+    "peak_sampled_gpu_mib": 2742.0,
+    "input_tokens": 21619,
+    "output_tokens": 2527,
+    "quality_reviews": "human_confirmed",
+    "field_scores": {
+      "issue_type_accuracy": 0.0,
+      "missing_details_exact": 0.65,
+      "existing_relationship_exact": 0.10526315789473684,
+      "citation_structural_validity": 1.0
+    },
+    "usefulness_counts": {
+      "not useful": 17,
+      "partly useful": 3
+    },
+    "human_confirmed_unsupported_qualifications": 0
+  },
+  "per_case": [
+    {
+      "issue_number": 7312,
+      "control_status": "complete",
+      "candidate_status": "partial",
+      "control_scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 349,
+          "retrieved_issues": [
+            349
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "duplicate_candidate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: enhancement",
+          "observed": "type: enhancement"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #349 may be relevant: Both concern fixture-derived parameter values. This report: \"\u2026t.mark.parametrize(\"x\", parameters_fixture=my_fixture)\"; earlier: \"\u2026est function is not the fixture _value_ but the fixture _function_.\". This requests session-derived parameters; the earlier example passes fixture functions instead of values. [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+              "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "candidate_scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 349,
+          "retrieved_issues": [
+            349
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "duplicate_candidate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: enhancement",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+              "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "usefulness_change": "regressed",
+      "control_usefulness": "partly useful",
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: both concern fixture-derived parameters; the current request uses session-derived configuration, while the earlier example passes fixture functions rather than their values. This supports relevance, not a confirmed duplicate decision.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention does not use the available relationship evidence.",
+          "reviewer": "requesting user"
+        }
+      }
+    },
+    {
+      "issue_number": 10156,
+      "control_status": "complete",
+      "candidate_status": "partial",
+      "control_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 2959,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: docs",
+          "observed": "type: question"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+          "citations": []
+        }
+      },
+      "candidate_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 2959,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: docs",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+          "citations": []
+        }
+      },
+      "usefulness_change": "unchanged",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention does not help assess the concrete proposal.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. The abstention supplies no useful response to the proposal.",
+          "reviewer": "requesting user"
+        }
+      }
+    },
+    {
+      "issue_number": 12053,
+      "control_status": "complete",
+      "candidate_status": "partial",
+      "control_scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 8655,
+          "retrieved_issues": [
+            8655
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": true,
+          "expected": "nonduplicate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: enhancement",
+          "observed": "type: enhancement"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #8655 may be relevant: Both concern custom debugger selection with --pdbcls. This report: \"\u2026 `--pdb` together with `--pdbcls=IPython.terminal.debugger:TerminalPdb`.  Unfortunately, `pytest --p\u2026\"; earlier: \"The [help string for --pdbcls](https://github.com/pytest-dev/pytest/blob/f28421cc7068b13ba63c1f60cc2\u2026\". This requests a configuration setting; the earlier issue concerns command-line help. [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/8655",
+              "description": "pytest issue #8655: Help text is misleading about the behavior of --pdb",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "candidate_scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 8655,
+          "retrieved_issues": [
+            8655
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": true,
+          "expected": "nonduplicate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: enhancement",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "issue_type"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/8655",
+              "description": "pytest issue #8655: Help text is misleading about the behavior of --pdb",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "usefulness_change": "regressed",
+      "control_usefulness": "partly useful",
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention leaves relevant evidence unused.",
+          "reviewer": "requesting user"
+        },
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: both concern --pdbcls; the present request concerns persistent configuration and the earlier issue concerns CLI help. The truncated quotation is weak exposition, but the distinction is supported by the opening summaries.",
+          "reviewer": "requesting user"
+        }
+      }
+    },
+    {
+      "issue_number": 12072,
+      "control_status": "complete",
+      "candidate_status": "partial",
+      "control_scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 12066,
+          "retrieved_issues": [
+            12066
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "duplicate_candidate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: bug",
+          "observed": "type: bug"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "minimal example",
+            "pip list output",
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12066 may be relevant: Both concern the call_runtest_hook import failure. This report: \"ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner' (/home/travis/miniconda/en\u2026\"; earlier: \"ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner' (/home/runner/miniconda3/e\u2026\". the same failure or request is not established. [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+              "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "candidate_scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 12066,
+          "retrieved_issues": [
+            12066
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "duplicate_candidate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: bug",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "minimal example",
+            "pip list output",
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+              "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "usefulness_change": "regressed",
+      "control_usefulness": "partly useful",
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "contains_unsupported_qualification",
+          "reason": "Supported: both report the call_runtest_hook import failure. Unsupported as written: \u201cthe same failure \u2026 is not established\u201d discounts the matching observable failure. A shared underlying cause remains unproven; that narrower qualification would be appropriate.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention leaves a strong relevant lead unused.",
+          "reviewer": "requesting user"
+        }
+      }
+    },
+    {
+      "issue_number": 12079,
+      "control_status": "complete",
+      "candidate_status": "partial",
+      "control_scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 11871,
+          "retrieved_issues": [
+            11871
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "duplicate_candidate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: enhancement",
+          "observed": "type: enhancement"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [
+            "alternative solutions"
+          ],
+          "observed": [
+            "alternative solutions"
+          ]
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 2,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Could you add any workaround or alternative you have tried, or that there is none? [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+              "description": "pytest feature report template: alternative solutions",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/11871",
+              "description": "pytest issue #11871: Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "candidate_scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 11871,
+          "retrieved_issues": [
+            11871
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "duplicate_candidate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: enhancement",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [
+            "alternative solutions"
+          ],
+          "observed": [
+            "alternative solutions"
+          ]
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 2,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "issue_type"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. Could you add the following details?\n- any workaround or alternative you have tried, or that there is none [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+              "description": "pytest feature report template: alternative solutions",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/11871",
+              "description": "pytest issue #11871: Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "usefulness_change": "unchanged",
+      "control_usefulness": "partly useful",
+      "candidate_usefulness": "partly useful",
+      "explicit_human_semantic_review": {
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: attempted alternatives are absent. The reply makes no relationship claim; an evidence link outside the reply does not explain that relationship.",
+          "reviewer": "requesting user"
+        },
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: attempted alternatives are absent. No relationship assertion appears in the reply.",
+          "reviewer": "requesting user"
+        }
+      }
+    },
+    {
+      "issue_number": 12081,
+      "control_status": "complete",
+      "candidate_status": "partial",
+      "control_scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 3448,
+          "retrieved_issues": [
+            3448
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "duplicate_candidate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: enhancement",
+          "observed": "type: enhancement"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 3,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #3448 may be relevant: Both concern readouterr consuming captured output. This report: \"\u2026turing via readouterr() consume stdout, meaning that logs are no longer available in the \"Captured s\u2026\"; earlier: \"\u2026uterr()` in a test also resets what pytest displays in case of failed tests.\". This opening names copyouterr; compare its proposed behavior with the earlier readouterr report. [C1]\n- pytest documents that capture fixtures let tests access stdout and stderr created during execution. [C2]\n- At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line. [C3]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+              "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
+              "description": "pytest documentation: capture",
+              "passage": "The ``capsys``, ``capsysbinary``, ``capfd``, and ``capfdbinary`` fixtures allow access to stdout/stderr output created during test execution.  Here is"
+            },
+            {
+              "id": "C3",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+              "description": "pytest source: src/_pytest/capture.py:935",
+              "passage": "        \"\"\"Read and return the captured output so far, resetting the internal"
+            }
+          ]
+        }
+      },
+      "candidate_scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 3448,
+          "retrieved_issues": [
+            3448
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "duplicate_candidate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: enhancement",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 3,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "draft_reply",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+              "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
+              "description": "pytest documentation: capture",
+              "passage": "The ``capsys``, ``capsysbinary``, ``capfd``, and ``capfdbinary`` fixtures allow access to stdout/stderr output created during test execution.  Here is"
+            },
+            {
+              "id": "C3",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+              "description": "pytest source: src/_pytest/capture.py:935",
+              "passage": "        \"\"\"Read and return the captured output so far, resetting the internal"
+            }
+          ]
+        }
+      },
+      "usefulness_change": "regressed",
+      "control_usefulness": "partly useful",
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Substantive supporting evidence remains unused.",
+          "reviewer": "requesting user"
+        },
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: both reports concern readouterr() consuming captured output; the current proposal names copyouterr; the documentation describes access to stdout/stderr; the supplied source excerpt supports the location statement. No supported evidence here establishes equivalence of the proposed APIs.",
+          "reviewer": "requesting user"
+        }
+      }
+    },
+    {
+      "issue_number": 12083,
+      "control_status": "complete",
+      "candidate_status": "partial",
+      "control_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 7012,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": null,
+          "expected": "uncertain",
+          "observed": "not_retrieved",
+          "review_status": "pending_human_review"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: regression",
+          "observed": "type: bug"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "pip list output"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "draft_reply",
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": true,
+          "duplicate_observed": false,
+          "duplicate_appropriate": false,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+          "citations": []
+        }
+      },
+      "candidate_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 7012,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": null,
+          "expected": "uncertain",
+          "observed": "not_retrieved",
+          "review_status": "pending_human_review"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: regression",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "pip list output"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "draft_reply",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": true,
+          "duplicate_observed": false,
+          "duplicate_appropriate": false,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+          "citations": []
+        }
+      },
+      "usefulness_change": "unchanged",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention supplies no diagnostic comparison.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. The absence of a diagnosis does not prevent asking a targeted follow-up.",
+          "reviewer": "requesting user"
+        }
+      }
+    },
+    {
+      "issue_number": 12116,
+      "control_status": "complete",
+      "candidate_status": "partial",
+      "control_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12081,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: bug",
+          "observed": "type: bug"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "draft_reply"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+          "citations": []
+        }
+      },
+      "candidate_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12081,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: bug",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "draft_reply",
+            "issue_type"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+          "citations": []
+        }
+      },
+      "usefulness_change": "unchanged",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention avoids an invented diagnosis but offers no next step.",
+          "reviewer": "requesting user"
+        },
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. It avoids redundant package requests but provides no substantive assistance.",
+          "reviewer": "requesting user"
+        }
+      }
+    },
+    {
+      "issue_number": 12146,
+      "control_status": "complete",
+      "candidate_status": "partial",
+      "control_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 7312,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: bug",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- The supplied scenarios use different pytest versions (8.1.1 / 7.4.4). Could you compare both scenarios using the same pytest version and identical tuple values, including their order, changing only how the values are constructed? Please include fixture setup/teardown output from both runs. [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12146",
+              "description": "Submitted issue under review: investigative follow-up",
+              "passage": "pytest-8.1.1\npytest-7.4.4\npytest         8.1.1"
+            }
+          ]
+        }
+      },
+      "candidate_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 7312,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: bug",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "draft_reply",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12146",
+              "description": "Submitted issue under review: investigative follow-up",
+              "passage": "pytest-8.1.1\npytest-7.4.4\npytest         8.1.1"
+            }
+          ]
+        }
+      },
+      "usefulness_change": "regressed",
+      "control_usefulness": "useful",
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: the supplied runs use different pytest versions and tuple ordering. The requested comparison addresses those confounders without assuming a cause. New comparable output is needed, so this is not a redundant request.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Available evidence supports a specific clarification.",
+          "reviewer": "requesting user"
+        }
+      }
+    },
+    {
+      "issue_number": 12189,
+      "control_status": "complete",
+      "candidate_status": "partial",
+      "control_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12081,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: question",
+          "observed": "type: bug"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "draft_reply",
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+          "citations": []
+        }
+      },
+      "candidate_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12081,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: question",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "draft_reply",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+          "citations": []
+        }
+      },
+      "usefulness_change": "unchanged",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention misses an opportunity for a targeted comparison.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention does not advance investigation.",
+          "reviewer": "requesting user"
+        }
+      }
+    },
+    {
+      "issue_number": 12197,
+      "control_status": "complete",
+      "candidate_status": "partial",
+      "control_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12053,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: question",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "minimal example",
+            "pip list output",
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+          "citations": []
+        }
+      },
+      "candidate_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12053,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: question",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "minimal example",
+            "pip list output",
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+          "citations": []
+        }
+      },
+      "usefulness_change": "unchanged",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention overlooks concrete missing details.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. A targeted information request remains possible.",
+          "reviewer": "requesting user"
+        }
+      }
+    },
+    {
+      "issue_number": 12201,
+      "control_status": "complete",
+      "candidate_status": "partial",
+      "control_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12146,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: enhancement",
+          "observed": "type: enhancement"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+          "citations": []
+        }
+      },
+      "candidate_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12146,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: enhancement",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "issue_type"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+          "citations": []
+        }
+      },
+      "usefulness_change": "unchanged",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention avoids redundant requests but adds no guidance.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Removing unnecessary questions has not produced a useful response.",
+          "reviewer": "requesting user"
+        }
+      }
+    },
+    {
+      "issue_number": 12203,
+      "control_status": "complete",
+      "candidate_status": "partial",
+      "control_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12116,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: bug",
+          "observed": "type: bug"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [
+            "minimal example"
+          ],
+          "observed": [
+            "minimal example"
+          ]
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Could you add a minimal example, if possible? [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/1f001cd1051a4ca4bef251d93e472e625578aaf7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+              "description": "pytest bug report template: minimal example",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "candidate_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12116,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: bug",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [
+            "minimal example"
+          ],
+          "observed": [
+            "minimal example"
+          ]
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "issue_type"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. Could you add the following details?\n- a minimal example, if possible [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/1f001cd1051a4ca4bef251d93e472e625578aaf7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+              "description": "pytest bug report template: minimal example",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "usefulness_change": "unchanged",
+      "control_usefulness": "partly useful",
+      "candidate_usefulness": "partly useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: the sketch depends on external helpers and lacks a standalone runnable test. The request is not redundant when interpreted as asking for a runnable reproducer.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: no standalone runnable example is supplied. It should distinguish that missing artifact from the sketch already present.",
+          "reviewer": "requesting user"
+        }
+      }
+    },
+    {
+      "issue_number": 12204,
+      "control_status": "partial",
+      "candidate_status": "partial",
+      "control_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12203,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: bug",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "draft_reply",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12204",
+              "description": "Submitted issue under review: investigative follow-up",
+              "passage": "pytest    8.1.1\npytest-8.0.0\npluggy    1.4.0\npluggy-1.3.0"
+            }
+          ]
+        }
+      },
+      "candidate_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12203,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: bug",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "draft_reply",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12204",
+              "description": "Submitted issue under review: investigative follow-up",
+              "passage": "pytest    8.1.1\npytest-8.0.0\npluggy    1.4.0\npluggy-1.3.0"
+            }
+          ]
+        }
+      },
+      "usefulness_change": "unchanged",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention is unnecessarily broad given the conflicting version evidence.",
+          "reviewer": "requesting user"
+        },
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention leaves an actionable discrepancy unexplained.",
+          "reviewer": "requesting user"
+        }
+      }
+    },
+    {
+      "issue_number": 12216,
+      "control_status": "partial",
+      "candidate_status": "partial",
+      "control_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12146,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: bug",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "pip list output",
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+          "citations": []
+        }
+      },
+      "candidate_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12146,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: bug",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "pip list output",
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+          "citations": []
+        }
+      },
+      "usefulness_change": "unchanged",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. The fallback offers no targeted clarification despite the reproducer.",
+          "reviewer": "requesting user"
+        },
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. The abstention has no useful follow-up.",
+          "reviewer": "requesting user"
+        }
+      }
+    },
+    {
+      "issue_number": 12219,
+      "control_status": "complete",
+      "candidate_status": "partial",
+      "control_scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 4064,
+          "retrieved_issues": [
+            4064
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": true,
+          "expected": "nonduplicate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: bug",
+          "observed": "type: docs"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "minimal example",
+            "pip list output",
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 2,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- You report that the hook works in the minimized example. Could you reduce the affected project's case to a minimized failing example, including its module layout, configuration and exact command? Compare that with the working example to isolate what prevents the hook from running. [C2]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/4064",
+              "description": "pytest issue #4064: Docs: is setUpModule/tearDownModule supported?",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12219",
+              "description": "Submitted issue under review: investigative follow-up",
+              "passage": "Interestingly, the hook does seem to be honored in a minimized example."
+            }
+          ]
+        }
+      },
+      "candidate_scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 4064,
+          "retrieved_issues": [
+            4064
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": true,
+          "expected": "nonduplicate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: bug",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "minimal example",
+            "pip list output",
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 2,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/4064",
+              "description": "pytest issue #4064: Docs: is setUpModule/tearDownModule supported?",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12219",
+              "description": "Submitted issue under review: investigative follow-up",
+              "passage": "Interestingly, the hook does seem to be honored in a minimized example."
+            }
+          ]
+        }
+      },
+      "usefulness_change": "regressed",
+      "control_usefulness": "useful",
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. The supplied evidence supports a targeted follow-up despite the abstention.",
+          "reviewer": "requesting user"
+        },
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: the reporter says the minimized example works while the project case fails. The requested failing example is distinct from the example already supplied; no particular cause is asserted.",
+          "reviewer": "requesting user"
+        }
+      }
+    },
+    {
+      "issue_number": 12223,
+      "control_status": "complete",
+      "candidate_status": "partial",
+      "control_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12204,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: bug",
+          "observed": "type: bug"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "pip list output",
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+          "citations": []
+        }
+      },
+      "candidate_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12204,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: bug",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "pip list output",
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+          "citations": []
+        }
+      },
+      "usefulness_change": "unchanged",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention supplies no investigative next step.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. No useful follow-up accompanies the abstention.",
+          "reviewer": "requesting user"
+        }
+      }
+    },
+    {
+      "issue_number": 12224,
+      "control_status": "complete",
+      "candidate_status": "partial",
+      "control_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 10156,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: enhancement",
+          "observed": "type: enhancement"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "draft_reply"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+          "citations": []
+        }
+      },
+      "candidate_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 10156,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: enhancement",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "draft_reply",
+            "issue_type"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+          "citations": []
+        }
+      },
+      "usefulness_change": "unchanged",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. Abstention gives no help assessing the requested API.",
+          "reviewer": "requesting user"
+        },
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "no_substantive_claims",
+          "reason": "No claims. No concrete follow-up accompanies the abstention.",
+          "reviewer": "requesting user"
+        }
+      }
+    },
+    {
+      "issue_number": 12226,
+      "control_status": "complete",
+      "candidate_status": "partial",
+      "control_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12197,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: enhancement",
+          "observed": "type: enhancement"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [
+            "alternative solutions"
+          ],
+          "observed": [
+            "alternative solutions"
+          ]
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Could you add any workaround or alternative you have tried, or that there is none? [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+              "description": "pytest feature report template: alternative solutions",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "candidate_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12197,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: enhancement",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [
+            "alternative solutions"
+          ],
+          "observed": [
+            "alternative solutions"
+          ]
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "issue_type"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. Could you add the following details?\n- any workaround or alternative you have tried, or that there is none [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+              "description": "pytest feature report template: alternative solutions",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "usefulness_change": "unchanged",
+      "control_usefulness": "partly useful",
+      "candidate_usefulness": "partly useful",
+      "explicit_human_semantic_review": {
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: alternatives are not described; the question permits \u201cnone\u201d rather than assuming an alternative exists. No redundant use-case request.",
+          "reviewer": "requesting user"
+        },
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported: alternatives are not described, and the question explicitly allows that none were tried.",
+          "reviewer": "requesting user"
+        }
+      }
+    },
+    {
+      "issue_number": 12228,
+      "control_status": "complete",
+      "candidate_status": "partial",
+      "control_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12197,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: docs",
+          "observed": "type: docs"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [
+            "alternative solutions"
+          ],
+          "observed": [
+            "alternative solutions"
+          ]
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Could you add any workaround or alternative you have tried, or that there is none? [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+              "description": "pytest feature report template: alternative solutions",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "candidate_scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12197,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: docs",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [
+            "alternative solutions"
+          ],
+          "observed": [
+            "alternative solutions"
+          ]
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "issue_type"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. Could you add the following details?\n- any workaround or alternative you have tried, or that there is none [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+              "description": "pytest feature report template: alternative solutions",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "usefulness_change": "unchanged",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful",
+      "explicit_human_semantic_review": {
+        "B": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported, narrowly: attempted workarounds are not described. The template supports asking about alternatives, but does not establish that they are necessary to assess this documentation request.",
+          "reviewer": "requesting user"
+        },
+        "A": {
+          "status": "human_confirmed",
+          "judgment": "supported_with_stated_limits",
+          "reason": "Supported, narrowly: attempted alternatives are not supplied. Their necessity for resolving this documentation gap is not established.",
+          "reviewer": "requesting user"
+        }
+      }
+    }
+  ],
+  "pilot": {
+    "A": {
+      "partial_reports": 0,
+      "p95_end_to_end_ms": 938.036,
+      "peak_sampled_gpu_mib": 2742.0,
+      "full_gpu_residency_verified": true,
+      "input_tokens": 6253,
+      "output_tokens": 270,
+      "usefulness": "human_confirmed",
+      "semantic_support": "human_confirmed_with_separate_presupposition_applicability_and_abstention_judgments",
+      "alias_blob_matches_shortlist": true,
+      "usefulness_counts": {
+        "not useful": 4,
+        "partly useful": 1,
+        "useful": 0
+      },
+      "mean_paired_gain_vs_A": 0.0,
+      "usefulness_changes_vs_A": {
+        "unchanged": 5
+      },
+      "per_case_human_comparison": [
+        {
+          "issue_number": 11902,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P03"
+        },
+        {
+          "issue_number": 11940,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P05"
+        },
+        {
+          "issue_number": 11973,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P09"
+        },
+        {
+          "issue_number": 11906,
+          "control_rating": "partly useful",
+          "arm_rating": "partly useful",
+          "change": "unchanged",
+          "code": "P10"
+        },
+        {
+          "issue_number": 11945,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P13"
+        }
+      ],
+      "human_confirmed_unsupported_presupposition_or_applicability_replies": 3,
+      "human_confirmed_unjustified_blanket_abstention_replies": 2,
+      "counting_note": "Counts of replies, not individual claims. Abstention judgments do not classify fabricated technical explanations. All arms have identical reviewed problems on the same cases.",
+      "promotion_passes": null
+    },
+    "B": {
+      "partial_reports": 5,
+      "p95_end_to_end_ms": 1973.522,
+      "peak_sampled_gpu_mib": 2742.0,
+      "full_gpu_residency_verified": true,
+      "input_tokens": 5295,
+      "output_tokens": 492,
+      "usefulness": "human_confirmed",
+      "semantic_support": "human_confirmed_with_separate_presupposition_applicability_and_abstention_judgments",
+      "alias_blob_matches_shortlist": true,
+      "usefulness_counts": {
+        "not useful": 4,
+        "partly useful": 1,
+        "useful": 0
+      },
+      "mean_paired_gain_vs_A": 0.0,
+      "usefulness_changes_vs_A": {
+        "unchanged": 5
+      },
+      "per_case_human_comparison": [
+        {
+          "issue_number": 11940,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P04"
+        },
+        {
+          "issue_number": 11902,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P08"
+        },
+        {
+          "issue_number": 11973,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P16"
+        },
+        {
+          "issue_number": 11945,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P17"
+        },
+        {
+          "issue_number": 11906,
+          "control_rating": "partly useful",
+          "arm_rating": "partly useful",
+          "change": "unchanged",
+          "code": "P18"
+        }
+      ],
+      "human_confirmed_unsupported_presupposition_or_applicability_replies": 3,
+      "human_confirmed_unjustified_blanket_abstention_replies": 2,
+      "counting_note": "Counts of replies, not individual claims. Abstention judgments do not classify fabricated technical explanations. All arms have identical reviewed problems on the same cases.",
+      "promotion_passes": false
+    },
+    "C": {
+      "partial_reports": 5,
+      "p95_end_to_end_ms": 5894.433,
+      "peak_sampled_gpu_mib": 5002.0,
+      "full_gpu_residency_verified": true,
+      "input_tokens": 5295,
+      "output_tokens": 522,
+      "usefulness": "human_confirmed",
+      "semantic_support": "human_confirmed_with_separate_presupposition_applicability_and_abstention_judgments",
+      "alias_blob_matches_shortlist": true,
+      "usefulness_counts": {
+        "not useful": 4,
+        "partly useful": 1,
+        "useful": 0
+      },
+      "mean_paired_gain_vs_A": 0.0,
+      "usefulness_changes_vs_A": {
+        "unchanged": 5
+      },
+      "per_case_human_comparison": [
+        {
+          "issue_number": 11940,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P06"
+        },
+        {
+          "issue_number": 11906,
+          "control_rating": "partly useful",
+          "arm_rating": "partly useful",
+          "change": "unchanged",
+          "code": "P07"
+        },
+        {
+          "issue_number": 11973,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P12"
+        },
+        {
+          "issue_number": 11945,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P19"
+        },
+        {
+          "issue_number": 11902,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P20"
+        }
+      ],
+      "human_confirmed_unsupported_presupposition_or_applicability_replies": 3,
+      "human_confirmed_unjustified_blanket_abstention_replies": 2,
+      "counting_note": "Counts of replies, not individual claims. Abstention judgments do not classify fabricated technical explanations. All arms have identical reviewed problems on the same cases.",
+      "promotion_passes": false
+    },
+    "D": {
+      "partial_reports": 5,
+      "p95_end_to_end_ms": 6488.273,
+      "peak_sampled_gpu_mib": 5356.0,
+      "full_gpu_residency_verified": true,
+      "input_tokens": 5295,
+      "output_tokens": 272,
+      "usefulness": "human_confirmed",
+      "semantic_support": "human_confirmed_with_separate_presupposition_applicability_and_abstention_judgments",
+      "alias_blob_matches_shortlist": true,
+      "usefulness_counts": {
+        "not useful": 4,
+        "partly useful": 1,
+        "useful": 0
+      },
+      "mean_paired_gain_vs_A": 0.0,
+      "usefulness_changes_vs_A": {
+        "unchanged": 5
+      },
+      "per_case_human_comparison": [
+        {
+          "issue_number": 11902,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P01"
+        },
+        {
+          "issue_number": 11973,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P02"
+        },
+        {
+          "issue_number": 11945,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P11"
+        },
+        {
+          "issue_number": 11906,
+          "control_rating": "partly useful",
+          "arm_rating": "partly useful",
+          "change": "unchanged",
+          "code": "P14"
+        },
+        {
+          "issue_number": 11940,
+          "control_rating": "not useful",
+          "arm_rating": "not useful",
+          "change": "unchanged",
+          "code": "P15"
+        }
+      ],
+      "human_confirmed_unsupported_presupposition_or_applicability_replies": 3,
+      "human_confirmed_unjustified_blanket_abstention_replies": 2,
+      "counting_note": "Counts of replies, not individual claims. Abstention judgments do not classify fabricated technical explanations. All arms have identical reviewed problems on the same cases.",
+      "promotion_passes": false
+    }
+  },
+  "web_dispatches": 3,
+  "live_web": "passed display/trace checks with genuine inference; model selection rejected, report partial",
+  "development_usefulness_changes": {
+    "regressed": 6,
+    "unchanged": 14
+  },
+  "development_mean_paired_usefulness_gain": -0.4,
+  "human_review_counts": {
+    "development": 40,
+    "pilot": 20,
+    "pending": 0
+  },
+  "field_score_provenance": "Per-case control_scores/candidate_scores retain original automated evaluator output. Their at-generation pending usefulness/semantic markers are immutable historical state; human-review.json and pilot-human-review.json are authoritative current judgments.",
+  "promotion_gates": {
+    "required_development_mean_gain": 0.4,
+    "observed_development_mean_gain": -0.4,
+    "development_gain_passes": false,
+    "required_pilot_mean_gain": 0.4,
+    "pilot_mean_gain_by_candidate": {
+      "B": 0.0,
+      "C": 0.0,
+      "D": 0.0
+    },
+    "pilot_gain_passes": false,
+    "required_larger_model_gain_vs_B": 0.2,
+    "larger_model_gain_vs_B": {
+      "C": 0.0,
+      "D": 0.0
+    },
+    "candidate_validation": "fails in every development/pilot candidate report",
+    "resource_limits": "pass at sampled resolution; true peak memory remains unverified",
+    "human_reply_reviews_complete": 60,
+    "promoted_candidate": null,
+    "decision": "retain legacy selected 3B application/model"
+  }
+}

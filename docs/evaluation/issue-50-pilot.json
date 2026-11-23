@@ -1,0 +1,172 @@
+{
+  "status": "human_confirmed_frozen_before_inference",
+  "selection_exposure": "Root agent inspected original openings only to select/annotate. Excluded edited #11929/#11937 and same-family #11904. No reserved output generated; no pilot-specific implementation changes permitted. These inputs must not later be called unseen.",
+  "cases": [
+    {
+      "issue_number": 11902,
+      "url": "https://github.com/pytest-dev/pytest/issues/11902",
+      "opening_title": "Updated test collection breaks on adjacent restricted directories",
+      "issue_family_id": "restricted-adjacent-directory-collection",
+      "opening_cutoff": "2024-01-31T21:10:06Z",
+      "opening_last_edited_at": null,
+      "opening_content_sha256": "e7af18082f319318ee43c4429f4e855c31b4e2f878c7c161c10a422e59e8261e",
+      "repository_commit": "046f64751bf205df695f11d298bfd87d553e1314",
+      "repository_commit_at": "2024-01-31T12:59:25Z",
+      "proposed_expected_outcome": {
+        "issue_type": "type: bug",
+        "missing_details": [
+          "installed packages",
+          "operating system"
+        ],
+        "earlier_issue_relationship": "uncertain",
+        "rationale": "Collection traverses an unrelated restricted directory; minimal shell reproduction and pytest/Python versions supplied."
+      },
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user",
+        "confirmed_at": "2026-11-23T16:44:48.172203+00:00",
+        "evidence": "docs/evaluation/issue-50-pilot-review.md"
+      },
+      "family_separation": "Distinct underlying behavior from the twenty catalog families and other four reserved families; requires human confirmation.",
+      "expected_outcome": {
+        "issue_type": "type: bug",
+        "missing_details": [
+          "installed packages",
+          "operating system"
+        ],
+        "earlier_issue_relationship": "uncertain",
+        "rationale": "Collection traverses an unrelated restricted directory; minimal shell reproduction and pytest/Python versions supplied."
+      }
+    },
+    {
+      "issue_number": 11906,
+      "url": "https://github.com/pytest-dev/pytest/issues/11906",
+      "opening_title": "Bug in 8.0.0 `pytest.warns` handling",
+      "issue_family_id": "warning-instance-reemission-constructor",
+      "opening_cutoff": "2024-02-01T13:20:19Z",
+      "opening_last_edited_at": null,
+      "opening_content_sha256": "507e3887cb94801fa3fde6896a6402f2b655017acffde3fe862f613866306d10",
+      "repository_commit": "046f64751bf205df695f11d298bfd87d553e1314",
+      "repository_commit_at": "2024-01-31T12:59:25Z",
+      "proposed_expected_outcome": {
+        "issue_type": "type: bug",
+        "missing_details": [
+          "installed packages"
+        ],
+        "earlier_issue_relationship": "uncertain",
+        "rationale": "Multi-argument custom warning yields TypeError after a mismatched warning message; reproducer and version comparison plus Windows version supplied."
+      },
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user",
+        "confirmed_at": "2026-11-23T16:44:48.172222+00:00",
+        "evidence": "docs/evaluation/issue-50-pilot-review.md"
+      },
+      "family_separation": "Distinct underlying behavior from the twenty catalog families and other four reserved families; requires human confirmation.",
+      "expected_outcome": {
+        "issue_type": "type: bug",
+        "missing_details": [
+          "installed packages"
+        ],
+        "earlier_issue_relationship": "uncertain",
+        "rationale": "Multi-argument custom warning yields TypeError after a mismatched warning message; reproducer and version comparison plus Windows version supplied."
+      }
+    },
+    {
+      "issue_number": 11945,
+      "url": "https://github.com/pytest-dev/pytest/issues/11945",
+      "opening_title": "`pytest.approx()` incorrectly flags nested sequences as unequal",
+      "issue_family_id": "approx-nested-tuple-comparison",
+      "opening_cutoff": "2024-02-07T14:54:08Z",
+      "opening_last_edited_at": null,
+      "opening_content_sha256": "4151264bfc5bfebbdcd3ed780842e961272bb22cc8d15fcf6c2348220dd4b862",
+      "repository_commit": "6e5008f19f3c8fffa1ea2b980d4214d9c338b481",
+      "repository_commit_at": "2024-02-06T21:46:23Z",
+      "proposed_expected_outcome": {
+        "issue_type": "type: bug",
+        "missing_details": [
+          "installed packages",
+          "operating system"
+        ],
+        "earlier_issue_relationship": "uncertain",
+        "rationale": "Nested tuple comparison differs from inner tuple comparison; short reproducer and pytest version supplied."
+      },
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user",
+        "confirmed_at": "2026-11-23T16:44:48.172224+00:00",
+        "evidence": "docs/evaluation/issue-50-pilot-review.md"
+      },
+      "family_separation": "Distinct underlying behavior from the twenty catalog families and other four reserved families; requires human confirmation.",
+      "expected_outcome": {
+        "issue_type": "type: bug",
+        "missing_details": [
+          "installed packages",
+          "operating system"
+        ],
+        "earlier_issue_relationship": "uncertain",
+        "rationale": "Nested tuple comparison differs from inner tuple comparison; short reproducer and pytest version supplied."
+      }
+    },
+    {
+      "issue_number": 11940,
+      "url": "https://github.com/pytest-dev/pytest/issues/11940",
+      "opening_title": "Allow plugins to cause a \"command line usage error\"",
+      "issue_family_id": "plugin-command-line-usage-error",
+      "opening_cutoff": "2024-02-06T17:21:41Z",
+      "opening_last_edited_at": null,
+      "opening_content_sha256": "d03722aaf330616e273cd0a0098f0ecf4572c9e3178b994bd9971d348c01f0c6",
+      "repository_commit": "b9d02c5b53b62ea4f284787f6e4a36c9973a673c",
+      "repository_commit_at": "2024-02-06T14:14:07Z",
+      "proposed_expected_outcome": {
+        "issue_type": "type: enhancement",
+        "missing_details": [],
+        "earlier_issue_relationship": "uncertain",
+        "rationale": "Concrete plugin flag-conflict use case, proposed public method and private-parser workaround supplied."
+      },
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user",
+        "confirmed_at": "2026-11-23T16:44:48.172225+00:00",
+        "evidence": "docs/evaluation/issue-50-pilot-review.md"
+      },
+      "family_separation": "Distinct underlying behavior from the twenty catalog families and other four reserved families; requires human confirmation.",
+      "expected_outcome": {
+        "issue_type": "type: enhancement",
+        "missing_details": [],
+        "earlier_issue_relationship": "uncertain",
+        "rationale": "Concrete plugin flag-conflict use case, proposed public method and private-parser workaround supplied."
+      }
+    },
+    {
+      "issue_number": 11973,
+      "url": "https://github.com/pytest-dev/pytest/issues/11973",
+      "opening_title": "Use the `Framework :: Pytest` trove classifier to build the plugin list",
+      "issue_family_id": "plugin-discovery-trove-classifier",
+      "opening_cutoff": "2024-02-13T22:51:19Z",
+      "opening_last_edited_at": null,
+      "opening_content_sha256": "3260dcd84b3596a819b09224554fed3289d1d28c16f689b440b76c5d47077082",
+      "repository_commit": "5bb1363435a8cb3e2010505dbeb1e015c36beed6",
+      "repository_commit_at": "2024-02-13T07:44:13Z",
+      "proposed_expected_outcome": {
+        "issue_type": "type: enhancement",
+        "missing_details": [],
+        "earlier_issue_relationship": "uncertain",
+        "rationale": "Concrete classifier-based plugin discovery request; existing manual plugin-list addition described. N/A alternative is not evidence of a missing use case."
+      },
+      "human_review": {
+        "status": "confirmed",
+        "reviewer": "requesting user",
+        "confirmed_at": "2026-11-23T16:44:48.172226+00:00",
+        "evidence": "docs/evaluation/issue-50-pilot-review.md"
+      },
+      "family_separation": "Distinct underlying behavior from the twenty catalog families and other four reserved families; requires human confirmation.",
+      "expected_outcome": {
+        "issue_type": "type: enhancement",
+        "missing_details": [],
+        "earlier_issue_relationship": "uncertain",
+        "rationale": "Concrete classifier-based plugin discovery request; existing manual plugin-list addition described. N/A alternative is not evidence of a missing use case."
+      }
+    }
+  ]
+}

@@ -466,3 +466,9 @@ def triage_issue_with_agent(
     if agent_failure is not None:
         report.abstentions.append(Abstention(field="agent", reason=agent_failure))
     return TriageReport.model_validate(report.model_dump())
+
+
+class OpenAICompatibleDraftingAgent(OpenAICompatibleAgent):
+    """Use the experimental drafting contract after unchanged bounded reads."""
+
+    drafting = True

@@ -1,0 +1,59 @@
+[
+  {
+    "request": 83,
+    "partition": "api-smoke",
+    "prompt_sha256": "5e7186d61341ef1a30bd50c1899f924fc5757eed02e8eef47454a6b27608f3ef",
+    "input_sha256": "2fff2477647fab382433f7e36713f00e50d7f6bc3c6f901c178c82cb5beb1667",
+    "schema_sha256": "92e728d5073d0ad9af2eab60203f777f43a0029e2a1780a3961d08ee068290b1",
+    "max_tokens": 256,
+    "response": {
+      "output": {
+        "tool": "search_earlier_issues",
+        "arguments": {
+          "issue_number": 12201
+        }
+      },
+      "input_tokens": 624,
+      "output_tokens": 23,
+      "error": null
+    }
+  },
+  {
+    "request": 84,
+    "partition": "api-smoke",
+    "prompt_sha256": "5e7186d61341ef1a30bd50c1899f924fc5757eed02e8eef47454a6b27608f3ef",
+    "input_sha256": "1209b084a797badfa629b78fd390336a07466377b67d1e2b7800b1906415b652",
+    "schema_sha256": "cdd557d97a487c3a3551c9857d534719dbee3c9396f30c3a4d6a21fbe14f7618",
+    "max_tokens": 256,
+    "response": {
+      "output": {
+        "tool": "finish",
+        "arguments": {}
+      },
+      "input_tokens": 624,
+      "output_tokens": 12,
+      "error": null
+    }
+  },
+  {
+    "request": 85,
+    "partition": "api-smoke",
+    "prompt_sha256": "d800aeaa9d36b2308d53f52f7d3565a4044eb1c5884c55bd4b8544ca369066a7",
+    "input_sha256": "457573b0c3cd64666c051fedeaa214fa3bf666d6184655cc7aa2946aba140550",
+    "schema_sha256": "c833172f4a8a8c06d05db53ecb336648c8908004121f6a1f7588e821adc14dea",
+    "max_tokens": 512,
+    "response": {
+      "output": {
+        "issue_type": "feature_request",
+        "issue_type_quote": "Conditional test parametrization",
+        "reply_citation_ids": [
+          "E4f0303787b5198afc6ecd13e6e620581309f2be6d897fa4e4ff765f1cd112923"
+        ],
+        "draft": null
+      },
+      "input_tokens": 1891,
+      "output_tokens": 99,
+      "error": null
+    }
+  }
+]

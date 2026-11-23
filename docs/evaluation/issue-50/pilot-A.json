@@ -1,0 +1,992 @@
+{
+  "arm": "A",
+  "alias": "pytest-triage:coder3b-ctx16k",
+  "partition": "reserved-pilot",
+  "application_commit": "1b4d500",
+  "pilot_manifest_sha256": "fa34a8faffa0578f0a7bb9975d20d4f610addb8dda8baea87122581623818d8d",
+  "opened_at": "2026-11-23T16:45:42.902776+00:00",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "cases": [
+    {
+      "issue_number": 11902,
+      "error": null,
+      "latency_ms": 691.691,
+      "opening_content_sha256": "e7af18082f319318ee43c4429f4e855c31b4e2f878c7c161c10a422e59e8261e",
+      "opening_cutoff": "2024-01-31T21:10:06Z",
+      "repository_commit": "046f64751bf205df695f11d298bfd87d553e1314",
+      "report": {
+        "trace_id": "63cdccfe-afe0-423d-9ff9-ca1c11d40ed5",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          },
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "63cdccfe-afe0-423d-9ff9-ca1c11d40ed5",
+        "created_at": "2026-11-23T16:45:43.038585Z",
+        "status": "complete",
+        "duration_ms": 545.853,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.387,
+            "duration_ms": 0.097,
+            "target": "pytest issue #11902",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.511,
+            "duration_ms": 0.015,
+            "target": "query (directories OR collection OR restricted) before 2024-01-31T21:10:06+00:00",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.528,
+            "duration_ms": 0.005,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 2.148,
+            "duration_ms": 543.575,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 919,
+            "output_tokens": 26,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": 63,
+          "partition": "reserved-pilot",
+          "arm": "A",
+          "issue_number": 11902,
+          "warmup": false,
+          "max_tokens": 512,
+          "prompt_sha256": "f771640d2a27d3e78716054dd25e265c2a7ae97c070720fa4c991c2bea3c4124",
+          "schema_sha256": "0981986a14f0f2618deec36a01dd9e2ac13c1205c56bb8a58021914ef89fe0e8",
+          "input_sha256": "2fd17f58621043a7b91ff61141d818fd6af36dc7b08f396f3afa78bfb650140d",
+          "evidence_sha256": "0cfe606ae211f9ced5b23bdbe60ce8433a8e2e3763dcf0190ce342c3c012a7fe",
+          "at": "2026-11-23T16:45:43.043652+00:00",
+          "response": {
+            "output": {
+              "issue_type": null,
+              "issue_type_quote": null,
+              "reply_citation_ids": []
+            },
+            "input_tokens": 919,
+            "output_tokens": 26,
+            "error": null
+          }
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 3,
+        "initial_used_mib": 2742.0,
+        "peak_sampled_used_mib": 2742.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      },
+      "residency": {
+        "models": [
+          {
+            "name": "pytest-triage:coder3b-ctx16k",
+            "model": "pytest-triage:coder3b-ctx16k",
+            "size": 2730345103,
+            "digest": "3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-11-23T23:50:43.5187371+07:00",
+            "size_vram": 2730345103,
+            "context_length": 16384,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "review_status": "pending"
+    },
+    {
+      "issue_number": 11906,
+      "error": null,
+      "latency_ms": 924.803,
+      "opening_content_sha256": "507e3887cb94801fa3fde6896a6402f2b655017acffde3fe862f613866306d10",
+      "opening_cutoff": "2024-02-01T13:20:19Z",
+      "repository_commit": "046f64751bf205df695f11d298bfd87d553e1314",
+      "report": {
+        "trace_id": "71a0fd30-bcee-4c08-abb1-a8496edba4c5",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "Bug in 8.0.0 `pytest.warns` handling\n<!--\r\nThanks for submitting an issue!\r\n\r\nQuick",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [
+          {
+            "name": "pip list output",
+            "request": "the output of `pip list` from the virtual environment you are using",
+            "citation_id": "C1"
+          },
+          {
+            "name": "pytest and OS versions",
+            "request": "your pytest and operating system versions",
+            "citation_id": "C2"
+          },
+          {
+            "name": "minimal example",
+            "request": "a minimal example, if possible",
+            "citation_id": "C3"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add the output of `pip list` from the virtual environment you are using? [C1]\n- Could you add your pytest and operating system versions? [C2]\n- Could you add a minimal example, if possible? [C3]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/046f64751bf205df695f11d298bfd87d553e1314/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+            "description": "pytest bug report template: pip list output",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/046f64751bf205df695f11d298bfd87d553e1314/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+            "description": "pytest bug report template: pytest and OS versions",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/046f64751bf205df695f11d298bfd87d553e1314/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+            "description": "pytest bug report template: minimal example",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "draft_evidence",
+            "reason": "Over-budget passages omitted: 864b3b9b7f0a9abded2a75b8f7ec8b53137fb9f38b440aab776410724c3c254f"
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "71a0fd30-bcee-4c08-abb1-a8496edba4c5",
+        "created_at": "2026-11-23T16:45:43.703468Z",
+        "status": "complete",
+        "duration_ms": 841.768,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.98,
+            "duration_ms": 0.017,
+            "target": "pytest issue #11906",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 1.007,
+            "duration_ms": 0.006,
+            "target": "query (handling OR warns) before 2024-02-01T13:20:19+00:00",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 1.016,
+            "duration_ms": 0.004,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 1.955,
+            "duration_ms": 839.759,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1760,
+            "output_tokens": 70,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": 64,
+          "partition": "reserved-pilot",
+          "arm": "A",
+          "issue_number": 11906,
+          "warmup": false,
+          "max_tokens": 512,
+          "prompt_sha256": "f771640d2a27d3e78716054dd25e265c2a7ae97c070720fa4c991c2bea3c4124",
+          "schema_sha256": "00c67628c1fad2968e3e113efb9cf6d1170134055e01fa229d2bceb7e89bc1c8",
+          "input_sha256": "a475fae9687a97e8e3a3c068841bebf247b2a981a30ff9b7dc75d3e5e3fe469e",
+          "evidence_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "at": "2026-11-23T16:45:43.706508+00:00",
+          "response": {
+            "output": {
+              "issue_type": "type: bug",
+              "issue_type_quote": "Bug in 8.0.0 `pytest.warns` handling\n<!--\r\nThanks for submitting an issue!\r\n\r\nQuick",
+              "reply_citation_ids": [
+                "C1",
+                "C2",
+                "C3"
+              ]
+            },
+            "input_tokens": 1760,
+            "output_tokens": 70,
+            "error": null
+          }
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 3,
+        "initial_used_mib": 2742.0,
+        "peak_sampled_used_mib": 2742.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      },
+      "residency": {
+        "models": [
+          {
+            "name": "pytest-triage:coder3b-ctx16k",
+            "model": "pytest-triage:coder3b-ctx16k",
+            "size": 2730345103,
+            "digest": "3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-11-23T23:50:44.4978796+07:00",
+            "size_vram": 2730345103,
+            "context_length": 16384,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "review_status": "pending"
+    },
+    {
+      "issue_number": 11945,
+      "error": null,
+      "latency_ms": 460.332,
+      "opening_content_sha256": "4151264bfc5bfebbdcd3ed780842e961272bb22cc8d15fcf6c2348220dd4b862",
+      "opening_cutoff": "2024-02-07T14:54:08Z",
+      "repository_commit": "6e5008f19f3c8fffa1ea2b980d4214d9c338b481",
+      "report": {
+        "trace_id": "f740c753-e98c-418e-958f-460ab25882c4",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          },
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "f740c753-e98c-418e-958f-460ab25882c4",
+        "created_at": "2026-11-23T16:45:44.642578Z",
+        "status": "complete",
+        "duration_ms": 360.593,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.053,
+            "duration_ms": 0.021,
+            "target": "pytest issue #11945",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.085,
+            "duration_ms": 0.007,
+            "target": "query (incorrectly OR sequences OR unequal) before 2024-02-07T14:54:08+00:00",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.095,
+            "duration_ms": 0.003,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 0.243,
+            "duration_ms": 360.292,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 690,
+            "output_tokens": 26,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": 65,
+          "partition": "reserved-pilot",
+          "arm": "A",
+          "issue_number": 11945,
+          "warmup": false,
+          "max_tokens": 512,
+          "prompt_sha256": "f771640d2a27d3e78716054dd25e265c2a7ae97c070720fa4c991c2bea3c4124",
+          "schema_sha256": "0981986a14f0f2618deec36a01dd9e2ac13c1205c56bb8a58021914ef89fe0e8",
+          "input_sha256": "d9d4e70baee46f5279201e100502d97743772c5545b08959703ed7b0487989ee",
+          "evidence_sha256": "86457d6122a18cf0e71e056b03b438bfd3f65c5ac61bc14fb54581853a49d028",
+          "at": "2026-11-23T16:45:44.643453+00:00",
+          "response": {
+            "output": {
+              "issue_type": null,
+              "issue_type_quote": null,
+              "reply_citation_ids": []
+            },
+            "input_tokens": 690,
+            "output_tokens": 26,
+            "error": null
+          }
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 2,
+        "initial_used_mib": 2742.0,
+        "peak_sampled_used_mib": 2742.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      },
+      "residency": {
+        "models": [
+          {
+            "name": "pytest-triage:coder3b-ctx16k",
+            "model": "pytest-triage:coder3b-ctx16k",
+            "size": 2730345103,
+            "digest": "3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-11-23T23:50:44.9645407+07:00",
+            "size_vram": 2730345103,
+            "context_length": 16384,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "review_status": "pending"
+    },
+    {
+      "issue_number": 11940,
+      "error": null,
+      "latency_ms": 875.706,
+      "opening_content_sha256": "d03722aaf330616e273cd0a0098f0ecf4572c9e3178b994bd9971d348c01f0c6",
+      "opening_cutoff": "2024-02-06T17:21:41Z",
+      "repository_commit": "b9d02c5b53b62ea4f284787f6e4a36c9973a673c",
+      "report": {
+        "trace_id": "5c7a18fc-e924-4dee-ba74-71b9301f5f2b",
+        "status": "complete",
+        "issue_type": "type: enhancement",
+        "issue_type_quote": "Allow plugins to cause a \"command line usage error\"\n#### What's the problem this feature will solve?\r\nI am trying to write a `pyte",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [
+          {
+            "name": "pip list output",
+            "request": "the output of `pip list` from the virtual environment you are using",
+            "citation_id": "C1"
+          },
+          {
+            "name": "pytest and OS versions",
+            "request": "your pytest and operating system versions",
+            "citation_id": "C2"
+          },
+          {
+            "name": "minimal example",
+            "request": "a minimal example, if possible",
+            "citation_id": "C3"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add the output of `pip list` from the virtual environment you are using? [C1]\n- Could you add your pytest and operating system versions? [C2]\n- Could you add a minimal example, if possible? [C3]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/b9d02c5b53b62ea4f284787f6e4a36c9973a673c/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+            "description": "pytest bug report template: pip list output",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/b9d02c5b53b62ea4f284787f6e4a36c9973a673c/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+            "description": "pytest bug report template: pytest and OS versions",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/b9d02c5b53b62ea4f284787f6e4a36c9973a673c/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+            "description": "pytest bug report template: minimal example",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": []
+      },
+      "trace": {
+        "trace_id": "5c7a18fc-e924-4dee-ba74-71b9301f5f2b",
+        "created_at": "2026-11-23T16:45:45.102876Z",
+        "status": "complete",
+        "duration_ms": 778.289,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.172,
+            "duration_ms": 0.017,
+            "target": "pytest issue #11940",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.199,
+            "duration_ms": 0.006,
+            "target": "query (command OR plugins OR allow) before 2024-02-06T17:21:41+00:00",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.208,
+            "duration_ms": 0.003,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 0.964,
+            "duration_ms": 777.281,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1288,
+            "output_tokens": 73,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": 66,
+          "partition": "reserved-pilot",
+          "arm": "A",
+          "issue_number": 11940,
+          "warmup": false,
+          "max_tokens": 512,
+          "prompt_sha256": "f771640d2a27d3e78716054dd25e265c2a7ae97c070720fa4c991c2bea3c4124",
+          "schema_sha256": "196b4031ee6265de2a33414fa5b374a3b57e1170f17db2b725bc012d9c2f5e32",
+          "input_sha256": "589fcb9563d80613c72c6b9e1841dfe44a8ce2cf797ec7dadc1b6b316e2e3e9b",
+          "evidence_sha256": "94850b0771b79a2a04c134d69480814d882bb5fce96370b1ab067d4422450f95",
+          "at": "2026-11-23T16:45:45.104663+00:00",
+          "response": {
+            "output": {
+              "issue_type": "type: enhancement",
+              "issue_type_quote": "Allow plugins to cause a \"command line usage error\"\n#### What's the problem this feature will solve?\r\nI am trying to write a `pyte",
+              "reply_citation_ids": [
+                "C1",
+                "C2",
+                "C3"
+              ]
+            },
+            "input_tokens": 1288,
+            "output_tokens": 73,
+            "error": null
+          }
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 3,
+        "initial_used_mib": 2742.0,
+        "peak_sampled_used_mib": 2742.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      },
+      "residency": {
+        "models": [
+          {
+            "name": "pytest-triage:coder3b-ctx16k",
+            "model": "pytest-triage:coder3b-ctx16k",
+            "size": 2730345103,
+            "digest": "3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-11-23T23:50:45.8590765+07:00",
+            "size_vram": 2730345103,
+            "context_length": 16384,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "review_status": "pending"
+    },
+    {
+      "issue_number": 11973,
+      "error": null,
+      "latency_ms": 938.036,
+      "opening_content_sha256": "3260dcd84b3596a819b09224554fed3289d1d28c16f689b440b76c5d47077082",
+      "opening_cutoff": "2024-02-13T22:51:19Z",
+      "repository_commit": "5bb1363435a8cb3e2010505dbeb1e015c36beed6",
+      "report": {
+        "trace_id": "0f5f7322-2369-47f0-b813-15712997eb75",
+        "status": "complete",
+        "issue_type": "type: enhancement",
+        "issue_type_quote": "d the plugin list\n<!--\r\nThanks for suggesting a feature!\r\n\r\nQuick check-list while suggesting features:\r\n-->\r\n\r\n#### What's the problem",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [
+          {
+            "name": "real-world use case",
+            "request": "a real-world use case this would enable",
+            "citation_id": "C1"
+          },
+          {
+            "name": "alternative solutions",
+            "request": "any workaround or alternative you have tried, or that there is none",
+            "citation_id": "C2"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add a real-world use case this would enable? [C1]\n- Could you add any workaround or alternative you have tried, or that there is none? [C2]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/5bb1363435a8cb3e2010505dbeb1e015c36beed6/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+            "description": "pytest feature report template: real-world use case",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/5bb1363435a8cb3e2010505dbeb1e015c36beed6/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+            "description": "pytest feature report template: alternative solutions",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": []
+      },
+      "trace": {
+        "trace_id": "0f5f7322-2369-47f0-b813-15712997eb75",
+        "created_at": "2026-11-23T16:45:45.967917Z",
+        "status": "complete",
+        "duration_ms": 850.852,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 2.078,
+            "duration_ms": 0.017,
+            "target": "pytest issue #11973",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 2.103,
+            "duration_ms": 0.005,
+            "target": "query (classifier OR framework OR plugin) before 2024-02-13T22:51:19+00:00",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 2.11,
+            "duration_ms": 0.003,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 2.689,
+            "duration_ms": 848.12,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1596,
+            "output_tokens": 75,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": 67,
+          "partition": "reserved-pilot",
+          "arm": "A",
+          "issue_number": 11973,
+          "warmup": false,
+          "max_tokens": 512,
+          "prompt_sha256": "f771640d2a27d3e78716054dd25e265c2a7ae97c070720fa4c991c2bea3c4124",
+          "schema_sha256": "de82331634a81ab715507830947a17c4040336b81051454a71746bce8cc4607a",
+          "input_sha256": "8138155aca827cb5cbd675da3d7f621b7bb241ab9a9fe9fc505dfbdfa9df9f06",
+          "evidence_sha256": "71381f8fac4f8f848d5f745eb5d028521d3e4c096277d841ff0b0d44f3bb60a5",
+          "at": "2026-11-23T16:45:45.971551+00:00",
+          "response": {
+            "output": {
+              "issue_type": "type: enhancement",
+              "issue_type_quote": "d the plugin list\n<!--\r\nThanks for suggesting a feature!\r\n\r\nQuick check-list while suggesting features:\r\n-->\r\n\r\n#### What's the problem",
+              "reply_citation_ids": [
+                "C1",
+                "C2"
+              ]
+            },
+            "input_tokens": 1596,
+            "output_tokens": 75,
+            "error": null
+          }
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 3,
+        "initial_used_mib": 2742.0,
+        "peak_sampled_used_mib": 2742.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      },
+      "residency": {
+        "models": [
+          {
+            "name": "pytest-triage:coder3b-ctx16k",
+            "model": "pytest-triage:coder3b-ctx16k",
+            "size": 2730345103,
+            "digest": "3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "3.1B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-11-23T23:50:46.8143432+07:00",
+            "size_vram": 2730345103,
+            "context_length": 16384,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "review_status": "pending"
+    }
+  ],
+  "review_status": "pending",
+  "serving": {
+    "identity": {
+      "name": "pytest-triage:coder3b-ctx16k",
+      "model": "pytest-triage:coder3b-ctx16k",
+      "modified_at": "2026-11-20T00:13:19.6628884+07:00",
+      "size": 1929912340,
+      "digest": "3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8",
+      "details": {
+        "parent_model": "qwen2.5-coder:3b-instruct-q4_K_M",
+        "format": "gguf",
+        "family": "qwen2",
+        "families": [
+          "qwen2"
+        ],
+        "parameter_size": "3.1B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 32768,
+        "embedding_length": 2048,
+        "runner": "llamacpp"
+      },
+      "capabilities": [
+        "completion",
+        "tools",
+        "insert"
+      ]
+    },
+    "show": {
+      "license": "Qwen RESEARCH LICENSE AGREEMENT\n\nQwen RESEARCH LICENSE AGREEMENT Release Date: September 19, 2024\n\nBy clicking to agree or by using or distributing any portion or element of the Qwen Materials, you will be deemed to have recognized and accepted the content of this Agreement, which is effective immediately.\n\n1. Definitions\n    a. This Qwen RESEARCH LICENSE AGREEMENT (this \"Agreement\") shall mean the terms and conditions for use, reproduction, distribution and modification of the Materials as defined by this Agreement.\n    b. \"We\" (or \"Us\") shall mean Alibaba Cloud.\n    c. \"You\" (or \"Your\") shall mean a natural person or legal entity exercising the rights granted by this Agreement and/or using the Materials for any purpose and in any field of use.\n    d. \"Third Parties\" shall mean individuals or legal entities that are not under common control with us or you.\n    e. \"Qwen\" shall mean the large language models, and software and algorithms, consisting of trained model weights, parameters (including optimizer states), machine-learning model code, inference-enabling code, training-enabling code, fine-tuning enabling code and other elements of the foregoing distributed by us.\n    f. \"Materials\" shall mean, collectively, Alibaba Cloud's proprietary Qwen and Documentation (and any portion thereof) made available under this Agreement.\n    g. \"Source\" form shall mean the preferred form for making modifications, including but not limited to model source code, documentation source, and configuration files.\n    h. \"Object\" form shall mean any form resulting from mechanical transformation or translation of a Source form, including but not limited to compiled object code, generated documentation, and conversions to other media types.\n    i. \"Non-Commercial\" shall mean for research or evaluation purposes only.\n\n2. Grant of Rights\n    a. You are granted a non-exclusive, worldwide, non-transferable and royalty-free limited license under Alibaba Cloud's intellectual property or other rights owned by us embodied in the Materials to use, reproduce, distribute, copy, create derivative works of, and make modifications to the Materials FOR NON-COMMERCIAL PURPOSES ONLY.\n    b. If you are commercially using the Materials, you shall request a license from us.\n\n3. Redistribution\nYou may distribute copies or make the Materials, or derivative works thereof, available as part of a product or service that contains any of them, with or without modifications, and in Source or Object form, provided that you meet the following conditions:\n    a. You shall give any other recipients of the Materials or derivative works a copy of this Agreement;\n    b. You shall cause any modified files to carry prominent notices stating that you changed the files;\n    c. You shall retain in all copies of the Materials that you distribute the following attribution notices within a \"Notice\" text file distributed as a part of such copies: \"Qwen is licensed under the Qwen RESEARCH LICENSE AGREEMENT, Copyright (c) Alibaba Cloud. All Rights Reserved.\"; and\n    d. You may add your own copyright statement to your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of your modifications, or for any such derivative works as a whole, provided your use, reproduction, and distribution of the work otherwise complies with the terms and conditions of this Agreement.\n\n4. Rules of use\n    a. The Materials may be subject to export controls or restrictions in China, the United States or other countries or regions. You shall comply with applicable laws and regulations in your use of the Materials.\n    b. If you use the Materials or any outputs or results therefrom to create, train, fine-tune, or improve an AI model that is distributed or made available, you shall prominently display \u201cBuilt with Qwen\u201d or \u201cImproved using Qwen\u201d in the related product documentation.\n\n5. Intellectual Property\n    a. We retain ownership of all intellectual property rights in and to the Materials and derivatives made by or for us. Conditioned upon compliance with the terms and conditions of this Agreement, with respect to any derivative works and modifications of the Materials that are made by you, you are and will be the owner of such derivative works and modifications.\n    b. No trademark license is granted to use the trade names, trademarks, service marks, or product names of us, except as required to fulfill notice requirements under this Agreement or as required for reasonable and customary use in describing and redistributing the Materials.\n    c. If you commence a lawsuit or other proceedings (including a cross-claim or counterclaim in a lawsuit) against us or any entity alleging that the Materials or any output therefrom, or any part of the foregoing, infringe any intellectual property or other right owned or licensable by you, then all licenses granted to you under this Agreement shall terminate as of the date such lawsuit or other proceeding is commenced or brought.\n6. Disclaimer of Warranty and Limitation of Liability\n    a. We are not obligated to support, update, provide training for, or develop any further version of the Qwen Materials or to grant any license thereto.\n    b. THE MATERIALS ARE PROVIDED \"AS IS\" WITHOUT ANY EXPRESS OR IMPLIED WARRANTY OF ANY KIND INCLUDING WARRANTIES OF MERCHANTABILITY, NONINFRINGEMENT, OR FITNESS FOR A PARTICULAR PURPOSE. WE MAKE NO WARRANTY AND ASSUME NO RESPONSIBILITY FOR THE SAFETY OR STABILITY OF THE MATERIALS AND ANY OUTPUT THEREFROM.\n    c. IN NO EVENT SHALL WE BE LIABLE TO YOU FOR ANY DAMAGES, INCLUDING, BUT NOT LIMITED TO ANY DIRECT, OR INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING FROM YOUR USE OR INABILITY TO USE THE MATERIALS OR ANY OUTPUT OF IT, NO MATTER HOW IT\u2019S CAUSED.\n    d. You will defend, indemnify and hold harmless us from and against any claim by any third party arising out of or related to your use or distribution of the Materials.\n\n7. Survival and Termination.\n    a. The term of this Agreement shall commence upon your acceptance of this Agreement or access to the Materials and will continue in full force and effect until terminated in accordance with the terms and conditions herein.\n    b. We may terminate this Agreement if you breach any of the terms or conditions of this Agreement. Upon termination of this Agreement, you must delete and cease use of the Materials. Sections 6 and 8 shall survive the termination of this Agreement.\n\n8. Governing Law and Jurisdiction.\n    a. This Agreement and any dispute arising out of or relating to it will be governed by the laws of China, without regard to conflict of law principles, and the UN Convention on Contracts for the International Sale of Goods does not apply to this Agreement.\n    b. The People's Courts in Hangzhou City shall have exclusive jurisdiction over any dispute arising out of this Agreement.\n9. Other Terms and Conditions.\n    a. Any arrangements, understandings, or agreements regarding the Material not stated herein are separate from and independent of the terms and conditions of this Agreement. You shall request a separate license from us, if you use the Materials in ways not expressly agreed to in this Agreement.\n    b. We shall not be bound by any additional or different terms or conditions communicated by you unless expressly agreed.\n",
+      "modelfile": "# Modelfile generated by \"ollama show\"\n# To build a new Modelfile based on this, replace FROM with:\n# FROM pytest-triage:coder3b-ctx16k\n\nFROM C:\\Users\\vincentoei\\.ollama\\models\\blobs\\sha256-4a188102020e9c9530b687fd6400f775c45e90a0d7baafe65bd0a36963fbb7ba\nTEMPLATE \"\"\"{{- if .Suffix }}<|fim_prefix|>{{ .Prompt }}<|fim_suffix|>{{ .Suffix }}<|fim_middle|>\n{{- else if .Messages }}\n{{- if or .System .Tools }}<|im_start|>system\n{{- if .System }}\n{{ .System }}\n{{- end }}\n{{- if .Tools }}\n\n# Tools\n\nYou may call one or more functions to assist with the user query.\n\nYou are provided with function signatures within <tools></tools>:\n<tools>\n{{- range .Tools }}\n{\"type\": \"function\", \"function\": {{ .Function }}}\n{{- end }}\n</tools>\n\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> with NO other text. Do not include any backticks or ```json.\n<tool_call>\n{\"name\": <function-name>, \"arguments\": <args-json-object>}\n</tool_call>\n{{- end }}<|im_end|>\n{{ end }}\n{{- range $i, $_ := .Messages }}\n{{- $last := eq (len (slice $.Messages $i)) 1 -}}\n{{- if eq .Role \"user\" }}<|im_start|>user\n{{ .Content }}<|im_end|>\n{{ else if eq .Role \"assistant\" }}<|im_start|>assistant\n{{ if .Content }}{{ .Content }}\n{{- else if .ToolCalls }}<tool_call>\n{{ range .ToolCalls }}{\"name\": \"{{ .Function.Name }}\", \"arguments\": {{ .Function.Arguments }}}\n{{ end }}</tool_call>\n{{- end }}{{ if not $last }}<|im_end|>\n{{ end }}\n{{- else if eq .Role \"tool\" }}<|im_start|>user\n<tool_response>\n{{ .Content }}\n</tool_response><|im_end|>\n{{ end }}\n{{- if and (ne .Role \"assistant\") $last }}<|im_start|>assistant\n{{ end }}\n{{- end }}\n{{- else }}\n{{- if .System }}<|im_start|>system\n{{ .System }}<|im_end|>\n{{ end }}{{ if .Prompt }}<|im_start|>user\n{{ .Prompt }}<|im_end|>\n{{ end }}<|im_start|>assistant\n{{ end }}{{ .Response }}{{ if .Response }}<|im_end|>{{ end }}\"\"\"\nSYSTEM You are Qwen, created by Alibaba Cloud. You are a helpful assistant.\nPARAMETER num_ctx 16384\nPARAMETER repeat_penalty 1\nPARAMETER seed 42\nPARAMETER temperature 0\nPARAMETER top_k 20\nPARAMETER top_p 0.8\nLICENSE \"\"\"Qwen RESEARCH LICENSE AGREEMENT\n\nQwen RESEARCH LICENSE AGREEMENT Release Date: September 19, 2024\n\nBy clicking to agree or by using or distributing any portion or element of the Qwen Materials, you will be deemed to have recognized and accepted the content of this Agreement, which is effective immediately.\n\n1. Definitions\n    a. This Qwen RESEARCH LICENSE AGREEMENT (this \"Agreement\") shall mean the terms and conditions for use, reproduction, distribution and modification of the Materials as defined by this Agreement.\n    b. \"We\" (or \"Us\") shall mean Alibaba Cloud.\n    c. \"You\" (or \"Your\") shall mean a natural person or legal entity exercising the rights granted by this Agreement and/or using the Materials for any purpose and in any field of use.\n    d. \"Third Parties\" shall mean individuals or legal entities that are not under common control with us or you.\n    e. \"Qwen\" shall mean the large language models, and software and algorithms, consisting of trained model weights, parameters (including optimizer states), machine-learning model code, inference-enabling code, training-enabling code, fine-tuning enabling code and other elements of the foregoing distributed by us.\n    f. \"Materials\" shall mean, collectively, Alibaba Cloud's proprietary Qwen and Documentation (and any portion thereof) made available under this Agreement.\n    g. \"Source\" form shall mean the preferred form for making modifications, including but not limited to model source code, documentation source, and configuration files.\n    h. \"Object\" form shall mean any form resulting from mechanical transformation or translation of a Source form, including but not limited to compiled object code, generated documentation, and conversions to other media types.\n    i. \"Non-Commercial\" shall mean for research or evaluation purposes only.\n\n2. Grant of Rights\n    a. You are granted a non-exclusive, worldwide, non-transferable and royalty-free limited license under Alibaba Cloud's intellectual property or other rights owned by us embodied in the Materials to use, reproduce, distribute, copy, create derivative works of, and make modifications to the Materials FOR NON-COMMERCIAL PURPOSES ONLY.\n    b. If you are commercially using the Materials, you shall request a license from us.\n\n3. Redistribution\nYou may distribute copies or make the Materials, or derivative works thereof, available as part of a product or service that contains any of them, with or without modifications, and in Source or Object form, provided that you meet the following conditions:\n    a. You shall give any other recipients of the Materials or derivative works a copy of this Agreement;\n    b. You shall cause any modified files to carry prominent notices stating that you changed the files;\n    c. You shall retain in all copies of the Materials that you distribute the following attribution notices within a \"Notice\" text file distributed as a part of such copies: \"Qwen is licensed under the Qwen RESEARCH LICENSE AGREEMENT, Copyright (c) Alibaba Cloud. All Rights Reserved.\"; and\n    d. You may add your own copyright statement to your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of your modifications, or for any such derivative works as a whole, provided your use, reproduction, and distribution of the work otherwise complies with the terms and conditions of this Agreement.\n\n4. Rules of use\n    a. The Materials may be subject to export controls or restrictions in China, the United States or other countries or regions. You shall comply with applicable laws and regulations in your use of the Materials.\n    b. If you use the Materials or any outputs or results therefrom to create, train, fine-tune, or improve an AI model that is distributed or made available, you shall prominently display \u201cBuilt with Qwen\u201d or \u201cImproved using Qwen\u201d in the related product documentation.\n\n5. Intellectual Property\n    a. We retain ownership of all intellectual property rights in and to the Materials and derivatives made by or for us. Conditioned upon compliance with the terms and conditions of this Agreement, with respect to any derivative works and modifications of the Materials that are made by you, you are and will be the owner of such derivative works and modifications.\n    b. No trademark license is granted to use the trade names, trademarks, service marks, or product names of us, except as required to fulfill notice requirements under this Agreement or as required for reasonable and customary use in describing and redistributing the Materials.\n    c. If you commence a lawsuit or other proceedings (including a cross-claim or counterclaim in a lawsuit) against us or any entity alleging that the Materials or any output therefrom, or any part of the foregoing, infringe any intellectual property or other right owned or licensable by you, then all licenses granted to you under this Agreement shall terminate as of the date such lawsuit or other proceeding is commenced or brought.\n6. Disclaimer of Warranty and Limitation of Liability\n    a. We are not obligated to support, update, provide training for, or develop any further version of the Qwen Materials or to grant any license thereto.\n    b. THE MATERIALS ARE PROVIDED \"AS IS\" WITHOUT ANY EXPRESS OR IMPLIED WARRANTY OF ANY KIND INCLUDING WARRANTIES OF MERCHANTABILITY, NONINFRINGEMENT, OR FITNESS FOR A PARTICULAR PURPOSE. WE MAKE NO WARRANTY AND ASSUME NO RESPONSIBILITY FOR THE SAFETY OR STABILITY OF THE MATERIALS AND ANY OUTPUT THEREFROM.\n    c. IN NO EVENT SHALL WE BE LIABLE TO YOU FOR ANY DAMAGES, INCLUDING, BUT NOT LIMITED TO ANY DIRECT, OR INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING FROM YOUR USE OR INABILITY TO USE THE MATERIALS OR ANY OUTPUT OF IT, NO MATTER HOW IT\u2019S CAUSED.\n    d. You will defend, indemnify and hold harmless us from and against any claim by any third party arising out of or related to your use or distribution of the Materials.\n\n7. Survival and Termination.\n    a. The term of this Agreement shall commence upon your acceptance of this Agreement or access to the Materials and will continue in full force and effect until terminated in accordance with the terms and conditions herein.\n    b. We may terminate this Agreement if you breach any of the terms or conditions of this Agreement. Upon termination of this Agreement, you must delete and cease use of the Materials. Sections 6 and 8 shall survive the termination of this Agreement.\n\n8. Governing Law and Jurisdiction.\n    a. This Agreement and any dispute arising out of or relating to it will be governed by the laws of China, without regard to conflict of law principles, and the UN Convention on Contracts for the International Sale of Goods does not apply to this Agreement.\n    b. The People's Courts in Hangzhou City shall have exclusive jurisdiction over any dispute arising out of this Agreement.\n9. Other Terms and Conditions.\n    a. Any arrangements, understandings, or agreements regarding the Material not stated herein are separate from and independent of the terms and conditions of this Agreement. You shall request a separate license from us, if you use the Materials in ways not expressly agreed to in this Agreement.\n    b. We shall not be bound by any additional or different terms or conditions communicated by you unless expressly agreed.\n\"\"\"\n",
+      "parameters": "repeat_penalty                 1\nseed                           42\ntemperature                    0\ntop_k                          20\ntop_p                          0.8\nnum_ctx                        16384",
+      "template": "{{- if .Suffix }}<|fim_prefix|>{{ .Prompt }}<|fim_suffix|>{{ .Suffix }}<|fim_middle|>\n{{- else if .Messages }}\n{{- if or .System .Tools }}<|im_start|>system\n{{- if .System }}\n{{ .System }}\n{{- end }}\n{{- if .Tools }}\n\n# Tools\n\nYou may call one or more functions to assist with the user query.\n\nYou are provided with function signatures within <tools></tools>:\n<tools>\n{{- range .Tools }}\n{\"type\": \"function\", \"function\": {{ .Function }}}\n{{- end }}\n</tools>\n\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> with NO other text. Do not include any backticks or ```json.\n<tool_call>\n{\"name\": <function-name>, \"arguments\": <args-json-object>}\n</tool_call>\n{{- end }}<|im_end|>\n{{ end }}\n{{- range $i, $_ := .Messages }}\n{{- $last := eq (len (slice $.Messages $i)) 1 -}}\n{{- if eq .Role \"user\" }}<|im_start|>user\n{{ .Content }}<|im_end|>\n{{ else if eq .Role \"assistant\" }}<|im_start|>assistant\n{{ if .Content }}{{ .Content }}\n{{- else if .ToolCalls }}<tool_call>\n{{ range .ToolCalls }}{\"name\": \"{{ .Function.Name }}\", \"arguments\": {{ .Function.Arguments }}}\n{{ end }}</tool_call>\n{{- end }}{{ if not $last }}<|im_end|>\n{{ end }}\n{{- else if eq .Role \"tool\" }}<|im_start|>user\n<tool_response>\n{{ .Content }}\n</tool_response><|im_end|>\n{{ end }}\n{{- if and (ne .Role \"assistant\") $last }}<|im_start|>assistant\n{{ end }}\n{{- end }}\n{{- else }}\n{{- if .System }}<|im_start|>system\n{{ .System }}<|im_end|>\n{{ end }}{{ if .Prompt }}<|im_start|>user\n{{ .Prompt }}<|im_end|>\n{{ end }}<|im_start|>assistant\n{{ end }}{{ .Response }}{{ if .Response }}<|im_end|>{{ end }}",
+      "system": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant.",
+      "template_source": "go_template",
+      "details": {
+        "parent_model": "qwen2.5-coder:3b-instruct-q4_K_M",
+        "format": "gguf",
+        "family": "qwen2",
+        "families": [
+          "qwen2"
+        ],
+        "parameter_size": "3.1B",
+        "quantization_level": "Q4_K_M",
+        "runner": "llamacpp"
+      },
+      "model_info": {
+        "general.architecture": "qwen2",
+        "general.base_model.0.name": "Qwen2.5 Coder 3B",
+        "general.base_model.0.organization": "Qwen",
+        "general.base_model.0.repo_url": "https://huggingface.co/Qwen/Qwen2.5-Coder-3B",
+        "general.base_model.count": 1,
+        "general.basename": "Qwen2.5-Coder",
+        "general.file_type": 15,
+        "general.finetune": "Instruct",
+        "general.languages": [
+          "en"
+        ],
+        "general.license": "other",
+        "general.license.link": "https://huggingface.co/Qwen/Qwen2.5-Coder-3B-Instruct/blob/main/LICENSE",
+        "general.license.name": "qwen-research",
+        "general.parameter_count": 3085938688,
+        "general.quantization_version": 2,
+        "general.size_label": "3B",
+        "general.tags": [
+          "code",
+          "codeqwen",
+          "chat",
+          "qwen",
+          "qwen-coder",
+          "text-generation"
+        ],
+        "general.type": "model",
+        "qwen2.attention.head_count": 16,
+        "qwen2.attention.head_count_kv": 2,
+        "qwen2.attention.layer_norm_rms_epsilon": 1e-06,
+        "qwen2.block_count": 36,
+        "qwen2.context_length": 32768,
+        "qwen2.embedding_length": 2048,
+        "qwen2.feed_forward_length": 11008,
+        "qwen2.rope.freq_base": 1000000,
+        "tokenizer.ggml.add_bos_token": false,
+        "tokenizer.ggml.bos_token_id": 151643,
+        "tokenizer.ggml.eos_token_id": 151645,
+        "tokenizer.ggml.merges": [],
+        "tokenizer.ggml.model": "gpt2",
+        "tokenizer.ggml.padding_token_id": 151643,
+        "tokenizer.ggml.pre": "qwen2",
+        "tokenizer.ggml.token_type": [],
+        "tokenizer.ggml.tokens": []
+      },
+      "capabilities": [
+        "completion",
+        "tools",
+        "insert"
+      ],
+      "modified_at": "2026-11-20T00:13:19.6628884+07:00"
+    },
+    "source_identity": {
+      "name": "qwen2.5-coder:3b-instruct-q4_K_M",
+      "model": "qwen2.5-coder:3b-instruct-q4_K_M",
+      "modified_at": "2026-11-19T23:53:28.6432846+07:00",
+      "size": 1929912626,
+      "digest": "f72c60cabf6237b07f6e632b2c48d533cef25eda2efbd34bed21c5e9c01e6225",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "qwen2",
+        "families": [
+          "qwen2"
+        ],
+        "parameter_size": "3.1B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 32768,
+        "embedding_length": 2048,
+        "runner": "ggml"
+      },
+      "capabilities": [
+        "completion",
+        "tools",
+        "insert"
+      ]
+    },
+    "version": {
+      "version": "0.40.16"
+    },
+    "template_sha256": "47fca52d970e517f889420240f615fa9f8f4c6e2cb062340b9dec6fe266385b5"
+  }
+}

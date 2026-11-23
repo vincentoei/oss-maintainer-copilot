@@ -1,0 +1,1228 @@
+{
+  "method": "local_model",
+  "model_name": "pytest-triage:coder3b-ctx16k",
+  "model_call_count": 4,
+  "model_error_count": 0,
+  "aggregate": {
+    "cases": 20,
+    "completed": 4,
+    "errors": [
+      {
+        "issue_number": 12079,
+        "error": "pytest issue #12079 is unavailable"
+      },
+      {
+        "issue_number": 12081,
+        "error": "pytest issue #12081 is unavailable"
+      },
+      {
+        "issue_number": 12083,
+        "error": "pytest issue #12083 is unavailable"
+      },
+      {
+        "issue_number": 12116,
+        "error": "pytest repository commit is unavailable"
+      },
+      {
+        "issue_number": 12146,
+        "error": "pytest repository commit is unavailable"
+      },
+      {
+        "issue_number": 12189,
+        "error": "pytest repository commit is unavailable"
+      },
+      {
+        "issue_number": 12197,
+        "error": "pytest repository commit is unavailable"
+      },
+      {
+        "issue_number": 12201,
+        "error": "pytest repository commit is unavailable"
+      },
+      {
+        "issue_number": 12203,
+        "error": "pytest repository commit is unavailable"
+      },
+      {
+        "issue_number": 12204,
+        "error": "pytest repository commit is unavailable"
+      },
+      {
+        "issue_number": 12216,
+        "error": "pytest repository commit is unavailable"
+      },
+      {
+        "issue_number": 12219,
+        "error": "pytest repository commit is unavailable"
+      },
+      {
+        "issue_number": 12223,
+        "error": "pytest repository commit is unavailable"
+      },
+      {
+        "issue_number": 12224,
+        "error": "pytest repository commit is unavailable"
+      },
+      {
+        "issue_number": 12226,
+        "error": "pytest repository commit is unavailable"
+      },
+      {
+        "issue_number": 12228,
+        "error": "pytest repository commit is unavailable"
+      }
+    ],
+    "mean_latency_ms": 1174.75,
+    "mean_candidate_pool_size": 17.2,
+    "duplicate_retrieval_recall": 0.75,
+    "duplicate_judgment_accuracy": 0.25,
+    "issue_type_accuracy": 0.75,
+    "missing_details_exact": 0.75,
+    "missing_details_precision": 1.0,
+    "missing_details_recall": 0.75,
+    "citation_validity_rate": 1.0,
+    "issue_type_abstention_appropriateness": 1.0,
+    "duplicate_abstention_appropriateness": 1.0,
+    "draft_reply_usefulness": "pending_human_review",
+    "representative_failures": [
+      {
+        "issue_number": 7312,
+        "field": "duplicate_judgment"
+      },
+      {
+        "issue_number": 10156,
+        "field": "duplicate_retrieval"
+      },
+      {
+        "issue_number": 10156,
+        "field": "issue_type"
+      },
+      {
+        "issue_number": 12072,
+        "field": "missing_details"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "issue_number": 7312,
+      "method": "local_model",
+      "opening_cutoff": "2020-06-03T14:20:24+00:00",
+      "repository_commit": "61a6ac97054c0bd6f812642b46847c4b7cbede2a",
+      "latency_ms": 4183.679,
+      "candidate_pool_size": 5,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 349,
+          "retrieved_issues": [
+            349
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "duplicate_candidate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: enhancement",
+          "observed": "type: enhancement"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #349 may be relevant: Both concern fixture-derived parameter values. This report: \"\u2026t.mark.parametrize(\"x\", parameters_fixture=my_fixture)\"; earlier: \"\u2026est function is not the fixture _value_ but the fixture _function_.\". This requests session-derived parameters; the earlier example passes fixture functions instead of values. [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+              "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "36058dde-6068-420d-944c-7cc09f79aa3f",
+        "status": "complete",
+        "issue_type": "type: enhancement",
+        "issue_type_quote": "Feature Request - Support using session scope-fixtures when using pytest.mark.parametri",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 349,
+            "title": "Using fixtures in pytest.mark.parametrize",
+            "url": "https://github.com/pytest-dev/pytest/issues/349",
+            "reason": "Both concern fixture-derived parameter values. This report: \"\u2026t.mark.parametrize(\"x\", parameters_fixture=my_fixture)\"; earlier: \"\u2026est function is not the fixture _value_ but the fixture _function_.\". This requests session-derived parameters; the earlier example passes fixture functions instead of values.",
+            "citation_id": "C1"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #349 may be relevant: Both concern fixture-derived parameter values. This report: \"\u2026t.mark.parametrize(\"x\", parameters_fixture=my_fixture)\"; earlier: \"\u2026est function is not the fixture _value_ but the fixture _function_.\". This requests session-derived parameters; the earlier example passes fixture functions instead of values. [C1]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/349",
+            "description": "pytest issue #349: Using fixtures in pytest.mark.parametrize",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "36058dde-6068-420d-944c-7cc09f79aa3f",
+        "created_at": "2026-11-23T16:37:58.821703Z",
+        "status": "complete",
+        "duration_ms": 704.412,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.124,
+            "duration_ms": 0.042,
+            "target": "pytest issue #7312",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.181,
+            "duration_ms": 0.177,
+            "target": "query (parametrize OR fixtures OR session) before 2020-06-03T14:20:24+00:00",
+            "result_count": 3,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/349"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.362,
+            "duration_ms": 0.919,
+            "target": null,
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 2.602,
+            "duration_ms": 701.662,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1063,
+            "output_tokens": 47,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": {
+            "issue_content_sha256": "5c3fe4cbdb7e0e271c7479e5164978579c0b4bb6d42ed1732c7f2b8491cad4ff",
+            "required_reply_ids": [],
+            "reply_statements": [
+              {
+                "citation_id": "C1",
+                "text": "Earlier issue #349 may be relevant: Both concern fixture-derived parameter values. This report: \"\u2026t.mark.parametrize(\"x\", parameters_fixture=my_fixture)\"; earlier: \"\u2026est function is not the fixture _value_ but the fixture _function_.\". This requests session-derived parameters; the earlier example passes fixture functions instead of values.",
+                "source_url": "https://github.com/pytest-dev/pytest/issues/349"
+              }
+            ]
+          },
+          "response": {
+            "issue_type": "type: enhancement",
+            "issue_type_quote": "Feature Request - Support using session scope-fixtures when using pytest.mark.parametri",
+            "reply_citation_ids": [
+              "C1"
+            ]
+          },
+          "input_tokens": 1063,
+          "output_tokens": 47,
+          "error": null,
+          "latency_ms": 701.543
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 9,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 10156,
+      "method": "local_model",
+      "opening_cutoff": "2022-07-19T20:03:50+00:00",
+      "repository_commit": "34a285986e456406b22b62aa563a64331f640e7f",
+      "latency_ms": 2388.246,
+      "candidate_pool_size": 7,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 2959,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: docs",
+          "observed": "type: question"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+          "citations": []
+        }
+      },
+      "report": {
+        "trace_id": "051bdd1e-4cc8-47af-b555-28179bc49bf3",
+        "status": "complete",
+        "issue_type": "type: question",
+        "issue_type_quote": "Document how to build dynamic session-scoped fixtures\nMy particular case was that I wanted a session-",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "051bdd1e-4cc8-47af-b555-28179bc49bf3",
+        "created_at": "2026-11-23T16:38:01.081309Z",
+        "status": "complete",
+        "duration_ms": 841.142,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.266,
+            "duration_ms": 0.026,
+            "target": "pytest issue #10156",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.302,
+            "duration_ms": 0.174,
+            "target": "query (document OR fixtures OR dynamic) before 2022-07-19T20:03:50+00:00",
+            "result_count": 3,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.478,
+            "duration_ms": 0.415,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 1.413,
+            "duration_ms": 839.688,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1265,
+            "output_tokens": 54,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": {
+            "issue_content_sha256": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+            "required_reply_ids": [],
+            "reply_statements": []
+          },
+          "response": {
+            "issue_type": "type: question",
+            "issue_type_quote": "Document how to build dynamic session-scoped fixtures\nMy particular case was that I wanted a session-",
+            "reply_citation_ids": []
+          },
+          "input_tokens": 1265,
+          "output_tokens": 54,
+          "error": null,
+          "latency_ms": 839.608
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 6,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12053,
+      "method": "local_model",
+      "opening_cutoff": "2024-03-03T14:58:35+00:00",
+      "repository_commit": "00043f7f1047b29fdaeb18e169fe9d6146988cb8",
+      "latency_ms": 5755.286,
+      "candidate_pool_size": 9,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 8655,
+          "retrieved_issues": [
+            8655
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": true,
+          "expected": "nonduplicate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: enhancement",
+          "observed": "type: enhancement"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #8655 may be relevant: Both concern custom debugger selection with --pdbcls. This report: \"\u2026 `--pdb` together with `--pdbcls=IPython.terminal.debugger:TerminalPdb`.  Unfortunately, `pytest --p\u2026\"; earlier: \"The [help string for --pdbcls](https://github.com/pytest-dev/pytest/blob/f28421cc7068b13ba63c1f60cc2\u2026\". This requests a configuration setting; the earlier issue concerns command-line help. [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/8655",
+              "description": "pytest issue #8655: Help text is misleading about the behavior of --pdb",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "96782b8d-ebe8-4bf6-b47f-996447c0879e",
+        "status": "complete",
+        "issue_type": "type: enhancement",
+        "issue_type_quote": "pdbcls as a configuration option?\n#### What's the problem this feature will solve?\r\n\r\nFor some projects, I always",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 8655,
+            "title": "Help text is misleading about the behavior of --pdb",
+            "url": "https://github.com/pytest-dev/pytest/issues/8655",
+            "reason": "Both concern custom debugger selection with --pdbcls. This report: \"\u2026 `--pdb` together with `--pdbcls=IPython.terminal.debugger:TerminalPdb`.  Unfortunately, `pytest --p\u2026\"; earlier: \"The [help string for --pdbcls](https://github.com/pytest-dev/pytest/blob/f28421cc7068b13ba63c1f60cc2\u2026\". This requests a configuration setting; the earlier issue concerns command-line help.",
+            "citation_id": "C1"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #8655 may be relevant: Both concern custom debugger selection with --pdbcls. This report: \"\u2026 `--pdb` together with `--pdbcls=IPython.terminal.debugger:TerminalPdb`.  Unfortunately, `pytest --p\u2026\"; earlier: \"The [help string for --pdbcls](https://github.com/pytest-dev/pytest/blob/f28421cc7068b13ba63c1f60cc2\u2026\". This requests a configuration setting; the earlier issue concerns command-line help. [C1]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/8655",
+            "description": "pytest issue #8655: Help text is misleading about the behavior of --pdb",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": []
+      },
+      "trace": {
+        "trace_id": "96782b8d-ebe8-4bf6-b47f-996447c0879e",
+        "created_at": "2026-11-23T16:38:06.854008Z",
+        "status": "complete",
+        "duration_ms": 814.82,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 1.601,
+            "duration_ms": 0.066,
+            "target": "pytest issue #12053",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 1.717,
+            "duration_ms": 0.228,
+            "target": "query (configuration OR option OR pdbcls) before 2024-03-03T14:58:35+00:00",
+            "result_count": 3,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/8655"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 1.948,
+            "duration_ms": 0.288,
+            "target": null,
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 2.533,
+            "duration_ms": 812.204,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1167,
+            "output_tokens": 60,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": {
+            "issue_content_sha256": "f1494d670a480a3ba975072c0a3d05e0c49cf1e2e3898161484e4e0958dbed32",
+            "required_reply_ids": [],
+            "reply_statements": [
+              {
+                "citation_id": "C1",
+                "text": "Earlier issue #8655 may be relevant: Both concern custom debugger selection with --pdbcls. This report: \"\u2026 `--pdb` together with `--pdbcls=IPython.terminal.debugger:TerminalPdb`.  Unfortunately, `pytest --p\u2026\"; earlier: \"The [help string for --pdbcls](https://github.com/pytest-dev/pytest/blob/f28421cc7068b13ba63c1f60cc2\u2026\". This requests a configuration setting; the earlier issue concerns command-line help.",
+                "source_url": "https://github.com/pytest-dev/pytest/issues/8655"
+              }
+            ]
+          },
+          "response": {
+            "issue_type": "type: enhancement",
+            "issue_type_quote": "pdbcls as a configuration option?\n#### What's the problem this feature will solve?\r\n\r\nFor some projects, I always",
+            "reply_citation_ids": [
+              "C1"
+            ]
+          },
+          "input_tokens": 1167,
+          "output_tokens": 60,
+          "error": null,
+          "latency_ms": 812.115
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 12,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12072,
+      "method": "local_model",
+      "opening_cutoff": "2024-03-04T13:04:55+00:00",
+      "repository_commit": "0951cbc6e4880ee7dfc9b7e56948d83ee086e74b",
+      "latency_ms": 7377.577,
+      "candidate_pool_size": 11,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 12066,
+          "retrieved_issues": [
+            12066
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "duplicate_candidate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: bug",
+          "observed": "type: bug"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "minimal example",
+            "pip list output",
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12066 may be relevant: Both concern the call_runtest_hook import failure. This report: \"ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner' (/home/travis/miniconda/en\u2026\"; earlier: \"ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner' (/home/runner/miniconda3/e\u2026\". the same failure or request is not established. [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+              "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "a9900031-d8d1-4915-9129-aa3772e344ae",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "`flaky` is broken with `pytest` 8.1\n<!--\r\nThanks for submitting an issue!\r\n\r\nQuick check-list whi",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12066,
+            "title": "ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "reason": "Both concern the call_runtest_hook import failure. This report: \"ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner' (/home/travis/miniconda/en\u2026\"; earlier: \"ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner' (/home/runner/miniconda3/e\u2026\". the same failure or request is not established.",
+            "citation_id": "C1"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #12066 may be relevant: Both concern the call_runtest_hook import failure. This report: \"ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner' (/home/travis/miniconda/en\u2026\"; earlier: \"ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner' (/home/runner/miniconda3/e\u2026\". the same failure or request is not established. [C1]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "a9900031-d8d1-4915-9129-aa3772e344ae",
+        "created_at": "2026-11-23T16:38:14.205599Z",
+        "status": "complete",
+        "duration_ms": 848.889,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.063,
+            "duration_ms": 0.022,
+            "target": "pytest issue #12072",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.096,
+            "duration_ms": 0.341,
+            "target": "query (broken OR flaky) before 2024-03-04T13:04:55+00:00",
+            "result_count": 1,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/12066"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.441,
+            "duration_ms": 0.518,
+            "target": null,
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 1.344,
+            "duration_ms": 847.465,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1423,
+            "output_tokens": 66,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": {
+            "issue_content_sha256": "b88015cd6712beae45a7a2c6bcaa12cbcff31d3ece842d65cee0b62032079157",
+            "required_reply_ids": [],
+            "reply_statements": [
+              {
+                "citation_id": "C1",
+                "text": "Earlier issue #12066 may be relevant: Both concern the call_runtest_hook import failure. This report: \"ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner' (/home/travis/miniconda/en\u2026\"; earlier: \"ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner' (/home/runner/miniconda3/e\u2026\". the same failure or request is not established.",
+                "source_url": "https://github.com/pytest-dev/pytest/issues/12066"
+              }
+            ]
+          },
+          "response": {
+            "issue_type": "type: bug",
+            "issue_type_quote": "`flaky` is broken with `pytest` 8.1\n<!--\r\nThanks for submitting an issue!\r\n\r\nQuick check-list whi",
+            "reply_citation_ids": [
+              "C1"
+            ]
+          },
+          "input_tokens": 1423,
+          "output_tokens": 66,
+          "error": null,
+          "latency_ms": 847.341
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 15,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12079,
+      "method": "local_model",
+      "opening_cutoff": "2024-03-05T12:31:13+00:00",
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "latency_ms": 656.102,
+      "candidate_pool_size": 12,
+      "error": "pytest issue #12079 is unavailable",
+      "scores": null,
+      "report": null,
+      "trace": null,
+      "model_calls": [],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 3,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12081,
+      "method": "local_model",
+      "opening_cutoff": "2024-03-06T00:03:25+00:00",
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "latency_ms": 223.99,
+      "candidate_pool_size": 13,
+      "error": "pytest issue #12081 is unavailable",
+      "scores": null,
+      "report": null,
+      "trace": null,
+      "model_calls": [],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 2,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12083,
+      "method": "local_model",
+      "opening_cutoff": "2024-03-06T10:53:11+00:00",
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "latency_ms": 209.722,
+      "candidate_pool_size": 14,
+      "error": "pytest issue #12083 is unavailable",
+      "scores": null,
+      "report": null,
+      "trace": null,
+      "model_calls": [],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 2,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12116,
+      "method": "local_model",
+      "opening_cutoff": "2024-03-13T13:37:51+00:00",
+      "repository_commit": "c0532dda18a5cfd0e6f67113bb164485fa80eb86",
+      "latency_ms": 201.641,
+      "candidate_pool_size": 15,
+      "error": "pytest repository commit is unavailable",
+      "scores": null,
+      "report": null,
+      "trace": null,
+      "model_calls": [],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 2,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12146,
+      "method": "local_model",
+      "opening_cutoff": "2024-03-21T12:06:34+00:00",
+      "repository_commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
+      "latency_ms": 209.36,
+      "candidate_pool_size": 16,
+      "error": "pytest repository commit is unavailable",
+      "scores": null,
+      "report": null,
+      "trace": null,
+      "model_calls": [],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 2,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12189,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-05T09:14:51+00:00",
+      "repository_commit": "4e3dd21506a9e543c04c63ebff966a9b604d2b9e",
+      "latency_ms": 201.796,
+      "candidate_pool_size": 17,
+      "error": "pytest repository commit is unavailable",
+      "scores": null,
+      "report": null,
+      "trace": null,
+      "model_calls": [],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 2,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12197,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-08T11:30:37+00:00",
+      "repository_commit": "74f05648d5ea9e69d75f27a77972756ee32f6730",
+      "latency_ms": 209.382,
+      "candidate_pool_size": 18,
+      "error": "pytest repository commit is unavailable",
+      "scores": null,
+      "report": null,
+      "trace": null,
+      "model_calls": [],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 2,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12201,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-09T14:22:08+00:00",
+      "repository_commit": "17fc20af78d0c7b739806c4e461d2c9b8c30ceeb",
+      "latency_ms": 213.67,
+      "candidate_pool_size": 19,
+      "error": "pytest repository commit is unavailable",
+      "scores": null,
+      "report": null,
+      "trace": null,
+      "model_calls": [],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 2,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12203,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-10T09:18:43+00:00",
+      "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+      "latency_ms": 205.349,
+      "candidate_pool_size": 20,
+      "error": "pytest repository commit is unavailable",
+      "scores": null,
+      "report": null,
+      "trace": null,
+      "model_calls": [],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 2,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12204,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-10T10:45:32+00:00",
+      "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+      "latency_ms": 211.408,
+      "candidate_pool_size": 21,
+      "error": "pytest repository commit is unavailable",
+      "scores": null,
+      "report": null,
+      "trace": null,
+      "model_calls": [],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 2,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12216,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-15T07:38:50+00:00",
+      "repository_commit": "5f6e825a2687f6bb8bc437e67a59c0a92fb16c06",
+      "latency_ms": 213.688,
+      "candidate_pool_size": 22,
+      "error": "pytest repository commit is unavailable",
+      "scores": null,
+      "report": null,
+      "trace": null,
+      "model_calls": [],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 2,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12219,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-16T08:22:38+00:00",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "latency_ms": 201.152,
+      "candidate_pool_size": 23,
+      "error": "pytest repository commit is unavailable",
+      "scores": null,
+      "report": null,
+      "trace": null,
+      "model_calls": [],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 2,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12223,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-17T09:00:30+00:00",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "latency_ms": 209.56,
+      "candidate_pool_size": 24,
+      "error": "pytest repository commit is unavailable",
+      "scores": null,
+      "report": null,
+      "trace": null,
+      "model_calls": [],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 2,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12224,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-18T05:51:07+00:00",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "latency_ms": 203.831,
+      "candidate_pool_size": 25,
+      "error": "pytest repository commit is unavailable",
+      "scores": null,
+      "report": null,
+      "trace": null,
+      "model_calls": [],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 2,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12226,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-19T11:34:17+00:00",
+      "repository_commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
+      "latency_ms": 207.121,
+      "candidate_pool_size": 26,
+      "error": "pytest repository commit is unavailable",
+      "scores": null,
+      "report": null,
+      "trace": null,
+      "model_calls": [],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 2,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12228,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-19T17:30:10+00:00",
+      "repository_commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
+      "latency_ms": 212.442,
+      "candidate_pool_size": 27,
+      "error": "pytest repository commit is unavailable",
+      "scores": null,
+      "report": null,
+      "trace": null,
+      "model_calls": [],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 2,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    }
+  ],
+  "methodology": "Real endpoint responses through the existing fixed replay and field scorer. Keyword retrieval covers verified pre-cutoff catalog openings. Duplicate matching and missing details remain rules; the model controls type and selection of supplied reply statements. Semantic judgments remain pending. This is not the full workflow comparison in #16."
+}

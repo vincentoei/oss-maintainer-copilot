@@ -36,6 +36,8 @@ class _ObservedModel(model.OpenAICompatibleModel):
     def __init__(self, client: model.OpenAICompatibleModel) -> None:
         super().__init__(client.base_url, client.model_name)
         self.client = client
+        self.drafting = client.drafting
+        self.evidence_enabled = bool(getattr(client, "evidence_enabled", False))
         self.calls: list[dict[str, Any]] = []
 
     def generate(self, request: model.ModelRequest) -> object:
@@ -83,6 +85,7 @@ def evaluate_local_model(
     issue_source: issue_search.IssueSource | None = None,
     source_reader: source.SourceReader | None = None,
     measure_gpu: bool = False,
+    skip_issue_numbers: Collection[int] = (),
 ) -> dict[str, Any]:
     """Preserve reports, responses and traces separately from baseline artifacts.
 
@@ -97,6 +100,8 @@ def evaluate_local_model(
     results: list[CaseResult] = []
     records: list[dict[str, Any]] = []
     for case in catalog:
+        if case.issue_number in skip_issue_numbers:
+            continue
         started = perf_counter()
         first_call = len(observed.calls)
         candidate_numbers = tuple(

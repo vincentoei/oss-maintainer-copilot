@@ -1,0 +1,24 @@
+{
+  "models": [
+    {
+      "name": "pytest-triage:coder3b-ctx16k",
+      "model": "pytest-triage:coder3b-ctx16k",
+      "size": 2730345103,
+      "digest": "3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "qwen2",
+        "families": [
+          "qwen2"
+        ],
+        "parameter_size": "3.1B",
+        "quantization_level": "Q4_K_M"
+      },
+      "expires_at": "2026-11-23T23:41:19.381571+07:00",
+      "size_vram": 2730345103,
+      "context_length": 16384,
+      "runner": "llamacpp"
+    }
+  ]
+}
