@@ -4,7 +4,7 @@ Decision: **retain the working legacy application/model**. The frozen candidate
 fails validation in every development and reserved report. Do not adopt it or
 tune again under this issue. This is a negative application-contract result,
 not proof about inherent model quality. **Issue #50 remains incomplete pending
-explicit human reply/semantic reviews and the limitations below; it is not merged.**
+twenty explicit human pilot reply/semantic reviews and the limitations below; it is not merged.**
 
 Started from updated main cc44852c7db55840f233f952c411dd485a8660a8 on
 feat/issue-50-evidence-drafting. The [protocol](issue-50-protocol.md) was committed
@@ -52,7 +52,7 @@ scoreable reports, not validated model successes.
 | End-to-end p95 | 7.378 s | 3.644 s |
 | Input / output tokens | 26193 / 1192 | 21619 / 2527 |
 | Peak sampled GPU memory | 2740 MiB | 2742 MiB |
-| Human usefulness / semantic support | pending | pending |
+| Human usefulness | 2 useful / 7 partly / 11 not | 0 useful / 3 partly / 17 not |
 
 The frozen drafting schema admits generic type strings; unlike the legacy path,
 its prompt does not provide enumerated type-evidence options. Models return labels
@@ -86,13 +86,20 @@ CRLF paragraphs exceed the passage bound and are explicitly omitted. This is a
 disclosed representation limitation, not a silently truncated opening. Fresh A
 also uses 512 rather than #48's 256 tokens; comparisons to #48 are confounded.
 
-No fresh usefulness scores, unsupported-claim counts, improved/unchanged/regressed
-ratings, relationship judgments or semantic approvals have been assigned.
+The requesting user independently reviewed all forty development replies without
+consulting identities or transferring previous ratings. Candidate B improves zero,
+leaves fourteen unchanged and regresses six; mean paired gain is -0.4 rather than
+the required +0.4. The development promotion gate definitively fails. The review
+finds one unsupported qualification in control R26, and none in candidate replies.
+Twenty-six replies across both arms contain no substantive claims; these are not
+labelled supported. Full verbatim reasons and semantic judgments are retained in
+[development review](issue-50/development-review-method.md). Separate relationship,
+redundancy and abstention observations are preserved without inventing complete
+independent field labels. Pilot usefulness and semantic judgments remain pending.
 [Forty development replies](issue-50/human-review.md) and
 [twenty pilot replies](issue-50/pilot-human-review.md) use anonymous shuffled codes,
-matching fingerprints and separate identity keys. Their JSON companions remain
-pending. Requesting user was explicitly asked to review both sets; pilot expectation
-confirmation does not approve generated replies.
+matching fingerprints and separate identity keys. The development JSON companion records all forty explicit reviews; the pilot
+companion remains pending. Pilot expectation confirmation does not approve generated replies.
 
 ## Acceptance evidence
 
@@ -103,15 +110,15 @@ confirmation does not approve generated replies.
 | Structured drafting on both interfaces | Opt-in MODEL_DRAFTING=1 or drafting model/agent classes. Exact context quotes/IDs, extractive factual explanations, generated questions or explicit null. Legacy is default and rollback. Structural validity is not semantic proof. |
 | Public regressions and safety | 276 tests pass, two ordinary live tests skipped; Ruff and strict mypy pass. Public regressions cover empty choices, null abstention, unknown IDs, false quotes, source references, malformed output, injection/paraphrases/quoted injection and citation-marker escaping. Existing #48 supplied-detail/relationship tests remain passing. New generated-question redundancy/relationship semantic regressions remain incomplete; limited lexical rejection does not prove semantic support. Read-only tools, four-call cap, tool bounds, 20 s timeout/65536-byte response and partial reports retained; experimental output limit increases to 512 as predeclared. |
 | Same 3B then frozen 3B/4B/7B | Corrected 3B control/candidate precede pilot; preserved serving snapshots and blobs confirm identities/settings/residency. B/C/D input/prompt/schema hashes match. A empty-packet and schedule confounders disclosed. |
-| Preserve outputs and explicit reviews | Real responses/reports/traces/errors, schema/prompt/input/evidence hashes and serving records preserved. Pilot expectations explicitly reviewed. **Sixty fresh usefulness/semantic reviews pending**; no labels or reasons invented/transferred. |
-| Per-case quality/resources | summary.json contains per-case field comparisons and pending human fields; raw artifacts preserve tokens/errors/latency/GPU. Unsupported claims, human regressions, separate relationships and other-field abstention remain unverified pending human review. Five pilot cases are not independent generalization proof. |
+| Preserve outputs and explicit reviews | Real responses/reports/traces/errors, schema/prompt/input/evidence hashes and serving records preserved. Pilot expectations explicitly reviewed. **Forty development reviews explicitly confirmed; twenty pilot reviews pending**; no labels or reasons invented/transferred. |
+| Per-case quality/resources | summary.json contains per-case field comparisons and pending human fields; raw artifacts preserve tokens/errors/latency/GPU. Development human changes and unsupported qualification are recorded; pilot human changes and unsupported claims remain pending. Separate relationship/other-field labels remain incomplete. Five pilot cases are not independent generalization proof. |
 | API/web and retain/adopt decision | Four counted real calls through both HTTP interfaces yield HTTP 200 partial reports with bounded traces. Browser renders both a preserved genuine response and a fresh browser-triggered real response/trace with no JS errors. The fresh check used three model calls, displayed the partial report, and retained its failed selection; successful rendering is not successful drafting. Threshold promotion cannot pass with failed candidates/incomplete human evidence: retain baseline. No merge or #16 handoff yet. |
 
 ## Required next human actions and limits
 
-Review R01–R40 and P01–P20 with fresh usefulness ratings/reasons and separate semantic,
+Review P01–P20 with fresh usefulness ratings/reasons and separate semantic,
 redundancy, relationship and abstention judgments; unsure stays pending.
-The experiment cannot claim usefulness improvement without those reviews.
+R01–R40 reviews are recorded. Their ratings establish a development regression.
 The [fresh browser check](issue-50/web-live.json) passed display/trace checks; its
 model selection still failed. A pre-startup navigation failure dispatched no inference
 and is preserved separately. No further prompt/schema/rule tuning is

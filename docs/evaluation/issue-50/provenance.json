@@ -32,7 +32,7 @@
     "docs/evaluation/issue-50/web-render.json": "1e5b09fc1be8999bba4ef24cddebef7c8e689e9b5f03cb8ee47a6ecbc2c60ba4",
     "docs/evaluation/issue-50/development-2-B.json": "e808a20f8f8a106d4428d1597ac74cf0c0c4a7cca1d580e51017ffd568c43562",
     "docs/evaluation/issue-50/pilot-human-review.json": "26a12e1afc1b7d52addc6a1cd59893a62f64b7a21b48c33cd6ef87bd0a2de5ba",
-    "docs/evaluation/issue-50/summary.json": "8b394331d8e3506a2af1acb0bd14f5311cd1fe37d72e935abc56e38ae5342869",
+    "docs/evaluation/issue-50/summary.json": "8959590bf21453eab4856c7c8b867e7b72f53964a22ef760f68701a2f1258efa",
     "docs/evaluation/issue-50/development-2-A.json": "1c4218ebd9094f4a76e511acba866ccee3db66fe4ebb49bb4926edfb7804b5b6",
     "docs/evaluation/issue-50/web-live.png": "7aedf3e55d2b2023b27e14d7791c56c56a968eb3d98c88e0d968e4bfdf029226",
     "docs/evaluation/issue-50/web-model-calls.json": "13413e2b2c3a7307d8745ba199215cf72780e1e252849f74d1963a0647fe9403",
@@ -52,14 +52,17 @@
     "docs/evaluation/issue-50/web-start-failure.json": "e3b56c5a3e139c762c3df8f1b079567c7579f15f05ca4b8a77c9118833038fc6",
     "docs/evaluation/issue-50/deterministic-checks.txt": "875af1c62746279344bb709a11821ce4f75ea36b030a6a6c845fd81d7d0e234f",
     "docs/evaluation/issue-50/pilot-A.json": "e102f435f15fe88525c3e71f4b3976510b6f3ff44c1cc04a2235adc7cb855474",
-    "docs/evaluation/issue-50/human-review.json": "8caa1e2d928c6508a624d10b2339dad0a8976322c39d9bf48c3d0a0379c87540",
+    "docs/evaluation/issue-50/human-review.json": "0587ace09b332d0afa7d4c3dbbbb9835b1ed3df5533ee43e44711dd3ccc815ee",
     "docs/evaluation/issue-50/web-live.json": "e0905cfbb3d32dd67d92c143eb841ef329b44100c48bb70e9112f290702be6ca",
     "docs/evaluation/issue-50/pilot-review-identity-key.json": "8a4c24f6f696263eeb336f5b518f8a09874b18e25b1214b60c02706ed6322152",
     "docs/evaluation/issue-50/pilot-matching.json": "06186ea22bf7e25eebd391d7fde6e46c46c110bde4874f6dc885ad843d2a8750",
     "docs/evaluation/issue-50/pilot-B.json": "8789ff1f66f8ec2d6c8aac85b202b4764acb4597c890242bf770f882ba7f0cab",
     "docs/evaluation/issue-50/api-smoke-calls.json": "51ef2b59a8ff66f37483fd33db3c97c5d125e2c1c31151fdcab68271bbe48fee",
     "docs/evaluation/issue-50/residency-2-A-recovered.json": "abd03c43addb29750b6a13ef07f6daa70d862bf7c3528e9fd6c8c14723b8e6f3",
-    "docs/evaluation/issue-50/api-smoke.json": "c1928a119903fcd0311d0b27ffd8d59275f4bb278a24fb69deff4ac67ce8a610"
+    "docs/evaluation/issue-50/api-smoke.json": "c1928a119903fcd0311d0b27ffd8d59275f4bb278a24fb69deff4ac67ce8a610",
+    "docs/evaluation/issue-50/development-review-method.md": "ba03d99f3f568e21c7ac5b2f4c3b8f858e354d0bcd80bfe71dc584be6e7f71f9",
+    "docs/evaluation/issue-50/development-review-verbatim.tsv": "91ec0cdbb37d73e5cf5b2c683607597bcbefc7f023f423b20b60c677720d1d37"
   },
-  "human_reviews_pending": 60
+  "human_reviews_pending": 20,
+  "development_human_reviews_confirmed": 40
 }

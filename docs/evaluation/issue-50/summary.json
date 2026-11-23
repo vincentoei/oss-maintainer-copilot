@@ -15,13 +15,19 @@
     "peak_sampled_gpu_mib": 2740.0,
     "input_tokens": 26193,
     "output_tokens": 1192,
-    "quality_reviews": "pending",
+    "quality_reviews": "human_confirmed",
     "field_scores": {
       "issue_type_accuracy": 0.6,
       "missing_details_exact": 0.65,
       "existing_relationship_exact": 0.10526315789473684,
       "citation_structural_validity": 1.0
-    }
+    },
+    "usefulness_counts": {
+      "not useful": 11,
+      "useful": 2,
+      "partly useful": 7
+    },
+    "human_confirmed_unsupported_qualifications": 1
   },
   "candidate": {
     "cases": 20,
@@ -32,13 +38,18 @@
     "peak_sampled_gpu_mib": 2742.0,
     "input_tokens": 21619,
     "output_tokens": 2527,
-    "quality_reviews": "pending",
+    "quality_reviews": "human_confirmed",
     "field_scores": {
       "issue_type_accuracy": 0.0,
       "missing_details_exact": 0.65,
       "existing_relationship_exact": 0.10526315789473684,
       "citation_structural_validity": 1.0
-    }
+    },
+    "usefulness_counts": {
+      "not useful": 17,
+      "partly useful": 3
+    },
+    "human_confirmed_unsupported_qualifications": 0
   },
   "per_case": [
     {
@@ -163,8 +174,10 @@
           ]
         }
       },
-      "usefulness_change": "pending_human_review",
-      "unsupported_claims": "pending_human_review"
+      "usefulness_change": "regressed",
+      "unsupported_claims": "pending_human_review",
+      "control_usefulness": "partly useful",
+      "candidate_usefulness": "not useful"
     },
     {
       "issue_number": 10156,
@@ -271,8 +284,10 @@
           "citations": []
         }
       },
-      "usefulness_change": "pending_human_review",
-      "unsupported_claims": "pending_human_review"
+      "usefulness_change": "unchanged",
+      "unsupported_claims": "pending_human_review",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful"
     },
     {
       "issue_number": 12053,
@@ -393,8 +408,10 @@
           ]
         }
       },
-      "usefulness_change": "pending_human_review",
-      "unsupported_claims": "pending_human_review"
+      "usefulness_change": "regressed",
+      "unsupported_claims": "pending_human_review",
+      "control_usefulness": "partly useful",
+      "candidate_usefulness": "not useful"
     },
     {
       "issue_number": 12072,
@@ -526,8 +543,10 @@
           ]
         }
       },
-      "usefulness_change": "pending_human_review",
-      "unsupported_claims": "pending_human_review"
+      "usefulness_change": "regressed",
+      "unsupported_claims": "pending_human_review",
+      "control_usefulness": "partly useful",
+      "candidate_usefulness": "not useful"
     },
     {
       "issue_number": 12079,
@@ -667,8 +686,10 @@
           ]
         }
       },
-      "usefulness_change": "pending_human_review",
-      "unsupported_claims": "pending_human_review"
+      "usefulness_change": "unchanged",
+      "unsupported_claims": "pending_human_review",
+      "control_usefulness": "partly useful",
+      "candidate_usefulness": "partly useful"
     },
     {
       "issue_number": 12081,
@@ -818,8 +839,10 @@
           ]
         }
       },
-      "usefulness_change": "pending_human_review",
-      "unsupported_claims": "pending_human_review"
+      "usefulness_change": "regressed",
+      "unsupported_claims": "pending_human_review",
+      "control_usefulness": "partly useful",
+      "candidate_usefulness": "not useful"
     },
     {
       "issue_number": 12083,
@@ -932,8 +955,10 @@
           "citations": []
         }
       },
-      "usefulness_change": "pending_human_review",
-      "unsupported_claims": "pending_human_review"
+      "usefulness_change": "unchanged",
+      "unsupported_claims": "pending_human_review",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful"
     },
     {
       "issue_number": 12116,
@@ -1040,8 +1065,10 @@
           "citations": []
         }
       },
-      "usefulness_change": "pending_human_review",
-      "unsupported_claims": "pending_human_review"
+      "usefulness_change": "unchanged",
+      "unsupported_claims": "pending_human_review",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful"
     },
     {
       "issue_number": 12146,
@@ -1164,8 +1191,10 @@
           ]
         }
       },
-      "usefulness_change": "pending_human_review",
-      "unsupported_claims": "pending_human_review"
+      "usefulness_change": "regressed",
+      "unsupported_claims": "pending_human_review",
+      "control_usefulness": "useful",
+      "candidate_usefulness": "not useful"
     },
     {
       "issue_number": 12189,
@@ -1278,8 +1307,10 @@
           "citations": []
         }
       },
-      "usefulness_change": "pending_human_review",
-      "unsupported_claims": "pending_human_review"
+      "usefulness_change": "unchanged",
+      "unsupported_claims": "pending_human_review",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful"
     },
     {
       "issue_number": 12197,
@@ -1395,8 +1426,10 @@
           "citations": []
         }
       },
-      "usefulness_change": "pending_human_review",
-      "unsupported_claims": "pending_human_review"
+      "usefulness_change": "unchanged",
+      "unsupported_claims": "pending_human_review",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful"
     },
     {
       "issue_number": 12201,
@@ -1501,8 +1534,10 @@
           "citations": []
         }
       },
-      "usefulness_change": "pending_human_review",
-      "unsupported_claims": "pending_human_review"
+      "usefulness_change": "unchanged",
+      "unsupported_claims": "pending_human_review",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful"
     },
     {
       "issue_number": 12203,
@@ -1626,8 +1661,10 @@
           ]
         }
       },
-      "usefulness_change": "pending_human_review",
-      "unsupported_claims": "pending_human_review"
+      "usefulness_change": "unchanged",
+      "unsupported_claims": "pending_human_review",
+      "control_usefulness": "partly useful",
+      "candidate_usefulness": "partly useful"
     },
     {
       "issue_number": 12204,
@@ -1751,8 +1788,10 @@
           ]
         }
       },
-      "usefulness_change": "pending_human_review",
-      "unsupported_claims": "pending_human_review"
+      "usefulness_change": "unchanged",
+      "unsupported_claims": "pending_human_review",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful"
     },
     {
       "issue_number": 12216,
@@ -1866,8 +1905,10 @@
           "citations": []
         }
       },
-      "usefulness_change": "pending_human_review",
-      "unsupported_claims": "pending_human_review"
+      "usefulness_change": "unchanged",
+      "unsupported_claims": "pending_human_review",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful"
     },
     {
       "issue_number": 12219,
@@ -2011,8 +2052,10 @@
           ]
         }
       },
-      "usefulness_change": "pending_human_review",
-      "unsupported_claims": "pending_human_review"
+      "usefulness_change": "regressed",
+      "unsupported_claims": "pending_human_review",
+      "control_usefulness": "useful",
+      "candidate_usefulness": "not useful"
     },
     {
       "issue_number": 12223,
@@ -2125,8 +2168,10 @@
           "citations": []
         }
       },
-      "usefulness_change": "pending_human_review",
-      "unsupported_claims": "pending_human_review"
+      "usefulness_change": "unchanged",
+      "unsupported_claims": "pending_human_review",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful"
     },
     {
       "issue_number": 12224,
@@ -2233,8 +2278,10 @@
           "citations": []
         }
       },
-      "usefulness_change": "pending_human_review",
-      "unsupported_claims": "pending_human_review"
+      "usefulness_change": "unchanged",
+      "unsupported_claims": "pending_human_review",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful"
     },
     {
       "issue_number": 12226,
@@ -2358,8 +2405,10 @@
           ]
         }
       },
-      "usefulness_change": "pending_human_review",
-      "unsupported_claims": "pending_human_review"
+      "usefulness_change": "unchanged",
+      "unsupported_claims": "pending_human_review",
+      "control_usefulness": "partly useful",
+      "candidate_usefulness": "partly useful"
     },
     {
       "issue_number": 12228,
@@ -2486,8 +2535,10 @@
           ]
         }
       },
-      "usefulness_change": "pending_human_review",
-      "unsupported_claims": "pending_human_review"
+      "usefulness_change": "unchanged",
+      "unsupported_claims": "pending_human_review",
+      "control_usefulness": "not useful",
+      "candidate_usefulness": "not useful"
     }
   ],
   "pilot": {
@@ -2537,5 +2588,10 @@
     }
   },
   "web_dispatches": 3,
-  "live_web": "passed display/trace checks with genuine inference; model selection rejected, report partial"
+  "live_web": "passed display/trace checks with genuine inference; model selection rejected, report partial",
+  "development_usefulness_changes": {
+    "regressed": 6,
+    "unchanged": 14
+  },
+  "development_mean_paired_usefulness_gain": -0.4
 }
