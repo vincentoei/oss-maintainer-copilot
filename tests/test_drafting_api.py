@@ -92,7 +92,16 @@ def test_empty_legacy_choices_can_produce_a_contextual_investigation(
 
 @pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
 @pytest.mark.parametrize(
-    "corruption", ["id", "quote", "source", "injection", "claim", "malformed"]
+    "corruption",
+    [
+        "id",
+        "quote",
+        "source",
+        "injection",
+        "paraphrased-injection",
+        "claim",
+        "malformed",
+    ],
 )
 def test_invalid_generated_drafts_are_rejected(endpoint: str, corruption: str) -> None:
     result = report(endpoint, corruption)

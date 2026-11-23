@@ -7,6 +7,7 @@ import json
 import os
 import platform
 import re
+import subprocess
 from dataclasses import asdict
 from datetime import UTC, datetime
 from pathlib import Path
@@ -28,11 +29,22 @@ def main():
     parser.add_argument("--arm", choices=["A", "B"], required=True)
     parser.add_argument("--ollama-url", required=True)
     parser.add_argument("--directory", type=Path, required=True)
+    parser.add_argument("--recover-flagged", action="store_true")
     args = parser.parse_args()
+    os.environ["GITHUB_TOKEN"] = subprocess.check_output(
+        ["gh", "auth", "token"], text=True
+    ).strip()
     root = args.directory
     root.mkdir(parents=True, exist_ok=True)
-    output = root / f"development-2-{args.arm}.json"
-    marker = root / f"development-2-{args.arm}.started"
+    suffix = "-recovered" if args.recover_flagged else ""
+    output = root / f"development-2-{args.arm}{suffix}.json"
+    marker = root / f"development-2-{args.arm}{suffix}.started"
+    skip = []
+    if args.recover_flagged:
+        previous = json.loads((root / f"development-2-{args.arm}.json").read_text())
+        skip = [c["issue_number"] for c in previous["cases"] if not c["error"]]
+        if any(c["model_calls"] for c in previous["cases"] if c["error"]):
+            parser.error("Cannot recover cases that already dispatched inference")
     if output.exists() or marker.exists():
         parser.error("Arm already started; no automatic repetition allowed")
     if args.arm == "B" and not (root / "development-2-A.json").exists():
@@ -53,7 +65,7 @@ def main():
     ):
         raise ValueError("Serving settings changed")
     marker.write_text(datetime.now(UTC).isoformat())
-    (root / f"serving-2-{args.arm}.json").write_text(
+    (root / f"serving-2-{args.arm}{suffix}.json").write_text(
         json.dumps(
             {
                 "identity": identity,
@@ -78,7 +90,10 @@ def main():
                 fcntl.flock(ledger, fcntl.LOCK_EX)
                 ledger.seek(0)
                 records = [json.loads(line) for line in ledger if line.strip()]
-                if len(records) >= 120:
+                development_count = sum(
+                    r.get("partition") == "development" for r in records
+                )
+                if len(records) >= 120 or development_count >= 60:
                     raise model.ModelUnavailable("Experiment request budget exhausted")
                 record = {
                     "request": len(records) + 1,
@@ -129,9 +144,10 @@ def main():
         issue_source=cache,
         source_reader=cache,
         measure_gpu=True,
+        skip_issue_numbers=skip,
     )
     output.write_text(json.dumps(result, indent=2) + "\n")
-    (root / f"residency-2-{args.arm}.json").write_text(
+    (root / f"residency-2-{args.arm}{suffix}.json").write_text(
         json.dumps(_ollama_json(base + "/api/ps"), indent=2) + "\n"
     )
 

@@ -1,5 +1,5 @@
 {
-  "status": "pending_human_review_no_inference_permitted",
+  "status": "human_confirmed_frozen_before_inference",
   "selection_exposure": "Root agent inspected original openings only to select/annotate. Excluded edited #11929/#11937 and same-family #11904. No reserved output generated; no pilot-specific implementation changes permitted. These inputs must not later be called unseen.",
   "cases": [
     {
@@ -22,9 +22,21 @@
         "rationale": "Collection traverses an unrelated restricted directory; minimal shell reproduction and pytest/Python versions supplied."
       },
       "human_review": {
-        "status": "pending"
+        "status": "confirmed",
+        "reviewer": "requesting user",
+        "confirmed_at": "2026-11-23T16:44:48.172203+00:00",
+        "evidence": "docs/evaluation/issue-50-pilot-review.md"
       },
-      "family_separation": "Distinct underlying behavior from the twenty catalog families and other four reserved families; requires human confirmation."
+      "family_separation": "Distinct underlying behavior from the twenty catalog families and other four reserved families; requires human confirmation.",
+      "expected_outcome": {
+        "issue_type": "type: bug",
+        "missing_details": [
+          "installed packages",
+          "operating system"
+        ],
+        "earlier_issue_relationship": "uncertain",
+        "rationale": "Collection traverses an unrelated restricted directory; minimal shell reproduction and pytest/Python versions supplied."
+      }
     },
     {
       "issue_number": 11906,
@@ -45,9 +57,20 @@
         "rationale": "Multi-argument custom warning yields TypeError after a mismatched warning message; reproducer and version comparison plus Windows version supplied."
       },
       "human_review": {
-        "status": "pending"
+        "status": "confirmed",
+        "reviewer": "requesting user",
+        "confirmed_at": "2026-11-23T16:44:48.172222+00:00",
+        "evidence": "docs/evaluation/issue-50-pilot-review.md"
       },
-      "family_separation": "Distinct underlying behavior from the twenty catalog families and other four reserved families; requires human confirmation."
+      "family_separation": "Distinct underlying behavior from the twenty catalog families and other four reserved families; requires human confirmation.",
+      "expected_outcome": {
+        "issue_type": "type: bug",
+        "missing_details": [
+          "installed packages"
+        ],
+        "earlier_issue_relationship": "uncertain",
+        "rationale": "Multi-argument custom warning yields TypeError after a mismatched warning message; reproducer and version comparison plus Windows version supplied."
+      }
     },
     {
       "issue_number": 11945,
@@ -69,9 +92,21 @@
         "rationale": "Nested tuple comparison differs from inner tuple comparison; short reproducer and pytest version supplied."
       },
       "human_review": {
-        "status": "pending"
+        "status": "confirmed",
+        "reviewer": "requesting user",
+        "confirmed_at": "2026-11-23T16:44:48.172224+00:00",
+        "evidence": "docs/evaluation/issue-50-pilot-review.md"
       },
-      "family_separation": "Distinct underlying behavior from the twenty catalog families and other four reserved families; requires human confirmation."
+      "family_separation": "Distinct underlying behavior from the twenty catalog families and other four reserved families; requires human confirmation.",
+      "expected_outcome": {
+        "issue_type": "type: bug",
+        "missing_details": [
+          "installed packages",
+          "operating system"
+        ],
+        "earlier_issue_relationship": "uncertain",
+        "rationale": "Nested tuple comparison differs from inner tuple comparison; short reproducer and pytest version supplied."
+      }
     },
     {
       "issue_number": 11940,
@@ -90,9 +125,18 @@
         "rationale": "Concrete plugin flag-conflict use case, proposed public method and private-parser workaround supplied."
       },
       "human_review": {
-        "status": "pending"
+        "status": "confirmed",
+        "reviewer": "requesting user",
+        "confirmed_at": "2026-11-23T16:44:48.172225+00:00",
+        "evidence": "docs/evaluation/issue-50-pilot-review.md"
       },
-      "family_separation": "Distinct underlying behavior from the twenty catalog families and other four reserved families; requires human confirmation."
+      "family_separation": "Distinct underlying behavior from the twenty catalog families and other four reserved families; requires human confirmation.",
+      "expected_outcome": {
+        "issue_type": "type: enhancement",
+        "missing_details": [],
+        "earlier_issue_relationship": "uncertain",
+        "rationale": "Concrete plugin flag-conflict use case, proposed public method and private-parser workaround supplied."
+      }
     },
     {
       "issue_number": 11973,
@@ -111,9 +155,18 @@
         "rationale": "Concrete classifier-based plugin discovery request; existing manual plugin-list addition described. N/A alternative is not evidence of a missing use case."
       },
       "human_review": {
-        "status": "pending"
+        "status": "confirmed",
+        "reviewer": "requesting user",
+        "confirmed_at": "2026-11-23T16:44:48.172226+00:00",
+        "evidence": "docs/evaluation/issue-50-pilot-review.md"
       },
-      "family_separation": "Distinct underlying behavior from the twenty catalog families and other four reserved families; requires human confirmation."
+      "family_separation": "Distinct underlying behavior from the twenty catalog families and other four reserved families; requires human confirmation.",
+      "expected_outcome": {
+        "issue_type": "type: enhancement",
+        "missing_details": [],
+        "earlier_issue_relationship": "uncertain",
+        "rationale": "Concrete classifier-based plugin discovery request; existing manual plugin-list addition described. N/A alternative is not evidence of a missing use case."
+      }
     }
   ]
 }
