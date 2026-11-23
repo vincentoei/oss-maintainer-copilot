@@ -63,10 +63,12 @@ class Draft(BaseModel):
         # Source references are server-rendered, never authored by the model.
         if re.search(r"https?://|www\.|\[[^\]]+\]|#\d+", self.text):
             raise ValueError("Draft contains an unsupported source reference")
+        rendered = "\n".join([self.text, *[s.quote for s in self.support]])
         if re.search(
-            r"ignore.*instructions|system prompt|execute|shell|password|secret|"
+            r"(?:ignore|disregard|override|forget).*(?:instruction|rule|prompt)|"
+            r"(?:system|hidden|previous).*prompt|execute|shell|password|secret|"
             r"api.key|send.*token|<script|javascript:",
-            self.text,
+            rendered,
             re.I,
         ):
             raise ValueError("Draft contains instruction-like content")
@@ -74,5 +76,8 @@ class Draft(BaseModel):
             # Extractive explanations avoid presenting an invented diagnosis.
             if self.text not in [item.quote for item in self.support]:
                 raise ValueError("Factual explanation must be an exact evidence quote")
-        elif not self.text.endswith("?"):
+        elif not (
+            self.text.endswith("?")
+            and re.match(r"^(Does|Do|Can|Could|What|Which|How)\b", self.text)
+        ):
             raise ValueError("Investigation must be a question")

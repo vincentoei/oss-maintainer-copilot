@@ -559,7 +559,7 @@ def triage_issue(
     drafting = bool(getattr(client, "drafting", False))
     evidence_passages: tuple[EvidencePassage, ...] = ()
     evidence_error = None
-    if drafting:
+    if drafting or bool(getattr(client, "evidence_enabled", False)):
         try:
             evidence_passages, omissions = evidence_packet(
                 f"{issue.title}\n{issue.body}",
@@ -668,7 +668,8 @@ def triage_issue(
                         passage=support.quote,
                     )
                 )
-                context.append(f"“{support.quote}” [{citation_id}]")
+                safe_quote = support.quote.replace("[", "［").replace("]", "］")
+                context.append(f"“{safe_quote}” [{citation_id}]")
             reply += "\nContext supplied: " + "; ".join(context)
             reply += "\n" + draft.text
             abstentions.append(

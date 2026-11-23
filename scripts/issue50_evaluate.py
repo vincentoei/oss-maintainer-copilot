@@ -31,11 +31,11 @@ def main():
     args = parser.parse_args()
     root = args.directory
     root.mkdir(parents=True, exist_ok=True)
-    output = root / f"development-{args.arm}.json"
-    marker = root / f"development-{args.arm}.started"
+    output = root / f"development-2-{args.arm}.json"
+    marker = root / f"development-2-{args.arm}.started"
     if output.exists() or marker.exists():
         parser.error("Arm already started; no automatic repetition allowed")
-    if args.arm == "B" and not (root / "development-A.json").exists():
+    if args.arm == "B" and not (root / "development-2-A.json").exists():
         parser.error("Complete same-model control A before candidate B")
     base = args.ollama_url.rstrip("/")
     name = "pytest-triage:coder3b-ctx16k"
@@ -53,7 +53,7 @@ def main():
     ):
         raise ValueError("Serving settings changed")
     marker.write_text(datetime.now(UTC).isoformat())
-    (root / f"serving-{args.arm}.json").write_text(
+    (root / f"serving-2-{args.arm}.json").write_text(
         json.dumps(
             {
                 "identity": identity,
@@ -68,6 +68,7 @@ def main():
 
     class Observed(model.OpenAICompatibleModel):
         drafting = args.arm == "B"
+        evidence_enabled = True
         report_max_tokens = 512
 
         def generate_json(
@@ -83,6 +84,7 @@ def main():
                     "request": len(records) + 1,
                     "arm": args.arm,
                     "partition": "development",
+                    "iteration": 2,
                     "warmup": False,
                     "dispatched_at": datetime.now(UTC).isoformat(),
                     "prompt_sha256": sha(system_prompt),
@@ -129,7 +131,7 @@ def main():
         measure_gpu=True,
     )
     output.write_text(json.dumps(result, indent=2) + "\n")
-    (root / f"residency-{args.arm}.json").write_text(
+    (root / f"residency-2-{args.arm}.json").write_text(
         json.dumps(_ollama_json(base + "/api/ps"), indent=2) + "\n"
     )
 

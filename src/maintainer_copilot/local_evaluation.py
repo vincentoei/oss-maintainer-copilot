@@ -37,6 +37,7 @@ class _ObservedModel(model.OpenAICompatibleModel):
         super().__init__(client.base_url, client.model_name)
         self.client = client
         self.drafting = client.drafting
+        self.evidence_enabled = bool(getattr(client, "evidence_enabled", False))
         self.calls: list[dict[str, Any]] = []
 
     def generate(self, request: model.ModelRequest) -> object:

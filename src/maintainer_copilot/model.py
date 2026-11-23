@@ -223,6 +223,11 @@ class OpenAICompatibleModel:
                     for statement in request.reply_statements
                 ],
                 "required_reply_ids": request.required_reply_ids,
+                **(
+                    {"evidence_passages": [vars(p) for p in request.evidence_passages]}
+                    if request.evidence_passages
+                    else {}
+                ),
             },
             max_tokens=self.report_max_tokens,
             response_schema=schema,
