@@ -1,0 +1,722 @@
+[
+  {
+    "code": "R01",
+    "issue_number": 12053,
+    "report_sha256": "27a96a3f611bfa7ead9301426b8f0b086022462cef511788975914bd116822bc",
+    "draft_reply_sha256": "5c68764a303e44810843a02ede679c6c973ba0d416557915d9e77123ff7f8831",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R02",
+    "issue_number": 12223,
+    "report_sha256": "3d7a9bda78bac5765c676a1bb35cd886437ae7725d7ae35107ac7808d29f584b",
+    "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R03",
+    "issue_number": 12146,
+    "report_sha256": "e2e6024c21af6b55f5e7de8b5f21fe6ec49e1375433df393fa8871855b1f0635",
+    "draft_reply_sha256": "e19947d515514499027d456bdc5a6e3e60ed2baf09ccfede37c427ad238f083f",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R04",
+    "issue_number": 10156,
+    "report_sha256": "715ebb97f3073e10f543411088fd3fabf0454ea34b23b068f1e746ff2248a499",
+    "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R05",
+    "issue_number": 12228,
+    "report_sha256": "8b901b67f6f1e062800e3c3e4c629862f3e160f76cf3d5b355315ec59c82c479",
+    "draft_reply_sha256": "fe6615876a279ac1dabacd089ef4a7bbf7c238806f0e820a4317829a7a0ae098",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R06",
+    "issue_number": 12189,
+    "report_sha256": "81548d71afb8232397ca42422a29960ab69336e7d65cb7709c5c51002bfeeff8",
+    "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R07",
+    "issue_number": 12226,
+    "report_sha256": "7e7fe6b35d6f54d781cdbc1082cc31ddbca72a35ed22c68bb861d790f2c73053",
+    "draft_reply_sha256": "cd8f5db29951d793fb662d5f09913f886576e9fabc1d192e0cf0f71a70670d11",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R08",
+    "issue_number": 12116,
+    "report_sha256": "a28fe38c2032c12ed5103a8f3dbea843b5ffd1a54e743a0cc52f7c04fb5b44ab",
+    "draft_reply_sha256": "5c68764a303e44810843a02ede679c6c973ba0d416557915d9e77123ff7f8831",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R09",
+    "issue_number": 12204,
+    "report_sha256": "f5b767df1123e51dea1fbfaf2ac533a66fda5c0d8199a2343865841cc914236c",
+    "draft_reply_sha256": "5c68764a303e44810843a02ede679c6c973ba0d416557915d9e77123ff7f8831",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R10",
+    "issue_number": 12081,
+    "report_sha256": "9c38f9c1a589435a0b85d89adc5411066b2e345f19f489a75bf169cb03e6e9bc",
+    "draft_reply_sha256": "5c68764a303e44810843a02ede679c6c973ba0d416557915d9e77123ff7f8831",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R11",
+    "issue_number": 7312,
+    "report_sha256": "f0cefe46552f42d52bca49cf0e9d842f2df71ddf79174d918a43b3528b1bf23b",
+    "draft_reply_sha256": "5170e68fab39943ba15c1e650f725115d575d21d14bb5f390ce13b3f5b9b71fd",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R12",
+    "issue_number": 12219,
+    "report_sha256": "f8cf8bfb949ae14c33988a3d9410245b0d887975e083141a561fff6c96187e6d",
+    "draft_reply_sha256": "5c68764a303e44810843a02ede679c6c973ba0d416557915d9e77123ff7f8831",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R13",
+    "issue_number": 12223,
+    "report_sha256": "094a6c70d1b1ab0f2c36594f3b4d765cb5a5571794659af4243151b063ee69b5",
+    "draft_reply_sha256": "5c68764a303e44810843a02ede679c6c973ba0d416557915d9e77123ff7f8831",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R14",
+    "issue_number": 12079,
+    "report_sha256": "84bc4420ac8b5ca8cea874c05ddbd1129a442c020a30910d22aaccb271a1ba76",
+    "draft_reply_sha256": "fe6615876a279ac1dabacd089ef4a7bbf7c238806f0e820a4317829a7a0ae098",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R15",
+    "issue_number": 12203,
+    "report_sha256": "4beb258aaa2bba34a4320e88fea4557c53e7f02e464546a9d323d81fe0376f48",
+    "draft_reply_sha256": "5ba2b20723d9e837dc2e75a7c2b6a8a2239a62f91e30671fb47872b7077eb25d",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R16",
+    "issue_number": 12228,
+    "report_sha256": "adfa6d59ae29203721a2269d90ad75173cac13d189f66b3527f32eda427a5eb0",
+    "draft_reply_sha256": "cd8f5db29951d793fb662d5f09913f886576e9fabc1d192e0cf0f71a70670d11",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R17",
+    "issue_number": 12189,
+    "report_sha256": "c17483e27dd8f4312d50aa3c3e6acde92e5061a8872ce4dd89d9e0a8dff3b21c",
+    "draft_reply_sha256": "5c68764a303e44810843a02ede679c6c973ba0d416557915d9e77123ff7f8831",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R18",
+    "issue_number": 12203,
+    "report_sha256": "d155a43b1dbeddcfaaa10a1c854044c26f3a42c84a044a97348709710a344e62",
+    "draft_reply_sha256": "0ec9380188c08b4aba0bb0f8a5e9c382c68c496741df783619f590ab3bd4226a",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R19",
+    "issue_number": 12204,
+    "report_sha256": "f84829bdbff01652fd8c906bce1f56424353732d91a307651045d9dfc8f3598b",
+    "draft_reply_sha256": "5c68764a303e44810843a02ede679c6c973ba0d416557915d9e77123ff7f8831",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R20",
+    "issue_number": 12224,
+    "report_sha256": "14b1118e42b8e9ac3f078b86f84e294e848c77522f3639958c1b81c08a32cbb2",
+    "draft_reply_sha256": "5c68764a303e44810843a02ede679c6c973ba0d416557915d9e77123ff7f8831",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R21",
+    "issue_number": 12146,
+    "report_sha256": "80fdad59e6863a11d673588df865187c0c23e6d7dcf7fc58f44d3aa54ac22271",
+    "draft_reply_sha256": "5c68764a303e44810843a02ede679c6c973ba0d416557915d9e77123ff7f8831",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R22",
+    "issue_number": 12083,
+    "report_sha256": "a79c00439e483d7c29f674861c1deb992dc230b9198622d77ee8fe962ccd6272",
+    "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R23",
+    "issue_number": 12116,
+    "report_sha256": "bd708e16a85a30107e0f48320d9d81415c8f519fe2f1b24ffb7c8626437ca244",
+    "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R24",
+    "issue_number": 12197,
+    "report_sha256": "b4ba94b0dd24c3b4276a771ca73a7fb8f31e3980d03997626deaf647632c2ace",
+    "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R25",
+    "issue_number": 12083,
+    "report_sha256": "89551ae84900d4ebd23f7e5d3eabca1974faf21f632e7dde15b0cdb34842c27f",
+    "draft_reply_sha256": "5c68764a303e44810843a02ede679c6c973ba0d416557915d9e77123ff7f8831",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R26",
+    "issue_number": 12072,
+    "report_sha256": "003e2aded3945edbe777e92ea7523af92f71985529baf9f898d87e066724f163",
+    "draft_reply_sha256": "e8982f210fc8c0eab2076a3fada9d711ab3087edd772a7bf2530b37d85863099",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R27",
+    "issue_number": 12201,
+    "report_sha256": "c8889152df19f6603ad3a644d428347d0cdd354e2bac6077c455e9b76a8a140b",
+    "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R28",
+    "issue_number": 12079,
+    "report_sha256": "ad5091b667822d0e85bcac15b3e3a8f6a782d0640c492f018c7c63d6417c9638",
+    "draft_reply_sha256": "cd8f5db29951d793fb662d5f09913f886576e9fabc1d192e0cf0f71a70670d11",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R29",
+    "issue_number": 12053,
+    "report_sha256": "c1c8a4a0a8505a5f89d2c3dacfe8c3925abdee01dd7f757a3419ef1e03e90e8f",
+    "draft_reply_sha256": "273644575705d32b7f9d6e7b0821abb7a1ac5ebc7f9f95fe74a4fc7b8560497e",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R30",
+    "issue_number": 12226,
+    "report_sha256": "86b54e22b3aebd646944491fcfa0cb5058f29d5162f4f43e8637139fb63477b4",
+    "draft_reply_sha256": "fe6615876a279ac1dabacd089ef4a7bbf7c238806f0e820a4317829a7a0ae098",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R31",
+    "issue_number": 12216,
+    "report_sha256": "4ff8430ea305960f9db6b2c0ad1c582abc768783542e652eff79821fb23af574",
+    "draft_reply_sha256": "5c68764a303e44810843a02ede679c6c973ba0d416557915d9e77123ff7f8831",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R32",
+    "issue_number": 12216,
+    "report_sha256": "408b0d82c7bd34f41f7f4036463dba78bc143e19cd71ba651d1c0c0ad7e33f49",
+    "draft_reply_sha256": "5c68764a303e44810843a02ede679c6c973ba0d416557915d9e77123ff7f8831",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R33",
+    "issue_number": 7312,
+    "report_sha256": "76e521e828273cced4403a15f70196db1ab38a6dea3f743725d036251d8d5ef2",
+    "draft_reply_sha256": "5c68764a303e44810843a02ede679c6c973ba0d416557915d9e77123ff7f8831",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R34",
+    "issue_number": 12081,
+    "report_sha256": "fc056dc28b7d6a6d5721d2c99bacea5d4f6a3fc721aa8317913a12ca31d6a778",
+    "draft_reply_sha256": "cbef87d516bee97c01f8cdb3e5597bca53429bf3f7f437d7d485caeeb78fdbfb",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R35",
+    "issue_number": 10156,
+    "report_sha256": "1cf4d5f264c844d038a4db5059d5f7feb837e38d966f5b1556e7a6e0c368008a",
+    "draft_reply_sha256": "5c68764a303e44810843a02ede679c6c973ba0d416557915d9e77123ff7f8831",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R36",
+    "issue_number": 12197,
+    "report_sha256": "3d90992701c100f9b0db58879922c00a141644026e6592c15353921f89dd82c7",
+    "draft_reply_sha256": "5c68764a303e44810843a02ede679c6c973ba0d416557915d9e77123ff7f8831",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R37",
+    "issue_number": 12219,
+    "report_sha256": "f57d29ded3d8b10f3a8094ef8b89c0ec32248e2fddc9ae4279fcb77991ecc3ea",
+    "draft_reply_sha256": "b7ebc8e171d750d28732192a6249725ba7742e34bc2ad79cf2c9b77ef230e921",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R38",
+    "issue_number": 12072,
+    "report_sha256": "ac3cd56268b6ea3f6cddaf26ac4ed6aa8f6800be93c1b20d7e0ec8ad143f6803",
+    "draft_reply_sha256": "5c68764a303e44810843a02ede679c6c973ba0d416557915d9e77123ff7f8831",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R39",
+    "issue_number": 12224,
+    "report_sha256": "13ca7b07657495e3f067ac25a09e13c3440617efd20231d504a3ce1c848a5c52",
+    "draft_reply_sha256": "8e20000c62d0ec476fa435ffb14bbbf1a9a03132f61c23c64f6259e6ded4513b",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  },
+  {
+    "code": "R40",
+    "issue_number": 12201,
+    "report_sha256": "18afe08a107402866168099de21d6cbbea2400732b061a676139fbe23dd8aa4c",
+    "draft_reply_sha256": "5c68764a303e44810843a02ede679c6c973ba0d416557915d9e77123ff7f8831",
+    "usefulness": {
+      "status": "pending"
+    },
+    "semantic_support": {
+      "status": "pending"
+    },
+    "relationship_quality": {
+      "status": "pending"
+    },
+    "abstention": {
+      "status": "pending"
+    }
+  }
+]

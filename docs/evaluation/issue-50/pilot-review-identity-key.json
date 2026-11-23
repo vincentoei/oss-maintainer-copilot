@@ -1,0 +1,102 @@
+[
+  {
+    "code": "P01",
+    "arm": "D",
+    "issue_number": 11902
+  },
+  {
+    "code": "P02",
+    "arm": "D",
+    "issue_number": 11973
+  },
+  {
+    "code": "P03",
+    "arm": "A",
+    "issue_number": 11902
+  },
+  {
+    "code": "P04",
+    "arm": "B",
+    "issue_number": 11940
+  },
+  {
+    "code": "P05",
+    "arm": "A",
+    "issue_number": 11940
+  },
+  {
+    "code": "P06",
+    "arm": "C",
+    "issue_number": 11940
+  },
+  {
+    "code": "P07",
+    "arm": "C",
+    "issue_number": 11906
+  },
+  {
+    "code": "P08",
+    "arm": "B",
+    "issue_number": 11902
+  },
+  {
+    "code": "P09",
+    "arm": "A",
+    "issue_number": 11973
+  },
+  {
+    "code": "P10",
+    "arm": "A",
+    "issue_number": 11906
+  },
+  {
+    "code": "P11",
+    "arm": "D",
+    "issue_number": 11945
+  },
+  {
+    "code": "P12",
+    "arm": "C",
+    "issue_number": 11973
+  },
+  {
+    "code": "P13",
+    "arm": "A",
+    "issue_number": 11945
+  },
+  {
+    "code": "P14",
+    "arm": "D",
+    "issue_number": 11906
+  },
+  {
+    "code": "P15",
+    "arm": "D",
+    "issue_number": 11940
+  },
+  {
+    "code": "P16",
+    "arm": "B",
+    "issue_number": 11973
+  },
+  {
+    "code": "P17",
+    "arm": "B",
+    "issue_number": 11945
+  },
+  {
+    "code": "P18",
+    "arm": "B",
+    "issue_number": 11906
+  },
+  {
+    "code": "P19",
+    "arm": "C",
+    "issue_number": 11945
+  },
+  {
+    "code": "P20",
+    "arm": "C",
+    "issue_number": 11902
+  }
+]

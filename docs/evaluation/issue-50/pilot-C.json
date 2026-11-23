@@ -1,0 +1,1004 @@
+{
+  "arm": "C",
+  "alias": "pytest-triage:qwen3-4b-ctx16k",
+  "partition": "reserved-pilot",
+  "application_commit": "1b4d500",
+  "pilot_manifest_sha256": "fa34a8faffa0578f0a7bb9975d20d4f610addb8dda8baea87122581623818d8d",
+  "opened_at": "2026-11-23T16:45:53.073280+00:00",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "cases": [
+    {
+      "issue_number": 11902,
+      "error": null,
+      "latency_ms": 5894.433,
+      "opening_content_sha256": "e7af18082f319318ee43c4429f4e855c31b4e2f878c7c161c10a422e59e8261e",
+      "opening_cutoff": "2024-01-31T21:10:06Z",
+      "repository_commit": "046f64751bf205df695f11d298bfd87d553e1314",
+      "report": {
+        "trace_id": "8414fb77-3a46-42fb-8708-6d50c3b03028",
+        "status": "partial",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model output failed validation; no issue type was suggested."
+          },
+          {
+            "field": "draft_reply",
+            "reason": "Model did not select a supported reply claim."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "8414fb77-3a46-42fb-8708-6d50c3b03028",
+        "created_at": "2026-11-23T16:45:53.169269Z",
+        "status": "partial",
+        "duration_ms": 5804.493,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.064,
+            "duration_ms": 0.019,
+            "target": "pytest issue #11902",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.093,
+            "duration_ms": 0.006,
+            "target": "query (directories OR collection OR restricted) before 2024-01-31T21:10:06+00:00",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.102,
+            "duration_ms": 0.003,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "error",
+            "started_ms": 0.468,
+            "duration_ms": 5803.913,
+            "target": "pytest-triage:qwen3-4b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 797,
+            "output_tokens": 111,
+            "error": "Call failed."
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": 73,
+          "partition": "reserved-pilot",
+          "arm": "C",
+          "issue_number": 11902,
+          "warmup": false,
+          "max_tokens": 512,
+          "prompt_sha256": "a99da04f938203805a10ff741023c52e5cfd7e031a4170fb3d443d2a846e0cf3",
+          "schema_sha256": "ad3901a7891e450d227b911032e24b51bc00589cb5e15ddb0cbd7332ad2ba37e",
+          "input_sha256": "4f146338decdcf2c6fec96567aef5db8333f20abb742d4164d8ea80193130425",
+          "evidence_sha256": "0cfe606ae211f9ced5b23bdbe60ce8433a8e2e3763dcf0190ce342c3c012a7fe",
+          "at": "2026-11-23T16:45:53.170490+00:00",
+          "response": {
+            "output": {
+              "draft": null,
+              "issue_type": "bug",
+              "issue_type_quote": "Updated test collection breaks on adjacent restricted directories",
+              "reply_citation_ids": [
+                "E0ba3fb0755478d9ef834780272052d1b9f4c99d2750d750d0c38991864f71152"
+              ]
+            },
+            "input_tokens": 797,
+            "output_tokens": 111,
+            "error": null
+          }
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 12,
+        "initial_used_mib": 2742.0,
+        "peak_sampled_used_mib": 4996.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      },
+      "residency": {
+        "models": [
+          {
+            "name": "pytest-triage:qwen3-4b-ctx16k",
+            "model": "pytest-triage:qwen3-4b-ctx16k",
+            "size": 5102307901,
+            "digest": "0e9b053ffd632da0e1b60f7f4b1a776b09034f06761ffa1e05bfa800f5d67703",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3",
+              "families": [
+                "qwen3"
+              ],
+              "parameter_size": "4.0B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-11-23T23:50:59.1962473+07:00",
+            "size_vram": 5102307901,
+            "context_length": 16384,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "review_status": "pending"
+    },
+    {
+      "issue_number": 11906,
+      "error": null,
+      "latency_ms": 1616.924,
+      "opening_content_sha256": "507e3887cb94801fa3fde6896a6402f2b655017acffde3fe862f613866306d10",
+      "opening_cutoff": "2024-02-01T13:20:19Z",
+      "repository_commit": "046f64751bf205df695f11d298bfd87d553e1314",
+      "report": {
+        "trace_id": "a7ba4e34-1430-4f9c-b66c-70c9b59b79cd",
+        "status": "partial",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [
+          {
+            "name": "pip list output",
+            "request": "the output of `pip list` from the virtual environment you are using",
+            "citation_id": "C1"
+          },
+          {
+            "name": "pytest and OS versions",
+            "request": "your pytest and operating system versions",
+            "citation_id": "C2"
+          },
+          {
+            "name": "minimal example",
+            "request": "a minimal example, if possible",
+            "citation_id": "C3"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. Could you add the following details?\n- the output of `pip list` from the virtual environment you are using [C1]\n- your pytest and operating system versions [C2]\n- a minimal example, if possible [C3]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/046f64751bf205df695f11d298bfd87d553e1314/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+            "description": "pytest bug report template: pip list output",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/046f64751bf205df695f11d298bfd87d553e1314/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+            "description": "pytest bug report template: pytest and OS versions",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/046f64751bf205df695f11d298bfd87d553e1314/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+            "description": "pytest bug report template: minimal example",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "draft_evidence",
+            "reason": "Over-budget passages omitted: 864b3b9b7f0a9abded2a75b8f7ec8b53137fb9f38b440aab776410724c3c254f"
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model output failed validation; no issue type was suggested."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "a7ba4e34-1430-4f9c-b66c-70c9b59b79cd",
+        "created_at": "2026-11-23T16:45:59.058144Z",
+        "status": "partial",
+        "duration_ms": 1528.441,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.363,
+            "duration_ms": 0.019,
+            "target": "pytest issue #11906",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.393,
+            "duration_ms": 0.007,
+            "target": "query (handling OR warns) before 2024-02-01T13:20:19+00:00",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.402,
+            "duration_ms": 0.003,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "error",
+            "started_ms": 1.361,
+            "duration_ms": 1527.005,
+            "target": "pytest-triage:qwen3-4b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1602,
+            "output_tokens": 99,
+            "error": "Call failed."
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": 74,
+          "partition": "reserved-pilot",
+          "arm": "C",
+          "issue_number": 11906,
+          "warmup": false,
+          "max_tokens": 512,
+          "prompt_sha256": "a99da04f938203805a10ff741023c52e5cfd7e031a4170fb3d443d2a846e0cf3",
+          "schema_sha256": "ad3901a7891e450d227b911032e24b51bc00589cb5e15ddb0cbd7332ad2ba37e",
+          "input_sha256": "f894b16718fe9863764b77ba451b94b047092dcacae41d0f3420496b8dbbff46",
+          "evidence_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "at": "2026-11-23T16:45:59.060761+00:00",
+          "response": {
+            "output": {
+              "draft": null,
+              "issue_type": "bug",
+              "issue_type_quote": "There seems to be a handling error in 8.0.0, when `pytest.warns` fails to match the message. **Seems that the warning class itself is being called towards the end of the handling...**",
+              "reply_citation_ids": [
+                "C1",
+                "C2",
+                "C3"
+              ]
+            },
+            "input_tokens": 1602,
+            "output_tokens": 99,
+            "error": null
+          }
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 4,
+        "initial_used_mib": 4996.0,
+        "peak_sampled_used_mib": 5000.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      },
+      "residency": {
+        "models": [
+          {
+            "name": "pytest-triage:qwen3-4b-ctx16k",
+            "model": "pytest-triage:qwen3-4b-ctx16k",
+            "size": 5102307901,
+            "digest": "0e9b053ffd632da0e1b60f7f4b1a776b09034f06761ffa1e05bfa800f5d67703",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3",
+              "families": [
+                "qwen3"
+              ],
+              "parameter_size": "4.0B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-11-23T23:51:00.8364452+07:00",
+            "size_vram": 5102307901,
+            "context_length": 16384,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "review_status": "pending"
+    },
+    {
+      "issue_number": 11945,
+      "error": null,
+      "latency_ms": 1448.989,
+      "opening_content_sha256": "4151264bfc5bfebbdcd3ed780842e961272bb22cc8d15fcf6c2348220dd4b862",
+      "opening_cutoff": "2024-02-07T14:54:08Z",
+      "repository_commit": "6e5008f19f3c8fffa1ea2b980d4214d9c338b481",
+      "report": {
+        "trace_id": "572cc26b-6241-429c-91c8-df665909cc84",
+        "status": "partial",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model output failed validation; no issue type was suggested."
+          },
+          {
+            "field": "draft_reply",
+            "reason": "Model did not select a supported reply claim."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "572cc26b-6241-429c-91c8-df665909cc84",
+        "created_at": "2026-11-23T16:46:00.676458Z",
+        "status": "partial",
+        "duration_ms": 1362.782,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.076,
+            "duration_ms": 0.021,
+            "target": "pytest issue #11945",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.108,
+            "duration_ms": 0.007,
+            "target": "query (incorrectly OR sequences OR unequal) before 2024-02-07T14:54:08+00:00",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.117,
+            "duration_ms": 0.004,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "error",
+            "started_ms": 0.263,
+            "duration_ms": 1362.44,
+            "target": "pytest-triage:qwen3-4b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 568,
+            "output_tokens": 103,
+            "error": "Call failed."
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": 75,
+          "partition": "reserved-pilot",
+          "arm": "C",
+          "issue_number": 11945,
+          "warmup": false,
+          "max_tokens": 512,
+          "prompt_sha256": "a99da04f938203805a10ff741023c52e5cfd7e031a4170fb3d443d2a846e0cf3",
+          "schema_sha256": "ad3901a7891e450d227b911032e24b51bc00589cb5e15ddb0cbd7332ad2ba37e",
+          "input_sha256": "ffce7f81cbd89e008b9f30c9927750105d6e195a9914ada0dbd0185dee391ec3",
+          "evidence_sha256": "86457d6122a18cf0e71e056b03b438bfd3f65c5ac61bc14fb54581853a49d028",
+          "at": "2026-11-23T16:46:00.678486+00:00",
+          "response": {
+            "output": {
+              "draft": null,
+              "issue_type": "bug",
+              "issue_type_quote": "pytest.approx() incorrectly flags nested sequences as unequal",
+              "reply_citation_ids": [
+                "Ed00260ce6db8155ba5dd924cfb32e686ecc6e5573c33dcdfeafeb314fe429f99"
+              ]
+            },
+            "input_tokens": 568,
+            "output_tokens": 103,
+            "error": null
+          }
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 4,
+        "initial_used_mib": 5000.0,
+        "peak_sampled_used_mib": 5000.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      },
+      "residency": {
+        "models": [
+          {
+            "name": "pytest-triage:qwen3-4b-ctx16k",
+            "model": "pytest-triage:qwen3-4b-ctx16k",
+            "size": 5102307901,
+            "digest": "0e9b053ffd632da0e1b60f7f4b1a776b09034f06761ffa1e05bfa800f5d67703",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3",
+              "families": [
+                "qwen3"
+              ],
+              "parameter_size": "4.0B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-11-23T23:51:02.3129597+07:00",
+            "size_vram": 5102307901,
+            "context_length": 16384,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "review_status": "pending"
+    },
+    {
+      "issue_number": 11940,
+      "error": null,
+      "latency_ms": 1567.686,
+      "opening_content_sha256": "d03722aaf330616e273cd0a0098f0ecf4572c9e3178b994bd9971d348c01f0c6",
+      "opening_cutoff": "2024-02-06T17:21:41Z",
+      "repository_commit": "b9d02c5b53b62ea4f284787f6e4a36c9973a673c",
+      "report": {
+        "trace_id": "daec0b14-62bf-471d-b52d-1aa0187a6b62",
+        "status": "partial",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [
+          {
+            "name": "pip list output",
+            "request": "the output of `pip list` from the virtual environment you are using",
+            "citation_id": "C1"
+          },
+          {
+            "name": "pytest and OS versions",
+            "request": "your pytest and operating system versions",
+            "citation_id": "C2"
+          },
+          {
+            "name": "minimal example",
+            "request": "a minimal example, if possible",
+            "citation_id": "C3"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. Could you add the following details?\n- the output of `pip list` from the virtual environment you are using [C1]\n- your pytest and operating system versions [C2]\n- a minimal example, if possible [C3]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/b9d02c5b53b62ea4f284787f6e4a36c9973a673c/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+            "description": "pytest bug report template: pip list output",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/b9d02c5b53b62ea4f284787f6e4a36c9973a673c/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+            "description": "pytest bug report template: pytest and OS versions",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/b9d02c5b53b62ea4f284787f6e4a36c9973a673c/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+            "description": "pytest bug report template: minimal example",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "issue_type",
+            "reason": "Model output failed validation; no issue type was suggested."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "daec0b14-62bf-471d-b52d-1aa0187a6b62",
+        "created_at": "2026-11-23T16:46:02.128234Z",
+        "status": "partial",
+        "duration_ms": 1476.431,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.163,
+            "duration_ms": 0.017,
+            "target": "pytest issue #11940",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.19,
+            "duration_ms": 0.006,
+            "target": "query (command OR plugins OR allow) before 2024-02-06T17:21:41+00:00",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.197,
+            "duration_ms": 0.003,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "error",
+            "started_ms": 0.952,
+            "duration_ms": 1475.42,
+            "target": "pytest-triage:qwen3-4b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1041,
+            "output_tokens": 107,
+            "error": "Call failed."
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": 76,
+          "partition": "reserved-pilot",
+          "arm": "C",
+          "issue_number": 11940,
+          "warmup": false,
+          "max_tokens": 512,
+          "prompt_sha256": "a99da04f938203805a10ff741023c52e5cfd7e031a4170fb3d443d2a846e0cf3",
+          "schema_sha256": "ad3901a7891e450d227b911032e24b51bc00589cb5e15ddb0cbd7332ad2ba37e",
+          "input_sha256": "02620a112d4de72ec2489005916d30cd151cc3aafdaf83f0716c07566d3d33db",
+          "evidence_sha256": "94850b0771b79a2a04c134d69480814d882bb5fce96370b1ab067d4422450f95",
+          "at": "2026-11-23T16:46:02.129981+00:00",
+          "response": {
+            "output": {
+              "draft": null,
+              "issue_type": "feature_request",
+              "issue_type_quote": "There should be a method, for example named `cmdline_error`, for example at the `Config` class, that causes the usage error message \"ERROR: usage: pytest [options] ...\" to appear, followed by the termination of the program with the appropriate exit code.",
+              "reply_citation_ids": [
+                "C1",
+                "C2",
+                "C3"
+              ]
+            },
+            "input_tokens": 1041,
+            "output_tokens": 107,
+            "error": null
+          }
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 4,
+        "initial_used_mib": 5000.0,
+        "peak_sampled_used_mib": 5000.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      },
+      "residency": {
+        "models": [
+          {
+            "name": "pytest-triage:qwen3-4b-ctx16k",
+            "model": "pytest-triage:qwen3-4b-ctx16k",
+            "size": 5102307901,
+            "digest": "0e9b053ffd632da0e1b60f7f4b1a776b09034f06761ffa1e05bfa800f5d67703",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3",
+              "families": [
+                "qwen3"
+              ],
+              "parameter_size": "4.0B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-11-23T23:51:03.8865294+07:00",
+            "size_vram": 5102307901,
+            "context_length": 16384,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "review_status": "pending"
+    },
+    {
+      "issue_number": 11973,
+      "error": null,
+      "latency_ms": 1666.788,
+      "opening_content_sha256": "3260dcd84b3596a819b09224554fed3289d1d28c16f689b440b76c5d47077082",
+      "opening_cutoff": "2024-02-13T22:51:19Z",
+      "repository_commit": "5bb1363435a8cb3e2010505dbeb1e015c36beed6",
+      "report": {
+        "trace_id": "558c5ac3-d718-42ac-931b-d33ceb76a520",
+        "status": "partial",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [
+          {
+            "name": "real-world use case",
+            "request": "a real-world use case this would enable",
+            "citation_id": "C1"
+          },
+          {
+            "name": "alternative solutions",
+            "request": "any workaround or alternative you have tried, or that there is none",
+            "citation_id": "C2"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. Could you add the following details?\n- a real-world use case this would enable [C1]\n- any workaround or alternative you have tried, or that there is none [C2]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/5bb1363435a8cb3e2010505dbeb1e015c36beed6/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+            "description": "pytest feature report template: real-world use case",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/5bb1363435a8cb3e2010505dbeb1e015c36beed6/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+            "description": "pytest feature report template: alternative solutions",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "issue_type",
+            "reason": "Model output failed validation; no issue type was suggested."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "558c5ac3-d718-42ac-931b-d33ceb76a520",
+        "created_at": "2026-11-23T16:46:03.720082Z",
+        "status": "partial",
+        "duration_ms": 1545.263,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.522,
+            "duration_ms": 0.02,
+            "target": "pytest issue #11973",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.553,
+            "duration_ms": 0.007,
+            "target": "query (classifier OR framework OR plugin) before 2024-02-13T22:51:19+00:00",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.562,
+            "duration_ms": 0.004,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "error",
+            "started_ms": 1.259,
+            "duration_ms": 1543.939,
+            "target": "pytest-triage:qwen3-4b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1287,
+            "output_tokens": 102,
+            "error": "Call failed."
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": 77,
+          "partition": "reserved-pilot",
+          "arm": "C",
+          "issue_number": 11973,
+          "warmup": false,
+          "max_tokens": 512,
+          "prompt_sha256": "a99da04f938203805a10ff741023c52e5cfd7e031a4170fb3d443d2a846e0cf3",
+          "schema_sha256": "ad3901a7891e450d227b911032e24b51bc00589cb5e15ddb0cbd7332ad2ba37e",
+          "input_sha256": "be8e51e4e38827592f038d97606b92a522c2794d93fb5b1fda063f2b844f7603",
+          "evidence_sha256": "71381f8fac4f8f848d5f745eb5d028521d3e4c096277d841ff0b0d44f3bb60a5",
+          "at": "2026-11-23T16:46:03.722277+00:00",
+          "response": {
+            "output": {
+              "draft": null,
+              "issue_type": "feature_request",
+              "issue_type_quote": "I've just released a `pytest` plugin called [`logot`](https://github.com/etianen/logot), but because it isn't named `pytest-XXX`, it needs to be manually added to the plugin list (see #11972).",
+              "reply_citation_ids": [
+                "C1",
+                "C2"
+              ]
+            },
+            "input_tokens": 1287,
+            "output_tokens": 102,
+            "error": null
+          }
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 4,
+        "initial_used_mib": 5000.0,
+        "peak_sampled_used_mib": 5002.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      },
+      "residency": {
+        "models": [
+          {
+            "name": "pytest-triage:qwen3-4b-ctx16k",
+            "model": "pytest-triage:qwen3-4b-ctx16k",
+            "size": 5102307901,
+            "digest": "0e9b053ffd632da0e1b60f7f4b1a776b09034f06761ffa1e05bfa800f5d67703",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3",
+              "families": [
+                "qwen3"
+              ],
+              "parameter_size": "4.0B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-11-23T23:51:05.5408128+07:00",
+            "size_vram": 5102307901,
+            "context_length": 16384,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "review_status": "pending"
+    }
+  ],
+  "review_status": "pending",
+  "serving": {
+    "identity": {
+      "name": "pytest-triage:qwen3-4b-ctx16k",
+      "model": "pytest-triage:qwen3-4b-ctx16k",
+      "modified_at": "2026-11-20T00:13:19.7689208+07:00",
+      "size": 2497293455,
+      "digest": "0e9b053ffd632da0e1b60f7f4b1a776b09034f06761ffa1e05bfa800f5d67703",
+      "details": {
+        "parent_model": "qwen3:4b-instruct-2507-q4_K_M",
+        "format": "gguf",
+        "family": "qwen3",
+        "families": [
+          "qwen3"
+        ],
+        "parameter_size": "4.0B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 262144,
+        "embedding_length": 2560,
+        "runner": "llamacpp"
+      },
+      "capabilities": [
+        "tools",
+        "thinking",
+        "completion"
+      ]
+    },
+    "show": {
+      "license": "                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding those notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. We also recommend that a\n      file or class name and description of purpose be included on the\n      same \"printed page\" as the copyright notice for easier\n      identification within third-party archives.\n   Copyright 2024 Alibaba Cloud\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n       http://www.apache.org/licenses/LICENSE-2.0\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.",
+      "modelfile": "# Modelfile generated by \"ollama show\"\n# To build a new Modelfile based on this, replace FROM with:\n# FROM pytest-triage:qwen3-4b-ctx16k\n\nFROM C:\\Users\\vincentoei\\.ollama\\models\\blobs\\sha256-85e4a5b7b8ef0e48af0e8658f5aaab9c2324c76c1641493f4d1e25fce54b18b9\nTEMPLATE \"\"\"{{- $lastUserIdx := -1 -}}\n{{- range $idx, $msg := .Messages -}}\n{{- if eq $msg.Role \"user\" }}{{ $lastUserIdx = $idx }}{{ end -}}\n{{- end }}\n{{- if or .System .Tools }}<|im_start|>system\n{{ if .System }}{{ .System }}\n\n{{ end }}\n{{- if .Tools }}# Tools\n\nYou may call one or more functions to assist with the user query.\n\nYou are provided with function signatures within <tools></tools> XML tags:\n<tools>\n{{- range .Tools }}\n{\"type\": \"function\", \"function\": {{ .Function }}}\n{{- end }}\n</tools>\n\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:\n<tool_call>\n{\"name\": <function-name>, \"arguments\": <args-json-object>}\n</tool_call>\n{{- end -}}\n<|im_end|>\n{{ end }}\n{{- range $i, $_ := .Messages }}\n{{- $last := eq (len (slice $.Messages $i)) 1 -}}\n{{- if eq .Role \"user\" }}<|im_start|>user\n{{ .Content }}<|im_end|>\n{{ else if eq .Role \"assistant\" }}<|im_start|>assistant\n{{ if .Content }}{{ .Content }}{{ end }}\n{{- if .ToolCalls }}\n{{- range .ToolCalls }}\n<tool_call>\n{\"name\": \"{{ .Function.Name }}\", \"arguments\": {{ .Function.Arguments }}}\n</tool_call>\n{{- end }}\n{{- end }}{{ if not $last }}<|im_end|>\n{{ end }}\n{{- else if eq .Role \"tool\" }}<|im_start|>user\n<tool_response>\n{{ .Content }}\n</tool_response><|im_end|>\n{{ end }}\n{{- if and (ne .Role \"assistant\") $last }}<|im_start|>assistant\n{{ end }}\n{{- end }}\"\"\"\nPARAMETER num_ctx 16384\nPARAMETER repeat_penalty 1\nPARAMETER seed 42\nPARAMETER stop <|im_start|>\nPARAMETER stop <|im_end|>\nPARAMETER temperature 0\nPARAMETER top_k 20\nPARAMETER top_p 0.8\nLICENSE \"\"\"                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding those notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. We also recommend that a\n      file or class name and description of purpose be included on the\n      same \"printed page\" as the copyright notice for easier\n      identification within third-party archives.\n   Copyright 2024 Alibaba Cloud\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n       http://www.apache.org/licenses/LICENSE-2.0\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.\"\"\"\n",
+      "parameters": "num_ctx                        16384\nrepeat_penalty                 1\nseed                           42\nstop                           \"<|im_start|>\"\nstop                           \"<|im_end|>\"\ntemperature                    0\ntop_k                          20\ntop_p                          0.8",
+      "template": "{%- if tools %}\n    {{- '<|im_start|>system\\n' }}\n    {%- if messages[0].role == 'system' %}\n        {{- messages[0].content + '\\n\\n' }}\n    {%- endif %}\n    {{- \"# Tools\\n\\nYou may call one or more functions to assist with the user query.\\n\\nYou are provided with function signatures within <tools></tools> XML tags:\\n<tools>\" }}\n    {%- for tool in tools %}\n        {{- \"\\n\" }}\n        {{- tool | tojson }}\n    {%- endfor %}\n    {{- \"\\n</tools>\\n\\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:\\n<tool_call>\\n{\\\"name\\\": <function-name>, \\\"arguments\\\": <args-json-object>}\\n</tool_call><|im_end|>\\n\" }}\n{%- else %}\n    {%- if messages[0].role == 'system' %}\n        {{- '<|im_start|>system\\n' + messages[0].content + '<|im_end|>\\n' }}\n    {%- endif %}\n{%- endif %}\n{%- set ns = namespace(multi_step_tool=true, last_query_index=messages|length - 1) %}\n{%- for message in messages[::-1] %}\n    {%- set index = (messages|length - 1) - loop.index0 %}\n    {%- if ns.multi_step_tool and message.role == \"user\" and message.content is string and not(message.content.startswith('<tool_response>') and message.content.endswith('</tool_response>')) %}\n        {%- set ns.multi_step_tool = false %}\n        {%- set ns.last_query_index = index %}\n    {%- endif %}\n{%- endfor %}\n{%- for message in messages %}\n    {%- if message.content is string %}\n        {%- set content = message.content %}\n    {%- else %}\n        {%- set content = '' %}\n    {%- endif %}\n    {%- if (message.role == \"user\") or (message.role == \"system\" and not loop.first) %}\n        {{- '<|im_start|>' + message.role + '\\n' + content + '<|im_end|>' + '\\n' }}\n    {%- elif message.role == \"assistant\" %}\n        {%- set reasoning_content = '' %}\n        {%- if message.reasoning_content is string %}\n            {%- set reasoning_content = message.reasoning_content %}\n        {%- else %}\n            {%- if '</think>' in content %}\n                {%- set reasoning_content = content.split('</think>')[0].rstrip('\\n').split('<think>')[-1].lstrip('\\n') %}\n                {%- set content = content.split('</think>')[-1].lstrip('\\n') %}\n            {%- endif %}\n        {%- endif %}\n        {%- if loop.index0 > ns.last_query_index %}\n            {%- if loop.last or (not loop.last and reasoning_content) %}\n                {{- '<|im_start|>' + message.role + '\\n<think>\\n' + reasoning_content.strip('\\n') + '\\n</think>\\n\\n' + content.lstrip('\\n') }}\n            {%- else %}\n                {{- '<|im_start|>' + message.role + '\\n' + content }}\n            {%- endif %}\n        {%- else %}\n            {{- '<|im_start|>' + message.role + '\\n' + content }}\n        {%- endif %}\n        {%- if message.tool_calls %}\n            {%- for tool_call in message.tool_calls %}\n                {%- if (loop.first and content) or (not loop.first) %}\n                    {{- '\\n' }}\n                {%- endif %}\n                {%- if tool_call.function %}\n                    {%- set tool_call = tool_call.function %}\n                {%- endif %}\n                {{- '<tool_call>\\n{\"name\": \"' }}\n                {{- tool_call.name }}\n                {{- '\", \"arguments\": ' }}\n                {%- if tool_call.arguments is string %}\n                    {{- tool_call.arguments }}\n                {%- else %}\n                    {{- tool_call.arguments | tojson }}\n                {%- endif %}\n                {{- '}\\n</tool_call>' }}\n            {%- endfor %}\n        {%- endif %}\n        {{- '<|im_end|>\\n' }}\n    {%- elif message.role == \"tool\" %}\n        {%- if loop.first or (messages[loop.index0 - 1].role != \"tool\") %}\n            {{- '<|im_start|>user' }}\n        {%- endif %}\n        {{- '\\n<tool_response>\\n' }}\n        {{- content }}\n        {{- '\\n</tool_response>' }}\n        {%- if loop.last or (messages[loop.index0 + 1].role != \"tool\") %}\n            {{- '<|im_end|>\\n' }}\n        {%- endif %}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- '<|im_start|>assistant\\n' }}\n{%- endif %}",
+      "template_source": "gguf_chat_template",
+      "details": {
+        "parent_model": "qwen3:4b-instruct-2507-q4_K_M",
+        "format": "gguf",
+        "family": "qwen3",
+        "families": [
+          "qwen3"
+        ],
+        "parameter_size": "4.0B",
+        "quantization_level": "Q4_K_M",
+        "runner": "llamacpp"
+      },
+      "model_info": {
+        "general.architecture": "qwen3",
+        "general.basename": "Qwen3",
+        "general.file_type": 15,
+        "general.finetune": "Instruct",
+        "general.license": "apache-2.0",
+        "general.license.link": "https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507/blob/main/LICENSE",
+        "general.parameter_count": 4022468096,
+        "general.quantization_version": 2,
+        "general.size_label": "4B",
+        "general.tags": [
+          "text-generation"
+        ],
+        "general.type": "model",
+        "general.version": "2507",
+        "qwen3.attention.head_count": 32,
+        "qwen3.attention.head_count_kv": 8,
+        "qwen3.attention.key_length": 128,
+        "qwen3.attention.layer_norm_rms_epsilon": 1e-06,
+        "qwen3.attention.value_length": 128,
+        "qwen3.block_count": 36,
+        "qwen3.context_length": 262144,
+        "qwen3.embedding_length": 2560,
+        "qwen3.feed_forward_length": 9728,
+        "qwen3.rope.freq_base": 5000000,
+        "tokenizer.ggml.add_bos_token": false,
+        "tokenizer.ggml.bos_token_id": 151643,
+        "tokenizer.ggml.eos_token_id": 151645,
+        "tokenizer.ggml.merges": [],
+        "tokenizer.ggml.model": "gpt2",
+        "tokenizer.ggml.padding_token_id": 151643,
+        "tokenizer.ggml.pre": "qwen2",
+        "tokenizer.ggml.token_type": [],
+        "tokenizer.ggml.tokens": []
+      },
+      "capabilities": [
+        "tools",
+        "thinking",
+        "completion"
+      ],
+      "modified_at": "2026-11-20T00:13:19.7689208+07:00"
+    },
+    "source_identity": {
+      "name": "qwen3:4b-instruct-2507-q4_K_M",
+      "model": "qwen3:4b-instruct-2507-q4_K_M",
+      "modified_at": "2026-11-20T00:00:37.7281887+07:00",
+      "size": 2497293803,
+      "digest": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "qwen3",
+        "families": [
+          "qwen3"
+        ],
+        "parameter_size": "4.0B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 262144,
+        "embedding_length": 2560,
+        "runner": "ggml"
+      },
+      "capabilities": [
+        "tools",
+        "thinking",
+        "completion"
+      ]
+    },
+    "version": {
+      "version": "0.40.16"
+    },
+    "template_sha256": "05991410a4bad1a587959aa5c8901f699afc639540f931afd8ba2b359e4368a9"
+  }
+}

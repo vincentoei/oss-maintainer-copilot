@@ -1,0 +1,159 @@
+{
+  "scope": "Fresh browser-triggered real inference, existing bounded-agent HTTP report.",
+  "assertions": {
+    "rendered_reply_matches": true,
+    "partial_status_visible": true,
+    "no_javascript_errors": true
+  },
+  "report_trace_id": "89f91596-8695-4b23-898d-a06847b634bd",
+  "report": {
+    "trace_id": "89f91596-8695-4b23-898d-a06847b634bd",
+    "status": "partial",
+    "issue_type": null,
+    "issue_type_quote": null,
+    "duplicate_candidates": [],
+    "related_issues": [],
+    "missing_details": [],
+    "documentation_claims": [],
+    "source_claims": [],
+    "ci_results": [],
+    "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+    "citations": [],
+    "abstentions": [
+      {
+        "field": "issue_type",
+        "reason": "Model output failed validation; no issue type was suggested."
+      },
+      {
+        "field": "draft_reply",
+        "reason": "Model did not select a supported reply claim."
+      }
+    ]
+  },
+  "trace": {
+    "trace_id": "89f91596-8695-4b23-898d-a06847b634bd",
+    "created_at": "2026-11-23T16:49:34.631664Z",
+    "status": "partial",
+    "duration_ms": 5378.688,
+    "events": [
+      {
+        "kind": "model",
+        "name": "agent_action",
+        "status": "ok",
+        "started_ms": 0.4,
+        "duration_ms": 3948.802,
+        "target": "pytest-triage:coder3b-ctx16k",
+        "result_count": null,
+        "references": [],
+        "input_tokens": 624,
+        "output_tokens": 23,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "get_issue",
+        "status": "ok",
+        "started_ms": 3949.491,
+        "duration_ms": 0.016,
+        "target": "pytest issue #12201",
+        "result_count": 1,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "search_issues",
+        "status": "ok",
+        "started_ms": 3949.521,
+        "duration_ms": 0.605,
+        "target": "query (parametrization OR conditional) before 2024-04-09T14:22:08+00:00",
+        "result_count": 1,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "tool",
+        "name": "search_earlier_issues",
+        "status": "ok",
+        "started_ms": 3949.305,
+        "duration_ms": 1.224,
+        "target": "pytest issue #12201",
+        "result_count": 0,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "model",
+        "name": "agent_action",
+        "status": "ok",
+        "started_ms": 3950.539,
+        "duration_ms": 150.36,
+        "target": "pytest-triage:coder3b-ctx16k",
+        "result_count": null,
+        "references": [],
+        "input_tokens": 624,
+        "output_tokens": 12,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "get_issue",
+        "status": "ok",
+        "started_ms": 4103.154,
+        "duration_ms": 0.029,
+        "target": "pytest issue #12201",
+        "result_count": 1,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "search_issues",
+        "status": "ok",
+        "started_ms": 4103.196,
+        "duration_ms": 0.006,
+        "target": "query (parametrization OR conditional) before 2024-04-09T14:22:08+00:00",
+        "result_count": 0,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "assess_matches",
+        "status": "ok",
+        "started_ms": 4103.203,
+        "duration_ms": 0.003,
+        "target": null,
+        "result_count": 0,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "model",
+        "name": "triage_selection",
+        "status": "error",
+        "started_ms": 4104.322,
+        "duration_ms": 1274.175,
+        "target": "pytest-triage:coder3b-ctx16k",
+        "result_count": null,
+        "references": [],
+        "input_tokens": 1891,
+        "output_tokens": 99,
+        "error": "Call failed."
+      }
+    ]
+  },
+  "javascript_errors": []
+}

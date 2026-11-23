@@ -1,0 +1,3135 @@
+{
+  "method": "local_model",
+  "model_name": "pytest-triage:coder3b-ctx16k",
+  "model_call_count": 15,
+  "model_error_count": 2,
+  "aggregate": {
+    "cases": 16,
+    "completed": 16,
+    "errors": [],
+    "mean_latency_ms": 2251.68,
+    "mean_candidate_pool_size": 19.5,
+    "duplicate_retrieval_recall": 0.188,
+    "duplicate_judgment_accuracy": 0.067,
+    "issue_type_accuracy": 0.562,
+    "missing_details_exact": 0.625,
+    "missing_details_precision": 1.0,
+    "missing_details_recall": 0.625,
+    "citation_validity_rate": 1.0,
+    "issue_type_abstention_appropriateness": 0.75,
+    "duplicate_abstention_appropriateness": 0.938,
+    "draft_reply_usefulness": "pending_human_review",
+    "representative_failures": [
+      {
+        "issue_number": 12079,
+        "field": "duplicate_judgment"
+      },
+      {
+        "issue_number": 12083,
+        "field": "duplicate_retrieval"
+      },
+      {
+        "issue_number": 12083,
+        "field": "issue_type"
+      },
+      {
+        "issue_number": 12083,
+        "field": "missing_details"
+      },
+      {
+        "issue_number": 12083,
+        "field": "abstention"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "issue_number": 12079,
+      "method": "local_model",
+      "opening_cutoff": "2024-03-05T12:31:13+00:00",
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "latency_ms": 9488.029,
+      "candidate_pool_size": 12,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 11871,
+          "retrieved_issues": [
+            11871
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "duplicate_candidate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: enhancement",
+          "observed": "type: enhancement"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [
+            "alternative solutions"
+          ],
+          "observed": [
+            "alternative solutions"
+          ]
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 2,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Could you add any workaround or alternative you have tried, or that there is none? [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+              "description": "pytest feature report template: alternative solutions",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/11871",
+              "description": "pytest issue #11871: Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "8ec88b73-e09f-4b3c-a8be-f036197cd186",
+        "status": "complete",
+        "issue_type": "type: enhancement",
+        "issue_type_quote": "itional arguments\n<!--\r\nThanks for suggesting a feature!\r\n\r\nQuick check-list while suggesting features:\r\n-->\r\n\r\n#### What's the problem",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 11871,
+            "title": "Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+            "url": "https://github.com/pytest-dev/pytest/issues/11871",
+            "reason": "Both concern reading test-selection arguments from a file. This report: \"\u2026 file, and run selected subsets of it using `pytest`\"; earlier: \"\u2026irs`, to compliment the positional `file_or_dir` argument.\". the same failure or request is not established.",
+            "citation_id": "C2"
+          }
+        ],
+        "missing_details": [
+          {
+            "name": "alternative solutions",
+            "request": "any workaround or alternative you have tried, or that there is none",
+            "citation_id": "C1"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add any workaround or alternative you have tried, or that there is none? [C1]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+            "description": "pytest feature report template: alternative solutions",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/11871",
+            "description": "pytest issue #11871: Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": []
+      },
+      "trace": {
+        "trace_id": "8ec88b73-e09f-4b3c-a8be-f036197cd186",
+        "created_at": "2026-11-23T16:39:16.529715Z",
+        "status": "complete",
+        "duration_ms": 879.642,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 2.857,
+            "duration_ms": 0.033,
+            "target": "pytest issue #12079",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 2.903,
+            "duration_ms": 0.35,
+            "target": "query (positional OR arguments OR executed) before 2024-03-05T12:31:13+00:00",
+            "result_count": 2,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/11871"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 3.257,
+            "duration_ms": 0.623,
+            "target": null,
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 4.778,
+            "duration_ms": 874.709,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1468,
+            "output_tokens": 71,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": {
+            "issue_content_sha256": "4d2badd2a0d885e9ecd2b44b31ac70e13e03e3a2a905340cd08d71b403c5693b",
+            "required_reply_ids": [
+              "C1"
+            ],
+            "reply_statements": [
+              {
+                "citation_id": "C1",
+                "text": "Could you add any workaround or alternative you have tried, or that there is none?",
+                "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L21"
+              },
+              {
+                "citation_id": "C2",
+                "text": "Earlier issue #11871 may be relevant: Both concern reading test-selection arguments from a file. This report: \"\u2026 file, and run selected subsets of it using `pytest`\"; earlier: \"\u2026irs`, to compliment the positional `file_or_dir` argument.\". the same failure or request is not established.",
+                "source_url": "https://github.com/pytest-dev/pytest/issues/11871"
+              }
+            ]
+          },
+          "response": {
+            "issue_type": "type: enhancement",
+            "issue_type_quote": "itional arguments\n<!--\r\nThanks for suggesting a feature!\r\n\r\nQuick check-list while suggesting features:\r\n-->\r\n\r\n#### What's the problem",
+            "reply_citation_ids": [
+              "C1"
+            ]
+          },
+          "input_tokens": 1468,
+          "output_tokens": 71,
+          "error": null,
+          "latency_ms": 874.574
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 19,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12081,
+      "method": "local_model",
+      "opening_cutoff": "2024-03-06T00:03:25+00:00",
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "latency_ms": 1756.28,
+      "candidate_pool_size": 13,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 3448,
+          "retrieved_issues": [
+            3448
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "duplicate_candidate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: enhancement",
+          "observed": "type: enhancement"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 3,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #3448 may be relevant: Both concern readouterr consuming captured output. This report: \"\u2026turing via readouterr() consume stdout, meaning that logs are no longer available in the \"Captured s\u2026\"; earlier: \"\u2026uterr()` in a test also resets what pytest displays in case of failed tests.\". This opening names copyouterr; compare its proposed behavior with the earlier readouterr report. [C1]\n- pytest documents that capture fixtures let tests access stdout and stderr created during execution. [C2]\n- At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line. [C3]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+              "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
+              "description": "pytest documentation: capture",
+              "passage": "The ``capsys``, ``capsysbinary``, ``capfd``, and ``capfdbinary`` fixtures allow access to stdout/stderr output created during test execution.  Here is"
+            },
+            {
+              "id": "C3",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+              "description": "pytest source: src/_pytest/capture.py:935",
+              "passage": "        \"\"\"Read and return the captured output so far, resetting the internal"
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "3a8641a7-5560-476d-8706-3f191062cb2a",
+        "status": "complete",
+        "issue_type": "type: enhancement",
+        "issue_type_quote": "t's capfd/capsys fixtures (CaptureFixture) that allow stdout capturing via readouterr() consume stdout, meaning that logs are no long",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 3448,
+            "title": "capture: keep all output for \"Captured stdout call\" etc",
+            "url": "https://github.com/pytest-dev/pytest/issues/3448",
+            "reason": "Both concern readouterr consuming captured output. This report: \"\u2026turing via readouterr() consume stdout, meaning that logs are no longer available in the \"Captured s\u2026\"; earlier: \"\u2026uterr()` in a test also resets what pytest displays in case of failed tests.\". This opening names copyouterr; compare its proposed behavior with the earlier readouterr report.",
+            "citation_id": "C1"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [
+          {
+            "claim": "pytest documents that capture fixtures let tests access stdout and stderr created during execution.",
+            "citation_id": "C2"
+          }
+        ],
+        "source_claims": [
+          {
+            "claim": "At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line.",
+            "citation_id": "C3"
+          }
+        ],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #3448 may be relevant: Both concern readouterr consuming captured output. This report: \"\u2026turing via readouterr() consume stdout, meaning that logs are no longer available in the \"Captured s\u2026\"; earlier: \"\u2026uterr()` in a test also resets what pytest displays in case of failed tests.\". This opening names copyouterr; compare its proposed behavior with the earlier readouterr report. [C1]\n- pytest documents that capture fixtures let tests access stdout and stderr created during execution. [C2]\n- At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line. [C3]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+            "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
+            "description": "pytest documentation: capture",
+            "passage": "The ``capsys``, ``capsysbinary``, ``capfd``, and ``capfdbinary`` fixtures allow access to stdout/stderr output created during test execution.  Here is",
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+            "description": "pytest source: src/_pytest/capture.py:935",
+            "passage": "        \"\"\"Read and return the captured output so far, resetting the internal",
+            "source_location": {
+              "commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+              "path": "src/_pytest/capture.py",
+              "line": 935
+            }
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "draft_evidence",
+            "reason": "Over-budget passages omitted: 5d27976d05d60773756afc536ee797a61f433f035c1ba8ce055277d5f23d6f12"
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "3a8641a7-5560-476d-8706-3f191062cb2a",
+        "created_at": "2026-11-23T16:39:18.151822Z",
+        "status": "complete",
+        "duration_ms": 1023.834,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.172,
+            "duration_ms": 0.042,
+            "target": "pytest issue #12081",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.229,
+            "duration_ms": 0.687,
+            "target": "query (readouterr OR consuming OR capture) before 2024-03-06T00:03:25+00:00",
+            "result_count": 1,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/3448"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.922,
+            "duration_ms": 0.687,
+            "target": null,
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_documentation_passage",
+            "status": "ok",
+            "started_ms": 1.739,
+            "duration_ms": 113.297,
+            "target": "capture",
+            "result_count": 1,
+            "references": [
+              "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "get_source_excerpt",
+            "status": "ok",
+            "started_ms": 115.098,
+            "duration_ms": 130.135,
+            "target": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+            "result_count": 1,
+            "references": [
+              "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 247.979,
+            "duration_ms": 775.784,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 2319,
+            "output_tokens": 70,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": {
+            "issue_content_sha256": "dd57b87214d77cb95884e75d0f6184663e93b98c3107a1402097acaaf86729a9",
+            "required_reply_ids": [],
+            "reply_statements": [
+              {
+                "citation_id": "C1",
+                "text": "Earlier issue #3448 may be relevant: Both concern readouterr consuming captured output. This report: \"\u2026turing via readouterr() consume stdout, meaning that logs are no longer available in the \"Captured s\u2026\"; earlier: \"\u2026uterr()` in a test also resets what pytest displays in case of failed tests.\". This opening names copyouterr; compare its proposed behavior with the earlier readouterr report.",
+                "source_url": "https://github.com/pytest-dev/pytest/issues/3448"
+              },
+              {
+                "citation_id": "C2",
+                "text": "pytest documents that capture fixtures let tests access stdout and stderr created during execution.",
+                "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110"
+              },
+              {
+                "citation_id": "C3",
+                "text": "At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line.",
+                "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935"
+              }
+            ]
+          },
+          "response": {
+            "issue_type": "type: enhancement",
+            "issue_type_quote": "t's capfd/capsys fixtures (CaptureFixture) that allow stdout capturing via readouterr() consume stdout, meaning that logs are no long",
+            "reply_citation_ids": [
+              "C1",
+              "C2",
+              "C3"
+            ]
+          },
+          "input_tokens": 2319,
+          "output_tokens": 70,
+          "error": null,
+          "latency_ms": 775.68
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 5,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12083,
+      "method": "local_model",
+      "opening_cutoff": "2024-03-06T10:53:11+00:00",
+      "repository_commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "latency_ms": 1364.075,
+      "candidate_pool_size": 14,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 7012,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": null,
+          "expected": "uncertain",
+          "observed": "not_retrieved",
+          "review_status": "pending_human_review"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: regression",
+          "observed": "type: bug"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "pip list output"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "draft_reply",
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": true,
+          "duplicate_observed": false,
+          "duplicate_appropriate": false,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+          "citations": []
+        }
+      },
+      "report": {
+        "trace_id": "28e97b4c-d6cf-40e6-b85f-bcadf8a03aec",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "d be willing to provide a patch (if it's a real bug of course \ud83d\ude42)\r\n- Reproduced on Pytest 8.0.2 / Linux & macOS\r\n- **I made [a repos",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "draft_evidence",
+            "reason": "Over-budget passages omitted: 2c7cbe9db99afe38d99158954becd755365263c0507a03ff74280c6b7b40e2b8"
+          },
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "28e97b4c-d6cf-40e6-b85f-bcadf8a03aec",
+        "created_at": "2026-11-23T16:39:19.809187Z",
+        "status": "complete",
+        "duration_ms": 732.03,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.092,
+            "duration_ms": 0.02,
+            "target": "pytest issue #12083",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.12,
+            "duration_ms": 0.401,
+            "target": "query (duplicates OR handling) before 2024-03-06T10:53:11+00:00",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.524,
+            "duration_ms": 0.005,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 2.432,
+            "duration_ms": 729.555,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1237,
+            "output_tokens": 76,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": {
+            "issue_content_sha256": "39d659d7c54b6d5cd1e336a628b516d771f3e9dc98636701165e8cc70e9e9064",
+            "required_reply_ids": [],
+            "reply_statements": []
+          },
+          "response": {
+            "issue_type": "type: bug",
+            "issue_type_quote": "d be willing to provide a patch (if it's a real bug of course \ud83d\ude42)\r\n- Reproduced on Pytest 8.0.2 / Linux & macOS\r\n- **I made [a repos",
+            "reply_citation_ids": []
+          },
+          "input_tokens": 1237,
+          "output_tokens": 76,
+          "error": null,
+          "latency_ms": 729.398
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 4,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12116,
+      "method": "local_model",
+      "opening_cutoff": "2024-03-13T13:37:51+00:00",
+      "repository_commit": "c0532dda18a5cfd0e6f67113bb164485fa80eb86",
+      "latency_ms": 1707.968,
+      "candidate_pool_size": 15,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12081,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: bug",
+          "observed": "type: bug"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "draft_reply"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+          "citations": []
+        }
+      },
+      "report": {
+        "trace_id": "5b3602ad-908d-4c7e-bbf7-b6eee85d6e60",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "ltiprocessing\n### A detailed description of the bug or problem\r\nCapturing logs from spawned processes is not working - all calls to",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "draft_evidence",
+            "reason": "Over-budget passages omitted: f6fd3a6a7a18aa0f0ce2fc5635cb9283745afe0e7a741ef39e8dea405d93e58a"
+          },
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "5b3602ad-908d-4c7e-bbf7-b6eee85d6e60",
+        "created_at": "2026-11-23T16:39:21.717213Z",
+        "status": "complete",
+        "duration_ms": 511.545,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.688,
+            "duration_ms": 0.02,
+            "target": "pytest issue #12116",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.717,
+            "duration_ms": 0.511,
+            "target": "query (multiprocessing OR capturing OR logs) before 2024-03-13T13:37:51+00:00",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 1.23,
+            "duration_ms": 0.246,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 2.33,
+            "duration_ms": 509.156,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1203,
+            "output_tokens": 57,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": {
+            "issue_content_sha256": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+            "required_reply_ids": [],
+            "reply_statements": []
+          },
+          "response": {
+            "issue_type": "type: bug",
+            "issue_type_quote": "ltiprocessing\n### A detailed description of the bug or problem\r\nCapturing logs from spawned processes is not working - all calls to",
+            "reply_citation_ids": []
+          },
+          "input_tokens": 1203,
+          "output_tokens": 57,
+          "error": null,
+          "latency_ms": 508.994
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 5,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12146,
+      "method": "local_model",
+      "opening_cutoff": "2024-03-21T12:06:34+00:00",
+      "repository_commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
+      "latency_ms": 1467.519,
+      "candidate_pool_size": 16,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 7312,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: bug",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- The supplied scenarios use different pytest versions (8.1.1 / 7.4.4). Could you compare both scenarios using the same pytest version and identical tuple values, including their order, changing only how the values are constructed? Please include fixture setup/teardown output from both runs. [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12146",
+              "description": "Submitted issue under review: investigative follow-up",
+              "passage": "pytest-8.1.1\npytest-7.4.4\npytest         8.1.1"
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "b3352e81-fd12-485e-bb49-0d64c01e7b9f",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- The supplied scenarios use different pytest versions (8.1.1 / 7.4.4). Could you compare both scenarios using the same pytest version and identical tuple values, including their order, changing only how the values are constructed? Please include fixture setup/teardown output from both runs. [C1]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12146",
+            "description": "Submitted issue under review: investigative follow-up",
+            "passage": "pytest-8.1.1\npytest-7.4.4\npytest         8.1.1",
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "draft_evidence",
+            "reason": "Over-budget passages omitted: e69a3637974ffaeca62613294280997747d2879f0d39d6fdbc5a88a14f824839"
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "b3352e81-fd12-485e-bb49-0d64c01e7b9f",
+        "created_at": "2026-11-23T16:39:23.376129Z",
+        "status": "complete",
+        "duration_ms": 331.114,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.078,
+            "duration_ms": 0.019,
+            "target": "pytest issue #12146",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.106,
+            "duration_ms": 0.712,
+            "target": "query (parametrization OR unexpectedly OR variables) before 2024-03-21T12:06:34+00:00",
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.822,
+            "duration_ms": 0.006,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 1.114,
+            "duration_ms": 329.929,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1624,
+            "output_tokens": 29,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": {
+            "issue_content_sha256": "7967ac50a0c9862b557d55a659c13f0fb8d9925aa081fa9631db1e086e1a6d61",
+            "required_reply_ids": [
+              "C1"
+            ],
+            "reply_statements": [
+              {
+                "citation_id": "C1",
+                "text": "The supplied scenarios use different pytest versions (8.1.1 / 7.4.4). Could you compare both scenarios using the same pytest version and identical tuple values, including their order, changing only how the values are constructed? Please include fixture setup/teardown output from both runs.",
+                "source_url": "https://github.com/pytest-dev/pytest/issues/12146"
+              }
+            ]
+          },
+          "response": {
+            "issue_type": null,
+            "issue_type_quote": null,
+            "reply_citation_ids": [
+              "C1"
+            ]
+          },
+          "input_tokens": 1624,
+          "output_tokens": 29,
+          "error": null,
+          "latency_ms": 329.862
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 4,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12189,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-05T09:14:51+00:00",
+      "repository_commit": "4e3dd21506a9e543c04c63ebff966a9b604d2b9e",
+      "latency_ms": 3813.129,
+      "candidate_pool_size": 17,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12081,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: question",
+          "observed": "type: bug"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "draft_reply",
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+          "citations": []
+        }
+      },
+      "report": {
+        "trace_id": "d2bda1f3-8aba-44c8-be83-51dedfeaf863",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "uites>\r\n    <testsuite name=\"pytest\" errors=\"0\" failures=\"0\" skipped=\"0\" tests=\"1\" time=\"0.014\" timestamp=\"2024-04-03T15:37:00.828439\" h",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "draft_evidence",
+            "reason": "Over-budget passages omitted: 8a3305196e3aea465d2bf336d1caaee077bcbc82bac25f5eee0498177e7aa2c8"
+          },
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "d2bda1f3-8aba-44c8-be83-51dedfeaf863",
+        "created_at": "2026-11-23T16:39:26.714624Z",
+        "status": "complete",
+        "duration_ms": 810.651,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.073,
+            "duration_ms": 0.022,
+            "target": "pytest issue #12189",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.104,
+            "duration_ms": 0.556,
+            "target": "query (written OR output OR files) before 2024-04-05T09:14:51+00:00",
+            "result_count": 7,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.664,
+            "duration_ms": 1.135,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 2.578,
+            "duration_ms": 808.041,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1307,
+            "output_tokens": 96,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": {
+            "issue_content_sha256": "7c9d2d1977a430e51c42fb6319ecc3fae01bb9d7f46d01f1921fb1760199785d",
+            "required_reply_ids": [],
+            "reply_statements": []
+          },
+          "response": {
+            "issue_type": "type: bug",
+            "issue_type_quote": "uites>\r\n    <testsuite name=\"pytest\" errors=\"0\" failures=\"0\" skipped=\"0\" tests=\"1\" time=\"0.014\" timestamp=\"2024-04-03T15:37:00.828439\" h",
+            "reply_citation_ids": []
+          },
+          "input_tokens": 1307,
+          "output_tokens": 96,
+          "error": null,
+          "latency_ms": 807.935
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 8,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12197,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-08T11:30:37+00:00",
+      "repository_commit": "74f05648d5ea9e69d75f27a77972756ee32f6730",
+      "latency_ms": 1555.859,
+      "candidate_pool_size": 18,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12053,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: question",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "minimal example",
+            "pip list output",
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+          "citations": []
+        }
+      },
+      "report": {
+        "trace_id": "d4d1642c-a852-4393-9cc5-3e597c28065f",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          },
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "d4d1642c-a852-4393-9cc5-3e597c28065f",
+        "created_at": "2026-11-23T16:39:28.718951Z",
+        "status": "complete",
+        "duration_ms": 360.672,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.039,
+            "duration_ms": 0.02,
+            "target": "pytest issue #12197",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.067,
+            "duration_ms": 0.695,
+            "target": "query (configuration OR disable OR effect) before 2024-04-08T11:30:37+00:00",
+            "result_count": 5,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.765,
+            "duration_ms": 0.267,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 1.149,
+            "duration_ms": 359.484,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 551,
+            "output_tokens": 26,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": {
+            "issue_content_sha256": "a24bc5b241a808e476ff0423fa8835d66994d1feddbd3b28bcfcea0c594b9f71",
+            "required_reply_ids": [],
+            "reply_statements": []
+          },
+          "response": {
+            "issue_type": null,
+            "issue_type_quote": null,
+            "reply_citation_ids": []
+          },
+          "input_tokens": 551,
+          "output_tokens": 26,
+          "error": null,
+          "latency_ms": 359.368
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 4,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12201,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-09T14:22:08+00:00",
+      "repository_commit": "17fc20af78d0c7b739806c4e461d2c9b8c30ceeb",
+      "latency_ms": 1898.833,
+      "candidate_pool_size": 19,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12146,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: enhancement",
+          "observed": "type: enhancement"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+          "citations": []
+        }
+      },
+      "report": {
+        "trace_id": "954eeab1-e3d8-4edc-aa28-2093a0927cf7",
+        "status": "complete",
+        "issue_type": "type: enhancement",
+        "issue_type_quote": "t parametrization\n<!--\r\nThanks for suggesting a feature!\r\n\r\nQuick check-list while suggesting features:\r\n-->\r\n\r\n#### What's the problem",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "954eeab1-e3d8-4edc-aa28-2093a0927cf7",
+        "created_at": "2026-11-23T16:39:30.899964Z",
+        "status": "complete",
+        "duration_ms": 717.824,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.22,
+            "duration_ms": 0.019,
+            "target": "pytest issue #12201",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.248,
+            "duration_ms": 0.514,
+            "target": "query (parametrization OR conditional) before 2024-04-09T14:22:08+00:00",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 0.766,
+            "duration_ms": 0.13,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 1.332,
+            "duration_ms": 716.452,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1297,
+            "output_tokens": 68,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": {
+            "issue_content_sha256": "59af99b50b43635e39c0f324dd5ddca823406c1462e62ff5f410ad92ed90c364",
+            "required_reply_ids": [],
+            "reply_statements": []
+          },
+          "response": {
+            "issue_type": "type: enhancement",
+            "issue_type_quote": "t parametrization\n<!--\r\nThanks for suggesting a feature!\r\n\r\nQuick check-list while suggesting features:\r\n-->\r\n\r\n#### What's the problem",
+            "reply_citation_ids": []
+          },
+          "input_tokens": 1297,
+          "output_tokens": 68,
+          "error": null,
+          "latency_ms": 716.36
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 5,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12203,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-10T09:18:43+00:00",
+      "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+      "latency_ms": 2489.625,
+      "candidate_pool_size": 20,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12116,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: bug",
+          "observed": "type: bug"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [
+            "minimal example"
+          ],
+          "observed": [
+            "minimal example"
+          ]
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Could you add a minimal example, if possible? [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/1f001cd1051a4ca4bef251d93e472e625578aaf7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+              "description": "pytest bug report template: minimal example",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "328e82d1-8391-4906-bdc3-112f65388d75",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "()\r\n        except:\r\n            _logger.debug(\"failed to start container, got log: %s\", get_ctr_log())\r\n            raise\r\n```\r\n\r\nHow",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [
+          {
+            "name": "minimal example",
+            "request": "a minimal example, if possible",
+            "citation_id": "C1"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add a minimal example, if possible? [C1]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/1f001cd1051a4ca4bef251d93e472e625578aaf7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+            "description": "pytest bug report template: minimal example",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": []
+      },
+      "trace": {
+        "trace_id": "328e82d1-8391-4906-bdc3-112f65388d75",
+        "created_at": "2026-11-23T16:39:33.277253Z",
+        "status": "complete",
+        "duration_ms": 831.455,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.295,
+            "duration_ms": 0.02,
+            "target": "pytest issue #12203",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.324,
+            "duration_ms": 0.715,
+            "target": "query (exception OR teardown OR capture) before 2024-04-10T09:18:43+00:00",
+            "result_count": 3,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 1.042,
+            "duration_ms": 0.493,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 2.184,
+            "duration_ms": 829.235,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1908,
+            "output_tokens": 74,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": {
+            "issue_content_sha256": "8a475d724ac7aec8c7e518ea588a71377ee44287c7f35d7a697bb806b507578e",
+            "required_reply_ids": [
+              "C1"
+            ],
+            "reply_statements": [
+              {
+                "citation_id": "C1",
+                "text": "Could you add a minimal example, if possible?",
+                "source_url": "https://github.com/pytest-dev/pytest/blob/1f001cd1051a4ca4bef251d93e472e625578aaf7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16"
+              }
+            ]
+          },
+          "response": {
+            "issue_type": "type: bug",
+            "issue_type_quote": "()\r\n        except:\r\n            _logger.debug(\"failed to start container, got log: %s\", get_ctr_log())\r\n            raise\r\n```\r\n\r\nHow",
+            "reply_citation_ids": [
+              "C1"
+            ]
+          },
+          "input_tokens": 1908,
+          "output_tokens": 74,
+          "error": null,
+          "latency_ms": 829.141
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 6,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12204,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-10T10:45:32+00:00",
+      "repository_commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+      "latency_ms": 737.636,
+      "candidate_pool_size": 21,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12203,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: bug",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "draft_reply",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12204",
+              "description": "Submitted issue under review: investigative follow-up",
+              "passage": "pytest    8.1.1\npytest-8.0.0\npluggy    1.4.0\npluggy-1.3.0"
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "5746ad06-f48b-46b7-994b-307734b7b36c",
+        "status": "partial",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12204",
+            "description": "Submitted issue under review: investigative follow-up",
+            "passage": "pytest    8.1.1\npytest-8.0.0\npluggy    1.4.0\npluggy-1.3.0",
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "draft_evidence",
+            "reason": "Opening exceeds frozen evidence budget; no truncation allowed"
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model output failed validation; no issue type was suggested."
+          },
+          {
+            "field": "draft_reply",
+            "reason": "Model did not select a supported reply claim."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "5746ad06-f48b-46b7-994b-307734b7b36c",
+        "created_at": "2026-11-23T16:39:34.835188Z",
+        "status": "partial",
+        "duration_ms": 7.315,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.451,
+            "duration_ms": 0.022,
+            "target": "pytest issue #12204",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.483,
+            "duration_ms": 0.865,
+            "target": "query (exceptiongroup OR unlimitedly OR traceback) before 2024-04-10T10:45:32+00:00",
+            "result_count": 2,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 1.352,
+            "duration_ms": 3.774,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "error",
+            "started_ms": 7.223,
+            "duration_ms": 0.056,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": "Call failed."
+          }
+        ]
+      },
+      "model_calls": [],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 3,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12216,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-15T07:38:50+00:00",
+      "repository_commit": "5f6e825a2687f6bb8bc437e67a59c0a92fb16c06",
+      "latency_ms": 1806.572,
+      "candidate_pool_size": 22,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12146,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: bug",
+          "observed": null
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "pip list output",
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "issue_type",
+            "missing_details"
+          ],
+          "issue_type_appropriate": false,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+          "citations": []
+        }
+      },
+      "report": {
+        "trace_id": "8daefc43-7e2f-4321-8ed4-676a7d9b9257",
+        "status": "partial",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model output failed validation; no issue type was suggested."
+          },
+          {
+            "field": "draft_reply",
+            "reason": "Model did not select a supported reply claim."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "8daefc43-7e2f-4321-8ed4-676a7d9b9257",
+        "created_at": "2026-11-23T16:39:35.956338Z",
+        "status": "partial",
+        "duration_ms": 673.845,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.077,
+            "duration_ms": 0.023,
+            "target": "pytest issue #12216",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.109,
+            "duration_ms": 1.554,
+            "target": "query (pytest_generate_test OR parameterized OR executing) before 2024-04-15T07:38:50+00:00",
+            "result_count": 2,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 1.667,
+            "duration_ms": 0.42,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "error",
+            "started_ms": 2.875,
+            "duration_ms": 670.91,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1299,
+            "output_tokens": 65,
+            "error": "Call failed."
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": {
+            "issue_content_sha256": "fe52fe12b75b3450706561eaff0cb911d116beeebec5077d044bab2d93e8930e",
+            "required_reply_ids": [],
+            "reply_statements": []
+          },
+          "response": {
+            "issue_type": "type: bug",
+            "issue_type_quote": "as \"indirect\"\nUsing pytest 8.1.1, I'm trying to add a parameterized fixture to a test during pytest_generate_tests. While it's poss",
+            "reply_citation_ids": []
+          },
+          "input_tokens": 1299,
+          "output_tokens": 65,
+          "error": null,
+          "latency_ms": 670.748
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 5,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12219,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-16T08:22:38+00:00",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "latency_ms": 2122.79,
+      "candidate_pool_size": 23,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": true,
+          "expected_issue": 4064,
+          "retrieved_issues": [
+            4064
+          ],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": true,
+          "expected": "nonduplicate",
+          "observed": "related_issue",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": false,
+          "expected": "type: bug",
+          "observed": "type: docs"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "minimal example",
+            "pip list output",
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 2,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- You report that the hook works in the minimized example. Could you reduce the affected project's case to a minimized failing example, including its module layout, configuration and exact command? Compare that with the working example to isolate what prevents the hook from running. [C2]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/4064",
+              "description": "pytest issue #4064: Docs: is setUpModule/tearDownModule supported?",
+              "passage": null
+            },
+            {
+              "id": "C2",
+              "source_url": "https://github.com/pytest-dev/pytest/issues/12219",
+              "description": "Submitted issue under review: investigative follow-up",
+              "passage": "Interestingly, the hook does seem to be honored in a minimized example."
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "97d1bdda-c9e3-4ec8-94e7-bf368854bf1c",
+        "status": "complete",
+        "issue_type": "type: docs",
+        "issue_type_quote": "nding that it's not supported, even though the [docs say it is](https://github.com/pytest-dev/pytest/blob/58844247f7ae4a7a213a73c8af",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 4064,
+            "title": "Docs: is setUpModule/tearDownModule supported?",
+            "url": "https://github.com/pytest-dev/pytest/issues/4064",
+            "reason": "Both concern module setup/teardown hooks. This report: \"\u2026test `setUpModule` and `tearDownModule`.\"; earlier: \"\u2026ay that setUpModule and tearDownModule are not supported:\". This reports hooks not running; the earlier issue questions the documentation.",
+            "citation_id": "C1"
+          }
+        ],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- You report that the hook works in the minimized example. Could you reduce the affected project's case to a minimized failing example, including its module layout, configuration and exact command? Compare that with the working example to isolate what prevents the hook from running. [C2]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/4064",
+            "description": "pytest issue #4064: Docs: is setUpModule/tearDownModule supported?",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12219",
+            "description": "Submitted issue under review: investigative follow-up",
+            "passage": "Interestingly, the hook does seem to be honored in a minimized example.",
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "97d1bdda-c9e3-4ec8-94e7-bf368854bf1c",
+        "created_at": "2026-11-23T16:39:37.827913Z",
+        "status": "complete",
+        "duration_ms": 939.408,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.063,
+            "duration_ms": 0.021,
+            "target": "pytest issue #12219",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.092,
+            "duration_ms": 1.732,
+            "target": "query (teardownmodule OR setupmodule OR invoked) before 2024-04-16T08:22:38+00:00",
+            "result_count": 2,
+            "references": [
+              "https://github.com/pytest-dev/pytest/issues/4064"
+            ],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 1.829,
+            "duration_ms": 0.408,
+            "target": null,
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 2.745,
+            "duration_ms": 936.592,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 2015,
+            "output_tokens": 84,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": {
+            "issue_content_sha256": "681e48797dfaccd7ce7ff3a86bd5862656e34bfbda83da9364ae7fb8696a891b",
+            "required_reply_ids": [
+              "C2"
+            ],
+            "reply_statements": [
+              {
+                "citation_id": "C1",
+                "text": "Earlier issue #4064 may be relevant: Both concern module setup/teardown hooks. This report: \"\u2026test `setUpModule` and `tearDownModule`.\"; earlier: \"\u2026ay that setUpModule and tearDownModule are not supported:\". This reports hooks not running; the earlier issue questions the documentation.",
+                "source_url": "https://github.com/pytest-dev/pytest/issues/4064"
+              },
+              {
+                "citation_id": "C2",
+                "text": "You report that the hook works in the minimized example. Could you reduce the affected project's case to a minimized failing example, including its module layout, configuration and exact command? Compare that with the working example to isolate what prevents the hook from running.",
+                "source_url": "https://github.com/pytest-dev/pytest/issues/12219"
+              }
+            ]
+          },
+          "response": {
+            "issue_type": "type: docs",
+            "issue_type_quote": "nding that it's not supported, even though the [docs say it is](https://github.com/pytest-dev/pytest/blob/58844247f7ae4a7a213a73c8af",
+            "reply_citation_ids": [
+              "C2"
+            ]
+          },
+          "input_tokens": 2015,
+          "output_tokens": 84,
+          "error": null,
+          "latency_ms": 936.471
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 5,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12223,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-17T09:00:30+00:00",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "latency_ms": 1473.533,
+      "candidate_pool_size": 24,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12204,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: bug",
+          "observed": "type: bug"
+        },
+        "missing_details": {
+          "exact": false,
+          "precision": 1.0,
+          "recall": 0.0,
+          "expected": [
+            "pip list output",
+            "pytest and OS versions"
+          ],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_reply",
+            "missing_details"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+          "citations": []
+        }
+      },
+      "report": {
+        "trace_id": "fbe76b7b-074f-4eee-b1cc-d6ec46994f3c",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "andle with -vv\nSuppose you have a test that may fail with a very large diff; say:\r\n```python\r\ndef test_xyz() -> None:\r\n    assert [\"",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "missing_details",
+            "reason": "Issue text does not identify a bug or feature template."
+          },
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "fbe76b7b-074f-4eee-b1cc-d6ec46994f3c",
+        "created_at": "2026-11-23T16:39:39.458351Z",
+        "status": "complete",
+        "duration_ms": 787.116,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.062,
+            "duration_ms": 0.021,
+            "target": "pytest issue #12223",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.091,
+            "duration_ms": 1.531,
+            "target": "query (attribute OR handle OR output) before 2024-04-17T09:00:30+00:00",
+            "result_count": 8,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 1.626,
+            "duration_ms": 1.174,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 3.5,
+            "duration_ms": 783.584,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1759,
+            "output_tokens": 70,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": {
+            "issue_content_sha256": "731ee2132c277f516b51978c67bb77a578a8731a4b726346f248e7934d627e72",
+            "required_reply_ids": [],
+            "reply_statements": []
+          },
+          "response": {
+            "issue_type": "type: bug",
+            "issue_type_quote": "andle with -vv\nSuppose you have a test that may fail with a very large diff; say:\r\n```python\r\ndef test_xyz() -> None:\r\n    assert [\"",
+            "reply_citation_ids": []
+          },
+          "input_tokens": 1759,
+          "output_tokens": 70,
+          "error": null,
+          "latency_ms": 783.498
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 4,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12224,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-18T05:51:07+00:00",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "latency_ms": 1288.089,
+      "candidate_pool_size": 25,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 10156,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: enhancement",
+          "observed": "type: enhancement"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [],
+          "observed": []
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 0,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence",
+            "draft_reply"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+          "citations": []
+        }
+      },
+      "report": {
+        "trace_id": "817b26ec-04a8-469c-99bb-f8a7d54d292f",
+        "status": "complete",
+        "issue_type": "type: enhancement",
+        "issue_type_quote": "cripting interface\n#### What's the problem this feature will solve?\r\nI'm using pytest (running in linux) to run tests in pyodide (in a ",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "draft_evidence",
+            "reason": "Over-budget passages omitted: 63f214a98d08490a6726bb6ea8f0bed11954765ad01888e2c93390fc64ff35de"
+          },
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "817b26ec-04a8-469c-99bb-f8a7d54d292f",
+        "created_at": "2026-11-23T16:39:40.970479Z",
+        "status": "complete",
+        "duration_ms": 564.767,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.502,
+            "duration_ms": 0.026,
+            "target": "pytest issue #12224",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.54,
+            "duration_ms": 2.744,
+            "target": "query (interface OR scripting OR granular) before 2024-04-18T05:51:07+00:00",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 3.312,
+            "duration_ms": 0.331,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 5.229,
+            "duration_ms": 559.496,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1091,
+            "output_tokens": 64,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": {
+            "issue_content_sha256": "f947dc5d0a8f21f5843f75c1f6a9e2a6b31f5287d21f4a73b032f2cec316b59c",
+            "required_reply_ids": [],
+            "reply_statements": []
+          },
+          "response": {
+            "issue_type": "type: enhancement",
+            "issue_type_quote": "cripting interface\n#### What's the problem this feature will solve?\r\nI'm using pytest (running in linux) to run tests in pyodide (in a ",
+            "reply_citation_ids": []
+          },
+          "input_tokens": 1091,
+          "output_tokens": 64,
+          "error": null,
+          "latency_ms": 559.395
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 4,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12226,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-19T11:34:17+00:00",
+      "repository_commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
+      "latency_ms": 1711.034,
+      "candidate_pool_size": 26,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12197,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: enhancement",
+          "observed": "type: enhancement"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [
+            "alternative solutions"
+          ],
+          "observed": [
+            "alternative solutions"
+          ]
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Could you add any workaround or alternative you have tried, or that there is none? [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+              "description": "pytest feature report template: alternative solutions",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "a23af097-7f86-4aa6-8019-8574f6fd8d2c",
+        "status": "complete",
+        "issue_type": "type: enhancement",
+        "issue_type_quote": "support an alternate syntax for \"not\" (as in `pytest -m \"not stuff\"`)\n#### What's the p",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [
+          {
+            "name": "alternative solutions",
+            "request": "any workaround or alternative you have tried, or that there is none",
+            "citation_id": "C1"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add any workaround or alternative you have tried, or that there is none? [C1]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+            "description": "pytest feature report template: alternative solutions",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": []
+      },
+      "trace": {
+        "trace_id": "a23af097-7f86-4aa6-8019-8574f6fd8d2c",
+        "created_at": "2026-11-23T16:39:42.624313Z",
+        "status": "complete",
+        "duration_ms": 603.799,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.453,
+            "duration_ms": 0.021,
+            "target": "pytest issue #12226",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.484,
+            "duration_ms": 2.195,
+            "target": "query (alternate OR syntax OR stuff) before 2024-04-19T11:34:17+00:00",
+            "result_count": 3,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 2.684,
+            "duration_ms": 0.27,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 3.226,
+            "duration_ms": 600.539,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 999,
+            "output_tokens": 59,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": {
+            "issue_content_sha256": "0475b3180e639cfe671e5c91046838f4fa0bb3f15cbbf465f0517671d679253e",
+            "required_reply_ids": [
+              "C1"
+            ],
+            "reply_statements": [
+              {
+                "citation_id": "C1",
+                "text": "Could you add any workaround or alternative you have tried, or that there is none?",
+                "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21"
+              }
+            ]
+          },
+          "response": {
+            "issue_type": "type: enhancement",
+            "issue_type_quote": "support an alternate syntax for \"not\" (as in `pytest -m \"not stuff\"`)\n#### What's the p",
+            "reply_citation_ids": [
+              "C1"
+            ]
+          },
+          "input_tokens": 999,
+          "output_tokens": 59,
+          "error": null,
+          "latency_ms": 600.461
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 5,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    },
+    {
+      "issue_number": 12228,
+      "method": "local_model",
+      "opening_cutoff": "2024-04-19T17:30:10+00:00",
+      "repository_commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
+      "latency_ms": 1345.931,
+      "candidate_pool_size": 27,
+      "error": null,
+      "scores": {
+        "duplicate_retrieval": {
+          "found": false,
+          "expected_issue": 12197,
+          "retrieved_issues": [],
+          "other_issues_unreviewed": []
+        },
+        "duplicate_judgment": {
+          "correct": false,
+          "expected": "nonduplicate",
+          "observed": "not_retrieved",
+          "review_status": "exact"
+        },
+        "issue_type": {
+          "correct": true,
+          "expected": "type: docs",
+          "observed": "type: docs"
+        },
+        "missing_details": {
+          "exact": true,
+          "precision": 1.0,
+          "recall": 1.0,
+          "expected": [
+            "alternative solutions"
+          ],
+          "observed": [
+            "alternative solutions"
+          ]
+        },
+        "citation_validity": {
+          "valid": true,
+          "checked": 1,
+          "errors": [],
+          "semantic_review_status": "pending_human_review"
+        },
+        "abstention": {
+          "observed_fields": [
+            "draft_evidence"
+          ],
+          "issue_type_appropriate": true,
+          "duplicate_expected": false,
+          "duplicate_observed": false,
+          "duplicate_appropriate": true,
+          "other_fields_review_status": "pending_human_review"
+        },
+        "draft_reply_usefulness": {
+          "review_status": "pending_human_review",
+          "rating": null,
+          "rubric": "Does the reply ask for needed details and explain relevant evidence without misleading claims?",
+          "draft_reply": "Thanks for sharing this issue.\n- Could you add any workaround or alternative you have tried, or that there is none? [C1]",
+          "citations": [
+            {
+              "id": "C1",
+              "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+              "description": "pytest feature report template: alternative solutions",
+              "passage": null
+            }
+          ]
+        }
+      },
+      "report": {
+        "trace_id": "17ba0ba2-6706-4df9-808d-9b409ea9c47b",
+        "status": "complete",
+        "issue_type": "type: docs",
+        "issue_type_quote": "Documentation request: types/shapes of options in `[tool.pytest.ini_options]`\n<!--\r\nThanks fo",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [
+          {
+            "name": "alternative solutions",
+            "request": "any workaround or alternative you have tried, or that there is none",
+            "citation_id": "C1"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add any workaround or alternative you have tried, or that there is none? [C1]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+            "description": "pytest feature report template: alternative solutions",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "draft_evidence",
+            "reason": "Over-budget passages omitted: 50c6846d93aea73e91a58403e1c967d9f28d7a4d69ac991112f47003e0a8ec15"
+          }
+        ]
+      },
+      "trace": {
+        "trace_id": "17ba0ba2-6706-4df9-808d-9b409ea9c47b",
+        "created_at": "2026-11-23T16:39:44.105142Z",
+        "status": "complete",
+        "duration_ms": 486.436,
+        "events": [
+          {
+            "kind": "retrieval",
+            "name": "get_issue",
+            "status": "ok",
+            "started_ms": 0.44,
+            "duration_ms": 0.018,
+            "target": "pytest issue #12228",
+            "result_count": 1,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "search_issues",
+            "status": "ok",
+            "started_ms": 0.466,
+            "duration_ms": 1.727,
+            "target": "query (documentation OR ini_options OR options) before 2024-04-19T17:30:10+00:00",
+            "result_count": 3,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "retrieval",
+            "name": "assess_matches",
+            "status": "ok",
+            "started_ms": 2.196,
+            "duration_ms": 0.491,
+            "target": null,
+            "result_count": 0,
+            "references": [],
+            "input_tokens": null,
+            "output_tokens": null,
+            "error": null
+          },
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 3.88,
+            "duration_ms": 482.522,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 1198,
+            "output_tokens": 56,
+            "error": null
+          }
+        ]
+      },
+      "model_calls": [
+        {
+          "request": {
+            "issue_content_sha256": "75a3c5f59e5d0af43786351c8646d0acdfc8710f57ad28c58bf8a0376c33281c",
+            "required_reply_ids": [
+              "C1"
+            ],
+            "reply_statements": [
+              {
+                "citation_id": "C1",
+                "text": "Could you add any workaround or alternative you have tried, or that there is none?",
+                "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21"
+              }
+            ]
+          },
+          "response": {
+            "issue_type": "type: docs",
+            "issue_type_quote": "Documentation request: types/shapes of options in `[tool.pytest.ini_options]`\n<!--\r\nThanks fo",
+            "reply_citation_ids": [
+              "C1"
+            ]
+          },
+          "input_tokens": 1198,
+          "output_tokens": 56,
+          "error": null,
+          "latency_ms": 482.425
+        }
+      ],
+      "gpu_memory": {
+        "enabled": true,
+        "sample_interval_ms": 500,
+        "sample_count": 4,
+        "initial_used_mib": 2740.0,
+        "peak_sampled_used_mib": 2740.0,
+        "error": null,
+        "scope": "Device-wide use including other processes; sampled, not true peak."
+      }
+    }
+  ],
+  "methodology": "Real endpoint responses through the existing fixed replay and field scorer. Keyword retrieval covers verified pre-cutoff catalog openings. Duplicate matching and missing details remain rules; the model controls type and selection of supplied reply statements. Semantic judgments remain pending. This is not the full workflow comparison in #16."
+}

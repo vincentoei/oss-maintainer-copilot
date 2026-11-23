@@ -1,0 +1,1 @@
+{"phase":"browser navigation before server startup","error":"ERR_CONNECTION_REFUSED at http://127.0.0.1:8002/","inference_dispatches":0,"recovery":"waited for server startup; no model output retried"}

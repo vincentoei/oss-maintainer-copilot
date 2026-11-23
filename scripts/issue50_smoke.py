@@ -6,6 +6,7 @@ import hashlib
 import json
 import os
 import subprocess
+import sys
 from dataclasses import asdict
 from pathlib import Path
 
@@ -28,7 +29,8 @@ from maintainer_copilot.web import (
 )
 
 ROOT = Path("/tmp/issue-50-run")
-OUTPUT = ROOT / "api-smoke.json"
+SERVE_WEB = "--serve-web" in sys.argv
+OUTPUT = ROOT / ("web-started.json" if SERVE_WEB else "api-smoke.json")
 if OUTPUT.exists():
     raise SystemExit("Smoke already attempted; preserve the previous artifact")
 OUTPUT.write_text('{"status":"started"}\n')
@@ -97,9 +99,9 @@ class Observed(OpenAICompatibleDraftingAgent):
             )
             return response
         finally:
-            (ROOT / "api-smoke-calls.json").write_text(
-                json.dumps(calls, indent=2) + "\n"
-            )
+            (
+                ROOT / ("web-model-calls.json" if SERVE_WEB else "api-smoke-calls.json")
+            ).write_text(json.dumps(calls, indent=2) + "\n")
 
 
 async def client():
@@ -143,4 +145,21 @@ async def main():
         app.dependency_overrides.clear()
 
 
-asyncio.run(main())
+if SERVE_WEB:
+    import uvicorn
+
+    app.dependency_overrides[get_model_client] = client
+    app.dependency_overrides[get_agent_client] = client
+    app.dependency_overrides[get_issue_source] = issues
+    (ROOT / "web-opening.json").write_text(
+        json.dumps(
+            {
+                "title": opening.title,
+                "body": opening.body,
+                "number": opening.number,
+            }
+        )
+    )
+    uvicorn.run(app, host="127.0.0.1", port=8002)
+else:
+    asyncio.run(main())

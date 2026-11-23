@@ -1,0 +1,202 @@
+[
+  {
+    "code": "R01",
+    "arm": "B",
+    "issue_number": 12053
+  },
+  {
+    "code": "R02",
+    "arm": "A",
+    "issue_number": 12223
+  },
+  {
+    "code": "R03",
+    "arm": "A",
+    "issue_number": 12146
+  },
+  {
+    "code": "R04",
+    "arm": "A",
+    "issue_number": 10156
+  },
+  {
+    "code": "R05",
+    "arm": "B",
+    "issue_number": 12228
+  },
+  {
+    "code": "R06",
+    "arm": "A",
+    "issue_number": 12189
+  },
+  {
+    "code": "R07",
+    "arm": "A",
+    "issue_number": 12226
+  },
+  {
+    "code": "R08",
+    "arm": "B",
+    "issue_number": 12116
+  },
+  {
+    "code": "R09",
+    "arm": "B",
+    "issue_number": 12204
+  },
+  {
+    "code": "R10",
+    "arm": "B",
+    "issue_number": 12081
+  },
+  {
+    "code": "R11",
+    "arm": "A",
+    "issue_number": 7312
+  },
+  {
+    "code": "R12",
+    "arm": "B",
+    "issue_number": 12219
+  },
+  {
+    "code": "R13",
+    "arm": "B",
+    "issue_number": 12223
+  },
+  {
+    "code": "R14",
+    "arm": "B",
+    "issue_number": 12079
+  },
+  {
+    "code": "R15",
+    "arm": "A",
+    "issue_number": 12203
+  },
+  {
+    "code": "R16",
+    "arm": "A",
+    "issue_number": 12228
+  },
+  {
+    "code": "R17",
+    "arm": "B",
+    "issue_number": 12189
+  },
+  {
+    "code": "R18",
+    "arm": "B",
+    "issue_number": 12203
+  },
+  {
+    "code": "R19",
+    "arm": "A",
+    "issue_number": 12204
+  },
+  {
+    "code": "R20",
+    "arm": "B",
+    "issue_number": 12224
+  },
+  {
+    "code": "R21",
+    "arm": "B",
+    "issue_number": 12146
+  },
+  {
+    "code": "R22",
+    "arm": "A",
+    "issue_number": 12083
+  },
+  {
+    "code": "R23",
+    "arm": "A",
+    "issue_number": 12116
+  },
+  {
+    "code": "R24",
+    "arm": "A",
+    "issue_number": 12197
+  },
+  {
+    "code": "R25",
+    "arm": "B",
+    "issue_number": 12083
+  },
+  {
+    "code": "R26",
+    "arm": "A",
+    "issue_number": 12072
+  },
+  {
+    "code": "R27",
+    "arm": "A",
+    "issue_number": 12201
+  },
+  {
+    "code": "R28",
+    "arm": "A",
+    "issue_number": 12079
+  },
+  {
+    "code": "R29",
+    "arm": "A",
+    "issue_number": 12053
+  },
+  {
+    "code": "R30",
+    "arm": "B",
+    "issue_number": 12226
+  },
+  {
+    "code": "R31",
+    "arm": "B",
+    "issue_number": 12216
+  },
+  {
+    "code": "R32",
+    "arm": "A",
+    "issue_number": 12216
+  },
+  {
+    "code": "R33",
+    "arm": "B",
+    "issue_number": 7312
+  },
+  {
+    "code": "R34",
+    "arm": "A",
+    "issue_number": 12081
+  },
+  {
+    "code": "R35",
+    "arm": "B",
+    "issue_number": 10156
+  },
+  {
+    "code": "R36",
+    "arm": "B",
+    "issue_number": 12197
+  },
+  {
+    "code": "R37",
+    "arm": "A",
+    "issue_number": 12219
+  },
+  {
+    "code": "R38",
+    "arm": "B",
+    "issue_number": 12072
+  },
+  {
+    "code": "R39",
+    "arm": "A",
+    "issue_number": 12224
+  },
+  {
+    "code": "R40",
+    "arm": "B",
+    "issue_number": 12201
+  }
+]

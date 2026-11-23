@@ -1,0 +1,80 @@
+[
+  {
+    "request": 59,
+    "partition": "api-smoke",
+    "prompt_sha256": "d800aeaa9d36b2308d53f52f7d3565a4044eb1c5884c55bd4b8544ca369066a7",
+    "input_sha256": "ad64fe84d1ceb7a43f9ec1e5a9cb72df321d1a86a72d65d5930bdb95cfd0273a",
+    "schema_sha256": "c833172f4a8a8c06d05db53ecb336648c8908004121f6a1f7588e821adc14dea",
+    "max_tokens": 512,
+    "response": {
+      "output": {
+        "issue_type": "feature_request",
+        "issue_type_quote": "Conditional test parametrization",
+        "reply_citation_ids": [
+          "Ebdc2465a2bfe6f3a4697a55e2c9dfbb5731d9dfcf31e9627e4d3db1206feea5f"
+        ],
+        "draft": null
+      },
+      "input_tokens": 1078,
+      "output_tokens": 98,
+      "error": null
+    }
+  },
+  {
+    "request": 60,
+    "partition": "api-smoke",
+    "prompt_sha256": "5e7186d61341ef1a30bd50c1899f924fc5757eed02e8eef47454a6b27608f3ef",
+    "input_sha256": "a9fa3b1d2951e5ac62192cb154972fbd7ee90090a917c02832243355aa1c7ae6",
+    "schema_sha256": "92e728d5073d0ad9af2eab60203f777f43a0029e2a1780a3961d08ee068290b1",
+    "max_tokens": 256,
+    "response": {
+      "output": {
+        "tool": "search_earlier_issues",
+        "arguments": {
+          "issue_number": 12201
+        }
+      },
+      "input_tokens": 656,
+      "output_tokens": 23,
+      "error": null
+    }
+  },
+  {
+    "request": 61,
+    "partition": "api-smoke",
+    "prompt_sha256": "5e7186d61341ef1a30bd50c1899f924fc5757eed02e8eef47454a6b27608f3ef",
+    "input_sha256": "de1f17876c1320f3c66f97864d49528f8b89bf07482b89d61c70cbc48b7d387b",
+    "schema_sha256": "cdd557d97a487c3a3551c9857d534719dbee3c9396f30c3a4d6a21fbe14f7618",
+    "max_tokens": 256,
+    "response": {
+      "output": {
+        "tool": "finish",
+        "arguments": {}
+      },
+      "input_tokens": 656,
+      "output_tokens": 12,
+      "error": null
+    }
+  },
+  {
+    "request": 62,
+    "partition": "api-smoke",
+    "prompt_sha256": "d800aeaa9d36b2308d53f52f7d3565a4044eb1c5884c55bd4b8544ca369066a7",
+    "input_sha256": "ad64fe84d1ceb7a43f9ec1e5a9cb72df321d1a86a72d65d5930bdb95cfd0273a",
+    "schema_sha256": "c833172f4a8a8c06d05db53ecb336648c8908004121f6a1f7588e821adc14dea",
+    "max_tokens": 512,
+    "response": {
+      "output": {
+        "issue_type": "feature_request",
+        "issue_type_quote": "Conditional test parametrization",
+        "reply_citation_ids": [
+          "Ebdc2465a2bfe6f3a4697a55e2c9dfbb5731d9dfcf31e9627e4d3db1206feea5f"
+        ],
+        "draft": null
+      },
+      "input_tokens": 1078,
+      "output_tokens": 98,
+      "error": null
+    }
+  }
+]
