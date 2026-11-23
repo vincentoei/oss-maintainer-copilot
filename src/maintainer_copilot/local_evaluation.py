@@ -36,6 +36,7 @@ class _ObservedModel(model.OpenAICompatibleModel):
     def __init__(self, client: model.OpenAICompatibleModel) -> None:
         super().__init__(client.base_url, client.model_name)
         self.client = client
+        self.drafting = client.drafting
         self.calls: list[dict[str, Any]] = []
 
     def generate(self, request: model.ModelRequest) -> object:

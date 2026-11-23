@@ -16,6 +16,7 @@ from pydantic import (
 
 from maintainer_copilot import ci, documentation, issue_search, model, pytest_profile
 from maintainer_copilot import source as repository_source
+from maintainer_copilot.drafting import EvidencePassage, evidence_packet
 from maintainer_copilot.follow_up import supported_follow_up
 from maintainer_copilot.trace import TraceRecorder
 
@@ -554,9 +555,35 @@ def triage_issue(
                 str(citation_by_id[follow_up_id].source_url),
             )
         )
+    client = model_client or model.OpenAICompatibleModel.from_environment()
+    drafting = bool(getattr(client, "drafting", False))
+    evidence_passages: tuple[EvidencePassage, ...] = ()
+    evidence_error = None
+    if drafting:
+        try:
+            evidence_passages, omissions = evidence_packet(
+                f"{issue.title}\n{issue.body}",
+                f"https://github.com/pytest-dev/pytest/issues/{issue.number}"
+                if issue.number is not None
+                else "https://github.com/pytest-dev/pytest/issues",
+                [(str(c.source_url), c.passage) for c in citations if c.passage],
+            )
+        except ValueError as exc:
+            evidence_error = str(exc)
+            abstentions.append(Abstention(field="draft_evidence", reason=str(exc)))
+        else:
+            if omissions:
+                abstentions.append(
+                    Abstention(
+                        field="draft_evidence",
+                        reason="Over-budget passages omitted: " + ", ".join(omissions),
+                    )
+                )
     model_request = model.ModelRequest(
         issue_title=issue.title,
         issue_body=issue.body,
+        evidence_passages=evidence_passages,
+        drafting=drafting,
         reply_statements=tuple(reply_statements),
         # The model may select context, but must not silently discard a vetted
         # investigative question in favor of a less useful contextual link.
@@ -568,6 +595,8 @@ def triage_issue(
         with recorder.call(
             "model", "triage_selection", model.model_identity(client)
         ) as event:
+            if evidence_error is not None:
+                raise ValueError(evidence_error)
             suggestion = model.generate_validated(client, model_request, event)
     except (model.ModelUnavailable, ValidationError, ValueError) as exc:
         issue_type = None
@@ -604,12 +633,17 @@ def triage_issue(
             statement.citation_id: statement for statement in reply_statements
         }
         reply = "Thanks for sharing this issue."
+        draft = (
+            suggestion.draft
+            if isinstance(suggestion, model.DraftingSuggestion)
+            else None
+        )
         if suggestion.reply_citation_ids:
             reply += "\n" + "\n".join(
                 f"- {statement_by_id[citation_id].text} [{citation_id}]"
                 for citation_id in suggestion.reply_citation_ids
             )
-        else:
+        elif draft is None:
             reply += (
                 " I cannot substantiate a specific request from the available evidence."
             )
@@ -617,6 +651,32 @@ def triage_issue(
                 Abstention(
                     field="draft_reply",
                     reason="No supported reply claim was selected.",
+                )
+            )
+
+        if draft is not None:
+            passage_by_id = {p.id: p for p in evidence_passages}
+            context = []
+            for support in draft.support:
+                draft_passage = passage_by_id[support.evidence_id]
+                citation_id = f"C{len(citations) + 1}"
+                citations.append(
+                    Citation(
+                        id=citation_id,
+                        source_url=HttpUrl(draft_passage.source_url),
+                        description=f"Draft context: {draft_passage.id}",
+                        passage=support.quote,
+                    )
+                )
+                context.append(f"“{support.quote}” [{citation_id}]")
+            reply += "\nContext supplied: " + "; ".join(context)
+            reply += "\n" + draft.text
+            abstentions.append(
+                Abstention(
+                    field="draft_semantic_support",
+                    reason=(
+                        "Generated draft awaits explicit human semantic-support review."
+                    ),
                 )
             )
 

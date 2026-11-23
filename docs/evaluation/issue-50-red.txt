@@ -1,0 +1,220 @@
+FFFFFFFFFFFFFF..                                                         [100%]
+=================================== FAILURES ===================================
+_ test_empty_legacy_choices_can_produce_a_contextual_investigation[/api/triage] _
+
+endpoint = '/api/triage'
+
+    @pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+    def test_empty_legacy_choices_can_produce_a_contextual_investigation(endpoint: str) -> None:
+        result = report(endpoint)
+>       assert "Does the same example fail with capture disabled?" in result["draft_reply"]
+E       AssertionError: assert 'Does the same example fail with capture disabled?' in 'Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.'
+
+tests/test_drafting_api.py:78: AssertionError
+_ test_empty_legacy_choices_can_produce_a_contextual_investigation[/api/agent/triage] _
+
+endpoint = '/api/agent/triage'
+
+    @pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+    def test_empty_legacy_choices_can_produce_a_contextual_investigation(endpoint: str) -> None:
+        result = report(endpoint)
+>       assert "Does the same example fail with capture disabled?" in result["draft_reply"]
+E       AssertionError: assert 'Does the same example fail with capture disabled?' in 'Thanks for sharing this issue. I cannot substantiate a specific reply from the available evidence.'
+
+tests/test_drafting_api.py:78: AssertionError
+__________ test_invalid_generated_drafts_are_rejected[id-/api/triage] __________
+
+endpoint = '/api/triage', corruption = 'id'
+
+    @pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+    @pytest.mark.parametrize("corruption", ["id", "quote", "source", "injection", "claim", "malformed"])
+    def test_invalid_generated_drafts_are_rejected(endpoint: str, corruption: str) -> None:
+        result = report(endpoint, corruption)
+        assert result["status"] == "partial"
+        assert "capture disabled" not in result["draft_reply"]
+>       assert any("failed validation" in a["reason"] for a in result["abstentions"])
+E       assert False
+E        +  where False = any(<generator object test_invalid_generated_drafts_are_rejected.<locals>.<genexpr> at 0x7d4f26d1bed0>)
+
+tests/test_drafting_api.py:90: AssertionError
+_______ test_invalid_generated_drafts_are_rejected[id-/api/agent/triage] _______
+
+endpoint = '/api/agent/triage', corruption = 'id'
+
+    @pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+    @pytest.mark.parametrize("corruption", ["id", "quote", "source", "injection", "claim", "malformed"])
+    def test_invalid_generated_drafts_are_rejected(endpoint: str, corruption: str) -> None:
+        result = report(endpoint, corruption)
+        assert result["status"] == "partial"
+        assert "capture disabled" not in result["draft_reply"]
+>       assert any("failed validation" in a["reason"] for a in result["abstentions"])
+E       assert False
+E        +  where False = any(<generator object test_invalid_generated_drafts_are_rejected.<locals>.<genexpr> at 0x7d4f26dac5f0>)
+
+tests/test_drafting_api.py:90: AssertionError
+________ test_invalid_generated_drafts_are_rejected[quote-/api/triage] _________
+
+endpoint = '/api/triage', corruption = 'quote'
+
+    @pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+    @pytest.mark.parametrize("corruption", ["id", "quote", "source", "injection", "claim", "malformed"])
+    def test_invalid_generated_drafts_are_rejected(endpoint: str, corruption: str) -> None:
+        result = report(endpoint, corruption)
+        assert result["status"] == "partial"
+        assert "capture disabled" not in result["draft_reply"]
+>       assert any("failed validation" in a["reason"] for a in result["abstentions"])
+E       assert False
+E        +  where False = any(<generator object test_invalid_generated_drafts_are_rejected.<locals>.<genexpr> at 0x7d4f26dad2f0>)
+
+tests/test_drafting_api.py:90: AssertionError
+_____ test_invalid_generated_drafts_are_rejected[quote-/api/agent/triage] ______
+
+endpoint = '/api/agent/triage', corruption = 'quote'
+
+    @pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+    @pytest.mark.parametrize("corruption", ["id", "quote", "source", "injection", "claim", "malformed"])
+    def test_invalid_generated_drafts_are_rejected(endpoint: str, corruption: str) -> None:
+        result = report(endpoint, corruption)
+        assert result["status"] == "partial"
+        assert "capture disabled" not in result["draft_reply"]
+>       assert any("failed validation" in a["reason"] for a in result["abstentions"])
+E       assert False
+E        +  where False = any(<generator object test_invalid_generated_drafts_are_rejected.<locals>.<genexpr> at 0x7d4f26dd8110>)
+
+tests/test_drafting_api.py:90: AssertionError
+________ test_invalid_generated_drafts_are_rejected[source-/api/triage] ________
+
+endpoint = '/api/triage', corruption = 'source'
+
+    @pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+    @pytest.mark.parametrize("corruption", ["id", "quote", "source", "injection", "claim", "malformed"])
+    def test_invalid_generated_drafts_are_rejected(endpoint: str, corruption: str) -> None:
+        result = report(endpoint, corruption)
+        assert result["status"] == "partial"
+        assert "capture disabled" not in result["draft_reply"]
+>       assert any("failed validation" in a["reason"] for a in result["abstentions"])
+E       assert False
+E        +  where False = any(<generator object test_invalid_generated_drafts_are_rejected.<locals>.<genexpr> at 0x7d4f26d1ac20>)
+
+tests/test_drafting_api.py:90: AssertionError
+_____ test_invalid_generated_drafts_are_rejected[source-/api/agent/triage] _____
+
+endpoint = '/api/agent/triage', corruption = 'source'
+
+    @pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+    @pytest.mark.parametrize("corruption", ["id", "quote", "source", "injection", "claim", "malformed"])
+    def test_invalid_generated_drafts_are_rejected(endpoint: str, corruption: str) -> None:
+        result = report(endpoint, corruption)
+        assert result["status"] == "partial"
+        assert "capture disabled" not in result["draft_reply"]
+>       assert any("failed validation" in a["reason"] for a in result["abstentions"])
+E       assert False
+E        +  where False = any(<generator object test_invalid_generated_drafts_are_rejected.<locals>.<genexpr> at 0x7d4f26ddb850>)
+
+tests/test_drafting_api.py:90: AssertionError
+______ test_invalid_generated_drafts_are_rejected[injection-/api/triage] _______
+
+endpoint = '/api/triage', corruption = 'injection'
+
+    @pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+    @pytest.mark.parametrize("corruption", ["id", "quote", "source", "injection", "claim", "malformed"])
+    def test_invalid_generated_drafts_are_rejected(endpoint: str, corruption: str) -> None:
+        result = report(endpoint, corruption)
+        assert result["status"] == "partial"
+        assert "capture disabled" not in result["draft_reply"]
+>       assert any("failed validation" in a["reason"] for a in result["abstentions"])
+E       assert False
+E        +  where False = any(<generator object test_invalid_generated_drafts_are_rejected.<locals>.<genexpr> at 0x7d4f26dadf20>)
+
+tests/test_drafting_api.py:90: AssertionError
+___ test_invalid_generated_drafts_are_rejected[injection-/api/agent/triage] ____
+
+endpoint = '/api/agent/triage', corruption = 'injection'
+
+    @pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+    @pytest.mark.parametrize("corruption", ["id", "quote", "source", "injection", "claim", "malformed"])
+    def test_invalid_generated_drafts_are_rejected(endpoint: str, corruption: str) -> None:
+        result = report(endpoint, corruption)
+        assert result["status"] == "partial"
+        assert "capture disabled" not in result["draft_reply"]
+>       assert any("failed validation" in a["reason"] for a in result["abstentions"])
+E       assert False
+E        +  where False = any(<generator object test_invalid_generated_drafts_are_rejected.<locals>.<genexpr> at 0x7d4f26daeb50>)
+
+tests/test_drafting_api.py:90: AssertionError
+________ test_invalid_generated_drafts_are_rejected[claim-/api/triage] _________
+
+endpoint = '/api/triage', corruption = 'claim'
+
+    @pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+    @pytest.mark.parametrize("corruption", ["id", "quote", "source", "injection", "claim", "malformed"])
+    def test_invalid_generated_drafts_are_rejected(endpoint: str, corruption: str) -> None:
+        result = report(endpoint, corruption)
+        assert result["status"] == "partial"
+        assert "capture disabled" not in result["draft_reply"]
+>       assert any("failed validation" in a["reason"] for a in result["abstentions"])
+E       assert False
+E        +  where False = any(<generator object test_invalid_generated_drafts_are_rejected.<locals>.<genexpr> at 0x7d4f26dae4d0>)
+
+tests/test_drafting_api.py:90: AssertionError
+_____ test_invalid_generated_drafts_are_rejected[claim-/api/agent/triage] ______
+
+endpoint = '/api/agent/triage', corruption = 'claim'
+
+    @pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+    @pytest.mark.parametrize("corruption", ["id", "quote", "source", "injection", "claim", "malformed"])
+    def test_invalid_generated_drafts_are_rejected(endpoint: str, corruption: str) -> None:
+        result = report(endpoint, corruption)
+        assert result["status"] == "partial"
+        assert "capture disabled" not in result["draft_reply"]
+>       assert any("failed validation" in a["reason"] for a in result["abstentions"])
+E       assert False
+E        +  where False = any(<generator object test_invalid_generated_drafts_are_rejected.<locals>.<genexpr> at 0x7d4f26daec20>)
+
+tests/test_drafting_api.py:90: AssertionError
+______ test_invalid_generated_drafts_are_rejected[malformed-/api/triage] _______
+
+endpoint = '/api/triage', corruption = 'malformed'
+
+    @pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+    @pytest.mark.parametrize("corruption", ["id", "quote", "source", "injection", "claim", "malformed"])
+    def test_invalid_generated_drafts_are_rejected(endpoint: str, corruption: str) -> None:
+        result = report(endpoint, corruption)
+        assert result["status"] == "partial"
+        assert "capture disabled" not in result["draft_reply"]
+>       assert any("failed validation" in a["reason"] for a in result["abstentions"])
+E       assert False
+E        +  where False = any(<generator object test_invalid_generated_drafts_are_rejected.<locals>.<genexpr> at 0x7d4f26daf440>)
+
+tests/test_drafting_api.py:90: AssertionError
+___ test_invalid_generated_drafts_are_rejected[malformed-/api/agent/triage] ____
+
+endpoint = '/api/agent/triage', corruption = 'malformed'
+
+    @pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+    @pytest.mark.parametrize("corruption", ["id", "quote", "source", "injection", "claim", "malformed"])
+    def test_invalid_generated_drafts_are_rejected(endpoint: str, corruption: str) -> None:
+        result = report(endpoint, corruption)
+        assert result["status"] == "partial"
+        assert "capture disabled" not in result["draft_reply"]
+>       assert any("failed validation" in a["reason"] for a in result["abstentions"])
+E       assert False
+E        +  where False = any(<generator object test_invalid_generated_drafts_are_rejected.<locals>.<genexpr> at 0x7d4f26dfcc70>)
+
+tests/test_drafting_api.py:90: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_drafting_api.py::test_empty_legacy_choices_can_produce_a_contextual_investigation[/api/triage]
+FAILED tests/test_drafting_api.py::test_empty_legacy_choices_can_produce_a_contextual_investigation[/api/agent/triage]
+FAILED tests/test_drafting_api.py::test_invalid_generated_drafts_are_rejected[id-/api/triage]
+FAILED tests/test_drafting_api.py::test_invalid_generated_drafts_are_rejected[id-/api/agent/triage]
+FAILED tests/test_drafting_api.py::test_invalid_generated_drafts_are_rejected[quote-/api/triage]
+FAILED tests/test_drafting_api.py::test_invalid_generated_drafts_are_rejected[quote-/api/agent/triage]
+FAILED tests/test_drafting_api.py::test_invalid_generated_drafts_are_rejected[source-/api/triage]
+FAILED tests/test_drafting_api.py::test_invalid_generated_drafts_are_rejected[source-/api/agent/triage]
+FAILED tests/test_drafting_api.py::test_invalid_generated_drafts_are_rejected[injection-/api/triage]
+FAILED tests/test_drafting_api.py::test_invalid_generated_drafts_are_rejected[injection-/api/agent/triage]
+FAILED tests/test_drafting_api.py::test_invalid_generated_drafts_are_rejected[claim-/api/triage]
+FAILED tests/test_drafting_api.py::test_invalid_generated_drafts_are_rejected[claim-/api/agent/triage]
+FAILED tests/test_drafting_api.py::test_invalid_generated_drafts_are_rejected[malformed-/api/triage]
+FAILED tests/test_drafting_api.py::test_invalid_generated_drafts_are_rejected[malformed-/api/agent/triage]
+14 failed, 2 passed in 0.37s

@@ -1,5 +1,6 @@
 """Thin HTTP and browser interface for the Python triage API."""
 
+import os
 from importlib.resources import files
 from typing import Annotated
 from uuid import UUID
@@ -16,6 +17,7 @@ from maintainer_copilot import (
 from maintainer_copilot.agent import (
     AgentClient,
     OpenAICompatibleAgent,
+    OpenAICompatibleDraftingAgent,
     triage_issue_with_agent,
 )
 from maintainer_copilot.ci import CISource, PublicCISource
@@ -24,7 +26,11 @@ from maintainer_copilot.documentation import (
     PublicDocumentationSource,
 )
 from maintainer_copilot.issue_search import GitHubIssueSource
-from maintainer_copilot.model import ModelClient, OpenAICompatibleModel
+from maintainer_copilot.model import (
+    ModelClient,
+    OpenAICompatibleDraftingModel,
+    OpenAICompatibleModel,
+)
 from maintainer_copilot.source import (
     PublicRepositorySource,
     SourceExcerpt,
@@ -54,10 +60,14 @@ async def get_ci_source() -> CISource:
 
 
 async def get_model_client() -> ModelClient:
+    if os.getenv("MODEL_DRAFTING") == "1":
+        return OpenAICompatibleDraftingModel.from_environment()
     return OpenAICompatibleModel.from_environment()
 
 
 async def get_agent_client() -> AgentClient:
+    if os.getenv("MODEL_DRAFTING") == "1":
+        return OpenAICompatibleDraftingAgent.from_environment()
     return OpenAICompatibleAgent.from_environment()
 
 
