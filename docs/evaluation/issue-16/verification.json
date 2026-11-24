@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "preserved_baseline_files": 150,
+  "source_files_unchanged_since_inference_freeze": 17,
+  "case_rows": 60,
+  "shared_eligible_cases": 20,
+  "charged_dispatches": 79,
+  "raw_responses": 79,
+  "score_recomputations": 60,
+  "human_reviews_pending": 60,
+  "scope": "Offline integrity/accounting checks; no semantic human review."
+}

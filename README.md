@@ -283,3 +283,28 @@ Issue #50: [bounded drafting experiment and retain-baseline decision](docs/evalu
 All sixty replies received explicit human review. Drafting failed the frozen
 promotion thresholds; the default remains the selected 3B selection-only path.
 The experimental MODEL_DRAFTING=1 path is retained for inspection, not promoted.
+
+Issue #16 compares the keyword-rule baseline, fixed legacy RAG workflow and bounded
+agent on the same twenty cases. Read the [frozen comparison protocol](docs/evaluation/issue-16-protocol.md)
+before running a new experiment. The evaluator verifies the preserved baseline
+and exact selected 3B identity/settings, freezes public evidence before timing,
+and refuses to overwrite or resume a started directory:
+
+```sh
+GITHUB_TOKEN="$(gh auth token)" uv run --locked --no-env-file \
+  python -m maintainer_copilot.workflow_comparison \
+  --ollama-url http://172.17.48.1:11434 --directory /tmp/issue-16-new-run
+```
+
+Use the current Windows host address from the local model guide. This command
+performs real inference: one pass, no warm-ups/retries, at most 100 dispatches.
+It retains reports, traces, responses, a durable request ledger, paired field and
+resource metrics, plus a fresh blinded review sheet and separate identity key.
+Human usefulness and semantic citation support stay pending until explicitly
+reviewed; automated field scores cannot authorize promotion. Keep the selected
+3B and fixed legacy demo default unless every protocol gate passes.
+
+The [completed #16 comparison and acceptance evidence](docs/evaluation/issue-16.md)
+retain the fixed legacy workflow: no paired exact-field gain from the agent,
+with 1.70x p95 latency, 2.29x tokens and two additional partial reports.
+Fresh human usefulness and semantic reviews remain explicitly unverified.

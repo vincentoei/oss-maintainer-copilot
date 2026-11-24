@@ -3,6 +3,7 @@
 import json
 import os
 import re
+from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Protocol, Self
 from urllib.error import URLError
@@ -136,9 +137,16 @@ class OpenAICompatibleModel:
 
     """Call a configured local chat-completions endpoint using JSON output."""
 
-    def __init__(self, base_url: str, model_name: str) -> None:
+    def __init__(
+        self,
+        base_url: str,
+        model_name: str,
+        *,
+        response_observer: Callable[[bytes], None] | None = None,
+    ) -> None:
         self.base_url = base_url.rstrip("/")
         self.model_name = model_name
+        self.response_observer = response_observer
 
     @classmethod
     def from_environment(cls) -> Self:
@@ -275,6 +283,8 @@ class OpenAICompatibleModel:
         try:
             with urlopen(http_request, timeout=20) as response:
                 response_body = response.read(65_537)
+            if self.response_observer is not None:
+                self.response_observer(response_body)
             if len(response_body) > 65_536:
                 raise ValueError("model response exceeds size limit")
             envelope = json.loads(response_body)
