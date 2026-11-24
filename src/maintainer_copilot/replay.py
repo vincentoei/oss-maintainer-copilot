@@ -254,6 +254,10 @@ def _verified_issue(
         issue = source.get_issue(number)
     except Exception as exc:
         raise CaseFlagged(f"pytest issue #{number} is unavailable") from exc
+    if issue.repository != pytest_profile.REPOSITORY:
+        raise CaseFlagged(
+            "Historical issue repository does not match the pinned profile"
+        )
     if (
         issue.number != number
         or issue.created_at != created_at

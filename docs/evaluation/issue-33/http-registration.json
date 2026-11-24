@@ -1,0 +1,348 @@
+{
+  "pytest_registration": {
+    "status": 200,
+    "body": {
+      "id": "pytest-default",
+      "github_id": null,
+      "configuration": {
+        "documentation_paths": [
+          "README.md",
+          "CONTRIBUTING.md",
+          "docs/README.md"
+        ],
+        "markdown_required_fields": {},
+        "type_labels": []
+      },
+      "context": {
+        "registration_id": "pytest-default",
+        "repository": "pytest-dev/pytest",
+        "revision": "50234b4e670064c42a4c29cb6258115a2079ba4c",
+        "profile": "pytest",
+        "status": "ready",
+        "errors": [],
+        "labels": [
+          "type: backward compatibility",
+          "type: bug",
+          "type: deprecation",
+          "type: docs",
+          "type: enhancement",
+          "type: infrastructure",
+          "type: performance",
+          "type: proposal",
+          "type: question",
+          "type: refactoring",
+          "type: regression",
+          "type: removal",
+          "type: selftests"
+        ],
+        "type_cues": [
+          [
+            "type: backward compatibility",
+            "\\b(?:backward compatib\\w*|breaking change)\\b"
+          ],
+          [
+            "type: bug",
+            "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+          ],
+          [
+            "type: deprecation",
+            "\\bdeprecat\\w*\\b"
+          ],
+          [
+            "type: docs",
+            "\\b(?:docs|documentation|guide|manual|typo)\\b"
+          ],
+          [
+            "type: enhancement",
+            "\\b(?:feature|enhancement|add|support|allow)\\b"
+          ],
+          [
+            "type: infrastructure",
+            "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+          ],
+          [
+            "type: performance",
+            "\\b(?:performance|slow|latency|memory|speed)\\b"
+          ],
+          [
+            "type: proposal",
+            "\\b(?:proposal|propose|design)\\b"
+          ],
+          [
+            "type: question",
+            "\\b(?:question|how|why)\\b|\\?"
+          ],
+          [
+            "type: refactoring",
+            "\\b(?:refactor\\w*|cleanup)\\b"
+          ],
+          [
+            "type: regression",
+            "\\b(?:regression|used to work|worked before)\\b"
+          ],
+          [
+            "type: removal",
+            "\\bremov\\w*\\b"
+          ],
+          [
+            "type: selftests",
+            "\\b(?:selftests|pytest test suite)\\b"
+          ]
+        ],
+        "templates": [
+          {
+            "name": "bug",
+            "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "bug description",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "pip list output",
+                "line": 14,
+                "required": true
+              },
+              {
+                "name": "pytest and OS versions",
+                "line": 15,
+                "required": true
+              },
+              {
+                "name": "minimal example",
+                "line": 16,
+                "required": true
+              }
+            ]
+          },
+          {
+            "name": "feature",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "problem to solve",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "proposed solution",
+                "line": 16,
+                "required": true
+              },
+              {
+                "name": "real-world use case",
+                "line": 19,
+                "required": true
+              },
+              {
+                "name": "alternative solutions",
+                "line": 21,
+                "required": true
+              }
+            ]
+          }
+        ],
+        "documentation": [
+          {
+            "key": "capture",
+            "url": "https://docs.pytest.org/en/stable/how-to/capture-stdout-stderr.html#accessing-captured-output-from-a-test-function",
+            "section": "accessing-captured-output-from-a-test-function",
+            "passage": "fixtures allow access to stdout/stderr output created during test execution.",
+            "claim": "pytest documents that capture fixtures let tests access stdout and stderr created during execution.",
+            "relevance": "\\b(?:capsys|capfd|capteesys|capsysbinary|capfdbinary)\\b"
+          },
+          {
+            "key": "fixture_scope",
+            "url": "https://docs.pytest.org/en/stable/how-to/fixtures.html#fixture-scopes",
+            "section": "fixture-scopes",
+            "passage": "Fixtures are created when first requested by a test, and are destroyed based on their scope",
+            "claim": "pytest documents that fixture scope determines when a fixture is destroyed.",
+            "relevance": "\\bfixture scopes?\\b|\\bscope\\s*=\\s*['\\\"](?:function|class|module|package|session)['\\\"]"
+          }
+        ],
+        "prepared_at": "",
+        "structured_templates": true
+      },
+      "is_default": true
+    }
+  },
+  "list_before_restart": {
+    "status": 200,
+    "body": [
+      {
+        "id": "pytest-default",
+        "github_id": null,
+        "configuration": {
+          "documentation_paths": [
+            "README.md",
+            "CONTRIBUTING.md",
+            "docs/README.md"
+          ],
+          "markdown_required_fields": {},
+          "type_labels": []
+        },
+        "context": {
+          "registration_id": "pytest-default",
+          "repository": "pytest-dev/pytest",
+          "revision": "50234b4e670064c42a4c29cb6258115a2079ba4c",
+          "profile": "pytest",
+          "status": "ready",
+          "errors": [],
+          "labels": [
+            "type: backward compatibility",
+            "type: bug",
+            "type: deprecation",
+            "type: docs",
+            "type: enhancement",
+            "type: infrastructure",
+            "type: performance",
+            "type: proposal",
+            "type: question",
+            "type: refactoring",
+            "type: regression",
+            "type: removal",
+            "type: selftests"
+          ],
+          "type_cues": [
+            [
+              "type: backward compatibility",
+              "\\b(?:backward compatib\\w*|breaking change)\\b"
+            ],
+            [
+              "type: bug",
+              "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+            ],
+            [
+              "type: deprecation",
+              "\\bdeprecat\\w*\\b"
+            ],
+            [
+              "type: docs",
+              "\\b(?:docs|documentation|guide|manual|typo)\\b"
+            ],
+            [
+              "type: enhancement",
+              "\\b(?:feature|enhancement|add|support|allow)\\b"
+            ],
+            [
+              "type: infrastructure",
+              "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+            ],
+            [
+              "type: performance",
+              "\\b(?:performance|slow|latency|memory|speed)\\b"
+            ],
+            [
+              "type: proposal",
+              "\\b(?:proposal|propose|design)\\b"
+            ],
+            [
+              "type: question",
+              "\\b(?:question|how|why)\\b|\\?"
+            ],
+            [
+              "type: refactoring",
+              "\\b(?:refactor\\w*|cleanup)\\b"
+            ],
+            [
+              "type: regression",
+              "\\b(?:regression|used to work|worked before)\\b"
+            ],
+            [
+              "type: removal",
+              "\\bremov\\w*\\b"
+            ],
+            [
+              "type: selftests",
+              "\\b(?:selftests|pytest test suite)\\b"
+            ]
+          ],
+          "templates": [
+            {
+              "name": "bug",
+              "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+              "format": "markdown",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "bug description",
+                  "line": 13,
+                  "required": true
+                },
+                {
+                  "name": "pip list output",
+                  "line": 14,
+                  "required": true
+                },
+                {
+                  "name": "pytest and OS versions",
+                  "line": 15,
+                  "required": true
+                },
+                {
+                  "name": "minimal example",
+                  "line": 16,
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "feature",
+              "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+              "format": "markdown",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "problem to solve",
+                  "line": 13,
+                  "required": true
+                },
+                {
+                  "name": "proposed solution",
+                  "line": 16,
+                  "required": true
+                },
+                {
+                  "name": "real-world use case",
+                  "line": 19,
+                  "required": true
+                },
+                {
+                  "name": "alternative solutions",
+                  "line": 21,
+                  "required": true
+                }
+              ]
+            }
+          ],
+          "documentation": [
+            {
+              "key": "capture",
+              "url": "https://docs.pytest.org/en/stable/how-to/capture-stdout-stderr.html#accessing-captured-output-from-a-test-function",
+              "section": "accessing-captured-output-from-a-test-function",
+              "passage": "fixtures allow access to stdout/stderr output created during test execution.",
+              "claim": "pytest documents that capture fixtures let tests access stdout and stderr created during execution.",
+              "relevance": "\\b(?:capsys|capfd|capteesys|capsysbinary|capfdbinary)\\b"
+            },
+            {
+              "key": "fixture_scope",
+              "url": "https://docs.pytest.org/en/stable/how-to/fixtures.html#fixture-scopes",
+              "section": "fixture-scopes",
+              "passage": "Fixtures are created when first requested by a test, and are destroyed based on their scope",
+              "claim": "pytest documents that fixture scope determines when a fixture is destroyed.",
+              "relevance": "\\bfixture scopes?\\b|\\bscope\\s*=\\s*['\\\"](?:function|class|module|package|session)['\\\"]"
+            }
+          ],
+          "prepared_at": "",
+          "structured_templates": true
+        },
+        "is_default": true
+      }
+    ]
+  }
+}

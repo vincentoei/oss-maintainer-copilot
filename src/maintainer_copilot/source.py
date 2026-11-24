@@ -1,4 +1,4 @@
-"""Bounded, read-only inspection of a pytest repository file at a commit."""
+"""Bounded, read-only inspection of a target repository file at a commit."""
 
 import re
 from dataclasses import dataclass
@@ -7,6 +7,8 @@ from urllib.error import URLError
 from urllib.request import Request, urlopen
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
+
+from maintainer_copilot.repository import DEFAULT_REPOSITORY, repository_identity
 
 MAX_SOURCE_BYTES = 262_144
 MAX_EXCERPT_CHARS = 4_096
@@ -19,6 +21,13 @@ class SourceUnavailable(Exception):
 
 class SourceLocation(BaseModel):
     model_config = ConfigDict(extra="forbid")
+
+    repository: str = DEFAULT_REPOSITORY
+
+    @field_validator("repository")
+    @classmethod
+    def validate_repository(cls, value: str) -> str:
+        return repository_identity(value)
 
     commit: str = Field(pattern=r"^[0-9a-f]{40}$")
     path: str = Field(min_length=1, max_length=256)
@@ -36,14 +45,14 @@ class SourceLocation(BaseModel):
     @property
     def raw_url(self) -> str:
         return (
-            "https://raw.githubusercontent.com/pytest-dev/pytest/"
+            f"https://raw.githubusercontent.com/{self.repository}/"
             f"{self.commit}/{self.path}"
         )
 
     @property
     def source_url(self) -> str:
         return (
-            "https://github.com/pytest-dev/pytest/blob/"
+            f"https://github.com/{self.repository}/blob/"
             f"{self.commit}/{self.path}#L{self.line}"
         )
 
@@ -70,7 +79,7 @@ class SourceReader(Protocol):
 
 
 class PublicRepositorySource:
-    """Fetch only from the fixed public pytest repository, with a byte cap."""
+    """Fetch only from the selected public repository, with a byte cap."""
 
     def get_excerpt(self, location: SourceLocation) -> SourceExcerpt:
         request = Request(location.raw_url, method="GET")

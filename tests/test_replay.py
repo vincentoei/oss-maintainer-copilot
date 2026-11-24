@@ -2,6 +2,7 @@
 
 import os
 from datetime import UTC, datetime
+from pathlib import Path
 
 import pytest
 
@@ -655,3 +656,52 @@ def test_verified_opening_citations_still_reject_newer_issues() -> None:
         f"https://github.com/pytest-dev/pytest/issues/{case.issue_number + 1}"
     )
     assert not score_report(case, report)["citation_validity"]["valid"]
+
+
+def test_live_registry_removal_does_not_change_historical_evidence(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    from maintainer_copilot.registry import get_registry
+
+    monkeypatch.setenv("REPOSITORY_REGISTRY_PATH", str(tmp_path / "registry.sqlite3"))
+    get_registry().remove("pytest-default")
+    case, github, repository = synthetic_case()
+    report = replay_case(
+        case, commit_source=repository, issue_source=github, source_reader=repository
+    )
+    assert report.context.repository == "pytest-dev/pytest"
+    assert report.context.revision == case.repository_commit
+    assert all(
+        case.repository_commit in str(c.source_url) or "/issues/" in str(c.source_url)
+        for c in report.citations
+    )
+
+
+def test_foreign_opening_with_matching_hash_is_flagged_before_inference() -> None:
+    case, github, repository = synthetic_case()
+    record = github.issues[case.issue_number]
+
+    # The public reader must establish repository provenance as well as content.
+    class ForeignReader:
+        def get_issue(self, number: int) -> issue_search.IssueRecord:
+            return issue_search.IssueRecord(
+                record.number,
+                record.title,
+                record.body,
+                record.created_at,
+                "other/tool",
+            )
+
+        def search_issues(
+            self, query: str, created_before: datetime
+        ) -> list[issue_search.IssueRecord]:
+            raise AssertionError("No live search in historical replay")
+
+    with pytest.raises(CaseFlagged, match="repository"):
+        replay_case(
+            case,
+            commit_source=repository,
+            issue_source=ForeignReader(),
+            source_reader=repository,
+        )

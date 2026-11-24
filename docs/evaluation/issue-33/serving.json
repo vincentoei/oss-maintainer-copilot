@@ -1,0 +1,84 @@
+{
+  "identity": {
+    "name": "pytest-triage:coder3b-ctx16k",
+    "model": "pytest-triage:coder3b-ctx16k",
+    "modified_at": "2026-11-20T00:13:19.6628884+07:00",
+    "size": 1929912340,
+    "digest": "3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8",
+    "details": {
+      "parent_model": "qwen2.5-coder:3b-instruct-q4_K_M",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "3.1B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 2048,
+      "runner": "llamacpp"
+    },
+    "capabilities": [
+      "completion",
+      "tools",
+      "insert"
+    ]
+  },
+  "parameters": {
+    "repeat_penalty": "1",
+    "seed": "42",
+    "temperature": "0",
+    "top_k": "20",
+    "top_p": "0.8",
+    "num_ctx": "16384"
+  },
+  "template_sha256": "1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320",
+  "version": {
+    "version": "0.40.16"
+  },
+  "model_info": {
+    "general.architecture": "qwen2",
+    "general.base_model.0.name": "Qwen2.5 Coder 3B",
+    "general.base_model.0.organization": "Qwen",
+    "general.base_model.0.repo_url": "https://huggingface.co/Qwen/Qwen2.5-Coder-3B",
+    "general.base_model.count": 1,
+    "general.basename": "Qwen2.5-Coder",
+    "general.file_type": 15,
+    "general.finetune": "Instruct",
+    "general.languages": [
+      "en"
+    ],
+    "general.license": "other",
+    "general.license.link": "https://huggingface.co/Qwen/Qwen2.5-Coder-3B-Instruct/blob/main/LICENSE",
+    "general.license.name": "qwen-research",
+    "general.parameter_count": 3085938688,
+    "general.quantization_version": 2,
+    "general.size_label": "3B",
+    "general.tags": [
+      "code",
+      "codeqwen",
+      "chat",
+      "qwen",
+      "qwen-coder",
+      "text-generation"
+    ],
+    "general.type": "model",
+    "qwen2.attention.head_count": 16,
+    "qwen2.attention.head_count_kv": 2,
+    "qwen2.attention.layer_norm_rms_epsilon": 1e-06,
+    "qwen2.block_count": 36,
+    "qwen2.context_length": 32768,
+    "qwen2.embedding_length": 2048,
+    "qwen2.feed_forward_length": 11008,
+    "qwen2.rope.freq_base": 1000000,
+    "tokenizer.ggml.add_bos_token": false,
+    "tokenizer.ggml.bos_token_id": 151643,
+    "tokenizer.ggml.eos_token_id": 151645,
+    "tokenizer.ggml.merges": [],
+    "tokenizer.ggml.model": "gpt2",
+    "tokenizer.ggml.padding_token_id": 151643,
+    "tokenizer.ggml.pre": "qwen2",
+    "tokenizer.ggml.token_type": [],
+    "tokenizer.ggml.tokens": []
+  }
+}

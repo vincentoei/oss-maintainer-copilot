@@ -1,0 +1,11 @@
+{
+  "request": 3,
+  "prompt_sha256": "65d893969cd5f2f198fb4054a95ec13f8be2649442d76058efd620818301bbec",
+  "input_sha256": "b13cf7160bd542654bd97919909a6ad748ffc9e0448f262c55b1ab3310ddd938",
+  "schema_sha256": "1e6946b1cdf7220148af43a26abd70cef7bcc358f2ecebf233a4ceec7eb73885",
+  "max_tokens": 256,
+  "repository": "pytest-dev/pytest",
+  "transport": "returned",
+  "seconds": 0.6194096499821171,
+  "raw_response": "{\"id\":\"chatcmpl-488\",\"object\":\"chat.completion\",\"created\":1795514152,\"model\":\"pytest-triage:coder3b-ctx16k\",\"system_fingerprint\":\"fp_ollama\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"{\\n  \\\"issue_type\\\": \\\"type: bug\\\",\\n  \\\"issue_type_quote\\\": \\\"Bug: collection fails in a local project\\\\nSynthetic smoke opening: collection fails \\\",\\n  \\\"reply_citation_ids\\\": [\\\"C1\\\", \\\"C2\\\", \\\"C3\\\"]\\n}\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":666,\"prompt_tokens_details\":{\"cached_tokens\":228},\"completion_tokens\":56,\"total_tokens\":722}}\n"
+}

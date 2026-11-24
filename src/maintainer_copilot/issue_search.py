@@ -1,6 +1,5 @@
-"""Read public pytest issues and identify plausible earlier matches."""
+"""Read public repository issues and identify plausible earlier matches."""
 
-import builtins
 import json
 import os
 import re
@@ -10,6 +9,9 @@ from typing import Literal, Protocol
 from urllib.error import URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
+
+from maintainer_copilot import pytest_profile
+from maintainer_copilot.repository import DEFAULT_REPOSITORY, repository_identity
 
 
 class IssueSearchError(Exception):
@@ -23,9 +25,11 @@ class IssueRecord:
     body: str
     created_at: datetime
 
+    repository: str = DEFAULT_REPOSITORY
+
     @property
     def url(self) -> str:
-        return f"https://github.com/pytest-dev/pytest/issues/{self.number}"
+        return f"https://github.com/{self.repository}/issues/{self.number}"
 
 
 class IssueSource(Protocol):
@@ -39,6 +43,11 @@ class IssueSource(Protocol):
 class GitHubIssueSource:
     """The two read-only GitHub calls needed for a historical issue search."""
 
+    repository = DEFAULT_REPOSITORY
+
+    def __init__(self, repository: str = DEFAULT_REPOSITORY) -> None:
+        self.repository = repository_identity(repository)
+
     def _get_json(self, url: str) -> dict[str, object]:
         headers = {
             "Accept": "application/vnd.github+json",
@@ -49,7 +58,10 @@ class GitHubIssueSource:
             headers["Authorization"] = f"Bearer {token}"
         try:
             with urlopen(Request(url, headers=headers), timeout=8) as response:
-                data = json.load(response)
+                body = response.read(2_000_001)
+            if len(body) > 2_000_000:
+                raise ValueError("GitHub response exceeds the size limit")
+            data = json.loads(body)
             if not isinstance(data, dict):
                 raise ValueError("expected an object")
             return data
@@ -58,12 +70,12 @@ class GitHubIssueSource:
 
     def get_issue(self, number: int) -> IssueRecord:
         data = self._get_json(
-            f"https://api.github.com/repos/pytest-dev/pytest/issues/{number}"
+            f"https://api.github.com/repos/{self.repository}/issues/{number}"
         )
         if "pull_request" in data:
             raise IssueSearchError("The supplied number refers to a pull request.")
         try:
-            record = _record(data)
+            record = _record(data, self.repository)
         except (KeyError, TypeError, ValueError) as exc:
             raise IssueSearchError("GitHub returned incomplete issue data.") from exc
         if record.number != number:
@@ -73,7 +85,7 @@ class GitHubIssueSource:
     def search_issues(self, query: str, created_before: datetime) -> list[IssueRecord]:
         cutoff = created_before.astimezone(UTC).isoformat(timespec="seconds")
         search = (
-            f"{query} repo:pytest-dev/pytest is:issue in:title,body created:<{cutoff}"
+            f"{query} repo:{self.repository} is:issue in:title,body created:<{cutoff}"
         )
         collected: list[dict[str, object]] = []
         total_count: int | None = None
@@ -108,14 +120,24 @@ class GitHubIssueSource:
                 raise IssueSearchError("GitHub returned incomplete search results.")
             page += 1
         try:
-            return [_record(item) for item in collected if "pull_request" not in item]
+            return [
+                _record(item, self.repository)
+                for item in collected
+                if "pull_request" not in item
+            ]
         except (KeyError, TypeError, ValueError) as exc:
             raise IssueSearchError("GitHub returned incomplete issue data.") from exc
 
 
-def _record(data: dict[str, object]) -> IssueRecord:
+def _record(
+    data: dict[str, object], repository: str = DEFAULT_REPOSITORY
+) -> IssueRecord:
+    expected_url = f"https://github.com/{repository}/issues/{data['number']}"
+    if data.get("html_url", expected_url) != expected_url:
+        raise ValueError("Issue URL belongs to another repository")
     created_at = datetime.fromisoformat(str(data["created_at"]).replace("Z", "+00:00"))
     return IssueRecord(
+        repository=repository,
         number=int(str(data["number"])),
         title=str(data["title"]),
         body=str(data.get("body") or ""),
@@ -143,7 +165,6 @@ _STOPWORDS = {
     "have",
     "issue",
     "not",
-    "pytest",
     "request",
     "should",
     "support",
@@ -205,10 +226,12 @@ def _opposing_actions(first: str, second: str) -> bool:
     return False
 
 
-def search_query(title: str, body: str) -> str | None:
+def search_query(
+    title: str, body: str, *, excluded: frozenset[str] = pytest_profile.SEARCH_STOPWORDS
+) -> str | None:
     """Use a small, safe set of distinctive words for GitHub's search query."""
-    title_terms = _terms(title)
-    body_terms = _terms(body)
+    title_terms = _terms(title) - excluded
+    body_terms = _terms(body) - excluded
     if len(title_terms | body_terms) < 3 or len(body_terms) < 2:
         return None
     terms = sorted(title_terms, key=lambda term: (-len(term), term))[:3]
@@ -227,6 +250,15 @@ class Match:
     score: float
 
 
+class Connection(Protocol):
+    @property
+    def key(self) -> str: ...
+    @property
+    def description(self) -> str: ...
+    @property
+    def patterns(self) -> tuple[str, ...]: ...
+
+
 @dataclass(frozen=True)
 class _Connection:
     key: str
@@ -234,77 +266,7 @@ class _Connection:
     patterns: tuple[str, ...]
 
 
-# Bounded connections require behavior-bearing evidence in both reports. Shared
-# template headings, stack-frame vocabulary and URLs cannot establish a match.
-_CONNECTIONS = (
-    _Connection(
-        "fixture_values",
-        "fixture-derived parameter values",
-        (
-            r"\bfixtures?\b",
-            r"\bparametrize\b",
-            r"parameters_fixture|fixture[- ]derived parameter|"
-            r"Using fixtures in.*parametrize|"
-            r"fixture.{0,20}(?:_value_|supplies parameter|provides parameter)",
-        ),
-    ),
-    _Connection(
-        "readouterr",
-        "readouterr consuming captured output",
-        (
-            r"\breadouterr\b",
-            r"reset|consum|missing|keep.*output|(?:remain|preserve).*?(?:visible|output)",
-        ),
-    ),
-    _Connection(
-        "runtest_import",
-        "the call_runtest_hook import failure",
-        (
-            r"call_runtest_hook",
-            r"ImportError|cannot import",
-        ),
-    ),
-    _Connection("pdbcls", "custom debugger selection with --pdbcls", (r"--pdbcls",)),
-    _Connection(
-        "argument_file",
-        "reading test-selection arguments from a file",
-        (
-            r"\b(?:text file|from (?:a )?file|from-file)\b",
-            r"\b(?:arguments?|subsets?|positional)\b",
-        ),
-    ),
-    _Connection(
-        "module_hooks",
-        "module setup/teardown hooks",
-        (r"setUpModule", r"tearDownModule"),
-    ),
-    _Connection("fixture_cache", "fixture caching", (r"fixture cach",)),
-)
-
-
-def _connection(first: str, second: str) -> _Connection | None:
-    for connection in _CONNECTIONS:
-        if all(
-            re.search(pattern, text, re.I)
-            for text in (first, second)
-            for pattern in connection.patterns
-        ):
-            return connection
-    # A named exception is a stronger anchor than generic stack-frame words.
-    exceptions = set(re.findall(r"\b[A-Z][a-zA-Z]+(?:Error|Exception)\b", first))
-    shared = sorted(
-        name for name in exceptions if name in second and name not in vars(builtins)
-    )
-    return (
-        _Connection(
-            "named_exception", f"the {shared[0]} failure", (re.escape(shared[0]),)
-        )
-        if shared
-        else None
-    )
-
-
-def _excerpt(text: str, connection: _Connection) -> str:
+def _excerpt(text: str, connection: Connection) -> str:
     text = re.sub(r"<!--.*?-->", "", text, flags=re.S)
     lines = [
         line.strip()
@@ -325,13 +287,16 @@ def _excerpt(text: str, connection: _Connection) -> str:
     return value[:100] + ("…" if len(value) > 100 else "")
 
 
-def assess_match(title: str, body: str, candidate: IssueRecord) -> Match | None:
+def assess_match(
+    title: str, body: str, candidate: IssueRecord, *, project_connections: bool = True
+) -> Match | None:
     body = re.sub(r"<!--.*?-->", "", body, flags=re.S)
     candidate_body = re.sub(r"<!--.*?-->", "", candidate.body, flags=re.S)
-    title_terms = _terms(title)
-    body_terms = _terms(body)
-    other_title = _terms(candidate.title)
-    other_body = _terms(candidate_body)
+    excluded = pytest_profile.SEARCH_STOPWORDS if project_connections else frozenset()
+    title_terms = _terms(title) - excluded
+    body_terms = _terms(body) - excluded
+    other_title = _terms(candidate.title) - excluded
+    other_body = _terms(candidate_body) - excluded
     shared_title = title_terms & other_title
     shared_body = body_terms & other_body
     title_similarity = (
@@ -339,8 +304,12 @@ def assess_match(title: str, body: str, candidate: IssueRecord) -> Match | None:
     )
     body_similarity = 2 * len(shared_body) / max(1, len(body_terms) + len(other_body))
     score = 2 * title_similarity + body_similarity
-    connection = _connection(
-        title + "\n" + body, candidate.title + "\n" + candidate_body
+    connection: Connection | None = (
+        pytest_profile.match_connection(
+            title + "\n" + body, candidate.title + "\n" + candidate_body
+        )
+        if project_connections
+        else None
     )
     if connection is None:
         # Strong matching titles can still identify an unlisted topic. Two
@@ -356,45 +325,19 @@ def assess_match(title: str, body: str, candidate: IssueRecord) -> Match | None:
                 + r")\b",
             ),
         )
-    review_scopes = _fixture_scopes(body)
-    candidate_scopes = _fixture_scopes(candidate_body)
-    different_scopes = bool(
-        review_scopes
-        and candidate_scopes
-        and review_scopes.isdisjoint(candidate_scopes)
-    )
-    different_polarity = bool(
-        (_negated_terms(body) ^ _negated_terms(candidate_body)) & shared_body
-    )
-    opposing_actions = _opposing_actions(
-        title + " " + body, candidate.title + " " + candidate_body
-    )
-    distinction = (
-        "The reports describe different fixture scopes."
-        if different_scopes
-        else "One report negates a shared condition."
-        if different_polarity and connection.key == "named_exception"
-        else "The reports request opposing actions."
-        if opposing_actions
-        else "This requests session-derived parameters; the earlier example passes "
-        "fixture functions instead of values."
-        if connection.key == "fixture_values"
-        and "session" in body
-        and re.search(r"fixture _?function_?", candidate_body)
-        else "This requests a configuration setting; the earlier issue concerns "
-        "command-line help."
-        if connection.key == "pdbcls"
-        and "configuration" in title.lower()
-        and "help" in candidate.title.lower()
-        else "This opening names copyouterr; compare its proposed behavior with "
-        "the earlier readouterr report."
-        if connection.key == "readouterr" and "copyouterr" in body
-        else "This reports hooks not running; the earlier issue "
-        "questions the documentation."
-        if connection.key == "module_hooks"
-        and "docs" in candidate.title.lower()
-        and "not invoked" in title.lower()
-        else "the same failure or request is not established."
+    different_scopes, different_polarity, opposing_actions, distinction = (
+        pytest_profile.match_distinction(
+            body, candidate_body, title, candidate.title, connection.key
+        )
+        if project_connections
+        else (
+            False,
+            bool((_negated_terms(body) ^ _negated_terms(candidate_body)) & shared_body),
+            _opposing_actions(
+                title + " " + body, candidate.title + " " + candidate_body
+            ),
+            "The same failure or request is not established.",
+        )
     )
     reason = (
         f"Both concern {connection.description}. "
@@ -402,7 +345,8 @@ def assess_match(title: str, body: str, candidate: IssueRecord) -> Match | None:
         f'earlier: "{_excerpt(candidate_body, connection)}". {distinction}'
     )
     if (
-        len(shared_title) >= 2
+        project_connections
+        and len(shared_title) >= 2
         and title_similarity >= 0.6
         and len(shared_body) >= 2
         and body_similarity >= 0.3

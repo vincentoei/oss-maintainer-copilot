@@ -4,8 +4,14 @@ Terms used when describing the copilot's issue-triage work.
 
 ## Language
 
+**Registered repository**:
+A public GitHub repository saved in the application for future triage, with its configuration and prepared context.
+
 **Target repository**:
-The one public open-source project whose issues and project material provide the context for triage.
+The one registered public repository selected for an issue under review. A triage report uses evidence from that repository only.
+
+**Repository context**:
+The prepared view of one repository's templates, labels and relevant documentation used by a triage report, with its recorded revision, readiness and limitations.
 
 **Issue under review**:
 A GitHub issue presented to the copilot for triage, whether newly written or replayed from history.
@@ -29,7 +35,7 @@ An earlier issue sharing a topic with the issue under review without evidence th
 A group of issues about the same underlying failure or requested behavior, including confirmed duplicates and follow-ups.
 
 **Missing report detail**:
-Information requested by the applicable pytest issue template but absent from the issue under review.
+Information established as required by the applicable repository issue template but absent from the issue under review.
 _Avoid_: Incomplete issue
 
 **Abstention**:

@@ -17,20 +17,31 @@
   </head>
   <body>
     <h1>Open-source Maintainer Copilot</h1>
-    <p>Paste a pytest issue for a reviewable draft. No reply is posted.</p>
+    <p>Select a repository and paste an issue for a reviewable draft. No reply is posted.</p>
+    <form id="repository-add">
+      <label for="repository-input">Add a public GitHub repository</label>
+      <input id="repository-input" placeholder="owner/repo or https://github.com/owner/repo" required>
+      <button type="submit">Add repository</button>
+    </form>
+    <label for="repository-select">Active target repository</label>
+    <select id="repository-select" aria-describedby="repository-status"></select>
+    <p id="repository-status" role="status"></p>
+    <details><summary>Prepared repository context</summary><pre id="repository-context"></pre></details>
+    <button type="button" id="repository-refresh">Refresh context</button>
+    <button type="button" id="repository-remove">Remove registration</button>
     <form id="issue-form">
-      <label for="number">pytest issue number (for earlier issue search)</label>
+      <label for="number">Issue number (for earlier issue search)</label>
       <input id="number" name="number" type="number" min="1" step="1" placeholder="Optional">
       <label for="title">Issue title</label>
       <input id="title" name="title" required>
       <label for="body">Issue body</label>
       <textarea id="body" name="body"></textarea>
-      <h2>Inspect pytest source (optional)</h2>
+      <h2>Inspect repository source (optional)</h2>
       <p>Enter a commit, repository path, and line to cite source in the report.</p>
       <label for="source-commit">Commit SHA</label>
       <input id="source-commit" name="source-commit" pattern="[0-9a-f]{40}" placeholder="Full 40-character SHA">
       <label for="source-path">Repository path</label>
-      <input id="source-path" name="source-path" placeholder="src/_pytest/capture.py">
+      <input id="source-path" name="source-path" placeholder="path/to/file">
       <label for="source-line">Line number</label>
       <input id="source-line" name="source-line" type="number" min="1" step="1">
       <label for="agent-mode"><input id="agent-mode" name="agent-mode" type="checkbox">Use bounded agent (requires a configured model)</label>
@@ -39,6 +50,7 @@
     <p id="error" role="alert"></p>
     <section id="report" hidden>
       <h2>Triage report</h2>
+      <p id="report-repository"></p>
       <p><strong>Report status:</strong> <span id="report-status"></span></p>
       <p><strong>Trace ID:</strong> <a id="trace-link" target="_blank" rel="noopener noreferrer"><span id="trace-id"></span></a></p>
       <h3>Trace events</h3>
@@ -68,6 +80,70 @@
       const form = document.getElementById("issue-form");
       const reportSection = document.getElementById("report");
       const error = document.getElementById("error");
+
+      const repositorySelect = document.getElementById("repository-select");
+      let registrations = [];
+      function showRepository() {
+        const entry = registrations.find(item => item.id === repositorySelect.value);
+        document.getElementById("repository-status").textContent = entry
+          ? `${entry.context.repository}: ${entry.context.status}. ${entry.context.errors.join(" ")}`
+          : "Add and select a repository before creating a report.";
+        document.getElementById("repository-context").textContent = entry
+          ? JSON.stringify(entry.context, null, 2) : "No repository selected.";
+        form.querySelector('button[type="submit"]').disabled = !entry || entry.context.status === "error";
+        document.getElementById("repository-refresh").disabled = !entry;
+        document.getElementById("repository-remove").disabled = !entry;
+      }
+      async function api(path, options = {}) {
+        const response = await fetch(path, options);
+        if (!response.ok) {
+          const failure = await response.json();
+          throw new Error(typeof failure.detail === "string" ? failure.detail : "Check the supplied values.");
+        }
+        return response.status === 204 ? null : response.json();
+      }
+      async function loadRepositories(selected) {
+        registrations = await api("/api/repositories");
+        repositorySelect.replaceChildren();
+        const empty = document.createElement("option");
+        empty.value = ""; empty.textContent = "Select a repository";
+        repositorySelect.append(empty);
+        for (const entry of registrations) {
+          const option = document.createElement("option");
+          option.value = entry.id;
+          option.textContent = `${entry.context.repository} · ${entry.context.status}`;
+          repositorySelect.append(option);
+        }
+        repositorySelect.value = selected ?? registrations.find(entry => entry.is_default)?.id ?? "";
+        showRepository();
+      }
+      repositorySelect.addEventListener("change", showRepository);
+      document.getElementById("repository-add").addEventListener("submit", async event => {
+        event.preventDefault(); error.textContent = "Preparing public repository context…";
+        const button = event.currentTarget.querySelector("button"); button.disabled = true;
+        try {
+          const entry = await api("/api/repositories", {
+            method: "POST", headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({repository: document.getElementById("repository-input").value}),
+          });
+          await loadRepositories(entry.id); error.textContent = "";
+        } catch (failure) { error.textContent = failure.message; }
+        finally { button.disabled = false; }
+      });
+      document.getElementById("repository-refresh").addEventListener("click", async event => {
+        event.currentTarget.disabled = true; error.textContent = "Refreshing repository context…";
+        const selected = repositorySelect.value;
+        try { await api(`/api/repositories/${selected}/refresh`, {method: "POST"});
+          await loadRepositories(selected); error.textContent = "";
+        } catch (failure) { error.textContent = failure.message; showRepository(); }
+      });
+      document.getElementById("repository-remove").addEventListener("click", async () => {
+        try { await api(`/api/repositories/${repositorySelect.value}`, {method: "DELETE"});
+          await loadRepositories(); error.textContent = "";
+        } catch (failure) { error.textContent = failure.message; }
+      });
+      form.querySelector('button[type="submit"]').disabled = true;
+      loadRepositories().catch(failure => { error.textContent = failure.message; });
 
       function fillList(id, values, render) {
         const list = document.getElementById(id);
@@ -107,6 +183,7 @@
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
+              registration_id: repositorySelect.value,
               number: document.getElementById("number").value
                 ? Number(document.getElementById("number").value)
                 : undefined,
@@ -117,8 +194,12 @@
                 : undefined,
             }),
           });
-          if (!response.ok) throw new Error("Could not create a report.");
+          if (!response.ok) {
+            const failure = await response.json();
+            throw new Error(typeof failure.detail === "string" ? failure.detail : "Check the issue fields.");
+          }
           const report = await response.json();
+          document.getElementById("report-repository").textContent = `${report.context.repository} at ${report.context.revision} · ${report.context.status}`;
           document.getElementById("trace-id").textContent = report.trace_id;
           document.getElementById("trace-link").href = `/api/traces/${report.trace_id}`;
           document.getElementById("report-status").textContent = report.status;
@@ -154,6 +235,7 @@
             commit.textContent = citation.source_location.commit;
             const inspect = document.createElement("a");
             inspect.href = "/api/source?" + new URLSearchParams({
+              registration_id: report.context.registration_id,
               commit: citation.source_location.commit,
               path: citation.source_location.path,
               line: citation.source_location.line,
@@ -199,8 +281,8 @@
           } catch {
             document.getElementById("trace-events").textContent = "Trace unavailable in this server process.";
           }
-        } catch {
-          error.textContent = "Could not create a report. Check the issue title and try again.";
+        } catch (failure) {
+          error.textContent = failure.message;
         }
       });
     </script>
