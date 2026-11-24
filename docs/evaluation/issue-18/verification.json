@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "preserved_files": 237,
+  "case_count": 40,
+  "new_confirmed_cases": 10,
+  "new_pending_cases": 0,
+  "family_count": 37,
+  "family_members": 46,
+  "relationship_coverage": {
+    "duplicate_candidate": 5,
+    "nonduplicate": 32,
+    "uncertain": 3
+  },
+  "training_partition": "not_created; external/future corpus unverified",
+  "workflow_rows": 120,
+  "shared_eligible_cases": 40,
+  "dispatches": 158,
+  "response_records": 158,
+  "raw_responses": 158,
+  "score_recomputations": 120,
+  "fresh_report_reviews_pending": 120
+}

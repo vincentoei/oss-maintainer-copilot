@@ -1,0 +1,131 @@
+{
+  "training": {
+    "status": "not_created",
+    "families": [],
+    "members": []
+  },
+  "evaluation": {
+    "assertion-message-verbosity-truncation": [
+      6682,
+      12307
+    ],
+    "cache-directory-cross-user-permissions": [
+      12308
+    ],
+    "cached-fixture-exception-traceback-growth": [
+      12204
+    ],
+    "capture-readouterr-output": [
+      3448,
+      12081
+    ],
+    "collection-modifyitems-plugin-ordering": [
+      12305
+    ],
+    "custom-option-conftest-discovery": [
+      12242
+    ],
+    "debugger-class-configuration": [
+      12053
+    ],
+    "doctest-namespace-sys-path": [
+      12287,
+      12303
+    ],
+    "documentation-dark-theme": [
+      12290
+    ],
+    "duplicate-collection-overlap": [
+      7012,
+      12083
+    ],
+    "dynamic-fixture-documentation": [
+      10156
+    ],
+    "dynamic-usefixtures-injection": [
+      12216
+    ],
+    "early-import-warning-filtering": [
+      12249
+    ],
+    "exception-group-traceback-formatting": [
+      12255
+    ],
+    "fixture-cache-key-identity": [
+      12146
+    ],
+    "fixture-exception-log-capture": [
+      12203
+    ],
+    "fixture-values-in-parametrization": [
+      349,
+      7312
+    ],
+    "flaky-private-runner-import": [
+      12066,
+      12072
+    ],
+    "granular-session-scripting-interface": [
+      12224
+    ],
+    "junit-large-failure-message-attribute": [
+      12223
+    ],
+    "junit-output-with-capture-disabled": [
+      12189
+    ],
+    "log-disable-ini-configuration": [
+      12197
+    ],
+    "marker-keyword-argument-selection": [
+      12281
+    ],
+    "marker-negation-without-shell-quotes": [
+      12226
+    ],
+    "multiprocessing-log-capture": [
+      12116
+    ],
+    "optional-xfail-tracebacks": [
+      12231
+    ],
+    "package-fixture-parameter-reordering": [
+      12328
+    ],
+    "platform-conditional-parametrization": [
+      12201
+    ],
+    "python313-selftest-compatibility": [
+      12323
+    ],
+    "session-fixture-lifecycle-question": [
+      12298
+    ],
+    "slow-empty-collection-warning": [
+      12312
+    ],
+    "squashfuse-enosys-cache-creation": [
+      12300
+    ],
+    "test-selection-argument-file": [
+      11871,
+      12079
+    ],
+    "toml-option-value-shapes-documentation": [
+      12228
+    ],
+    "unittest-module-hooks-not-invoked": [
+      12219
+    ],
+    "unittest-runtest-construction": [
+      12263,
+      12273,
+      12278
+    ],
+    "vendor-importer-find-spec": [
+      12293
+    ]
+  },
+  "uncertain_grouping": "Existing 12278 remains grouped with 12263/12273. New 12303 is conservatively grouped with 12287 for namespace/doctest import shadowing without a confirmed duplicate judgment. New 12307 is grouped with possible predecessor 6682, as suggested in annotation-only maintainer comment https://github.com/pytest-dev/pytest/issues/12307#issuecomment-2110284527; 6682 is not a replay candidate or confirmed duplicate.",
+  "limitation": "No external or future training corpus was available to audit; all recorded evaluation families must be excluded then."
+}

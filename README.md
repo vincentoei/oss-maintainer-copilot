@@ -143,8 +143,8 @@ reader, run:
 RUN_LIVE_REPLAY=1 uv run --no-env-file pytest -q tests/test_replay.py -k recorded_case
 ```
 
-Thirty case metadata files now live in
-[`src/maintainer_copilot/cases/`](src/maintainer_copilot/cases/). Replay all thirty
+Forty case metadata files now live in
+[`src/maintainer_copilot/cases/`](src/maintainer_copilot/cases/). Replay all forty
 with controlled model responses using:
 
 ```sh
@@ -172,12 +172,32 @@ the full workflow comparison remains #16.
 
 ## Score the first reviewed cases
 
-Run the thirty-case field scorer and keyword-rule baseline with public GitHub
+Run the field scorer and keyword-rule baseline with public GitHub
 access:
 
 ```sh
 GITHUB_TOKEN="$(gh auth token)" uv run --locked --no-env-file \
   python -m maintainer_copilot.evaluation > /tmp/evaluation-new-results.json
+```
+
+Issue #18 adds [ten confirmed case reviews](docs/evaluation/cases-thirty-one-through-forty.md).
+Their outcomes use Codex review explicitly accepted by the requesting user. The [forty-case protocol](docs/evaluation/issue-18-protocol.md)
+keeps all three workflows and caps a single comparison at 200 inference dispatches
+(40 fixed, at most 160 agent). Use a fresh directory:
+
+```sh
+GITHUB_TOKEN="$(gh auth token)" uv run --locked --no-env-file \
+  python -m maintainer_copilot.workflow_comparison --issue 18 \
+  --ollama-url http://172.17.48.1:11434 --directory /tmp/issue-18-new-run
+```
+
+The `--issue 16` and `--issue 17` modes retain their archived twenty- and
+thirty-case catalogs. The [forty-case results and acceptance evidence](docs/evaluation/issue-18.md)
+include updated field scores, case changes and newly observed failures. Verify
+the saved comparison and family/chronology checks without network or inference:
+
+```sh
+PYTHONPATH=src uv run --locked --no-env-file python scripts/issue18_verify.py
 ```
 
 [Issue #12's methodology and provisional results](docs/evaluation/issue-12.md)

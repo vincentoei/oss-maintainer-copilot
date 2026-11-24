@@ -547,7 +547,7 @@ def test_case_rejects_repository_evidence_after_opening() -> None:
         HistoricalCase.model_validate(data)
 
 
-def test_published_thirty_cases_preserve_coverage_and_group_shared_families() -> None:
+def test_published_forty_cases_preserve_coverage_and_group_shared_families() -> None:
     cases = load_cases()
     new_case_numbers = {
         12231,
@@ -560,6 +560,16 @@ def test_published_thirty_cases_preserve_coverage_and_group_shared_families() ->
         12281,
         12287,
         12290,
+        12293,
+        12298,
+        12300,
+        12303,
+        12305,
+        12307,
+        12308,
+        12312,
+        12323,
+        12328,
     }
     assert {case.issue_number for case in cases} == {
         7312,
@@ -583,10 +593,11 @@ def test_published_thirty_cases_preserve_coverage_and_group_shared_families() ->
         12226,
         12228,
     } | new_case_numbers
-    assert len({case.issue_family_id for case in cases}) == 28
+    assert len({case.issue_family_id for case in cases}) == 37
     assert all(case.human_review.status == "confirmed" for case in cases)
     families = {case.issue_number: case.issue_family_id for case in cases}
     assert families[12263] == families[12273] == families[12278]
+    assert families[12303] == families[12287]
     assert any(case.expected_outcome.missing_details for case in cases)
     assert any(not case.expected_outcome.missing_details for case in cases)
     assert [case.expected_outcome.earlier_issue_relationship for case in cases].count(

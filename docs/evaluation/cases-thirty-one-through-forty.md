@@ -1,0 +1,43 @@
+# Evaluation cases 31 through 40: issue #18
+
+## Confirmation status
+
+All ten expected outcomes below are **confirmed on the explicitly delegated basis**. The requesting user chose “Delegate case review to Codex and accept its confirmation.” Codex reviewed the verified openings, paired earlier openings and annotation-only maintainer discussion. Confirmation was recorded at `2026-11-24T12:38:38.905838+00:00` before inference. This is assistant review accepted by the user, not independent human assessment. Case confirmation is separate from rating generated replies.
+
+| Case | Earlier issue | Relationship | Type | Missing report details |
+| --- | --- | --- | --- | --- |
+| [12293](https://github.com/pytest-dev/pytest/issues/12293) | [12249](https://github.com/pytest-dev/pytest/issues/12249) | nonduplicate | type: regression | pip list output, pytest and OS versions, minimal example |
+| [12298](https://github.com/pytest-dev/pytest/issues/12298) | [12219](https://github.com/pytest-dev/pytest/issues/12219) | nonduplicate | type: question | pip list output, pytest and OS versions, minimal example |
+| [12300](https://github.com/pytest-dev/pytest/issues/12300) | [12293](https://github.com/pytest-dev/pytest/issues/12293) | nonduplicate | type: bug | pip list output, pytest and OS versions, minimal example |
+| [12303](https://github.com/pytest-dev/pytest/issues/12303) | [12287](https://github.com/pytest-dev/pytest/issues/12287) | uncertain | type: regression | minimal example |
+| [12305](https://github.com/pytest-dev/pytest/issues/12305) | [12298](https://github.com/pytest-dev/pytest/issues/12298) | nonduplicate | type: question | minimal example |
+| [12307](https://github.com/pytest-dev/pytest/issues/12307) | [12231](https://github.com/pytest-dev/pytest/issues/12231) | nonduplicate | type: bug | pip list output, pytest and OS versions |
+| [12308](https://github.com/pytest-dev/pytest/issues/12308) | [12300](https://github.com/pytest-dev/pytest/issues/12300) | nonduplicate | type: regression | minimal example |
+| [12312](https://github.com/pytest-dev/pytest/issues/12312) | [12305](https://github.com/pytest-dev/pytest/issues/12305) | nonduplicate | type: enhancement | None |
+| [12323](https://github.com/pytest-dev/pytest/issues/12323) | [12263](https://github.com/pytest-dev/pytest/issues/12263) | nonduplicate | type: selftests | pip list output |
+| [12328](https://github.com/pytest-dev/pytest/issues/12328) | [12146](https://github.com/pytest-dev/pytest/issues/12146) | nonduplicate | type: regression | None |
+
+## Review rationale
+
+- **12293 / 12249:** The opening reports an 8.1.1-to-8.2.0 import failure in VendorImporter, distinct from early-import warning filtering. Selected packages and Linux are given, but not a complete pip list, OS release or minimal conftest reproducer. Regression is accepted from the explicit version contrast; later setuptools advice does not establish a core pytest cause.
+- **12298 / 12219:** This asks how session-scoped fixtures execute, unlike missing unittest module hooks. Several pytest versions and logs are supplied, but no package list, OS version or runnable fixture/test/invocation setup. A linked discussion is not an earlier GitHub issue in this catalog; the duplicate-discussion closure does not make 12219 a duplicate.
+- **12300 / 12293:** Unhandled ENOSYS during assertion-cache directory creation on squashfuse differs from VendorImporter import failure. The pytest commit identifies its version. There is no OS release, full package list or reproducible mount/test command. Bug is accepted for missing handling of a read-only filesystem error.
+- **12303 / 12287:** Both openings involve namespace-package resolution shadowing other imports in doctests, but the short 12303 opening does not establish identical configuration or failure to 12287. Preserve relationship uncertainty and conservatively group the family for training exclusion. The commit-linked version regression, package list and rolling openSUSE Tumbleweed identify the environment; a downstream suite reference is not a minimal isolated example. Later diagnostic comments support uncertainty without entering replay.
+- **12305 / 12298:** The reporter asks whether hook ordering reflects misunderstanding, docs or regression; the opening does not establish a core regression. Reordering collected items differs from session-fixture lifetime. Package list, pytest version and Debian Bookworm container are supplied, but the omitted grouping code and test inputs prevent reproducing the ordering. Question is accepted; bug is a defensible alternative.
+- **12307 / 12231:** A supplied minimal assert loses its explicit message verbosity even with -vv. This is different from making expected-failure tracebacks optional. Linux and a pytest development revision are supplied, but no OS release or package list. A maintainer calls 6682 possibly related or duplicate; preserve that unconfirmed link in the family exclusion manifest rather than asserting a duplicate. Bug is accepted for truncated diagnostic output.
+- **12308 / 12300:** The 8.2.0 cache-permission regression prevents a different user from reading .pytest_cache after a container run. It differs from ENOSYS on a read-only squashfuse mount during assertion rewriting. Full package list and Fedora 39/Ubuntu 22.04 versions are given. The external CI trace is detailed but the opening lacks an isolated workflow/reproducer; the later reproduction repository is annotation only.
+- **12312 / 12305:** The request proposes timing directory traversal and warning about slow collection with no tests, unlike plugin hook reordering. It supplies a motivating linked report, a threshold and design, and an alternative integrating timing into collection. No bug-only environment checklist is imposed on this feature request.
+- **12323 / 12263:** This tracks pytest own-suite compatibility failures on Python 3.13.0b1, unlike a downstream unittest runTest construction regression. The opening gives Gentoo Linux, Python/pytest revisions and tox -e py313 with exact failing test names. This is a reproducible pytest-suite command, but no complete pip list is supplied. Selftests is the accepted specific type; bug would also be reasonable.
+- **12328 / 12146:** The explicit 7.4.4-to-8.2.0 package-scope parameter-ordering regression recreates fixtures between modules. It differs from fixture cache keys comparing array-like values. Runnable conftest, package layout, test files, command, version-comparison output, full package list and Ubuntu 24.04 are all supplied; no missing detail is expected.
+
+## Provenance and family boundary
+
+[Provenance](issue-18/provenance.json) records REST/GraphQL opening agreement and unedited status for sixteen distinct openings, exact title/body hashes, ten independently checked pre-cutoff commits and twelve pinned template versions. The initial acquisition encountered a transient GitHub EOF; read-only acquisition was retried before the completed verification. Full bodies remain on GitHub; local review copies are temporary and are not published.
+
+Selection uses ten unedited reports from May 7–15, 2024, beginning after #17's window. The intervening security-contact solicitation #12299 was not selected because it lacks a substantive triage problem to replay. Edited openings were excluded. This is a deliberately reviewed small set, not a random sample or an estimate of repository-wide accuracy.
+
+[Partitions](issue-18/partitions.json) cover forty cases in 37 families and 46 recorded family members. The earlier thirty cases and their family IDs remain intact. #12303 is conservatively grouped with #12287 while its relationship stays uncertain. A maintainer's [possible duplicate suggestion](https://github.com/pytest-dev/pytest/issues/12307#issuecomment-2110284527) groups #6682 with #12307 for training exclusion only; #6682 is not a replay candidate. The paired #12231 remains a hard topical nonduplicate. No training corpus exists yet, so the check establishes no overlap among recorded partitions, not integrity of future or external training data.
+
+The historical opening cutoff excludes all later discussion, labels, closures and expected-outcome rationale from model inputs. #12303's 2026 diagnostic conversation is annotation only. #12308's later minimal reproduction does not retroactively make its opening complete. All new candidates postdate the original thirty cutoffs, so their addition should not change candidate pools on those original cases.
+
+[Protocol](issue-18-protocol.md) freezes the comparison scope. [Metadata checks](issue-18/metadata-checks.json) report confirmed and pending counts separately.

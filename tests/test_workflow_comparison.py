@@ -3,6 +3,7 @@
 import io
 import json
 from pathlib import Path
+from typing import Literal
 from urllib.request import Request
 
 import pytest
@@ -47,25 +48,28 @@ def test_frozen_budget_allows_exactly_twenty_fixed_and_eighty_agent_dispatches(
     assert len((tmp_path / "requests.jsonl").read_text().splitlines()) == 100
 
 
-def test_expanded_budget_persists_thirty_case_limit_across_restarts(
+@pytest.mark.parametrize(("case_count", "dispatches"), [(30, 150), (40, 200)])
+def test_expanded_budget_persists_case_limit_across_restarts(
     tmp_path: Path,
+    case_count: int,
+    dispatches: int,
 ) -> None:
     from maintainer_copilot.workflow_comparison import RequestBudget
 
-    for number in range(30):
-        budget = RequestBudget(tmp_path, case_count=30)
+    for number in range(case_count):
+        budget = RequestBudget(tmp_path, case_count=case_count)
         budget.reserve("fixed_rag", number, {"max_tokens": 256})
         for _ in range(4):
             budget.reserve("bounded_agent", number, {"max_tokens": 256})
     with pytest.raises(ModelUnavailable, match="budget"):
-        RequestBudget(tmp_path, case_count=30).reserve(
+        RequestBudget(tmp_path, case_count=case_count).reserve(
             "fixed_rag", 99999, {"max_tokens": 256}
         )
     with pytest.raises(ModelUnavailable, match="budget"):
         RequestBudget(tmp_path, case_count=20).reserve(
             "bounded_agent", 99999, {"max_tokens": 256}
         )
-    assert len((tmp_path / "requests.jsonl").read_text().splitlines()) == 150
+    assert len((tmp_path / "requests.jsonl").read_text().splitlines()) == dispatches
 
 
 def test_agent_replay_respects_historical_template_availability() -> None:
@@ -84,9 +88,16 @@ def test_agent_replay_respects_historical_template_availability() -> None:
     )
 
 
+@pytest.mark.parametrize(
+    ("comparison_issue", "planned_cases", "pairs_gate"),
+    [(17, 30, "thirty_complete_pairs"), (18, 40, "forty_complete_pairs")],
+)
 def test_comparison_preserves_three_arms_and_reports_actual_inference_cost(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
+    comparison_issue: Literal[17, 18],
+    planned_cases: int,
+    pairs_gate: str,
 ) -> None:
     from maintainer_copilot.workflow_comparison import evaluate_comparison
 
@@ -125,7 +136,7 @@ def test_comparison_preserves_three_arms_and_reports_actual_inference_cost(
         commit_source=evidence,
         issue_source=evidence,
         source_reader=PublicRepositorySource(),
-        comparison_issue=17,
+        comparison_issue=comparison_issue,
     )
     summary = artifact["summary"]
     assert len(artifact["cases"]) == 3
@@ -134,14 +145,14 @@ def test_comparison_preserves_three_arms_and_reports_actual_inference_cost(
     assert methods["fixed_rag"]["resources"]["input_tokens"] == 100
     assert methods["bounded_agent"]["resources"]["input_tokens"] == 200
     assert summary["paired_cases"] == 1
-    assert artifact["comparison_issue"] == 17
-    assert artifact["planned_cases"] == 30
+    assert artifact["comparison_issue"] == comparison_issue
+    assert artifact["planned_cases"] == planned_cases
     assert all(
-        call["case_count"] == 30
+        call["case_count"] == planned_cases
         for row in artifact["cases"]
         for call in row["model_calls"]
     )
-    assert "thirty_complete_pairs" in summary["agent_vs_fixed"]["promotion_gates"]
+    assert pairs_gate in summary["agent_vs_fixed"]["promotion_gates"]
     assert summary["paired_agent_gain"] == 0
     assert summary["decision"]["workflow"] == "fixed_rag"
     from maintainer_copilot.workflow_comparison import (

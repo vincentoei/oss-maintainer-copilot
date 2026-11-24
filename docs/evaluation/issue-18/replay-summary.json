@@ -1,0 +1,50 @@
+{
+  "cases": 40,
+  "flagged": 0,
+  "report_status": {
+    "complete": 36,
+    "partial": 4
+  },
+  "new_cases": [
+    {
+      "issue_number": 12293,
+      "human_review": "pending"
+    },
+    {
+      "issue_number": 12298,
+      "human_review": "pending"
+    },
+    {
+      "issue_number": 12300,
+      "human_review": "pending"
+    },
+    {
+      "issue_number": 12303,
+      "human_review": "pending"
+    },
+    {
+      "issue_number": 12305,
+      "human_review": "pending"
+    },
+    {
+      "issue_number": 12307,
+      "human_review": "pending"
+    },
+    {
+      "issue_number": 12308,
+      "human_review": "pending"
+    },
+    {
+      "issue_number": 12312,
+      "human_review": "pending"
+    },
+    {
+      "issue_number": 12323,
+      "human_review": "pending"
+    },
+    {
+      "issue_number": 12328,
+      "human_review": "pending"
+    }
+  ]
+}
