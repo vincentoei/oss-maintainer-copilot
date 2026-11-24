@@ -156,7 +156,7 @@ expected-outcome or model change. This ticket measures the expanded set.
 ## Verification and remaining review
 
 [Checks](issue-18/checks.json) record lint, formatting, strict mypy and the full
-suite. The agreed seams are the existing replay/cutoff interface and comparison
+suite: **366 passed, 2 skipped**. The agreed seams are the existing replay/cutoff interface and comparison
 runner. [Red evidence](issue-18/red.txt) shows the forty-case confirmation check
 failing while additions were pending; it passed after authorized confirmation.
 Focused replay/comparison checks passed 70 tests with two opt-in live tests
@@ -170,6 +170,9 @@ provenance/template hashes, families, candidate cutoffs, all 120 rows, 158
 dispatch/response records, fresh review fingerprints and recomputed scores. It
 regenerates the comparison. The older `scripts/issue17_verify.py` still audits
 its original thirty-case catalog and ninety rows after this expansion.
+The review-stage extraction of shared accounting checks passed both audits:
+120 score recomputations/158 calls for #18 and 87 recomputations/115 calls for #17.
+It changed no application source, inference record, protocol or expected outcome.
 
 The [fresh sheet](issue-18/run/human-review.md),
 [pending ratings](issue-18/run/human-review.json) and separate

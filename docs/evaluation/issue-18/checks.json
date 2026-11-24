@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-11-24T12:37:28.603266+00:00",
+  "recorded_at": "2026-11-24T12:49:02.100127+00:00",
   "checks": [
     {
       "command": [
@@ -19,7 +19,7 @@
         "."
       ],
       "exit_code": 0,
-      "stdout": "106 files already formatted\n",
+      "stdout": "108 files already formatted\n",
       "stderr": ""
     },
     {
@@ -38,8 +38,104 @@
         "-q"
       ],
       "exit_code": 0,
-      "stdout": "........................................................................ [ 19%]\n........................................................................ [ 39%]\n.........................................................ss............. [ 58%]\n........................................................................ [ 78%]\n........................................................................ [ 97%]\n........                                                                 [100%]\n366 passed, 2 skipped in 40.25s\n",
+      "stdout": "........................................................................ [ 19%]\n........................................................................ [ 39%]\n.........................................................ss............. [ 58%]\n........................................................................ [ 78%]\n........................................................................ [ 97%]\n........                                                                 [100%]\n366 passed, 2 skipped in 79.86s (0:01:19)\n",
       "stderr": ""
+    }
+  ],
+  "post_review_checks": [
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "110 files already formatted\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/mypy",
+        "src",
+        "tests"
+      ],
+      "exit_code": 0,
+      "stdout": "Success: no issues found in 38 source files\n",
+      "stderr": ""
+    }
+  ],
+  "post_review_recorded_at": "2026-11-24T12:50:32.255895+00:00",
+  "post_review_note": "Only standalone verification scripts changed after the full suite; both archived-run audits were rerun separately. Application source and inference artifacts are unchanged.",
+  "post_review_audits": [
+    {
+      "command": [
+        "PYTHONPATH=src",
+        ".venv/bin/python",
+        "scripts/issue18_verify.py"
+      ],
+      "exit_code": 0,
+      "verification": {
+        "status": "passed",
+        "preserved_files": 237,
+        "case_count": 40,
+        "new_confirmed_cases": 10,
+        "new_pending_cases": 0,
+        "family_count": 37,
+        "family_members": 46,
+        "relationship_coverage": {
+          "duplicate_candidate": 5,
+          "nonduplicate": 32,
+          "uncertain": 3
+        },
+        "training_partition": "not_created; external/future corpus unverified",
+        "workflow_rows": 120,
+        "shared_eligible_cases": 40,
+        "dispatches": 158,
+        "response_records": 158,
+        "raw_responses": 158,
+        "score_recomputations": 120,
+        "fresh_report_reviews_pending": 120
+      }
+    },
+    {
+      "command": [
+        "PYTHONPATH=src",
+        ".venv/bin/python",
+        "scripts/issue17_verify.py"
+      ],
+      "exit_code": 0,
+      "verification": {
+        "status": "passed",
+        "preserved_files": 204,
+        "case_count": 30,
+        "new_confirmed_cases": 10,
+        "family_count": 28,
+        "family_members": 35,
+        "relationship_coverage": {
+          "duplicate_candidate": 5,
+          "nonduplicate": 23,
+          "uncertain": 2
+        },
+        "training_partition": "not_created; external/future corpus unverified",
+        "workflow_rows": 90,
+        "shared_eligible_cases": 29,
+        "dispatches": 115,
+        "response_records": 115,
+        "raw_responses": 115,
+        "score_recomputations": 87,
+        "fresh_report_reviews_pending": 90
+      }
     }
   ]
 }
