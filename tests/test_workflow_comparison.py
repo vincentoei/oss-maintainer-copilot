@@ -25,6 +25,10 @@ def test_request_budget_survives_restart_and_counts_failed_dispatches(
     restarted = RequestBudget(tmp_path)
     with pytest.raises(ModelUnavailable, match="budget"):
         restarted.reserve("fixed_rag", 12224, {"max_tokens": 256})
+    with pytest.raises(ModelUnavailable, match="budget changed"):
+        RequestBudget(tmp_path, case_count=30).reserve(
+            "fixed_rag", 12225, {"max_tokens": 256}
+        )
 
 
 def test_frozen_budget_allows_exactly_twenty_fixed_and_eighty_agent_dispatches(
@@ -41,6 +45,27 @@ def test_frozen_budget_allows_exactly_twenty_fixed_and_eighty_agent_dispatches(
         with pytest.raises(ModelUnavailable, match="budget"):
             budget.reserve(method, 99999, {"max_tokens": 256})
     assert len((tmp_path / "requests.jsonl").read_text().splitlines()) == 100
+
+
+def test_expanded_budget_persists_thirty_case_limit_across_restarts(
+    tmp_path: Path,
+) -> None:
+    from maintainer_copilot.workflow_comparison import RequestBudget
+
+    for number in range(30):
+        budget = RequestBudget(tmp_path, case_count=30)
+        budget.reserve("fixed_rag", number, {"max_tokens": 256})
+        for _ in range(4):
+            budget.reserve("bounded_agent", number, {"max_tokens": 256})
+    with pytest.raises(ModelUnavailable, match="budget"):
+        RequestBudget(tmp_path, case_count=30).reserve(
+            "fixed_rag", 99999, {"max_tokens": 256}
+        )
+    with pytest.raises(ModelUnavailable, match="budget"):
+        RequestBudget(tmp_path, case_count=20).reserve(
+            "bounded_agent", 99999, {"max_tokens": 256}
+        )
+    assert len((tmp_path / "requests.jsonl").read_text().splitlines()) == 150
 
 
 def test_agent_replay_respects_historical_template_availability() -> None:
@@ -100,6 +125,7 @@ def test_comparison_preserves_three_arms_and_reports_actual_inference_cost(
         commit_source=evidence,
         issue_source=evidence,
         source_reader=PublicRepositorySource(),
+        comparison_issue=17,
     )
     summary = artifact["summary"]
     assert len(artifact["cases"]) == 3
@@ -108,6 +134,14 @@ def test_comparison_preserves_three_arms_and_reports_actual_inference_cost(
     assert methods["fixed_rag"]["resources"]["input_tokens"] == 100
     assert methods["bounded_agent"]["resources"]["input_tokens"] == 200
     assert summary["paired_cases"] == 1
+    assert artifact["comparison_issue"] == 17
+    assert artifact["planned_cases"] == 30
+    assert all(
+        call["case_count"] == 30
+        for row in artifact["cases"]
+        for call in row["model_calls"]
+    )
+    assert "thirty_complete_pairs" in summary["agent_vs_fixed"]["promotion_gates"]
     assert summary["paired_agent_gain"] == 0
     assert summary["decision"]["workflow"] == "fixed_rag"
     from maintainer_copilot.workflow_comparison import (

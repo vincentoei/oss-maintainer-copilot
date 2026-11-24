@@ -16,7 +16,7 @@ from dataclasses import asdict
 from datetime import UTC, datetime
 from pathlib import Path
 from time import perf_counter
-from typing import Any
+from typing import Any, Literal
 
 from maintainer_copilot import agent, issue_search, model, source
 from maintainer_copilot.evaluation import (
@@ -64,8 +64,11 @@ def _save(path: Path, value: object) -> None:
 class RequestBudget:
     """Charge before dispatch, including failures and ambiguous interruptions."""
 
-    def __init__(self, directory: Path) -> None:
+    def __init__(self, directory: Path, *, case_count: int = 20) -> None:
+        if case_count not in (20, 30):
+            raise ValueError("Comparison budget requires twenty or thirty cases")
         self.path = directory / "requests.jsonl"
+        self.case_count = case_count
 
     def reserve(
         self, method: str, issue_number: int, metadata: dict[str, Any]
@@ -75,13 +78,22 @@ class RequestBudget:
             fcntl.flock(handle, fcntl.LOCK_EX)
             handle.seek(0)
             previous = [json.loads(line) for line in handle]
+            if any(r.get("case_count", 20) != self.case_count for r in previous):
+                raise model.ModelUnavailable("Frozen inference budget changed")
             used = sum(
                 r["method"] == method and r["issue_number"] == issue_number
                 for r in previous
             )
             arm_used = sum(r["method"] == method for r in previous)
-            arm_limit = {"fixed_rag": 20, "bounded_agent": 80}.get(method, 0)
-            if len(previous) >= 100 or used >= limit or arm_used >= arm_limit:
+            arm_limit = {
+                "fixed_rag": self.case_count,
+                "bounded_agent": self.case_count * 4,
+            }.get(method, 0)
+            if (
+                len(previous) >= self.case_count * 5
+                or used >= limit
+                or arm_used >= arm_limit
+            ):
                 raise model.ModelUnavailable("Frozen inference budget exhausted")
             if metadata.get("max_tokens") != 256:
                 raise model.ModelUnavailable("Frozen output budget is 256 tokens")
@@ -90,6 +102,7 @@ class RequestBudget:
                 "request": len(previous) + 1,
                 "method": method,
                 "issue_number": issue_number,
+                "case_count": self.case_count,
                 "dispatched_at": datetime.now(UTC).isoformat(),
             }
             handle.write(json.dumps(record) + "\n")
@@ -102,12 +115,18 @@ class _MeasuredEndpoint(agent.OpenAICompatibleAgent):
     """Keep legacy prompts and schemas; observe every actual HTTP dispatch."""
 
     def __init__(
-        self, base_url: str, method: str, number: int, directory: Path
+        self,
+        base_url: str,
+        method: str,
+        number: int,
+        directory: Path,
+        case_count: int,
     ) -> None:
         super().__init__(base_url, MODEL_NAME, response_observer=self._capture_response)
         self.method = method
         self.number = number
         self.directory = directory
+        self.case_count = case_count
         self.calls: list[dict[str, Any]] = []
         self.raw_response: bytes | None = None
 
@@ -122,7 +141,7 @@ class _MeasuredEndpoint(agent.OpenAICompatibleAgent):
         max_tokens: int,
         response_schema: dict[str, object] | None = None,
     ) -> object:
-        record = RequestBudget(self.directory).reserve(
+        record = RequestBudget(self.directory, case_count=self.case_count).reserve(
             self.method,
             self.number,
             {
@@ -262,16 +281,22 @@ def evaluate_comparison(
     source_reader: source.SourceReader,
     measure_gpu: bool = False,
     serving: dict[str, Any] | None = None,
+    comparison_issue: Literal[16, 17] = 16,
 ) -> dict[str, Any]:
     """Run once with shared eligibility; never replace or silently drop a case."""
     directory.mkdir(parents=True, exist_ok=False)
     catalog = sorted(cases, key=lambda case: case.issue_number)
+    case_count = 30 if comparison_issue == 17 else 20
     evidence = _EvidenceSnapshot(commit_source, issue_source, source_reader)
     artifact: dict[str, Any] = {
         "status": "running",
         "recorded_at": datetime.now(UTC).isoformat(),
+        "comparison_issue": comparison_issue,
+        "planned_cases": case_count,
         "protocol_sha256": hashlib.sha256(
-            (ROOT / "docs/evaluation/issue-16-protocol.md").read_bytes()
+            (
+                ROOT / f"docs/evaluation/issue-{comparison_issue}-protocol.md"
+            ).read_bytes()
         ).hexdigest(),
         "source_sha256": {
             str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
@@ -338,7 +363,9 @@ def evaluate_comparison(
     orders = list(itertools.permutations(METHODS))
     for index, case in enumerate(catalog):
         for method in orders[index % len(orders)]:
-            client = _MeasuredEndpoint(base_url, method, case.issue_number, directory)
+            client = _MeasuredEndpoint(
+                base_url, method, case.issue_number, directory, case_count
+            )
             report = None
             scores = None
             trace = None
@@ -570,10 +597,15 @@ def summarize_comparison(artifact: dict[str, Any]) -> dict[str, Any]:
     residency = artifact.get("serving_after", {}).get("residency", {}).get("models", [])
     loaded = next((m for m in residency if m.get("digest") == MODEL_DIGEST), None)
     gpu_peaks = [m["peak_sampled_gpu_mib"] for m in methods.values()]
+    planned_cases = artifact.get("planned_cases", 20)
+    pairs_gate = (
+        "thirty_complete_pairs" if planned_cases == 30 else "twenty_complete_pairs"
+    )
     gates = {
-        "twenty_complete_pairs": len(gains) == 20
+        pairs_gate: len(gains) == planned_cases
         and all(
-            methods[m]["completed"] == 20 and methods[m]["partial_reports"] == 0
+            methods[m]["completed"] == planned_cases
+            and methods[m]["partial_reports"] == 0
             for m in ("fixed_rag", "bounded_agent")
         ),
         "no_additional_errors": all(
@@ -640,7 +672,8 @@ def summarize_comparison(artifact: dict[str, Any]) -> dict[str, Any]:
             "Uncertain relationships and extra retrieved issues need human review.",
             "Latency excludes shared evidence acquisition and includes cold loads.",
             "GPU samples are device-wide and cannot establish true peaks.",
-            "Already exposed twenty-case development set; no generalization claim.",
+            f"Already exposed {planned_cases}-case development set; "
+            "no generalization claim.",
         ],
     }
 
@@ -650,7 +683,7 @@ def write_review_sheet(directory: Path, artifact: dict[str, Any]) -> None:
     random.Random(16).shuffle(rows)
     reviews, identities = [], []
     lines = [
-        "# Issue #16 fresh blinded reply review",
+        f"# Issue #{artifact.get('comparison_issue', 16)} fresh blinded reply review",
         "",
         "Rate useful (2), partly useful (1), or not useful (0). Preserve "
         "verbatim reasons. Review semantic support, unsupported claims or "
@@ -744,27 +777,45 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--ollama-url", required=True)
     parser.add_argument("--directory", required=True, type=Path)
+    parser.add_argument("--issue", type=int, choices=(16, 17), default=16)
     args = parser.parse_args()
     if args.directory.exists():
         parser.error("Run directory already exists; repetition/overwrite refused")
-    baseline = json.loads((ROOT / "docs/evaluation/issue-16-baseline.json").read_text())
+    baseline_path = (
+        ROOT / "docs/evaluation/issue-17/baseline.json"
+        if args.issue == 17
+        else ROOT / "docs/evaluation/issue-16-baseline.json"
+    )
+    baseline = json.loads(baseline_path.read_text())
     for name, expected in baseline["files"].items():
         if hashlib.sha256((ROOT / name).read_bytes()).hexdigest() != expected:
             parser.error(f"Preserved baseline changed: {name}")
-    if len(load_cases()) != 20:
-        parser.error("Frozen comparison requires the original twenty cases")
+    cases = load_cases()
+    if args.issue == 16:
+        # Preserve the original run's catalog even after subsequent expansions.
+        original = json.loads(
+            (ROOT / "docs/evaluation/issue-16/results.json").read_text()
+        )
+        numbers = {row["issue_number"] for row in original["preflight"]}
+        cases = [case for case in cases if case.issue_number in numbers]
+    expected_count = 30 if args.issue == 17 else 20
+    if len(cases) != expected_count:
+        parser.error(f"Frozen comparison requires {expected_count} cases")
+    if any(case.human_review.status != "confirmed" for case in cases):
+        parser.error("All expected outcomes require confirmed case review")
     base = args.ollama_url.rstrip("/")
     serving = serving_snapshot(base)
     evidence = _LiveEvidenceCache()
     result = evaluate_comparison(
         args.directory,
         base + "/v1",
-        cases=load_cases(),
+        cases=cases,
         commit_source=evidence,
         issue_source=evidence,
         source_reader=evidence,
         measure_gpu=True,
         serving=serving,
+        comparison_issue=17 if args.issue == 17 else 16,
     )
     try:
         result["serving_after"] = serving_snapshot(base)

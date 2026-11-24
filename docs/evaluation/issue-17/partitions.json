@@ -1,0 +1,102 @@
+{
+  "training": {
+    "status": "not_created",
+    "families": [],
+    "members": []
+  },
+  "evaluation": {
+    "cached-fixture-exception-traceback-growth": [
+      12204
+    ],
+    "capture-readouterr-output": [
+      3448,
+      12081
+    ],
+    "custom-option-conftest-discovery": [
+      12242
+    ],
+    "debugger-class-configuration": [
+      12053
+    ],
+    "doctest-namespace-sys-path": [
+      12287
+    ],
+    "documentation-dark-theme": [
+      12290
+    ],
+    "duplicate-collection-overlap": [
+      7012,
+      12083
+    ],
+    "dynamic-fixture-documentation": [
+      10156
+    ],
+    "dynamic-usefixtures-injection": [
+      12216
+    ],
+    "early-import-warning-filtering": [
+      12249
+    ],
+    "exception-group-traceback-formatting": [
+      12255
+    ],
+    "fixture-cache-key-identity": [
+      12146
+    ],
+    "fixture-exception-log-capture": [
+      12203
+    ],
+    "fixture-values-in-parametrization": [
+      349,
+      7312
+    ],
+    "flaky-private-runner-import": [
+      12066,
+      12072
+    ],
+    "granular-session-scripting-interface": [
+      12224
+    ],
+    "junit-large-failure-message-attribute": [
+      12223
+    ],
+    "junit-output-with-capture-disabled": [
+      12189
+    ],
+    "log-disable-ini-configuration": [
+      12197
+    ],
+    "marker-keyword-argument-selection": [
+      12281
+    ],
+    "marker-negation-without-shell-quotes": [
+      12226
+    ],
+    "multiprocessing-log-capture": [
+      12116
+    ],
+    "optional-xfail-tracebacks": [
+      12231
+    ],
+    "platform-conditional-parametrization": [
+      12201
+    ],
+    "test-selection-argument-file": [
+      11871,
+      12079
+    ],
+    "toml-option-value-shapes-documentation": [
+      12228
+    ],
+    "unittest-module-hooks-not-invoked": [
+      12219
+    ],
+    "unittest-runtest-construction": [
+      12263,
+      12273,
+      12278
+    ]
+  },
+  "uncertain_grouping": "12278 is conservatively grouped with 12263 and 12273 for training exclusion; uncertainty is preserved in scoring.",
+  "limitation": "No external or future training corpus was available to audit; all recorded evaluation families must be excluded then."
+}

@@ -1,0 +1,35 @@
+{
+  "issue_number": 12255,
+  "issue_family_id": "exception-group-traceback-formatting",
+  "template_profile": "bug_feature",
+  "opening_title": "Show nicer tracebacks for BaseExceptionGroup from fixture setup/teardown",
+  "opening_cutoff": "2024-04-26T23:09:54Z",
+  "opening_content_sha256": "76024486006d56f9d14956cf620b3b274ad87669efe87fccbbc4420beb9f621d",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-24T11:11:57.197847+00:00",
+  "repository_commit": "1a332802ff8afde3c899df46901f00bde523e4e3",
+  "repository_commit_at": "2024-04-26T22:14:21Z",
+  "earlier_issue": {
+    "number": 12204,
+    "created_at": "2024-04-10T10:45:32Z",
+    "content_sha256": "62dec36896ee774efb8621b6838e18b928c3b4eecb9497596f151af6d075dd21",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "earlier_issue_relationship": "nonduplicate",
+    "issue_type": "type: enhancement",
+    "missing_details": [
+      "alternative solutions"
+    ],
+    "rationale": "Formatting a single ExceptionGroup nicely differs from cached session-fixture traceback growth across successive tests. Two runnable examples give the problem, solution and use case. No alternative approach is stated. Enhancement is accepted for new formatting parity; bug is also defensible. Bug-only environment details are not imposed on this request.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/12255",
+      "https://github.com/pytest-dev/pytest/issues/12204"
+    ]
+  },
+  "human_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+    "confirmed_at": "2026-11-24T11:13:32.819514+00:00"
+  }
+}

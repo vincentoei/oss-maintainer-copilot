@@ -1,0 +1,33 @@
+{
+  "issue_number": 12287,
+  "issue_family_id": "doctest-namespace-sys-path",
+  "template_profile": "bug_feature",
+  "opening_title": "`--doctest-modules` option causes namespace packages' subpackages to be added to `sys.path`",
+  "opening_cutoff": "2024-05-05T15:37:15Z",
+  "opening_content_sha256": "fd219403ae9a365eaf77a839d91883237e3f58832f6b86d3993497f23d73f82d",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-24T11:11:57.197847+00:00",
+  "repository_commit": "3d09c85df0e5e6d4cf2a7ad087fe15618d61cdb2",
+  "repository_commit_at": "2024-05-05T00:26:09Z",
+  "earlier_issue": {
+    "number": 478,
+    "created_at": "2014-03-06T14:18:30Z",
+    "content_sha256": "eb62b22d9cac3a5523e7ea9b36737761182d3333278e91f545780e2eba48c46d",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "earlier_issue_relationship": "nonduplicate",
+    "issue_type": "type: question",
+    "missing_details": [],
+    "rationale": "Doctest-induced sys.path insertion and import conflicts differ from --pyargs resolving separate namespace eggs. The opening asks whether the observed behavior is expected and supplies layout, example, package list, pytest version and macOS release. Question is accepted; bug remains a plausible interpretation of the conflict.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/12287",
+      "https://github.com/pytest-dev/pytest/issues/478"
+    ]
+  },
+  "human_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+    "confirmed_at": "2026-11-24T11:13:32.819514+00:00"
+  }
+}
