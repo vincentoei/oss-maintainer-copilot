@@ -1,0 +1,42 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_ test_nonasserted_reading_scenario_remains_a_missing_use_case[Could someone read documentation at night?] _
+
+scenario = 'Could someone read documentation at night?'
+
+    @pytest.mark.parametrize(
+        "scenario",
+        ["Could someone read documentation at night?", "I never read documentation at night."],
+    )
+    def test_nonasserted_reading_scenario_remains_a_missing_use_case(scenario: str) -> None:
+        report = replay_opening(
+            "Feature: support a dark documentation theme",
+            "#### What's the problem this feature will solve?\n" + scenario,
+        )
+    
+>       assert "real-world use case" in {d.name for d in report.missing_details}
+E       AssertionError: assert 'real-world use case' in {'alternative solutions', 'proposed solution'}
+
+tests/test_triage_quality_replay.py:365: AssertionError
+_ test_nonasserted_reading_scenario_remains_a_missing_use_case[I never read documentation at night.] _
+
+scenario = 'I never read documentation at night.'
+
+    @pytest.mark.parametrize(
+        "scenario",
+        ["Could someone read documentation at night?", "I never read documentation at night."],
+    )
+    def test_nonasserted_reading_scenario_remains_a_missing_use_case(scenario: str) -> None:
+        report = replay_opening(
+            "Feature: support a dark documentation theme",
+            "#### What's the problem this feature will solve?\n" + scenario,
+        )
+    
+>       assert "real-world use case" in {d.name for d in report.missing_details}
+E       AssertionError: assert 'real-world use case' in {'alternative solutions', 'proposed solution'}
+
+tests/test_triage_quality_replay.py:365: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_nonasserted_reading_scenario_remains_a_missing_use_case[Could someone read documentation at night?]
+FAILED tests/test_triage_quality_replay.py::test_nonasserted_reading_scenario_remains_a_missing_use_case[I never read documentation at night.]
+2 failed, 27 deselected in 0.12s

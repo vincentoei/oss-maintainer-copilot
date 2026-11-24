@@ -53,7 +53,7 @@ def supported_follow_up(body: str) -> FollowUp | None:
         comparisons = set(
             re.findall(
                 rf"\b(?:whereas|compared (?:with|to)|versus)\b[^\n]{{0,40}}?"
-                rf"\b{package}\s+(\d+(?:\.\d+)+)",
+                rf"\b{package}(?:\s+version)?[\s:=\-]+v?(\d+(?:\.\d+)+)",
                 body,
                 re.I,
             )

@@ -235,13 +235,16 @@ def template_for(title: str, body: str) -> TemplateKind | None:
     feature_hint = bool(
         re.search(r"\b(feature request|feature|enhancement|add support)\b", title)
     )
+    instructional_question = bool(
+        re.match(r"^(?:how|what|why|when|where|can|could|should|question)\b", title)
+    )
     bug_hint = bool(
         re.search(
-            r"\b(bug|\w*error|broken|fail(?:ure)?s?|crashes?|regress(?:ion|ed)|"
+            r"\b(bug|error|broken|fail(?:ure)?s?|crashes?|regress(?:ion|ed)|"
             r"hangs?|truncated|no output)\b",
             title,
         )
-    )
+    ) or (not instructional_question and bool(re.search(r"\b\w+error\b", title)))
     if bug_hint and not feature_hint:
         return "bug"
     if feature_hint and not bug_hint:
@@ -426,13 +429,27 @@ def _section_has_answer(body: str, heading: str) -> bool:
 
 
 def _has_concrete_scenario(body: str) -> bool:
-    if re.search(
+    for scenario in re.finditer(
         r"\b(?:reading|read|viewing|view)\b[^\n.!?]{0,80}"
         r"\b(?:docs|documentation)\b[^\n.!?]{0,80}"
         r"\b(?:evening|night|low.light)\b",
         body,
         re.I,
     ):
+        prefix = re.split(
+            r"[.!?\n]", body[max(0, scenario.start() - 64) : scenario.start()]
+        )[-1]
+        ending = re.search(r"[.!?\n]|$", body[scenario.end() :])
+        assert ending is not None
+        if (
+            re.search(
+                r"\b(?:if|unless|could|would|might|may|should|whether|never|not|don't)\b",
+                prefix,
+                re.I,
+            )
+            or ending.group() == "?"
+        ):
+            continue
         return True
     if re.search(
         r"\b(?:i'm|i am|we are)\s+(?:currently\s+)?writing tests\b[^\n]{20,}",

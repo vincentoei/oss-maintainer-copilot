@@ -304,12 +304,19 @@ def test_request_to_warn_about_slow_collection_supports_enhancement() -> None:
     assert report.issue_type == "type: enhancement"
 
 
-def test_explicit_before_after_versions_are_not_reported_as_conflicting() -> None:
+@pytest.mark.parametrize(
+    "comparison",
+    ["Whereas pytest 7.4.4 produces:", "Compared to pytest-7.4.4 this regressed:"],
+)
+def test_explicit_before_after_versions_are_not_reported_as_conflicting(
+    comparison: str,
+) -> None:
     report = replay_opening(
         "Bug: package fixture ordering regressed",
         "pip list:\npytest 8.2.0\n"
         "Output from pytest 8.2.0:\nplatform linux -- pytest-8.2.0\n"
-        "Whereas pytest 7.4.4 produces:\nplatform linux -- pytest-7.4.4\n",
+        + comparison
+        + "\nplatform linux -- pytest-7.4.4\n",
     )
 
     assert "conflicting version evidence" not in report.draft_reply
@@ -340,3 +347,43 @@ def test_version_prose_below_an_empty_table_does_not_supply_packages() -> None:
     )
 
     assert "pip list output" in {d.name for d in report.missing_details}
+
+
+def test_question_about_handling_an_exception_does_not_imply_a_bug_report() -> None:
+    report = replay_opening(
+        "How do I catch an AssertionError in a fixture?",
+        "I need advice on catching expected exceptions while setting up a fixture.",
+    )
+
+    assert report.missing_details == []
+    assert "missing_details" in {a.field for a in report.abstentions}
+
+
+@pytest.mark.parametrize(
+    "title",
+    [
+        "Why does pytest fail with my plugin?",
+        "Why is pytest broken?",
+        "Why does pytest report an error during collection?",
+    ],
+)
+def test_question_with_explicit_failure_still_checks_bug_details(title: str) -> None:
+    report = replay_opening(title, "Collection stops before running any tests.")
+
+    assert "pip list output" in {d.name for d in report.missing_details}
+
+
+@pytest.mark.parametrize(
+    "scenario",
+    [
+        "Could someone read documentation at night?",
+        "I never read documentation at night.",
+    ],
+)
+def test_nonasserted_reading_scenario_remains_a_missing_use_case(scenario: str) -> None:
+    report = replay_opening(
+        "Feature: support a dark documentation theme",
+        "#### What's the problem this feature will solve?\n" + scenario,
+    )
+
+    assert "real-world use case" in {d.name for d in report.missing_details}

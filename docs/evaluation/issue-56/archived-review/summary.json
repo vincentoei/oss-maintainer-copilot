@@ -5,6 +5,8 @@
   "blinded": false,
   "reports": 120,
   "review_groups": 44,
+  "historical_opening_identities_verified": 49,
+  "pinned_file_identity_manifest": "docs/evaluation/issue-56/review-evidence.json",
   "rating_counts": {
     "1": 29,
     "0": 70,

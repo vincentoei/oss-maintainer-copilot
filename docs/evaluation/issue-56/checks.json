@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-11-24T14:01:21.612417+00:00",
+  "recorded_at": "2026-11-24T14:17:44.668246+00:00",
   "source_sha256": {
     "src/maintainer_copilot/__init__.py": "5e41140633dd670de4305c608f38bc50eae7710947fa64ffecbdd2048e949daf",
     "src/maintainer_copilot/agent.py": "a522cf02867dc03f61b57ef521d42fa1ca1456a0dd86a852fdd78119d8df6dcc",
@@ -7,12 +7,12 @@
     "src/maintainer_copilot/documentation.py": "1f77c64648dcef8cb9a85ab27d3913cc94ab20f39cf3a482c72f0bb27e4054a8",
     "src/maintainer_copilot/drafting.py": "f207e72391b561071a95535cfabb062b57d4ad63ff52f52794842717cfe13b85",
     "src/maintainer_copilot/evaluation.py": "b2ef5e6833b582584133b37d8f4af91d39879b3955cd4bc1e2b7257e19372597",
-    "src/maintainer_copilot/follow_up.py": "1423199b3e349d45ca65a66c4504b0aace9b033219df409801855d93f6e41a62",
+    "src/maintainer_copilot/follow_up.py": "d1f490bb454594fc35b0aaba9db90c557b6f9d5ce43885ac47e6987a01bdc7ab",
     "src/maintainer_copilot/issue_search.py": "fb3b07a76c582682e07512ace6721d2eb61fd779144d9adda2cfe2c5360df63a",
     "src/maintainer_copilot/label_evidence.py": "d5facd81f10615a82c5c2ffc0909b5b2165dea5cb64f976d26feaf2cb54b5b6f",
     "src/maintainer_copilot/local_evaluation.py": "15c2b19d15e6f8adda2e04e044175eaf75a5ad52d5ee36d0c99e5d7a07725ffa",
     "src/maintainer_copilot/model.py": "5f4086aa4e026bedce8d5e388640c38053fa18eb6d0f70c9a661b5d4a7acb9f5",
-    "src/maintainer_copilot/pytest_profile.py": "e63c8a2d6ee88b93818dbd98c2ff477d354465deb732348de73415940825535c",
+    "src/maintainer_copilot/pytest_profile.py": "d417735a0fd9d667cd96215de1a943cbd7c5d6cb8bd483fd8c794482dda27b42",
     "src/maintainer_copilot/registry.py": "a86bfcaed95454019742c7844f76959e15b5a702d4a3b8089edb0cc23499b5ae",
     "src/maintainer_copilot/replay.py": "3f676a7fa1eb6ebe25fa70d186d86e539d15ae4aaf3a0a37cfe6162d17712d35",
     "src/maintainer_copilot/repository.py": "988ec4e758c0c8975b1f2f19c0b226c75286053c55099d8d96b5f57ca2ef0596",
@@ -42,7 +42,7 @@
         "."
       ],
       "exit_code": 0,
-      "stdout": "114 files already formatted\n",
+      "stdout": "116 files already formatted\n",
       "stderr": ""
     },
     {
@@ -61,7 +61,7 @@
         "-q"
       ],
       "exit_code": 0,
-      "stdout": "........................................................................ [ 18%]\n........................................................................ [ 36%]\n.........................................................ss............. [ 54%]\n........................................................................ [ 72%]\n........................................................................ [ 91%]\n...................................                                      [100%]\n393 passed, 2 skipped in 63.85s (0:01:03)\n",
+      "stdout": "........................................................................ [ 17%]\n........................................................................ [ 35%]\n.........................................................ss............. [ 53%]\n........................................................................ [ 71%]\n........................................................................ [ 89%]\n..........................................                               [100%]\n400 passed, 2 skipped in 48.61s\n",
       "stderr": ""
     }
   ]

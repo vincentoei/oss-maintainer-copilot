@@ -82,3 +82,22 @@ real-model or generalization claims. A separately frozen capped pass measures
 the real workflows under [the protocol](issue-56-protocol.md). The explicit
 Codex report-review sidecars preserve attribution and every report fingerprint;
 they do not claim independent human review or change old pending rating files.
+
+## Review boundaries checked before inference
+
+Fresh Standards and Spec reviewers found four concrete boundaries. The replay
+regressions and review-publication probes reproduce each failure before its fix:
+
+- Instructional questions about handling `AssertionError` must not acquire a bug
+  checklist from the exception name. Only new compound exception-name hints are
+  guarded; existing literal `error`, `fail` and `broken` cues remain applicable to
+  questions that describe observed failures.
+- Questioned or negated nighttime-reading examples do not establish a real-world
+  scenario. An asserted evening-reading scenario still does.
+- An explicit `Compared to pytest-7.4.4` comparison uses the same accepted version
+  syntax as the session parser and does not create a false version conflict.
+- Review publication verifies all 49 opening identities and timestamps, pinned
+  commit times, allowed citation URLs and pinned file hashes against preserved
+  metadata. Five tampering probes are rejected before any review is published;
+  the valid 120-report archived review passes. The new pinned-file manifest
+  contains identities and digests, not contributor bodies.

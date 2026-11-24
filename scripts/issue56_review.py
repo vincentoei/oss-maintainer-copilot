@@ -8,6 +8,11 @@ from collections import Counter
 from datetime import UTC, datetime
 from pathlib import Path
 
+from maintainer_copilot.replay import (
+    allowed_case_citation_urls,
+    candidate_references,
+    load_cases,
+)
 from maintainer_copilot.workflow_comparison import fingerprint
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,10 +22,49 @@ def read(path):
     return json.loads(path.read_text())
 
 
-def citation_evidence(citation, evidence):
+def verified_openings(catalog, evidence):
+    expected = {}
+    for case in catalog:
+        entries = [
+            (case.issue_number, case.opening_cutoff, case.opening_content_sha256),
+            *(
+                (ref.number, ref.created_at, ref.content_sha256)
+                for ref in candidate_references(case, catalog)
+            ),
+        ]
+        for number, created_at, digest in entries:
+            assert expected.setdefault(number, (created_at, digest)) == (
+                created_at,
+                digest,
+            )
+        commit = read(evidence / f"commit-{case.repository_commit}.json")
+        assert commit["sha"] == case.repository_commit
+        assert (
+            datetime.fromisoformat(commit["committed_at"].replace("Z", "+00:00"))
+            == case.repository_commit_at
+        )
+    openings = {}
+    for number, (created_at, digest) in expected.items():
+        opening = read(evidence / f"issue-{number}.json")
+        assert opening["number"] == number
+        assert (
+            datetime.fromisoformat(opening["created_at"].replace("Z", "+00:00"))
+            == created_at
+        )
+        assert (
+            hashlib.sha256(
+                (opening["title"] + "\0" + opening["body"]).encode()
+            ).hexdigest()
+            == digest
+        ), f"Changed opening #{number}"
+        openings[number] = opening
+    return openings
+
+
+def citation_evidence(citation, evidence, openings, pinned_files):
     url = citation["source_url"]
     if issue := re.fullmatch(r"https://github.com/pytest-dev/pytest/issues/(\d+)", url):
-        opening = read(evidence / f"issue-{issue[1]}.json")
+        opening = openings[int(issue[1])]
         passage = citation.get("passage")
         if passage:
             assert all(line in opening["body"] for line in passage.splitlines())
@@ -36,7 +80,14 @@ def citation_evidence(citation, evidence):
     )
     assert blob is not None, f"Unsupported review evidence: {url}"
     pinned = read(evidence / f"file-{blob[1]}-{blob[2].replace('/', '_')}.json")
-    assert hashlib.sha256(pinned["text"].encode()).hexdigest() == pinned["sha256"]
+    expected = pinned_files[blob[1] + "/" + blob[2]]
+    assert pinned["commit"] == expected["commit"] == blob[1]
+    assert pinned["path"] == expected["path"] == blob[2]
+    assert (
+        hashlib.sha256(pinned["text"].encode()).hexdigest()
+        == pinned["sha256"]
+        == expected["sha256"]
+    )
     lines = pinned["text"].splitlines()[int(blob[3]) - 1 : int(blob[4] or blob[3])]
     assert lines
     passage = citation.get("passage")
@@ -57,12 +108,22 @@ def main():
         ROOT / f"docs/evaluation/issue-{args.source_issue}/run/review-key.json"
     )
     decisions = read(args.decisions)
+    catalog = load_cases()
+    cases = {case.issue_number: case for case in catalog}
+    openings = verified_openings(catalog, args.evidence)
+    pinned_files = read(ROOT / "docs/evaluation/issue-56/review-evidence.json")[
+        "pinned_files"
+    ]
     assert set(decisions) == {str(r["issue_number"]) for r in result["cases"]}
     codes = {(x["method"], x["issue_number"]): x for x in identities}
     reviews = []
     groups = {}
     reviewed_at = datetime.now(UTC).isoformat()
     for row in result["cases"]:
+        case = cases[row["issue_number"]]
+        assert row["opening_content_sha256"] == case.opening_content_sha256
+        assert row["opening_cutoff"] == case.opening_cutoff.isoformat()
+        assert row["repository_commit"] == case.repository_commit
         report = row["report"]
         identity = codes[row["method"], row["issue_number"]]
         assert fingerprint(report) == identity["report_sha256"]
@@ -76,6 +137,10 @@ def main():
             "abstained",
         )
         assert report is not None, "Unavailable reports need explicit review handling"
+        allowed = allowed_case_citation_urls(
+            case, [r.number for r in candidate_references(case, catalog)]
+        )
+        assert all(c["source_url"] in allowed for c in report["citations"])
         claims = {
             k: v
             for k, v in report.items()
@@ -119,7 +184,8 @@ def main():
                 ),
                 "type_field": row["scores"]["issue_type"],
                 "evidence": [
-                    citation_evidence(c, args.evidence) for c in report["citations"]
+                    citation_evidence(c, args.evidence, openings, pinned_files)
+                    for c in report["citations"]
                 ],
             }
         )
@@ -130,6 +196,10 @@ def main():
         "blinded": False,
         "reports": len(reviews),
         "review_groups": len(groups),
+        "historical_opening_identities_verified": len(openings),
+        "pinned_file_identity_manifest": (
+            "docs/evaluation/issue-56/review-evidence.json"
+        ),
         "rating_counts": dict(Counter(r["rating"] for r in reviews)),
         "semantic_support_counts": dict(
             Counter(r["semantic_support"] for r in reviews)
