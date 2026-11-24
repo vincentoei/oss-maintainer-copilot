@@ -1,8 +1,11 @@
 """Historical replay contract: current GitHub activity cannot enter a report."""
 
+import io
+import json
 import os
 from datetime import UTC, datetime
 from pathlib import Path
+from urllib.request import Request
 
 import pytest
 from pydantic import ValidationError
@@ -230,6 +233,52 @@ def test_replay_flags_openings_above_historical_limit_before_model_call() -> Non
         )
 
     assert observed.requests == []
+
+
+@pytest.mark.parametrize("recovers", [True, False])
+def test_replay_retries_commit_timeout_once_before_flagging(
+    monkeypatch: pytest.MonkeyPatch, recovers: bool
+) -> None:
+    case, github, repository = synthetic_case()
+    attempts: list[str] = []
+
+    def commit_response(request: Request, *, timeout: int) -> io.BytesIO:
+        assert timeout == 8
+        attempts.append(request.full_url)
+        if not recovers or len(attempts) == 1:
+            raise TimeoutError("commit lookup timed out")
+        return io.BytesIO(
+            json.dumps(
+                {
+                    "sha": case.repository_commit,
+                    "committer": {"date": case.repository_commit_at.isoformat()},
+                }
+            ).encode()
+        )
+
+    monkeypatch.setattr("maintainer_copilot.replay.urlopen", commit_response)
+    observed = ObservedModel()
+
+    def replay() -> None:
+        replay_case(
+            case,
+            commit_source=GitHubCommitSource(),
+            issue_source=github,
+            source_reader=repository,
+            model_client=observed,
+        )
+
+    if recovers:
+        replay()
+        assert len(observed.requests) == 1
+    else:
+        with pytest.raises(CaseFlagged, match="commit is unavailable"):
+            replay()
+        assert observed.requests == []
+        assert github.reads == []
+    assert attempts == [
+        f"https://api.github.com/repos/pytest-dev/pytest/git/commits/{case.repository_commit}"
+    ] * 2
 
 
 def test_replay_ignores_post_cutoff_activity_in_every_evidence_channel() -> None:

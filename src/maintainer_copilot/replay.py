@@ -62,8 +62,14 @@ class GitHubCommitSource:
             headers=headers,
         )
         try:
-            with urlopen(request, timeout=8) as response:
-                body = response.read(65_537)
+            for attempt in range(2):
+                try:
+                    with urlopen(request, timeout=8) as response:
+                        body = response.read(65_537)
+                    break
+                except TimeoutError:
+                    if attempt == 1:
+                        raise
             if len(body) > 65_536:
                 raise ValueError("commit response exceeds size limit")
             data = json.loads(body)
