@@ -1,0 +1,807 @@
+{
+  "browser": "159.0.8154.6",
+  "restart_persistence": true,
+  "results": [
+    {
+      "repository": "pytest-dev/pytest",
+      "checks": {
+        "identity": true,
+        "rendered": true,
+        "trace": true,
+        "citations": true,
+        "reply": true,
+        "model_calls": true,
+        "errors": true
+      },
+      "report": {
+        "context": {
+          "registration_id": "pytest-default",
+          "repository": "pytest-dev/pytest",
+          "revision": "50234b4e670064c42a4c29cb6258115a2079ba4c",
+          "profile": "pytest",
+          "status": "ready",
+          "errors": [],
+          "labels": [
+            "type: backward compatibility",
+            "type: bug",
+            "type: deprecation",
+            "type: docs",
+            "type: enhancement",
+            "type: infrastructure",
+            "type: performance",
+            "type: proposal",
+            "type: question",
+            "type: refactoring",
+            "type: regression",
+            "type: removal",
+            "type: selftests"
+          ],
+          "type_cues": [
+            [
+              "type: backward compatibility",
+              "\\b(?:backward compatib\\w*|breaking change)\\b"
+            ],
+            [
+              "type: bug",
+              "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+            ],
+            [
+              "type: deprecation",
+              "\\bdeprecat\\w*\\b"
+            ],
+            [
+              "type: docs",
+              "\\b(?:docs|documentation|guide|manual|typo)\\b"
+            ],
+            [
+              "type: enhancement",
+              "\\b(?:feature|enhancement|add|support|allow)\\b"
+            ],
+            [
+              "type: infrastructure",
+              "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+            ],
+            [
+              "type: performance",
+              "\\b(?:performance|slow|latency|memory|speed)\\b"
+            ],
+            [
+              "type: proposal",
+              "\\b(?:proposal|propose|design)\\b"
+            ],
+            [
+              "type: question",
+              "\\b(?:question|how|why)\\b|\\?"
+            ],
+            [
+              "type: refactoring",
+              "\\b(?:refactor\\w*|cleanup)\\b"
+            ],
+            [
+              "type: regression",
+              "\\b(?:regression|used to work|worked before)\\b"
+            ],
+            [
+              "type: removal",
+              "\\bremov\\w*\\b"
+            ],
+            [
+              "type: selftests",
+              "\\b(?:selftests|pytest test suite)\\b"
+            ]
+          ],
+          "templates": [
+            {
+              "name": "bug",
+              "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+              "format": "markdown",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "bug description",
+                  "line": 13,
+                  "required": true
+                },
+                {
+                  "name": "pip list output",
+                  "line": 14,
+                  "required": true
+                },
+                {
+                  "name": "pytest and OS versions",
+                  "line": 15,
+                  "required": true
+                },
+                {
+                  "name": "minimal example",
+                  "line": 16,
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "feature",
+              "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+              "format": "markdown",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "problem to solve",
+                  "line": 13,
+                  "required": true
+                },
+                {
+                  "name": "proposed solution",
+                  "line": 16,
+                  "required": true
+                },
+                {
+                  "name": "real-world use case",
+                  "line": 19,
+                  "required": true
+                },
+                {
+                  "name": "alternative solutions",
+                  "line": 21,
+                  "required": true
+                }
+              ]
+            }
+          ],
+          "documentation": [
+            {
+              "key": "capture",
+              "url": "https://docs.pytest.org/en/stable/how-to/capture-stdout-stderr.html#accessing-captured-output-from-a-test-function",
+              "section": "accessing-captured-output-from-a-test-function",
+              "passage": "fixtures allow access to stdout/stderr output created during test execution.",
+              "claim": "pytest documents that capture fixtures let tests access stdout and stderr created during execution.",
+              "relevance": "\\b(?:capsys|capfd|capteesys|capsysbinary|capfdbinary)\\b"
+            },
+            {
+              "key": "fixture_scope",
+              "url": "https://docs.pytest.org/en/stable/how-to/fixtures.html#fixture-scopes",
+              "section": "fixture-scopes",
+              "passage": "Fixtures are created when first requested by a test, and are destroyed based on their scope",
+              "claim": "pytest documents that fixture scope determines when a fixture is destroyed.",
+              "relevance": "\\bfixture scopes?\\b|\\bscope\\s*=\\s*['\\\"](?:function|class|module|package|session)['\\\"]"
+            }
+          ],
+          "prepared_at": "",
+          "structured_templates": true
+        },
+        "trace_id": "259e377b-728a-4a58-b85f-09b2e7c2d178",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "Bug: collection fails in a local project\nSynthetic smoke opening: collection fails ",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [
+          {
+            "name": "pip list output",
+            "request": "the output of `pip list` from the virtual environment you are using",
+            "citation_id": "C1"
+          },
+          {
+            "name": "pytest and OS versions",
+            "request": "your pytest and operating system versions",
+            "citation_id": "C2"
+          },
+          {
+            "name": "minimal example",
+            "request": "a minimal example, if possible",
+            "citation_id": "C3"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add the output of `pip list` from the virtual environment you are using? [C1]\n- Could you add your pytest and operating system versions? [C2]\n- Could you add a minimal example, if possible? [C3]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/50234b4e670064c42a4c29cb6258115a2079ba4c/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+            "description": "pytest bug report template: pip list output",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/50234b4e670064c42a4c29cb6258115a2079ba4c/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+            "description": "pytest bug report template: pytest and OS versions",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/50234b4e670064c42a4c29cb6258115a2079ba4c/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+            "description": "pytest bug report template: minimal example",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": [
+          {
+            "field": "duplicate_candidates",
+            "reason": "A pytest issue number is needed to search only earlier issues."
+          },
+          {
+            "field": "related_issues",
+            "reason": "A pytest issue number is needed to search only earlier issues."
+          }
+        ]
+      },
+      "trace": {
+        "context": {
+          "registration_id": "pytest-default",
+          "repository": "pytest-dev/pytest",
+          "revision": "50234b4e670064c42a4c29cb6258115a2079ba4c",
+          "profile": "pytest",
+          "status": "ready",
+          "errors": [],
+          "labels": [
+            "type: backward compatibility",
+            "type: bug",
+            "type: deprecation",
+            "type: docs",
+            "type: enhancement",
+            "type: infrastructure",
+            "type: performance",
+            "type: proposal",
+            "type: question",
+            "type: refactoring",
+            "type: regression",
+            "type: removal",
+            "type: selftests"
+          ],
+          "type_cues": [
+            [
+              "type: backward compatibility",
+              "\\b(?:backward compatib\\w*|breaking change)\\b"
+            ],
+            [
+              "type: bug",
+              "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+            ],
+            [
+              "type: deprecation",
+              "\\bdeprecat\\w*\\b"
+            ],
+            [
+              "type: docs",
+              "\\b(?:docs|documentation|guide|manual|typo)\\b"
+            ],
+            [
+              "type: enhancement",
+              "\\b(?:feature|enhancement|add|support|allow)\\b"
+            ],
+            [
+              "type: infrastructure",
+              "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+            ],
+            [
+              "type: performance",
+              "\\b(?:performance|slow|latency|memory|speed)\\b"
+            ],
+            [
+              "type: proposal",
+              "\\b(?:proposal|propose|design)\\b"
+            ],
+            [
+              "type: question",
+              "\\b(?:question|how|why)\\b|\\?"
+            ],
+            [
+              "type: refactoring",
+              "\\b(?:refactor\\w*|cleanup)\\b"
+            ],
+            [
+              "type: regression",
+              "\\b(?:regression|used to work|worked before)\\b"
+            ],
+            [
+              "type: removal",
+              "\\bremov\\w*\\b"
+            ],
+            [
+              "type: selftests",
+              "\\b(?:selftests|pytest test suite)\\b"
+            ]
+          ],
+          "templates": [
+            {
+              "name": "bug",
+              "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+              "format": "markdown",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "bug description",
+                  "line": 13,
+                  "required": true
+                },
+                {
+                  "name": "pip list output",
+                  "line": 14,
+                  "required": true
+                },
+                {
+                  "name": "pytest and OS versions",
+                  "line": 15,
+                  "required": true
+                },
+                {
+                  "name": "minimal example",
+                  "line": 16,
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "feature",
+              "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+              "format": "markdown",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "problem to solve",
+                  "line": 13,
+                  "required": true
+                },
+                {
+                  "name": "proposed solution",
+                  "line": 16,
+                  "required": true
+                },
+                {
+                  "name": "real-world use case",
+                  "line": 19,
+                  "required": true
+                },
+                {
+                  "name": "alternative solutions",
+                  "line": 21,
+                  "required": true
+                }
+              ]
+            }
+          ],
+          "documentation": [
+            {
+              "key": "capture",
+              "url": "https://docs.pytest.org/en/stable/how-to/capture-stdout-stderr.html#accessing-captured-output-from-a-test-function",
+              "section": "accessing-captured-output-from-a-test-function",
+              "passage": "fixtures allow access to stdout/stderr output created during test execution.",
+              "claim": "pytest documents that capture fixtures let tests access stdout and stderr created during execution.",
+              "relevance": "\\b(?:capsys|capfd|capteesys|capsysbinary|capfdbinary)\\b"
+            },
+            {
+              "key": "fixture_scope",
+              "url": "https://docs.pytest.org/en/stable/how-to/fixtures.html#fixture-scopes",
+              "section": "fixture-scopes",
+              "passage": "Fixtures are created when first requested by a test, and are destroyed based on their scope",
+              "claim": "pytest documents that fixture scope determines when a fixture is destroyed.",
+              "relevance": "\\bfixture scopes?\\b|\\bscope\\s*=\\s*['\\\"](?:function|class|module|package|session)['\\\"]"
+            }
+          ],
+          "prepared_at": "",
+          "structured_templates": true
+        },
+        "trace_id": "259e377b-728a-4a58-b85f-09b2e7c2d178",
+        "created_at": "2026-11-24T09:54:02.991287Z",
+        "status": "complete",
+        "duration_ms": 5731.552,
+        "events": [
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 1.112,
+            "duration_ms": 5730.082,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 670,
+            "output_tokens": 56,
+            "error": null
+          }
+        ]
+      },
+      "rendered": "pytest-dev/pytest at 50234b4e670064c42a4c29cb6258115a2079ba4c · ready"
+    },
+    {
+      "repository": "astral-sh/ruff",
+      "checks": {
+        "identity": true,
+        "rendered": true,
+        "trace": true,
+        "citations": true,
+        "reply": true,
+        "model_calls": true,
+        "errors": true
+      },
+      "report": {
+        "context": {
+          "registration_id": "a7822d37-20b9-5c3e-9ca7-fdda3a1bc000",
+          "repository": "astral-sh/ruff",
+          "revision": "32669b2743b45fb364aa4741b82e98443155ca3c",
+          "profile": "generic",
+          "status": "limited",
+          "errors": [
+            "Documentation excerpt only: README.md, lines 1-20; remaining content omitted.",
+            "Documentation excerpt only: CONTRIBUTING.md, lines 1-20; remaining content omitted.",
+            "Documentation unavailable: docs/README.md; configure an existing path and refresh."
+          ],
+          "labels": [
+            "accepted",
+            "analyze",
+            "bot:ai-policy-close",
+            "bot:ai-policy-comment",
+            "breaking",
+            "bug",
+            "cache",
+            "ci",
+            "cli",
+            "configuration",
+            "core",
+            "dependencies",
+            "diagnostics",
+            "do-not-merge",
+            "docstring",
+            "documentation",
+            "duplicate",
+            "ecosystem-analyzer",
+            "fixes",
+            "formatter",
+            "fuzzer",
+            "good first issue",
+            "great writeup",
+            "help wanted",
+            "incompatibility",
+            "internal",
+            "isort",
+            "linter",
+            "memory",
+            "mypy_primer",
+            "needs-decision",
+            "needs-design",
+            "needs-info",
+            "needs-mre",
+            "needs-triage",
+            "no-build",
+            "no-test",
+            "notebook",
+            "packaging",
+            "parser",
+            "performance",
+            "playground",
+            "plugin",
+            "preview",
+            "priority:medium",
+            "python:uv",
+            "python312",
+            "python313",
+            "python314",
+            "python315",
+            "python316",
+            "question",
+            "release",
+            "rule",
+            "rule-selection",
+            "security",
+            "server",
+            "style",
+            "suppression",
+            "testing",
+            "tracking",
+            "ty",
+            "type-inference",
+            "typing",
+            "upstream",
+            "uv",
+            "windows",
+            "wish",
+            "wontfix"
+          ],
+          "type_cues": [
+            [
+              "question",
+              "\\bquestion\\b"
+            ]
+          ],
+          "templates": [
+            {
+              "name": "Bug report",
+              "path": ".github/ISSUE_TEMPLATE/1_bug_report.yaml",
+              "format": "issue-form",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "Summary",
+                  "line": 13,
+                  "required": true
+                },
+                {
+                  "name": "Version",
+                  "line": 27,
+                  "required": false
+                }
+              ]
+            },
+            {
+              "name": "Rule request",
+              "path": ".github/ISSUE_TEMPLATE/2_rule_request.yaml",
+              "format": "issue-form",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "Summary",
+                  "line": 6,
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "Question",
+              "path": ".github/ISSUE_TEMPLATE/3_question.yaml",
+              "format": "issue-form",
+              "labels": [
+                "question"
+              ],
+              "fields": [
+                {
+                  "name": "Question",
+                  "line": 7,
+                  "required": true
+                },
+                {
+                  "name": "Version",
+                  "line": 14,
+                  "required": false
+                }
+              ]
+            }
+          ],
+          "documentation": [
+            {
+              "key": "README.md",
+              "url": "https://github.com/astral-sh/ruff/blob/32669b2743b45fb364aa4741b82e98443155ca3c/README.md#L1-L20",
+              "section": "",
+              "passage": "<!-- Begin section: Overview -->\n\n# Ruff\n\n[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)\n[![image](https://img.shields.io/pypi/v/ruff.svg)](https://pypi.python.org/pypi/ruff)\n[![image](https://img.shields.io/pypi/l/ruff.svg)](https://github.com/astral-sh/ruff/blob/main/LICENSE)\n[![image](https://img.shields.io/pypi/pyversions/ruff.svg)](https://pypi.python.org/pypi/ruff)\n[![Actions status](https://github.com/astral-sh/ruff/workflows/CI/badge.svg)](https://github.com/astral-sh/ruff/actions)\n[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?logo=discord&logoColor=white)](https://discord.com/invite/astral-sh)\n\n[**Docs**](https://docs.astral.sh/ruff/) | [**Playground**](https://play.ruff.rs/)\n\nAn extremely fast Python linter and code formatter, written in Rust.\n\n<p align=\"center\">\n  <picture align=\"center\">\n    <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://user-images.githubusercontent.com/1309177/232603514-c95e9b0f-6b31-43de-9a80-9e844173fd6a.svg\">\n    <source media=\"(prefers-color-scheme: light)\" srcset=\"https://user-images.githubusercontent.com/1309177/232603516-4fb4892d-585c-4b20-b810-3db9161831e4.svg\">\n    <img alt=\"Shows a bar chart with benchmark results.\" src=\"https://user-images.githubusercontent.com/1309177/232603516-4fb4892d-585c-4b20-b810-3db9161831e4.svg\">",
+              "claim": "astral-sh/ruff README.md contains the cited passage.",
+              "relevance": "\\b(?:actions|align|assets|astral|badge|begin|benchmark|c95e9b0f|center|chart|color|db9161831e4|discord|e844173fd6a|endpoint|extremely|fb4892d|formatter|github|githubusercontent|https|image|images|invite|license|light|linter|logocolor|media|overview|picture|playground|prefers|python|pyversions|results|scheme|section|shields|shows|source|srcset|status|white|workflows|written)\\b"
+            },
+            {
+              "key": "CONTRIBUTING.md",
+              "url": "https://github.com/astral-sh/ruff/blob/32669b2743b45fb364aa4741b82e98443155ca3c/CONTRIBUTING.md#L1-L20",
+              "section": "",
+              "passage": "# Contributing to Ruff\n\nWelcome! We're happy to have you here. Thank you in advance for your contribution to Ruff.\n\n> [!NOTE]\n>\n> This guide is for Ruff. If you're looking to contribute to ty, please see [the ty contributing\n> guide](https://github.com/astral-sh/ruff/blob/main/crates/ty/CONTRIBUTING.md).\n\n## Finding ways to help\n\nWe label issues that would be good for a first time contributor as\n[`good first issue`](https://github.com/astral-sh/ruff/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22).\nThese usually do not require significant experience with Rust or the Ruff code base.\n\nWe label issues that we think are a good opportunity for subsequent contributions as\n[`help wanted`](https://github.com/astral-sh/ruff/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22).\nThese require varying levels of experience with Rust and Ruff. Often, we want to accomplish these\ntasks but do not have the resources to do so ourselves.\n",
+              "claim": "astral-sh/ruff CONTRIBUTING.md contains the cited passage.",
+              "relevance": "\\b(?:accomplish|advance|aissue|aopen|astral|contribute|contributing|contribution|contributions|contributor|crates|experience|finding|first|github|guide|happy|https|issue|issues|label|levels|looking|often|opportunity|ourselves|please|require|resources|significant|subsequent|tasks|thank|these|think|usually|varying|wanted|welcome|would)\\b"
+            }
+          ],
+          "prepared_at": "2026-11-24T09:50:53.124324+00:00",
+          "structured_templates": true
+        },
+        "trace_id": "752a5785-337a-455c-b5e6-dac4e90e4182",
+        "status": "complete",
+        "issue_type": null,
+        "issue_type_quote": null,
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+        "citations": [],
+        "abstentions": [
+          {
+            "field": "duplicate_candidates",
+            "reason": "A astral-sh/ruff issue number is needed to search only earlier issues."
+          },
+          {
+            "field": "related_issues",
+            "reason": "A astral-sh/ruff issue number is needed to search only earlier issues."
+          },
+          {
+            "field": "issue_type",
+            "reason": "Model found insufficient issue-text evidence for a type label."
+          },
+          {
+            "field": "draft_reply",
+            "reason": "No supported reply claim was selected."
+          },
+          {
+            "field": "repository_context",
+            "reason": "Documentation excerpt only: README.md, lines 1-20; remaining content omitted.; Documentation excerpt only: CONTRIBUTING.md, lines 1-20; remaining content omitted.; Documentation unavailable: docs/README.md; configure an existing path and refresh."
+          }
+        ]
+      },
+      "trace": {
+        "context": {
+          "registration_id": "a7822d37-20b9-5c3e-9ca7-fdda3a1bc000",
+          "repository": "astral-sh/ruff",
+          "revision": "32669b2743b45fb364aa4741b82e98443155ca3c",
+          "profile": "generic",
+          "status": "limited",
+          "errors": [
+            "Documentation excerpt only: README.md, lines 1-20; remaining content omitted.",
+            "Documentation excerpt only: CONTRIBUTING.md, lines 1-20; remaining content omitted.",
+            "Documentation unavailable: docs/README.md; configure an existing path and refresh."
+          ],
+          "labels": [
+            "accepted",
+            "analyze",
+            "bot:ai-policy-close",
+            "bot:ai-policy-comment",
+            "breaking",
+            "bug",
+            "cache",
+            "ci",
+            "cli",
+            "configuration",
+            "core",
+            "dependencies",
+            "diagnostics",
+            "do-not-merge",
+            "docstring",
+            "documentation",
+            "duplicate",
+            "ecosystem-analyzer",
+            "fixes",
+            "formatter",
+            "fuzzer",
+            "good first issue",
+            "great writeup",
+            "help wanted",
+            "incompatibility",
+            "internal",
+            "isort",
+            "linter",
+            "memory",
+            "mypy_primer",
+            "needs-decision",
+            "needs-design",
+            "needs-info",
+            "needs-mre",
+            "needs-triage",
+            "no-build",
+            "no-test",
+            "notebook",
+            "packaging",
+            "parser",
+            "performance",
+            "playground",
+            "plugin",
+            "preview",
+            "priority:medium",
+            "python:uv",
+            "python312",
+            "python313",
+            "python314",
+            "python315",
+            "python316",
+            "question",
+            "release",
+            "rule",
+            "rule-selection",
+            "security",
+            "server",
+            "style",
+            "suppression",
+            "testing",
+            "tracking",
+            "ty",
+            "type-inference",
+            "typing",
+            "upstream",
+            "uv",
+            "windows",
+            "wish",
+            "wontfix"
+          ],
+          "type_cues": [
+            [
+              "question",
+              "\\bquestion\\b"
+            ]
+          ],
+          "templates": [
+            {
+              "name": "Bug report",
+              "path": ".github/ISSUE_TEMPLATE/1_bug_report.yaml",
+              "format": "issue-form",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "Summary",
+                  "line": 13,
+                  "required": true
+                },
+                {
+                  "name": "Version",
+                  "line": 27,
+                  "required": false
+                }
+              ]
+            },
+            {
+              "name": "Rule request",
+              "path": ".github/ISSUE_TEMPLATE/2_rule_request.yaml",
+              "format": "issue-form",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "Summary",
+                  "line": 6,
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "Question",
+              "path": ".github/ISSUE_TEMPLATE/3_question.yaml",
+              "format": "issue-form",
+              "labels": [
+                "question"
+              ],
+              "fields": [
+                {
+                  "name": "Question",
+                  "line": 7,
+                  "required": true
+                },
+                {
+                  "name": "Version",
+                  "line": 14,
+                  "required": false
+                }
+              ]
+            }
+          ],
+          "documentation": [
+            {
+              "key": "README.md",
+              "url": "https://github.com/astral-sh/ruff/blob/32669b2743b45fb364aa4741b82e98443155ca3c/README.md#L1-L20",
+              "section": "",
+              "passage": "<!-- Begin section: Overview -->\n\n# Ruff\n\n[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)\n[![image](https://img.shields.io/pypi/v/ruff.svg)](https://pypi.python.org/pypi/ruff)\n[![image](https://img.shields.io/pypi/l/ruff.svg)](https://github.com/astral-sh/ruff/blob/main/LICENSE)\n[![image](https://img.shields.io/pypi/pyversions/ruff.svg)](https://pypi.python.org/pypi/ruff)\n[![Actions status](https://github.com/astral-sh/ruff/workflows/CI/badge.svg)](https://github.com/astral-sh/ruff/actions)\n[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?logo=discord&logoColor=white)](https://discord.com/invite/astral-sh)\n\n[**Docs**](https://docs.astral.sh/ruff/) | [**Playground**](https://play.ruff.rs/)\n\nAn extremely fast Python linter and code formatter, written in Rust.\n\n<p align=\"center\">\n  <picture align=\"center\">\n    <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://user-images.githubusercontent.com/1309177/232603514-c95e9b0f-6b31-43de-9a80-9e844173fd6a.svg\">\n    <source media=\"(prefers-color-scheme: light)\" srcset=\"https://user-images.githubusercontent.com/1309177/232603516-4fb4892d-585c-4b20-b810-3db9161831e4.svg\">\n    <img alt=\"Shows a bar chart with benchmark results.\" src=\"https://user-images.githubusercontent.com/1309177/232603516-4fb4892d-585c-4b20-b810-3db9161831e4.svg\">",
+              "claim": "astral-sh/ruff README.md contains the cited passage.",
+              "relevance": "\\b(?:actions|align|assets|astral|badge|begin|benchmark|c95e9b0f|center|chart|color|db9161831e4|discord|e844173fd6a|endpoint|extremely|fb4892d|formatter|github|githubusercontent|https|image|images|invite|license|light|linter|logocolor|media|overview|picture|playground|prefers|python|pyversions|results|scheme|section|shields|shows|source|srcset|status|white|workflows|written)\\b"
+            },
+            {
+              "key": "CONTRIBUTING.md",
+              "url": "https://github.com/astral-sh/ruff/blob/32669b2743b45fb364aa4741b82e98443155ca3c/CONTRIBUTING.md#L1-L20",
+              "section": "",
+              "passage": "# Contributing to Ruff\n\nWelcome! We're happy to have you here. Thank you in advance for your contribution to Ruff.\n\n> [!NOTE]\n>\n> This guide is for Ruff. If you're looking to contribute to ty, please see [the ty contributing\n> guide](https://github.com/astral-sh/ruff/blob/main/crates/ty/CONTRIBUTING.md).\n\n## Finding ways to help\n\nWe label issues that would be good for a first time contributor as\n[`good first issue`](https://github.com/astral-sh/ruff/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22).\nThese usually do not require significant experience with Rust or the Ruff code base.\n\nWe label issues that we think are a good opportunity for subsequent contributions as\n[`help wanted`](https://github.com/astral-sh/ruff/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22).\nThese require varying levels of experience with Rust and Ruff. Often, we want to accomplish these\ntasks but do not have the resources to do so ourselves.\n",
+              "claim": "astral-sh/ruff CONTRIBUTING.md contains the cited passage.",
+              "relevance": "\\b(?:accomplish|advance|aissue|aopen|astral|contribute|contributing|contribution|contributions|contributor|crates|experience|finding|first|github|guide|happy|https|issue|issues|label|levels|looking|often|opportunity|ourselves|please|require|resources|significant|subsequent|tasks|thank|these|think|usually|varying|wanted|welcome|would)\\b"
+            }
+          ],
+          "prepared_at": "2026-11-24T09:50:53.124324+00:00",
+          "structured_templates": true
+        },
+        "trace_id": "752a5785-337a-455c-b5e6-dac4e90e4182",
+        "created_at": "2026-11-24T09:54:08.889055Z",
+        "status": "complete",
+        "duration_ms": 292.732,
+        "events": [
+          {
+            "kind": "model",
+            "name": "triage_selection",
+            "status": "ok",
+            "started_ms": 1.021,
+            "duration_ms": 291.658,
+            "target": "pytest-triage:coder3b-ctx16k",
+            "result_count": null,
+            "references": [],
+            "input_tokens": 298,
+            "output_tokens": 26,
+            "error": null
+          }
+        ]
+      },
+      "rendered": "astral-sh/ruff at 32669b2743b45fb364aa4741b82e98443155ca3c · limited"
+    }
+  ],
+  "errors": []
+}

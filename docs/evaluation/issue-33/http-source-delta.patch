@@ -1,0 +1,23 @@
+--- a/src/maintainer_copilot/repository.py
++++ b/src/maintainer_copilot/repository.py
+@@ -108,7 +108,11 @@
+         if self.profile == "pytest":
+             return pytest_profile.profile_details(title, body, self.revision)
+         # Match the actual rendered form's headings, not inferred bug/feature words.
+-        headings = set(re.findall(r"(?m)^#{1,6}\s+(.+?)\s*$", body))
++        without_comments = re.sub(r"<!--.*?-->", "", body, flags=re.S)
++        heading_list = re.findall(r"(?m)^#{1,6}\s+(.+?)\s*$", without_comments)
++        headings = set(heading_list)
++        if len(headings) != len(heading_list):
++            return None
+         matches = [
+             template
+             for template in self.templates
+@@ -125,7 +129,6 @@
+             return None
+         template = matches[0]
+         missing = []
+-        without_comments = re.sub(r"<!--.*?-->", "", body, flags=re.S)
+         for field in template.fields:
+             if not field.required:
+                 continue

@@ -14,18 +14,20 @@ from pydantic import (
     model_validator,
 )
 
-from maintainer_copilot import ci, documentation, issue_search, model, pytest_profile
+from maintainer_copilot import ci, documentation, issue_search, model
 from maintainer_copilot import source as repository_source
 from maintainer_copilot.drafting import EvidencePassage, evidence_packet
-from maintainer_copilot.follow_up import supported_follow_up
+from maintainer_copilot.registry import RepositoryRegistry, get_registry
+from maintainer_copilot.repository import RepositoryContext, legacy_context
 from maintainer_copilot.trace import TraceRecorder
 
 
 class IssueUnderReview(BaseModel):
     model_config = ConfigDict(str_strip_whitespace=True)
 
-    title: str = Field(min_length=1)
-    body: str
+    registration_id: str | None = Field(default=None, min_length=1, max_length=100)
+    title: str = Field(min_length=1, max_length=1000)
+    body: str = Field(max_length=16000)
     number: int | None = Field(default=None, gt=0)
     source_location: repository_source.SourceLocation | None = None
 
@@ -75,6 +77,7 @@ class IssueSuggestion(BaseModel):
 
 
 class TriageReport(BaseModel):
+    context: RepositoryContext = Field(default_factory=legacy_context)
     trace_id: UUID
     status: Literal["complete", "partial"]
     issue_type: str | None
@@ -93,11 +96,13 @@ class TriageReport(BaseModel):
     def validate_citations(self) -> "TriageReport":
         if (
             self.issue_type is not None
-            and self.issue_type not in pytest_profile.TYPE_LABELS
+            and self.issue_type not in self.context.type_labels
         ):
-            raise ValueError("issue type must be a pytest type label")
+            raise ValueError("issue type must be a supported target repository label")
         if (self.issue_type is None) != (self.issue_type_quote is None):
             raise ValueError("issue type must include an issue-text quote")
+        if any(not self.context.owns_url(str(c.source_url)) for c in self.citations):
+            raise ValueError("Citation belongs to another repository")
         citation_ids = [citation.id for citation in self.citations]
         if len(citation_ids) != len(set(citation_ids)):
             raise ValueError("citation IDs must be unique")
@@ -214,6 +219,50 @@ class TriageReport(BaseModel):
         return self
 
 
+def resolve_target(
+    issue: IssueUnderReview,
+    context: RepositoryContext | None = None,
+    registry: RepositoryRegistry | None = None,
+    *,
+    template_revision: str | None = None,
+    documentation_topics: tuple[documentation.DocumentationTopic, ...] | None = None,
+    structured_template_available: bool = True,
+) -> tuple[IssueUnderReview, RepositoryContext]:
+    """Resolve selection once and bind source arguments before any read."""
+    if context is None:
+        if template_revision is not None or documentation_topics is not None:
+            context = legacy_context(
+                revision=template_revision,
+                documentation_topics=documentation_topics,
+                structured_templates=structured_template_available,
+            )
+        else:
+            context = (registry or get_registry()).resolve(issue.registration_id)
+    if not structured_template_available:
+        context = context.model_copy(update={"structured_templates": False})
+    if (
+        issue.registration_id is not None
+        and issue.registration_id != context.registration_id
+    ):
+        raise ValueError("Selected registration and resolved context do not match")
+    if issue.source_location is not None:
+        # Registration, rather than an authored URL, supplies the allowed repository.
+        location = issue.source_location
+        if (
+            "repository" in location.model_fields_set
+            and location.repository != context.repository
+        ):
+            raise ValueError("Source location belongs to another repository")
+        issue = issue.model_copy(
+            update={
+                "source_location": location.model_copy(
+                    update={"repository": context.repository}
+                )
+            }
+        )
+    return issue, context
+
+
 def triage_issue(
     issue: IssueUnderReview,
     source: issue_search.IssueSource | None = None,
@@ -223,26 +272,26 @@ def triage_issue(
     ci_source: ci.CISource | None = None,
     trace: TraceRecorder | None = None,
     *,
-    documentation_topics: tuple[documentation.DocumentationTopic, ...] = (
-        pytest_profile.DOCUMENTATION_TOPICS
-    ),
-    template_revision: str = pytest_profile.TEMPLATE_REVISION,
+    documentation_topics: tuple[documentation.DocumentationTopic, ...] | None = None,
+    template_revision: str | None = None,
     structured_template_available: bool = True,
+    context: RepositoryContext | None = None,
+    registry: RepositoryRegistry | None = None,
 ) -> TriageReport:
-    """Build a reviewable report from pytest templates, issues, and documentation."""
-    recorder = trace or TraceRecorder()
-    template = (
-        pytest_profile.template_for(issue.title, issue.body)
-        if structured_template_available
-        else None
+    """Resolve one context before any read, then validate a reviewable report."""
+    issue, context = resolve_target(
+        issue,
+        context,
+        registry,
+        template_revision=template_revision,
+        documentation_topics=documentation_topics,
+        structured_template_available=structured_template_available,
     )
-    if template == "bug":
-        missing = pytest_profile.missing_bug_details(issue.body)
-    elif template == "feature":
-        missing = pytest_profile.missing_feature_details(issue.body)
-    else:
-        missing = []
-
+    recorder = trace or TraceRecorder(context=context)
+    recorder.context = context
+    missing = context.missing_details(issue.title, issue.body)
+    template_available = missing is not None
+    missing = missing or []
     details = [
         MissingReportDetail(
             name=detail.name,
@@ -251,22 +300,14 @@ def triage_issue(
         )
         for index, detail in enumerate(missing, start=1)
     ]
-    citations = (
-        [
-            Citation(
-                id=f"C{index}",
-                source_url=HttpUrl(
-                    pytest_profile.citation_url(
-                        template, detail.line, template_revision
-                    )
-                ),
-                description=f"pytest {template} report template: {detail.name}",
-            )
-            for index, detail in enumerate(missing, start=1)
-        ]
-        if template is not None
-        else []
-    )
+    citations = [
+        Citation(
+            id=f"C{index}",
+            source_url=HttpUrl(detail.url),
+            description=detail.description,
+        )
+        for index, detail in enumerate(missing, start=1)
+    ]
     reply = "Thanks for sharing this issue."
     if details:
         requests = "\n".join(
@@ -277,25 +318,39 @@ def triage_issue(
     abstentions: list[Abstention] = []
     suggestions: list[issue_search.Match] = []
     if issue.number is None:
-        search_reason = "A pytest issue number is needed to search only earlier issues."
-    elif (query := issue_search.search_query(issue.title, issue.body)) is None:
+        search_reason = (
+            f"A {context.display_name} issue number is needed "
+            "to search only earlier issues."
+        )
+    elif (query := context.search_query(issue.title, issue.body)) is None:
         search_reason = "The report lacks enough specific details to compare issues."
     else:
-        issue_source = source or issue_search.GitHubIssueSource()
+        issue_source = source or issue_search.GitHubIssueSource(context.repository)
         try:
             with recorder.call(
-                "retrieval", "get_issue", f"pytest issue #{issue.number}"
+                "retrieval",
+                "get_issue",
+                f"{context.display_name} issue #{issue.number}",
             ) as event:
                 reviewed = issue_source.get_issue(issue.number)
-                if reviewed.number != issue.number:
+                if (
+                    reviewed.number != issue.number
+                    or reviewed.repository != context.repository
+                ):
                     raise issue_search.IssueSearchError("Wrong issue returned.")
                 event.result_count = 1
+                event.references = [reviewed.url]
             with recorder.call(
                 "retrieval",
                 "search_issues",
                 f"query {query[:256]} before {reviewed.created_at.isoformat()}",
             ) as search_event:
                 candidates = issue_source.search_issues(query, reviewed.created_at)
+                if any(
+                    candidate.repository != context.repository
+                    for candidate in candidates
+                ):
+                    raise issue_search.IssueSearchError("Wrong repository returned.")
                 search_event.result_count = len(candidates)
             with recorder.call("retrieval", "assess_matches") as event:
                 suggestions = [
@@ -304,7 +359,7 @@ def triage_issue(
                     if candidate.number < reviewed.number
                     and candidate.created_at < reviewed.created_at
                     if (
-                        match := issue_search.assess_match(
+                        match := context.assess_match(
                             issue.title, issue.body, candidate
                         )
                     )
@@ -313,7 +368,9 @@ def triage_issue(
                 event.result_count = len(suggestions)
             search_reason = None
         except Exception:
-            search_reason = "Earlier pytest issue lookup is unavailable."
+            search_reason = (
+                f"Earlier {context.display_name} issue lookup is unavailable."
+            )
     if search_reason is not None:
         abstentions.extend(
             Abstention(field=field, reason=search_reason)
@@ -337,7 +394,10 @@ def triage_issue(
             Citation(
                 id=citation_id,
                 source_url=citation_url,
-                description=f"pytest issue #{candidate.number}: {candidate.title}",
+                description=(
+                    f"{context.display_name} issue #{candidate.number}: "
+                    f"{candidate.title}"
+                ),
             )
         )
         target.append(
@@ -354,11 +414,9 @@ def triage_issue(
     documentation_claims: list[DocumentationClaim] = []
     supplied_evidence: list[documentation.DocumentationEvidence] = []
     doc_source = documentation_source or documentation.PublicDocumentationSource(
-        documentation_topics
+        context.documentation
     )
-    for topic in pytest_profile.relevant_documentation_topics(
-        issue.title, issue.body, documentation_topics
-    ):
+    for topic in context.relevant_topics(issue.title, issue.body):
         try:
             with recorder.call(
                 "retrieval", "get_documentation_passage", topic.key
@@ -367,9 +425,14 @@ def triage_issue(
                 event.result_count = 1 if passage is not None else 0
         except Exception:
             passage = None
-        if passage is None or (passage.url, passage.text) != (
-            topic.url,
-            topic.passage,
+        if (
+            passage is None
+            or not context.owns_url(passage.url)
+            or (passage.url, passage.text)
+            != (
+                topic.url,
+                topic.passage,
+            )
         ):
             if event.status == "ok":
                 event.status = "partial"
@@ -377,7 +440,10 @@ def triage_issue(
             abstentions.append(
                 Abstention(
                     field="documentation_claims",
-                    reason=f"pytest documentation passage unavailable: {topic.key}.",
+                    reason=(
+                        f"{context.display_name} documentation passage "
+                        f"unavailable: {topic.key}."
+                    ),
                 )
             )
             continue
@@ -390,7 +456,10 @@ def triage_issue(
             Citation(
                 id=citation_id,
                 source_url=HttpUrl(passage.url),
-                description=f"pytest documentation: {topic.key.replace('_', ' ')}",
+                description=(
+                    f"{context.display_name} documentation: "
+                    f"{topic.key.replace('_', ' ')}"
+                ),
                 passage=passage.text,
             )
         )
@@ -410,28 +479,21 @@ def triage_issue(
                 event.result_count = 1
         except Exception:
             excerpt = None
-        if (
-            excerpt is None
-            or excerpt.commit != location.commit
-            or excerpt.path != location.path
-            or excerpt.line != location.line
-            or excerpt.source_url != location.source_url
-            or not excerpt.start_line <= location.line <= excerpt.end_line
-            or len(excerpt.lines) != excerpt.end_line - excerpt.start_line + 1
-        ):
+        if excerpt is None or not excerpt.validates_location(location):
             if event.status == "ok":
                 event.status = "partial"
                 event.error = "Requested source excerpt unavailable."
             abstentions.append(
                 Abstention(
                     field="source_claims",
-                    reason="Requested pytest source line is unavailable.",
+                    reason="Requested repository source line is unavailable.",
                 )
             )
         else:
             source_line = excerpt.lines[location.line - excerpt.start_line]
             claim = (
-                f"At commit {location.commit}, pytest source {location.path}:"
+                f"At commit {location.commit}, {context.display_name} source "
+                f"{location.path}:"
                 f"{location.line} contains the cited line."
             )
             supplied_source_evidence.append(
@@ -443,7 +505,10 @@ def triage_issue(
                 Citation(
                     id=citation_id,
                     source_url=HttpUrl(excerpt.source_url),
-                    description=f"pytest source: {location.path}:{location.line}",
+                    description=(
+                        f"{context.display_name} source: "
+                        f"{location.path}:{location.line}"
+                    ),
                     passage=source_line,
                     source_location=location,
                 )
@@ -451,12 +516,18 @@ def triage_issue(
             source_claims.append(SourceClaim(claim=claim, citation_id=citation_id))
     ci_results: list[CIResult] = []
     supplied_ci_evidence: list[ci.CheckResult] = []
-    if link := ci.linked_target(issue.title, issue.body):
+    if link := ci.linked_target(issue.title, issue.body, context.repository):
         try:
             with recorder.call(
                 "retrieval", "get_ci_checks", f"{link.kind}:{link.value}"
             ) as event:
-                inspection = (ci_source or ci.PublicCISource()).get_checks(link)
+                inspection = (
+                    ci_source or ci.PublicCISource(context.repository)
+                ).get_checks(link)
+                if any(
+                    not context.owns_url(str(check.url)) for check in inspection.checks
+                ):
+                    raise ci.CIUnavailable("Wrong repository CI evidence.")
                 event.result_count = len(inspection.checks)
         except Exception:
             inspection = ci.CIInspection(())
@@ -468,14 +539,17 @@ def triage_issue(
             abstentions.append(
                 Abstention(
                     field="ci_results",
-                    reason="Some linked pytest CI results are unavailable.",
+                    reason=(
+                        f"Some linked {context.display_name} CI results "
+                        "are unavailable."
+                    ),
                 )
             )
         if not inspection.checks:
             abstentions.append(
                 Abstention(
                     field="ci_results",
-                    reason="Linked pytest CI results are unavailable.",
+                    reason=f"Linked {context.display_name} CI results are unavailable.",
                 )
             )
         for check in inspection.checks:
@@ -486,7 +560,7 @@ def triage_issue(
                 Citation(
                     id=citation_id,
                     source_url=check.url,
-                    description=f"pytest CI check: {check.name}",
+                    description=f"{context.display_name} CI check: {check.name}",
                     passage=(
                         f"{check.name}: {check.conclusion} at commit {check.commit}"
                     ),
@@ -501,22 +575,23 @@ def triage_issue(
                 )
             )
             supplied_ci_evidence.append(check)
-    if template is None:
+    if not template_available:
         abstentions.append(
             Abstention(
                 field="missing_details",
-                reason="Issue text does not identify a bug or feature template.",
+                reason="Issue text does not establish one supported "
+                "applicable template.",
             )
         )
 
-    follow_up = supported_follow_up(issue.body) if issue.number is not None else None
+    follow_up = context.follow_up(issue.body) if issue.number is not None else None
     follow_up_id = f"C{len(citations) + 1}"
     if follow_up is not None:
         citations.append(
             Citation(
                 id=follow_up_id,
                 source_url=HttpUrl(
-                    f"https://github.com/pytest-dev/pytest/issues/{issue.number}"
+                    f"https://github.com/{context.repository}/issues/{issue.number}"
                 ),
                 description="Submitted issue under review: investigative follow-up",
                 passage=follow_up.passage,
@@ -563,9 +638,9 @@ def triage_issue(
         try:
             evidence_passages, omissions = evidence_packet(
                 f"{issue.title}\n{issue.body}",
-                f"https://github.com/pytest-dev/pytest/issues/{issue.number}"
+                f"https://github.com/{context.repository}/issues/{issue.number}"
                 if issue.number is not None
-                else "https://github.com/pytest-dev/pytest/issues",
+                else f"https://github.com/{context.repository}/issues",
                 [(str(c.source_url), c.passage) for c in citations if c.passage],
             )
         except ValueError as exc:
@@ -580,6 +655,7 @@ def triage_issue(
                     )
                 )
     model_request = model.ModelRequest(
+        context=context,
         issue_title=issue.title,
         issue_body=issue.body,
         evidence_passages=evidence_passages,
@@ -656,7 +732,7 @@ def triage_issue(
 
         if draft is not None:
             passage_by_id = {p.id: p for p in evidence_passages}
-            context = []
+            draft_context = []
             for support in draft.support:
                 draft_passage = passage_by_id[support.evidence_id]
                 citation_id = f"C{len(citations) + 1}"
@@ -669,8 +745,8 @@ def triage_issue(
                     )
                 )
                 safe_quote = support.quote.replace("[", "［").replace("]", "］")
-                context.append(f"“{safe_quote}” [{citation_id}]")
-            reply += "\nContext supplied: " + "; ".join(context)
+                draft_context.append(f"“{safe_quote}” [{citation_id}]")
+            reply += "\nContext supplied: " + "; ".join(draft_context)
             reply += "\n" + draft.text
             abstentions.append(
                 Abstention(
@@ -681,7 +757,12 @@ def triage_issue(
                 )
             )
 
+    if context.errors:
+        abstentions.append(
+            Abstention(field="repository_context", reason="; ".join(context.errors))
+        )
     report = TriageReport(
+        context=context,
         trace_id=recorder.trace_id,
         status=recorder.status,
         issue_type=issue_type,

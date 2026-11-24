@@ -1,0 +1,21 @@
+{
+  "baseline_commit": "422876ddae78d1638b6f1980fec5a28f42932355",
+  "unchanged_evaluation_and_case_files": 161,
+  "browser_source_snapshot_reconstructs": true,
+  "http_source_delta_matches_executed_hashes": true,
+  "previous_comparison_verified_in_original_commit": {
+    "preserved_baseline_files": 150,
+    "source_files": 17,
+    "reports": 60,
+    "dispatches": 79,
+    "score_recomputations": 60
+  },
+  "inference_dispatches": 6,
+  "inference_budget": 12,
+  "failed_transport_dispatches": 0,
+  "retries": 0,
+  "warmups": 0,
+  "fixed_selection_dispatches": 5,
+  "agent_action_dispatches": 1,
+  "new_human_usefulness_and_semantic_reviews": "pending"
+}

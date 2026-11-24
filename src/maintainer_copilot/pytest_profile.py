@@ -1,10 +1,21 @@
 """Pytest issue types, templates, and pinned historical evidence."""
 
+import builtins
 import re
 from dataclasses import dataclass
-from typing import Literal, assert_never
+from typing import TYPE_CHECKING, Literal, assert_never
+
+if TYPE_CHECKING:
+    from maintainer_copilot.repository import DetailRequest
 
 from maintainer_copilot.documentation import DocumentationTopic
+from maintainer_copilot.label_evidence import quote_supports_label
+
+REPOSITORY = "pytest-dev/pytest"
+GITHUB_ID = 37489525
+SEARCH_STOPWORDS = frozenset({"pytest"})
+DISPLAY_NAME = "pytest"
+
 
 type TemplateKind = Literal["bug", "feature"]
 
@@ -38,31 +49,7 @@ BASELINE_TYPE_PRIORITY = (
 
 
 def type_quote_supports_label(label: str, quote: str, issue_text: str) -> bool:
-    cue = TYPE_EVIDENCE_CUES.get(label)
-    if cue is None:
-        return False
-    quote_spans = [
-        (match.start(), match.end())
-        for match in re.finditer(re.escape(quote), issue_text)
-    ]
-    for match in re.finditer(cue, issue_text, re.I):
-        if not any(
-            start <= match.start() and match.end() <= end for start, end in quote_spans
-        ):
-            continue
-        prefix = issue_text[max(0, match.start() - 32) : match.start()]
-        suffix = issue_text[match.end() : match.end() + 32]
-        if not re.search(
-            r"\b(?:no|not|never|without)(?:\s+\w+){0,3}\s*$",
-            prefix,
-            re.I,
-        ) and not re.match(
-            r"\s+(?:is|was|are|were|has|does|can|will)\s+(?:not|no|never)\b",
-            suffix,
-            re.I,
-        ):
-            return True
-    return False
+    return quote_supports_label(TYPE_EVIDENCE_CUES, label, quote, issue_text)
 
 
 TEMPLATE_REVISION = "50234b4e670064c42a4c29cb6258115a2079ba4c"
@@ -220,6 +207,12 @@ FEATURE_DETAILS = (
         "any workaround or alternative you have tried, or that there is none",
         21,
     ),
+)
+
+
+PREPARED_TEMPLATES = (
+    ("bug", "1_bug_report.md", BUG_DETAILS),
+    ("feature", "2_feature_request.md", FEATURE_DETAILS),
 )
 
 
@@ -565,3 +558,173 @@ def citation_url(
         "https://github.com/pytest-dev/pytest/blob/"
         f"{revision}/.github/ISSUE_TEMPLATE/{filename}#L{line}"
     )
+
+
+def owns_documentation_url(url: str) -> bool:
+    from urllib.parse import urlsplit
+
+    parsed = urlsplit(url)
+    return (
+        parsed.scheme == "https"
+        and parsed.netloc == "docs.pytest.org"
+        and parsed.path.startswith("/en/")
+    )
+
+
+def profile_details(
+    title: str, body: str, revision: str
+) -> list["DetailRequest"] | None:
+    from maintainer_copilot.repository import DetailRequest
+
+    template = template_for(title, body)
+    if template is None:
+        return None
+    missing = (
+        missing_bug_details(body)
+        if template == "bug"
+        else missing_feature_details(body)
+    )
+    return [
+        DetailRequest(
+            name=d.name,
+            request=d.request,
+            url=citation_url(template, d.line, revision),
+            description=f"pytest {template} report template: {d.name}",
+        )
+        for d in missing
+    ]
+
+
+@dataclass(frozen=True)
+class _Connection:
+    key: str
+    description: str
+    patterns: tuple[str, ...]
+
+
+# Bounded connections require behavior-bearing evidence in both reports. Shared
+# template headings, stack-frame vocabulary and URLs cannot establish a match.
+_CONNECTIONS = (
+    _Connection(
+        "fixture_values",
+        "fixture-derived parameter values",
+        (
+            r"\bfixtures?\b",
+            r"\bparametrize\b",
+            r"parameters_fixture|fixture[- ]derived parameter|"
+            r"Using fixtures in.*parametrize|"
+            r"fixture.{0,20}(?:_value_|supplies parameter|provides parameter)",
+        ),
+    ),
+    _Connection(
+        "readouterr",
+        "readouterr consuming captured output",
+        (
+            r"\breadouterr\b",
+            r"reset|consum|missing|keep.*output|(?:remain|preserve).*?(?:visible|output)",
+        ),
+    ),
+    _Connection(
+        "runtest_import",
+        "the call_runtest_hook import failure",
+        (
+            r"call_runtest_hook",
+            r"ImportError|cannot import",
+        ),
+    ),
+    _Connection("pdbcls", "custom debugger selection with --pdbcls", (r"--pdbcls",)),
+    _Connection(
+        "argument_file",
+        "reading test-selection arguments from a file",
+        (
+            r"\b(?:text file|from (?:a )?file|from-file)\b",
+            r"\b(?:arguments?|subsets?|positional)\b",
+        ),
+    ),
+    _Connection(
+        "module_hooks",
+        "module setup/teardown hooks",
+        (r"setUpModule", r"tearDownModule"),
+    ),
+    _Connection("fixture_cache", "fixture caching", (r"fixture cach",)),
+)
+
+
+def match_connection(first: str, second: str) -> _Connection | None:
+    for connection in _CONNECTIONS:
+        if all(
+            re.search(pattern, text, re.I)
+            for text in (first, second)
+            for pattern in connection.patterns
+        ):
+            return connection
+    # A named exception is a stronger anchor than generic stack-frame words.
+    exceptions = set(re.findall(r"\b[A-Z][a-zA-Z]+(?:Error|Exception)\b", first))
+    shared = sorted(
+        name for name in exceptions if name in second and name not in vars(builtins)
+    )
+    return (
+        _Connection(
+            "named_exception", f"the {shared[0]} failure", (re.escape(shared[0]),)
+        )
+        if shared
+        else None
+    )
+
+
+def match_distinction(
+    body: str,
+    candidate_body: str,
+    title: str,
+    candidate_title: str,
+    connection_key: str,
+) -> tuple[bool, bool, bool, str]:
+    from maintainer_copilot.issue_search import (
+        _fixture_scopes,
+        _negated_terms,
+        _opposing_actions,
+        _terms,
+    )
+
+    shared_body = _terms(body) & _terms(candidate_body)
+    review_scopes = _fixture_scopes(body)
+    candidate_scopes = _fixture_scopes(candidate_body)
+    different_scopes = bool(
+        review_scopes
+        and candidate_scopes
+        and review_scopes.isdisjoint(candidate_scopes)
+    )
+    different_polarity = bool(
+        (_negated_terms(body) ^ _negated_terms(candidate_body)) & shared_body
+    )
+    opposing_actions = _opposing_actions(
+        title + " " + body, candidate_title + " " + candidate_body
+    )
+    distinction = (
+        "The reports describe different fixture scopes."
+        if different_scopes
+        else "One report negates a shared condition."
+        if different_polarity and connection_key == "named_exception"
+        else "The reports request opposing actions."
+        if opposing_actions
+        else "This requests session-derived parameters; the earlier example passes "
+        "fixture functions instead of values."
+        if connection_key == "fixture_values"
+        and "session" in body
+        and re.search(r"fixture _?function_?", candidate_body)
+        else "This requests a configuration setting; the earlier issue concerns "
+        "command-line help."
+        if connection_key == "pdbcls"
+        and "configuration" in title.lower()
+        and "help" in candidate_title.lower()
+        else "This opening names copyouterr; compare its proposed behavior with "
+        "the earlier readouterr report."
+        if connection_key == "readouterr" and "copyouterr" in body
+        else "This reports hooks not running; the earlier issue "
+        "questions the documentation."
+        if connection_key == "module_hooks"
+        and "docs" in candidate_title.lower()
+        and "not invoked" in title.lower()
+        else "the same failure or request is not established."
+    )
+    return different_scopes, different_polarity, opposing_actions, distinction

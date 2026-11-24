@@ -1,0 +1,9 @@
+{
+  "head": "b25d574319fea7dacafb7e5b341b9f9d1f73ba07",
+  "case": "valid public repository with unsupported list-valued issue-form type",
+  "status": 500,
+  "body": "Internal Server Error",
+  "registered_repositories_after_failure": [
+    "pytest-dev/pytest"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "request": 9,
+  "prompt_sha256": "a97bca96b5f2c75b8c11b43474283f26de01350be91eea6c7b7d666c5344f79b",
+  "input_sha256": "cc4e3fcd945879c8d062ce13f7aea84d491b785e1f830ec357ca8f357047498a",
+  "schema_sha256": "f9f87a545218870117c68fa9ece42b9b61208b48555bd5d377b85da058bcea20",
+  "max_tokens": 256,
+  "repository": "astral-sh/ruff",
+  "transport": "returned",
+  "seconds": 0.49903555994387716,
+  "raw_response": "{\"id\":\"chatcmpl-423\",\"object\":\"chat.completion\",\"created\":1795516706,\"model\":\"pytest-triage:coder3b-ctx16k\",\"system_fingerprint\":\"fp_ollama\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"{\\n  \\\"issue_type\\\": null,\\n  \\\"issue_type_quote\\\": null,\\n  \\\"reply_citation_ids\\\": [\\\"C1\\\"]\\n}\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":515,\"prompt_tokens_details\":{\"cached_tokens\":211},\"completion_tokens\":29,\"total_tokens\":544}}\n"
+}

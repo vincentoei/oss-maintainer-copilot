@@ -1,6 +1,13 @@
 # Open-source Maintainer Copilot
 
-The application turns a pasted pytest issue into a reviewable triage report. It
+The application registers multiple public GitHub repositories and turns an issue
+for one selected repository into a reviewable triage report. Add a URL or
+owner/repo in the web interface, inspect readiness, select the active repository,
+and explicitly refresh or remove registration. New repositories use a generic
+profile without Python changes. [Repository setup, API examples, persistence and
+supported context limits](docs/repositories.md) describe the reusable behavior.
+Issue #33 extends #1's original pytest-first release; pytest stays the seeded
+default and retains the established profile described below. It
 checks a fixed view of pytest's bug and feature templates, drafts requests for
 missing details, and cites the relevant template lines. When given a public
 pytest issue number, it searches earlier public pytest issues and shows ranked
@@ -59,7 +66,7 @@ MODEL_NAME=your-model-name uv run --no-env-file uvicorn maintainer_copilot.web:a
 Set `MODEL_BASE_URL` if your server uses a different URL. The model receives the
 issue title and body, mechanically valid issue-text quote options, and the
 report's available citation-backed statements. It
-returns a pytest type label or unknown, an exact quote from the issue for a
+returns a supported label from the selected profile or unknown, an exact quote from the issue for a
 suggested label, and citation IDs to include in the draft reply. The server
 rejects free-text claims, unknown citations, and labels without an unnegated
 cue in the quote's original issue context. With no model configured, the report
@@ -194,7 +201,7 @@ the requesting user. [Issue #21](docs/evaluation/issue-21.md) records real local
 model responses; semantic report review remains pending and earlier quality
 observations remain provisional.
 
-Open <http://127.0.0.1:8000> to paste an issue. Enter its pytest issue number
+Open <http://127.0.0.1:8000> to paste an issue. Enter its selected repository issue number
 to search only issues opened before it. For a newly drafted issue without a
 number, the report still checks template details and abstains on earlier issue
 matches. The same operation is available from Python:
@@ -218,7 +225,7 @@ requires verified opening versions as described in ADR-0001. If a broad query
 exceeds GitHub's 1,000-result search window, the report abstains on issue
 matches.
 
-## Inspect pytest source
+## Inspect repository source
 
 `GET /api/source` accepts a full lowercase 40-character commit SHA, a relative
 repository file path, and a positive line number. For example:
@@ -231,8 +238,7 @@ curl --get http://127.0.0.1:8000/api/source \
 ```
 
 The response contains at most 11 lines around the requested line, a GitHub
-permalink, and the commit and path that were read. Inspection is limited to the
-public `pytest-dev/pytest` repository, 256 KiB per file, and 4,096 excerpt
+permalink, and the commit and path that were read. Inspection uses the selected registration (pytest by default), 256 KiB per file, and 4,096 excerpt
 characters. Invalid arguments return HTTP 422; unavailable, oversized, or
 out-of-range source returns HTTP 404. The operation only reads source.
 The report API accepts the same values in an optional `source_location` object

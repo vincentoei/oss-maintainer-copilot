@@ -1,0 +1,23 @@
+{
+  "src/maintainer_copilot/ci.py": "84246233c17a2bfd2da5a88c8f9ccbe50825b3a9b3bb83dd2a5d83f112fbc455",
+  "src/maintainer_copilot/agent.py": "37b7f68366fdeb328474582b1fb6fa60e7d9c0eab437d405f1b93d0a429ea43a",
+  "src/maintainer_copilot/evaluation.py": "b2ef5e6833b582584133b37d8f4af91d39879b3955cd4bc1e2b7257e19372597",
+  "src/maintainer_copilot/model.py": "25497ff79b3a77f5925eb0257ab90a34e0fba7bf6f3079a5f4afe070444d3b8f",
+  "src/maintainer_copilot/repository.py": "1f399b495be4640d72d6dd3d312a1960345b7d4997b7f51f6da8df04d0726502",
+  "src/maintainer_copilot/trace.py": "67efdf38ee8f0038134af5f1a7d02c82e43553de21d55c8df23824ec4cb19107",
+  "src/maintainer_copilot/source.py": "6e81822f9c84f5d118a20f6016981204b771510cc4ce9cd74e9803f97333d180",
+  "src/maintainer_copilot/issue_search.py": "fb3b07a76c582682e07512ace6721d2eb61fd779144d9adda2cfe2c5360df63a",
+  "src/maintainer_copilot/local_evaluation.py": "15c2b19d15e6f8adda2e04e044175eaf75a5ad52d5ee36d0c99e5d7a07725ffa",
+  "src/maintainer_copilot/workflow_comparison.py": "3a4a0539d8db094d21237c85bf8a5b218e5c37c4c9c462a0a634c77af3f7d93d",
+  "src/maintainer_copilot/pytest_profile.py": "6844acf8f5b84098d8d99e96bba4b380fd5e6fa0788ebdddd8bb568cc1e6d18c",
+  "src/maintainer_copilot/replay.py": "bedf1e251f487e1eba1d02fa263da9a95759f8d121956d3f36d7654a0e2f7045",
+  "src/maintainer_copilot/drafting.py": "f207e72391b561071a95535cfabb062b57d4ad63ff52f52794842717cfe13b85",
+  "src/maintainer_copilot/follow_up.py": "da874f744428fcdac754a4e12ab1f0179000a64f9bbf2a2cc95c320b565a56cf",
+  "src/maintainer_copilot/web.py": "dbc3a6c3e86252a674ba29c6f6f5d6aa977bea4ad52e61c8a2a1e33f6a983e2f",
+  "src/maintainer_copilot/triage.py": "2f85c10e6451d0be6e5d1eb752d2451cd7f2dc28331446bbc8171a47e4a01c20",
+  "src/maintainer_copilot/__init__.py": "5e41140633dd670de4305c608f38bc50eae7710947fa64ffecbdd2048e949daf",
+  "src/maintainer_copilot/registry.py": "c7c5f5862af7e66ec3fd41942f9c751068b189d38d76f07d189cb3461a36c565",
+  "src/maintainer_copilot/documentation.py": "ee93a6654856e5795faf677d7cbf8cd49dd51514c8645e455eba3f3d9aa53d75",
+  "src/maintainer_copilot/index.html": "e5f13e8d3b2ce8ce99c3a9c5feb0349240482ffbece7fd3b5cfbbbb8c67c4c5a",
+  "scripts/issue33_serve.py": "543bdef35f9ed362d3981e47ce162fdf35a45deea3bfbf9921b13484211d12c4"
+}

@@ -1,4 +1,4 @@
-"""Read check results only for an explicitly linked pytest PR or commit."""
+"""Read check results only for an explicitly linked repository PR or commit."""
 
 import json
 import os
@@ -10,17 +10,18 @@ from urllib.request import Request, urlopen
 
 from pydantic import BaseModel, ConfigDict, Field, HttpUrl
 
+from maintainer_copilot.repository import DEFAULT_REPOSITORY, repository_identity
+
 MAX_RESPONSE_BYTES = 262_144
 MAX_CHECKS = 100
-_LINK = re.compile(
-    r"(?<![A-Za-z0-9/=?&])https://github\.com/pytest-dev/pytest/"
+_LINK_PATTERN = (
+    r"(?<![A-Za-z0-9/=?&])https://github\.com/{repository}/"
     r"(?:(pull)/([1-9][0-9]*)|(commit)/([0-9a-fA-F]{40}))"
     r"(?=$|[\s/?#)\]>]|[.,;:!](?=\s|$))"
 )
-_SHORT_PR = re.compile(
-    r"\b(?:PR|pull request)\s*:?\s+pytest-dev/pytest#([1-9][0-9]*)"
+_SHORT_PR_PATTERN = (
+    r"\b(?:PR|pull request)\s*:?\s+{repository}#([1-9][0-9]*)"
     r"(?=$|[\s)\]>]|[.,;:!](?=\s|$))",
-    re.IGNORECASE,
 )
 _UNRELATED = re.compile(
     r"\b(?:unrelated|irrelevant|not relevant|do not use|do not inspect|ignore|"
@@ -58,20 +59,28 @@ class CIUnavailable(Exception):
 class CILink:
     kind: Literal["pull", "commit"]
     value: str
+    repository: str = DEFAULT_REPOSITORY
 
 
-def linked_target(title: str, body: str) -> CILink | None:
+def linked_target(
+    title: str, body: str, repository: str = DEFAULT_REPOSITORY
+) -> CILink | None:
     """Accept one target link or a PR explicitly paired with its merge commit."""
+    escaped = re.escape(repository_identity(repository))
+    link_pattern = re.compile("".join(_LINK_PATTERN).replace("{repository}", escaped))
+    short_pattern = re.compile(
+        "".join(_SHORT_PR_PATTERN).replace("{repository}", escaped), re.I
+    )
     links: set[CILink] = set()
     merged_pairs: list[tuple[CILink, CILink]] = []
     for text in (title, body):
-        matches = list(_LINK.finditer(text))
+        matches = list(link_pattern.finditer(text))
         for match in matches:
             if not _is_unrelated(text, match.start(), match.end()):
                 links.add(
-                    CILink("pull", match[2])
+                    CILink("pull", match[2], repository)
                     if match[1]
-                    else CILink("commit", match[4].lower())
+                    else CILink("commit", match[4].lower(), repository)
                 )
         for first, second in zip(matches, matches[1:], strict=False):
             if (
@@ -80,11 +89,14 @@ def linked_target(title: str, body: str) -> CILink | None:
                 and _MERGED_AS.fullmatch(text[first.end() : second.start()])
             ):
                 merged_pairs.append(
-                    (CILink("pull", first[2]), CILink("commit", second[4].lower()))
+                    (
+                        CILink("pull", first[2], repository),
+                        CILink("commit", second[4].lower(), repository),
+                    )
                 )
-        for match in _SHORT_PR.finditer(text):
+        for match in short_pattern.finditer(text):
             if not _is_unrelated(text, match.start(), match.end()):
-                links.add(CILink("pull", match[1]))
+                links.add(CILink("pull", match[1], repository))
     if len(links) == 1:
         return next(iter(links))
     for pull, commit in merged_pairs:
@@ -110,8 +122,8 @@ def _is_unrelated(text: str, start: int, end: int) -> bool:
     clause = re.split(r"[.!?](?=\s|$)|\n", adjacent, maxsplit=1)[0]
     if (
         _FOLLOWING_EXCLUSION.match(clause)
-        and not _LINK.search(clause)
-        and not _SHORT_PR.search(clause)
+        and "https://github.com/" not in clause
+        and not re.search(r"\bPR\s", clause)
     ):
         return True
     context = _DO_NOT_IGNORE.sub("", f"{preceding} {following}")
@@ -138,14 +150,17 @@ class CISource(Protocol):
 
 
 class PublicCISource:
-    """Fetch bounded GitHub API responses for pytest only."""
+    """Fetch bounded GitHub API responses for one target repository."""
+
+    def __init__(self, repository: str = DEFAULT_REPOSITORY) -> None:
+        self.repository = repository_identity(repository)
 
     def _get(self, path: str) -> object:
         headers = {"Accept": "application/vnd.github+json"}
         if token := os.getenv("GITHUB_TOKEN"):
             headers["Authorization"] = f"Bearer {token}"
         request = Request(
-            f"https://api.github.com/repos/pytest-dev/pytest/{path}",
+            f"https://api.github.com/repos/{self.repository}/{path}",
             headers=headers,
         )
         try:
@@ -158,6 +173,8 @@ class PublicCISource:
             raise CIUnavailable("Linked CI data is unavailable.") from exc
 
     def get_checks(self, link: CILink) -> CIInspection:
+        if link.repository != self.repository:
+            raise CIUnavailable("CI target belongs to another repository.")
         if link.kind == "pull":
             if not re.fullmatch(r"[1-9][0-9]*", link.value):
                 raise CIUnavailable("Linked pull request is invalid.")
@@ -226,7 +243,7 @@ class PublicCISource:
             url = run.get("html_url")
             valid_url = isinstance(url, str) and bool(
                 re.fullmatch(
-                    rf"https://github\.com/pytest-dev/pytest/"
+                    rf"https://github\.com/{re.escape(self.repository)}/"
                     rf"(?:runs/{run_id}|actions/runs/[1-9][0-9]*/job/{run_id})",
                     url,
                 )

@@ -204,6 +204,7 @@ def test_report_cites_only_inspected_pytest_source(
         f"https://github.com/pytest-dev/pytest/blob/{COMMIT}/{PATH}#L1014"
     )
     assert citation["source_location"] == {
+        "repository": "pytest-dev/pytest",
         "commit": COMMIT,
         "path": PATH,
         "line": 1014,

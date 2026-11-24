@@ -1,0 +1,92 @@
+{
+  "pr": "https://github.com/vincentoei/oss-maintainer-copilot/pull/53",
+  "head": "b25d574319fea7dacafb7e5b341b9f9d1f73ba07",
+  "base": "422876ddae78d1638b6f1980fec5a28f42932355",
+  "recommendation": "Fix both reproducible P2 defects before merge",
+  "ci": {
+    "pull_request": {
+      "run": 45375518267,
+      "result": "success",
+      "pytest_passed": 332,
+      "pytest_skipped": 2,
+      "checked_merge": "8d7dd2bb9e7885ca385092bd8daf4499e2b33a77"
+    },
+    "push": {
+      "run": 45375483877,
+      "result": "success"
+    },
+    "lint": "passed",
+    "format": "passed",
+    "strict_mypy": "passed"
+  },
+  "fresh_focused_tests": {
+    "passed": 86,
+    "skipped": 2,
+    "skipped_why": "Existing RUN_LIVE_REPLAY opt-in checks not enabled"
+  },
+  "standards_review": {
+    "documented_breaches": 0,
+    "nonblocking_heuristics": 1,
+    "heuristic": "Repeated issue retrieval/provenance sequence in fixed and agent paths"
+  },
+  "spec_review": {
+    "actionable_findings": 2,
+    "findings": [
+      {
+        "priority": "P2",
+        "file": "src/maintainer_copilot/documentation.py",
+        "line": 94,
+        "behavior": "Unchanged prepared passage ending in a blank line is rejected; actual Ruff CONTRIBUTING reproduced",
+        "evidence": "documentation-newline-repro.json"
+      },
+      {
+        "priority": "P2",
+        "file": "src/maintainer_copilot/registry.py",
+        "line": 222,
+        "behavior": "Unhashable YAML field type causes HTTP500 on add and refresh instead of limited/error readiness",
+        "evidence": [
+          "malformed-form-repro.json",
+          "malformed-refresh-repro.json"
+        ]
+      }
+    ]
+  },
+  "fresh_interfaces": {
+    "exact_pr_code": true,
+    "real_model_digest_verified": true,
+    "browser_registrations": [
+      "pytest-dev/pytest",
+      "astral-sh/ruff"
+    ],
+    "browser_reports": 2,
+    "javascript_errors": 0,
+    "real_ruff_issue": 30875,
+    "restart_persistence": true,
+    "source_inspection": "HTTP200",
+    "failed_source_report": "HTTP200 partial with abstention",
+    "refresh": "HTTP200",
+    "removal": "HTTP204",
+    "removed_or_unknown_selection": "HTTP422",
+    "real_new_inference_calls": 3,
+    "combined_total": 9,
+    "original_total_cap": 12,
+    "retries": 0,
+    "ledger": "requests.jsonl",
+    "raw_responses": [
+      "response-7.json",
+      "response-8.json",
+      "response-9.json"
+    ]
+  },
+  "unverified": {
+    "successful_live_ruff_search": "Observed abstention; bounded diagnostic exceeds 1000-result cap",
+    "successful_live_ruff_ci_evidence": "Observed abstention; bounded diagnostic response exceeds inspection limit",
+    "historical_live_replay_tests": "Two opt-in checks not run",
+    "quality": "No new human usefulness/semantic judgments; no quality/generalization claims"
+  },
+  "preserved_existing_artifacts": 161,
+  "branch_modified": false,
+  "human_check_needed": false,
+  "human_check_rationale": "Both defects can be reproduced and corrected automatically; human quality review is needed only before making new quality claims.",
+  "whitespace_diagnostic": "Source diff passes; full git diff --check flags preserved unified-patch blank context markers in evidence artifacts, not application code."
+}

@@ -2,25 +2,35 @@
 
 ## Goal
 
-Build a portfolio-quality AI system that helps a human maintainer triage incoming issues in [pytest](https://github.com/pytest-dev/pytest). Follow the six learning milestones below to experience applications, observability, inference and compute, training, infrastructure, and distributed inference. Report measured quality, latency, and cost; make no claim about maintainer time saved without a real user study.
+Build a portfolio-quality AI system that helps a human maintainer triage incoming issues in public GitHub repositories, starting with [pytest](https://github.com/pytest-dev/pytest). Follow the six learning milestones below to experience applications, observability, inference and compute, training, infrastructure, and distributed inference. Report measured quality, latency, and cost; make no claim about maintainer time saved without a real user study.
 
-The first release supports **pytest only**. Keep GitHub access, retrieval, report generation, and evaluation reusable. Put pytest's issue types and [report-template rules](https://github.com/pytest-dev/pytest/tree/main/.github/ISSUE_TEMPLATE) in a small repository profile. Supporting a second repository will require its own profile and evaluation cases; a generic repository switch is not a first-release promise.
+The original #1 release was **pytest-first**. Issue #33 extends it to multiple registered public GitHub repositories through one shared triage path. Pytest's issue types and template interpretation stay in its profile; other repositories use bounded generic context and optional declarative configuration. Registration needs no per-repository Python or new evaluation cases. This capability does not establish usefulness for every project.
 
 ## User workflow
 
-A user pastes a pytest issue into a thin web UI or sends it to the Python API. The system returns a structured **triage report** for human review:
+A user registers a public repository, selects it, and pastes an issue into the web UI or sends its registration identity to the Python/HTTP API. The system returns a structured **triage report** for human review:
 
-- a suggested issue type using pytest's existing [`type:*` labels](https://github.com/pytest-dev/pytest/labels);
+- a suggested issue type using the selected repository's supported labels (pytest retains its existing `type:*` labels);
 - ranked **duplicate candidates**, with related issues distinguished from substantially matching failures or requests;
-- **missing report details** based on the applicable bug or feature template;
+- **missing report details** based on established requirements of the applicable repository template;
 - a draft maintainer reply; and
 - a citation for each factual claim, or an explicit **abstention** where evidence is insufficient.
 
-The app reads public repository material. It does not post to pytest, change labels, edit code, or run commands from issue text. Treat issue text and retrieved material as untrusted input. Validate tool arguments, report fields, and citations.
+The app reads public repository material. It does not post to target repositories, change labels, edit code, or run commands from issue text. Treat issue text and retrieved material as untrusted input. Validate tool arguments, report fields, and citations.
+
+Issue #33 extends the original pytest-first release to multiple registered public
+GitHub repositories in the local single-user app. Reviewers add a URL or
+owner/repo, inspect bounded prepared context, select one target repository per
+report, and explicitly refresh or remove registration. The existing pytest
+adapter remains usable; new repositories use a generic profile and optional
+declarative configuration without per-repository Python. Missing or unsupported
+context limits conclusions and produces abstentions. Access to target repositories
+stays read-only. See [repository setup and limits](repositories.md).
 
 ## System shape
 
-- **Retrieval:** index pytest documentation and earlier issues. The live demo uses the latest available material; historical evaluation applies each case's evidence cutoff.
+- **Retrieval:** use bounded passages and earlier issues from one target repository. Explicit refresh updates live context; historical evaluation applies each case's evidence cutoff.
+- **Workflow:** fixed legacy RAG with the selected Qwen2.5-Coder 3B remains the demo default after #16; the agent stays optional.
 - **Agent:** one bounded agent may call two read-only tools: search earlier issues and inspect a repository file at a specified commit. Inspect CI only when an issue points to a relevant commit or PR. Limit tool steps and handle tool failures explicitly.
 - **Output:** validate the structured report before display. Preserve evidence links and a trace ID so a reviewer can inspect how the report was produced.
 - **Models:** keep the application model interface replaceable. Use [`llmfit`](https://github.com/AlexsJones/llmfit) to shortlist models for the laptop's 8 GB GPU, then choose using task evaluation and measured serving performance. Use a stronger hosted model only as a capped **quality reference**, never as the expected answer.

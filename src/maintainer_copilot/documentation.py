@@ -35,7 +35,7 @@ class DocumentationSource(Protocol):
 
 
 class DocumentationError(Exception):
-    """Public pytest documentation could not be read reliably."""
+    """Public repository documentation could not be read reliably."""
 
 
 class _SectionParagraph(HTMLParser):
@@ -77,17 +77,31 @@ class PublicDocumentationSource:
             return None
         try:
             request = Request(
-                topic.url.split("#", 1)[0],
+                topic.url.split("#", 1)[0]
+                .replace("https://github.com/", "https://raw.githubusercontent.com/")
+                .replace("/blob/", "/", 1)
+                if not topic.section
+                else topic.url.split("#", 1)[0],
                 headers={"User-Agent": "oss-maintainer-copilot"},
             )
             with urlopen(request, timeout=8) as response:
                 body = response.read(2_000_001)
             if len(body) > 2_000_000:
                 raise ValueError("documentation page exceeds size limit")
+            if not topic.section and topic.url.startswith("https://github.com/"):
+                # Prepared generic passages are immutable raw-file excerpts.
+                lines = body.decode("utf-8").splitlines()
+                # splitlines() drops a final blank line from the prepared excerpt.
+                line_count = topic.passage.count("\n") + 1
+                if "\n".join(lines[:line_count]) != topic.passage:
+                    return None
+                return DocumentationPassage(topic.url, topic.passage)
             parser = _SectionParagraph(topic.section)
             parser.feed(body.decode("utf-8"))
         except (URLError, TimeoutError, ValueError, UnicodeError, OSError) as exc:
-            raise DocumentationError("pytest documentation is unavailable.") from exc
+            raise DocumentationError(
+                "Repository documentation is unavailable."
+            ) from exc
         if parser.paragraph is None or topic.passage not in parser.paragraph:
             return None
         return DocumentationPassage(url=topic.url, text=topic.passage)

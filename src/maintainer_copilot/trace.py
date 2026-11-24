@@ -11,6 +11,8 @@ from uuid import UUID, uuid4
 
 from pydantic import BaseModel, Field
 
+from maintainer_copilot.repository import RepositoryContext, legacy_context
+
 MAX_TRACES = 100
 
 
@@ -29,6 +31,7 @@ class TraceEvent(BaseModel):
 
 
 class TraceRecord(BaseModel):
+    context: RepositoryContext = Field(default_factory=legacy_context)
     trace_id: UUID
     created_at: datetime
     status: Literal["complete", "partial"]
@@ -41,7 +44,8 @@ _lock = Lock()
 
 
 class TraceRecorder:
-    def __init__(self) -> None:
+    def __init__(self, context: RepositoryContext | None = None) -> None:
+        self.context = context or legacy_context()
         self.trace_id = uuid4()
         self.created_at = datetime.now(UTC)
         self.started = perf_counter()
@@ -82,6 +86,7 @@ class TraceRecorder:
 
     def save(self) -> None:
         record = TraceRecord(
+            context=self.context,
             trace_id=self.trace_id,
             created_at=self.created_at,
             status=self.status,

@@ -1,0 +1,12 @@
+{
+  "base_head": "b25d574319fea7dacafb7e5b341b9f9d1f73ba07",
+  "prior_inference_dispatches": 9,
+  "planned_dispatches": 1,
+  "cap": 12,
+  "settings": "Existing selected 3B; unchanged 256 tokens, temperature0, seed42, 16K context",
+  "checks": [
+    "Real browser fixed report cites unchanged pinned Ruff CONTRIBUTING excerpt ending in blank line",
+    "No documentation abstention, correct selected repository/citations/trace, no JavaScript errors"
+  ],
+  "quality_claims": "none"
+}
