@@ -212,6 +212,11 @@ PYTHONPATH=src uv run --locked --no-env-file python scripts/issue56_verify.py
 Its report-review sidecars explicitly attribute semantic/usefulness judgments to
 Codex. Original pending independent human-review files remain unchanged.
 
+The [remaining quality fixes and final measurement](docs/evaluation/issue-56-follow-up.md)
+cover observed body failures, working controls, version identities and required
+investigative questions while preserving the earlier passes. Audit the final
+saved pass with `PYTHONPATH=src uv run --locked --no-env-file python scripts/issue56_followup_verify.py`.
+
 [Issue #12's methodology and provisional results](docs/evaluation/issue-12.md)
 explain each field score, failures, latency and cost assumptions, and the
 semantic judgments still awaiting human review. The checked-in

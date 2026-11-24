@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "preserved_files": 323,
+  "frozen_source_commit": "0035e144fe98b13aa32416b7b5dce199437215e5",
+  "assistant_review_fingerprints_verified": 120,
+  "post_measurement_wording_replays": 6,
+  "post_measurement_live_dispatches": 0,
+  "independent_human_review": "not supplied; not claimed",
+  "future_training_corpus": "not created; overlap remains unverified",
+  "workflow_rows": 120,
+  "shared_eligible_cases": 40,
+  "dispatches": 158,
+  "response_records": 158,
+  "raw_responses": 158,
+  "score_recomputations": 120,
+  "independent_human_report_reviews_pending": 120
+}

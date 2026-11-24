@@ -1,0 +1,1312 @@
+{
+  "status": "passed",
+  "recorded_at": "2026-11-24T15:11:12.648857+00:00",
+  "scope": "Post-measurement title-only version wording. Actual saved provider responses replayed through real public replay/provider adapter; no live inference, retries or network calls. Not a new model-quality pass. Field scores/types/status unchanged for these six reports.",
+  "source_sha256": {
+    "src/maintainer_copilot/__init__.py": "5e41140633dd670de4305c608f38bc50eae7710947fa64ffecbdd2048e949daf",
+    "src/maintainer_copilot/agent.py": "a522cf02867dc03f61b57ef521d42fa1ca1456a0dd86a852fdd78119d8df6dcc",
+    "src/maintainer_copilot/ci.py": "84246233c17a2bfd2da5a88c8f9ccbe50825b3a9b3bb83dd2a5d83f112fbc455",
+    "src/maintainer_copilot/documentation.py": "1f77c64648dcef8cb9a85ab27d3913cc94ab20f39cf3a482c72f0bb27e4054a8",
+    "src/maintainer_copilot/drafting.py": "f207e72391b561071a95535cfabb062b57d4ad63ff52f52794842717cfe13b85",
+    "src/maintainer_copilot/evaluation.py": "b2ef5e6833b582584133b37d8f4af91d39879b3955cd4bc1e2b7257e19372597",
+    "src/maintainer_copilot/follow_up.py": "d1f490bb454594fc35b0aaba9db90c557b6f9d5ce43885ac47e6987a01bdc7ab",
+    "src/maintainer_copilot/issue_search.py": "fb3b07a76c582682e07512ace6721d2eb61fd779144d9adda2cfe2c5360df63a",
+    "src/maintainer_copilot/label_evidence.py": "328b868674c0b96ea3d209fdea13353d6d3f6adcb6bf5881ebe175e3a0a9c03d",
+    "src/maintainer_copilot/local_evaluation.py": "15c2b19d15e6f8adda2e04e044175eaf75a5ad52d5ee36d0c99e5d7a07725ffa",
+    "src/maintainer_copilot/model.py": "900c862c4af6ca6b648b549142e233553ef90f8961afbbaaf0c0c5864df3fbe0",
+    "src/maintainer_copilot/pytest_profile.py": "b7f494ea859ef9560d0305764a95332cc6e15700e51d9ab0396eb3259b0c378c",
+    "src/maintainer_copilot/registry.py": "a86bfcaed95454019742c7844f76959e15b5a702d4a3b8089edb0cc23499b5ae",
+    "src/maintainer_copilot/replay.py": "3f676a7fa1eb6ebe25fa70d186d86e539d15ae4aaf3a0a37cfe6162d17712d35",
+    "src/maintainer_copilot/repository.py": "988ec4e758c0c8975b1f2f19c0b226c75286053c55099d8d96b5f57ca2ef0596",
+    "src/maintainer_copilot/source.py": "112c52304c2c2d2300330ae99370de71408caef5f8e9e84ea5f2587bec48daa2",
+    "src/maintainer_copilot/templates.py": "781ac4b58ec582a31ade1ab05a7b55f7abc35f7356ea818ed626e9c3a45f1270",
+    "src/maintainer_copilot/trace.py": "67efdf38ee8f0038134af5f1a7d02c82e43553de21d55c8df23824ec4cb19107",
+    "src/maintainer_copilot/triage.py": "bc94f5ede829eac7d86c92a7d893933f4d5d9a2a69b6996b12cb52a8d9f84122",
+    "src/maintainer_copilot/web.py": "dda8ce33e9168cc6775883e927def80b5270e3c0715b75789346c2e04c9c8cf0",
+    "src/maintainer_copilot/workflow_comparison.py": "5ef888f46824baa26a222ef6e8a7a12fcbf675631f4cf3282ae3802a0a236eca"
+  },
+  "live_dispatches": 0,
+  "reports": [
+    {
+      "method": "fixed_rag",
+      "issue_number": 12072,
+      "source_report_sha256": "cb32aaeb5c5c92142cf165a8c5c6dd079f395f7cc6a22d158bfcd07c90966663",
+      "recorded_requests_consumed": [
+        13
+      ],
+      "status_unchanged": true,
+      "type_unchanged": true,
+      "detail_score_unchanged": true,
+      "before_request": "your pytest and operating system versions",
+      "after_report": {
+        "context": {
+          "registration_id": "pytest-default",
+          "repository": "pytest-dev/pytest",
+          "revision": "0951cbc6e4880ee7dfc9b7e56948d83ee086e74b",
+          "profile": "pytest",
+          "status": "ready",
+          "errors": [],
+          "labels": [
+            "type: backward compatibility",
+            "type: bug",
+            "type: deprecation",
+            "type: docs",
+            "type: enhancement",
+            "type: infrastructure",
+            "type: performance",
+            "type: proposal",
+            "type: question",
+            "type: refactoring",
+            "type: regression",
+            "type: removal",
+            "type: selftests"
+          ],
+          "type_cues": [
+            [
+              "type: backward compatibility",
+              "\\b(?:backward compatib\\w*|breaking change)\\b"
+            ],
+            [
+              "type: bug",
+              "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+            ],
+            [
+              "type: deprecation",
+              "\\bdeprecat\\w*\\b"
+            ],
+            [
+              "type: docs",
+              "\\b(?:docs|documentation|guide|manual|typo)\\b"
+            ],
+            [
+              "type: enhancement",
+              "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+            ],
+            [
+              "type: infrastructure",
+              "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+            ],
+            [
+              "type: performance",
+              "\\b(?:performance|slow|latency|memory|speed)\\b"
+            ],
+            [
+              "type: proposal",
+              "\\b(?:proposal|propose|design)\\b"
+            ],
+            [
+              "type: question",
+              "\\b(?:question|how|why)\\b|\\?"
+            ],
+            [
+              "type: refactoring",
+              "\\b(?:refactor\\w*|cleanup)\\b"
+            ],
+            [
+              "type: regression",
+              "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+            ],
+            [
+              "type: removal",
+              "\\bremov\\w*\\b"
+            ],
+            [
+              "type: selftests",
+              "\\b(?:selftests|pytest test suite)\\b"
+            ]
+          ],
+          "templates": [
+            {
+              "name": "bug",
+              "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+              "format": "markdown",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "bug description",
+                  "line": 13,
+                  "required": true
+                },
+                {
+                  "name": "pip list output",
+                  "line": 14,
+                  "required": true
+                },
+                {
+                  "name": "pytest and OS versions",
+                  "line": 15,
+                  "required": true
+                },
+                {
+                  "name": "minimal example",
+                  "line": 16,
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "feature",
+              "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+              "format": "markdown",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "problem to solve",
+                  "line": 13,
+                  "required": true
+                },
+                {
+                  "name": "proposed solution",
+                  "line": 16,
+                  "required": true
+                },
+                {
+                  "name": "real-world use case",
+                  "line": 19,
+                  "required": true
+                },
+                {
+                  "name": "alternative solutions",
+                  "line": 21,
+                  "required": true
+                }
+              ]
+            }
+          ],
+          "documentation": [],
+          "prepared_at": "",
+          "structured_templates": true
+        },
+        "trace_id": "aae2eee3-740e-42bf-b3c4-43138cd1ce23",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "`flaky` is broken with `pytest` 8.1\n<!--\r\nThanks for submitting an issue!\r\n\r\nQuick check-list whi",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12066,
+            "title": "ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "reason": "Both concern the call_runtest_hook import failure. This report: \"ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner' (/home/travis/miniconda/en\u2026\"; earlier: \"ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner' (/home/runner/miniconda3/e\u2026\". the same failure or request is not established.",
+            "citation_id": "C4"
+          }
+        ],
+        "missing_details": [
+          {
+            "name": "pip list output",
+            "request": "the output of `pip list` from the virtual environment you are using",
+            "citation_id": "C1"
+          },
+          {
+            "name": "pytest and OS versions",
+            "request": "your operating system and release",
+            "citation_id": "C2"
+          },
+          {
+            "name": "minimal example",
+            "request": "a minimal example, if possible",
+            "citation_id": "C3"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add the output of `pip list` from the virtual environment you are using? [C1]\n- Could you add your operating system and release? [C2]\n- Could you add a minimal example, if possible? [C3]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/0951cbc6e4880ee7dfc9b7e56948d83ee086e74b/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+            "description": "pytest bug report template: pip list output",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/0951cbc6e4880ee7dfc9b7e56948d83ee086e74b/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+            "description": "pytest bug report template: pytest and OS versions",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/0951cbc6e4880ee7dfc9b7e56948d83ee086e74b/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+            "description": "pytest bug report template: minimal example",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C4",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": []
+      },
+      "reviewer": "Codex",
+      "independent_human_review": false,
+      "review": "Opening title supplies pytest version; narrowed OS/release request removes the repeated subquestion. Other template questions remain applicable; #12072 relatedness is supported but conservative."
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12072,
+      "source_report_sha256": "551ef7a224e1a7bb4f04233f19e2a147f6d9d97e5e19ddb4d82eca98453afca1",
+      "recorded_requests_consumed": [
+        14,
+        15,
+        16
+      ],
+      "status_unchanged": true,
+      "type_unchanged": true,
+      "detail_score_unchanged": true,
+      "before_request": "your pytest and operating system versions",
+      "after_report": {
+        "context": {
+          "registration_id": "pytest-default",
+          "repository": "pytest-dev/pytest",
+          "revision": "0951cbc6e4880ee7dfc9b7e56948d83ee086e74b",
+          "profile": "pytest",
+          "status": "ready",
+          "errors": [],
+          "labels": [
+            "type: backward compatibility",
+            "type: bug",
+            "type: deprecation",
+            "type: docs",
+            "type: enhancement",
+            "type: infrastructure",
+            "type: performance",
+            "type: proposal",
+            "type: question",
+            "type: refactoring",
+            "type: regression",
+            "type: removal",
+            "type: selftests"
+          ],
+          "type_cues": [
+            [
+              "type: backward compatibility",
+              "\\b(?:backward compatib\\w*|breaking change)\\b"
+            ],
+            [
+              "type: bug",
+              "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+            ],
+            [
+              "type: deprecation",
+              "\\bdeprecat\\w*\\b"
+            ],
+            [
+              "type: docs",
+              "\\b(?:docs|documentation|guide|manual|typo)\\b"
+            ],
+            [
+              "type: enhancement",
+              "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+            ],
+            [
+              "type: infrastructure",
+              "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+            ],
+            [
+              "type: performance",
+              "\\b(?:performance|slow|latency|memory|speed)\\b"
+            ],
+            [
+              "type: proposal",
+              "\\b(?:proposal|propose|design)\\b"
+            ],
+            [
+              "type: question",
+              "\\b(?:question|how|why)\\b|\\?"
+            ],
+            [
+              "type: refactoring",
+              "\\b(?:refactor\\w*|cleanup)\\b"
+            ],
+            [
+              "type: regression",
+              "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+            ],
+            [
+              "type: removal",
+              "\\bremov\\w*\\b"
+            ],
+            [
+              "type: selftests",
+              "\\b(?:selftests|pytest test suite)\\b"
+            ]
+          ],
+          "templates": [
+            {
+              "name": "bug",
+              "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+              "format": "markdown",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "bug description",
+                  "line": 13,
+                  "required": true
+                },
+                {
+                  "name": "pip list output",
+                  "line": 14,
+                  "required": true
+                },
+                {
+                  "name": "pytest and OS versions",
+                  "line": 15,
+                  "required": true
+                },
+                {
+                  "name": "minimal example",
+                  "line": 16,
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "feature",
+              "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+              "format": "markdown",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "problem to solve",
+                  "line": 13,
+                  "required": true
+                },
+                {
+                  "name": "proposed solution",
+                  "line": 16,
+                  "required": true
+                },
+                {
+                  "name": "real-world use case",
+                  "line": 19,
+                  "required": true
+                },
+                {
+                  "name": "alternative solutions",
+                  "line": 21,
+                  "required": true
+                }
+              ]
+            }
+          ],
+          "documentation": [],
+          "prepared_at": "",
+          "structured_templates": true
+        },
+        "trace_id": "72b57817-670e-4b5c-bbd5-ccef614c22ec",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "`flaky` is broken with `pytest` 8.1\n<!--\r\nThanks for submitting an issue!\r\n\r\nQuick check-list whi",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12066,
+            "title": "ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "reason": "Both concern the call_runtest_hook import failure. This report: \"ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner' (/home/travis/miniconda/en\u2026\"; earlier: \"ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner' (/home/runner/miniconda3/e\u2026\". the same failure or request is not established.",
+            "citation_id": "C4"
+          }
+        ],
+        "missing_details": [
+          {
+            "name": "pip list output",
+            "request": "the output of `pip list` from the virtual environment you are using",
+            "citation_id": "C1"
+          },
+          {
+            "name": "pytest and OS versions",
+            "request": "your operating system and release",
+            "citation_id": "C2"
+          },
+          {
+            "name": "minimal example",
+            "request": "a minimal example, if possible",
+            "citation_id": "C3"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add the output of `pip list` from the virtual environment you are using? [C1]\n- Could you add your operating system and release? [C2]\n- Could you add a minimal example, if possible? [C3]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/0951cbc6e4880ee7dfc9b7e56948d83ee086e74b/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+            "description": "pytest bug report template: pip list output",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/0951cbc6e4880ee7dfc9b7e56948d83ee086e74b/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+            "description": "pytest bug report template: pytest and OS versions",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/0951cbc6e4880ee7dfc9b7e56948d83ee086e74b/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+            "description": "pytest bug report template: minimal example",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C4",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": []
+      },
+      "reviewer": "Codex",
+      "independent_human_review": false,
+      "review": "Opening title supplies pytest version; narrowed OS/release request removes the repeated subquestion. Other template questions remain applicable; #12072 relatedness is supported but conservative."
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12072,
+      "source_report_sha256": "80e7bcf9b2dcbc98f329c7ad3602bbeee30ceaec40881cda5b505a68e35464f8",
+      "recorded_requests_consumed": [],
+      "status_unchanged": true,
+      "type_unchanged": true,
+      "detail_score_unchanged": true,
+      "before_request": "your pytest and operating system versions",
+      "after_report": {
+        "context": {
+          "registration_id": "pytest-default",
+          "repository": "pytest-dev/pytest",
+          "revision": "0951cbc6e4880ee7dfc9b7e56948d83ee086e74b",
+          "profile": "pytest",
+          "status": "ready",
+          "errors": [],
+          "labels": [
+            "type: backward compatibility",
+            "type: bug",
+            "type: deprecation",
+            "type: docs",
+            "type: enhancement",
+            "type: infrastructure",
+            "type: performance",
+            "type: proposal",
+            "type: question",
+            "type: refactoring",
+            "type: regression",
+            "type: removal",
+            "type: selftests"
+          ],
+          "type_cues": [
+            [
+              "type: backward compatibility",
+              "\\b(?:backward compatib\\w*|breaking change)\\b"
+            ],
+            [
+              "type: bug",
+              "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+            ],
+            [
+              "type: deprecation",
+              "\\bdeprecat\\w*\\b"
+            ],
+            [
+              "type: docs",
+              "\\b(?:docs|documentation|guide|manual|typo)\\b"
+            ],
+            [
+              "type: enhancement",
+              "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+            ],
+            [
+              "type: infrastructure",
+              "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+            ],
+            [
+              "type: performance",
+              "\\b(?:performance|slow|latency|memory|speed)\\b"
+            ],
+            [
+              "type: proposal",
+              "\\b(?:proposal|propose|design)\\b"
+            ],
+            [
+              "type: question",
+              "\\b(?:question|how|why)\\b|\\?"
+            ],
+            [
+              "type: refactoring",
+              "\\b(?:refactor\\w*|cleanup)\\b"
+            ],
+            [
+              "type: regression",
+              "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+            ],
+            [
+              "type: removal",
+              "\\bremov\\w*\\b"
+            ],
+            [
+              "type: selftests",
+              "\\b(?:selftests|pytest test suite)\\b"
+            ]
+          ],
+          "templates": [
+            {
+              "name": "bug",
+              "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+              "format": "markdown",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "bug description",
+                  "line": 13,
+                  "required": true
+                },
+                {
+                  "name": "pip list output",
+                  "line": 14,
+                  "required": true
+                },
+                {
+                  "name": "pytest and OS versions",
+                  "line": 15,
+                  "required": true
+                },
+                {
+                  "name": "minimal example",
+                  "line": 16,
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "feature",
+              "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+              "format": "markdown",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "problem to solve",
+                  "line": 13,
+                  "required": true
+                },
+                {
+                  "name": "proposed solution",
+                  "line": 16,
+                  "required": true
+                },
+                {
+                  "name": "real-world use case",
+                  "line": 19,
+                  "required": true
+                },
+                {
+                  "name": "alternative solutions",
+                  "line": 21,
+                  "required": true
+                }
+              ]
+            }
+          ],
+          "documentation": [],
+          "prepared_at": "",
+          "structured_templates": true
+        },
+        "trace_id": "c3e7aa7a-1ba9-4b12-a14b-f1cee0fc2d93",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "broken",
+        "duplicate_candidates": [],
+        "related_issues": [
+          {
+            "issue_number": 12066,
+            "title": "ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "reason": "Both concern the call_runtest_hook import failure. This report: \"ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner' (/home/travis/miniconda/en\u2026\"; earlier: \"ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner' (/home/runner/miniconda3/e\u2026\". the same failure or request is not established.",
+            "citation_id": "C4"
+          }
+        ],
+        "missing_details": [
+          {
+            "name": "pip list output",
+            "request": "the output of `pip list` from the virtual environment you are using",
+            "citation_id": "C1"
+          },
+          {
+            "name": "pytest and OS versions",
+            "request": "your operating system and release",
+            "citation_id": "C2"
+          },
+          {
+            "name": "minimal example",
+            "request": "a minimal example, if possible",
+            "citation_id": "C3"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add the output of `pip list` from the virtual environment you are using? [C1]\n- Could you add your operating system and release? [C2]\n- Could you add a minimal example, if possible? [C3]\n- Earlier issue #12066 may be relevant: Both concern the call_runtest_hook import failure. This report: \"ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner' (/home/travis/miniconda/en\u2026\"; earlier: \"ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner' (/home/runner/miniconda3/e\u2026\". the same failure or request is not established. [C4]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/0951cbc6e4880ee7dfc9b7e56948d83ee086e74b/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+            "description": "pytest bug report template: pip list output",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/0951cbc6e4880ee7dfc9b7e56948d83ee086e74b/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+            "description": "pytest bug report template: pytest and OS versions",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/0951cbc6e4880ee7dfc9b7e56948d83ee086e74b/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+            "description": "pytest bug report template: minimal example",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C4",
+            "source_url": "https://github.com/pytest-dev/pytest/issues/12066",
+            "description": "pytest issue #12066: ImportError: cannot import name 'call_runtest_hook' from '_pytest.runner'",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": []
+      },
+      "reviewer": "Codex",
+      "independent_human_review": false,
+      "review": "Opening title supplies pytest version; narrowed OS/release request removes the repeated subquestion. Other template questions remain applicable; #12072 relatedness is supported but conservative."
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12263,
+      "source_report_sha256": "8ced41e93ee56114811c0dbbad219b2eab353d041ab1dc593bdbd8ab13e7f427",
+      "recorded_requests_consumed": [],
+      "status_unchanged": true,
+      "type_unchanged": true,
+      "detail_score_unchanged": true,
+      "before_request": "your pytest and operating system versions",
+      "after_report": {
+        "context": {
+          "registration_id": "pytest-default",
+          "repository": "pytest-dev/pytest",
+          "revision": "50d1e81713af75ab6d3608d2920ddf21bf53d765",
+          "profile": "pytest",
+          "status": "ready",
+          "errors": [],
+          "labels": [
+            "type: backward compatibility",
+            "type: bug",
+            "type: deprecation",
+            "type: docs",
+            "type: enhancement",
+            "type: infrastructure",
+            "type: performance",
+            "type: proposal",
+            "type: question",
+            "type: refactoring",
+            "type: regression",
+            "type: removal",
+            "type: selftests"
+          ],
+          "type_cues": [
+            [
+              "type: backward compatibility",
+              "\\b(?:backward compatib\\w*|breaking change)\\b"
+            ],
+            [
+              "type: bug",
+              "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+            ],
+            [
+              "type: deprecation",
+              "\\bdeprecat\\w*\\b"
+            ],
+            [
+              "type: docs",
+              "\\b(?:docs|documentation|guide|manual|typo)\\b"
+            ],
+            [
+              "type: enhancement",
+              "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+            ],
+            [
+              "type: infrastructure",
+              "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+            ],
+            [
+              "type: performance",
+              "\\b(?:performance|slow|latency|memory|speed)\\b"
+            ],
+            [
+              "type: proposal",
+              "\\b(?:proposal|propose|design)\\b"
+            ],
+            [
+              "type: question",
+              "\\b(?:question|how|why)\\b|\\?"
+            ],
+            [
+              "type: refactoring",
+              "\\b(?:refactor\\w*|cleanup)\\b"
+            ],
+            [
+              "type: regression",
+              "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+            ],
+            [
+              "type: removal",
+              "\\bremov\\w*\\b"
+            ],
+            [
+              "type: selftests",
+              "\\b(?:selftests|pytest test suite)\\b"
+            ]
+          ],
+          "templates": [
+            {
+              "name": "bug",
+              "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+              "format": "markdown",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "bug description",
+                  "line": 13,
+                  "required": true
+                },
+                {
+                  "name": "pip list output",
+                  "line": 14,
+                  "required": true
+                },
+                {
+                  "name": "pytest and OS versions",
+                  "line": 15,
+                  "required": true
+                },
+                {
+                  "name": "minimal example",
+                  "line": 16,
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "feature",
+              "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+              "format": "markdown",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "problem to solve",
+                  "line": 13,
+                  "required": true
+                },
+                {
+                  "name": "proposed solution",
+                  "line": 16,
+                  "required": true
+                },
+                {
+                  "name": "real-world use case",
+                  "line": 19,
+                  "required": true
+                },
+                {
+                  "name": "alternative solutions",
+                  "line": 21,
+                  "required": true
+                }
+              ]
+            }
+          ],
+          "documentation": [],
+          "prepared_at": "",
+          "structured_templates": true
+        },
+        "trace_id": "0e6f9022-2f2c-4be0-92ea-4dbe25c18980",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "fails",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [
+          {
+            "name": "pip list output",
+            "request": "the output of `pip list` from the virtual environment you are using",
+            "citation_id": "C1"
+          },
+          {
+            "name": "pytest and OS versions",
+            "request": "your operating system and release",
+            "citation_id": "C2"
+          },
+          {
+            "name": "minimal example",
+            "request": "a minimal example, if possible",
+            "citation_id": "C3"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add the output of `pip list` from the virtual environment you are using? [C1]\n- Could you add your operating system and release? [C2]\n- Could you add a minimal example, if possible? [C3]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/50d1e81713af75ab6d3608d2920ddf21bf53d765/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+            "description": "pytest bug report template: pip list output",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/50d1e81713af75ab6d3608d2920ddf21bf53d765/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+            "description": "pytest bug report template: pytest and OS versions",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/50d1e81713af75ab6d3608d2920ddf21bf53d765/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+            "description": "pytest bug report template: minimal example",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": []
+      },
+      "reviewer": "Codex",
+      "independent_human_review": false,
+      "review": "Opening title supplies pytest version; narrowed OS/release request removes the repeated subquestion. Other template questions remain applicable; #12072 relatedness is supported but conservative."
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12263,
+      "source_report_sha256": "2617881fbf6e3ba3e1a7e0946e8a10d37385fb2310b9235632114073d4c29d0d",
+      "recorded_requests_consumed": [
+        95
+      ],
+      "status_unchanged": true,
+      "type_unchanged": true,
+      "detail_score_unchanged": true,
+      "before_request": "your pytest and operating system versions",
+      "after_report": {
+        "context": {
+          "registration_id": "pytest-default",
+          "repository": "pytest-dev/pytest",
+          "revision": "50d1e81713af75ab6d3608d2920ddf21bf53d765",
+          "profile": "pytest",
+          "status": "ready",
+          "errors": [],
+          "labels": [
+            "type: backward compatibility",
+            "type: bug",
+            "type: deprecation",
+            "type: docs",
+            "type: enhancement",
+            "type: infrastructure",
+            "type: performance",
+            "type: proposal",
+            "type: question",
+            "type: refactoring",
+            "type: regression",
+            "type: removal",
+            "type: selftests"
+          ],
+          "type_cues": [
+            [
+              "type: backward compatibility",
+              "\\b(?:backward compatib\\w*|breaking change)\\b"
+            ],
+            [
+              "type: bug",
+              "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+            ],
+            [
+              "type: deprecation",
+              "\\bdeprecat\\w*\\b"
+            ],
+            [
+              "type: docs",
+              "\\b(?:docs|documentation|guide|manual|typo)\\b"
+            ],
+            [
+              "type: enhancement",
+              "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+            ],
+            [
+              "type: infrastructure",
+              "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+            ],
+            [
+              "type: performance",
+              "\\b(?:performance|slow|latency|memory|speed)\\b"
+            ],
+            [
+              "type: proposal",
+              "\\b(?:proposal|propose|design)\\b"
+            ],
+            [
+              "type: question",
+              "\\b(?:question|how|why)\\b|\\?"
+            ],
+            [
+              "type: refactoring",
+              "\\b(?:refactor\\w*|cleanup)\\b"
+            ],
+            [
+              "type: regression",
+              "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+            ],
+            [
+              "type: removal",
+              "\\bremov\\w*\\b"
+            ],
+            [
+              "type: selftests",
+              "\\b(?:selftests|pytest test suite)\\b"
+            ]
+          ],
+          "templates": [
+            {
+              "name": "bug",
+              "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+              "format": "markdown",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "bug description",
+                  "line": 13,
+                  "required": true
+                },
+                {
+                  "name": "pip list output",
+                  "line": 14,
+                  "required": true
+                },
+                {
+                  "name": "pytest and OS versions",
+                  "line": 15,
+                  "required": true
+                },
+                {
+                  "name": "minimal example",
+                  "line": 16,
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "feature",
+              "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+              "format": "markdown",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "problem to solve",
+                  "line": 13,
+                  "required": true
+                },
+                {
+                  "name": "proposed solution",
+                  "line": 16,
+                  "required": true
+                },
+                {
+                  "name": "real-world use case",
+                  "line": 19,
+                  "required": true
+                },
+                {
+                  "name": "alternative solutions",
+                  "line": 21,
+                  "required": true
+                }
+              ]
+            }
+          ],
+          "documentation": [],
+          "prepared_at": "",
+          "structured_templates": true
+        },
+        "trace_id": "c276d4f3-d5b3-40de-b027-c72b024f0ebd",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "TTPSTestCase from tornado and the latest pytest fails in collection on this error:\r\n```\r\nError\r\ncollection failure\r\nStacktrace\r\nusr/l",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [
+          {
+            "name": "pip list output",
+            "request": "the output of `pip list` from the virtual environment you are using",
+            "citation_id": "C1"
+          },
+          {
+            "name": "pytest and OS versions",
+            "request": "your operating system and release",
+            "citation_id": "C2"
+          },
+          {
+            "name": "minimal example",
+            "request": "a minimal example, if possible",
+            "citation_id": "C3"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add the output of `pip list` from the virtual environment you are using? [C1]\n- Could you add your operating system and release? [C2]\n- Could you add a minimal example, if possible? [C3]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/50d1e81713af75ab6d3608d2920ddf21bf53d765/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+            "description": "pytest bug report template: pip list output",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/50d1e81713af75ab6d3608d2920ddf21bf53d765/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+            "description": "pytest bug report template: pytest and OS versions",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/50d1e81713af75ab6d3608d2920ddf21bf53d765/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+            "description": "pytest bug report template: minimal example",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": []
+      },
+      "reviewer": "Codex",
+      "independent_human_review": false,
+      "review": "Opening title supplies pytest version; narrowed OS/release request removes the repeated subquestion. Other template questions remain applicable; #12072 relatedness is supported but conservative."
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12263,
+      "source_report_sha256": "1e4d246311034390e239d14dd822b826366a61a97fb81953ce53b1eab1b68f5b",
+      "recorded_requests_consumed": [
+        96,
+        97,
+        98
+      ],
+      "status_unchanged": true,
+      "type_unchanged": true,
+      "detail_score_unchanged": true,
+      "before_request": "your pytest and operating system versions",
+      "after_report": {
+        "context": {
+          "registration_id": "pytest-default",
+          "repository": "pytest-dev/pytest",
+          "revision": "50d1e81713af75ab6d3608d2920ddf21bf53d765",
+          "profile": "pytest",
+          "status": "ready",
+          "errors": [],
+          "labels": [
+            "type: backward compatibility",
+            "type: bug",
+            "type: deprecation",
+            "type: docs",
+            "type: enhancement",
+            "type: infrastructure",
+            "type: performance",
+            "type: proposal",
+            "type: question",
+            "type: refactoring",
+            "type: regression",
+            "type: removal",
+            "type: selftests"
+          ],
+          "type_cues": [
+            [
+              "type: backward compatibility",
+              "\\b(?:backward compatib\\w*|breaking change)\\b"
+            ],
+            [
+              "type: bug",
+              "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+            ],
+            [
+              "type: deprecation",
+              "\\bdeprecat\\w*\\b"
+            ],
+            [
+              "type: docs",
+              "\\b(?:docs|documentation|guide|manual|typo)\\b"
+            ],
+            [
+              "type: enhancement",
+              "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+            ],
+            [
+              "type: infrastructure",
+              "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+            ],
+            [
+              "type: performance",
+              "\\b(?:performance|slow|latency|memory|speed)\\b"
+            ],
+            [
+              "type: proposal",
+              "\\b(?:proposal|propose|design)\\b"
+            ],
+            [
+              "type: question",
+              "\\b(?:question|how|why)\\b|\\?"
+            ],
+            [
+              "type: refactoring",
+              "\\b(?:refactor\\w*|cleanup)\\b"
+            ],
+            [
+              "type: regression",
+              "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+            ],
+            [
+              "type: removal",
+              "\\bremov\\w*\\b"
+            ],
+            [
+              "type: selftests",
+              "\\b(?:selftests|pytest test suite)\\b"
+            ]
+          ],
+          "templates": [
+            {
+              "name": "bug",
+              "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+              "format": "markdown",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "bug description",
+                  "line": 13,
+                  "required": true
+                },
+                {
+                  "name": "pip list output",
+                  "line": 14,
+                  "required": true
+                },
+                {
+                  "name": "pytest and OS versions",
+                  "line": 15,
+                  "required": true
+                },
+                {
+                  "name": "minimal example",
+                  "line": 16,
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "feature",
+              "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+              "format": "markdown",
+              "labels": [],
+              "fields": [
+                {
+                  "name": "problem to solve",
+                  "line": 13,
+                  "required": true
+                },
+                {
+                  "name": "proposed solution",
+                  "line": 16,
+                  "required": true
+                },
+                {
+                  "name": "real-world use case",
+                  "line": 19,
+                  "required": true
+                },
+                {
+                  "name": "alternative solutions",
+                  "line": 21,
+                  "required": true
+                }
+              ]
+            }
+          ],
+          "documentation": [],
+          "prepared_at": "",
+          "structured_templates": true
+        },
+        "trace_id": "553a3b8a-763e-4339-8b8e-4ed6f6a6c3cc",
+        "status": "complete",
+        "issue_type": "type: bug",
+        "issue_type_quote": "TTPSTestCase from tornado and the latest pytest fails in collection on this error:\r\n```\r\nError\r\ncollection failure\r\nStacktrace\r\nusr/l",
+        "duplicate_candidates": [],
+        "related_issues": [],
+        "missing_details": [
+          {
+            "name": "pip list output",
+            "request": "the output of `pip list` from the virtual environment you are using",
+            "citation_id": "C1"
+          },
+          {
+            "name": "pytest and OS versions",
+            "request": "your operating system and release",
+            "citation_id": "C2"
+          },
+          {
+            "name": "minimal example",
+            "request": "a minimal example, if possible",
+            "citation_id": "C3"
+          }
+        ],
+        "documentation_claims": [],
+        "source_claims": [],
+        "ci_results": [],
+        "draft_reply": "Thanks for sharing this issue.\n- Could you add the output of `pip list` from the virtual environment you are using? [C1]\n- Could you add your operating system and release? [C2]\n- Could you add a minimal example, if possible? [C3]",
+        "citations": [
+          {
+            "id": "C1",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/50d1e81713af75ab6d3608d2920ddf21bf53d765/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+            "description": "pytest bug report template: pip list output",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C2",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/50d1e81713af75ab6d3608d2920ddf21bf53d765/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+            "description": "pytest bug report template: pytest and OS versions",
+            "passage": null,
+            "source_location": null
+          },
+          {
+            "id": "C3",
+            "source_url": "https://github.com/pytest-dev/pytest/blob/50d1e81713af75ab6d3608d2920ddf21bf53d765/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+            "description": "pytest bug report template: minimal example",
+            "passage": null,
+            "source_location": null
+          }
+        ],
+        "abstentions": []
+      },
+      "reviewer": "Codex",
+      "independent_human_review": false,
+      "review": "Opening title supplies pytest version; narrowed OS/release request removes the repeated subquestion. Other template questions remain applicable; #12072 relatedness is supported but conservative."
+    }
+  ]
+}

@@ -157,6 +157,17 @@ def test_supplied_pytest_identity_is_not_repeated_in_environment_question(
     assert detail.request == "your operating system and release"
 
 
+def test_pytest_version_in_title_is_not_requested_again() -> None:
+    report = replay_opening(
+        "Pytest 8.2.0 collection fails", "The collector stops before executing tests."
+    )
+    detail = next(
+        d for d in report.missing_details if d.name == "pytest and OS versions"
+    )
+
+    assert detail.request == "your operating system and release"
+
+
 @pytest.mark.parametrize(
     ("body", "incidental_type"),
     [

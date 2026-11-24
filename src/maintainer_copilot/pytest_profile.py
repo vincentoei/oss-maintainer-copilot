@@ -298,7 +298,7 @@ def template_for(title: str, body: str) -> TemplateKind | None:
     return None
 
 
-def missing_bug_details(body: str) -> list[TemplateDetail]:
+def missing_bug_details(body: str, title: str = "") -> list[TemplateDetail]:
     without_comments = re.sub(r"<!--.*?-->", "", body, flags=re.DOTALL)
     without_code = re.sub(r"```.*?```", "", without_comments, flags=re.DOTALL)
     description_lines = [
@@ -315,7 +315,7 @@ def missing_bug_details(body: str) -> list[TemplateDetail]:
     ]
     has_description = len(" ".join(description_lines)) >= 30
     has_pip_list = _has_pip_list_output(body)
-    has_versions = all(_provided_environment(body))
+    has_versions = all(_provided_environment(f"{title}\n{body}"))
     has_example = _has_minimal_example(body)
     provided = (has_description, has_pip_list, has_versions, has_example)
     return _missing_details(BUG_DETAILS, provided)
@@ -748,13 +748,13 @@ def profile_details(
     if template is None:
         return None
     missing = (
-        missing_bug_details(body)
+        missing_bug_details(body, title)
         if template == "bug"
         else missing_feature_details(body)
     )
     version_request = None
     if template == "bug":
-        has_pytest, has_os = _provided_environment(body)
+        has_pytest, has_os = _provided_environment(f"{title}\n{body}")
         if has_pytest and not has_os:
             version_request = "your operating system and release"
         elif has_os and not has_pytest:

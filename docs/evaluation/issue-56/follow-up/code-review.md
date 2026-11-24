@@ -32,3 +32,11 @@ after required-statement assembly.
 
 The final frozen comparison and fresh attributed report review are required
 next; these reviews do not claim independent human usefulness assessment.
+
+## Post-measurement wording check
+
+Spec review found no actionable source/test issue in the final title-version
+delta. Final checks are **425 passed, 2 skipped**. Live source `0035e14` and final
+source hashes are distinguished explicitly: six actual saved-response replays
+verify narrowed OS wording with zero new calls and unchanged deterministic
+scores/types/status. They are not fresh live model-quality evidence.

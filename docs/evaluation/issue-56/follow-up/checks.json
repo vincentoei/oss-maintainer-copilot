@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-11-24T15:00:35.074740+00:00",
+  "recorded_at": "2026-11-24T15:07:08.976581+00:00",
   "source_sha256": {
     "src/maintainer_copilot/__init__.py": "5e41140633dd670de4305c608f38bc50eae7710947fa64ffecbdd2048e949daf",
     "src/maintainer_copilot/agent.py": "a522cf02867dc03f61b57ef521d42fa1ca1456a0dd86a852fdd78119d8df6dcc",
@@ -12,7 +12,7 @@
     "src/maintainer_copilot/label_evidence.py": "328b868674c0b96ea3d209fdea13353d6d3f6adcb6bf5881ebe175e3a0a9c03d",
     "src/maintainer_copilot/local_evaluation.py": "15c2b19d15e6f8adda2e04e044175eaf75a5ad52d5ee36d0c99e5d7a07725ffa",
     "src/maintainer_copilot/model.py": "900c862c4af6ca6b648b549142e233553ef90f8961afbbaaf0c0c5864df3fbe0",
-    "src/maintainer_copilot/pytest_profile.py": "4b59c9e71cd0bb413b437dab0aff469c0302f2e2551abefd39817584942f5fba",
+    "src/maintainer_copilot/pytest_profile.py": "b7f494ea859ef9560d0305764a95332cc6e15700e51d9ab0396eb3259b0c378c",
     "src/maintainer_copilot/registry.py": "a86bfcaed95454019742c7844f76959e15b5a702d4a3b8089edb0cc23499b5ae",
     "src/maintainer_copilot/replay.py": "3f676a7fa1eb6ebe25fa70d186d86e539d15ae4aaf3a0a37cfe6162d17712d35",
     "src/maintainer_copilot/repository.py": "988ec4e758c0c8975b1f2f19c0b226c75286053c55099d8d96b5f57ca2ef0596",
@@ -42,7 +42,7 @@
         "."
       ],
       "exit_code": 0,
-      "stdout": "122 files already formatted\n",
+      "stdout": "126 files already formatted\n",
       "stderr": ""
     },
     {
@@ -61,7 +61,7 @@
         "-q"
       ],
       "exit_code": 0,
-      "stdout": "........................................................................ [ 16%]\n........................................................................ [ 33%]\n.........................................................ss............. [ 50%]\n........................................................................ [ 67%]\n........................................................................ [ 84%]\n..................................................................       [100%]\n424 passed, 2 skipped in 44.72s\n",
+      "stdout": "........................................................................ [ 16%]\n........................................................................ [ 33%]\n.........................................................ss............. [ 50%]\n........................................................................ [ 67%]\n........................................................................ [ 84%]\n...................................................................      [100%]\n425 passed, 2 skipped in 63.08s (0:01:03)\n",
       "stderr": ""
     }
   ]
