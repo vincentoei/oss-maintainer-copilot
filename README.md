@@ -303,3 +303,8 @@ resource metrics, plus a fresh blinded review sheet and separate identity key.
 Human usefulness and semantic citation support stay pending until explicitly
 reviewed; automated field scores cannot authorize promotion. Keep the selected
 3B and fixed legacy demo default unless every protocol gate passes.
+
+The [completed #16 comparison and acceptance evidence](docs/evaluation/issue-16.md)
+retain the fixed legacy workflow: no paired exact-field gain from the agent,
+with 1.70x p95 latency, 2.29x tokens and two additional partial reports.
+Fresh human usefulness and semantic reviews remain explicitly unverified.

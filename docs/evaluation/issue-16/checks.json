@@ -1,0 +1,47 @@
+{
+  "environment": "Existing locked project development environment; this checkout src selected via PYTHONPATH",
+  "checks": [
+    {
+      "command": [
+        "ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "82 files already formatted\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "mypy",
+        "src",
+        "tests"
+      ],
+      "exit_code": 0,
+      "stdout": "Success: no issues found in 33 source files\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "stdout": "........................................................................ [ 24%]\n........................................................................ [ 48%]\n................................ss...................................... [ 73%]\n........................................................................ [ 97%]\n.......                                                                  [100%]\n293 passed, 2 skipped in 3.32s\n",
+      "stderr": ""
+    }
+  ]
+}
