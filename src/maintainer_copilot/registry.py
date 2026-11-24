@@ -28,6 +28,7 @@ from maintainer_copilot.repository import (
     legacy_context,
     repository_identity,
 )
+from maintainer_copilot.templates import markdown_headings, without_comments
 
 MAX_FETCHES = 12
 MAX_BYTES = 262_144
@@ -184,9 +185,15 @@ def _template(
             if not isinstance(metadata, dict):
                 raise ValueError("Invalid Markdown front matter")
             headings = [
-                (m.group(1), text[: m.start()].count("\n") + 1)
-                for m in re.finditer(r"(?m)^#{1,6}\s+(.+?)\s*$", text)
+                (heading.name, heading.line)
+                for heading in markdown_headings(without_comments(text))
             ]
+            if len(headings) > 20:
+                errors.append(
+                    f"{path}: exceeds twenty supported headings; template omitted, "
+                    "including its requirements."
+                )
+                return None
             required = config.markdown_required_fields.get(path, ())
             if not set(required).issubset({name for name, _ in headings}):
                 raise ValueError("Configured required headings are unavailable")
@@ -197,7 +204,7 @@ def _template(
                 )
             fields = tuple(
                 TemplateField(name=name, line=line, required=name in required)
-                for name, line in headings[:20]
+                for name, line in headings
             )
             kind = "markdown"
         else:

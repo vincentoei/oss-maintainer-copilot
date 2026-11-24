@@ -66,6 +66,19 @@ class SourceExcerpt(BaseModel):
     lines: list[str]
     source_url: str
 
+    def validates_location(self, location: SourceLocation) -> bool:
+        """Verify provenance and output bounds at every public evidence boundary."""
+        return (
+            (self.commit, self.path, self.line, self.source_url)
+            == (location.commit, location.path, location.line, location.source_url)
+            and max(1, location.line - EXCERPT_RADIUS)
+            <= self.start_line
+            <= location.line
+            and location.line <= self.end_line <= location.line + EXCERPT_RADIUS
+            and len(self.lines) == self.end_line - self.start_line + 1
+            and sum(len(line) + 1 for line in self.lines) <= MAX_EXCERPT_CHARS
+        )
+
 
 @dataclass(frozen=True)
 class SourceEvidence:

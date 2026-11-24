@@ -862,3 +862,108 @@ def test_selected_repository_reaches_actual_github_issue_transport(
         assert len(urls) == 2
     finally:
         app.dependency_overrides.clear()
+
+
+def test_source_inspection_rejects_reader_evidence_for_another_repository(
+    public_github: dict[str, Any],
+) -> None:
+    from maintainer_copilot.source import SourceExcerpt, SourceLocation
+    from maintainer_copilot.web import get_source_reader
+
+    saved = register("acme/widget")
+
+    class ForeignReader:
+        def get_excerpt(self, location: SourceLocation) -> SourceExcerpt:
+            return SourceExcerpt(
+                commit=location.commit,
+                path=location.path,
+                line=1,
+                start_line=1,
+                end_line=1,
+                lines=["foreign line"],
+                source_url=f"https://github.com/other/tool/blob/{SHA}/src/main.rs#L1",
+            )
+
+    async def reader_dependency() -> ForeignReader:
+        return ForeignReader()
+
+    app.dependency_overrides[get_source_reader] = reader_dependency
+    try:
+        response = request(
+            "GET",
+            "/api/source",
+            params={
+                "registration_id": saved["id"],
+                "commit": SHA,
+                "path": "src/main.rs",
+                "line": 1,
+            },
+        )
+        assert response.status_code == 404
+    finally:
+        app.dependency_overrides.clear()
+
+
+def test_markdown_field_limit_reports_omitted_requirements(
+    public_github: dict[str, Any],
+) -> None:
+    public_github["filename"] = "bug.md"
+    public_github["form"] = "---\nname: Long form\nlabels: bug\n---\n" + "\n".join(
+        f"### Field {number}" for number in range(1, 22)
+    )
+    saved = register(
+        "acme/widget",
+        markdown_required_fields={".github/ISSUE_TEMPLATE/bug.md": ["Field 21"]},
+    )
+    assert saved["context"]["status"] == "limited"
+    assert saved["context"]["templates"] == []
+    assert any("twenty" in error.lower() for error in saved["context"]["errors"])
+
+
+@pytest.mark.parametrize(
+    "body",
+    [
+        "```markdown\n### Reproduction\n\n### Version\n_No response_\n```",
+        "~~~markdown\n### Reproduction\n\n### Version\n_No response_\n~~~",
+        "    ### Reproduction\n\n    ### Version\n_No response_",
+    ],
+)
+def test_quoted_code_cannot_establish_a_generic_template(
+    public_github: dict[str, Any], body: str
+) -> None:
+    from maintainer_copilot import IssueUnderReview, triage_issue
+
+    saved = register()
+    report = triage_issue(
+        IssueUnderReview(registration_id=saved["id"], title="bug", body=body),
+        model_client=SelectingModel(),
+    )
+    assert report.missing_details == []
+    assert any(a.field == "missing_details" for a in report.abstentions)
+
+
+def test_python_template_abstention_control_applies_without_other_overrides(
+    public_github: dict[str, Any],
+) -> None:
+    from maintainer_copilot import IssueUnderReview, triage_issue
+    from maintainer_copilot.agent import triage_issue_with_agent
+    from maintainer_copilot.documentation import PublicDocumentationSource
+    from maintainer_copilot.issue_search import GitHubIssueSource
+    from maintainer_copilot.source import PublicRepositorySource
+
+    issue = IssueUnderReview(title="Bug: collection fails", body="")
+    fixed = triage_issue(
+        issue, structured_template_available=False, model_client=SelectingModel(None)
+    )
+    agent = triage_issue_with_agent(
+        issue,
+        GitHubIssueSource(),
+        PublicDocumentationSource(()),
+        PublicRepositorySource(),
+        SelectingModel(None),
+        structured_template_available=False,
+    )
+    for report in (fixed, agent):
+        assert report.missing_details == []
+        assert report.context.structured_templates is False
+        assert any(a.field == "missing_details" for a in report.abstentions)

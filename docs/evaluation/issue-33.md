@@ -37,10 +37,13 @@ headings now abstain rather than establishing missing requirements. Its exact
 application source is reconstructible by applying
 [browser-source.patch](issue-33/browser-source.patch) to the starting commit;
 [browser hashes](issue-33/browser-source-hashes.json) were verified after applying
-it in a separate directory. The final HTTP smoke uses the hardening change;
+it in a separate directory. The HTTP smoke uses the comments/repeated-heading hardening change;
 apply [HTTP source delta](issue-33/http-source-delta.patch) next to reproduce its
-[executed source hashes](issue-33/http-source-hashes.json). No prompt tuning
-followed model outputs. Raw responses are `response-1.json` through
+[executed source hashes](issue-33/http-source-hashes.json). Subsequent review strengthened standalone source validation, unified quote checks,
+excluded code examples from template headings, disclosed excess Markdown fields
+and restored the Python abstention flag. Those corrections have deterministic
+regressions; the preserved inference reports retain the source hashes of their
+actual runs. No prompt tuning followed model outputs. Raw responses are `response-1.json` through
 `response-6.json`, with dispatch hashes and transport timing. The local registry
 file stays out of Git; snapshots needed for inspection are retained as JSON.
 
@@ -57,9 +60,21 @@ sync or multi-user authorization in this milestone.
 
 ## Required checks
 
-The full deterministic suite passed **324 tests**, with two existing opt-in live
-historical tests skipped. Ruff lint, formatting and strict mypy passed. A later
-focused transport regression additionally checks the real GitHub adapter's request
-URL and repository-qualified search query on both fixed and agent paths, with the
-external HTTP boundary replaced deterministically. Final check totals and review
-findings are recorded below after review.
+The initial full suite passed **324 tests**, with two existing opt-in live
+historical tests skipped. Subsequent review added regressions for the actual
+GitHub adapter transport, standalone foreign source evidence, template limits,
+fenced examples and the explicit Python abstention flag. Final check totals and
+review disposition follow below.
+
+
+The [two-axis review](issue-33-code-review.md) found and corrected three Spec
+defects and the duplicated support-validation algorithm. Re-review found zero
+remaining actionable Spec defects and zero documented-standard breaches; one
+profile-dispatch design heuristic remains non-blocking with its scope rationale.
+
+Final checks after all review fixes: **332 passed, 2 skipped** (existing opt-in
+network replay checks, not successes); Ruff lint/format, strict mypy and
+`git diff --check` pass. [Machine-readable final checks](issue-33/checks.json).
+All 161 original evaluation/case files remain unchanged; the live ledger still
+contains exactly six dispatches and six preserved raw responses. No additional
+inference was used for review or corrections.

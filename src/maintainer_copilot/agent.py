@@ -342,14 +342,7 @@ def _inspect(
         return _observation(
             "inspect_source", "error", {"reason": "Source inspection failed."}
         )
-    if (
-        (excerpt.commit, excerpt.path, excerpt.line, excerpt.source_url)
-        != (location.commit, location.path, location.line, location.source_url)
-        or not excerpt.start_line <= location.line <= excerpt.end_line
-        or len(excerpt.lines) != excerpt.end_line - excerpt.start_line + 1
-        or sum(len(line) + 1 for line in excerpt.lines)
-        > repository_source.MAX_EXCERPT_CHARS
-    ):
+    if not excerpt.validates_location(location):
         return _observation(
             "inspect_source", "error", {"reason": "Source excerpt is invalid."}
         )

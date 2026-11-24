@@ -164,14 +164,18 @@ async def inspect_source(
             and location.repository != context.repository
         ):
             raise RegistrationError("Source location belongs to another repository.")
-        return source.get_excerpt(
-            SourceLocation(
-                repository=context.repository,
-                commit=location.commit,
-                path=location.path,
-                line=location.line,
-            )
+        selected = SourceLocation(
+            repository=context.repository,
+            commit=location.commit,
+            path=location.path,
+            line=location.line,
         )
+        excerpt = source.get_excerpt(selected)
+        if not excerpt.validates_location(selected):
+            raise SourceUnavailable(
+                "Source excerpt does not match the selected repository and location."
+            )
+        return excerpt
     except RegistrationError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
     except SourceUnavailable as exc:

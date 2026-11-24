@@ -9,6 +9,8 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 from maintainer_copilot import pytest_profile
 from maintainer_copilot.documentation import DocumentationTopic
 from maintainer_copilot.follow_up import FollowUp, supported_follow_up
+from maintainer_copilot.label_evidence import quote_supports_label
+from maintainer_copilot.templates import markdown_headings, without_comments
 
 DEFAULT_REPOSITORY = pytest_profile.REPOSITORY
 DEFAULT_GITHUB_ID = pytest_profile.GITHUB_ID
@@ -108,8 +110,9 @@ class RepositoryContext(BaseModel):
         if self.profile == "pytest":
             return pytest_profile.profile_details(title, body, self.revision)
         # Match the actual rendered form's headings, not inferred bug/feature words.
-        without_comments = re.sub(r"<!--.*?-->", "", body, flags=re.S)
-        heading_list = re.findall(r"(?m)^#{1,6}\s+(.+?)\s*$", without_comments)
+        content = without_comments(body)
+        sections = markdown_headings(content)
+        heading_list = [section.name for section in sections]
         headings = set(heading_list)
         if len(headings) != len(heading_list):
             return None
@@ -132,13 +135,18 @@ class RepositoryContext(BaseModel):
         for field in template.fields:
             if not field.required:
                 continue
-            match = re.search(
-                rf"(?m)^#{{1,6}}\s+{re.escape(field.name)}\s*$", without_comments
+            section_index = next(
+                index
+                for index, section in enumerate(sections)
+                if section.name == field.name
             )
-            assert match is not None
-            answer = re.split(
-                r"(?m)^#{1,6}\s+", without_comments[match.end() :], maxsplit=1
-            )[0].strip()
+            section = sections[section_index]
+            next_start = (
+                sections[section_index + 1].start
+                if section_index + 1 < len(sections)
+                else len(content)
+            )
+            answer = content[section.end : next_start].strip()
             # Arbitrary prose outside sections cannot prove a section is missing.
             if answer and answer.lower() not in {
                 "_no response_",
@@ -188,31 +196,6 @@ from typing import TYPE_CHECKING  # noqa: E402
 
 if TYPE_CHECKING:
     from maintainer_copilot.issue_search import IssueRecord, Match
-
-
-def quote_supports_label(
-    cues: dict[str, str], label: str, quote: str, issue_text: str
-) -> bool:
-    cue = cues.get(label)
-    if cue is None:
-        return False
-    spans = [(m.start(), m.end()) for m in re.finditer(re.escape(quote), issue_text)]
-    for match in re.finditer(cue, issue_text, re.I):
-        if not any(
-            start <= match.start() and match.end() <= end for start, end in spans
-        ):
-            continue
-        prefix = issue_text[max(0, match.start() - 32) : match.start()]
-        suffix = issue_text[match.end() : match.end() + 32]
-        if not re.search(
-            r"\b(?:no|not|never|without)(?:\s+\w+){0,3}\s*$", prefix, re.I
-        ) and not re.match(
-            r"\s+(?:is|was|are|were|has|does|can|will)\s+(?:not|no|never)\b",
-            suffix,
-            re.I,
-        ):
-            return True
-    return False
 
 
 def legacy_context(

@@ -9,6 +9,7 @@ if TYPE_CHECKING:
     from maintainer_copilot.repository import DetailRequest
 
 from maintainer_copilot.documentation import DocumentationTopic
+from maintainer_copilot.label_evidence import quote_supports_label
 
 REPOSITORY = "pytest-dev/pytest"
 GITHUB_ID = 37489525
@@ -48,31 +49,7 @@ BASELINE_TYPE_PRIORITY = (
 
 
 def type_quote_supports_label(label: str, quote: str, issue_text: str) -> bool:
-    cue = TYPE_EVIDENCE_CUES.get(label)
-    if cue is None:
-        return False
-    quote_spans = [
-        (match.start(), match.end())
-        for match in re.finditer(re.escape(quote), issue_text)
-    ]
-    for match in re.finditer(cue, issue_text, re.I):
-        if not any(
-            start <= match.start() and match.end() <= end for start, end in quote_spans
-        ):
-            continue
-        prefix = issue_text[max(0, match.start() - 32) : match.start()]
-        suffix = issue_text[match.end() : match.end() + 32]
-        if not re.search(
-            r"\b(?:no|not|never|without)(?:\s+\w+){0,3}\s*$",
-            prefix,
-            re.I,
-        ) and not re.match(
-            r"\s+(?:is|was|are|were|has|does|can|will)\s+(?:not|no|never)\b",
-            suffix,
-            re.I,
-        ):
-            return True
-    return False
+    return quote_supports_label(TYPE_EVIDENCE_CUES, label, quote, issue_text)
 
 
 TEMPLATE_REVISION = "50234b4e670064c42a4c29cb6258115a2079ba4c"

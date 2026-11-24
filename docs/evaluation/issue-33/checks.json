@@ -1,0 +1,21 @@
+{
+  "lint": "passed",
+  "format": "passed (95 files)",
+  "strict_mypy": "passed (38 source/test files)",
+  "pytest": {
+    "passed": 332,
+    "skipped": 2,
+    "skip_reason": "Existing RUN_LIVE_REPLAY opt-in network checks not enabled",
+    "seconds": 46.02
+  },
+  "diff_check": "passed",
+  "original_evaluation_and_case_files_unchanged": 161,
+  "inference_dispatches": 6,
+  "budget": 12,
+  "fresh_human_semantic_or_usefulness_review": "pending",
+  "review": {
+    "documented_standard_breaches": 0,
+    "actionable_spec_findings": 0,
+    "nonblocking_standards_heuristics": 1
+  }
+}

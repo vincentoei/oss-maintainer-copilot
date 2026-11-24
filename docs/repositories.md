@@ -137,12 +137,14 @@ verified pinned profile rather than a fresh network observation.
   missing-detail conclusions. At most twenty supported fields per template.
 - Markdown supports YAML front matter and ATX headings. Headings alone do not
   prove requirements: explicit `markdown_required_fields` establishes them.
+  Templates exceeding twenty headings are omitted with an explicit limit error.
   No mapping means limited requirement detection, without pytest assumptions.
 - Generic template applicability requires exactly one template whose supported
   headings all appear in the opening; a unique exact heading set takes precedence
   over subset matches. Ambiguous or unrecognizable openings
   abstain. Only a blank or explicit no-response/TODO/TBD required section is
-  requested; optional sections are never required. Arbitrary prose is not
+  requested; optional sections are never required. Fenced/indented code and
+  comments cannot establish headings; repeated headings abstain. Arbitrary prose is not
   interpreted as proof that an unrendered section is missing. This conservative
   rule can miss actual omissions and cannot guarantee semantic completeness.
 - First 100 available labels only; a full page is disclosed as possibly capped.

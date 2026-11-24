@@ -238,6 +238,8 @@ def resolve_target(
             )
         else:
             context = (registry or get_registry()).resolve(issue.registration_id)
+    if not structured_template_available:
+        context = context.model_copy(update={"structured_templates": False})
     if (
         issue.registration_id is not None
         and issue.registration_id != context.registration_id
@@ -477,17 +479,7 @@ def triage_issue(
                 event.result_count = 1
         except Exception:
             excerpt = None
-        if (
-            excerpt is None
-            or excerpt.commit != location.commit
-            or excerpt.path != location.path
-            or excerpt.line != location.line
-            or excerpt.source_url != location.source_url
-            or not excerpt.start_line <= location.line <= excerpt.end_line
-            or len(excerpt.lines) != excerpt.end_line - excerpt.start_line + 1
-            or sum(len(line) + 1 for line in excerpt.lines)
-            > repository_source.MAX_EXCERPT_CHARS
-        ):
+        if excerpt is None or not excerpt.validates_location(location):
             if event.status == "ok":
                 event.status = "partial"
                 event.error = "Requested source excerpt unavailable."
