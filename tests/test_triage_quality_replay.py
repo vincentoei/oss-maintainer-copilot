@@ -263,6 +263,9 @@ def test_current_expected_behavior_with_a_described_reproducer_link() -> None:
         "If pytest fails in collection, would additional logging be useful?",
         "Suppose two parsers fail to parse this report. Which API should handle it?",
         "If the module hook is not called, could a fixture replace it?",
+        "pytest might fail during collection. Which diagnostics would help?",
+        "I observed success elsewhere. pytest might fail during collection.",
+        "pytest does not fail during collection. I am asking about diagnostics.",
     ],
 )
 def test_hypothetical_failure_question_does_not_acquire_a_report_checklist(
@@ -273,15 +276,33 @@ def test_hypothetical_failure_question_does_not_acquire_a_report_checklist(
     assert report.missing_details == []
 
 
-def test_failing_example_supplied_alongside_a_working_control_is_recognized() -> None:
+@pytest.mark.parametrize(
+    "introduction",
+    [
+        "Here is a minimal failing example:",
+        "Here is a minimal reproducer that fails:",
+    ],
+)
+def test_failing_example_supplied_alongside_a_working_control_is_recognized(
+    introduction: str,
+) -> None:
     report = replay_opening(
         "Bug: module hook stops working",
-        "The hook works in a minimized example.\n"
-        "Here is a minimal failing example:\n"
+        "The hook works in a minimized example.\n" + introduction + "\n"
         "```python\ndef test_hook():\n    assert False\n```",
     )
 
     assert "minimal example" not in {d.name for d in report.missing_details}
+
+
+def test_indented_working_control_is_not_a_failing_reproducer() -> None:
+    report = replay_opening(
+        "Bug: module hook is not called",
+        "The hook works in a minimized example.\n"
+        "    def test_hook():\n        assert True\n",
+    )
+
+    assert "minimal example" in {d.name for d in report.missing_details}
 
 
 def test_observed_mismatch_selects_details_for_a_neutral_title() -> None:

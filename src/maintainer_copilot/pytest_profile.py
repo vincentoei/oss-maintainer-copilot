@@ -260,25 +260,23 @@ def template_for(title: str, body: str) -> TemplateKind | None:
         for heading in ("current behavio[u]?r", "expected behavio[u]?r")
     ):
         return "bug"
-    observed = bool(
-        re.search(
-            r"\b(?:currently witnessing|we (?:encountered|are seeing)|i observed)\b",
-            prose,
-            re.I,
-        )
-    )
     problem_patterns = (
         r"\b(?:does|do|did|is|are)(?:n't| not| never)\b[^.!?\n]{0,40}"
         r"\b(?:work|working|supported|called|effect|controlled)\b",
         r"\b(?:pytest|tests?|parsers?)\b[^.!?\n]{0,60}\b(?:fails?|crash\w*)\b|"
         r"\bcannot be controlled\b|\bblocking each other\b",
+        r"\bcurrently witnessing this on\b[^\n]{0,100}\bpytest\b",
     )
-    for pattern in problem_patterns:
+    for index, pattern in enumerate(problem_patterns):
         for observed_match in re.finditer(pattern, prose, re.I):
             prefix = re.split(r"[.!?\n]", prose[: observed_match.start()])[-1]
-            if observed or not re.search(
-                r"\b(?:if|unless|suppose|whether|could|would|might|hypothetical)\b",
-                prefix,
+            if index != 0 and re.search(
+                r"\b(?:not|never)\b|n't\b", prefix + observed_match.group(), re.I
+            ):
+                continue
+            if not re.search(
+                r"\b(?:if|unless|suppose|whether|could|would|might|may|should|hypothetical)\b",
+                prefix + observed_match.group(),
                 re.I,
             ):
                 return "bug"
@@ -406,11 +404,30 @@ def _has_minimal_example(body: str) -> bool:
         r"\b(?:hook|example)\b[^.!?\n]{0,50}\b(?:works?|honored) "
         r"(?:in|for|with) (?:a|the|this) minimi[sz]ed example\b"
     )
-    failing = r"\b(?:minimal|minimi[sz]ed) failing example\b"
-    if quote_supports_label(
-        {"working": working}, "working", body, body
-    ) and not quote_supports_label({"failing": failing}, "failing", body, body):
-        return False
+    blocks = list(
+        re.finditer(
+            r"```[^\n]*\n.*?```|(?m:(?:^(?: {4}|\t)[^\n]*(?:\n|$))+)",
+            body,
+            re.DOTALL,
+        )
+    )
+    control_blocks = set()
+    for statement in re.finditer(working, body, re.I):
+        if not quote_supports_label(
+            {"working": working}, "working", statement.group(), body
+        ):
+            continue
+        block = next((b for b in blocks if b.start() >= statement.end()), None)
+        if block is None:
+            continue
+        introduction = body[statement.end() : block.start()]
+        failing = r"\b(?:fails?|failing|reproducer)\b"
+        if not quote_supports_label(
+            {"failing": failing}, "failing", introduction, introduction
+        ):
+            control_blocks.add(block.span())
+    for start, end in sorted(control_blocks, reverse=True):
+        body = body[:start] + " " * (end - start) + body[end:]
     if re.search(r"https://github\.com/[\w.-]+/[\w.-]+", body):
         for description in re.finditer(
             r"[^\n]*\brepository\b[^\n]{0,300}\bcontains\b"
