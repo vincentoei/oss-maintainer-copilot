@@ -72,9 +72,54 @@ defects and the duplicated support-validation algorithm. Re-review found zero
 remaining actionable Spec defects and zero documented-standard breaches; one
 profile-dispatch design heuristic remains non-blocking with its scope rationale.
 
-Final checks after all review fixes: **332 passed, 2 skipped** (existing opt-in
+At `b25d574`, checks after the initial review fixes: **332 passed, 2 skipped** (existing opt-in
 network replay checks, not successes); Ruff lint/format, strict mypy and
 `git diff --check` pass. [Machine-readable final checks](issue-33/checks.json).
 All 161 original evaluation/case files remain unchanged; the live ledger still
 contains exactly six dispatches and six preserved raw responses. No additional
-inference was used for review or corrections.
+inference was used for those initial review corrections.
+
+
+## PR #53 verification follow-up
+
+A fresh review of `b25d574` found two additional P2 defects. Both were reproduced
+before the fixes and now have public-interface regressions:
+
+- A prepared documentation excerpt whose final line was blank was rejected even
+  against identical source bytes. Verification now preserves its full line count.
+  Fixed and optional agent endpoints cite the unchanged passage and still abstain
+  when the actual source content changes.
+- List- or mapping-valued YAML field types caused HTTP 500 during registration and
+  refresh. Preparation now validates type structure before membership checks,
+  returning a persisted limited context with actionable unsupported-field/template
+  errors. The registration identity is retained across refresh.
+
+[Follow-up checks](issue-33/follow-up/fix-checks.json): **338 passed, 2 skipped**;
+Ruff lint/format, strict mypy and the worktree diff check pass. The skips remain
+opt-in historical network checks, not successes. No previous case, raw response,
+fingerprint or human judgment was rewritten.
+
+The intervening exact-`b25d574` PR verification used three more real calls (7–9):
+pytest and current Ruff issue #30875 in the browser, and an HTTP failed-read/CI
+smoke. Selection, restart persistence, source inspection and removal passed. Live
+issue search exceeded its 1,000-result cap, and the CI response exceeded its
+inspection size cap; both honestly abstained. Its false Ruff documentation
+abstention led to the documentation fix above. Reports, traces, failure reproductions
+and raw responses are retained in the follow-up directory; the current issue's
+full opening remains local, following ADR-0003.
+
+A new [real browser check](issue-33/follow-up/fixed-documentation-browser.json)
+after both fixes confirms that Ruff's unchanged `CONTRIBUTING.md#L1-L20` passage,
+including its trailing blank line, is cited and rendered without a documentation
+abstention. The report is complete, trace and citations identify Ruff, and there
+are no JavaScript errors. [Screenshot](issue-33/follow-up/fixed-documentation-browser.png).
+This check used one real fixed selection (call 10), with the same verified 3B
+identity and settings. The cumulative [ledger](issue-33/follow-up/requests.jsonl)
+is **10/12** calls, including prior checks, with zero inference retries. Source
+hashes identify the application used for this check. This is verification of the
+defect fix, not a usefulness or generalization result; new human quality judgments
+remain pending and are not invented.
+
+A separate [review of the follow-up fix](issue-33/follow-up/fix-review.md) found zero
+Standards or actionable Spec findings. Both requested defects are resolved; the
+previously disclosed live-reader limits and pending human quality judgments remain.

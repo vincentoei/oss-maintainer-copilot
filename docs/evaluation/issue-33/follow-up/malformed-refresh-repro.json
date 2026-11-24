@@ -1,0 +1,7 @@
+{
+  "case": "refresh existing registration with newly malformed issue-form type",
+  "status": 500,
+  "body": "Internal Server Error",
+  "previous_context_status_after_refresh": "ready",
+  "previous_context_errors": []
+}

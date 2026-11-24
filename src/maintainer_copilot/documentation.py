@@ -91,7 +91,9 @@ class PublicDocumentationSource:
             if not topic.section and topic.url.startswith("https://github.com/"):
                 # Prepared generic passages are immutable raw-file excerpts.
                 lines = body.decode("utf-8").splitlines()
-                if "\n".join(lines[: len(topic.passage.splitlines())]) != topic.passage:
+                # splitlines() drops a final blank line from the prepared excerpt.
+                line_count = topic.passage.count("\n") + 1
+                if "\n".join(lines[:line_count]) != topic.passage:
                     return None
                 return DocumentationPassage(topic.url, topic.passage)
             parser = _SectionParagraph(topic.section)

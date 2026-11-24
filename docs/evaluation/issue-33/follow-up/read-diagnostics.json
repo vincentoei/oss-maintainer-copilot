@@ -1,0 +1,20 @@
+{
+  "search": {
+    "status": "failed",
+    "chain": [
+      {
+        "type": "IssueSearchError",
+        "message": "GitHub search exceeds its 1,000-result limit."
+      }
+    ]
+  },
+  "ci": {
+    "status": "failed",
+    "chain": [
+      {
+        "type": "CIUnavailable",
+        "message": "GitHub CI response exceeds the inspection limit."
+      }
+    ]
+  }
+}

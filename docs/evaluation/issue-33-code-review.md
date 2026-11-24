@@ -49,3 +49,9 @@ ran outside that sandbox and are recorded in the acceptance report.
 
 Initial findings: Standards 2 heuristics / Spec 3 P2 defects. Remaining: Standards
 0 documented breaches and 1 non-blocking heuristic / Spec 0 actionable defects.
+
+
+The later PR verification found two additional P2 defects at `b25d574`; these were
+reproduced and corrected in the follow-up fix. Its separate
+[Standards and Spec review](issue-33/follow-up/fix-review.md) reports zero findings
+in the new diff, backed by public regressions and a real browser verification.

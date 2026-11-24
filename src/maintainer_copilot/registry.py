@@ -217,11 +217,15 @@ def _template(
             for item in metadata["body"]:
                 if not isinstance(item, dict):
                     raise ValueError("Unsupported issue-form field")
-                if item.get("type") == "markdown":
+                field_type = item.get("type")
+                if field_type == "markdown":
                     continue
-                if item.get("type") not in {"input", "textarea"}:
+                if not isinstance(field_type, str) or field_type not in {
+                    "input",
+                    "textarea",
+                }:
                     errors.append(
-                        f"{path}: unsupported {item.get('type')} field; "
+                        f"{path}: unsupported {field_type} field; "
                         f"missing-detail detection abstains for it."
                     )
                     continue

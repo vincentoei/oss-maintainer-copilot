@@ -1,0 +1,9 @@
+{
+  "head": "b25d574319fea7dacafb7e5b341b9f9d1f73ba07",
+  "base": "422876ddae78d1638b6f1980fec5a28f42932355",
+  "prior_dispatches": 6,
+  "total_cap": 12,
+  "planned_new_fixed_dispatches": 3,
+  "no_retries": true,
+  "fresh_human_judgments": "not requested; no quality claims"
+}

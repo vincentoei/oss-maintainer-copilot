@@ -1,0 +1,11 @@
+{
+  "request": 7,
+  "prompt_sha256": "65d893969cd5f2f198fb4054a95ec13f8be2649442d76058efd620818301bbec",
+  "input_sha256": "97ec549cff18d25953aa958b113cd1f5fa22e2152465fd0e07136e93fc7fa7ab",
+  "schema_sha256": "ab4e5a4a32491284ed6cff92e57161290ab717bd1745bafbf350ab5f48fe29b2",
+  "max_tokens": 256,
+  "repository": "pytest-dev/pytest",
+  "transport": "returned",
+  "seconds": 4.046048332005739,
+  "raw_response": "{\"id\":\"chatcmpl-959\",\"object\":\"chat.completion\",\"created\":1795516607,\"model\":\"pytest-triage:coder3b-ctx16k\",\"system_fingerprint\":\"fp_ollama\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"{\\n  \\\"issue_type\\\": \\\"type: bug\\\",\\n  \\\"issue_type_quote\\\": \\\"Bug: local collection smoke check\\\\nSynthetic smoke opening: collection fails when ru\\\",\\n  \\\"reply_citation_ids\\\": [\\\"C1\\\", \\\"C2\\\", \\\"C3\\\"]\\n}\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":665,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens\":56,\"total_tokens\":721}}\n"
+}

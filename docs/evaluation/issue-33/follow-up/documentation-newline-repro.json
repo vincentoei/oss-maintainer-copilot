@@ -1,0 +1,12 @@
+{
+  "head": "b25d574319fea7dacafb7e5b341b9f9d1f73ba07",
+  "topic_url": "https://github.com/astral-sh/ruff/blob/32669b2743b45fb364aa4741b82e98443155ca3c/CONTRIBUTING.md#L1-L20",
+  "exact_prepared_twenty_line_passage_matches_file": true,
+  "stored_passage_ends_newline": true,
+  "splitlines_count": 19,
+  "documentation_claims": 0,
+  "report_status": "partial",
+  "documentation_abstentions": [
+    "astral-sh/ruff documentation passage unavailable: CONTRIBUTING.md."
+  ]
+}

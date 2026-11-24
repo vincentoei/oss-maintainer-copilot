@@ -130,6 +130,7 @@ def public_github(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> dict[str, 
         "failed": False,
         "calls": [],
         "filename": "bug.yaml",
+        "documentation": "# Documentation\nThe widget command reproduces a crash.\n",
     }
     identities = {"astral-sh/ruff": 1, "acme/widget": 2, "other/tool": 3}
 
@@ -163,7 +164,7 @@ def public_github(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> dict[str, 
         elif url.endswith(state["filename"]):
             return BytesIO(state["form"].encode())
         else:
-            return BytesIO(b"# Documentation\nThe widget command reproduces a crash.\n")
+            return BytesIO(state["documentation"].encode())
         return BytesIO(json.dumps(data).encode())
 
     monkeypatch.setattr(registry, "urlopen", fetch)
@@ -967,3 +968,116 @@ def test_python_template_abstention_control_applies_without_other_overrides(
         assert report.missing_details == []
         assert report.context.structured_templates is False
         assert any(a.field == "missing_details" for a in report.abstentions)
+
+
+@pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
+def test_prepared_documentation_retains_its_trailing_blank_line(
+    public_github: dict[str, Any],
+    monkeypatch: pytest.MonkeyPatch,
+    endpoint: str,
+) -> None:
+    from maintainer_copilot.web import get_agent_client, get_model_client
+
+    expected_passage = "# Widget documentation\n" + "Use the widget command.\n" * 18
+    document = expected_passage + "\nAdditional widget guidance.\n"
+    public_github["documentation"] = document
+    saved = register("acme/widget", documentation_paths=["README.md"])
+    topic = saved["context"]["documentation"][0]
+    assert topic["url"] == f"https://github.com/acme/widget/blob/{SHA}/README.md#L1-L20"
+    assert topic["passage"] == expected_passage
+
+    def fetch(req: Any, timeout: int) -> BytesIO:
+        assert timeout == 8
+        return BytesIO(document.encode())
+
+    monkeypatch.setattr("maintainer_copilot.documentation.urlopen", fetch)
+
+    async def model_dependency() -> SelectingModel:
+        return SelectingModel(None)
+
+    app.dependency_overrides[get_model_client] = model_dependency
+    app.dependency_overrides[get_agent_client] = model_dependency
+    try:
+        response = request(
+            "POST",
+            endpoint,
+            json={
+                "registration_id": saved["id"],
+                "title": "Widget command behavior",
+                "body": "Use the widget command.",
+            },
+        )
+        assert response.status_code == 200, response.text
+        report = response.json()
+        assert len(report["documentation_claims"]) == 1
+        citation = next(
+            c
+            for c in report["citations"]
+            if c["id"] == report["documentation_claims"][0]["citation_id"]
+        )
+        assert citation["passage"] == expected_passage
+        assert citation["source_url"] == topic["url"]
+        assert not any(
+            a["field"] == "documentation_claims" for a in report["abstentions"]
+        )
+        assert report["status"] == "complete"
+
+        # An actual change still invalidates the prepared evidence at both APIs.
+        document = document.replace(
+            "Use the widget command.", "Changed instructions.", 1
+        )
+        changed = request(
+            "POST",
+            endpoint,
+            json={
+                "registration_id": saved["id"],
+                "title": "Widget command behavior",
+                "body": "Use the widget command.",
+            },
+        ).json()
+        assert changed["documentation_claims"] == []
+        assert any(a["field"] == "documentation_claims" for a in changed["abstentions"])
+        assert changed["status"] == "partial"
+    finally:
+        app.dependency_overrides.clear()
+
+
+@pytest.mark.parametrize("field_type", ["[textarea]", "{nested: textarea}"])
+@pytest.mark.parametrize("refresh", [False, True], ids=["register", "refresh"])
+def test_malformed_form_field_types_persist_actionable_limited_context(
+    public_github: dict[str, Any],
+    field_type: str,
+    refresh: bool,
+) -> None:
+    existing = register("acme/widget") if refresh else None
+    public_github["form"] = (
+        f"name: Crash report\nbody:\n  - type: {field_type}\n"
+        "    attributes:\n      label: Reproduction\n"
+        "    validations:\n      required: true\n"
+    )
+    public_github["sha"] = "b" * 40
+    if existing:
+        response = request("POST", f"/api/repositories/{existing['id']}/refresh")
+    else:
+        response = request(
+            "POST", "/api/repositories", json={"repository": "acme/widget"}
+        )
+    assert response.status_code == 200, response.text
+    saved = response.json()
+    assert saved["context"]["repository"] == "acme/widget"
+    assert saved["context"]["revision"] == "b" * 40
+    assert saved["context"]["status"] == "limited"
+    assert saved["context"]["templates"] == []
+    assert any(
+        "bug.yaml" in error and "unsupported" in error
+        for error in saved["context"]["errors"]
+    )
+    assert any(
+        "Missing-detail detection abstains" in error
+        for error in saved["context"]["errors"]
+    )
+    if existing:
+        assert saved["id"] == existing["id"]
+    listed = request("GET", "/api/repositories").json()
+    persisted = next(entry for entry in listed if entry["id"] == saved["id"])
+    assert persisted["context"] == saved["context"]
