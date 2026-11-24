@@ -29,13 +29,15 @@ TYPE_EVIDENCE_CUES = {
     "type: bug": r"\b(?:bug|broken|crash\w*|fail\w*|error|incorrect|wrong)\b",
     "type: deprecation": r"\bdeprecat\w*\b",
     "type: docs": r"\b(?:docs|documentation|guide|manual|typo)\b",
-    "type: enhancement": r"\b(?:feature|enhancement|add|support|allow)\b",
+    "type: enhancement": r"\b(?:feature|enhancement|add|support|allow|warn if)\b",
     "type: infrastructure": r"\b(?:infrastructure|build|release|ci|workflow)\b",
     "type: performance": r"\b(?:performance|slow|latency|memory|speed)\b",
     "type: proposal": r"\b(?:proposal|propose|design)\b",
     "type: question": r"\b(?:question|how|why)\b|\?",
     "type: refactoring": r"\b(?:refactor\w*|cleanup)\b",
-    "type: regression": r"\b(?:regression|used to work|worked before)\b",
+    "type: regression": (
+        r"\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\b"
+    ),
     "type: removal": r"\bremov\w*\b",
     "type: selftests": r"\b(?:selftests|pytest test suite)\b",
 }
@@ -234,7 +236,11 @@ def template_for(title: str, body: str) -> TemplateKind | None:
         re.search(r"\b(feature request|feature|enhancement|add support)\b", title)
     )
     bug_hint = bool(
-        re.search(r"\b(bug|error|fails?|crashes?|regression|hangs?)\b", title)
+        re.search(
+            r"\b(bug|\w*error|broken|fail(?:ure)?s?|crashes?|regress(?:ion|ed)|"
+            r"hangs?|truncated|no output)\b",
+            title,
+        )
     )
     if bug_hint and not feature_hint:
         return "bug"
@@ -244,11 +250,19 @@ def template_for(title: str, body: str) -> TemplateKind | None:
         return "feature"
     if "a detailed description of the bug or problem" in body.lower():
         return "bug"
+    if re.search(
+        r"\b(?:didn't|did not) observe (?:the )?expected (?:behavio[u]?r|result)\b",
+        body,
+        re.I,
+    ):
+        return "bug"
+    problem = r"\bresults? in (?:a |an )?(?:collection )?(?:error|exception|failure)\b"
+    if quote_supports_label({"problem": problem}, "problem", body, body):
+        return "bug"
     return None
 
 
 def missing_bug_details(body: str) -> list[TemplateDetail]:
-    body_lower = body.lower()
     without_comments = re.sub(r"<!--.*?-->", "", body, flags=re.DOTALL)
     without_code = re.sub(r"```.*?```", "", without_comments, flags=re.DOTALL)
     description_lines = [
@@ -265,31 +279,60 @@ def missing_bug_details(body: str) -> list[TemplateDetail]:
     ]
     has_description = len(" ".join(description_lines)) >= 30
     has_pip_list = _has_pip_list_output(body)
-    has_versions = bool(
-        re.search(r"\bpytest(?:\s+version)?\s*[:= ]\s*v?\d", body_lower)
-        and (
-            re.search(r"(?im)^\s*(?:os|operating system)\s*:\s*[^\n]*\d", body)
-            or re.search(
-                r"\b(?:ubuntu|windows|macos|linux|fedora|debian|freebsd|openbsd|"
-                r"netbsd)\b[^\n]*\d",
-                body_lower,
-            )
-        )
-    )
+    has_versions = all(_provided_environment(body))
     has_example = _has_minimal_example(body)
     provided = (has_description, has_pip_list, has_versions, has_example)
     return _missing_details(BUG_DETAILS, provided)
 
 
+def _provided_environment(body: str) -> tuple[bool, bool]:
+    without_comments = re.sub(r"<!--.*?-->", "", body, flags=re.DOTALL)
+    environment_text = re.sub(r"[*`]", "", without_comments)
+    body_lower = environment_text.lower()
+    os_text = re.sub(
+        r"\b(?:python|pytest|pluggy)(?:\s+version)?[ :=-]*v?\d[\w.+-]*",
+        "",
+        environment_text,
+        flags=re.I,
+    )
+    has_pytest = bool(re.search(r"\bpytest(?:\s+version)?\s*[:= -]\s*v?\d", body_lower))
+    has_os = bool(
+        re.search(r"(?im)^\s*(?:os|operating system)\s*:\s*[^\n]*\d", os_text)
+        or re.search(
+            r"\b(?:ubuntu|windows|macos|linux|fedora|debian|freebsd|openbsd|"
+            r"netbsd)\b[^\n]*\d",
+            os_text,
+            re.I,
+        )
+        or re.search(
+            r"\b(?:opensuse\s+tumbleweed|gentoo(?:\s+linux)?|"
+            r"debian\s+(?:buster|bullseye|bookworm|trixie))\b",
+            body_lower,
+        )
+    )
+    return has_pytest, has_os
+
+
 def _has_pip_list_output(body: str) -> bool:
-    package_row = re.compile(r"^[\w.-]+\s+\d+(?:\.\d+)+(?:\S*)$")
+    if (
+        re.search(r"(?m)^\s*\$?\s*pipenv graph\s*$", body)
+        and re.search(r"(?m)^[\w.-]+==\d+(?:\.\d+)+", body)
+        and re.search(r"\[required:[^\]\n]+, installed:\s*\d", body)
+    ):
+        return True
+    package_row = re.compile(
+        r"^[\w.-]+\s+\d+(?:\.\d+)+(?:\S*)"
+        r"(?:\s+(?:/|[A-Za-z]:[\\/])[^\r\n]*)?$"
+    )
     lines = body.splitlines()
     # pip's own table header is stronger evidence than the reporter's heading.
     # Require actual rows, so a copied empty table is still missing.
     for index, line in enumerate(lines):
-        if re.fullmatch(r"\s*Package\s+Version\s*", line, re.I):
+        if re.fullmatch(
+            r"\s*Package\s+Version(?:\s+Editable project location)?\s*", line, re.I
+        ):
             rows = lines[index + 1 :]
-            if rows and re.fullmatch(r"\s*-+\s+-+\s*", rows[0]):
+            if rows and re.fullmatch(r"\s*-+\s+-+(?:\s+-+)?\s*", rows[0]):
                 rows = rows[1:]
             if rows and package_row.fullmatch(rows[0].strip()):
                 return True
@@ -313,7 +356,13 @@ def _has_pip_list_output(body: str) -> bool:
 
 
 def _has_minimal_example(body: str) -> bool:
-    if re.search(r"\bdef\s+test_\w+\s*\(", body):
+    if re.search(r"\bdef\s+test\w*\s*\(", body):
+        return True
+    if (
+        re.search(r"\btox\s+-e\s+py\d+\b", body)
+        and re.search(r"(?m)^FAILED testing/\S+::\S+", body)
+        and re.search(r"\bpytest-\d[^\s,]*\.dev", body)
+    ):
         return True
     heading = re.search(r"(?im)^\s*minimal example:[ \t]*(.*)$", body)
     if heading is None:
@@ -377,6 +426,14 @@ def _section_has_answer(body: str, heading: str) -> bool:
 
 
 def _has_concrete_scenario(body: str) -> bool:
+    if re.search(
+        r"\b(?:reading|read|viewing|view)\b[^\n.!?]{0,80}"
+        r"\b(?:docs|documentation)\b[^\n.!?]{0,80}"
+        r"\b(?:evening|night|low.light)\b",
+        body,
+        re.I,
+    ):
+        return True
     if re.search(
         r"\b(?:i'm|i am|we are)\s+(?:currently\s+)?writing tests\b[^\n]{20,}",
         body,
@@ -449,6 +506,13 @@ def _has_current_alternative(body: str) -> bool:
 
 def _has_alternative_detail(body: str) -> bool:
     answer = _section_answer(body, "Alternative Solutions")
+    if re.search(
+        r"\b(?:could|can) (?:avoid|omit|drop|remove|disable)\b[^\n]*"
+        r"--?[a-z][\w-]*[^\n]*\bbut\b[^\n]*\b(?:lose|losing|no longer)\b",
+        answer,
+        re.I,
+    ):
+        return True
     # Explicitly reporting that none exists answers the template's "or none"
     # question. Saying an approach has not been tried does not.
     if re.fullmatch(
@@ -584,10 +648,19 @@ def profile_details(
         if template == "bug"
         else missing_feature_details(body)
     )
+    version_request = None
+    if template == "bug":
+        has_pytest, has_os = _provided_environment(body)
+        if has_pytest and not has_os:
+            version_request = "your operating system and release"
+        elif has_os and not has_pytest:
+            version_request = "your pytest version"
     return [
         DetailRequest(
             name=d.name,
-            request=d.request,
+            request=(version_request or d.request)
+            if d.name == "pytest and OS versions"
+            else d.request,
             url=citation_url(template, d.line, revision),
             description=f"pytest {template} report template: {d.name}",
         )

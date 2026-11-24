@@ -90,12 +90,16 @@ def test_agent_replay_respects_historical_template_availability() -> None:
 
 @pytest.mark.parametrize(
     ("comparison_issue", "planned_cases", "pairs_gate"),
-    [(17, 30, "thirty_complete_pairs"), (18, 40, "forty_complete_pairs")],
+    [
+        (17, 30, "thirty_complete_pairs"),
+        (18, 40, "forty_complete_pairs"),
+        (56, 40, "forty_complete_pairs"),
+    ],
 )
 def test_comparison_preserves_three_arms_and_reports_actual_inference_cost(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
-    comparison_issue: Literal[17, 18],
+    comparison_issue: Literal[17, 18, 56],
     planned_cases: int,
     pairs_gate: str,
 ) -> None:
@@ -113,8 +117,11 @@ def test_comparison_preserves_three_arms_and_reports_actual_inference_cost(
             {"tool": "finish", "arguments": {}}
             if "enum" in schema
             else {
-                "issue_type": "type: enhancement",
-                "issue_type_quote": "Feature",
+                "type_evidence_index": next(
+                    i
+                    for i, option in enumerate(data["type_evidence_options"])
+                    if option["issue_type"] == "type: enhancement"
+                ),
                 "reply_citation_ids": data["required_reply_ids"],
             }
         )

@@ -1,0 +1,25 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________ test_exception_class_in_title_selects_missing_bug_details ___________
+
+    def test_exception_class_in_title_selects_missing_bug_details() -> None:
+        report = replay_opening(
+            "AttributeError during collection after upgrading pytest",
+            "Previously working tests stop at collection before a test can run.",
+        )
+    
+>       assert {d.name for d in report.missing_details} == {
+            "pip list output", "pytest and OS versions", "minimal example"
+        }
+E       AssertionError: assert set() == {'minimal exa... OS versions'}
+E         
+E         Extra items in the right set:
+E         'pytest and OS versions'
+E         'pip list output'
+E         'minimal example'
+E         Use -v to get more diff
+
+tests/test_triage_quality_replay.py:79: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_exception_class_in_title_selects_missing_bug_details
+1 failed, 5 deselected in 0.10s

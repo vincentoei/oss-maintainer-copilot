@@ -1,0 +1,57 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________ test_model_selects_a_supported_type_and_quote_as_one_option __________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x751ba7355310>
+
+    def test_model_selects_a_supported_type_and_quote_as_one_option(
+        monkeypatch: pytest.MonkeyPatch,
+    ) -> None:
+        def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
+            assert isinstance(request.data, bytes)
+            payload = json.loads(request.data)
+            data = json.loads(payload["messages"][1]["content"])
+            options = data["type_evidence_options"]
+            properties = payload["response_format"]["json_schema"]["schema"]["properties"]
+            # A decoder following the old independent enums can pair a bug label
+            # with enhancement-only evidence, as the archived #12216 response did.
+            if "type_evidence_index" in properties:
+                output = {
+                    "type_evidence_index": next(
+                        i for i, option in enumerate(options)
+                        if option["issue_type"] == "type: bug"
+                    ),
+                    "reply_citation_ids": data["required_reply_ids"],
+                }
+            else:
+                output = {
+                    "issue_type": "type: bug",
+                    "issue_type_quote": next(
+                        option["quote"] for option in options
+                        if option["issue_type"] == "type: enhancement"
+                    ),
+                    "reply_citation_ids": data["required_reply_ids"],
+                }
+            return io.BytesIO(json.dumps({
+                "choices": [{"message": {"content": json.dumps(output)}}],
+                "usage": {"prompt_tokens": 100, "completion_tokens": 20},
+            }).encode())
+    
+        monkeypatch.setattr("maintainer_copilot.model.urlopen", endpoint)
+        report = replay_opening(
+            "Bug: collection fails",
+            "Background context about fixture discovery. " * 4
+            + "Feature: allow custom fixture discovery.",
+            model_client=OpenAICompatibleModel("http://model.test/v1", "controlled"),
+        )
+    
+>       assert report.status == "complete"
+E       AssertionError: assert 'partial' == 'complete'
+E         
+E         - complete
+E         + partial
+
+tests/test_triage_quality_replay.py:145: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_model_selects_a_supported_type_and_quote_as_one_option
+1 failed, 7 deselected in 0.10s

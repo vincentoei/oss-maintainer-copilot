@@ -1,0 +1,17 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______ test_version_prose_below_an_empty_table_does_not_supply_packages _______
+
+    def test_version_prose_below_an_empty_table_does_not_supply_packages() -> None:
+        report = replay_opening(
+            "Bug: collection fails",
+            "Package Version\n--- ---\npytest 8.1.1 on Ubuntu 22.04\n",
+        )
+    
+>       assert "pip list output" in {d.name for d in report.missing_details}
+E       AssertionError: assert 'pip list output' in {'minimal example'}
+
+tests/test_triage_quality_replay.py:342: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_version_prose_below_an_empty_table_does_not_supply_packages
+1 failed, 25 deselected in 0.11s

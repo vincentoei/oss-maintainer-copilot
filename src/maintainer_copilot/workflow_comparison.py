@@ -45,7 +45,7 @@ METHODS = ("keyword_rule", "fixed_rag", "bounded_agent")
 MODEL_NAME = "pytest-triage:coder3b-ctx16k"
 MODEL_DIGEST = "3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8"
 ROOT = Path(__file__).resolve().parents[2]
-CASE_COUNTS = {16: 20, 17: 30, 18: 40}
+CASE_COUNTS = {16: 20, 17: 30, 18: 40, 56: 40}
 
 
 def fingerprint(value: object) -> str:
@@ -282,7 +282,7 @@ def evaluate_comparison(
     source_reader: source.SourceReader,
     measure_gpu: bool = False,
     serving: dict[str, Any] | None = None,
-    comparison_issue: Literal[16, 17, 18] = 16,
+    comparison_issue: Literal[16, 17, 18, 56] = 16,
 ) -> dict[str, Any]:
     """Run once with shared eligibility; never replace or silently drop a case."""
     directory.mkdir(parents=True, exist_ok=False)
@@ -794,7 +794,7 @@ def main() -> None:
         if hashlib.sha256((ROOT / name).read_bytes()).hexdigest() != expected:
             parser.error(f"Preserved baseline changed: {name}")
     cases = load_cases()
-    if args.issue != 18:
+    if args.issue in (16, 17):
         # Preserve archived run catalogs after subsequent expansions.
         original = json.loads(
             (

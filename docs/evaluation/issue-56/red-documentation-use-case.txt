@@ -1,0 +1,19 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________ test_reading_documentation_at_night_is_a_concrete_use_case __________
+
+    def test_reading_documentation_at_night_is_a_concrete_use_case() -> None:
+        report = replay_opening(
+            "Feature: support a dark documentation theme",
+            "#### What's the problem this feature will solve?\n"
+            "Reading the documentation in the evening is uncomfortable because "
+            "the website theme is very bright.\n",
+        )
+    
+>       assert "real-world use case" not in {d.name for d in report.missing_details}
+E       AssertionError: assert 'real-world use case' not in {'alternative solutions', 'proposed solution', 'real-world use case'}
+
+tests/test_triage_quality_replay.py:291: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_reading_documentation_at_night_is_a_concrete_use_case
+1 failed, 21 deselected in 0.11s

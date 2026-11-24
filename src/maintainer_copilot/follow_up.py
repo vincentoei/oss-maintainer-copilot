@@ -50,10 +50,25 @@ def supported_follow_up(body: str) -> FollowUp | None:
     for package, values in versions.items():
         listed_versions = re.findall(rf"(?im)^\s*{package}\s+(\d+(?:\.\d+)+)\s*$", body)
         session_versions = re.findall(rf"\b{package}-(\d+(?:\.\d+)+)", body)
+        comparisons = set(
+            re.findall(
+                rf"\b(?:whereas|compared (?:with|to)|versus)\b[^\n]{{0,40}}?"
+                rf"\b{package}\s+(\d+(?:\.\d+)+)",
+                body,
+                re.I,
+            )
+        )
+        other_sessions = set(session_versions) - set(listed_versions)
+        explained_comparison = (
+            other_sessions
+            and other_sessions <= comparisons
+            and bool(set(session_versions) & set(listed_versions))
+        )
         if (
             listed_versions
             and session_versions
             and set(listed_versions) != set(session_versions)
+            and not explained_comparison
         ):
             conflicting[package] = values
     if conflicting:

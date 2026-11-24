@@ -1,0 +1,79 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+____ test_clear_failure_title_selects_report_details[The plugin is broken] _____
+
+title = 'The plugin is broken'
+
+    @pytest.mark.parametrize(
+        "title", ["The plugin is broken", "Unexpected fixture setup", "No output written"]
+    )
+    def test_clear_failure_title_selects_report_details(title: str) -> None:
+        report = replay_opening(
+            title, "Running this test suite produces a different result than expected."
+        )
+    
+>       assert {d.name for d in report.missing_details} == {
+            "pip list output", "pytest and OS versions", "minimal example"
+        }
+E       AssertionError: assert set() == {'minimal exa... OS versions'}
+E         
+E         Extra items in the right set:
+E         'pytest and OS versions'
+E         'pip list output'
+E         'minimal example'
+E         Use -v to get more diff
+
+tests/test_triage_quality_replay.py:213: AssertionError
+__ test_clear_failure_title_selects_report_details[Unexpected fixture setup] ___
+
+title = 'Unexpected fixture setup'
+
+    @pytest.mark.parametrize(
+        "title", ["The plugin is broken", "Unexpected fixture setup", "No output written"]
+    )
+    def test_clear_failure_title_selects_report_details(title: str) -> None:
+        report = replay_opening(
+            title, "Running this test suite produces a different result than expected."
+        )
+    
+>       assert {d.name for d in report.missing_details} == {
+            "pip list output", "pytest and OS versions", "minimal example"
+        }
+E       AssertionError: assert set() == {'minimal exa... OS versions'}
+E         
+E         Extra items in the right set:
+E         'pytest and OS versions'
+E         'pip list output'
+E         'minimal example'
+E         Use -v to get more diff
+
+tests/test_triage_quality_replay.py:213: AssertionError
+______ test_clear_failure_title_selects_report_details[No output written] ______
+
+title = 'No output written'
+
+    @pytest.mark.parametrize(
+        "title", ["The plugin is broken", "Unexpected fixture setup", "No output written"]
+    )
+    def test_clear_failure_title_selects_report_details(title: str) -> None:
+        report = replay_opening(
+            title, "Running this test suite produces a different result than expected."
+        )
+    
+>       assert {d.name for d in report.missing_details} == {
+            "pip list output", "pytest and OS versions", "minimal example"
+        }
+E       AssertionError: assert set() == {'minimal exa... OS versions'}
+E         
+E         Extra items in the right set:
+E         'pytest and OS versions'
+E         'pip list output'
+E         'minimal example'
+E         Use -v to get more diff
+
+tests/test_triage_quality_replay.py:213: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_clear_failure_title_selects_report_details[The plugin is broken]
+FAILED tests/test_triage_quality_replay.py::test_clear_failure_title_selects_report_details[Unexpected fixture setup]
+FAILED tests/test_triage_quality_replay.py::test_clear_failure_title_selects_report_details[No output written]
+3 failed, 12 deselected in 0.12s

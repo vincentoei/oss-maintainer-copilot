@@ -1,0 +1,109 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+______ test_invalid_type_option_abstains_and_retains_provider_usage[True] ______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7523665232f0>
+index = True
+
+    @pytest.mark.parametrize("index", [True, -1, 9999])
+    def test_invalid_type_option_abstains_and_retains_provider_usage(
+        monkeypatch: pytest.MonkeyPatch, index: object
+    ) -> None:
+        def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
+            return io.BytesIO(json.dumps({
+                "choices": [{"message": {"content": json.dumps({
+                    "type_evidence_index": index, "reply_citation_ids": []
+                })}}],
+                "usage": {"prompt_tokens": 100, "completion_tokens": 20},
+            }).encode())
+    
+        monkeypatch.setattr("maintainer_copilot.model.urlopen", endpoint)
+        report = replay_opening(
+            "Bug: collection fails", "The collector stops before running tests.",
+            model_client=OpenAICompatibleModel("http://model.test/v1", "controlled"),
+        )
+        trace = get_trace(report.trace_id)
+        assert trace is not None
+        selection = next(e for e in trace.events if e.name == "triage_selection")
+    
+        assert report.status == "partial" and report.issue_type is None
+>       assert (selection.input_tokens, selection.output_tokens) == (100, 20)
+E       assert (None, None) == (100, 20)
+E         
+E         At index 0 diff: None != 100
+E         Use -v to get more diff
+
+tests/test_triage_quality_replay.py:173: AssertionError
+_______ test_invalid_type_option_abstains_and_retains_provider_usage[-1] _______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7523649337a0>
+index = -1
+
+    @pytest.mark.parametrize("index", [True, -1, 9999])
+    def test_invalid_type_option_abstains_and_retains_provider_usage(
+        monkeypatch: pytest.MonkeyPatch, index: object
+    ) -> None:
+        def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
+            return io.BytesIO(json.dumps({
+                "choices": [{"message": {"content": json.dumps({
+                    "type_evidence_index": index, "reply_citation_ids": []
+                })}}],
+                "usage": {"prompt_tokens": 100, "completion_tokens": 20},
+            }).encode())
+    
+        monkeypatch.setattr("maintainer_copilot.model.urlopen", endpoint)
+        report = replay_opening(
+            "Bug: collection fails", "The collector stops before running tests.",
+            model_client=OpenAICompatibleModel("http://model.test/v1", "controlled"),
+        )
+        trace = get_trace(report.trace_id)
+        assert trace is not None
+        selection = next(e for e in trace.events if e.name == "triage_selection")
+    
+        assert report.status == "partial" and report.issue_type is None
+>       assert (selection.input_tokens, selection.output_tokens) == (100, 20)
+E       assert (None, None) == (100, 20)
+E         
+E         At index 0 diff: None != 100
+E         Use -v to get more diff
+
+tests/test_triage_quality_replay.py:173: AssertionError
+______ test_invalid_type_option_abstains_and_retains_provider_usage[9999] ______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x75236557a5a0>
+index = 9999
+
+    @pytest.mark.parametrize("index", [True, -1, 9999])
+    def test_invalid_type_option_abstains_and_retains_provider_usage(
+        monkeypatch: pytest.MonkeyPatch, index: object
+    ) -> None:
+        def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
+            return io.BytesIO(json.dumps({
+                "choices": [{"message": {"content": json.dumps({
+                    "type_evidence_index": index, "reply_citation_ids": []
+                })}}],
+                "usage": {"prompt_tokens": 100, "completion_tokens": 20},
+            }).encode())
+    
+        monkeypatch.setattr("maintainer_copilot.model.urlopen", endpoint)
+        report = replay_opening(
+            "Bug: collection fails", "The collector stops before running tests.",
+            model_client=OpenAICompatibleModel("http://model.test/v1", "controlled"),
+        )
+        trace = get_trace(report.trace_id)
+        assert trace is not None
+        selection = next(e for e in trace.events if e.name == "triage_selection")
+    
+        assert report.status == "partial" and report.issue_type is None
+>       assert (selection.input_tokens, selection.output_tokens) == (100, 20)
+E       assert (None, None) == (100, 20)
+E         
+E         At index 0 diff: None != 100
+E         Use -v to get more diff
+
+tests/test_triage_quality_replay.py:173: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_invalid_type_option_abstains_and_retains_provider_usage[True]
+FAILED tests/test_triage_quality_replay.py::test_invalid_type_option_abstains_and_retains_provider_usage[-1]
+FAILED tests/test_triage_quality_replay.py::test_invalid_type_option_abstains_and_retains_provider_usage[9999]
+3 failed, 8 deselected in 0.12s

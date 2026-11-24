@@ -1,0 +1,17 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________ test_python_and_pytest_versions_do_not_supply_a_linux_release _________
+
+    def test_python_and_pytest_versions_do_not_supply_a_linux_release() -> None:
+        report = replay_opening(
+            "Bug: assertion output is truncated",
+            "platform linux -- Python 3.12.3, pytest-8.2.0.dev99, pluggy-1.5.0\n",
+        )
+    
+>       assert "pytest and OS versions" in {d.name for d in report.missing_details}
+E       AssertionError: assert 'pytest and OS versions' in {'minimal example', 'pip list output'}
+
+tests/test_triage_quality_replay.py:260: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_python_and_pytest_versions_do_not_supply_a_linux_release
+1 failed, 18 deselected in 0.11s
