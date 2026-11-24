@@ -192,11 +192,12 @@ GITHUB_TOKEN="$(gh auth token)" uv run --locked --no-env-file \
 ```
 
 The `--issue 16` and `--issue 17` modes retain their archived twenty- and
-thirty-case catalogs. Check the new metadata and family/chronology manifest:
+thirty-case catalogs. The [forty-case results and acceptance evidence](docs/evaluation/issue-18.md)
+include updated field scores, case changes and newly observed failures. Verify
+the saved comparison and family/chronology checks without network or inference:
 
 ```sh
-PYTHONPATH=src uv run --locked --no-env-file python scripts/issue18_verify.py \
-  --metadata-only
+PYTHONPATH=src uv run --locked --no-env-file python scripts/issue18_verify.py
 ```
 
 [Issue #12's methodology and provisional results](docs/evaluation/issue-12.md)

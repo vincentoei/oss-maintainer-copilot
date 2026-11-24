@@ -1,0 +1,1654 @@
+{
+  "scope": "Field/status changes on original thirty; new ten reported separately. Report comparisons exclude volatile trace IDs. No causal model-improvement claim.",
+  "changed_case_workflow_rows": 3,
+  "changed_cases": [
+    12204
+  ],
+  "changes": [
+    {
+      "method": "keyword_rule",
+      "issue_number": 12204,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": true,
+      "changes": {
+        "duplicate_retrieval": {
+          "before": null,
+          "after": {
+            "found": false,
+            "expected_issue": 12203,
+            "retrieved_issues": [],
+            "other_issues_unreviewed": []
+          }
+        },
+        "duplicate_judgment": {
+          "before": null,
+          "after": {
+            "correct": false,
+            "expected": "nonduplicate",
+            "observed": "not_retrieved",
+            "review_status": "exact"
+          }
+        },
+        "issue_type": {
+          "before": null,
+          "after": {
+            "correct": true,
+            "expected": "type: bug",
+            "observed": "type: bug"
+          }
+        },
+        "missing_details": {
+          "before": null,
+          "after": {
+            "exact": true,
+            "precision": 1.0,
+            "recall": 1.0,
+            "expected": [],
+            "observed": []
+          }
+        },
+        "citation_validity": {
+          "before": null,
+          "after": {
+            "valid": true,
+            "checked": 1,
+            "errors": [],
+            "semantic_review_status": "pending_human_review"
+          }
+        },
+        "abstention": {
+          "before": null,
+          "after": {
+            "observed_fields": [
+              "missing_details"
+            ],
+            "issue_type_appropriate": true,
+            "duplicate_expected": false,
+            "duplicate_observed": false,
+            "duplicate_appropriate": true,
+            "other_fields_review_status": "pending_human_review"
+          }
+        },
+        "error": {
+          "before": "1 validation error for IssueUnderReview\nbody\n  String should have at most 16000 characters [type=string_too_long, input_value='My session fixture can r...ot 2.7 GiB logs :-)\\r\\n', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_too_long",
+          "after": null
+        },
+        "report_status": {
+          "before": null,
+          "after": "complete"
+        }
+      }
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12204,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": true,
+      "changes": {
+        "duplicate_retrieval": {
+          "before": null,
+          "after": {
+            "found": false,
+            "expected_issue": 12203,
+            "retrieved_issues": [],
+            "other_issues_unreviewed": []
+          }
+        },
+        "duplicate_judgment": {
+          "before": null,
+          "after": {
+            "correct": false,
+            "expected": "nonduplicate",
+            "observed": "not_retrieved",
+            "review_status": "exact"
+          }
+        },
+        "issue_type": {
+          "before": null,
+          "after": {
+            "correct": true,
+            "expected": "type: bug",
+            "observed": "type: bug"
+          }
+        },
+        "missing_details": {
+          "before": null,
+          "after": {
+            "exact": true,
+            "precision": 1.0,
+            "recall": 1.0,
+            "expected": [],
+            "observed": []
+          }
+        },
+        "citation_validity": {
+          "before": null,
+          "after": {
+            "valid": true,
+            "checked": 1,
+            "errors": [],
+            "semantic_review_status": "pending_human_review"
+          }
+        },
+        "abstention": {
+          "before": null,
+          "after": {
+            "observed_fields": [
+              "duplicate_candidates",
+              "missing_details",
+              "related_issues"
+            ],
+            "issue_type_appropriate": true,
+            "duplicate_expected": false,
+            "duplicate_observed": true,
+            "duplicate_appropriate": false,
+            "other_fields_review_status": "pending_human_review"
+          }
+        },
+        "error": {
+          "before": "1 validation error for IssueUnderReview\nbody\n  String should have at most 16000 characters [type=string_too_long, input_value='My session fixture can r...ot 2.7 GiB logs :-)\\r\\n', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_too_long",
+          "after": null
+        },
+        "report_status": {
+          "before": null,
+          "after": "partial"
+        }
+      }
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12204,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": true,
+      "changes": {
+        "duplicate_retrieval": {
+          "before": null,
+          "after": {
+            "found": false,
+            "expected_issue": 12203,
+            "retrieved_issues": [],
+            "other_issues_unreviewed": []
+          }
+        },
+        "duplicate_judgment": {
+          "before": null,
+          "after": {
+            "correct": false,
+            "expected": "nonduplicate",
+            "observed": "not_retrieved",
+            "review_status": "exact"
+          }
+        },
+        "issue_type": {
+          "before": null,
+          "after": {
+            "correct": true,
+            "expected": "type: bug",
+            "observed": "type: bug"
+          }
+        },
+        "missing_details": {
+          "before": null,
+          "after": {
+            "exact": true,
+            "precision": 1.0,
+            "recall": 1.0,
+            "expected": [],
+            "observed": []
+          }
+        },
+        "citation_validity": {
+          "before": null,
+          "after": {
+            "valid": true,
+            "checked": 1,
+            "errors": [],
+            "semantic_review_status": "pending_human_review"
+          }
+        },
+        "abstention": {
+          "before": null,
+          "after": {
+            "observed_fields": [
+              "missing_details"
+            ],
+            "issue_type_appropriate": true,
+            "duplicate_expected": false,
+            "duplicate_observed": false,
+            "duplicate_appropriate": true,
+            "other_fields_review_status": "pending_human_review"
+          }
+        },
+        "error": {
+          "before": "1 validation error for IssueUnderReview\nbody\n  String should have at most 16000 characters [type=string_too_long, input_value='My session fixture can r...ot 2.7 GiB logs :-)\\r\\n', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_too_long",
+          "after": null
+        },
+        "report_status": {
+          "before": null,
+          "after": "complete"
+        }
+      }
+    }
+  ],
+  "original_case_comparisons": [
+    {
+      "method": "keyword_rule",
+      "issue_number": 7312,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 7312,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 7312,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 10156,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 10156,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 10156,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12053,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12053,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12053,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12072,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12072,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12072,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12079,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12079,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12079,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12081,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12081,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12081,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12083,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12083,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12083,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12116,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12116,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12116,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12146,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12146,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12146,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12189,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12189,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12189,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12197,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12197,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12197,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12201,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12201,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12201,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12203,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12203,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12203,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12204,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": true,
+      "changes": {
+        "duplicate_retrieval": {
+          "before": null,
+          "after": {
+            "found": false,
+            "expected_issue": 12203,
+            "retrieved_issues": [],
+            "other_issues_unreviewed": []
+          }
+        },
+        "duplicate_judgment": {
+          "before": null,
+          "after": {
+            "correct": false,
+            "expected": "nonduplicate",
+            "observed": "not_retrieved",
+            "review_status": "exact"
+          }
+        },
+        "issue_type": {
+          "before": null,
+          "after": {
+            "correct": true,
+            "expected": "type: bug",
+            "observed": "type: bug"
+          }
+        },
+        "missing_details": {
+          "before": null,
+          "after": {
+            "exact": true,
+            "precision": 1.0,
+            "recall": 1.0,
+            "expected": [],
+            "observed": []
+          }
+        },
+        "citation_validity": {
+          "before": null,
+          "after": {
+            "valid": true,
+            "checked": 1,
+            "errors": [],
+            "semantic_review_status": "pending_human_review"
+          }
+        },
+        "abstention": {
+          "before": null,
+          "after": {
+            "observed_fields": [
+              "missing_details"
+            ],
+            "issue_type_appropriate": true,
+            "duplicate_expected": false,
+            "duplicate_observed": false,
+            "duplicate_appropriate": true,
+            "other_fields_review_status": "pending_human_review"
+          }
+        },
+        "error": {
+          "before": "1 validation error for IssueUnderReview\nbody\n  String should have at most 16000 characters [type=string_too_long, input_value='My session fixture can r...ot 2.7 GiB logs :-)\\r\\n', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_too_long",
+          "after": null
+        },
+        "report_status": {
+          "before": null,
+          "after": "complete"
+        }
+      }
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12204,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": true,
+      "changes": {
+        "duplicate_retrieval": {
+          "before": null,
+          "after": {
+            "found": false,
+            "expected_issue": 12203,
+            "retrieved_issues": [],
+            "other_issues_unreviewed": []
+          }
+        },
+        "duplicate_judgment": {
+          "before": null,
+          "after": {
+            "correct": false,
+            "expected": "nonduplicate",
+            "observed": "not_retrieved",
+            "review_status": "exact"
+          }
+        },
+        "issue_type": {
+          "before": null,
+          "after": {
+            "correct": true,
+            "expected": "type: bug",
+            "observed": "type: bug"
+          }
+        },
+        "missing_details": {
+          "before": null,
+          "after": {
+            "exact": true,
+            "precision": 1.0,
+            "recall": 1.0,
+            "expected": [],
+            "observed": []
+          }
+        },
+        "citation_validity": {
+          "before": null,
+          "after": {
+            "valid": true,
+            "checked": 1,
+            "errors": [],
+            "semantic_review_status": "pending_human_review"
+          }
+        },
+        "abstention": {
+          "before": null,
+          "after": {
+            "observed_fields": [
+              "duplicate_candidates",
+              "missing_details",
+              "related_issues"
+            ],
+            "issue_type_appropriate": true,
+            "duplicate_expected": false,
+            "duplicate_observed": true,
+            "duplicate_appropriate": false,
+            "other_fields_review_status": "pending_human_review"
+          }
+        },
+        "error": {
+          "before": "1 validation error for IssueUnderReview\nbody\n  String should have at most 16000 characters [type=string_too_long, input_value='My session fixture can r...ot 2.7 GiB logs :-)\\r\\n', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_too_long",
+          "after": null
+        },
+        "report_status": {
+          "before": null,
+          "after": "partial"
+        }
+      }
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12204,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": true,
+      "changes": {
+        "duplicate_retrieval": {
+          "before": null,
+          "after": {
+            "found": false,
+            "expected_issue": 12203,
+            "retrieved_issues": [],
+            "other_issues_unreviewed": []
+          }
+        },
+        "duplicate_judgment": {
+          "before": null,
+          "after": {
+            "correct": false,
+            "expected": "nonduplicate",
+            "observed": "not_retrieved",
+            "review_status": "exact"
+          }
+        },
+        "issue_type": {
+          "before": null,
+          "after": {
+            "correct": true,
+            "expected": "type: bug",
+            "observed": "type: bug"
+          }
+        },
+        "missing_details": {
+          "before": null,
+          "after": {
+            "exact": true,
+            "precision": 1.0,
+            "recall": 1.0,
+            "expected": [],
+            "observed": []
+          }
+        },
+        "citation_validity": {
+          "before": null,
+          "after": {
+            "valid": true,
+            "checked": 1,
+            "errors": [],
+            "semantic_review_status": "pending_human_review"
+          }
+        },
+        "abstention": {
+          "before": null,
+          "after": {
+            "observed_fields": [
+              "missing_details"
+            ],
+            "issue_type_appropriate": true,
+            "duplicate_expected": false,
+            "duplicate_observed": false,
+            "duplicate_appropriate": true,
+            "other_fields_review_status": "pending_human_review"
+          }
+        },
+        "error": {
+          "before": "1 validation error for IssueUnderReview\nbody\n  String should have at most 16000 characters [type=string_too_long, input_value='My session fixture can r...ot 2.7 GiB logs :-)\\r\\n', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_too_long",
+          "after": null
+        },
+        "report_status": {
+          "before": null,
+          "after": "complete"
+        }
+      }
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12216,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12216,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12216,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12219,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12219,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12219,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12223,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12223,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12223,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12224,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12224,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12224,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12226,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12226,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12226,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12228,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12228,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12228,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12231,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12231,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12231,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12242,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12242,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12242,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12249,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12249,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12249,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12255,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12255,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12255,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12263,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12263,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12263,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12273,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12273,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12273,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12278,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12278,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12278,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12281,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12281,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12281,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12287,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12287,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12287,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12290,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12290,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12290,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    }
+  ],
+  "scores": {
+    "previous_thirty": {
+      "keyword_rule": {
+        "cases": 30,
+        "completed": 29,
+        "errors": [
+          {
+            "issue_number": 12204,
+            "error": "1 validation error for IssueUnderReview\nbody\n  String should have at most 16000 characters [type=string_too_long, input_value='My session fixture can r...ot 2.7 GiB logs :-)\\r\\n', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_too_long"
+          }
+        ],
+        "mean_latency_ms": 3.43,
+        "mean_candidate_pool_size": 23.3,
+        "duplicate_retrieval_recall": 0.207,
+        "duplicate_judgment_accuracy": 0.074,
+        "issue_type_accuracy": 0.414,
+        "missing_details_exact": 0.483,
+        "missing_details_precision": 0.937,
+        "missing_details_recall": 0.586,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.931,
+        "duplicate_abstention_appropriateness": 0.931,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 10156,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12072,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12083,
+            "field": "abstention"
+          }
+        ]
+      },
+      "fixed_rag": {
+        "cases": 30,
+        "completed": 29,
+        "errors": [
+          {
+            "issue_number": 12204,
+            "error": "1 validation error for IssueUnderReview\nbody\n  String should have at most 16000 characters [type=string_too_long, input_value='My session fixture can r...ot 2.7 GiB logs :-)\\r\\n', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_too_long"
+          }
+        ],
+        "mean_latency_ms": 736.39,
+        "mean_candidate_pool_size": 23.3,
+        "duplicate_retrieval_recall": 0.207,
+        "duplicate_judgment_accuracy": 0.074,
+        "issue_type_accuracy": 0.552,
+        "missing_details_exact": 0.483,
+        "missing_details_precision": 0.937,
+        "missing_details_recall": 0.586,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.897,
+        "duplicate_abstention_appropriateness": 0.931,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 10156,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12072,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12083,
+            "field": "abstention"
+          }
+        ]
+      },
+      "bounded_agent": {
+        "cases": 30,
+        "completed": 29,
+        "errors": [
+          {
+            "issue_number": 12204,
+            "error": "1 validation error for IssueUnderReview\nbody\n  String should have at most 16000 characters [type=string_too_long, input_value='My session fixture can r...ot 2.7 GiB logs :-)\\r\\n', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_too_long"
+          }
+        ],
+        "mean_latency_ms": 1152.55,
+        "mean_candidate_pool_size": 23.3,
+        "duplicate_retrieval_recall": 0.172,
+        "duplicate_judgment_accuracy": 0.074,
+        "issue_type_accuracy": 0.552,
+        "missing_details_exact": 0.483,
+        "missing_details_precision": 0.937,
+        "missing_details_recall": 0.586,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.897,
+        "duplicate_abstention_appropriateness": 0.897,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 10156,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12072,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12081,
+            "field": "abstention"
+          }
+        ]
+      }
+    },
+    "rerun_original_thirty": {
+      "keyword_rule": {
+        "cases": 30,
+        "completed": 30,
+        "errors": [],
+        "mean_latency_ms": 3.75,
+        "mean_candidate_pool_size": 23.3,
+        "duplicate_retrieval_recall": 0.2,
+        "duplicate_judgment_accuracy": 0.071,
+        "issue_type_accuracy": 0.433,
+        "missing_details_exact": 0.5,
+        "missing_details_precision": 0.939,
+        "missing_details_recall": 0.6,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.933,
+        "duplicate_abstention_appropriateness": 0.933,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 10156,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12072,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12083,
+            "field": "abstention"
+          }
+        ]
+      },
+      "fixed_rag": {
+        "cases": 30,
+        "completed": 30,
+        "errors": [],
+        "mean_latency_ms": 773.6,
+        "mean_candidate_pool_size": 23.3,
+        "duplicate_retrieval_recall": 0.2,
+        "duplicate_judgment_accuracy": 0.071,
+        "issue_type_accuracy": 0.567,
+        "missing_details_exact": 0.5,
+        "missing_details_precision": 0.939,
+        "missing_details_recall": 0.6,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.9,
+        "duplicate_abstention_appropriateness": 0.933,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 10156,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12072,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12083,
+            "field": "abstention"
+          }
+        ]
+      },
+      "bounded_agent": {
+        "cases": 30,
+        "completed": 30,
+        "errors": [],
+        "mean_latency_ms": 1416.28,
+        "mean_candidate_pool_size": 23.3,
+        "duplicate_retrieval_recall": 0.167,
+        "duplicate_judgment_accuracy": 0.071,
+        "issue_type_accuracy": 0.567,
+        "missing_details_exact": 0.5,
+        "missing_details_precision": 0.939,
+        "missing_details_recall": 0.6,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.9,
+        "duplicate_abstention_appropriateness": 0.867,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 10156,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12072,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12081,
+            "field": "abstention"
+          }
+        ]
+      }
+    },
+    "new_ten": {
+      "keyword_rule": {
+        "cases": 10,
+        "completed": 10,
+        "errors": [],
+        "mean_latency_ms": 7.64,
+        "mean_candidate_pool_size": 43.5,
+        "duplicate_retrieval_recall": 0.0,
+        "duplicate_judgment_accuracy": 0.0,
+        "issue_type_accuracy": 0.3,
+        "missing_details_exact": 0.2,
+        "missing_details_precision": 0.733,
+        "missing_details_recall": 0.6,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.8,
+        "duplicate_abstention_appropriateness": 0.9,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 12293,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 12293,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 12293,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12293,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12303,
+            "field": "abstention"
+          }
+        ]
+      },
+      "fixed_rag": {
+        "cases": 10,
+        "completed": 10,
+        "errors": [],
+        "mean_latency_ms": 710.39,
+        "mean_candidate_pool_size": 43.5,
+        "duplicate_retrieval_recall": 0.0,
+        "duplicate_judgment_accuracy": 0.0,
+        "issue_type_accuracy": 0.2,
+        "missing_details_exact": 0.2,
+        "missing_details_precision": 0.733,
+        "missing_details_recall": 0.6,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.8,
+        "duplicate_abstention_appropriateness": 0.9,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 12293,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 12293,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 12293,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12293,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12303,
+            "field": "abstention"
+          }
+        ]
+      },
+      "bounded_agent": {
+        "cases": 10,
+        "completed": 10,
+        "errors": [],
+        "mean_latency_ms": 1264.19,
+        "mean_candidate_pool_size": 43.5,
+        "duplicate_retrieval_recall": 0.0,
+        "duplicate_judgment_accuracy": 0.0,
+        "issue_type_accuracy": 0.2,
+        "missing_details_exact": 0.2,
+        "missing_details_precision": 0.733,
+        "missing_details_recall": 0.6,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.8,
+        "duplicate_abstention_appropriateness": 0.9,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 12293,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 12293,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 12293,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12293,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12303,
+            "field": "abstention"
+          }
+        ]
+      }
+    },
+    "expanded_forty": {
+      "keyword_rule": {
+        "cases": 40,
+        "completed": 40,
+        "errors": [],
+        "mean_latency_ms": 4.72,
+        "mean_candidate_pool_size": 28.35,
+        "duplicate_retrieval_recall": 0.15,
+        "duplicate_judgment_accuracy": 0.054,
+        "issue_type_accuracy": 0.4,
+        "missing_details_exact": 0.425,
+        "missing_details_precision": 0.887,
+        "missing_details_recall": 0.6,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.9,
+        "duplicate_abstention_appropriateness": 0.925,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 10156,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12072,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12083,
+            "field": "abstention"
+          }
+        ]
+      },
+      "fixed_rag": {
+        "cases": 40,
+        "completed": 40,
+        "errors": [],
+        "mean_latency_ms": 757.8,
+        "mean_candidate_pool_size": 28.35,
+        "duplicate_retrieval_recall": 0.15,
+        "duplicate_judgment_accuracy": 0.054,
+        "issue_type_accuracy": 0.475,
+        "missing_details_exact": 0.425,
+        "missing_details_precision": 0.887,
+        "missing_details_recall": 0.6,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.875,
+        "duplicate_abstention_appropriateness": 0.925,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 10156,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12072,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12083,
+            "field": "abstention"
+          }
+        ]
+      },
+      "bounded_agent": {
+        "cases": 40,
+        "completed": 40,
+        "errors": [],
+        "mean_latency_ms": 1378.25,
+        "mean_candidate_pool_size": 28.35,
+        "duplicate_retrieval_recall": 0.125,
+        "duplicate_judgment_accuracy": 0.054,
+        "issue_type_accuracy": 0.475,
+        "missing_details_exact": 0.425,
+        "missing_details_precision": 0.887,
+        "missing_details_recall": 0.6,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.875,
+        "duplicate_abstention_appropriateness": 0.875,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 10156,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12072,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12081,
+            "field": "abstention"
+          }
+        ]
+      }
+    }
+  }
+}
