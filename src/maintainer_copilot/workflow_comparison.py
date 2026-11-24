@@ -104,11 +104,15 @@ class _MeasuredEndpoint(agent.OpenAICompatibleAgent):
     def __init__(
         self, base_url: str, method: str, number: int, directory: Path
     ) -> None:
-        super().__init__(base_url, MODEL_NAME)
+        super().__init__(base_url, MODEL_NAME, response_observer=self._capture_response)
         self.method = method
         self.number = number
         self.directory = directory
         self.calls: list[dict[str, Any]] = []
+        self.raw_response: bytes | None = None
+
+    def _capture_response(self, body: bytes) -> None:
+        self.raw_response = body
 
     def generate_json(
         self,
@@ -129,6 +133,7 @@ class _MeasuredEndpoint(agent.OpenAICompatibleAgent):
             },
         )
         started = perf_counter()
+        self.raw_response = None
         try:
             response = super().generate_json(
                 system_prompt,
@@ -146,6 +151,13 @@ class _MeasuredEndpoint(agent.OpenAICompatibleAgent):
             record["error_type"] = type(exc).__name__
             raise
         finally:
+            if self.raw_response is not None:
+                record.update(
+                    raw_response_utf8=self.raw_response.decode(errors="replace"),
+                    raw_response_sha256=hashlib.sha256(self.raw_response).hexdigest(),
+                    raw_response_bytes=len(self.raw_response),
+                    raw_response_truncated=len(self.raw_response) > 65536,
+                )
             record["latency_ms"] = round((perf_counter() - started) * 1000, 3)
             self.calls.append(record)
             with (self.directory / "responses.jsonl").open("a") as handle:
@@ -283,8 +295,9 @@ def evaluate_comparison(
     for case in catalog:
         started = perf_counter()
         error = None
+        preflight_trace = None
         try:
-            replay_case(
+            preflight_report = replay_case(
                 case,
                 commit_source=evidence,
                 issue_source=evidence,
@@ -292,12 +305,29 @@ def evaluate_comparison(
                 candidate_catalog=catalog,
                 keyword_filter=True,
             )
+            preflight_trace = get_trace(preflight_report.trace_id)
+            if preflight_trace is None:
+                raise CaseFlagged("Historical evidence verification trace unavailable")
+            failed_evidence = [
+                e.name
+                for e in preflight_trace.events
+                if e.name in ("get_documentation_passage", "get_source_excerpt")
+                and e.status != "ok"
+            ]
+            if failed_evidence:
+                raise CaseFlagged(
+                    "Historical evidence could not be verified: "
+                    + ", ".join(failed_evidence)
+                )
         except (CaseFlagged, ValueError) as exc:
             error = str(exc)
         artifact["preflight"].append(
             {
                 "issue_number": case.issue_number,
                 "error": error,
+                "trace": preflight_trace.model_dump(mode="json")
+                if preflight_trace
+                else None,
                 "latency_ms": round((perf_counter() - started) * 1000, 3),
             }
         )
@@ -356,7 +386,7 @@ def evaluate_comparison(
                 "report": report.model_dump(mode="json") if report else None,
                 "trace": trace.model_dump(mode="json") if trace else None,
                 "model_calls": client.calls,
-                "gpu_memory": gpu.summary(),
+                "gpu_memory": {**gpu.summary(), "samples_mib": list(gpu.samples)},
             }
             artifact["cases"].append(record)
             _save(output, artifact)
@@ -568,6 +598,9 @@ def summarize_comparison(artifact: dict[str, Any]) -> dict[str, Any]:
         "full_gpu_residency_ctx16k": loaded.get("size") == loaded.get("size_vram")
         and loaded.get("context_length") == 16384
         if loaded
+        and type(loaded.get("size")) is int
+        and loaded["size"] > 0
+        and type(loaded.get("size_vram")) is int
         else None,
         "sampled_gpu_at_most_7680_mib": max(gpu_peaks) <= 7680
         if all(p is not None for p in gpu_peaks)

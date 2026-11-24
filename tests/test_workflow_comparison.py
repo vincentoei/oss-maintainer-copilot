@@ -110,6 +110,20 @@ def test_comparison_preserves_three_arms_and_reports_actual_inference_cost(
     assert summary["paired_cases"] == 1
     assert summary["paired_agent_gain"] == 0
     assert summary["decision"]["workflow"] == "fixed_rag"
+    from maintainer_copilot.workflow_comparison import (
+        MODEL_DIGEST,
+        summarize_comparison,
+    )
+
+    artifact["serving_after"] = {
+        "residency": {"models": [{"digest": MODEL_DIGEST, "context_length": 16384}]}
+    }
+    assert (
+        summarize_comparison(artifact)["agent_vs_fixed"]["promotion_gates"][
+            "full_gpu_residency_ctx16k"
+        ]
+        is None
+    )
     assert {r["opening_content_sha256"] for r in artifact["cases"]} == {
         evidence.case.opening_content_sha256
     }
@@ -224,6 +238,30 @@ def test_shared_integrity_failure_keeps_all_rows_and_dispatches_nothing(
     assert result["summary"]["missing_pairs"] == 1
 
 
+def test_unverified_pinned_source_flags_every_arm_before_inference(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    from maintainer_copilot.source import SourceLocation, SourceUnavailable
+    from maintainer_copilot.workflow_comparison import evaluate_comparison
+
+    case, github, repository = synthetic_case()
+
+    def unavailable(location: SourceLocation) -> None:
+        raise SourceUnavailable("Pinned evidence unavailable")
+
+    monkeypatch.setattr(repository, "get_excerpt", unavailable)
+    result = evaluate_comparison(
+        tmp_path / "unverified",
+        "http://model.test/v1",
+        cases=[case],
+        commit_source=repository,
+        issue_source=github,
+        source_reader=repository,
+    )
+    assert all(r["error"] and r["model_calls"] == [] for r in result["cases"])
+
+
 def test_failed_inference_keeps_partial_reports_and_unknown_costs(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
@@ -252,3 +290,30 @@ def test_failed_inference_keeps_partial_reports_and_unknown_costs(
         assert methods[name]["resources"]["input_tokens"] is None
         assert methods[name]["resources"]["dispatches"] == 1
     assert len((directory / "requests.jsonl").read_text().splitlines()) == 2
+
+
+def test_malformed_provider_response_is_preserved_before_parsing(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    from maintainer_copilot.workflow_comparison import evaluate_comparison
+
+    evidence = RecordedEvidence()
+    raw = b'{"choices":[{"message":{"content":"not valid selection JSON"}}]}'
+
+    def malformed(*args: object, **kwargs: object) -> io.BytesIO:
+        return io.BytesIO(raw)
+
+    monkeypatch.setattr("maintainer_copilot.model.urlopen", malformed)
+    directory = tmp_path / "malformed"
+    result = evaluate_comparison(
+        directory,
+        "http://model.test/v1",
+        cases=[evidence.case],
+        commit_source=evidence,
+        issue_source=evidence,
+        source_reader=PublicRepositorySource(),
+    )
+    calls = [c for row in result["cases"] for c in row["model_calls"]]
+    assert calls and all(c["raw_response_utf8"] == raw.decode() for c in calls)
+    assert all(c["response"]["error"] for c in calls)
