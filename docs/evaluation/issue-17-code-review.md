@@ -58,3 +58,31 @@ Fresh reply usefulness, semantic citation review and future training-corpus
 checks remain explicitly unverified, as required. No scope creep identified.
 
 Standards: 0 findings, no worst issue. Spec: 0 findings, no worst issue.
+
+## Follow-up review
+
+Reviewed `git diff 11fa8ff...17c32a7`: `cfc068e` (bounded verified openings),
+`d7becc6` (one timeout-only commit-read retry), and `17c32a7` (final evidence).
+Both reviewers worked read-only without network, inference or repeated tests.
+
+### Standards
+
+No findings. No documented-standard violations or actionable baseline smells.
+The retry stays local, bounded to two attempts and limited to `TimeoutError`.
+The committed evidence retains the initial timeout and formatting failure
+alongside their successful follow-ups. Original benchmark artifacts are unchanged;
+the verifier checks application hashes at the original inference commit.
+Documentation distinguishes controlled replay validation from quality measurements.
+
+### Spec
+
+No findings. Permanent commit failure flags the case before issue/model calls.
+Regressions exercise timeout recovery/exhaustion, bounded historical input and
+continued live rejection. Final evidence records thirty successful controlled
+replays, including two expected historical-CI partial reports, and the full
+40,484-character #12204 agent input. The original failed follow-up and real-model
+results remain preserved, with no new provider inference or quality ratings.
+Recorded checks: 354 passed, 2 skipped; focused checks: 58 passed, 2 skipped.
+
+Follow-up Standards: 0 findings, no worst issue. Follow-up Spec: 0 findings,
+no worst issue.
