@@ -200,6 +200,18 @@ the saved comparison and family/chronology checks without network or inference:
 PYTHONPATH=src uv run --locked --no-env-file python scripts/issue18_verify.py
 ```
 
+The requested [triage-quality follow-up](docs/evaluation/issue-56.md) preserves
+the forty cases and all prior results. It fixes report-detail recognition and
+model label/quote pairing, then measures one separately frozen comparison with
+`--issue 56`. Reproduce the saved comparison audit without inference:
+
+```sh
+PYTHONPATH=src uv run --locked --no-env-file python scripts/issue56_verify.py
+```
+
+Its report-review sidecars explicitly attribute semantic/usefulness judgments to
+Codex. Original pending independent human-review files remain unchanged.
+
 [Issue #12's methodology and provisional results](docs/evaluation/issue-12.md)
 explain each field score, failures, latency and cost assumptions, and the
 semantic judgments still awaiting human review. The checked-in

@@ -32,6 +32,32 @@ def write(path, value):
     path.write_text(json.dumps(value, indent=2) + "\n")
 
 
+def verify_assistant_reviews(result, folder, decisions_path):
+    reviews = read(folder / "reviews.json")
+    decisions = read(decisions_path)
+    reports = {(r["method"], r["issue_number"]): r for r in result["cases"]}
+    assert Counter((r["method"], r["issue_number"]) for r in reviews) == Counter(
+        reports.keys()
+    )
+    for review in reviews:
+        row = reports[review["method"], review["issue_number"]]
+        assert review["report_sha256"] == fingerprint(row["report"])
+        assert review["opening_content_sha256"] == row["opening_content_sha256"]
+        assert review["reviewer"] == "Codex"
+        assert review["independent_human_review"] is review["blinded"] is False
+        note = decisions[str(row["issue_number"])]
+        note = {**note, **note.get("method_overrides", {}).get(row["method"], {})}
+        assert review["rating"] in (0, 1, 2)
+        assert all(
+            review[field] == note[field]
+            for field in ("rating", "reason", "semantic_support")
+        )
+    summary = read(folder / "summary.json")
+    assert summary["reports"] == len(reviews) == 120
+    assert summary["rating_counts"] == dict(Counter(str(r["rating"]) for r in reviews))
+    return len(reviews)
+
+
 def compare(before, after):
     old = {(r["method"], r["issue_number"]): r for r in before["cases"]}
     new = {(r["method"], r["issue_number"]): r for r in after["cases"]}
@@ -184,6 +210,14 @@ def main():
     )
     accounting = verify_comparison_records(DIRECTORY, result, cases)
     before = read(ROOT / "docs/evaluation/issue-18/run/results.json")
+    assistant_reviews = {
+        label: verify_assistant_reviews(
+            reviewed,
+            DIRECTORY / f"{label}-review",
+            DIRECTORY / f"{label}-review-decisions.json",
+        )
+        for label, reviewed in (("archived", before), ("candidate", result))
+    }
     write(DIRECTORY / "comparison.json", compare(before, result))
     verification = {
         "status": "passed",
@@ -191,6 +225,7 @@ def main():
         "case_count": len(cases),
         "same_candidate_pools": True,
         "frozen_source_commit": freeze["commit"],
+        "assistant_review_fingerprints_verified": assistant_reviews,
         "future_training_corpus": "not created; overlap audit remains unverified",
         **accounting,
     }

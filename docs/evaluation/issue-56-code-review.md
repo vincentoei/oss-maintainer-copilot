@@ -28,6 +28,12 @@ narrowing the question guard. Each has a red replay assertion and a fixed check.
   now applies only to newly added compound exception names; literal `error`,
   `fail` and `broken` remain supported regardless of question prefix.
 
-Final Spec re-review and the frozen source identity are recorded with the result
-report. Semantic report ratings are a separate, explicitly attributed Codex
-assessment, not an independent human review or permission to promote a workflow.
+The verifier initially tried to count nested score records as dictionary keys;
+review caught this before inference. It now serializes values for counting and
+preserves their decoded form in output. An archived 120-row self-comparison
+verifies no changes and all transition denominators equal forty.
+
+Outstanding after final Spec re-review: **0**. The final source is frozen at
+`ac498979cc170eedfdbd8b534d1a68b554f755f4`. Semantic report ratings are a separate,
+explicitly attributed Codex assessment, not an independent human review or
+permission to promote a workflow.
