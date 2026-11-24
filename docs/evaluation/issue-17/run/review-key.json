@@ -1,0 +1,542 @@
+[
+  {
+    "code": "R01",
+    "method": "fixed_rag",
+    "issue_number": 12201,
+    "report_sha256": "4a9c3b16a27f139eb3d0841e57eebe217711a272f6fc4902402a4da6eda4e6e3"
+  },
+  {
+    "code": "R02",
+    "method": "fixed_rag",
+    "issue_number": 12273,
+    "report_sha256": "6ca1870f281c8c889efbbea2e7af0054c7084d40db12725391990daecca988cc"
+  },
+  {
+    "code": "R03",
+    "method": "keyword_rule",
+    "issue_number": 12053,
+    "report_sha256": "80fd5849cc622f77a39d8be282e397419eb16a47359bd67fd2b862af12796e27"
+  },
+  {
+    "code": "R04",
+    "method": "keyword_rule",
+    "issue_number": 12290,
+    "report_sha256": "c6bde6180069b4191b45307e602efbbf20ea51d060b9ca0b0918de7491b6056b"
+  },
+  {
+    "code": "R05",
+    "method": "keyword_rule",
+    "issue_number": 12079,
+    "report_sha256": "54127a91daae87e5fd20f88c867e6b9421a8945a517d634db6d80e9cce390730"
+  },
+  {
+    "code": "R06",
+    "method": "bounded_agent",
+    "issue_number": 12216,
+    "report_sha256": "4e134447a02f440ef752f8fdd1f511e5cf98d90cc21c3a361fbeaace669bb3f8"
+  },
+  {
+    "code": "R07",
+    "method": "keyword_rule",
+    "issue_number": 12081,
+    "report_sha256": "09c35fa8897517dc096101bd69b617804888a9a9cc7ee9b90a1dcd225c4f7b67"
+  },
+  {
+    "code": "R08",
+    "method": "bounded_agent",
+    "issue_number": 12079,
+    "report_sha256": "fa9ee8d4003422e7c1cc7888d98102f0a30352016bd60d6e570a2956ec7ce792"
+  },
+  {
+    "code": "R09",
+    "method": "bounded_agent",
+    "issue_number": 12072,
+    "report_sha256": "e6d58c4cb2394838d58d9255b70c4e0f2e8c58430033c24d0cc5254d269f6552"
+  },
+  {
+    "code": "R10",
+    "method": "bounded_agent",
+    "issue_number": 12053,
+    "report_sha256": "414e6d3cf1e089e745541de2ad20685350da4b72963b51da16cf8f92840c54b9"
+  },
+  {
+    "code": "R11",
+    "method": "bounded_agent",
+    "issue_number": 12242,
+    "report_sha256": "b9b6d3e01871a4e1e3db1e71f8e614f882e9d34a421f24d97772ed46c3029b45"
+  },
+  {
+    "code": "R12",
+    "method": "keyword_rule",
+    "issue_number": 12278,
+    "report_sha256": "a565f9460305745f2f58add50c1860137e9cd1c6211f0e24e3fce19467c161d7"
+  },
+  {
+    "code": "R13",
+    "method": "fixed_rag",
+    "issue_number": 12053,
+    "report_sha256": "78a022352b00b4500cab75785f45dd988cd31c4933432d34d7abd71c7b97e027"
+  },
+  {
+    "code": "R14",
+    "method": "keyword_rule",
+    "issue_number": 12116,
+    "report_sha256": "dc2c115f2bd031b0c86c16b09fa3bfa2f467ffc02e5cc4f6e17360b006721554"
+  },
+  {
+    "code": "R15",
+    "method": "keyword_rule",
+    "issue_number": 12223,
+    "report_sha256": "22b1328b32d074a884d8ae508448fcc712b432f89338116f030989459ab62b7a"
+  },
+  {
+    "code": "R16",
+    "method": "keyword_rule",
+    "issue_number": 12273,
+    "report_sha256": "fd82c3213965062527548105ee10f3cd33ab2c9f216a6f4dc79b50dcbae4181c"
+  },
+  {
+    "code": "R17",
+    "method": "fixed_rag",
+    "issue_number": 12281,
+    "report_sha256": "1bdac8bc49c1b1053b3caccf35330b20fe2acb3c2a9edcd280643a48cb41b72d"
+  },
+  {
+    "code": "R18",
+    "method": "bounded_agent",
+    "issue_number": 12255,
+    "report_sha256": "2830b087ca716f73f3efaa80b84addfa7d98813c14cc3bfaef8078f407f29484"
+  },
+  {
+    "code": "R19",
+    "method": "fixed_rag",
+    "issue_number": 12219,
+    "report_sha256": "9d149543d493c3d731e898699c2c8d355793822a9f9eb030a0fdbcdbfd68c247"
+  },
+  {
+    "code": "R20",
+    "method": "keyword_rule",
+    "issue_number": 12201,
+    "report_sha256": "96c49501e77c3c7e77cf41cf462f72c3c37af8773fdf0840c5a7d8877722a709"
+  },
+  {
+    "code": "R21",
+    "method": "keyword_rule",
+    "issue_number": 12146,
+    "report_sha256": "fb4795e313817d3a3d2ed1cb12c24d5bd8c35175c9067e052b66f74d00841d27"
+  },
+  {
+    "code": "R22",
+    "method": "bounded_agent",
+    "issue_number": 12249,
+    "report_sha256": "9f79b166afd94b19f3c751f5c35a6243316a56346f9c8b882027a89ddf41d6aa"
+  },
+  {
+    "code": "R23",
+    "method": "fixed_rag",
+    "issue_number": 12146,
+    "report_sha256": "db87eaf98653edc6a608007bdf6cf9da36cfe405d396cfdd85f3b9a81d173a31"
+  },
+  {
+    "code": "R24",
+    "method": "keyword_rule",
+    "issue_number": 12281,
+    "report_sha256": "ba28e9a27f74005c5dbfe4f9a552dc8b1daa2f45a2f4fa080f9b4fa3cc9f8e1f"
+  },
+  {
+    "code": "R25",
+    "method": "fixed_rag",
+    "issue_number": 12255,
+    "report_sha256": "d4551e9a8a259db54c28ed4bca5e244ccc3c485472da3bc46ef0f2212fb5adc8"
+  },
+  {
+    "code": "R26",
+    "method": "bounded_agent",
+    "issue_number": 12231,
+    "report_sha256": "0178d2174055b3d91466c1bf01c89445847f26ea8c81908708935951591a377f"
+  },
+  {
+    "code": "R27",
+    "method": "bounded_agent",
+    "issue_number": 12263,
+    "report_sha256": "43aa1d4447b1a7a58cfa7f43a12af124f344642135c47bbeb81069bc40b6b255"
+  },
+  {
+    "code": "R28",
+    "method": "bounded_agent",
+    "issue_number": 12204,
+    "report_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+  },
+  {
+    "code": "R29",
+    "method": "keyword_rule",
+    "issue_number": 12263,
+    "report_sha256": "1f55948fa1f080ad1ebbba0c1d5184b1f5cde546715fcb44db3676e215755ccd"
+  },
+  {
+    "code": "R30",
+    "method": "keyword_rule",
+    "issue_number": 12226,
+    "report_sha256": "3bc7877dd231ec721b76f103339673bc61c45154cd9ee4c4e2904db24f8025c6"
+  },
+  {
+    "code": "R31",
+    "method": "keyword_rule",
+    "issue_number": 12216,
+    "report_sha256": "4543d469833c2cc9e73acd9b78325af06a48c50a1ffa71af87bb301731058545"
+  },
+  {
+    "code": "R32",
+    "method": "bounded_agent",
+    "issue_number": 10156,
+    "report_sha256": "c46da5c6a6cb912bb417865ce2a9ec241dfce11ca34ef31b1f5089c48eb0cd03"
+  },
+  {
+    "code": "R33",
+    "method": "bounded_agent",
+    "issue_number": 12226,
+    "report_sha256": "dba25ddd3a184fe74763faadd24b5a2766bada99f74f544b80ab09fae9008073"
+  },
+  {
+    "code": "R34",
+    "method": "bounded_agent",
+    "issue_number": 12287,
+    "report_sha256": "13e2f0568b6f2de4c23096db46e7779bd5037234a53b12717d364059a902092a"
+  },
+  {
+    "code": "R35",
+    "method": "bounded_agent",
+    "issue_number": 12083,
+    "report_sha256": "0643f1c982090cb34f6b2f935622ac7e71092662eddc9ec6f8cbceca5eec2a18"
+  },
+  {
+    "code": "R36",
+    "method": "bounded_agent",
+    "issue_number": 12223,
+    "report_sha256": "4547ee9667a6e422b5ea6ac38bace79977e238d9224ee5ade41dbc9fd1f62584"
+  },
+  {
+    "code": "R37",
+    "method": "fixed_rag",
+    "issue_number": 12290,
+    "report_sha256": "66587d01c5020b02ccee7a9eeb069231edf87da4a36bb2b575de7766a8de8bc2"
+  },
+  {
+    "code": "R38",
+    "method": "fixed_rag",
+    "issue_number": 12072,
+    "report_sha256": "7f2fae9e3015246d75a1ff5a3f48c8d1af25ee32022da36bb4f8328c66045a98"
+  },
+  {
+    "code": "R39",
+    "method": "keyword_rule",
+    "issue_number": 12287,
+    "report_sha256": "7fcfc88d4ea9cec7b34ec15f765f371abcfa62202e278be3672585f1f2615ef8"
+  },
+  {
+    "code": "R40",
+    "method": "bounded_agent",
+    "issue_number": 12081,
+    "report_sha256": "4ea2632ef9b3e05f6c028de6a3e8f0d39861217277727fd9d9d4d4083a92e254"
+  },
+  {
+    "code": "R41",
+    "method": "keyword_rule",
+    "issue_number": 12242,
+    "report_sha256": "4cc7905c08a833ee9d2882c081b4e2ca7a66cc2c6ff0cd035c649b9058f8962e"
+  },
+  {
+    "code": "R42",
+    "method": "bounded_agent",
+    "issue_number": 12224,
+    "report_sha256": "76a04f07369a2e8c3dcd0317e3a16a24729424ab406ed6df83ee84a412cc9514"
+  },
+  {
+    "code": "R43",
+    "method": "bounded_agent",
+    "issue_number": 12281,
+    "report_sha256": "05215c7bb0a8034d6d87395fc3718bd43ae1621e2f22132a11f7d5bf006ca92f"
+  },
+  {
+    "code": "R44",
+    "method": "fixed_rag",
+    "issue_number": 12226,
+    "report_sha256": "0eebd9e0ba66f7fa06b93299ed80f5c510fc699141b4448a9d6ce25f7b409160"
+  },
+  {
+    "code": "R45",
+    "method": "keyword_rule",
+    "issue_number": 12219,
+    "report_sha256": "cc99e82002721c873636ad45f33e6ef9fa0cbb3010f6dce70437de024ef13401"
+  },
+  {
+    "code": "R46",
+    "method": "fixed_rag",
+    "issue_number": 12249,
+    "report_sha256": "7fdf8974779f74a37560b3968e56eab9e4be52f2c3e45737045806edf4de412f"
+  },
+  {
+    "code": "R47",
+    "method": "fixed_rag",
+    "issue_number": 12242,
+    "report_sha256": "6a2b267bcace51abc672fdbb1f96cc9399d878f034b6edee25ea1c7d6a63925e"
+  },
+  {
+    "code": "R48",
+    "method": "fixed_rag",
+    "issue_number": 12263,
+    "report_sha256": "96b0f898544550c97320d82f95f703a99524d4085a6291cdb32b168a062fbecf"
+  },
+  {
+    "code": "R49",
+    "method": "fixed_rag",
+    "issue_number": 12287,
+    "report_sha256": "75452fb3a76347fcb2e6bd4821d8749dd51081c4308159551a469320daec53a1"
+  },
+  {
+    "code": "R50",
+    "method": "keyword_rule",
+    "issue_number": 12072,
+    "report_sha256": "513d2d440869915baf4a2484fd65e561618b278e9ccf84019f0cbb30623c640c"
+  },
+  {
+    "code": "R51",
+    "method": "fixed_rag",
+    "issue_number": 12204,
+    "report_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+  },
+  {
+    "code": "R52",
+    "method": "bounded_agent",
+    "issue_number": 12278,
+    "report_sha256": "dbf82dda83bc348dd24ffdb528e36621038f10735f923089e0352e2ba3db9c48"
+  },
+  {
+    "code": "R53",
+    "method": "fixed_rag",
+    "issue_number": 12189,
+    "report_sha256": "d317008d8874117f2d97fd713851d2771f64227d1b0ce1842c800b4f25cf973f"
+  },
+  {
+    "code": "R54",
+    "method": "keyword_rule",
+    "issue_number": 12197,
+    "report_sha256": "bf5280eb2f3be8fc2d54b34636a51b0142ac8866b7f3c3cfd90d6fbd713fc5e8"
+  },
+  {
+    "code": "R55",
+    "method": "bounded_agent",
+    "issue_number": 12116,
+    "report_sha256": "9f23c7859e315baf23721d404bac9e4939dc1ebbfa201a6ea63ed195cff92be0"
+  },
+  {
+    "code": "R56",
+    "method": "fixed_rag",
+    "issue_number": 10156,
+    "report_sha256": "56a7efba592857a806b0f7afc89d01e260e7ac247fd52bdf2113f9996de53043"
+  },
+  {
+    "code": "R57",
+    "method": "bounded_agent",
+    "issue_number": 12290,
+    "report_sha256": "e6ce3ad1e84c78f67aa1e7c352c0757c40ab995adc3c7440c918bcb8bf04cda3"
+  },
+  {
+    "code": "R58",
+    "method": "bounded_agent",
+    "issue_number": 12146,
+    "report_sha256": "c94e8eccb087a1e7331210ba6b721c12adc59b2e0c6b3893cfcefea1d8217d06"
+  },
+  {
+    "code": "R59",
+    "method": "fixed_rag",
+    "issue_number": 12081,
+    "report_sha256": "0ab2144aa74ded3c82877aedd8751dd95226fb7175ccd3381037565ba4c57b22"
+  },
+  {
+    "code": "R60",
+    "method": "fixed_rag",
+    "issue_number": 12116,
+    "report_sha256": "be35a7178e5336b91e9b97791d3008934deb44257213f7d7aa8a7c9b53fa24bb"
+  },
+  {
+    "code": "R61",
+    "method": "keyword_rule",
+    "issue_number": 12249,
+    "report_sha256": "5d51315a7795e16bdcab0717fb256effe9afb683e6a44ee6382b4e1e9d167965"
+  },
+  {
+    "code": "R62",
+    "method": "fixed_rag",
+    "issue_number": 12223,
+    "report_sha256": "27eb2c7ee0b45f9b58f3c85cfb60d42aa12083f0b8599f5bc0a1b08b57831ca4"
+  },
+  {
+    "code": "R63",
+    "method": "fixed_rag",
+    "issue_number": 12079,
+    "report_sha256": "cad682a861aac5c20746b6c7f77c6dcd19865454a134d5a33261d14349500548"
+  },
+  {
+    "code": "R64",
+    "method": "bounded_agent",
+    "issue_number": 12273,
+    "report_sha256": "e63d9c58cc60781e2edb04fa960f6835815b07915eee6e5a82f090982d11d119"
+  },
+  {
+    "code": "R65",
+    "method": "bounded_agent",
+    "issue_number": 12228,
+    "report_sha256": "48ea315bf137e4a803e6ea4f01c6d226c08bb169d0a7518dc7b1173966eb3545"
+  },
+  {
+    "code": "R66",
+    "method": "fixed_rag",
+    "issue_number": 12228,
+    "report_sha256": "1d11e6808c235881b3e6587e2c1189629edd17bbc97224a83e86427bda157467"
+  },
+  {
+    "code": "R67",
+    "method": "keyword_rule",
+    "issue_number": 10156,
+    "report_sha256": "8d4a941c55a9478a855890161ae093af9a79597ab034793b81edb7566d9895ba"
+  },
+  {
+    "code": "R68",
+    "method": "fixed_rag",
+    "issue_number": 12083,
+    "report_sha256": "27fba33ad3f26b541ae05961b669e35ccf7c7908eee6ae1c855464c084e3896e"
+  },
+  {
+    "code": "R69",
+    "method": "keyword_rule",
+    "issue_number": 12255,
+    "report_sha256": "10d26d03c44fee981a4431ce60252e086eb7fa8163751aca69f3303eb6cb2491"
+  },
+  {
+    "code": "R70",
+    "method": "fixed_rag",
+    "issue_number": 12197,
+    "report_sha256": "75a00465fcd863fa345e4b57a0dd1575c353fd638bf524739705e7a311ef785e"
+  },
+  {
+    "code": "R71",
+    "method": "fixed_rag",
+    "issue_number": 12278,
+    "report_sha256": "719ddda4b828851de1b97ff62ffe9ee1f974601babd3c83e4756afabc5a372df"
+  },
+  {
+    "code": "R72",
+    "method": "bounded_agent",
+    "issue_number": 7312,
+    "report_sha256": "3d2d683610c04c2f0cd28f7172efc3de00d3204c4f4cb57eb973e71b8d9992d8"
+  },
+  {
+    "code": "R73",
+    "method": "keyword_rule",
+    "issue_number": 12204,
+    "report_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+  },
+  {
+    "code": "R74",
+    "method": "keyword_rule",
+    "issue_number": 12083,
+    "report_sha256": "3931b3b4e1e48502415791ea3b1e34c386a373b899ce704e45a6f4fb83553d83"
+  },
+  {
+    "code": "R75",
+    "method": "fixed_rag",
+    "issue_number": 12216,
+    "report_sha256": "461793439fdc61bdafe00d6e53edf899b2f970c73343dd139c7a7c3b4d64e7a6"
+  },
+  {
+    "code": "R76",
+    "method": "bounded_agent",
+    "issue_number": 12203,
+    "report_sha256": "6bbd68dffddb894476a71e38b9b86e27f0176e759dbafce5b37309de890689dc"
+  },
+  {
+    "code": "R77",
+    "method": "fixed_rag",
+    "issue_number": 12203,
+    "report_sha256": "3fe3eb7ef4c7a8999953bf280e64eac06f0da349fd3d6be26a903fddf67f154b"
+  },
+  {
+    "code": "R78",
+    "method": "fixed_rag",
+    "issue_number": 7312,
+    "report_sha256": "923b89ff474b64e820bd8ae129c68f4eb12dd49c4928760922b66979de72a654"
+  },
+  {
+    "code": "R79",
+    "method": "bounded_agent",
+    "issue_number": 12189,
+    "report_sha256": "7fa56c62e854de53711859f7835bfe33a1ad614c72935a0232d2d51399139eda"
+  },
+  {
+    "code": "R80",
+    "method": "bounded_agent",
+    "issue_number": 12197,
+    "report_sha256": "4997ca5bead769c8d4b014866a3a8115f80f208c9bcad94d8ec926cd1ccd050a"
+  },
+  {
+    "code": "R81",
+    "method": "bounded_agent",
+    "issue_number": 12201,
+    "report_sha256": "18330fe041ffbca692fff915e1dadb97766cd1bed05364c2a141e94bf5c2a8e8"
+  },
+  {
+    "code": "R82",
+    "method": "fixed_rag",
+    "issue_number": 12224,
+    "report_sha256": "686be5d8b542b7c7c5e1687f2c1881d368a9c09588d97a0c19054eb909a79373"
+  },
+  {
+    "code": "R83",
+    "method": "keyword_rule",
+    "issue_number": 7312,
+    "report_sha256": "d572c4d61c01cbe07e485b418992fa7d181fb165f83dd22f748c621e4ac3c6f2"
+  },
+  {
+    "code": "R84",
+    "method": "keyword_rule",
+    "issue_number": 12228,
+    "report_sha256": "e506f595601d49d8a64262d7cc33913adab88b21b852c390dcf9c6eb1065394b"
+  },
+  {
+    "code": "R85",
+    "method": "keyword_rule",
+    "issue_number": 12189,
+    "report_sha256": "f15f7cd91a0d98d98dbd266d65518540f81a6ea9d3b2d2d1d2cff232ec733fbd"
+  },
+  {
+    "code": "R86",
+    "method": "keyword_rule",
+    "issue_number": 12224,
+    "report_sha256": "fa7c63b98208a7cb823cc7544e0d89fc2d82ddb5994170f938fff91f40b654f5"
+  },
+  {
+    "code": "R87",
+    "method": "keyword_rule",
+    "issue_number": 12203,
+    "report_sha256": "83f7ff9caef3f33f8dfa85b65cb19ffd24eefa78122bf71348aaac6f1d44b908"
+  },
+  {
+    "code": "R88",
+    "method": "keyword_rule",
+    "issue_number": 12231,
+    "report_sha256": "f3725452c14fe746affef36465fa1e9dd9c7b9a12b0ed00535f1a3f528e4f938"
+  },
+  {
+    "code": "R89",
+    "method": "fixed_rag",
+    "issue_number": 12231,
+    "report_sha256": "0800a33ece6c70c1abd19d3d940437c3f02d88e9a3c369af2233d18c8dc86bfc"
+  },
+  {
+    "code": "R90",
+    "method": "bounded_agent",
+    "issue_number": 12219,
+    "report_sha256": "68b8b05e645066c4f8920c3da1037b4723417dc9826427ff839bbb43ad2b89ca"
+  }
+]

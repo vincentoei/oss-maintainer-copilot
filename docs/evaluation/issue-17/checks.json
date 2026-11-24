@@ -1,0 +1,48 @@
+{
+  "recorded_at": "2026-11-24T11:19:47.834612+00:00",
+  "environment": "outside sandbox; sandbox TestClient attempt stalled and was terminated, see checks-sandbox-attempt.json",
+  "checks": [
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "100 files already formatted\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/mypy",
+        "src",
+        "tests"
+      ],
+      "exit_code": 0,
+      "stdout": "Success: no issues found in 38 source files\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/pytest",
+        "-q",
+        "-o",
+        "faulthandler_timeout=30"
+      ],
+      "exit_code": 0,
+      "stdout": "........................................................................ [ 20%]\n........................................................................ [ 41%]\n..........................................ss............................ [ 61%]\n........................................................................ [ 82%]\n...............................................................          [100%]\n349 passed, 2 skipped in 51.02s\n",
+      "stderr": ""
+    }
+  ]
+}

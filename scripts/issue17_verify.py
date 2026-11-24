@@ -69,6 +69,12 @@ def verify_metadata():
             template = provenance["templates"][c.repository_commit + "/" + filename]
             assert template["commit"] == c.repository_commit
             assert template["path"] == ".github/ISSUE_TEMPLATE/" + filename
+            assert (
+                hashlib.sha256(
+                    ("\n".join(template["lines"]) + "\n").encode()
+                ).hexdigest()
+                == template["sha256"]
+            )
     partitions = read(DIRECTORY / "partitions.json")
     family_by_member = {}
     for family, members in partitions["evaluation"].items():
@@ -146,8 +152,12 @@ def compare_results(result, original_numbers):
             "removed_candidates": sorted(
                 set(before["candidate_numbers"]) - set(row["candidate_numbers"])
             ),
-            "report_changed": fingerprint(row["report"])
-            != fingerprint(before["report"]),
+            "report_changed": fingerprint(
+                {k: v for k, v in (row["report"] or {}).items() if k != "trace_id"}
+            )
+            != fingerprint(
+                {k: v for k, v in (before["report"] or {}).items() if k != "trace_id"}
+            ),
             "changes": changes,
         }
         retained.append(entry)
@@ -180,7 +190,7 @@ def compare_results(result, original_numbers):
     return {
         "scope": (
             "Field/status changes on original twenty; new ten reported separately. "
-            "Report hashes include volatile trace IDs. "
+            "Report comparisons exclude volatile trace IDs. "
             "No causal model-improvement claim."
         ),
         "changed_case_workflow_rows": len(changed),

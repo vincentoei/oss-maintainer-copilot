@@ -143,8 +143,8 @@ reader, run:
 RUN_LIVE_REPLAY=1 uv run --no-env-file pytest -q tests/test_replay.py -k recorded_case
 ```
 
-Twenty case metadata files now live in
-[`src/maintainer_copilot/cases/`](src/maintainer_copilot/cases/). Replay all twenty
+Thirty case metadata files now live in
+[`src/maintainer_copilot/cases/`](src/maintainer_copilot/cases/). Replay all thirty
 with controlled model responses using:
 
 ```sh
@@ -162,13 +162,17 @@ The [third case review](docs/evaluation/cases-eleven-through-fifteen.md) records
 cases 11 through 15, their provenance, difficult topical negatives, and review
 status. The [fourth case review](docs/evaluation/cases-sixteen-through-twenty.md)
 records cases 16 through 20 and their delegated confirmation. Pending outcomes cannot be scored until a human confirms them.
+The [fifth case review](docs/evaluation/cases-twenty-one-through-thirty.md)
+records cases 21 through 30, their explicitly delegated confirmations and the
+28-family evaluation exclusion manifest. Shared failures stay in one family;
+the uncertain case keeps its uncertainty in scoring.
 These controlled replays are smoke checks. The separate
 [issue #21 real-model run](docs/evaluation/issue-21.md) evaluates all twenty cases;
 the full workflow comparison remains #16.
 
 ## Score the first reviewed cases
 
-Run the twenty-case field scorer and keyword-rule baseline with public GitHub
+Run the thirty-case field scorer and keyword-rule baseline with public GitHub
 access:
 
 ```sh
@@ -314,3 +318,27 @@ The [completed #16 comparison and acceptance evidence](docs/evaluation/issue-16.
 retain the fixed legacy workflow: no paired exact-field gain from the agent,
 with 1.70x p95 latency, 2.29x tokens and two additional partial reports.
 Fresh human usefulness and semantic reviews remain explicitly unverified.
+
+Issue #17 expands the same three workflows to thirty cases. The
+[expansion protocol](docs/evaluation/issue-17-protocol.md) preserves the prior
+twenty-case artifacts, keeps the selected model and legacy prompts, and caps a
+single pass at 150 inference dispatches (30 fixed, at most 120 agent). The
+original `--issue 16` mode still selects its original twenty cases. For a new
+thirty-case run, use a fresh directory:
+
+```sh
+GITHUB_TOKEN="$(gh auth token)" uv run --locked --no-env-file \
+  python -m maintainer_copilot.workflow_comparison --issue 17 \
+  --ollama-url http://172.17.48.1:11434 --directory /tmp/issue-17-new-run
+```
+
+The [completed expansion and acceptance evidence](docs/evaluation/issue-17.md)
+separate changes on the original twenty from scores on the new ten. Verify the
+published metadata, partition checks, run accounting and score deltas offline:
+
+```sh
+PYTHONPATH=src uv run --locked --no-env-file python scripts/issue17_verify.py
+```
+
+Case confirmation does not rate generated replies. Fresh semantic citation and
+reply usefulness reviews remain separate; the fixed legacy demo stays default.
