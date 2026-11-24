@@ -12,7 +12,7 @@ from typing import Literal, Protocol
 from urllib.error import URLError
 from urllib.request import Request, urlopen
 
-from pydantic import BaseModel, Field, model_validator
+from pydantic import BaseModel, Field, ValidationError, model_validator
 
 from maintainer_copilot import (
     agent,
@@ -28,6 +28,12 @@ from maintainer_copilot.triage import IssueUnderReview, TriageReport, triage_iss
 
 class CaseFlagged(Exception):
     """A historical case cannot safely be scored or replayed."""
+
+
+class _HistoricalIssueUnderReview(IssueUnderReview):
+    """Allow bounded, hash-verified openings beyond the live request limit."""
+
+    body: str = Field(max_length=65_536)
 
 
 @dataclass(frozen=True)
@@ -453,18 +459,23 @@ def replay_case(
     evidence = pytest_profile.HISTORICAL_REPLAY_EVIDENCE.get(case.issue_number)
     reader = source_reader or repository_source.PublicRepositorySource()
     topic = evidence.topic(case.repository_commit) if evidence is not None else None
-    issue = IssueUnderReview(
-        number=reviewed.number,
-        title=reviewed.title,
-        body=reviewed.body,
-        source_location=repository_source.SourceLocation(
-            commit=case.repository_commit,
-            path=evidence.source_path,
-            line=evidence.source_line,
+    try:
+        issue = _HistoricalIssueUnderReview(
+            number=reviewed.number,
+            title=reviewed.title,
+            body=reviewed.body,
+            source_location=repository_source.SourceLocation(
+                commit=case.repository_commit,
+                path=evidence.source_path,
+                line=evidence.source_line,
+            )
+            if evidence is not None
+            else None,
         )
-        if evidence is not None
-        else None,
-    )
+    except ValidationError as exc:
+        raise CaseFlagged(
+            "verified opening exceeds historical replay input limits"
+        ) from exc
     frozen_issues = _FrozenIssues(reviewed, candidates, keyword_filter)
     topics = (topic,) if topic is not None else ()
     documentation_source = (

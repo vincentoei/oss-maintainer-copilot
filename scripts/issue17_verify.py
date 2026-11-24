@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import json
+import subprocess
 from collections import Counter
 from pathlib import Path
 
@@ -17,6 +18,7 @@ from maintainer_copilot.workflow_comparison import (
 
 ROOT = Path(__file__).resolve().parents[1]
 DIRECTORY = ROOT / "docs/evaluation/issue-17"
+INFERENCE_COMMIT = "8640bae3193086e7428093df0e0fda58c57bdab5"
 
 
 def read(path):
@@ -223,7 +225,12 @@ def main():
         ).hexdigest()
     )
     assert all(
-        hashlib.sha256((ROOT / p).read_bytes()).hexdigest() == h
+        hashlib.sha256(
+            subprocess.check_output(
+                ["git", "show", f"{INFERENCE_COMMIT}:{p}"], cwd=ROOT
+            )
+        ).hexdigest()
+        == h
         for p, h in result["source_sha256"].items()
     )
     cases = {c.issue_number: c for c in catalog}

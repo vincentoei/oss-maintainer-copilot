@@ -5,6 +5,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 import pytest
+from pydantic import ValidationError
 
 from maintainer_copilot import ci, issue_search
 from maintainer_copilot import source as repository_source
@@ -21,6 +22,7 @@ from maintainer_copilot.replay import (
     load_cases,
     replay_case,
 )
+from maintainer_copilot.triage import IssueUnderReview
 
 
 class ChangingGitHub(issue_search.GitHubIssueSource):
@@ -173,6 +175,61 @@ def synthetic_case() -> tuple[HistoricalCase, ChangingGitHub, ChangingRepository
         ChangingGitHub(reviewed, earlier),
         ChangingRepository(case.repository_commit, case.repository_commit_at),
     )
+
+
+@pytest.mark.parametrize("body_length", [16_001, 65_536])
+def test_verified_replay_preserves_long_opening_without_relaxing_live_limit(
+    body_length: int,
+) -> None:
+    case, github, repository = synthetic_case()
+    body = ("traceback line\n" * body_length)[
+        : body_length - len(" opening end")
+    ] + " opening end"
+    reviewed = issue_search.IssueRecord(
+        case.issue_number, case.opening_title, body, case.opening_cutoff
+    )
+    github.issues[case.issue_number] = reviewed
+    case = HistoricalCase.model_validate(
+        {**case.model_dump(), "opening_content_sha256": content_hash(reviewed)}
+    )
+    observed = ObservedModel()
+
+    with pytest.raises(ValidationError, match="16000"):
+        IssueUnderReview(title=reviewed.title, body=body)
+
+    report = replay_case(
+        case,
+        commit_source=repository,
+        issue_source=github,
+        source_reader=repository,
+        model_client=observed,
+    )
+
+    assert report.status == "complete"
+    assert observed.requests[0].issue_body == body
+
+
+def test_replay_flags_openings_above_historical_limit_before_model_call() -> None:
+    case, github, repository = synthetic_case()
+    reviewed = issue_search.IssueRecord(
+        case.issue_number, case.opening_title, "x" * 65_537, case.opening_cutoff
+    )
+    github.issues[case.issue_number] = reviewed
+    case = HistoricalCase.model_validate(
+        {**case.model_dump(), "opening_content_sha256": content_hash(reviewed)}
+    )
+    observed = ObservedModel()
+
+    with pytest.raises(CaseFlagged, match="historical replay input limits"):
+        replay_case(
+            case,
+            commit_source=repository,
+            issue_source=github,
+            source_reader=repository,
+            model_client=observed,
+        )
+
+    assert observed.requests == []
 
 
 def test_replay_ignores_post_cutoff_activity_in_every_evidence_channel() -> None:

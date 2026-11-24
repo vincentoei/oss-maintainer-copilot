@@ -7,6 +7,11 @@ flagged consistently because its opening exceeds the current 16,000-character
 application limit. No opening was truncated and no replacement case was used.
 The fixed legacy workflow and selected 3B model remain the demo default.
 
+The [small replay follow-up](issue-17/follow-up/README.md) restores replay of the
+full #12204 opening while keeping live request limits unchanged. The recorded
+model comparison below remains the original pre-fix run with 29 eligible cases;
+its scores and dispatch records have not been replaced by controlled replays.
+
 ## Acceptance evidence
 
 | Acceptance criterion | Evidence and status |
@@ -26,7 +31,7 @@ raw response, human rating or protocol was rewritten.
 
 The shared preflight began **2026-11-24 11:16:42 UTC**, taking 49.337 seconds.
 The run froze the 30-case catalog and all 21 application source hashes before
-inference; verification confirms those source files remain unchanged. The
+inference; verification checks those files at the original `8640bae` freeze. The
 runner adds an explicit `--issue 17` mode and thirty-case budget; default
 `--issue 16` selects the original twenty cases. Legacy prompts, retrieval,
 scoring, template rules and generation settings were not tuned for the additions.
@@ -106,7 +111,8 @@ across four workflow rows**:
 - **#12204, all three workflows:** previously scored, now excluded in shared
   preflight by the current application body bound. Its scores are null, and no
   inference was dispatched. The original expected outcome and opening hash remain
-  unchanged. Changing that application limit is outside this ticket.
+  unchanged. The follow-up fixes the historical replay limit separately; the
+  archived comparison retains its original exclusion.
 - **#12081, bounded agent:** previously retrieved #3448, now finishes without
   searching or inspecting source. The report loses the earlier-issue citation and
   adds duplicate/related abstentions. Expected-earlier retrieval changes true to
@@ -172,7 +178,8 @@ a passing check. The successful full run was outside the sandbox. Focused
 replay/evaluation/runner tests ran during the red/green changes.
 
 Run `PYTHONPATH=src .venv/bin/python scripts/issue17_verify.py` without network or
-inference to check all 204 preserved files, catalog/protocol/application hashes,
+inference to check all 204 preserved files, catalog/protocol hashes and application
+hashes at the original `8640bae` inference commit (which must be present in Git),
 provenance links/template hashes, family assignments, candidate cutoffs, ninety
 rows, 115 dispatch/response records and 87 recomputed scores. It also regenerates
 the before/after comparison from preserved artifacts.

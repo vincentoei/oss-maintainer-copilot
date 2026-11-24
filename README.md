@@ -342,3 +342,9 @@ PYTHONPATH=src uv run --locked --no-env-file python scripts/issue17_verify.py
 
 Case confirmation does not rate generated replies. Fresh semantic citation and
 reply usefulness reviews remain separate; the fixed legacy demo stays default.
+
+Verified historical replay accepts full openings up to 65,536 characters while
+live requests retain the 16,000-character limit. See the
+[replay follow-up](docs/evaluation/issue-17/follow-up/README.md) for the oversized
+case check. The offline verifier reads application source from the original
+`8640bae` inference commit, so that commit must be available in the checkout.
