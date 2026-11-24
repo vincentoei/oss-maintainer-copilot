@@ -1,0 +1,37 @@
+{
+  "issue_number": 12300,
+  "issue_family_id": "squashfuse-enosys-cache-creation",
+  "template_profile": "bug_feature",
+  "opening_title": "Crashing under a squashfuse_ll read-only mount",
+  "opening_cutoff": "2024-05-09T00:55:25Z",
+  "opening_content_sha256": "da2d6ba369d552f1a8182094e367ada785a12067a48ab25ca1d46b76ef480fa8",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-24T12:30:23.877473+00:00",
+  "repository_commit": "d49f1fc4dbf9e04da016335d9e82527423d9ad1f",
+  "repository_commit_at": "2024-05-08T13:13:30Z",
+  "earlier_issue": {
+    "number": 12293,
+    "created_at": "2024-05-07T14:08:39Z",
+    "content_sha256": "7a133f79479d4d740111dbbf7ca904920d8afee9b40de83645d15fbf305f3cd1",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "earlier_issue_relationship": "nonduplicate",
+    "issue_type": "type: bug",
+    "missing_details": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "rationale": "Unhandled ENOSYS during assertion-cache directory creation on squashfuse differs from VendorImporter import failure. The pytest commit identifies its version. There is no OS release, full package list or reproducible mount/test command. Bug is accepted for missing handling of a read-only filesystem error.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/12300",
+      "https://github.com/pytest-dev/pytest/issues/12293"
+    ]
+  },
+  "human_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+    "confirmed_at": "2026-11-24T12:38:38.905838+00:00"
+  }
+}

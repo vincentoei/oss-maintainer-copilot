@@ -1,0 +1,35 @@
+{
+  "issue_number": 12303,
+  "issue_family_id": "doctest-namespace-sys-path",
+  "template_profile": "bug_feature",
+  "opening_title": "c85fce39b regressed importing standard library modules that are \"masked\"",
+  "opening_cutoff": "2024-05-10T07:15:59Z",
+  "opening_content_sha256": "4afdfd360b99847eb47a974f68ff58693fdfa9f46726617949db2b7f95ded725",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-24T12:30:23.877473+00:00",
+  "repository_commit": "5af46f3d4e8264c50ffd635dbb395199670e70b7",
+  "repository_commit_at": "2024-05-09T18:04:58Z",
+  "earlier_issue": {
+    "number": 12287,
+    "created_at": "2024-05-05T15:37:15Z",
+    "content_sha256": "fd219403ae9a365eaf77a839d91883237e3f58832f6b86d3993497f23d73f82d",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "earlier_issue_relationship": "uncertain",
+    "issue_type": "type: regression",
+    "missing_details": [
+      "minimal example"
+    ],
+    "rationale": "Both openings involve namespace-package resolution shadowing other imports in doctests, but the short 12303 opening does not establish identical configuration or failure to 12287. Preserve relationship uncertainty and conservatively group the family for training exclusion. The commit-linked version regression, package list and rolling openSUSE Tumbleweed identify the environment; a downstream suite reference is not a minimal isolated example. Later diagnostic comments support uncertainty without entering replay.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/12303",
+      "https://github.com/pytest-dev/pytest/issues/12287"
+    ]
+  },
+  "human_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+    "confirmed_at": "2026-11-24T12:38:38.905838+00:00"
+  }
+}

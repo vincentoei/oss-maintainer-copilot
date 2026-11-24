@@ -35,7 +35,10 @@ def verify_metadata():
         hashlib.sha256((ROOT / p).read_bytes()).hexdigest() == h
         for p, h in baseline["files"].items()
     ), "Preserved baseline artifact changed"
-    cases = load_cases()
+    numbers = {
+        r["issue_number"] for r in read(DIRECTORY / "run/results.json")["preflight"]
+    }
+    cases = [c for c in load_cases() if c.issue_number in numbers]
     assert len(cases) == len({c.issue_number for c in cases}) == 30
     original_numbers = {
         int(Path(p).stem.removeprefix("pytest_"))

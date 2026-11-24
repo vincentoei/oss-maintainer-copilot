@@ -1,0 +1,59 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____ test_published_forty_cases_preserve_coverage_and_group_shared_families ____
+
+    def test_published_forty_cases_preserve_coverage_and_group_shared_families() -> None:
+        cases = load_cases()
+        new_case_numbers = {
+            12231,
+            12242,
+            12249,
+            12255,
+            12263,
+            12273,
+            12278,
+            12281,
+            12287,
+            12290,
+            12293,
+            12298,
+            12300,
+            12303,
+            12305,
+            12307,
+            12308,
+            12312,
+            12323,
+            12328,
+        }
+        assert {case.issue_number for case in cases} == {
+            7312,
+            10156,
+            12053,
+            12072,
+            12079,
+            12081,
+            12083,
+            12116,
+            12146,
+            12189,
+            12197,
+            12201,
+            12203,
+            12204,
+            12216,
+            12219,
+            12223,
+            12224,
+            12226,
+            12228,
+        } | new_case_numbers
+        assert len({case.issue_family_id for case in cases}) == 37
+>       assert all(case.human_review.status == "confirmed" for case in cases)
+E       assert False
+E        +  where False = all(<generator object test_published_forty_cases_preserve_coverage_and_group_shared_families.<locals>.<genexpr> at 0x7ad7852d82b0>)
+
+tests/test_replay.py:597: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_replay.py::test_published_forty_cases_preserve_coverage_and_group_shared_families
+1 failed, 59 deselected in 0.12s

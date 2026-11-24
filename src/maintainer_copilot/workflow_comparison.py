@@ -1,4 +1,4 @@
-"""Frozen, single-pass keyword/fixed-RAG/agent comparison for issue #16."""
+"""Frozen, single-pass keyword/fixed-RAG/agent historical comparisons."""
 
 import argparse
 import fcntl
@@ -45,6 +45,7 @@ METHODS = ("keyword_rule", "fixed_rag", "bounded_agent")
 MODEL_NAME = "pytest-triage:coder3b-ctx16k"
 MODEL_DIGEST = "3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8"
 ROOT = Path(__file__).resolve().parents[2]
+CASE_COUNTS = {16: 20, 17: 30, 18: 40}
 
 
 def fingerprint(value: object) -> str:
@@ -65,8 +66,8 @@ class RequestBudget:
     """Charge before dispatch, including failures and ambiguous interruptions."""
 
     def __init__(self, directory: Path, *, case_count: int = 20) -> None:
-        if case_count not in (20, 30):
-            raise ValueError("Comparison budget requires twenty or thirty cases")
+        if case_count not in CASE_COUNTS.values():
+            raise ValueError("Comparison budget requires twenty, thirty or forty cases")
         self.path = directory / "requests.jsonl"
         self.case_count = case_count
 
@@ -281,12 +282,12 @@ def evaluate_comparison(
     source_reader: source.SourceReader,
     measure_gpu: bool = False,
     serving: dict[str, Any] | None = None,
-    comparison_issue: Literal[16, 17] = 16,
+    comparison_issue: Literal[16, 17, 18] = 16,
 ) -> dict[str, Any]:
     """Run once with shared eligibility; never replace or silently drop a case."""
     directory.mkdir(parents=True, exist_ok=False)
     catalog = sorted(cases, key=lambda case: case.issue_number)
-    case_count = 30 if comparison_issue == 17 else 20
+    case_count = CASE_COUNTS[comparison_issue]
     evidence = _EvidenceSnapshot(commit_source, issue_source, source_reader)
     artifact: dict[str, Any] = {
         "status": "running",
@@ -598,9 +599,11 @@ def summarize_comparison(artifact: dict[str, Any]) -> dict[str, Any]:
     loaded = next((m for m in residency if m.get("digest") == MODEL_DIGEST), None)
     gpu_peaks = [m["peak_sampled_gpu_mib"] for m in methods.values()]
     planned_cases = artifact.get("planned_cases", 20)
-    pairs_gate = (
-        "thirty_complete_pairs" if planned_cases == 30 else "twenty_complete_pairs"
-    )
+    pairs_gate = {
+        20: "twenty_complete_pairs",
+        30: "thirty_complete_pairs",
+        40: "forty_complete_pairs",
+    }[planned_cases]
     gates = {
         pairs_gate: len(gains) == planned_cases
         and all(
@@ -777,13 +780,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--ollama-url", required=True)
     parser.add_argument("--directory", required=True, type=Path)
-    parser.add_argument("--issue", type=int, choices=(16, 17), default=16)
+    parser.add_argument("--issue", type=int, choices=tuple(CASE_COUNTS), default=16)
     args = parser.parse_args()
     if args.directory.exists():
         parser.error("Run directory already exists; repetition/overwrite refused")
     baseline_path = (
-        ROOT / "docs/evaluation/issue-17/baseline.json"
-        if args.issue == 17
+        ROOT / f"docs/evaluation/issue-{args.issue}/baseline.json"
+        if args.issue != 16
         else ROOT / "docs/evaluation/issue-16-baseline.json"
     )
     baseline = json.loads(baseline_path.read_text())
@@ -791,14 +794,18 @@ def main() -> None:
         if hashlib.sha256((ROOT / name).read_bytes()).hexdigest() != expected:
             parser.error(f"Preserved baseline changed: {name}")
     cases = load_cases()
-    if args.issue == 16:
-        # Preserve the original run's catalog even after subsequent expansions.
+    if args.issue != 18:
+        # Preserve archived run catalogs after subsequent expansions.
         original = json.loads(
-            (ROOT / "docs/evaluation/issue-16/results.json").read_text()
+            (
+                ROOT / "docs/evaluation/issue-16/results.json"
+                if args.issue == 16
+                else ROOT / "docs/evaluation/issue-17/run/results.json"
+            ).read_text()
         )
         numbers = {row["issue_number"] for row in original["preflight"]}
         cases = [case for case in cases if case.issue_number in numbers]
-    expected_count = 30 if args.issue == 17 else 20
+    expected_count = CASE_COUNTS[args.issue]
     if len(cases) != expected_count:
         parser.error(f"Frozen comparison requires {expected_count} cases")
     if any(case.human_review.status != "confirmed" for case in cases):
@@ -815,7 +822,7 @@ def main() -> None:
         source_reader=evidence,
         measure_gpu=True,
         serving=serving,
-        comparison_issue=17 if args.issue == 17 else 16,
+        comparison_issue=args.issue,
     )
     try:
         result["serving_after"] = serving_snapshot(base)

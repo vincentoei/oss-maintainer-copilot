@@ -1,0 +1,45 @@
+{
+  "recorded_at": "2026-11-24T12:37:28.603266+00:00",
+  "checks": [
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "106 files already formatted\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/mypy",
+        "src",
+        "tests"
+      ],
+      "exit_code": 0,
+      "stdout": "Success: no issues found in 38 source files\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "stdout": "........................................................................ [ 19%]\n........................................................................ [ 39%]\n.........................................................ss............. [ 58%]\n........................................................................ [ 78%]\n........................................................................ [ 97%]\n........                                                                 [100%]\n366 passed, 2 skipped in 40.25s\n",
+      "stderr": ""
+    }
+  ]
+}
