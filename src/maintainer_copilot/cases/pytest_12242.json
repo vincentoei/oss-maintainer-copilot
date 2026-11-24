@@ -1,0 +1,36 @@
+{
+  "issue_number": 12242,
+  "issue_family_id": "custom-option-conftest-discovery",
+  "template_profile": "bug_feature",
+  "opening_title": "I am getting error \"pytest: error: unrecognized arguments: --env\" while executing tests using pytest",
+  "opening_cutoff": "2024-04-24T17:39:34Z",
+  "opening_content_sha256": "78f2d440f3d710550ba7548bf164afdae2ab46696a8b08e5967e2a075f91daf2",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-24T11:11:57.197847+00:00",
+  "repository_commit": "fafab1dbfd2414c2282b558f0c7af9a7ad0318ab",
+  "repository_commit_at": "2024-04-23T14:59:12Z",
+  "earlier_issue": {
+    "number": 12219,
+    "created_at": "2024-04-16T08:22:38Z",
+    "content_sha256": "681e48797dfaccd7ce7ff3a86bd5862656e34bfbda83da9364ae7fb8696a891b",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "earlier_issue_relationship": "nonduplicate",
+    "issue_type": "type: question",
+    "missing_details": [
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "rationale": "Custom --env option discovery is different from unittest module setup hooks. Package graph and pytest version are supplied. Windows paths do not establish an OS version. The snippet omits its file location and tree, needed for a reproducing example; checked boxes alone are not evidence. Maintainer clarification later confirms a conftest location question, used for annotation only.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/12242",
+      "https://github.com/pytest-dev/pytest/issues/12219"
+    ]
+  },
+  "human_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+    "confirmed_at": "2026-11-24T11:13:32.819514+00:00"
+  }
+}

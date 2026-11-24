@@ -1,0 +1,150 @@
+{
+  "recorded_at": "2026-11-24T12:01:33.226296+00:00",
+  "checks": [
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "103 files already formatted\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/mypy",
+        "src",
+        "tests"
+      ],
+      "exit_code": 0,
+      "stdout": "Success: no issues found in 38 source files\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/pytest",
+        "-q",
+        "tests/test_replay.py",
+        "tests/test_workflow_comparison.py"
+      ],
+      "exit_code": 0,
+      "stdout": "...........................................ss.............               [100%]\n56 passed, 2 skipped in 0.84s\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/pytest",
+        "-q",
+        "-o",
+        "faulthandler_timeout=30"
+      ],
+      "exit_code": 0,
+      "stdout": "........................................................................ [ 20%]\n........................................................................ [ 40%]\n.............................................ss......................... [ 61%]\n........................................................................ [ 81%]\n..................................................................       [100%]\n352 passed, 2 skipped in 48.83s\n",
+      "stderr": "",
+      "environment": "outside sandbox to avoid prior ASGI test stall"
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": "",
+      "phase": "final timeout-only retry",
+      "environment": "outside sandbox"
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "exit_code": 1,
+      "stdout": "unformatted: File would be reformatted\n   --> tests/test_replay.py:279:12\n    |\n278 |         assert github.reads == []\n    -     assert attempts == [\n    -         f\"https://api.github.com/repos/pytest-dev/pytest/git/commits/{case.repository_commit}\"\n    -     ] * 2\n279 +     assert (\n280 +         attempts\n281 +         == [\n282 +             f\"https://api.github.com/repos/pytest-dev/pytest/git/commits/{case.repository_commit}\"\n283 +         ]\n284 +         * 2\n285 +     )\n286 |\n    |\n\n1 file would be reformatted, 102 files already formatted\n",
+      "stderr": "",
+      "phase": "final timeout-only retry",
+      "environment": "outside sandbox"
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": "",
+      "phase": "final after formatting correction",
+      "environment": "outside sandbox"
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "103 files already formatted\n",
+      "stderr": "",
+      "phase": "final after formatting correction",
+      "environment": "outside sandbox"
+    },
+    {
+      "command": [
+        ".venv/bin/mypy",
+        "src",
+        "tests"
+      ],
+      "exit_code": 0,
+      "stdout": "Success: no issues found in 38 source files\n",
+      "stderr": "",
+      "phase": "final after formatting correction",
+      "environment": "outside sandbox"
+    },
+    {
+      "command": [
+        ".venv/bin/pytest",
+        "-q",
+        "tests/test_replay.py",
+        "tests/test_workflow_comparison.py"
+      ],
+      "exit_code": 0,
+      "stdout": ".............................................ss.............             [100%]\n58 passed, 2 skipped in 0.90s\n",
+      "stderr": "",
+      "phase": "final after formatting correction",
+      "environment": "outside sandbox"
+    },
+    {
+      "command": [
+        ".venv/bin/pytest",
+        "-q",
+        "-o",
+        "faulthandler_timeout=30"
+      ],
+      "exit_code": 0,
+      "stdout": "........................................................................ [ 20%]\n........................................................................ [ 40%]\n...............................................ss....................... [ 60%]\n........................................................................ [ 80%]\n....................................................................     [100%]\n354 passed, 2 skipped in 40.57s\n",
+      "stderr": "",
+      "phase": "final after formatting correction",
+      "environment": "outside sandbox"
+    }
+  ],
+  "live_http_schema_body_limit": 16000,
+  "final_live_replay_cases": 30,
+  "oversized_controlled_agent_replay": "passed; all 40484 opening characters before existing whitespace normalization"
+}

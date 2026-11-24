@@ -1,10 +1,14 @@
 """Historical replay contract: current GitHub activity cannot enter a report."""
 
+import io
+import json
 import os
 from datetime import UTC, datetime
 from pathlib import Path
+from urllib.request import Request
 
 import pytest
+from pydantic import ValidationError
 
 from maintainer_copilot import ci, issue_search
 from maintainer_copilot import source as repository_source
@@ -21,6 +25,7 @@ from maintainer_copilot.replay import (
     load_cases,
     replay_case,
 )
+from maintainer_copilot.triage import IssueUnderReview
 
 
 class ChangingGitHub(issue_search.GitHubIssueSource):
@@ -172,6 +177,111 @@ def synthetic_case() -> tuple[HistoricalCase, ChangingGitHub, ChangingRepository
         case,
         ChangingGitHub(reviewed, earlier),
         ChangingRepository(case.repository_commit, case.repository_commit_at),
+    )
+
+
+@pytest.mark.parametrize("body_length", [16_001, 65_536])
+def test_verified_replay_preserves_long_opening_without_relaxing_live_limit(
+    body_length: int,
+) -> None:
+    case, github, repository = synthetic_case()
+    body = ("traceback line\n" * body_length)[
+        : body_length - len(" opening end")
+    ] + " opening end"
+    reviewed = issue_search.IssueRecord(
+        case.issue_number, case.opening_title, body, case.opening_cutoff
+    )
+    github.issues[case.issue_number] = reviewed
+    case = HistoricalCase.model_validate(
+        {**case.model_dump(), "opening_content_sha256": content_hash(reviewed)}
+    )
+    observed = ObservedModel()
+
+    with pytest.raises(ValidationError, match="16000"):
+        IssueUnderReview(title=reviewed.title, body=body)
+
+    report = replay_case(
+        case,
+        commit_source=repository,
+        issue_source=github,
+        source_reader=repository,
+        model_client=observed,
+    )
+
+    assert report.status == "complete"
+    assert observed.requests[0].issue_body == body
+
+
+def test_replay_flags_openings_above_historical_limit_before_model_call() -> None:
+    case, github, repository = synthetic_case()
+    reviewed = issue_search.IssueRecord(
+        case.issue_number, case.opening_title, "x" * 65_537, case.opening_cutoff
+    )
+    github.issues[case.issue_number] = reviewed
+    case = HistoricalCase.model_validate(
+        {**case.model_dump(), "opening_content_sha256": content_hash(reviewed)}
+    )
+    observed = ObservedModel()
+
+    with pytest.raises(CaseFlagged, match="historical replay input limits"):
+        replay_case(
+            case,
+            commit_source=repository,
+            issue_source=github,
+            source_reader=repository,
+            model_client=observed,
+        )
+
+    assert observed.requests == []
+
+
+@pytest.mark.parametrize("recovers", [True, False])
+def test_replay_retries_commit_timeout_once_before_flagging(
+    monkeypatch: pytest.MonkeyPatch, recovers: bool
+) -> None:
+    case, github, repository = synthetic_case()
+    attempts: list[str] = []
+
+    def commit_response(request: Request, *, timeout: int) -> io.BytesIO:
+        assert timeout == 8
+        attempts.append(request.full_url)
+        if not recovers or len(attempts) == 1:
+            raise TimeoutError("commit lookup timed out")
+        return io.BytesIO(
+            json.dumps(
+                {
+                    "sha": case.repository_commit,
+                    "committer": {"date": case.repository_commit_at.isoformat()},
+                }
+            ).encode()
+        )
+
+    monkeypatch.setattr("maintainer_copilot.replay.urlopen", commit_response)
+    observed = ObservedModel()
+
+    def replay() -> None:
+        replay_case(
+            case,
+            commit_source=GitHubCommitSource(),
+            issue_source=github,
+            source_reader=repository,
+            model_client=observed,
+        )
+
+    if recovers:
+        replay()
+        assert len(observed.requests) == 1
+    else:
+        with pytest.raises(CaseFlagged, match="commit is unavailable"):
+            replay()
+        assert observed.requests == []
+        assert github.reads == []
+    assert (
+        attempts
+        == [
+            f"https://api.github.com/repos/pytest-dev/pytest/git/commits/{case.repository_commit}"
+        ]
+        * 2
     )
 
 
@@ -437,9 +547,20 @@ def test_case_rejects_repository_evidence_after_opening() -> None:
         HistoricalCase.model_validate(data)
 
 
-def test_published_cases_cover_twenty_families_and_judgment_types() -> None:
+def test_published_thirty_cases_preserve_coverage_and_group_shared_families() -> None:
     cases = load_cases()
-    new_case_numbers = {12219, 12223, 12224, 12226, 12228}
+    new_case_numbers = {
+        12231,
+        12242,
+        12249,
+        12255,
+        12263,
+        12273,
+        12278,
+        12281,
+        12287,
+        12290,
+    }
     assert {case.issue_number for case in cases} == {
         7312,
         10156,
@@ -456,14 +577,18 @@ def test_published_cases_cover_twenty_families_and_judgment_types() -> None:
         12203,
         12204,
         12216,
+        12219,
+        12223,
+        12224,
+        12226,
+        12228,
     } | new_case_numbers
-    assert len({case.issue_family_id for case in cases}) == 20
+    assert len({case.issue_family_id for case in cases}) == 28
     assert all(case.human_review.status == "confirmed" for case in cases)
-    assert all(
-        case.expected_outcome.earlier_issue_relationship == "nonduplicate"
-        for case in cases
-        if case.issue_number in new_case_numbers
-    )
+    families = {case.issue_number: case.issue_family_id for case in cases}
+    assert families[12263] == families[12273] == families[12278]
+    assert any(case.expected_outcome.missing_details for case in cases)
+    assert any(not case.expected_outcome.missing_details for case in cases)
     assert [case.expected_outcome.earlier_issue_relationship for case in cases].count(
         "duplicate_candidate"
     ) >= 1

@@ -1,0 +1,37 @@
+{
+  "issue_number": 12249,
+  "issue_family_id": "early-import-warning-filtering",
+  "template_profile": "bug_feature",
+  "opening_title": "Handle warnings raised at import time early in pytest process",
+  "opening_cutoff": "2024-04-26T14:06:04Z",
+  "opening_content_sha256": "5c195b0eca34760f69c1fcac6dd99193ed8c68662c4a8ddc38fd44dea581fdf5",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-24T11:11:57.197847+00:00",
+  "repository_commit": "4eb8b6d525b7704432f378cfa45ab9ec02bf4e39",
+  "repository_commit_at": "2024-04-26T07:48:57Z",
+  "earlier_issue": {
+    "number": 12197,
+    "created_at": "2024-04-08T11:30:37Z",
+    "content_sha256": "8388529b44df4edd978ed0b8bbc572913d830907c013154455cc4662918e5bd1",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "earlier_issue_relationship": "nonduplicate",
+    "issue_type": "type: bug",
+    "missing_details": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "rationale": "Warnings escaping filtering during early imports differ from log_disable not being supported in ini. The opening reports pytest 8.1.1 on Linux without an OS release or complete package list; the warning output and invocation do not include an isolated module reproducer. Bug is accepted for failure to control warnings; enhancement would also be defensible.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/12249",
+      "https://github.com/pytest-dev/pytest/issues/12197"
+    ]
+  },
+  "human_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+    "confirmed_at": "2026-11-24T11:13:32.819514+00:00"
+  }
+}

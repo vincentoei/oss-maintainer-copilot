@@ -1,0 +1,792 @@
+{
+  "verified_at": "2026-11-24T11:11:57.197847+00:00",
+  "openings": {
+    "478": {
+      "number": 478,
+      "title": "--pyargs does not understand namespace packages",
+      "created_at": "2014-03-06T14:18:30Z",
+      "last_edited_at": null,
+      "content_sha256": "eb62b22d9cac3a5523e7ea9b36737761182d3333278e91f545780e2eba48c46d",
+      "rest_graphql_agree": true
+    },
+    "12197": {
+      "number": 12197,
+      "title": "log-disable as pytest.ini configuration option does not have any effect",
+      "created_at": "2024-04-08T11:30:37Z",
+      "last_edited_at": null,
+      "content_sha256": "8388529b44df4edd978ed0b8bbc572913d830907c013154455cc4662918e5bd1",
+      "rest_graphql_agree": true
+    },
+    "12204": {
+      "number": 12204,
+      "title": "ExceptionGroup traceback of session fixture unlimitedly grows from test to test",
+      "created_at": "2024-04-10T10:45:32Z",
+      "last_edited_at": null,
+      "content_sha256": "62dec36896ee774efb8621b6838e18b928c3b4eecb9497596f151af6d075dd21",
+      "rest_graphql_agree": true
+    },
+    "12219": {
+      "number": 12219,
+      "title": "setUpModule/tearDownModule not invoked",
+      "created_at": "2024-04-16T08:22:38Z",
+      "last_edited_at": null,
+      "content_sha256": "681e48797dfaccd7ce7ff3a86bd5862656e34bfbda83da9364ae7fb8696a891b",
+      "rest_graphql_agree": true
+    },
+    "12223": {
+      "number": 12223,
+      "title": "junit-xml output attribute can be too big to handle with -vv",
+      "created_at": "2024-04-17T09:00:30Z",
+      "last_edited_at": null,
+      "content_sha256": "731ee2132c277f516b51978c67bb77a578a8731a4b726346f248e7934d627e72",
+      "rest_graphql_agree": true
+    },
+    "12226": {
+      "number": 12226,
+      "title": "support an alternate syntax for \"not\" (as in `pytest -m \"not stuff\"`)",
+      "created_at": "2024-04-19T11:34:17Z",
+      "last_edited_at": null,
+      "content_sha256": "439bb13184ef8ca1b56b2f06094204328cbe9f5bc0b352020573bab713d26ece",
+      "rest_graphql_agree": true
+    },
+    "12228": {
+      "number": 12228,
+      "title": "Documentation request: types/shapes of options in `[tool.pytest.ini_options]`",
+      "created_at": "2024-04-19T17:30:10Z",
+      "last_edited_at": null,
+      "content_sha256": "f701b93585c442aa5d88ee107e892972bc276e92a9cf2746e32907add70d4973",
+      "rest_graphql_agree": true
+    },
+    "12231": {
+      "number": 12231,
+      "title": "Please make verbose XFAIL tracebacks optional",
+      "created_at": "2024-04-21T13:56:41Z",
+      "last_edited_at": null,
+      "content_sha256": "cdf2b6511b080d9fb497524cac3f9bd4cc8c74d20a75c7d9733d25c21506a8f8",
+      "rest_graphql_agree": true
+    },
+    "12242": {
+      "number": 12242,
+      "title": "I am getting error \"pytest: error: unrecognized arguments: --env\" while executing tests using pytest",
+      "created_at": "2024-04-24T17:39:34Z",
+      "last_edited_at": null,
+      "content_sha256": "78f2d440f3d710550ba7548bf164afdae2ab46696a8b08e5967e2a075f91daf2",
+      "rest_graphql_agree": true
+    },
+    "12249": {
+      "number": 12249,
+      "title": "Handle warnings raised at import time early in pytest process",
+      "created_at": "2024-04-26T14:06:04Z",
+      "last_edited_at": null,
+      "content_sha256": "5c195b0eca34760f69c1fcac6dd99193ed8c68662c4a8ddc38fd44dea581fdf5",
+      "rest_graphql_agree": true
+    },
+    "12255": {
+      "number": 12255,
+      "title": "Show nicer tracebacks for BaseExceptionGroup from fixture setup/teardown",
+      "created_at": "2024-04-26T23:09:54Z",
+      "last_edited_at": null,
+      "content_sha256": "76024486006d56f9d14956cf620b3b274ad87669efe87fccbbc4420beb9f621d",
+      "rest_graphql_agree": true
+    },
+    "12263": {
+      "number": 12263,
+      "title": "Issue with pytest 8.2.0 and tornado async tests ",
+      "created_at": "2024-04-28T08:35:09Z",
+      "last_edited_at": null,
+      "content_sha256": "3ec772c89b8b3696494671cfb21456bb7a48220a7ac82a94d5a46d3f7dca6151",
+      "rest_graphql_agree": true
+    },
+    "12273": {
+      "number": 12273,
+      "title": "PyTest 8.2.0 incompatible with certain versions of pytorch, especially DDP tests",
+      "created_at": "2024-04-29T20:38:29Z",
+      "last_edited_at": null,
+      "content_sha256": "05477691322344b12131567020a9910a1ff05a735513aea0f460a7c5f7185caa",
+      "rest_graphql_agree": true
+    },
+    "12278": {
+      "number": 12278,
+      "title": "Since 8.2.0, automatic multiprocessing causes race conditions in my project",
+      "created_at": "2024-04-30T11:24:05Z",
+      "last_edited_at": null,
+      "content_sha256": "34af16bfc9e5227ee6684ceae3f8a762d5945c868f31d73e8b45c6fe32dff37c",
+      "rest_graphql_agree": true
+    },
+    "12281": {
+      "number": 12281,
+      "title": "Support marker keyword arguments in marker expression (test selection via `-m`)  ",
+      "created_at": "2024-05-02T09:04:26Z",
+      "last_edited_at": null,
+      "content_sha256": "4a1d4a258e973605ef901874b8d6fbd35b50b05df591c79761463ef62cdb95cb",
+      "rest_graphql_agree": true
+    },
+    "12287": {
+      "number": 12287,
+      "title": "`--doctest-modules` option causes namespace packages' subpackages to be added to `sys.path`",
+      "created_at": "2024-05-05T15:37:15Z",
+      "last_edited_at": null,
+      "content_sha256": "fd219403ae9a365eaf77a839d91883237e3f58832f6b86d3993497f23d73f82d",
+      "rest_graphql_agree": true
+    },
+    "12290": {
+      "number": 12290,
+      "title": "Support Dark Mode for Pytest Docs Website",
+      "created_at": "2024-05-06T13:24:13Z",
+      "last_edited_at": null,
+      "content_sha256": "c87b63d7cab1d418ed76c5f4c879d7c5c577dc75ed25e19ec926f11d33c91f3e",
+      "rest_graphql_agree": true
+    }
+  },
+  "commits": {
+    "12231": {
+      "sha": "3617ef1c79d686a42ce645b0e28dda824a74e715",
+      "committed_at": "2024-04-21T08:52:16Z"
+    },
+    "12242": {
+      "sha": "fafab1dbfd2414c2282b558f0c7af9a7ad0318ab",
+      "committed_at": "2024-04-23T14:59:12Z"
+    },
+    "12249": {
+      "sha": "4eb8b6d525b7704432f378cfa45ab9ec02bf4e39",
+      "committed_at": "2024-04-26T07:48:57Z"
+    },
+    "12255": {
+      "sha": "1a332802ff8afde3c899df46901f00bde523e4e3",
+      "committed_at": "2024-04-26T22:14:21Z"
+    },
+    "12263": {
+      "sha": "50d1e81713af75ab6d3608d2920ddf21bf53d765",
+      "committed_at": "2024-04-28T08:33:18Z"
+    },
+    "12273": {
+      "sha": "b660596f614f7a67dcf5f6f863345600840df18e",
+      "committed_at": "2024-04-29T17:52:35Z"
+    },
+    "12278": {
+      "sha": "da53e297807ddf85c74052b8ae32dc45404d1f63",
+      "committed_at": "2024-04-29T22:30:08Z"
+    },
+    "12281": {
+      "sha": "4c5298c3954efa71436364efaf531d3851a6aeb4",
+      "committed_at": "2024-05-02T07:42:31Z"
+    },
+    "12287": {
+      "sha": "3d09c85df0e5e6d4cf2a7ad087fe15618d61cdb2",
+      "committed_at": "2024-05-05T00:26:09Z"
+    },
+    "12290": {
+      "sha": "84e59af8c829de659efb339d5a9c7cec98eee719",
+      "committed_at": "2024-05-05T22:53:16Z"
+    }
+  },
+  "templates": {
+    "3617ef1c79d686a42ce645b0e28dda824a74e715/1_bug_report.md": {
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "commit": "3617ef1c79d686a42ce645b0e28dda824a74e715",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "lines": [
+        "---",
+        "name: \ud83d\udc1b Bug Report",
+        "about: Report errors and problems",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for submitting an issue!",
+        "",
+        "Quick check-list while reporting bugs:",
+        "-->",
+        "",
+        "- [ ] a detailed description of the bug or problem you are having",
+        "- [ ] output of `pip list` from the virtual environment you are using",
+        "- [ ] pytest and operating system versions",
+        "- [ ] minimal example if possible"
+      ]
+    },
+    "3617ef1c79d686a42ce645b0e28dda824a74e715/2_feature_request.md": {
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "commit": "3617ef1c79d686a42ce645b0e28dda824a74e715",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "lines": [
+        "---",
+        "name: \ud83d\ude80 Feature Request",
+        "about: Ideas for new features and improvements",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for suggesting a feature!",
+        "",
+        "Quick check-list while suggesting features:",
+        "-->",
+        "",
+        "#### What's the problem this feature will solve?",
+        "<!-- What are you trying to do, that you are unable to achieve with pytest as it currently stands? -->",
+        "",
+        "#### Describe the solution you'd like",
+        "<!-- A clear and concise description of what you want to happen. -->",
+        "",
+        "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "",
+        "#### Alternative Solutions",
+        "<!-- Have you tried to workaround the problem using a pytest plugin or other tools? Or a different approach to solving this issue? Please elaborate here. -->",
+        "",
+        "#### Additional context",
+        "<!-- Add any other context, links, etc. about the feature here. -->"
+      ]
+    },
+    "fafab1dbfd2414c2282b558f0c7af9a7ad0318ab/1_bug_report.md": {
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "commit": "fafab1dbfd2414c2282b558f0c7af9a7ad0318ab",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "lines": [
+        "---",
+        "name: \ud83d\udc1b Bug Report",
+        "about: Report errors and problems",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for submitting an issue!",
+        "",
+        "Quick check-list while reporting bugs:",
+        "-->",
+        "",
+        "- [ ] a detailed description of the bug or problem you are having",
+        "- [ ] output of `pip list` from the virtual environment you are using",
+        "- [ ] pytest and operating system versions",
+        "- [ ] minimal example if possible"
+      ]
+    },
+    "fafab1dbfd2414c2282b558f0c7af9a7ad0318ab/2_feature_request.md": {
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "commit": "fafab1dbfd2414c2282b558f0c7af9a7ad0318ab",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "lines": [
+        "---",
+        "name: \ud83d\ude80 Feature Request",
+        "about: Ideas for new features and improvements",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for suggesting a feature!",
+        "",
+        "Quick check-list while suggesting features:",
+        "-->",
+        "",
+        "#### What's the problem this feature will solve?",
+        "<!-- What are you trying to do, that you are unable to achieve with pytest as it currently stands? -->",
+        "",
+        "#### Describe the solution you'd like",
+        "<!-- A clear and concise description of what you want to happen. -->",
+        "",
+        "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "",
+        "#### Alternative Solutions",
+        "<!-- Have you tried to workaround the problem using a pytest plugin or other tools? Or a different approach to solving this issue? Please elaborate here. -->",
+        "",
+        "#### Additional context",
+        "<!-- Add any other context, links, etc. about the feature here. -->"
+      ]
+    },
+    "4eb8b6d525b7704432f378cfa45ab9ec02bf4e39/1_bug_report.md": {
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "commit": "4eb8b6d525b7704432f378cfa45ab9ec02bf4e39",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "lines": [
+        "---",
+        "name: \ud83d\udc1b Bug Report",
+        "about: Report errors and problems",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for submitting an issue!",
+        "",
+        "Quick check-list while reporting bugs:",
+        "-->",
+        "",
+        "- [ ] a detailed description of the bug or problem you are having",
+        "- [ ] output of `pip list` from the virtual environment you are using",
+        "- [ ] pytest and operating system versions",
+        "- [ ] minimal example if possible"
+      ]
+    },
+    "4eb8b6d525b7704432f378cfa45ab9ec02bf4e39/2_feature_request.md": {
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "commit": "4eb8b6d525b7704432f378cfa45ab9ec02bf4e39",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "lines": [
+        "---",
+        "name: \ud83d\ude80 Feature Request",
+        "about: Ideas for new features and improvements",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for suggesting a feature!",
+        "",
+        "Quick check-list while suggesting features:",
+        "-->",
+        "",
+        "#### What's the problem this feature will solve?",
+        "<!-- What are you trying to do, that you are unable to achieve with pytest as it currently stands? -->",
+        "",
+        "#### Describe the solution you'd like",
+        "<!-- A clear and concise description of what you want to happen. -->",
+        "",
+        "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "",
+        "#### Alternative Solutions",
+        "<!-- Have you tried to workaround the problem using a pytest plugin or other tools? Or a different approach to solving this issue? Please elaborate here. -->",
+        "",
+        "#### Additional context",
+        "<!-- Add any other context, links, etc. about the feature here. -->"
+      ]
+    },
+    "1a332802ff8afde3c899df46901f00bde523e4e3/1_bug_report.md": {
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "commit": "1a332802ff8afde3c899df46901f00bde523e4e3",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "lines": [
+        "---",
+        "name: \ud83d\udc1b Bug Report",
+        "about: Report errors and problems",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for submitting an issue!",
+        "",
+        "Quick check-list while reporting bugs:",
+        "-->",
+        "",
+        "- [ ] a detailed description of the bug or problem you are having",
+        "- [ ] output of `pip list` from the virtual environment you are using",
+        "- [ ] pytest and operating system versions",
+        "- [ ] minimal example if possible"
+      ]
+    },
+    "1a332802ff8afde3c899df46901f00bde523e4e3/2_feature_request.md": {
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "commit": "1a332802ff8afde3c899df46901f00bde523e4e3",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "lines": [
+        "---",
+        "name: \ud83d\ude80 Feature Request",
+        "about: Ideas for new features and improvements",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for suggesting a feature!",
+        "",
+        "Quick check-list while suggesting features:",
+        "-->",
+        "",
+        "#### What's the problem this feature will solve?",
+        "<!-- What are you trying to do, that you are unable to achieve with pytest as it currently stands? -->",
+        "",
+        "#### Describe the solution you'd like",
+        "<!-- A clear and concise description of what you want to happen. -->",
+        "",
+        "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "",
+        "#### Alternative Solutions",
+        "<!-- Have you tried to workaround the problem using a pytest plugin or other tools? Or a different approach to solving this issue? Please elaborate here. -->",
+        "",
+        "#### Additional context",
+        "<!-- Add any other context, links, etc. about the feature here. -->"
+      ]
+    },
+    "50d1e81713af75ab6d3608d2920ddf21bf53d765/1_bug_report.md": {
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "commit": "50d1e81713af75ab6d3608d2920ddf21bf53d765",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "lines": [
+        "---",
+        "name: \ud83d\udc1b Bug Report",
+        "about: Report errors and problems",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for submitting an issue!",
+        "",
+        "Quick check-list while reporting bugs:",
+        "-->",
+        "",
+        "- [ ] a detailed description of the bug or problem you are having",
+        "- [ ] output of `pip list` from the virtual environment you are using",
+        "- [ ] pytest and operating system versions",
+        "- [ ] minimal example if possible"
+      ]
+    },
+    "50d1e81713af75ab6d3608d2920ddf21bf53d765/2_feature_request.md": {
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "commit": "50d1e81713af75ab6d3608d2920ddf21bf53d765",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "lines": [
+        "---",
+        "name: \ud83d\ude80 Feature Request",
+        "about: Ideas for new features and improvements",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for suggesting a feature!",
+        "",
+        "Quick check-list while suggesting features:",
+        "-->",
+        "",
+        "#### What's the problem this feature will solve?",
+        "<!-- What are you trying to do, that you are unable to achieve with pytest as it currently stands? -->",
+        "",
+        "#### Describe the solution you'd like",
+        "<!-- A clear and concise description of what you want to happen. -->",
+        "",
+        "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "",
+        "#### Alternative Solutions",
+        "<!-- Have you tried to workaround the problem using a pytest plugin or other tools? Or a different approach to solving this issue? Please elaborate here. -->",
+        "",
+        "#### Additional context",
+        "<!-- Add any other context, links, etc. about the feature here. -->"
+      ]
+    },
+    "b660596f614f7a67dcf5f6f863345600840df18e/1_bug_report.md": {
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "commit": "b660596f614f7a67dcf5f6f863345600840df18e",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "lines": [
+        "---",
+        "name: \ud83d\udc1b Bug Report",
+        "about: Report errors and problems",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for submitting an issue!",
+        "",
+        "Quick check-list while reporting bugs:",
+        "-->",
+        "",
+        "- [ ] a detailed description of the bug or problem you are having",
+        "- [ ] output of `pip list` from the virtual environment you are using",
+        "- [ ] pytest and operating system versions",
+        "- [ ] minimal example if possible"
+      ]
+    },
+    "b660596f614f7a67dcf5f6f863345600840df18e/2_feature_request.md": {
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "commit": "b660596f614f7a67dcf5f6f863345600840df18e",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "lines": [
+        "---",
+        "name: \ud83d\ude80 Feature Request",
+        "about: Ideas for new features and improvements",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for suggesting a feature!",
+        "",
+        "Quick check-list while suggesting features:",
+        "-->",
+        "",
+        "#### What's the problem this feature will solve?",
+        "<!-- What are you trying to do, that you are unable to achieve with pytest as it currently stands? -->",
+        "",
+        "#### Describe the solution you'd like",
+        "<!-- A clear and concise description of what you want to happen. -->",
+        "",
+        "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "",
+        "#### Alternative Solutions",
+        "<!-- Have you tried to workaround the problem using a pytest plugin or other tools? Or a different approach to solving this issue? Please elaborate here. -->",
+        "",
+        "#### Additional context",
+        "<!-- Add any other context, links, etc. about the feature here. -->"
+      ]
+    },
+    "da53e297807ddf85c74052b8ae32dc45404d1f63/1_bug_report.md": {
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "commit": "da53e297807ddf85c74052b8ae32dc45404d1f63",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "lines": [
+        "---",
+        "name: \ud83d\udc1b Bug Report",
+        "about: Report errors and problems",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for submitting an issue!",
+        "",
+        "Quick check-list while reporting bugs:",
+        "-->",
+        "",
+        "- [ ] a detailed description of the bug or problem you are having",
+        "- [ ] output of `pip list` from the virtual environment you are using",
+        "- [ ] pytest and operating system versions",
+        "- [ ] minimal example if possible"
+      ]
+    },
+    "da53e297807ddf85c74052b8ae32dc45404d1f63/2_feature_request.md": {
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "commit": "da53e297807ddf85c74052b8ae32dc45404d1f63",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "lines": [
+        "---",
+        "name: \ud83d\ude80 Feature Request",
+        "about: Ideas for new features and improvements",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for suggesting a feature!",
+        "",
+        "Quick check-list while suggesting features:",
+        "-->",
+        "",
+        "#### What's the problem this feature will solve?",
+        "<!-- What are you trying to do, that you are unable to achieve with pytest as it currently stands? -->",
+        "",
+        "#### Describe the solution you'd like",
+        "<!-- A clear and concise description of what you want to happen. -->",
+        "",
+        "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "",
+        "#### Alternative Solutions",
+        "<!-- Have you tried to workaround the problem using a pytest plugin or other tools? Or a different approach to solving this issue? Please elaborate here. -->",
+        "",
+        "#### Additional context",
+        "<!-- Add any other context, links, etc. about the feature here. -->"
+      ]
+    },
+    "4c5298c3954efa71436364efaf531d3851a6aeb4/1_bug_report.md": {
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "commit": "4c5298c3954efa71436364efaf531d3851a6aeb4",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "lines": [
+        "---",
+        "name: \ud83d\udc1b Bug Report",
+        "about: Report errors and problems",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for submitting an issue!",
+        "",
+        "Quick check-list while reporting bugs:",
+        "-->",
+        "",
+        "- [ ] a detailed description of the bug or problem you are having",
+        "- [ ] output of `pip list` from the virtual environment you are using",
+        "- [ ] pytest and operating system versions",
+        "- [ ] minimal example if possible"
+      ]
+    },
+    "4c5298c3954efa71436364efaf531d3851a6aeb4/2_feature_request.md": {
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "commit": "4c5298c3954efa71436364efaf531d3851a6aeb4",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "lines": [
+        "---",
+        "name: \ud83d\ude80 Feature Request",
+        "about: Ideas for new features and improvements",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for suggesting a feature!",
+        "",
+        "Quick check-list while suggesting features:",
+        "-->",
+        "",
+        "#### What's the problem this feature will solve?",
+        "<!-- What are you trying to do, that you are unable to achieve with pytest as it currently stands? -->",
+        "",
+        "#### Describe the solution you'd like",
+        "<!-- A clear and concise description of what you want to happen. -->",
+        "",
+        "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "",
+        "#### Alternative Solutions",
+        "<!-- Have you tried to workaround the problem using a pytest plugin or other tools? Or a different approach to solving this issue? Please elaborate here. -->",
+        "",
+        "#### Additional context",
+        "<!-- Add any other context, links, etc. about the feature here. -->"
+      ]
+    },
+    "3d09c85df0e5e6d4cf2a7ad087fe15618d61cdb2/1_bug_report.md": {
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "commit": "3d09c85df0e5e6d4cf2a7ad087fe15618d61cdb2",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "lines": [
+        "---",
+        "name: \ud83d\udc1b Bug Report",
+        "about: Report errors and problems",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for submitting an issue!",
+        "",
+        "Quick check-list while reporting bugs:",
+        "-->",
+        "",
+        "- [ ] a detailed description of the bug or problem you are having",
+        "- [ ] output of `pip list` from the virtual environment you are using",
+        "- [ ] pytest and operating system versions",
+        "- [ ] minimal example if possible"
+      ]
+    },
+    "3d09c85df0e5e6d4cf2a7ad087fe15618d61cdb2/2_feature_request.md": {
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "commit": "3d09c85df0e5e6d4cf2a7ad087fe15618d61cdb2",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "lines": [
+        "---",
+        "name: \ud83d\ude80 Feature Request",
+        "about: Ideas for new features and improvements",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for suggesting a feature!",
+        "",
+        "Quick check-list while suggesting features:",
+        "-->",
+        "",
+        "#### What's the problem this feature will solve?",
+        "<!-- What are you trying to do, that you are unable to achieve with pytest as it currently stands? -->",
+        "",
+        "#### Describe the solution you'd like",
+        "<!-- A clear and concise description of what you want to happen. -->",
+        "",
+        "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "",
+        "#### Alternative Solutions",
+        "<!-- Have you tried to workaround the problem using a pytest plugin or other tools? Or a different approach to solving this issue? Please elaborate here. -->",
+        "",
+        "#### Additional context",
+        "<!-- Add any other context, links, etc. about the feature here. -->"
+      ]
+    },
+    "84e59af8c829de659efb339d5a9c7cec98eee719/1_bug_report.md": {
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "commit": "84e59af8c829de659efb339d5a9c7cec98eee719",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+      "lines": [
+        "---",
+        "name: \ud83d\udc1b Bug Report",
+        "about: Report errors and problems",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for submitting an issue!",
+        "",
+        "Quick check-list while reporting bugs:",
+        "-->",
+        "",
+        "- [ ] a detailed description of the bug or problem you are having",
+        "- [ ] output of `pip list` from the virtual environment you are using",
+        "- [ ] pytest and operating system versions",
+        "- [ ] minimal example if possible"
+      ]
+    },
+    "84e59af8c829de659efb339d5a9c7cec98eee719/2_feature_request.md": {
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "commit": "84e59af8c829de659efb339d5a9c7cec98eee719",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+      "lines": [
+        "---",
+        "name: \ud83d\ude80 Feature Request",
+        "about: Ideas for new features and improvements",
+        "",
+        "---",
+        "",
+        "<!--",
+        "Thanks for suggesting a feature!",
+        "",
+        "Quick check-list while suggesting features:",
+        "-->",
+        "",
+        "#### What's the problem this feature will solve?",
+        "<!-- What are you trying to do, that you are unable to achieve with pytest as it currently stands? -->",
+        "",
+        "#### Describe the solution you'd like",
+        "<!-- A clear and concise description of what you want to happen. -->",
+        "",
+        "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->",
+        "",
+        "#### Alternative Solutions",
+        "<!-- Have you tried to workaround the problem using a pytest plugin or other tools? Or a different approach to solving this issue? Please elaborate here. -->",
+        "",
+        "#### Additional context",
+        "<!-- Add any other context, links, etc. about the feature here. -->"
+      ]
+    }
+  },
+  "hash_definition": "SHA-256 of UTF-8 title + NUL + body, without normalization",
+  "review_method": "Codex inspected all ten openings and seven distinct paired openings, with explicit user delegation and acceptance; not independent human assessment",
+  "annotation_boundary": "Later comments consulted only for annotation; no comment text, labels or closure enters replay",
+  "excluded_during_selection": [
+    {
+      "number": 12235,
+      "reason": "Edited opening; no manually verified original acquired"
+    },
+    {
+      "number": 12239,
+      "reason": "Edited opening; no manually verified original acquired"
+    },
+    {
+      "number": 12254,
+      "reason": "Edited opening; no manually verified original acquired"
+    },
+    {
+      "number": 12266,
+      "reason": "Edited opening; no manually verified original acquired"
+    },
+    {
+      "number": 12269,
+      "reason": "Edited opening; no manually verified original acquired"
+    },
+    {
+      "number": 12270,
+      "reason": "Edited opening; no manually verified original acquired"
+    },
+    {
+      "number": 12275,
+      "reason": "Edited opening; no manually verified original acquired"
+    },
+    {
+      "number": 12276,
+      "reason": "Edited opening; no manually verified original acquired"
+    },
+    {
+      "number": 12289,
+      "reason": "Edited opening; no manually verified original acquired"
+    },
+    {
+      "number": 12294,
+      "reason": "Edited opening; no manually verified original acquired"
+    },
+    {
+      "number": 12306,
+      "reason": "Edited opening; no manually verified original acquired"
+    },
+    {
+      "number": 12330,
+      "reason": "Edited opening; no manually verified original acquired"
+    },
+    {
+      "number": 12332,
+      "reason": "Edited opening; no manually verified original acquired"
+    }
+  ]
+}

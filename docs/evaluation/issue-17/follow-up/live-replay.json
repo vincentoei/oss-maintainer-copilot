@@ -1,0 +1,194 @@
+{
+  "recorded_at": "2026-11-24T11:56:10.651734+00:00",
+  "mode": "controlled model and agent; no provider inference",
+  "replay_source_sha256": "2f8966087b5f8cb8c5be87d6711162e0d7511d3d6787c2b46ce7a1cbe8f7532f",
+  "cases": [
+    {
+      "issue_number": 7312,
+      "status": "complete",
+      "opening_body_characters": 933,
+      "error": null
+    },
+    {
+      "issue_number": 10156,
+      "status": "complete",
+      "opening_body_characters": 1417,
+      "error": null
+    },
+    {
+      "issue_number": 12053,
+      "status": "complete",
+      "opening_body_characters": 762,
+      "error": null
+    },
+    {
+      "issue_number": 12072,
+      "status": "complete",
+      "opening_body_characters": 1144,
+      "error": null
+    },
+    {
+      "issue_number": 12079,
+      "status": "complete",
+      "opening_body_characters": 1363,
+      "error": null
+    },
+    {
+      "issue_number": 12081,
+      "status": "complete",
+      "opening_body_characters": 4567,
+      "error": null
+    },
+    {
+      "issue_number": 12083,
+      "status": "complete",
+      "opening_body_characters": 2364,
+      "error": null
+    },
+    {
+      "issue_number": 12116,
+      "status": "complete",
+      "opening_body_characters": 2530,
+      "error": null
+    },
+    {
+      "issue_number": 12146,
+      "status": "complete",
+      "opening_body_characters": 3822,
+      "error": null
+    },
+    {
+      "issue_number": 12189,
+      "status": "complete",
+      "opening_body_characters": 2200,
+      "error": null
+    },
+    {
+      "issue_number": 12197,
+      "status": "complete",
+      "opening_body_characters": 213,
+      "error": null
+    },
+    {
+      "issue_number": 12201,
+      "status": "complete",
+      "opening_body_characters": 1519,
+      "error": null
+    },
+    {
+      "issue_number": 12203,
+      "status": "complete",
+      "opening_body_characters": 1905,
+      "error": null
+    },
+    {
+      "issue_number": 12204,
+      "status": "complete",
+      "opening_body_characters": 40484,
+      "error": null
+    },
+    {
+      "issue_number": 12216,
+      "status": "complete",
+      "opening_body_characters": 1306,
+      "error": null
+    },
+    {
+      "issue_number": 12219,
+      "status": "complete",
+      "opening_body_characters": 1948,
+      "error": null
+    },
+    {
+      "issue_number": 12223,
+      "status": "complete",
+      "opening_body_characters": 1711,
+      "error": null
+    },
+    {
+      "issue_number": 12224,
+      "status": "complete",
+      "opening_body_characters": 2343,
+      "error": null
+    },
+    {
+      "issue_number": 12226,
+      "status": "complete",
+      "opening_body_characters": 582,
+      "error": null
+    },
+    {
+      "issue_number": 12228,
+      "status": "complete",
+      "opening_body_characters": 2443,
+      "error": null
+    },
+    {
+      "issue_number": 12231,
+      "status": "complete",
+      "opening_body_characters": 799,
+      "error": null
+    },
+    {
+      "issue_number": 12242,
+      "status": "complete",
+      "opening_body_characters": 9584,
+      "error": null
+    },
+    {
+      "issue_number": 12249,
+      "status": "partial",
+      "opening_body_characters": 1309,
+      "error": null
+    },
+    {
+      "issue_number": 12255,
+      "status": "partial",
+      "opening_body_characters": 8436,
+      "error": null
+    },
+    {
+      "issue_number": 12263,
+      "status": "complete",
+      "opening_body_characters": 439,
+      "error": null
+    },
+    {
+      "issue_number": 12273,
+      "status": "complete",
+      "opening_body_characters": 1023,
+      "error": null
+    },
+    {
+      "issue_number": 12278,
+      "status": "complete",
+      "opening_body_characters": 413,
+      "error": null
+    },
+    {
+      "issue_number": 12281,
+      "error": "pytest repository commit is unavailable"
+    },
+    {
+      "issue_number": 12287,
+      "status": "complete",
+      "opening_body_characters": 1599,
+      "error": null
+    },
+    {
+      "issue_number": 12290,
+      "status": "complete",
+      "opening_body_characters": 613,
+      "error": null
+    }
+  ],
+  "oversized_agent_replay": {
+    "issue_number": 12204,
+    "status": "complete",
+    "opening_body_characters": 40484,
+    "model_received_all_content": true,
+    "normalization": "existing leading/trailing whitespace normalization"
+  },
+  "passed_cases": 29,
+  "status": "incomplete"
+}
