@@ -56,6 +56,7 @@ occurred; unused budget does not authorize more inference.
 | Expected-earlier-issue retrieval | 6/20 | 6/20 | 6/20 |
 | Existing relationship exact score | 2/19 | 2/19 | 2/19 |
 | Reports passing structural citation checks | 20/20 | 20/20 | 20/20 |
+| Citation records checked / reports with citations | 15 / 11 | 15 / 11 | 14 / 11 |
 | Issue-type abstention appropriateness | 18/20 | 17/20 | 17/20 |
 | Duplicate abstention appropriateness | 19/20 | 19/20 | 18/20 |
 | Model/action errors | 0 | 1 | 1 |
@@ -83,6 +84,9 @@ earlier issue even for a nonduplicate expectation; 2/19 is that exact contract,
 not a general binary duplicate classifier accuracy. Precision defaults to one
 on empty missing-detail predictions, so 1.00 precision is not perfect recall.
 Additional retrieved issues remain unreviewed.
+Nine reports per arm contain no citations and therefore pass the structural
+check vacuously. The 20/20 structural rate does not establish useful evidence
+coverage or semantic support.
 
 Shared public evidence acquisition took 33.217 seconds before workflow timing.
 The six arm permutations cycle in case order, reducing but not eliminating order
