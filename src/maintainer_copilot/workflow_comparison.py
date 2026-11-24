@@ -283,6 +283,7 @@ def evaluate_comparison(
     measure_gpu: bool = False,
     serving: dict[str, Any] | None = None,
     comparison_issue: Literal[16, 17, 18, 56] = 16,
+    protocol_path: Path | None = None,
 ) -> dict[str, Any]:
     """Run once with shared eligibility; never replace or silently drop a case."""
     directory.mkdir(parents=True, exist_ok=False)
@@ -296,7 +297,8 @@ def evaluate_comparison(
         "planned_cases": case_count,
         "protocol_sha256": hashlib.sha256(
             (
-                ROOT / f"docs/evaluation/issue-{comparison_issue}-protocol.md"
+                protocol_path
+                or ROOT / f"docs/evaluation/issue-{comparison_issue}-protocol.md"
             ).read_bytes()
         ).hexdigest(),
         "source_sha256": {
@@ -781,6 +783,7 @@ def main() -> None:
     parser.add_argument("--ollama-url", required=True)
     parser.add_argument("--directory", required=True, type=Path)
     parser.add_argument("--issue", type=int, choices=tuple(CASE_COUNTS), default=16)
+    parser.add_argument("--protocol", type=Path)
     args = parser.parse_args()
     if args.directory.exists():
         parser.error("Run directory already exists; repetition/overwrite refused")
@@ -823,6 +826,7 @@ def main() -> None:
         measure_gpu=True,
         serving=serving,
         comparison_issue=args.issue,
+        protocol_path=args.protocol,
     )
     try:
         result["serving_after"] = serving_snapshot(base)

@@ -1,5 +1,6 @@
 """Workflow comparison at the agreed replay and runner boundaries."""
 
+import hashlib
 import io
 import json
 from pathlib import Path
@@ -136,6 +137,8 @@ def test_comparison_preserves_three_arms_and_reports_actual_inference_cost(
 
     monkeypatch.setattr("maintainer_copilot.model.urlopen", endpoint)
     directory = tmp_path / "comparison"
+    protocol = tmp_path / "protocol.md"
+    protocol.write_text("One separately frozen follow-up pass; cap 200 calls.\n")
     artifact = evaluate_comparison(
         directory,
         "http://model.test/v1",
@@ -144,6 +147,10 @@ def test_comparison_preserves_three_arms_and_reports_actual_inference_cost(
         issue_source=evidence,
         source_reader=PublicRepositorySource(),
         comparison_issue=comparison_issue,
+        protocol_path=protocol,
+    )
+    assert (
+        artifact["protocol_sha256"] == hashlib.sha256(protocol.read_bytes()).hexdigest()
     )
     summary = artifact["summary"]
     assert len(artifact["cases"]) == 3

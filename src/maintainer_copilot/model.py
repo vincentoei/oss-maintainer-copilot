@@ -142,7 +142,20 @@ def generate_validated(
         raw = client.generate(request)
     except Exception as exc:
         raise ModelUnavailable("Model client failed.") from exc
-    return validate_suggestion(unwrap_response(raw, trace_event), request)
+    output = unwrap_response(raw, trace_event)
+    if request.drafting:
+        return validate_suggestion(output, request)
+    # Validate every untrusted field before adding the report's own vetted
+    # questions. Their presence is a deterministic policy, not a model choice.
+    suggestion = validate_suggestion(output, replace(request, required_reply_ids=()))
+    selected = list(request.required_reply_ids) + [
+        citation_id
+        for citation_id in suggestion.reply_citation_ids
+        if citation_id not in request.required_reply_ids
+    ]
+    return validate_suggestion(
+        {**suggestion.model_dump(), "reply_citation_ids": selected}, request
+    )
 
 
 class OpenAICompatibleModel:
@@ -222,7 +235,11 @@ class OpenAICompatibleModel:
                 "from type_evidence_options, based on the meaning of the whole issue. "
                 "These options only satisfy mechanical validation and are not "
                 "correct classifications by themselves. If none fits the issue, "
-                "use null for type_evidence_index. Select only "
+                "use null for type_evidence_index. "
+                "Classify the reported problem or requested change, rather than "
+                "reference links or deliberately failing examples. A request for "
+                "a new capability is an enhancement; linking documentation is "
+                "not a documentation issue. Select only "
                 "supplied citation IDs for reply_citation_ids. Do not "
                 "write free "
                 "text claims. Include all required_reply_ids. Use [] when "

@@ -99,14 +99,16 @@ def citation_evidence(citation, evidence, openings, pinned_files):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source-issue", type=int, choices=(18, 56), required=True)
+    parser.add_argument("--run-directory", type=Path)
     parser.add_argument("--decisions", type=Path, required=True)
     parser.add_argument("--evidence", type=Path, required=True)
     parser.add_argument("--directory", type=Path, required=True)
     args = parser.parse_args()
-    result = read(ROOT / f"docs/evaluation/issue-{args.source_issue}/run/results.json")
-    identities = read(
-        ROOT / f"docs/evaluation/issue-{args.source_issue}/run/review-key.json"
+    run_directory = (
+        args.run_directory or ROOT / f"docs/evaluation/issue-{args.source_issue}/run"
     )
+    result = read(run_directory / "results.json")
+    identities = read(run_directory / "review-key.json")
     decisions = read(args.decisions)
     catalog = load_cases()
     cases = {case.issue_number: case for case in catalog}
@@ -191,6 +193,11 @@ def main():
         )
     summary = {
         "source_issue": args.source_issue,
+        "source_run": str(
+            run_directory.relative_to(ROOT)
+            if run_directory.is_absolute()
+            else run_directory
+        ),
         "reviewer": "Codex",
         "independent_human_review": False,
         "blinded": False,

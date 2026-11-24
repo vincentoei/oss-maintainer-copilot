@@ -234,6 +234,7 @@ def template_for(title: str, body: str) -> TemplateKind | None:
         return "feature"
     feature_hint = bool(
         re.search(r"\b(feature request|feature|enhancement|add support)\b", title)
+        or re.match(r"^(?:show|render|provide) (?:nicer|better|more \w+)\b", title)
     )
     instructional_question = bool(
         re.match(r"^(?:how|what|why|when|where|can|could|should|question)\b", title)
@@ -252,6 +253,40 @@ def template_for(title: str, body: str) -> TemplateKind | None:
     if "what's the problem this feature will solve?" in body.lower():
         return "feature"
     if "a detailed description of the bug or problem" in body.lower():
+        return "bug"
+    prose = re.sub(r"<!--.*?-->|```.*?```", "", body, flags=re.DOTALL)
+    if all(
+        re.search(rf"(?im)^\s*#{{1,6}}\s+{heading}\s*$", prose)
+        for heading in ("current behavio[u]?r", "expected behavio[u]?r")
+    ):
+        return "bug"
+    observed = bool(
+        re.search(
+            r"\b(?:currently witnessing|we (?:encountered|are seeing)|i observed)\b",
+            prose,
+            re.I,
+        )
+    )
+    problem_patterns = (
+        r"\b(?:does|do|did|is|are)(?:n't| not| never)\b[^.!?\n]{0,40}"
+        r"\b(?:work|working|supported|called|effect|controlled)\b",
+        r"\b(?:pytest|tests?|parsers?)\b[^.!?\n]{0,60}\b(?:fails?|crash\w*)\b|"
+        r"\bcannot be controlled\b|\bblocking each other\b",
+    )
+    for pattern in problem_patterns:
+        for observed_match in re.finditer(pattern, prose, re.I):
+            prefix = re.split(r"[.!?\n]", prose[: observed_match.start()])[-1]
+            if observed or not re.search(
+                r"\b(?:if|unless|suppose|whether|could|would|might|hypothetical)\b",
+                prefix,
+                re.I,
+            ):
+                return "bug"
+    if (
+        not instructional_question
+        and re.search(r"\bERROR collecting\b", body)
+        and "Traceback (most recent call last):" in body
+    ):
         return "bug"
     if re.search(
         r"\b(?:didn't|did not) observe (?:the )?expected (?:behavio[u]?r|result)\b",
@@ -298,7 +333,15 @@ def _provided_environment(body: str) -> tuple[bool, bool]:
         environment_text,
         flags=re.I,
     )
-    has_pytest = bool(re.search(r"\bpytest(?:\s+version)?\s*[:= -]\s*v?\d", body_lower))
+    has_pytest = bool(
+        re.search(r"\bpytest(?:\s+version)?\s*[:= -]\s*v?\d", body_lower)
+        or re.search(r"\bpytest versions?(?: tested)?\s*[:=( -]+v?\d", body_lower)
+        or re.search(
+            r"(?m)^\s*(?:#{1,6}\s*)?pytest and (?:operating system|os) versions"
+            r"\s*\n\s*[0-9a-f]{40}\b",
+            body_lower,
+        )
+    )
     has_os = bool(
         re.search(r"(?im)^\s*(?:os|operating system)\s*:\s*[^\n]*\d", os_text)
         or re.search(
@@ -359,6 +402,28 @@ def _has_pip_list_output(body: str) -> bool:
 
 
 def _has_minimal_example(body: str) -> bool:
+    working = (
+        r"\b(?:hook|example)\b[^.!?\n]{0,50}\b(?:works?|honored) "
+        r"(?:in|for|with) (?:a|the|this) minimi[sz]ed example\b"
+    )
+    failing = r"\b(?:minimal|minimi[sz]ed) failing example\b"
+    if quote_supports_label(
+        {"working": working}, "working", body, body
+    ) and not quote_supports_label({"failing": failing}, "failing", body, body):
+        return False
+    if re.search(r"https://github\.com/[\w.-]+/[\w.-]+", body):
+        for description in re.finditer(
+            r"[^\n]*\brepository\b[^\n]{0,300}\bcontains\b"
+            r"[^\n]{0,80}\breproduc\w*\b",
+            body,
+            re.I,
+        ):
+            if not re.search(
+                r"\b(?:no|not|never|without|if|could|would|might)\b",
+                description.group(),
+                re.I,
+            ):
+                return True
     if re.search(r"\bdef\s+test\w*\s*\(", body):
         return True
     if (
@@ -595,12 +660,16 @@ def missing_feature_details(body: str) -> list[TemplateDetail]:
         re.search(
             r"\b(?:i cannot|i can't|i need|the problem is)\b", without_comments, re.I
         )
+        or re.search(r"\bcurrently\b[^\n]{20,}\btraceback\b", without_comments, re.I)
     )
     has_solution = _section_has_answer(
         body, "Describe the solution you'd like"
     ) or bool(
         re.search(
-            r"\b(?:i would like|please add|the solution is)\b", without_comments, re.I
+            r"\b(?:i would like|please add|the solution is)\b|"
+            r"\bpytest should(?:\s+\w+){0,4}\s+(?:show|render|handle|support|allow)\b",
+            without_comments,
+            re.I,
         )
     )
     has_use_case = bool(
@@ -620,6 +689,7 @@ def missing_feature_details(body: str) -> list[TemplateDetail]:
             re.I,
         )
         or _has_concrete_scenario(without_comments)
+        or _has_minimal_example(without_comments)
     )
     has_alternatives = _has_alternative_detail(without_comments)
     provided = (has_problem, has_solution, has_use_case, has_alternatives)

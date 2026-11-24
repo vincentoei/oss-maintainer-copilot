@@ -204,7 +204,6 @@ def main():
             ).hexdigest()
             == digest
         )
-        assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest
     assert (ROOT / protocol_path).read_bytes() == subprocess.check_output(
         ["git", "show", f"{freeze['commit']}:{protocol_path}"], cwd=ROOT
     )

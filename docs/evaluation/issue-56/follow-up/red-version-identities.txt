@@ -1,0 +1,44 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_ test_supplied_pytest_identity_is_not_repeated_in_environment_question[pytest version tested (7.4.0, 8.2.0)] _
+
+identity = 'pytest version tested (7.4.0, 8.2.0)'
+
+    @pytest.mark.parametrize("identity", [
+        "pytest version tested (7.4.0, 8.2.0)",
+        "## pytest and operating system versions\n" + "a" * 40,
+    ])
+    def test_supplied_pytest_identity_is_not_repeated_in_environment_question(identity: str) -> None:
+        report = replay_opening("Bug: collection fails", identity)
+        detail = next(d for d in report.missing_details if d.name == "pytest and OS versions")
+    
+>       assert detail.request == "your operating system and release"
+E       AssertionError: assert 'your pytest ...stem versions' == 'your operati...m and release'
+E         
+E         - your operating system and release
+E         + your pytest and operating system versions
+
+tests/test_triage_quality_replay.py:140: AssertionError
+_ test_supplied_pytest_identity_is_not_repeated_in_environment_question[## pytest and operating system versions\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa] _
+
+identity = '## pytest and operating system versions\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+    @pytest.mark.parametrize("identity", [
+        "pytest version tested (7.4.0, 8.2.0)",
+        "## pytest and operating system versions\n" + "a" * 40,
+    ])
+    def test_supplied_pytest_identity_is_not_repeated_in_environment_question(identity: str) -> None:
+        report = replay_opening("Bug: collection fails", identity)
+        detail = next(d for d in report.missing_details if d.name == "pytest and OS versions")
+    
+>       assert detail.request == "your operating system and release"
+E       AssertionError: assert 'your pytest ...stem versions' == 'your operati...m and release'
+E         
+E         - your operating system and release
+E         + your pytest and operating system versions
+
+tests/test_triage_quality_replay.py:140: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_supplied_pytest_identity_is_not_repeated_in_environment_question[pytest version tested (7.4.0, 8.2.0)]
+FAILED tests/test_triage_quality_replay.py::test_supplied_pytest_identity_is_not_repeated_in_environment_question[## pytest and operating system versions\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]
+2 failed, 40 deselected in 0.12s

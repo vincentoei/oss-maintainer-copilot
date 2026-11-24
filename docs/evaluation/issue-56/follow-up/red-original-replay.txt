@@ -1,0 +1,10 @@
+12083 expected ['pip list output'] observed []
+12197 expected ['minimal example', 'pip list output', 'pytest and OS versions'] observed []
+12219 expected ['minimal example', 'pip list output', 'pytest and OS versions'] observed []
+12223 expected ['pip list output', 'pytest and OS versions'] observed []
+12249 expected ['minimal example', 'pip list output', 'pytest and OS versions'] observed []
+12255 expected ['alternative solutions'] observed []
+12263 expected ['minimal example', 'pip list output', 'pytest and OS versions'] observed []
+12273 expected ['minimal example', 'pip list output', 'pytest and OS versions'] observed []
+12278 expected ['minimal example', 'pip list output', 'pytest and OS versions'] observed []
+Exact details 31 /40

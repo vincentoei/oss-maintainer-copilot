@@ -1,0 +1,25 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______ test_current_expected_behavior_with_a_described_reproducer_link ________
+
+    def test_current_expected_behavior_with_a_described_reproducer_link() -> None:
+        report = replay_opening(
+            "Collection behavior changed",
+            "## Current behavior\nCollection returns one node.\n"
+            "## Expected behavior\nIt should collect all three nodes.\n"
+            "I made a repository https://github.com/example/collection-repro "
+            "that contains a Dockerfile to reproduce the issue.\npytest 8.2.0",
+        )
+    
+>       assert {d.name for d in report.missing_details} == {"pip list output", "pytest and OS versions"}
+E       AssertionError: assert set() == {'pip list ou... OS versions'}
+E         
+E         Extra items in the right set:
+E         'pytest and OS versions'
+E         'pip list output'
+E         Use -v to get more diff
+
+tests/test_triage_quality_replay.py:205: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_current_expected_behavior_with_a_described_reproducer_link
+1 failed, 47 deselected in 0.11s

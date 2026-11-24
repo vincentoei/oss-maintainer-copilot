@@ -88,6 +88,202 @@ def test_exception_class_in_title_selects_missing_bug_details() -> None:
     }
 
 
+def test_observed_ineffective_configuration_selects_report_details() -> None:
+    report = replay_opening(
+        "Logging configuration option",
+        "Using quiet_logs in pytest.ini does not seem to have any effect. "
+        "This is with pytest 8.2.0.",
+    )
+
+    assert {d.name for d in report.missing_details} == {
+        "pip list output",
+        "pytest and OS versions",
+        "minimal example",
+    }
+
+
+@pytest.mark.parametrize(
+    "body",
+    [
+        "The latest pytest fails in collection instead of running the tests.",
+        "Warnings raised at import time cannot be controlled by filterwarnings.",
+        "Two parsers fail to parse this report, truncating or crashing respectively.",
+        "Since the upgrade, pytest spawns child processes "
+        "which are blocking each other.",
+        "ERROR collecting test_demo.py\nTraceback (most recent call last):\n"
+        "AttributeError: object has no attribute 'runTest'",
+    ],
+)
+def test_observed_body_failure_selects_report_details(body: str) -> None:
+    report = replay_opening("Collection behavior", body)
+
+    assert {d.name for d in report.missing_details} == {
+        "pip list output",
+        "pytest and OS versions",
+        "minimal example",
+    }
+
+
+def test_working_counterexample_does_not_supply_the_failing_reproducer() -> None:
+    report = replay_opening(
+        "Module hook behavior",
+        "The module hook is never called in the project. "
+        "The hook works in a minimized example.\n"
+        "```python\ndef test_hook():\n    assert True\n```",
+    )
+
+    assert {d.name for d in report.missing_details} == {
+        "pip list output",
+        "pytest and OS versions",
+        "minimal example",
+    }
+
+
+@pytest.mark.parametrize(
+    "identity",
+    [
+        "pytest version tested (7.4.0, 8.2.0)",
+        "## pytest and operating system versions\n" + "a" * 40,
+    ],
+)
+def test_supplied_pytest_identity_is_not_repeated_in_environment_question(
+    identity: str,
+) -> None:
+    report = replay_opening("Bug: collection fails", identity)
+    detail = next(
+        d for d in report.missing_details if d.name == "pytest and OS versions"
+    )
+
+    assert detail.request == "your operating system and release"
+
+
+@pytest.mark.parametrize(
+    ("body", "incidental_type"),
+    [
+        (
+            "Please add a configuration setting. See https://docs.example.test/reference.",
+            "type: docs",
+        ),
+        (
+            "Please allow copying captured output.\n```\nFAILED test_demo.py\n```",
+            "type: bug",
+        ),
+    ],
+)
+def test_type_evidence_ignores_reference_urls_and_example_output(
+    monkeypatch: pytest.MonkeyPatch, body: str, incidental_type: str
+) -> None:
+    def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
+        assert isinstance(request.data, bytes)
+        data = json.loads(json.loads(request.data)["messages"][1]["content"])
+        assert incidental_type not in {
+            o["issue_type"] for o in data["type_evidence_options"]
+        }
+        output = {
+            "type_evidence_index": next(
+                o["index"]
+                for o in data["type_evidence_options"]
+                if o["issue_type"] == "type: enhancement"
+            ),
+            "reply_citation_ids": data["required_reply_ids"],
+        }
+        return io.BytesIO(
+            json.dumps(
+                {"choices": [{"message": {"content": json.dumps(output)}}]}
+            ).encode()
+        )
+
+    monkeypatch.setattr("maintainer_copilot.model.urlopen", endpoint)
+    report = replay_opening(
+        "Requested capability",
+        body,
+        model_client=OpenAICompatibleModel("http://model.test/v1", "controlled"),
+    )
+
+    assert report.issue_type == "type: enhancement"
+
+
+@pytest.mark.parametrize("selected_ids", [[], ["C999"]])
+def test_required_investigative_question_is_owned_by_the_report(
+    monkeypatch: pytest.MonkeyPatch, selected_ids: list[str]
+) -> None:
+    def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
+        output = {"type_evidence_index": None, "reply_citation_ids": selected_ids}
+        return io.BytesIO(
+            json.dumps(
+                {"choices": [{"message": {"content": json.dumps(output)}}]}
+            ).encode()
+        )
+
+    monkeypatch.setattr("maintainer_copilot.model.urlopen", endpoint)
+    report = replay_opening(
+        "Module hook behavior",
+        "setUpModule is never called in our project. "
+        "The hook works in a minimized example.",
+        model_client=OpenAICompatibleModel("http://model.test/v1", "controlled"),
+    )
+
+    assert "minimized failing example" in report.draft_reply
+    assert "C999" not in report.draft_reply
+    assert report.status == ("partial" if selected_ids else "complete")
+
+
+def test_traceback_presentation_request_only_needs_alternatives() -> None:
+    report = replay_opening(
+        "Show nicer grouped-exception tracebacks",
+        "Currently a fixture exception produces a compact traceback. "
+        "However grouped exceptions show the full traceback.\n"
+        "```python\ndef test_group():\n"
+        "    raise ExceptionGroup('group', [ValueError('bad')])\n```\n"
+        "I think pytest should be able to also handle groups "
+        "and show a nicer traceback.",
+    )
+
+    assert {d.name for d in report.missing_details} == {"alternative solutions"}
+
+
+def test_current_expected_behavior_with_a_described_reproducer_link() -> None:
+    report = replay_opening(
+        "Collection behavior changed",
+        "## Current behavior\nCollection returns one node.\n"
+        "## Expected behavior\nIt should collect all three nodes.\n"
+        "I made a repository https://github.com/example/collection-repro "
+        "that contains a Dockerfile to reproduce the issue.\npytest 8.2.0",
+    )
+
+    assert {d.name for d in report.missing_details} == {
+        "pip list output",
+        "pytest and OS versions",
+    }
+
+
+@pytest.mark.parametrize(
+    "body",
+    [
+        "If pytest fails in collection, would additional logging be useful?",
+        "Suppose two parsers fail to parse this report. Which API should handle it?",
+        "If the module hook is not called, could a fixture replace it?",
+    ],
+)
+def test_hypothetical_failure_question_does_not_acquire_a_report_checklist(
+    body: str,
+) -> None:
+    report = replay_opening("Questions about diagnostics", body)
+
+    assert report.missing_details == []
+
+
+def test_failing_example_supplied_alongside_a_working_control_is_recognized() -> None:
+    report = replay_opening(
+        "Bug: module hook stops working",
+        "The hook works in a minimized example.\n"
+        "Here is a minimal failing example:\n"
+        "```python\ndef test_hook():\n    assert False\n```",
+    )
+
+    assert "minimal example" not in {d.name for d in report.missing_details}
+
+
 def test_observed_mismatch_selects_details_for_a_neutral_title() -> None:
     report = replay_opening(
         "Session-scoped fixture lifecycle",

@@ -1,0 +1,62 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_ test_type_evidence_ignores_reference_urls_and_example_output[Please add a configuration setting. See https://docs.example.test/reference.-type: docs] _
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x79a8fa898410>
+body = 'Please add a configuration setting. See https://docs.example.test/reference.'
+incidental_type = 'type: docs'
+
+    @pytest.mark.parametrize(("body", "incidental_type"), [
+        ("Please add a configuration setting. See https://docs.example.test/reference.", "type: docs"),
+        ("Please allow copying captured output.\n```\nFAILED test_demo.py\n```", "type: bug"),
+    ])
+    def test_type_evidence_ignores_reference_urls_and_example_output(
+        monkeypatch: pytest.MonkeyPatch, body: str, incidental_type: str
+    ) -> None:
+        def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
+            assert isinstance(request.data, bytes)
+            data = json.loads(json.loads(request.data)["messages"][1]["content"])
+            assert incidental_type not in {o["issue_type"] for o in data["type_evidence_options"]}
+            output = {"type_evidence_index": next(o["index"] for o in data["type_evidence_options"] if o["issue_type"] == "type: enhancement"), "reply_citation_ids": data["required_reply_ids"]}
+            return io.BytesIO(json.dumps({"choices": [{"message": {"content": json.dumps(output)}}]}).encode())
+    
+        monkeypatch.setattr("maintainer_copilot.model.urlopen", endpoint)
+        report = replay_opening("Requested capability", body, model_client=OpenAICompatibleModel("http://model.test/v1", "controlled"))
+    
+>       assert report.issue_type == "type: enhancement"
+E       AssertionError: assert None == 'type: enhancement'
+E        +  where None = TriageReport(context=RepositoryContext(registration_id='pytest-default', repository='pytest-dev/pytest', revision='03e...e suggestion was produced.'), Abstention(field='draft_reply', reason='Model did not select a supported reply claim.')]).issue_type
+
+tests/test_triage_quality_replay.py:160: AssertionError
+_ test_type_evidence_ignores_reference_urls_and_example_output[Please allow copying captured output.\n```\nFAILED test_demo.py\n```-type: bug] _
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x79a8fa5c1550>
+body = 'Please allow copying captured output.\n```\nFAILED test_demo.py\n```'
+incidental_type = 'type: bug'
+
+    @pytest.mark.parametrize(("body", "incidental_type"), [
+        ("Please add a configuration setting. See https://docs.example.test/reference.", "type: docs"),
+        ("Please allow copying captured output.\n```\nFAILED test_demo.py\n```", "type: bug"),
+    ])
+    def test_type_evidence_ignores_reference_urls_and_example_output(
+        monkeypatch: pytest.MonkeyPatch, body: str, incidental_type: str
+    ) -> None:
+        def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
+            assert isinstance(request.data, bytes)
+            data = json.loads(json.loads(request.data)["messages"][1]["content"])
+            assert incidental_type not in {o["issue_type"] for o in data["type_evidence_options"]}
+            output = {"type_evidence_index": next(o["index"] for o in data["type_evidence_options"] if o["issue_type"] == "type: enhancement"), "reply_citation_ids": data["required_reply_ids"]}
+            return io.BytesIO(json.dumps({"choices": [{"message": {"content": json.dumps(output)}}]}).encode())
+    
+        monkeypatch.setattr("maintainer_copilot.model.urlopen", endpoint)
+        report = replay_opening("Requested capability", body, model_client=OpenAICompatibleModel("http://model.test/v1", "controlled"))
+    
+>       assert report.issue_type == "type: enhancement"
+E       AssertionError: assert None == 'type: enhancement'
+E        +  where None = TriageReport(context=RepositoryContext(registration_id='pytest-default', repository='pytest-dev/pytest', revision='03e...e suggestion was produced.'), Abstention(field='draft_reply', reason='Model did not select a supported reply claim.')]).issue_type
+
+tests/test_triage_quality_replay.py:160: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_type_evidence_ignores_reference_urls_and_example_output[Please add a configuration setting. See https://docs.example.test/reference.-type: docs]
+FAILED tests/test_triage_quality_replay.py::test_type_evidence_ignores_reference_urls_and_example_output[Please allow copying captured output.\n```\nFAILED test_demo.py\n```-type: bug]
+2 failed, 42 deselected in 0.11s
