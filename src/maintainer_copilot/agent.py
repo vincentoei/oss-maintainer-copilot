@@ -347,6 +347,12 @@ def triage_issue_with_agent(
     source_reader: repository_source.SourceReader,
     agent_client: AgentClient,
     ci_source: ci.CISource | None = None,
+    *,
+    documentation_topics: tuple[documentation.DocumentationTopic, ...] = (
+        pytest_profile.DOCUMENTATION_TOPICS
+    ),
+    template_revision: str = pytest_profile.TEMPLATE_REVISION,
+    structured_template_available: bool = True,
 ) -> TriageReport:
     """Let one bounded agent choose reads, then validate its report selection."""
     recorder = TraceRecorder()
@@ -354,7 +360,9 @@ def triage_issue_with_agent(
         documentation.DocumentationTopic, documentation.DocumentationPassage
     ] = {}
     documentation_context: list[dict[str, str]] = []
-    for topic in pytest_profile.relevant_documentation_topics(issue.title, issue.body):
+    for topic in pytest_profile.relevant_documentation_topics(
+        issue.title, issue.body, documentation_topics
+    ):
         try:
             with recorder.call(
                 "retrieval", "get_documentation_passage", topic.key
@@ -462,6 +470,9 @@ def triage_issue_with_agent(
         agent_client if finished else _UnavailableModel(),
         ci_source,
         recorder,
+        documentation_topics=documentation_topics,
+        template_revision=template_revision,
+        structured_template_available=structured_template_available,
     )
     if agent_failure is not None:
         report.abstentions.append(Abstention(field="agent", reason=agent_failure))

@@ -14,7 +14,14 @@ from urllib.request import Request, urlopen
 
 from pydantic import BaseModel, Field, model_validator
 
-from maintainer_copilot import ci, documentation, issue_search, model, pytest_profile
+from maintainer_copilot import (
+    agent,
+    ci,
+    documentation,
+    issue_search,
+    model,
+    pytest_profile,
+)
 from maintainer_copilot import source as repository_source
 from maintainer_copilot.triage import IssueUnderReview, TriageReport, triage_issue
 
@@ -413,9 +420,12 @@ def replay_case(
     model_client: model.ModelClient | None = None,
     keyword_filter: bool = False,
     candidate_catalog: Collection[HistoricalCase] | None = None,
+    agent_client: agent.AgentClient | None = None,
 ) -> TriageReport:
     """Verify public issue text, then triage with only pre-cutoff evidence."""
     case = case or load_case()
+    if model_client is not None and agent_client is not None:
+        raise ValueError("Choose a fixed model or an agent, not both")
     _verified_commit(case, commit_source or GitHubCommitSource())
     public_issues = issue_source or issue_search.GitHubIssueSource()
     reviewed = _verified_issue(
@@ -451,22 +461,38 @@ def replay_case(
         if evidence is not None
         else None,
     )
+    frozen_issues = _FrozenIssues(reviewed, candidates, keyword_filter)
+    topics = (topic,) if topic is not None else ()
+    documentation_source = (
+        _PinnedDocumentation(topic, case.repository_commit, reader, evidence)
+        if topic is not None and evidence is not None
+        else documentation.PublicDocumentationSource(())
+    )
+    pinned_source = (
+        _PinnedSource(case.repository_commit, reader, evidence)
+        if evidence is not None
+        else reader
+    )
+    if agent_client is not None:
+        return agent.triage_issue_with_agent(
+            issue,
+            frozen_issues,
+            documentation_source,
+            pinned_source,
+            agent_client,
+            _UnavailableHistoricalCI(),
+            documentation_topics=topics,
+            template_revision=case.repository_commit,
+            structured_template_available=case.template_profile == "bug_feature",
+        )
     return triage_issue(
         issue,
-        source=_FrozenIssues(reviewed, candidates, keyword_filter),
-        documentation_source=_PinnedDocumentation(
-            topic, case.repository_commit, reader, evidence
-        )
-        if topic is not None and evidence is not None
-        else None,
-        source_reader=(
-            _PinnedSource(case.repository_commit, reader, evidence)
-            if evidence is not None
-            else None
-        ),
+        source=frozen_issues,
+        documentation_source=documentation_source,
+        source_reader=pinned_source,
         model_client=model_client or ControlledReplayModel(),
         ci_source=_UnavailableHistoricalCI(),
-        documentation_topics=(topic,) if topic is not None else (),
+        documentation_topics=topics,
         template_revision=case.repository_commit,
         structured_template_available=case.template_profile == "bug_feature",
     )
