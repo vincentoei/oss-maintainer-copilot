@@ -3,7 +3,7 @@
 The catalog now contains **30 reviewed cases across 28 issue families**. All ten
 new cases passed live replay preflight. The single comparison retained all
 90 case/workflow rows: **29 eligible cases per workflow**, with existing #12204
-flagged consistently because its opening exceeds the current 16,000-character
+flagged consistently because its opening exceeded the then-shared 16,000-character
 application limit. No opening was truncated and no replacement case was used.
 The fixed legacy workflow and selected 3B model remain the demo default.
 
@@ -41,8 +41,9 @@ candidate catalog and historical CI abstention. Shared failures stay shared;
 agent choices can consume less evidence. Later comments were consulted only for
 annotation, never passed as replay evidence. Full issue bodies remain on GitHub.
 The run preserves full openings and does not bypass application validation.
-The current input bound was introduced before this branch; #16's earlier run
-could score #12204, but the present application rejects that opening.
+The live input bound was introduced before this branch; #16's earlier run could
+score #12204, but the initial #17 replay rejected that opening. The follow-up
+separates the historical bound from the live bound.
 
 ## Updated measurements
 
@@ -109,7 +110,7 @@ repair, warm-up or second inference pass. Agent tokens total 98251 versus fixed
 across four workflow rows**:
 
 - **#12204, all three workflows:** previously scored, now excluded in shared
-  preflight by the current application body bound. Its scores are null, and no
+  preflight by the then-shared application body bound. Its scores are null, and no
   inference was dispatched. The original expected outcome and opening hash remain
   unchanged. The follow-up fixes the historical replay limit separately; the
   archived comparison retains its original exclusion.

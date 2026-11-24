@@ -276,9 +276,13 @@ def test_replay_retries_commit_timeout_once_before_flagging(
             replay()
         assert observed.requests == []
         assert github.reads == []
-    assert attempts == [
-        f"https://api.github.com/repos/pytest-dev/pytest/git/commits/{case.repository_commit}"
-    ] * 2
+    assert (
+        attempts
+        == [
+            f"https://api.github.com/repos/pytest-dev/pytest/git/commits/{case.repository_commit}"
+        ]
+        * 2
+    )
 
 
 def test_replay_ignores_post_cutoff_activity_in_every_evidence_channel() -> None:
