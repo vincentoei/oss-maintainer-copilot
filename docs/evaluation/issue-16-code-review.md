@@ -62,3 +62,23 @@ Summary at implementation freeze: Standards zero hard breaches, one accepted
 nonblocking mapping heuristic; Spec two corrected defects, zero remaining code
 findings. Execution results and any still-unverified human judgments are reported
 separately, not converted into review passes.
+
+## Final evidence review
+
+Both axes reviewed evidence commit `39a4dfa` after the real run and full checks.
+Standards found zero hard breaches and no new smell finding. The reviewer
+independently checked the offline assertions and publication boundaries: bounded
+provider outputs/reports only, without full contributor openings or serialized
+inputs. The existing mapping judgment remains nonblocking.
+
+Spec found no new findings. The reviewer reran offline verification, confirmed
+candidate eligibility, execution order, prompt/input/schema comparisons and all
+reported quality/resource numbers. Retaining fixed legacy follows the failed
+gates; human usefulness and semantic judgments remain unverified. Neither final
+review dispatched inference. The subsequent documentation-only clarification
+`69f3250` exposes the 15/15/14 citation counts and nine citation-free reports per
+arm; it changes no scores or artifacts.
+
+Final totals: Standards zero hard breaches, one previously accepted nonblocking
+heuristic; Spec zero outstanding defects. Human review remains sixty pending
+ratings, explicitly outside these automated/code-review results.
