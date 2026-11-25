@@ -1,0 +1,38 @@
+{
+  "source_issue": 56,
+  "reviewer": "Codex",
+  "independent_human_review": false,
+  "blinded": false,
+  "reports": 120,
+  "review_groups": 45,
+  "historical_opening_identities_verified": 49,
+  "pinned_file_identity_manifest": "docs/evaluation/issue-56/review-evidence.json",
+  "rating_counts": {
+    "1": 17,
+    "0": 54,
+    "2": 49
+  },
+  "semantic_support_counts": {
+    "supported": 63,
+    "abstained": 51,
+    "partially_supported": 6
+  },
+  "by_method": {
+    "bounded_agent": {
+      "reports": 40,
+      "rating_total": 37,
+      "redundant_request_reports": 0
+    },
+    "fixed_rag": {
+      "reports": 40,
+      "rating_total": 38,
+      "redundant_request_reports": 0
+    },
+    "keyword_rule": {
+      "reports": 40,
+      "rating_total": 40,
+      "redundant_request_reports": 0
+    }
+  },
+  "method": "Explicit case-by-case Codex decisions after reading verified openings, pinned templates/docs/source and earlier openings. Identical claim content for the same opening is grouped. Type-field agreement is reported separately. Citation identity checks verify references, not semantic support. No old human ratings were transferred; no workflow promotion follows."
+}

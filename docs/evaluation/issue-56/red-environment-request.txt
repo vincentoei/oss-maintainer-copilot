@@ -1,0 +1,55 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_ test_environment_request_only_asks_for_the_missing_half[pytest version: 8.2.0\n-your operating system and release] _
+
+body = 'pytest version: 8.2.0\n'
+expected_request = 'your operating system and release'
+
+    @pytest.mark.parametrize(
+        ("body", "expected_request"),
+        [
+            ("pytest version: 8.2.0\n", "your operating system and release"),
+            ("OS: Ubuntu 24.04\n", "your pytest version"),
+        ],
+    )
+    def test_environment_request_only_asks_for_the_missing_half(
+        body: str, expected_request: str
+    ) -> None:
+        report = replay_opening("Bug: collection fails", body)
+        detail = next(d for d in report.missing_details if d.name == "pytest and OS versions")
+    
+>       assert detail.request == expected_request
+E       AssertionError: assert 'your pytest ...stem versions' == 'your operati...m and release'
+E         
+E         - your operating system and release
+E         + your pytest and operating system versions
+
+tests/test_triage_quality_replay.py:325: AssertionError
+_ test_environment_request_only_asks_for_the_missing_half[OS: Ubuntu 24.04\n-your pytest version] _
+
+body = 'OS: Ubuntu 24.04\n', expected_request = 'your pytest version'
+
+    @pytest.mark.parametrize(
+        ("body", "expected_request"),
+        [
+            ("pytest version: 8.2.0\n", "your operating system and release"),
+            ("OS: Ubuntu 24.04\n", "your pytest version"),
+        ],
+    )
+    def test_environment_request_only_asks_for_the_missing_half(
+        body: str, expected_request: str
+    ) -> None:
+        report = replay_opening("Bug: collection fails", body)
+        detail = next(d for d in report.missing_details if d.name == "pytest and OS versions")
+    
+>       assert detail.request == expected_request
+E       AssertionError: assert 'your pytest ...stem versions' == 'your pytest version'
+E         
+E         - your pytest version
+E         + your pytest and operating system versions
+
+tests/test_triage_quality_replay.py:325: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_environment_request_only_asks_for_the_missing_half[pytest version: 8.2.0\n-your operating system and release]
+FAILED tests/test_triage_quality_replay.py::test_environment_request_only_asks_for_the_missing_half[OS: Ubuntu 24.04\n-your pytest version]
+2 failed, 23 deselected in 0.12s

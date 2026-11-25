@@ -1,0 +1,58 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+__ test_required_investigative_question_is_owned_by_the_report[selected_ids0] __
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x754cb939b800>
+selected_ids = []
+
+    @pytest.mark.parametrize("selected_ids", [[], ["C999"]])
+    def test_required_investigative_question_is_owned_by_the_report(
+        monkeypatch: pytest.MonkeyPatch, selected_ids: list[str]
+    ) -> None:
+        def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
+            output = {"type_evidence_index": None, "reply_citation_ids": selected_ids}
+            return io.BytesIO(json.dumps({"choices": [{"message": {"content": json.dumps(output)}}]}).encode())
+    
+        monkeypatch.setattr("maintainer_copilot.model.urlopen", endpoint)
+        report = replay_opening(
+            "Module hook behavior",
+            "setUpModule is never called in our project. "
+            "The hook works in a minimized example.",
+            model_client=OpenAICompatibleModel("http://model.test/v1", "controlled"),
+        )
+    
+>       assert "minimized failing example" in report.draft_reply
+E       AssertionError: assert 'minimized failing example' in 'Thanks for sharing this issue. Could you add the following details?\n- the output of `pip list` from the virtual environment you are using [C1]\n- your pytest and operating system versions [C2]\n- a minimal example, if possible [C3]'
+E        +  where 'Thanks for sharing this issue. Could you add the following details?\n- the output of `pip list` from the virtual environment you are using [C1]\n- your pytest and operating system versions [C2]\n- a minimal example, if possible [C3]' = TriageReport(context=RepositoryContext(registration_id='pytest-default', repository='pytest-dev/pytest', revision='03e...], abstentions=[Abstention(field='issue_type', reason='Model output failed validation; no issue type was suggested.')]).draft_reply
+
+tests/test_triage_quality_replay.py:179: AssertionError
+__ test_required_investigative_question_is_owned_by_the_report[selected_ids1] __
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x754cb71e3ad0>
+selected_ids = ['C999']
+
+    @pytest.mark.parametrize("selected_ids", [[], ["C999"]])
+    def test_required_investigative_question_is_owned_by_the_report(
+        monkeypatch: pytest.MonkeyPatch, selected_ids: list[str]
+    ) -> None:
+        def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
+            output = {"type_evidence_index": None, "reply_citation_ids": selected_ids}
+            return io.BytesIO(json.dumps({"choices": [{"message": {"content": json.dumps(output)}}]}).encode())
+    
+        monkeypatch.setattr("maintainer_copilot.model.urlopen", endpoint)
+        report = replay_opening(
+            "Module hook behavior",
+            "setUpModule is never called in our project. "
+            "The hook works in a minimized example.",
+            model_client=OpenAICompatibleModel("http://model.test/v1", "controlled"),
+        )
+    
+>       assert "minimized failing example" in report.draft_reply
+E       AssertionError: assert 'minimized failing example' in 'Thanks for sharing this issue. Could you add the following details?\n- the output of `pip list` from the virtual environment you are using [C1]\n- your pytest and operating system versions [C2]\n- a minimal example, if possible [C3]'
+E        +  where 'Thanks for sharing this issue. Could you add the following details?\n- the output of `pip list` from the virtual environment you are using [C1]\n- your pytest and operating system versions [C2]\n- a minimal example, if possible [C3]' = TriageReport(context=RepositoryContext(registration_id='pytest-default', repository='pytest-dev/pytest', revision='03e...], abstentions=[Abstention(field='issue_type', reason='Model output failed validation; no issue type was suggested.')]).draft_reply
+
+tests/test_triage_quality_replay.py:179: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_required_investigative_question_is_owned_by_the_report[selected_ids0]
+FAILED tests/test_triage_quality_replay.py::test_required_investigative_question_is_owned_by_the_report[selected_ids1]
+2 failed, 44 deselected in 0.13s

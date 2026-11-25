@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "positive_source_issue": 18,
+  "positive_reviewed_reports": 120,
+  "verified_opening_identities": 49,
+  "negative_checks": [
+    {
+      "mutation": "current-opening",
+      "exit_code": 1,
+      "published_reviews": false,
+      "status": "rejected"
+    },
+    {
+      "mutation": "earlier-opening",
+      "exit_code": 1,
+      "published_reviews": false,
+      "status": "rejected"
+    },
+    {
+      "mutation": "opening-cutoff",
+      "exit_code": 1,
+      "published_reviews": false,
+      "status": "rejected"
+    },
+    {
+      "mutation": "pinned-template",
+      "exit_code": 1,
+      "published_reviews": false,
+      "status": "rejected"
+    },
+    {
+      "mutation": "commit-time",
+      "exit_code": 1,
+      "published_reviews": false,
+      "status": "rejected"
+    }
+  ]
+}

@@ -1,0 +1,307 @@
+{
+  "collected_at": "2026-11-24T13:38:31.276044+00:00",
+  "repository": "pytest-dev/pytest",
+  "pinned_files": {
+    "00043f7f1047b29fdaeb18e169fe9d6146988cb8/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "00043f7f1047b29fdaeb18e169fe9d6146988cb8",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "00043f7f1047b29fdaeb18e169fe9d6146988cb8/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "00043f7f1047b29fdaeb18e169fe9d6146988cb8",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst": {
+      "commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "path": "doc/en/how-to/capture-stdout-stderr.rst",
+      "sha256": "8b332b3d0277f3753ded5f754a159e6adf4a014ea6d3db4b80ca144c46e65a26"
+    },
+    "03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py": {
+      "commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "path": "src/_pytest/capture.py",
+      "sha256": "23d82bbc54086f7af6012c8c833803fece0fdf3ff1cb7757c59e584c60653e0c"
+    },
+    "0951cbc6e4880ee7dfc9b7e56948d83ee086e74b/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "0951cbc6e4880ee7dfc9b7e56948d83ee086e74b",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "0951cbc6e4880ee7dfc9b7e56948d83ee086e74b/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "0951cbc6e4880ee7dfc9b7e56948d83ee086e74b",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "17fc20af78d0c7b739806c4e461d2c9b8c30ceeb/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "17fc20af78d0c7b739806c4e461d2c9b8c30ceeb",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "17fc20af78d0c7b739806c4e461d2c9b8c30ceeb/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "17fc20af78d0c7b739806c4e461d2c9b8c30ceeb",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "1a332802ff8afde3c899df46901f00bde523e4e3/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "1a332802ff8afde3c899df46901f00bde523e4e3",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "1a332802ff8afde3c899df46901f00bde523e4e3/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "1a332802ff8afde3c899df46901f00bde523e4e3",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "1f001cd1051a4ca4bef251d93e472e625578aaf7/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "1f001cd1051a4ca4bef251d93e472e625578aaf7/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "34a285986e456406b22b62aa563a64331f640e7f/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "34a285986e456406b22b62aa563a64331f640e7f",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "34a285986e456406b22b62aa563a64331f640e7f/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "34a285986e456406b22b62aa563a64331f640e7f",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "3617ef1c79d686a42ce645b0e28dda824a74e715/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "3617ef1c79d686a42ce645b0e28dda824a74e715",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "3617ef1c79d686a42ce645b0e28dda824a74e715/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "3617ef1c79d686a42ce645b0e28dda824a74e715",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "3d09c85df0e5e6d4cf2a7ad087fe15618d61cdb2/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "3d09c85df0e5e6d4cf2a7ad087fe15618d61cdb2",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "3d09c85df0e5e6d4cf2a7ad087fe15618d61cdb2/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "3d09c85df0e5e6d4cf2a7ad087fe15618d61cdb2",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "4080459f041f02c66356777001d18155d2796ee7/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "4080459f041f02c66356777001d18155d2796ee7",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "4080459f041f02c66356777001d18155d2796ee7/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "4080459f041f02c66356777001d18155d2796ee7",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "470edc5884faf7ae9e5297f233a4909d4579fbdb/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "470edc5884faf7ae9e5297f233a4909d4579fbdb/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "470edc5884faf7ae9e5297f233a4909d4579fbdb",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "4c5298c3954efa71436364efaf531d3851a6aeb4/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "4c5298c3954efa71436364efaf531d3851a6aeb4",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "4c5298c3954efa71436364efaf531d3851a6aeb4/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "4c5298c3954efa71436364efaf531d3851a6aeb4",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "4e3dd21506a9e543c04c63ebff966a9b604d2b9e/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "4e3dd21506a9e543c04c63ebff966a9b604d2b9e",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "4e3dd21506a9e543c04c63ebff966a9b604d2b9e/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "4e3dd21506a9e543c04c63ebff966a9b604d2b9e",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "4eb8b6d525b7704432f378cfa45ab9ec02bf4e39/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "4eb8b6d525b7704432f378cfa45ab9ec02bf4e39",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "4eb8b6d525b7704432f378cfa45ab9ec02bf4e39/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "4eb8b6d525b7704432f378cfa45ab9ec02bf4e39",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "50d1e81713af75ab6d3608d2920ddf21bf53d765/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "50d1e81713af75ab6d3608d2920ddf21bf53d765",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "50d1e81713af75ab6d3608d2920ddf21bf53d765/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "50d1e81713af75ab6d3608d2920ddf21bf53d765",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "58844247f7ae4a7a213a73c8af2462253b3d8fc7/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "58844247f7ae4a7a213a73c8af2462253b3d8fc7/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "5af46f3d4e8264c50ffd635dbb395199670e70b7",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "5af46f3d4e8264c50ffd635dbb395199670e70b7",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "5f6e825a2687f6bb8bc437e67a59c0a92fb16c06/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "5f6e825a2687f6bb8bc437e67a59c0a92fb16c06",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "5f6e825a2687f6bb8bc437e67a59c0a92fb16c06/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "5f6e825a2687f6bb8bc437e67a59c0a92fb16c06",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "74f05648d5ea9e69d75f27a77972756ee32f6730/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "74f05648d5ea9e69d75f27a77972756ee32f6730",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "74f05648d5ea9e69d75f27a77972756ee32f6730/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "74f05648d5ea9e69d75f27a77972756ee32f6730",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "84e59af8c829de659efb339d5a9c7cec98eee719/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "84e59af8c829de659efb339d5a9c7cec98eee719",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "84e59af8c829de659efb339d5a9c7cec98eee719/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "84e59af8c829de659efb339d5a9c7cec98eee719",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "90a3ef2f36f6c282d1175ce0c13149ce57d1362d/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "90a3ef2f36f6c282d1175ce0c13149ce57d1362d",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "90a3ef2f36f6c282d1175ce0c13149ce57d1362d/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "90a3ef2f36f6c282d1175ce0c13149ce57d1362d",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "ad95d59d6158076768cccd0000b968cd691cb62a",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "b660596f614f7a67dcf5f6f863345600840df18e/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "b660596f614f7a67dcf5f6f863345600840df18e",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "b660596f614f7a67dcf5f6f863345600840df18e/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "b660596f614f7a67dcf5f6f863345600840df18e",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "c0532dda18a5cfd0e6f67113bb164485fa80eb86/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "c0532dda18a5cfd0e6f67113bb164485fa80eb86",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "c0532dda18a5cfd0e6f67113bb164485fa80eb86/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "c0532dda18a5cfd0e6f67113bb164485fa80eb86",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "d49f1fc4dbf9e04da016335d9e82527423d9ad1f/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "d49f1fc4dbf9e04da016335d9e82527423d9ad1f",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "d49f1fc4dbf9e04da016335d9e82527423d9ad1f/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "d49f1fc4dbf9e04da016335d9e82527423d9ad1f",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "da53e297807ddf85c74052b8ae32dc45404d1f63/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "da53e297807ddf85c74052b8ae32dc45404d1f63",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "da53e297807ddf85c74052b8ae32dc45404d1f63/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "da53e297807ddf85c74052b8ae32dc45404d1f63",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "ebe2e8eac9db5a662cf60c9058e0c5ba480d3ad0/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "ebe2e8eac9db5a662cf60c9058e0c5ba480d3ad0",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "ebe2e8eac9db5a662cf60c9058e0c5ba480d3ad0/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "ebe2e8eac9db5a662cf60c9058e0c5ba480d3ad0",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "fa1d5be3e8b0a34106b35eff092adaa67c9de503/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "fa1d5be3e8b0a34106b35eff092adaa67c9de503",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "fa1d5be3e8b0a34106b35eff092adaa67c9de503/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "fa1d5be3e8b0a34106b35eff092adaa67c9de503",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    },
+    "fafab1dbfd2414c2282b558f0c7af9a7ad0318ab/.github/ISSUE_TEMPLATE/1_bug_report.md": {
+      "commit": "fafab1dbfd2414c2282b558f0c7af9a7ad0318ab",
+      "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+      "sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb"
+    },
+    "fafab1dbfd2414c2282b558f0c7af9a7ad0318ab/.github/ISSUE_TEMPLATE/2_feature_request.md": {
+      "commit": "fafab1dbfd2414c2282b558f0c7af9a7ad0318ab",
+      "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+      "sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92"
+    }
+  },
+  "method": "Public GitHub contents fetched at each case-specific pre-opening commit. Full content stays temporary; this tracked digest manifest binds subsequent review inputs to the acquired pinned files. Opening identities are verified directly against the unchanged historical case/candidate metadata."
+}

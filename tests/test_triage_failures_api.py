@@ -405,7 +405,9 @@ def test_negated_working_example_does_not_create_a_false_acknowledgement(
         EarlierIssues([]),
     )
     assert "hook works" not in report["draft_reply"]
-    assert "cannot substantiate" in report["draft_reply"]
+    assert not any(
+        "investigative follow-up" in c["description"] for c in report["citations"]
+    )
 
 
 @pytest.mark.parametrize("endpoint", ["/api/triage", "/api/agent/triage"])
@@ -529,5 +531,5 @@ def test_supported_investigative_question_cannot_be_silently_omitted(
         app.dependency_overrides.clear()
     assert response.status_code == 200
     report = response.json()
-    assert report["status"] == "partial"
-    assert any("validation" in a["reason"] for a in report["abstentions"])
+    assert "conflicting version evidence" in report["draft_reply"]
+    assert not any("validation" in a["reason"] for a in report["abstentions"])

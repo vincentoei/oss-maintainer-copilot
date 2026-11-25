@@ -1,0 +1,214 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+_ test_comparison_preserves_three_arms_and_reports_actual_inference_cost[17-30-thirty_complete_pairs] _
+
+tmp_path = PosixPath('/tmp/pytest-of-vincentoei/pytest-100/test_comparison_preserves_thre0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x768b7cc7f290>
+comparison_issue = 17, planned_cases = 30, pairs_gate = 'thirty_complete_pairs'
+
+    @pytest.mark.parametrize(
+        ("comparison_issue", "planned_cases", "pairs_gate"),
+        [
+            (17, 30, "thirty_complete_pairs"),
+            (18, 40, "forty_complete_pairs"),
+            (56, 40, "forty_complete_pairs"),
+        ],
+    )
+    def test_comparison_preserves_three_arms_and_reports_actual_inference_cost(
+        tmp_path: Path,
+        monkeypatch: pytest.MonkeyPatch,
+        comparison_issue: Literal[17, 18, 56],
+        planned_cases: int,
+        pairs_gate: str,
+    ) -> None:
+        from maintainer_copilot.workflow_comparison import evaluate_comparison
+    
+        evidence = RecordedEvidence()
+    
+        def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
+            assert timeout == 20 and isinstance(request.data, bytes)
+            payload = json.loads(request.data)
+            data = json.loads(payload["messages"][1]["content"])
+            assert payload["max_tokens"] == 256
+            schema = payload["response_format"]["json_schema"]["schema"]
+            output = (
+                {"tool": "finish", "arguments": {}}
+                if "enum" in schema
+                else {
+                    "type_evidence_index": next(
+                        i
+                        for i, option in enumerate(data["type_evidence_options"])
+                        if option["issue_type"] == "type: enhancement"
+                    ),
+                    "reply_citation_ids": data["required_reply_ids"],
+                }
+            )
+            return io.BytesIO(
+                json.dumps(
+                    {
+                        "choices": [{"message": {"content": json.dumps(output)}}],
+                        "usage": {"prompt_tokens": 100, "completion_tokens": 10},
+                    }
+                ).encode()
+            )
+    
+        monkeypatch.setattr("maintainer_copilot.model.urlopen", endpoint)
+        directory = tmp_path / "comparison"
+        protocol = tmp_path / "protocol.md"
+        protocol.write_text("One separately frozen follow-up pass; cap 200 calls.\n")
+>       artifact = evaluate_comparison(
+            directory,
+            "http://model.test/v1",
+            cases=[evidence.case],
+            commit_source=evidence,
+            issue_source=evidence,
+            source_reader=PublicRepositorySource(),
+            comparison_issue=comparison_issue,
+            protocol_path=protocol,
+        )
+E       TypeError: evaluate_comparison() got an unexpected keyword argument 'protocol_path'
+
+tests/test_workflow_comparison.py:142: TypeError
+_ test_comparison_preserves_three_arms_and_reports_actual_inference_cost[18-40-forty_complete_pairs] _
+
+tmp_path = PosixPath('/tmp/pytest-of-vincentoei/pytest-100/test_comparison_preserves_thre1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x768b7cab6270>
+comparison_issue = 18, planned_cases = 40, pairs_gate = 'forty_complete_pairs'
+
+    @pytest.mark.parametrize(
+        ("comparison_issue", "planned_cases", "pairs_gate"),
+        [
+            (17, 30, "thirty_complete_pairs"),
+            (18, 40, "forty_complete_pairs"),
+            (56, 40, "forty_complete_pairs"),
+        ],
+    )
+    def test_comparison_preserves_three_arms_and_reports_actual_inference_cost(
+        tmp_path: Path,
+        monkeypatch: pytest.MonkeyPatch,
+        comparison_issue: Literal[17, 18, 56],
+        planned_cases: int,
+        pairs_gate: str,
+    ) -> None:
+        from maintainer_copilot.workflow_comparison import evaluate_comparison
+    
+        evidence = RecordedEvidence()
+    
+        def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
+            assert timeout == 20 and isinstance(request.data, bytes)
+            payload = json.loads(request.data)
+            data = json.loads(payload["messages"][1]["content"])
+            assert payload["max_tokens"] == 256
+            schema = payload["response_format"]["json_schema"]["schema"]
+            output = (
+                {"tool": "finish", "arguments": {}}
+                if "enum" in schema
+                else {
+                    "type_evidence_index": next(
+                        i
+                        for i, option in enumerate(data["type_evidence_options"])
+                        if option["issue_type"] == "type: enhancement"
+                    ),
+                    "reply_citation_ids": data["required_reply_ids"],
+                }
+            )
+            return io.BytesIO(
+                json.dumps(
+                    {
+                        "choices": [{"message": {"content": json.dumps(output)}}],
+                        "usage": {"prompt_tokens": 100, "completion_tokens": 10},
+                    }
+                ).encode()
+            )
+    
+        monkeypatch.setattr("maintainer_copilot.model.urlopen", endpoint)
+        directory = tmp_path / "comparison"
+        protocol = tmp_path / "protocol.md"
+        protocol.write_text("One separately frozen follow-up pass; cap 200 calls.\n")
+>       artifact = evaluate_comparison(
+            directory,
+            "http://model.test/v1",
+            cases=[evidence.case],
+            commit_source=evidence,
+            issue_source=evidence,
+            source_reader=PublicRepositorySource(),
+            comparison_issue=comparison_issue,
+            protocol_path=protocol,
+        )
+E       TypeError: evaluate_comparison() got an unexpected keyword argument 'protocol_path'
+
+tests/test_workflow_comparison.py:142: TypeError
+_ test_comparison_preserves_three_arms_and_reports_actual_inference_cost[56-40-forty_complete_pairs] _
+
+tmp_path = PosixPath('/tmp/pytest-of-vincentoei/pytest-100/test_comparison_preserves_thre2')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x768b7cab70b0>
+comparison_issue = 56, planned_cases = 40, pairs_gate = 'forty_complete_pairs'
+
+    @pytest.mark.parametrize(
+        ("comparison_issue", "planned_cases", "pairs_gate"),
+        [
+            (17, 30, "thirty_complete_pairs"),
+            (18, 40, "forty_complete_pairs"),
+            (56, 40, "forty_complete_pairs"),
+        ],
+    )
+    def test_comparison_preserves_three_arms_and_reports_actual_inference_cost(
+        tmp_path: Path,
+        monkeypatch: pytest.MonkeyPatch,
+        comparison_issue: Literal[17, 18, 56],
+        planned_cases: int,
+        pairs_gate: str,
+    ) -> None:
+        from maintainer_copilot.workflow_comparison import evaluate_comparison
+    
+        evidence = RecordedEvidence()
+    
+        def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
+            assert timeout == 20 and isinstance(request.data, bytes)
+            payload = json.loads(request.data)
+            data = json.loads(payload["messages"][1]["content"])
+            assert payload["max_tokens"] == 256
+            schema = payload["response_format"]["json_schema"]["schema"]
+            output = (
+                {"tool": "finish", "arguments": {}}
+                if "enum" in schema
+                else {
+                    "type_evidence_index": next(
+                        i
+                        for i, option in enumerate(data["type_evidence_options"])
+                        if option["issue_type"] == "type: enhancement"
+                    ),
+                    "reply_citation_ids": data["required_reply_ids"],
+                }
+            )
+            return io.BytesIO(
+                json.dumps(
+                    {
+                        "choices": [{"message": {"content": json.dumps(output)}}],
+                        "usage": {"prompt_tokens": 100, "completion_tokens": 10},
+                    }
+                ).encode()
+            )
+    
+        monkeypatch.setattr("maintainer_copilot.model.urlopen", endpoint)
+        directory = tmp_path / "comparison"
+        protocol = tmp_path / "protocol.md"
+        protocol.write_text("One separately frozen follow-up pass; cap 200 calls.\n")
+>       artifact = evaluate_comparison(
+            directory,
+            "http://model.test/v1",
+            cases=[evidence.case],
+            commit_source=evidence,
+            issue_source=evidence,
+            source_reader=PublicRepositorySource(),
+            comparison_issue=comparison_issue,
+            protocol_path=protocol,
+        )
+E       TypeError: evaluate_comparison() got an unexpected keyword argument 'protocol_path'
+
+tests/test_workflow_comparison.py:142: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_workflow_comparison.py::test_comparison_preserves_three_arms_and_reports_actual_inference_cost[17-30-thirty_complete_pairs]
+FAILED tests/test_workflow_comparison.py::test_comparison_preserves_three_arms_and_reports_actual_inference_cost[18-40-forty_complete_pairs]
+FAILED tests/test_workflow_comparison.py::test_comparison_preserves_three_arms_and_reports_actual_inference_cost[56-40-forty_complete_pairs]
+3 failed, 10 deselected in 0.16s

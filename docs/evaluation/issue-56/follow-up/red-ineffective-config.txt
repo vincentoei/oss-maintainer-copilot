@@ -1,0 +1,26 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________ test_observed_ineffective_configuration_selects_report_details ________
+
+    def test_observed_ineffective_configuration_selects_report_details() -> None:
+        report = replay_opening(
+            "Logging configuration option",
+            "Using quiet_logs in pytest.ini does not seem to have any effect. "
+            "This is with pytest 8.2.0.",
+        )
+    
+>       assert {d.name for d in report.missing_details} == {
+            "pip list output", "pytest and OS versions", "minimal example"
+        }
+E       AssertionError: assert set() == {'minimal exa... OS versions'}
+E         
+E         Extra items in the right set:
+E         'pytest and OS versions'
+E         'minimal example'
+E         'pip list output'
+E         Use -v to get more diff
+
+tests/test_triage_quality_replay.py:98: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_observed_ineffective_configuration_selects_report_details
+1 failed, 33 deselected in 0.11s

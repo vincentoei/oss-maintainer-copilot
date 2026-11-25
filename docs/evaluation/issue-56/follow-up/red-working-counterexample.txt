@@ -1,0 +1,27 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______ test_working_counterexample_does_not_supply_the_failing_reproducer ______
+
+    def test_working_counterexample_does_not_supply_the_failing_reproducer() -> None:
+        report = replay_opening(
+            "Module hook behavior",
+            "The module hook is never called in the project. "
+            "The hook works in a minimized example.\n"
+            "```python\ndef test_hook():\n    assert True\n```",
+        )
+    
+>       assert {d.name for d in report.missing_details} == {
+            "pip list output", "pytest and OS versions", "minimal example"
+        }
+E       AssertionError: assert set() == {'minimal exa... OS versions'}
+E         
+E         Extra items in the right set:
+E         'minimal example'
+E         'pip list output'
+E         'pytest and OS versions'
+E         Use -v to get more diff
+
+tests/test_triage_quality_replay.py:127: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_working_counterexample_does_not_supply_the_failing_reproducer
+1 failed, 39 deselected in 0.11s

@@ -1,0 +1,18 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____ test_rejected_existing_flag_supplies_an_alternative_with_a_tradeoff ______
+
+    def test_rejected_existing_flag_supplies_an_alternative_with_a_tradeoff() -> None:
+        report = replay_opening(
+            "Feature: separate expected-failure tracebacks",
+            "#### Alternative Solutions\n"
+            "We could avoid passing `-rx`, but then we'd lose the XFAIL summary.\n",
+        )
+    
+>       assert "alternative solutions" not in {d.name for d in report.missing_details}
+E       AssertionError: assert 'alternative solutions' not in {'alternative solutions', 'problem to solve', 'proposed solution', 'real-world use case'}
+
+tests/test_triage_quality_replay.py:280: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_rejected_existing_flag_supplies_an_alternative_with_a_tradeoff
+1 failed, 20 deselected in 0.11s

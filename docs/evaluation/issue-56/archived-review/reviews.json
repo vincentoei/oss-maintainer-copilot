@@ -1,0 +1,4119 @@
+[
+  {
+    "code": "R113",
+    "method": "keyword_rule",
+    "issue_number": 7312,
+    "report_sha256": "89d897c369bd4ee181da5d6f09fc445103f5290cc6dcd8b32b3883d5d242dcbf",
+    "opening_content_sha256": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G001",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "The earlier opening really proposes fixture-derived parametrization and the quoted distinction is accurate. The reply offers useful context but stops at relatedness instead of assessing the accepted duplicate candidate.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "Shared behavior is supported; duplicate assessment remains too conservative.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/349",
+        "opening_content_sha256": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397"
+      }
+    ]
+  },
+  {
+    "code": "R104",
+    "method": "fixed_rag",
+    "issue_number": 7312,
+    "report_sha256": "081f00d716e42d06d4df4fc49223d0a1a748d717c3737e1d9611b9c605354ab7",
+    "opening_content_sha256": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G001",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "The earlier opening really proposes fixture-derived parametrization and the quoted distinction is accurate. The reply offers useful context but stops at relatedness instead of assessing the accepted duplicate candidate.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "Shared behavior is supported; duplicate assessment remains too conservative.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/349",
+        "opening_content_sha256": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397"
+      }
+    ]
+  },
+  {
+    "code": "R95",
+    "method": "bounded_agent",
+    "issue_number": 7312,
+    "report_sha256": "8d134ba7cee3f906313b9c1500037f7463322c4b4e95dfa8a042c2c3e266583f",
+    "opening_content_sha256": "b7f8938643a8127d1562eda2c9bf9bb69d8492e818ddfa3ddb74689d9652f619",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G001",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "The earlier opening really proposes fixture-derived parametrization and the quoted distinction is accurate. The reply offers useful context but stops at relatedness instead of assessing the accepted duplicate candidate.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "Shared behavior is supported; duplicate assessment remains too conservative.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/349",
+        "opening_content_sha256": "5d83ff30aa7b3f8c6fbc94ae16c4e9db5adee7465ac6caf3a60035d9eca01397"
+      }
+    ]
+  },
+  {
+    "code": "R86",
+    "method": "keyword_rule",
+    "issue_number": 10156,
+    "report_sha256": "ae461710235553881fccfb91886659cfac834c5d5abfa2b3223f07eb91e84155",
+    "opening_content_sha256": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G002",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening provides a concrete dynamic-fixture documentation example and asks where it belongs. A generic inability to substantiate a request offers no useful response to those questions.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: docs",
+      "observed": "type: infrastructure"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R55",
+    "method": "bounded_agent",
+    "issue_number": 10156,
+    "report_sha256": "019a1d08610bb5178b25a88069ac41b3812426466cbcdae83e80dff8d0a27367",
+    "opening_content_sha256": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G002",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening provides a concrete dynamic-fixture documentation example and asks where it belongs. A generic inability to substantiate a request offers no useful response to those questions.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: docs",
+      "observed": "type: question"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R68",
+    "method": "fixed_rag",
+    "issue_number": 10156,
+    "report_sha256": "0bffc258ea52ba6b606625da05636d51a7acd195c56baa197c237e8f8b37792b",
+    "opening_content_sha256": "d707fae6b24a29e7faa30d13f2b7d1136872af39ad8cfd4f49c8e9fa92e7491a",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G002",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening provides a concrete dynamic-fixture documentation example and asks where it belongs. A generic inability to substantiate a request offers no useful response to those questions.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: docs",
+      "observed": "type: question"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R14",
+    "method": "fixed_rag",
+    "issue_number": 12053,
+    "report_sha256": "6c9f6b83052a717b15c4adaaf5ef2e155da454febb8239dbdf7a8b5c6c3f36b5",
+    "opening_content_sha256": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G003",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "The earlier --pdbcls help-text issue supports the stated topic and distinction. The reply adds context but does not address the requested configuration support or suggest an investigative next step.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "Earlier help text and the requested setting are accurately distinguished.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/8655",
+        "opening_content_sha256": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f"
+      }
+    ]
+  },
+  {
+    "code": "R44",
+    "method": "keyword_rule",
+    "issue_number": 12053,
+    "report_sha256": "8276de1ccf49b82c73ea30fb076af0f578433afafd006525b7f1e3bb224e90b7",
+    "opening_content_sha256": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G003",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "The earlier --pdbcls help-text issue supports the stated topic and distinction. The reply adds context but does not address the requested configuration support or suggest an investigative next step.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "Earlier help text and the requested setting are accurately distinguished.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: enhancement",
+      "observed": "type: question"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/8655",
+        "opening_content_sha256": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f"
+      }
+    ]
+  },
+  {
+    "code": "R06",
+    "method": "bounded_agent",
+    "issue_number": 12053,
+    "report_sha256": "173c274ed0fad60d7318369e063a00ffbd292f257a6b89f854e15f21c4d3c691",
+    "opening_content_sha256": "d2dc3358114a4842b1ee728f8fd1f94c6b35a347aae6c4e3fcb4de4cbe6b15ff",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G003",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "The earlier --pdbcls help-text issue supports the stated topic and distinction. The reply adds context but does not address the requested configuration support or suggest an investigative next step.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "Earlier help text and the requested setting are accurately distinguished.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/8655",
+        "opening_content_sha256": "8cdf486b1a37550fb1090d2974989478d3af1a05b33a708e1e8c010248fbff4f"
+      }
+    ]
+  },
+  {
+    "code": "R61",
+    "method": "fixed_rag",
+    "issue_number": 12072,
+    "report_sha256": "9fcde527dfd6916cd8c33e3d6ee4dd6e6e33d5cd7ce141167a97e67c86980c63",
+    "opening_content_sha256": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G004",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "Both openings show flaky importing the removed call_runtest_hook, so the cited connection is useful. The reply misses package, OS/version and reproducer requests and understates the duplicate candidate.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "The cited import failure is the same; the reply remains conservative rather than suggesting the accepted duplicate candidate.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: bug",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/12066",
+        "opening_content_sha256": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8"
+      }
+    ]
+  },
+  {
+    "code": "R66",
+    "method": "bounded_agent",
+    "issue_number": 12072,
+    "report_sha256": "75c35cd89f2209d269deb62d0dec4818b5e4ac1aadb095b71c56bc2506da3455",
+    "opening_content_sha256": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G004",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "Both openings show flaky importing the removed call_runtest_hook, so the cited connection is useful. The reply misses package, OS/version and reproducer requests and understates the duplicate candidate.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "The cited import failure is the same; the reply remains conservative rather than suggesting the accepted duplicate candidate.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: bug",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/12066",
+        "opening_content_sha256": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8"
+      }
+    ]
+  },
+  {
+    "code": "R75",
+    "method": "keyword_rule",
+    "issue_number": 12072,
+    "report_sha256": "3ad8ce9ef48b56067e3b6c7907ae71fa3d462f735c935550e4d76a24ddabe12c",
+    "opening_content_sha256": "32547fbf3ddc1250ebd6923c3f20dc2debc0b7edf7b8986693c07fea6e6d5da7",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G004",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "Both openings show flaky importing the removed call_runtest_hook, so the cited connection is useful. The reply misses package, OS/version and reproducer requests and understates the duplicate candidate.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "The cited import failure is the same; the reply remains conservative rather than suggesting the accepted duplicate candidate.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: bug",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/12066",
+        "opening_content_sha256": "aa389c95d8f4b31664d1a37bec880a7abaf8c13758be68e0721c249bb7bf32f8"
+      }
+    ]
+  },
+  {
+    "code": "R04",
+    "method": "bounded_agent",
+    "issue_number": 12079,
+    "report_sha256": "4cdcf72db37ecbf46e120d14d7029602c94d9a3d290108649c414900f4e7b770",
+    "opening_content_sha256": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G005",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "The alternatives request is applicable and unanswered. The two openings propose reading test paths from a file; the report does not establish the accepted duplicate candidate, and the agent reply omits the earlier-issue context from its draft.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "The source supports a stronger duplicate-candidate assessment than the draft gives.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+        "file_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+        "cited_lines": [
+          "#### Alternative Solutions"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/11871",
+        "opening_content_sha256": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320"
+      }
+    ]
+  },
+  {
+    "code": "R09",
+    "method": "keyword_rule",
+    "issue_number": 12079,
+    "report_sha256": "5eec6586e42fa4332ddd07f1f8736f1ff9b1b3458410e50f6f9d312eec319b11",
+    "opening_content_sha256": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G006",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "The alternatives request is applicable and unanswered. The two openings propose reading test paths from a file; the report does not establish the accepted duplicate candidate, and the agent reply omits the earlier-issue context from its draft.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "The source supports a stronger duplicate-candidate assessment than the draft gives.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+        "file_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+        "cited_lines": [
+          "#### Alternative Solutions"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/11871",
+        "opening_content_sha256": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320"
+      }
+    ]
+  },
+  {
+    "code": "R37",
+    "method": "fixed_rag",
+    "issue_number": 12079,
+    "report_sha256": "717d520ace4b0d89543fb798c6d20d61f9e08db33f9b6884785de7cfdb08b173",
+    "opening_content_sha256": "0c2ab4b3ce938ba3e4a0513573704ae4294d99a0dea959537f8ea1401a00c91a",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G005",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "The alternatives request is applicable and unanswered. The two openings propose reading test paths from a file; the report does not establish the accepted duplicate candidate, and the agent reply omits the earlier-issue context from its draft.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "The source supports a stronger duplicate-candidate assessment than the draft gives.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+        "file_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+        "cited_lines": [
+          "#### Alternative Solutions"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/11871",
+        "opening_content_sha256": "2dfda464fb06c45ba4eacd395a279e2b3f9bd7ca521ba907455901341c5ff320"
+      }
+    ]
+  },
+  {
+    "code": "R63",
+    "method": "bounded_agent",
+    "issue_number": 12081,
+    "report_sha256": "0402f89151e9f5fbdf604b4cd366b760c11a4aaaf49ae626feaafc310c9937c2",
+    "opening_content_sha256": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G007",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The agent draft only repeats a broad capture-documentation fact already acknowledged in the opening. It omits the useful earlier-issue/source evidence; its read-error abstentions reflect unperformed agent reads, not proof that GitHub evidence is unavailable.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "The readouterr overlap is real; the reply accurately avoids claiming that the copyouterr proposal is identical.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
+        "file_sha256": "8b332b3d0277f3753ded5f754a159e6adf4a014ea6d3db4b80ca144c46e65a26",
+        "cited_lines": [
+          "The ``capsys``, ``capsysbinary``, ``capfd``, and ``capfdbinary`` fixtures",
+          "allow access to stdout/stderr output created during test execution.  Here is"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R28",
+    "method": "fixed_rag",
+    "issue_number": 12081,
+    "report_sha256": "89199ddd3d7dc58513d8fcd768558018f62f255c714df859e5066ad11d6dc04a",
+    "opening_content_sha256": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G008",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "The earlier opening supports readouterr consuming displayed output; the pinned docs support access to captured streams and the cited source line really resets the buffer. The draft largely repeats context already supplied and does not resolve the proposed copy behavior.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "The readouterr overlap is real; the reply accurately avoids claiming that the copyouterr proposal is identical.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/3448",
+        "opening_content_sha256": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7"
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
+        "file_sha256": "8b332b3d0277f3753ded5f754a159e6adf4a014ea6d3db4b80ca144c46e65a26",
+        "cited_lines": [
+          "The ``capsys``, ``capsysbinary``, ``capfd``, and ``capfdbinary`` fixtures",
+          "allow access to stdout/stderr output created during test execution.  Here is"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+        "file_sha256": "23d82bbc54086f7af6012c8c833803fece0fdf3ff1cb7757c59e584c60653e0c",
+        "cited_lines": [
+          "        \"\"\"Read and return the captured output so far, resetting the internal"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R18",
+    "method": "keyword_rule",
+    "issue_number": 12081,
+    "report_sha256": "57f4508f932d6ac5889115cd1232816a8ef216304f68b536cc38cd3718e2643a",
+    "opening_content_sha256": "ec73c8d10cc2c34b3ab324bfff048d95a2a84cad6bdc030c44eb313ff6ff5da5",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G008",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "The earlier opening supports readouterr consuming displayed output; the pinned docs support access to captured streams and the cited source line really resets the buffer. The draft largely repeats context already supplied and does not resolve the proposed copy behavior.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "The readouterr overlap is real; the reply accurately avoids claiming that the copyouterr proposal is identical.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: enhancement",
+      "observed": "type: docs"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/3448",
+        "opening_content_sha256": "77ba2b359565a01b4584895ba95f34b41377e9f18f1ce5cd52e75bd54153b8f7"
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
+        "file_sha256": "8b332b3d0277f3753ded5f754a159e6adf4a014ea6d3db4b80ca144c46e65a26",
+        "cited_lines": [
+          "The ``capsys``, ``capsysbinary``, ``capfd``, and ``capfdbinary`` fixtures",
+          "allow access to stdout/stderr output created during test execution.  Here is"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+        "file_sha256": "23d82bbc54086f7af6012c8c833803fece0fdf3ff1cb7757c59e584c60653e0c",
+        "cited_lines": [
+          "        \"\"\"Read and return the captured output so far, resetting the internal"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R99",
+    "method": "keyword_rule",
+    "issue_number": 12083,
+    "report_sha256": "24c99719cf93ad16faa26c6654e911cba83d12083c14db3227109ca5f270e3e0",
+    "opening_content_sha256": "39d659d7c54b6d5cd1e336a628b516d771f3e9dc98636701165e8cc70e9e9064",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G009",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The supplied version comparison and reproduction support a focused collection investigation. The generic draft offers no useful request, earlier-family assessment or next step.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: regression",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R90",
+    "method": "fixed_rag",
+    "issue_number": 12083,
+    "report_sha256": "eafdb39a6918ac4f1f7b6dad48f42ac06682eb865449f3eb88a061bb133ccd50",
+    "opening_content_sha256": "39d659d7c54b6d5cd1e336a628b516d771f3e9dc98636701165e8cc70e9e9064",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G009",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The supplied version comparison and reproduction support a focused collection investigation. The generic draft offers no useful request, earlier-family assessment or next step.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: regression",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R58",
+    "method": "bounded_agent",
+    "issue_number": 12083,
+    "report_sha256": "21fdbdd89e33fd0ec2615dc8f06a7ab85e33d7753de8d57410c7faf7a08fb0e5",
+    "opening_content_sha256": "39d659d7c54b6d5cd1e336a628b516d771f3e9dc98636701165e8cc70e9e9064",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G009",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The supplied version comparison and reproduction support a focused collection investigation. The generic draft offers no useful request, earlier-family assessment or next step.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: regression",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R27",
+    "method": "keyword_rule",
+    "issue_number": 12116,
+    "report_sha256": "546ac647a0f08dcaa7805a844a549093606b4a2da4b7660ae56a353b36861069",
+    "opening_content_sha256": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G010",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening supplies the environment, multiprocessing example and workaround. The draft adds no claim or next step. Its empty missing-detail set is appropriate but does not make the reply useful.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: bug",
+      "observed": "type: enhancement"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R70",
+    "method": "bounded_agent",
+    "issue_number": 12116,
+    "report_sha256": "cc0b23332771847fab1d21e3f7a961b5e9d391d18a88cd087bc3fdb540ca96b8",
+    "opening_content_sha256": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G010",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening supplies the environment, multiprocessing example and workaround. The draft adds no claim or next step. Its empty missing-detail set is appropriate but does not make the reply useful.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: bug",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R35",
+    "method": "fixed_rag",
+    "issue_number": 12116,
+    "report_sha256": "7ee58d9434680ceb75b97808bc7fab6eafd669336c981d730ddfa0983a5b6291",
+    "opening_content_sha256": "83db0ebc4352ca655722e1c8399d284b48c234f13c93ca9feb3f2990499ddf2f",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G010",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening supplies the environment, multiprocessing example and workaround. The draft adds no claim or next step. Its empty missing-detail set is appropriate but does not make the reply useful.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: bug",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R16",
+    "method": "fixed_rag",
+    "issue_number": 12146,
+    "report_sha256": "36cce45c4e1c6972c8bf1c9bb7ccc8d8cedc310fe65392f6bbbbcea9af846291",
+    "opening_content_sha256": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G011",
+    "status": "assistant_reviewed",
+    "rating": 2,
+    "reason": "The two scenarios change pytest versions and tuple ordering as well as construction. Asking for the same version and tuple values isolates a real confound; those facts are present in the opening and citation passage.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: bug",
+      "observed": null
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/12146",
+        "opening_content_sha256": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167"
+      }
+    ]
+  },
+  {
+    "code": "R36",
+    "method": "keyword_rule",
+    "issue_number": 12146,
+    "report_sha256": "0503f88dc174c981ecc92a6425491d45e19ddbead2cc42113938f4a847557180",
+    "opening_content_sha256": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G011",
+    "status": "assistant_reviewed",
+    "rating": 2,
+    "reason": "The two scenarios change pytest versions and tuple ordering as well as construction. Asking for the same version and tuple values isolates a real confound; those facts are present in the opening and citation passage.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: bug",
+      "observed": null
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/12146",
+        "opening_content_sha256": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167"
+      }
+    ]
+  },
+  {
+    "code": "R25",
+    "method": "bounded_agent",
+    "issue_number": 12146,
+    "report_sha256": "e7b2fce8b3dd72fee22781a2dae93c3cdadd7162f3610aa048b78d2c1e7a337c",
+    "opening_content_sha256": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G011",
+    "status": "assistant_reviewed",
+    "rating": 2,
+    "reason": "The two scenarios change pytest versions and tuple ordering as well as construction. Asking for the same version and tuple values isolates a real confound; those facts are present in the opening and citation passage.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: bug",
+      "observed": null
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/12146",
+        "opening_content_sha256": "695a7c082d61ebde55d0a04535df2f23846aaeaec91f0ea6327c64bef45bb167"
+      }
+    ]
+  },
+  {
+    "code": "R01",
+    "method": "fixed_rag",
+    "issue_number": 12189,
+    "report_sha256": "8ccd26d43904ad973aea41ffec1595b9f29a8b2a859a267ed14e8f6fa4b134f6",
+    "opening_content_sha256": "7c9d2d1977a430e51c42fb6319ecc3fae01bb9d7f46d01f1921fb1760199785d",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G012",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening supplies a package list, command and runnable print example but no Windows release. The generic reply misses the needed OS clarification and does not investigate capture being disabled by -s.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pytest and OS versions"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: question",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R105",
+    "method": "bounded_agent",
+    "issue_number": 12189,
+    "report_sha256": "ffe32aabecb97ac6f35b35a46120ff1c8922b791f1526c6befbc5845281dbda6",
+    "opening_content_sha256": "7c9d2d1977a430e51c42fb6319ecc3fae01bb9d7f46d01f1921fb1760199785d",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G012",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening supplies a package list, command and runnable print example but no Windows release. The generic reply misses the needed OS clarification and does not investigate capture being disabled by -s.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pytest and OS versions"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: question",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R115",
+    "method": "keyword_rule",
+    "issue_number": 12189,
+    "report_sha256": "98dea1a8109464c7a79c198dfe210146f4babb2f343ee7bd87637b15dce2f6d6",
+    "opening_content_sha256": "7c9d2d1977a430e51c42fb6319ecc3fae01bb9d7f46d01f1921fb1760199785d",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G012",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening supplies a package list, command and runnable print example but no Windows release. The generic reply misses the needed OS clarification and does not investigate capture being disabled by -s.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pytest and OS versions"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: question",
+      "observed": "type: enhancement"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R107",
+    "method": "bounded_agent",
+    "issue_number": 12197,
+    "report_sha256": "f5298ae9db427984c81746ef75fdcf57dc01a68148edd6c98f84dd123e913681",
+    "opening_content_sha256": "8388529b44df4edd978ed0b8bbc572913d830907c013154455cc4662918e5bd1",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G013",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening identifies pytest 7.4.3 and the ineffective ini setting. The draft offers no investigation or needed package, OS and example requests.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: question",
+      "observed": null
+    },
+    "evidence": []
+  },
+  {
+    "code": "R62",
+    "method": "keyword_rule",
+    "issue_number": 12197,
+    "report_sha256": "26abeb21cea534fd6b038b25978dc7346d0fc649fe8ff90905c54f9ccf426a0f",
+    "opening_content_sha256": "8388529b44df4edd978ed0b8bbc572913d830907c013154455cc4662918e5bd1",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G013",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening identifies pytest 7.4.3 and the ineffective ini setting. The draft offers no investigation or needed package, OS and example requests.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: question",
+      "observed": null
+    },
+    "evidence": []
+  },
+  {
+    "code": "R92",
+    "method": "fixed_rag",
+    "issue_number": 12197,
+    "report_sha256": "ec7fff7a9ae6a3c7851c9e285379a8e419d7fa71b6e47a1d701819a0eff1dda3",
+    "opening_content_sha256": "8388529b44df4edd978ed0b8bbc572913d830907c013154455cc4662918e5bd1",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G013",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening identifies pytest 7.4.3 and the ineffective ini setting. The draft offers no investigation or needed package, OS and example requests.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: question",
+      "observed": null
+    },
+    "evidence": []
+  },
+  {
+    "code": "R108",
+    "method": "bounded_agent",
+    "issue_number": 12201,
+    "report_sha256": "016a738103f305ce7964523411ebcbb3ff188c888868903d79c34ca79b026fca",
+    "opening_content_sha256": "18e54c14cdbbb80c34d7dc66f91d6ab23e15ec84503bf59f0ecdf2d79cfd8abc",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G014",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The feature opening supplies platform-path examples, desired syntax and its current skipif workaround. The generic draft provides no useful triage response; asking for no additional details is nevertheless appropriate.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R13",
+    "method": "fixed_rag",
+    "issue_number": 12201,
+    "report_sha256": "ab1161b71eb0c28d05bd7bc7981cd896e1d841aa5bc15afeae55e72863996283",
+    "opening_content_sha256": "18e54c14cdbbb80c34d7dc66f91d6ab23e15ec84503bf59f0ecdf2d79cfd8abc",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G014",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The feature opening supplies platform-path examples, desired syntax and its current skipif workaround. The generic draft provides no useful triage response; asking for no additional details is nevertheless appropriate.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R32",
+    "method": "keyword_rule",
+    "issue_number": 12201,
+    "report_sha256": "4758d0bb63294977425a84b840e561d86829c2c1d00c3aafc5e5e6e7ec8247b0",
+    "opening_content_sha256": "18e54c14cdbbb80c34d7dc66f91d6ab23e15ec84503bf59f0ecdf2d79cfd8abc",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G014",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The feature opening supplies platform-path examples, desired syntax and its current skipif workaround. The generic draft provides no useful triage response; asking for no additional details is nevertheless appropriate.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R117",
+    "method": "keyword_rule",
+    "issue_number": 12203,
+    "report_sha256": "525aa03e52d7ecc94da57841b7b50a084a01a8711c0078ada4632f9911e0ed07",
+    "opening_content_sha256": "aa2546be855758373051d6f6fb6fb5c054046d756240b75632230807dbe3061c",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G015",
+    "status": "assistant_reviewed",
+    "rating": 2,
+    "reason": "The opening supplies a package list and Fedora/pytest versions but its fixture snippet depends on Launcher and get_ctr_log and has no runnable test. The pinned bug template supports requesting an isolated minimal example.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: bug",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/1f001cd1051a4ca4bef251d93e472e625578aaf7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] minimal example if possible"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R103",
+    "method": "fixed_rag",
+    "issue_number": 12203,
+    "report_sha256": "75231ff91347ec5f488410359bc042724bc0afd071831b363ba6cfc3e20df83c",
+    "opening_content_sha256": "aa2546be855758373051d6f6fb6fb5c054046d756240b75632230807dbe3061c",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G015",
+    "status": "assistant_reviewed",
+    "rating": 2,
+    "reason": "The opening supplies a package list and Fedora/pytest versions but its fixture snippet depends on Launcher and get_ctr_log and has no runnable test. The pinned bug template supports requesting an isolated minimal example.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: bug",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/1f001cd1051a4ca4bef251d93e472e625578aaf7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] minimal example if possible"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R102",
+    "method": "bounded_agent",
+    "issue_number": 12203,
+    "report_sha256": "6459af70fbb69abb85b8bac718c222de17edcae7bfb2ec33719a88d2a905fe63",
+    "opening_content_sha256": "aa2546be855758373051d6f6fb6fb5c054046d756240b75632230807dbe3061c",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G015",
+    "status": "assistant_reviewed",
+    "rating": 2,
+    "reason": "The opening supplies a package list and Fedora/pytest versions but its fixture snippet depends on Launcher and get_ctr_log and has no runnable test. The pinned bug template supports requesting an isolated minimal example.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: bug",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/1f001cd1051a4ca4bef251d93e472e625578aaf7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] minimal example if possible"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R96",
+    "method": "keyword_rule",
+    "issue_number": 12204,
+    "report_sha256": "439e8e8229f9a31ba2c4aef1cc53742258d083c719b6101a5552d669820581a3",
+    "opening_content_sha256": "62dec36896ee774efb8621b6838e18b928c3b4eecb9497596f151af6d075dd21",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G016",
+    "status": "assistant_reviewed",
+    "rating": 2,
+    "reason": "The package list gives pytest 8.1.1/pluggy 1.4.0 while the recorded session gives 8.0.0/1.3.0 without explaining that as a comparison. The cited opening supports asking which environment produced the growing tracebacks.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: bug",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/12204",
+        "opening_content_sha256": "62dec36896ee774efb8621b6838e18b928c3b4eecb9497596f151af6d075dd21"
+      }
+    ]
+  },
+  {
+    "code": "R07",
+    "method": "bounded_agent",
+    "issue_number": 12204,
+    "report_sha256": "2af3ddb6ead55f86a0c72e7aa36c66fdd1c4d2e4fdda6439e39aeebaf2d8f90b",
+    "opening_content_sha256": "62dec36896ee774efb8621b6838e18b928c3b4eecb9497596f151af6d075dd21",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G017",
+    "status": "assistant_reviewed",
+    "rating": 2,
+    "reason": "The package list gives pytest 8.1.1/pluggy 1.4.0 while the recorded session gives 8.0.0/1.3.0 without explaining that as a comparison. The cited opening supports asking which environment produced the growing tracebacks.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: bug",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/12204",
+        "opening_content_sha256": "62dec36896ee774efb8621b6838e18b928c3b4eecb9497596f151af6d075dd21"
+      }
+    ]
+  },
+  {
+    "code": "R26",
+    "method": "fixed_rag",
+    "issue_number": 12204,
+    "report_sha256": "b38932fe54ae9f265ce054bf82616a1165025c93238715c767112940139181fb",
+    "opening_content_sha256": "62dec36896ee774efb8621b6838e18b928c3b4eecb9497596f151af6d075dd21",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G016",
+    "status": "assistant_reviewed",
+    "rating": 2,
+    "reason": "The package list gives pytest 8.1.1/pluggy 1.4.0 while the recorded session gives 8.0.0/1.3.0 without explaining that as a comparison. The cited opening supports asking which environment produced the growing tracebacks.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: bug",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/12204",
+        "opening_content_sha256": "62dec36896ee774efb8621b6838e18b928c3b4eecb9497596f151af6d075dd21"
+      }
+    ]
+  },
+  {
+    "code": "R101",
+    "method": "fixed_rag",
+    "issue_number": 12216,
+    "report_sha256": "3a03204cb1964e4da0877c68fd5d6a135dae1cf9c0b10b09c33e51bf5b88755d",
+    "opening_content_sha256": "fe52fe12b75b3450706561eaff0cb911d116beeebec5077d044bab2d93e8930e",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G018",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening supplies runnable dynamic-fixture code and pytest 8.1.1, but no package list or OS release. The generic reply misses those needed requests; model arms additionally reject a mismatched label/quote pair.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: bug",
+      "observed": null
+    },
+    "evidence": []
+  },
+  {
+    "code": "R22",
+    "method": "keyword_rule",
+    "issue_number": 12216,
+    "report_sha256": "5bf94b2a757fe4ccb5974eb47929cac2862336f9503ceb308f717c84ad767ebc",
+    "opening_content_sha256": "fe52fe12b75b3450706561eaff0cb911d116beeebec5077d044bab2d93e8930e",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G019",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening supplies runnable dynamic-fixture code and pytest 8.1.1, but no package list or OS release. The generic reply misses those needed requests; model arms additionally reject a mismatched label/quote pair.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: bug",
+      "observed": "type: enhancement"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R74",
+    "method": "bounded_agent",
+    "issue_number": 12216,
+    "report_sha256": "a37c8621bcc32b6d678e30fb80d2f7cd30b868137e21802b6e1a8759ab6e553e",
+    "opening_content_sha256": "fe52fe12b75b3450706561eaff0cb911d116beeebec5077d044bab2d93e8930e",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G018",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening supplies runnable dynamic-fixture code and pytest 8.1.1, but no package list or OS release. The generic reply misses those needed requests; model arms additionally reject a mismatched label/quote pair.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: bug",
+      "observed": null
+    },
+    "evidence": []
+  },
+  {
+    "code": "R17",
+    "method": "fixed_rag",
+    "issue_number": 12219,
+    "report_sha256": "104159e3e3b37c2c31d8a27b8384fa89050c684a85ae7a8fe83d5b90c485be0b",
+    "opening_content_sha256": "681e48797dfaccd7ce7ff3a86bd5862656e34bfbda83da9364ae7fb8696a891b",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G020",
+    "status": "assistant_reviewed",
+    "rating": 2,
+    "reason": "The opening explicitly says the hook works in its minimized example. Requesting a minimized failing layout/configuration/command is well grounded; the earlier opening supports the stated documentation-versus-runtime distinction.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "The earlier documentation question and present runtime problem are accurately distinguished.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: bug",
+      "observed": "type: docs"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/4064",
+        "opening_content_sha256": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9"
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/12219",
+        "opening_content_sha256": "681e48797dfaccd7ce7ff3a86bd5862656e34bfbda83da9364ae7fb8696a891b"
+      }
+    ]
+  },
+  {
+    "code": "R120",
+    "method": "bounded_agent",
+    "issue_number": 12219,
+    "report_sha256": "f998ca8dec65566026056cdc2161ea3fd1de4c442f67c0cc6e115006324a16b8",
+    "opening_content_sha256": "681e48797dfaccd7ce7ff3a86bd5862656e34bfbda83da9364ae7fb8696a891b",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G020",
+    "status": "assistant_reviewed",
+    "rating": 2,
+    "reason": "The opening explicitly says the hook works in its minimized example. Requesting a minimized failing layout/configuration/command is well grounded; the earlier opening supports the stated documentation-versus-runtime distinction.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "The earlier documentation question and present runtime problem are accurately distinguished.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: bug",
+      "observed": "type: docs"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/4064",
+        "opening_content_sha256": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9"
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/12219",
+        "opening_content_sha256": "681e48797dfaccd7ce7ff3a86bd5862656e34bfbda83da9364ae7fb8696a891b"
+      }
+    ]
+  },
+  {
+    "code": "R64",
+    "method": "keyword_rule",
+    "issue_number": 12219,
+    "report_sha256": "c294bb02b20eb339e86084e6e4ba183cae461bf4e7f7c33559f18112c01e69ad",
+    "opening_content_sha256": "681e48797dfaccd7ce7ff3a86bd5862656e34bfbda83da9364ae7fb8696a891b",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G020",
+    "status": "assistant_reviewed",
+    "rating": 2,
+    "reason": "The opening explicitly says the hook works in its minimized example. Requesting a minimized failing layout/configuration/command is well grounded; the earlier opening supports the stated documentation-versus-runtime distinction.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "The earlier documentation question and present runtime problem are accurately distinguished.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: bug",
+      "observed": "type: docs"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/4064",
+        "opening_content_sha256": "b4536cbd747e7310e3099e980b74c9941fb71ab37116c09d5257d633ae3071a9"
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/12219",
+        "opening_content_sha256": "681e48797dfaccd7ce7ff3a86bd5862656e34bfbda83da9364ae7fb8696a891b"
+      }
+    ]
+  },
+  {
+    "code": "R05",
+    "method": "bounded_agent",
+    "issue_number": 12223,
+    "report_sha256": "3c5e528081ece27bd73ec855c1cdb15caf4277ae1a922d7b1d32363e5a51f80e",
+    "opening_content_sha256": "731ee2132c277f516b51978c67bb77a578a8731a4b726346f248e7934d627e72",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G021",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The XML example and invocation provide a concrete report but no full package list or OS release. The generic draft misses environment requests and gives no useful investigation of message-attribute size.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: bug",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R47",
+    "method": "keyword_rule",
+    "issue_number": 12223,
+    "report_sha256": "ba80ee48eae9028306ad894f07e1f02956a4348014d8903f618f55565d6874c2",
+    "opening_content_sha256": "731ee2132c277f516b51978c67bb77a578a8731a4b726346f248e7934d627e72",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G021",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The XML example and invocation provide a concrete report but no full package list or OS release. The generic draft misses environment requests and gives no useful investigation of message-attribute size.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: bug",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R15",
+    "method": "fixed_rag",
+    "issue_number": 12223,
+    "report_sha256": "815e42b5d8ecdc5940862cbf8e3738d8e0e550b4eb6c2c7a285a11ff45b19937",
+    "opening_content_sha256": "731ee2132c277f516b51978c67bb77a578a8731a4b726346f248e7934d627e72",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G021",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The XML example and invocation provide a concrete report but no full package list or OS release. The generic draft misses environment requests and gives no useful investigation of message-attribute size.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: bug",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R46",
+    "method": "bounded_agent",
+    "issue_number": 12224,
+    "report_sha256": "1266d37875480f23fd00fe9d55148496a59214ff7010553ad8875509cce383cf",
+    "opening_content_sha256": "5c821c047cc326c41148cd48c10d6a5941c05a3164bdb116777930cee6b5a18a",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G022",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening gives the Pyodide use case, proposed session API and costly restart workaround. The generic draft gives no useful response, despite correctly avoiding additional checklist requests.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R112",
+    "method": "fixed_rag",
+    "issue_number": 12224,
+    "report_sha256": "417627fd6675902c64f0bc80a3c9f6100399efbcc66d226017d4c100a36c5ccc",
+    "opening_content_sha256": "5c821c047cc326c41148cd48c10d6a5941c05a3164bdb116777930cee6b5a18a",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G022",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening gives the Pyodide use case, proposed session API and costly restart workaround. The generic draft gives no useful response, despite correctly avoiding additional checklist requests.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R116",
+    "method": "keyword_rule",
+    "issue_number": 12224,
+    "report_sha256": "c16c61b57eab2a07df641a9ebb10d53fbda659993d7cd1125b1c8ef9d093bd78",
+    "opening_content_sha256": "5c821c047cc326c41148cd48c10d6a5941c05a3164bdb116777930cee6b5a18a",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G022",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening gives the Pyodide use case, proposed session API and costly restart workaround. The generic draft gives no useful response, despite correctly avoiding additional checklist requests.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R72",
+    "method": "keyword_rule",
+    "issue_number": 12226,
+    "report_sha256": "3dc5022720126e6565c956dc6e46f44e88164f54bd65ff68317c0e042bc17ea5",
+    "opening_content_sha256": "439bb13184ef8ca1b56b2f06094204328cbe9f5bc0b352020573bab713d26ece",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G023",
+    "status": "assistant_reviewed",
+    "rating": 2,
+    "reason": "The proposed quote-free marker syntax and Bash/CI scenario are supplied; the alternatives section is empty. Showing the existing quoted syntax describes the problem, so the pinned feature-template alternatives request remains applicable.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+        "file_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+        "cited_lines": [
+          "#### Alternative Solutions"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R43",
+    "method": "fixed_rag",
+    "issue_number": 12226,
+    "report_sha256": "e2b2191ae4e6886ddd8274a522743b1ad44542a839851b890e039f829dd4fb8b",
+    "opening_content_sha256": "439bb13184ef8ca1b56b2f06094204328cbe9f5bc0b352020573bab713d26ece",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G023",
+    "status": "assistant_reviewed",
+    "rating": 2,
+    "reason": "The proposed quote-free marker syntax and Bash/CI scenario are supplied; the alternatives section is empty. Showing the existing quoted syntax describes the problem, so the pinned feature-template alternatives request remains applicable.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+        "file_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+        "cited_lines": [
+          "#### Alternative Solutions"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R56",
+    "method": "bounded_agent",
+    "issue_number": 12226,
+    "report_sha256": "60b1db1293e326d8cb5c6d2f8f1050635b1921fdbf4a72c0f5da0b336ffa57c4",
+    "opening_content_sha256": "439bb13184ef8ca1b56b2f06094204328cbe9f5bc0b352020573bab713d26ece",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G023",
+    "status": "assistant_reviewed",
+    "rating": 2,
+    "reason": "The proposed quote-free marker syntax and Bash/CI scenario are supplied; the alternatives section is empty. Showing the existing quoted syntax describes the problem, so the pinned feature-template alternatives request remains applicable.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+        "file_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+        "cited_lines": [
+          "#### Alternative Solutions"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R114",
+    "method": "keyword_rule",
+    "issue_number": 12228,
+    "report_sha256": "b33ba29384f2e1f0b8f667c52e3eb880a534cb156f24677b6433050e4ac01c2c",
+    "opening_content_sha256": "f701b93585c442aa5d88ee107e892972bc276e92a9cf2746e32907add70d4973",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G024",
+    "status": "assistant_reviewed",
+    "rating": 2,
+    "reason": "The opening supplies a concrete TOML documentation gap and examples but leaves alternatives unanswered. The pinned feature-template request is applicable to this documentation request.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: docs",
+      "observed": "type: docs"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+        "file_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+        "cited_lines": [
+          "#### Alternative Solutions"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R84",
+    "method": "bounded_agent",
+    "issue_number": 12228,
+    "report_sha256": "78898f3d71c7379adbc174ad9d519592bd15e20a8600edca18e1841eb5fe1404",
+    "opening_content_sha256": "f701b93585c442aa5d88ee107e892972bc276e92a9cf2746e32907add70d4973",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G024",
+    "status": "assistant_reviewed",
+    "rating": 2,
+    "reason": "The opening supplies a concrete TOML documentation gap and examples but leaves alternatives unanswered. The pinned feature-template request is applicable to this documentation request.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: docs",
+      "observed": "type: docs"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+        "file_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+        "cited_lines": [
+          "#### Alternative Solutions"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R85",
+    "method": "fixed_rag",
+    "issue_number": 12228,
+    "report_sha256": "b9d6f36d053db55d3570dace188e10b58765bed1ff814c6a696ac6f7da93f903",
+    "opening_content_sha256": "f701b93585c442aa5d88ee107e892972bc276e92a9cf2746e32907add70d4973",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G024",
+    "status": "assistant_reviewed",
+    "rating": 2,
+    "reason": "The opening supplies a concrete TOML documentation gap and examples but leaves alternatives unanswered. The pinned feature-template request is applicable to this documentation request.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: docs",
+      "observed": "type: docs"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+        "file_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+        "cited_lines": [
+          "#### Alternative Solutions"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R119",
+    "method": "fixed_rag",
+    "issue_number": 12231,
+    "report_sha256": "1cb1133a3c90991f33cb664d09c9e352ef48c3f02552933e74321462cc8243bc",
+    "opening_content_sha256": "cdf2b6511b080d9fb497524cac3f9bd4cc8c74d20a75c7d9733d25c21506a8f8",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G025",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The alternatives section already describes dropping -rx and explains the lost XFAIL summary. Repeating the alternatives question burdens the reporter without advancing triage. The citation supports the template requirement, not the presupposition that this answer is absent.",
+    "semantic_support": "unsupported",
+    "unsupported_claims_or_presuppositions": [
+      "Request assumes alternative solutions is absent despite supplied information."
+    ],
+    "redundant_requests": [
+      "alternative solutions"
+    ],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/3617ef1c79d686a42ce645b0e28dda824a74e715/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+        "file_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+        "cited_lines": [
+          "#### Alternative Solutions"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R118",
+    "method": "keyword_rule",
+    "issue_number": 12231,
+    "report_sha256": "fccdc1f34efb9c750ff4cb1089e4ae6bd66c7d9f6aa93da93078032e16665af3",
+    "opening_content_sha256": "cdf2b6511b080d9fb497524cac3f9bd4cc8c74d20a75c7d9733d25c21506a8f8",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G025",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The alternatives section already describes dropping -rx and explains the lost XFAIL summary. Repeating the alternatives question burdens the reporter without advancing triage. The citation supports the template requirement, not the presupposition that this answer is absent.",
+    "semantic_support": "unsupported",
+    "unsupported_claims_or_presuppositions": [
+      "Request assumes alternative solutions is absent despite supplied information."
+    ],
+    "redundant_requests": [
+      "alternative solutions"
+    ],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/3617ef1c79d686a42ce645b0e28dda824a74e715/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+        "file_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+        "cited_lines": [
+          "#### Alternative Solutions"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R29",
+    "method": "bounded_agent",
+    "issue_number": 12231,
+    "report_sha256": "7c23fa739a4d114de1de2365da8ae28988a0748670d3be00bd6ae3a7fa6c8b3e",
+    "opening_content_sha256": "cdf2b6511b080d9fb497524cac3f9bd4cc8c74d20a75c7d9733d25c21506a8f8",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G025",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The alternatives section already describes dropping -rx and explains the lost XFAIL summary. Repeating the alternatives question burdens the reporter without advancing triage. The citation supports the template requirement, not the presupposition that this answer is absent.",
+    "semantic_support": "unsupported",
+    "unsupported_claims_or_presuppositions": [
+      "Request assumes alternative solutions is absent despite supplied information."
+    ],
+    "redundant_requests": [
+      "alternative solutions"
+    ],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/3617ef1c79d686a42ce645b0e28dda824a74e715/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+        "file_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+        "cited_lines": [
+          "#### Alternative Solutions"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R73",
+    "method": "fixed_rag",
+    "issue_number": 12242,
+    "report_sha256": "e4f471da16e849fc70c2945e63a50e48d684ff3620e436b0b25acf26b4323ffb",
+    "opening_content_sha256": "78f2d440f3d710550ba7548bf164afdae2ab46696a8b08e5967e2a075f91daf2",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G026",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "A full pipenv graph is supplied, so requesting a package list again is redundant. Requesting an OS release and a runnable file layout/example is useful because Windows paths and the small conftest snippet do not supply those.",
+    "semantic_support": "partially_supported",
+    "unsupported_claims_or_presuppositions": [
+      "Request assumes pip list output is absent despite supplied information."
+    ],
+    "redundant_requests": [
+      "pip list output"
+    ],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: question",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/fafab1dbfd2414c2282b558f0c7af9a7ad0318ab/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] output of `pip list` from the virtual environment you are using"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/fafab1dbfd2414c2282b558f0c7af9a7ad0318ab/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] pytest and operating system versions"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/fafab1dbfd2414c2282b558f0c7af9a7ad0318ab/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] minimal example if possible"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R50",
+    "method": "bounded_agent",
+    "issue_number": 12242,
+    "report_sha256": "d7ae9b2495b4f9e1e62618d9875ddc770f647d8f9e6bdf2f5c9376f955074e46",
+    "opening_content_sha256": "78f2d440f3d710550ba7548bf164afdae2ab46696a8b08e5967e2a075f91daf2",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G026",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "A full pipenv graph is supplied, so requesting a package list again is redundant. Requesting an OS release and a runnable file layout/example is useful because Windows paths and the small conftest snippet do not supply those.",
+    "semantic_support": "partially_supported",
+    "unsupported_claims_or_presuppositions": [
+      "Request assumes pip list output is absent despite supplied information."
+    ],
+    "redundant_requests": [
+      "pip list output"
+    ],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: question",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/fafab1dbfd2414c2282b558f0c7af9a7ad0318ab/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] output of `pip list` from the virtual environment you are using"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/fafab1dbfd2414c2282b558f0c7af9a7ad0318ab/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] pytest and operating system versions"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/fafab1dbfd2414c2282b558f0c7af9a7ad0318ab/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] minimal example if possible"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R54",
+    "method": "keyword_rule",
+    "issue_number": 12242,
+    "report_sha256": "0b4be5304c81a86c257761ebcdce6d9795eba4f4f1b7f234cab369f6372aad64",
+    "opening_content_sha256": "78f2d440f3d710550ba7548bf164afdae2ab46696a8b08e5967e2a075f91daf2",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G026",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "A full pipenv graph is supplied, so requesting a package list again is redundant. Requesting an OS release and a runnable file layout/example is useful because Windows paths and the small conftest snippet do not supply those.",
+    "semantic_support": "partially_supported",
+    "unsupported_claims_or_presuppositions": [
+      "Request assumes pip list output is absent despite supplied information."
+    ],
+    "redundant_requests": [
+      "pip list output"
+    ],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: question",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/fafab1dbfd2414c2282b558f0c7af9a7ad0318ab/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] output of `pip list` from the virtual environment you are using"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/fafab1dbfd2414c2282b558f0c7af9a7ad0318ab/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] pytest and operating system versions"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/fafab1dbfd2414c2282b558f0c7af9a7ad0318ab/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] minimal example if possible"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R71",
+    "method": "bounded_agent",
+    "issue_number": 12249,
+    "report_sha256": "160bd447c69a8503919943462e9a6cb759c29ae1b450247f9a275b0fde7f7b5e",
+    "opening_content_sha256": "5c195b0eca34760f69c1fcac6dd99193ed8c68662c4a8ddc38fd44dea581fdf5",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G027",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The import-warning example lacks a full environment and isolated module reproducer. The generic draft supplies no useful request; deprecation classifies the warning text rather than the filtering problem. Historical CI abstention is appropriate.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: bug",
+      "observed": "type: deprecation"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R41",
+    "method": "keyword_rule",
+    "issue_number": 12249,
+    "report_sha256": "6c2f1fe0120294cf96509b4d29846986ca2afe91f742276440853d6e3200de13",
+    "opening_content_sha256": "5c195b0eca34760f69c1fcac6dd99193ed8c68662c4a8ddc38fd44dea581fdf5",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G027",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The import-warning example lacks a full environment and isolated module reproducer. The generic draft supplies no useful request; deprecation classifies the warning text rather than the filtering problem. Historical CI abstention is appropriate.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: bug",
+      "observed": "type: deprecation"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R03",
+    "method": "fixed_rag",
+    "issue_number": 12249,
+    "report_sha256": "3d7cc75b48515e183c2727c9254badf4568e04372c0aecdc2416abf2645462be",
+    "opening_content_sha256": "5c195b0eca34760f69c1fcac6dd99193ed8c68662c4a8ddc38fd44dea581fdf5",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G027",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The import-warning example lacks a full environment and isolated module reproducer. The generic draft supplies no useful request; deprecation classifies the warning text rather than the filtering problem. Historical CI abstention is appropriate.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: bug",
+      "observed": "type: deprecation"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R19",
+    "method": "bounded_agent",
+    "issue_number": 12255,
+    "report_sha256": "bbf8ca171e392e84012b235fb7fe96741721636f13e62419c29913254a75e8d0",
+    "opening_content_sha256": "76024486006d56f9d14956cf620b3b274ad87669efe87fccbbc4420beb9f621d",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G028",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "Two runnable examples establish a request for nicer ExceptionGroup formatting. The draft provides no useful response or alternatives request. Historical CI abstention is appropriate and the bug/enhancement interpretation is genuinely ambiguous.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "alternative solutions"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: enhancement",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R12",
+    "method": "fixed_rag",
+    "issue_number": 12255,
+    "report_sha256": "8437e4ab170c017d2bda0714b875ab417ae7b1ddf5b765744ce973d9c581fd12",
+    "opening_content_sha256": "76024486006d56f9d14956cf620b3b274ad87669efe87fccbbc4420beb9f621d",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G028",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "Two runnable examples establish a request for nicer ExceptionGroup formatting. The draft provides no useful response or alternatives request. Historical CI abstention is appropriate and the bug/enhancement interpretation is genuinely ambiguous.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "alternative solutions"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: enhancement",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R02",
+    "method": "keyword_rule",
+    "issue_number": 12255,
+    "report_sha256": "60fb56ad512262515548074f579904ef604174e368b375d173be462e622c3c20",
+    "opening_content_sha256": "76024486006d56f9d14956cf620b3b274ad87669efe87fccbbc4420beb9f621d",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G028",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "Two runnable examples establish a request for nicer ExceptionGroup formatting. The draft provides no useful response or alternatives request. Historical CI abstention is appropriate and the bug/enhancement interpretation is genuinely ambiguous.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "alternative solutions"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: enhancement",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R40",
+    "method": "keyword_rule",
+    "issue_number": 12263,
+    "report_sha256": "649970c48a8a394cde0e3476da763d6cd30cd90f5fcda308c39edfecf0f38c46",
+    "opening_content_sha256": "3ec772c89b8b3696494671cfb21456bb7a48220a7ac82a94d5a46d3f7dca6151",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G029",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The traceback and version contrast identify a collection regression, but environment and runnable-class details are missing. The generic draft neither requests those details nor helps investigate the runTest failure.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: regression",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R53",
+    "method": "fixed_rag",
+    "issue_number": 12263,
+    "report_sha256": "3fbdbe724eeee4dccd0e54679c02a9c72c6ddc72275d6d0b45c332c6b2fcd8ab",
+    "opening_content_sha256": "3ec772c89b8b3696494671cfb21456bb7a48220a7ac82a94d5a46d3f7dca6151",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G029",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The traceback and version contrast identify a collection regression, but environment and runnable-class details are missing. The generic draft neither requests those details nor helps investigate the runTest failure.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: regression",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R10",
+    "method": "bounded_agent",
+    "issue_number": 12263,
+    "report_sha256": "80719f6aacf18b3ccf6ee00a3fe2d6eb7b402b7fe2c3adaf331a45ae94b9fa6e",
+    "opening_content_sha256": "3ec772c89b8b3696494671cfb21456bb7a48220a7ac82a94d5a46d3f7dca6151",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G029",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The traceback and version contrast identify a collection regression, but environment and runnable-class details are missing. The generic draft neither requests those details nor helps investigate the runTest failure.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: regression",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R30",
+    "method": "keyword_rule",
+    "issue_number": 12273,
+    "report_sha256": "5cf4d7c712c5dc3e5986b25b7d032478e99559e9082f45cf5b3d03058def6191",
+    "opening_content_sha256": "05477691322344b12131567020a9910a1ff05a735513aea0f460a7c5f7185caa",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G030",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening shows the same missing-runTest construction failure as #12263. The generic draft omits that duplicate candidate and the needed environment/reproducer requests.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "No claim is made, but the accepted earlier duplicate candidate is missed.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: regression",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R83",
+    "method": "bounded_agent",
+    "issue_number": 12273,
+    "report_sha256": "dce587bce9e8cab94f9a368981eb559345de8c6c2b697c38071b269fbeca3491",
+    "opening_content_sha256": "05477691322344b12131567020a9910a1ff05a735513aea0f460a7c5f7185caa",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G030",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening shows the same missing-runTest construction failure as #12263. The generic draft omits that duplicate candidate and the needed environment/reproducer requests.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "No claim is made, but the accepted earlier duplicate candidate is missed.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: regression",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R97",
+    "method": "fixed_rag",
+    "issue_number": 12273,
+    "report_sha256": "02e3f60856cb6318badf639a4c10f54ecb22c4713aae9405a410999cc7e1e48e",
+    "opening_content_sha256": "05477691322344b12131567020a9910a1ff05a735513aea0f460a7c5f7185caa",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G030",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening shows the same missing-runTest construction failure as #12263. The generic draft omits that duplicate candidate and the needed environment/reproducer requests.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "No claim is made, but the accepted earlier duplicate candidate is missed.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: regression",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R42",
+    "method": "fixed_rag",
+    "issue_number": 12278,
+    "report_sha256": "ce2ad6b5163011581602e7dc9c49aa8eb9628fee4f4568f4ff304b0ec0210af1",
+    "opening_content_sha256": "34af16bfc9e5227ee6684ceae3f8a762d5945c868f31d73e8b45c6fe32dff37c",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G031",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "Abstaining on a core type is sensible for the unexplained process-spawning report. The draft is still unhelpful because it requests none of the missing environment/reproducer details and does not express relationship uncertainty.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": null,
+      "observed": null
+    },
+    "evidence": []
+  },
+  {
+    "code": "R49",
+    "method": "keyword_rule",
+    "issue_number": 12278,
+    "report_sha256": "b552f087a158649757211017146a9860ca0ffb06b8c56dc60fd8346930e01b67",
+    "opening_content_sha256": "34af16bfc9e5227ee6684ceae3f8a762d5945c868f31d73e8b45c6fe32dff37c",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G031",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "Abstaining on a core type is sensible for the unexplained process-spawning report. The draft is still unhelpful because it requests none of the missing environment/reproducer details and does not express relationship uncertainty.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": null,
+      "observed": null
+    },
+    "evidence": []
+  },
+  {
+    "code": "R87",
+    "method": "bounded_agent",
+    "issue_number": 12278,
+    "report_sha256": "d00f987c1ba0550271ffb97e0b58ee46a62b0b56bfdbc42265a3d1d60eca67c6",
+    "opening_content_sha256": "34af16bfc9e5227ee6684ceae3f8a762d5945c868f31d73e8b45c6fe32dff37c",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G031",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "Abstaining on a core type is sensible for the unexplained process-spawning report. The draft is still unhelpful because it requests none of the missing environment/reproducer details and does not express relationship uncertainty.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": null,
+      "observed": null
+    },
+    "evidence": []
+  },
+  {
+    "code": "R106",
+    "method": "fixed_rag",
+    "issue_number": 12281,
+    "report_sha256": "8186ebd41d5397ccc17b2846c4602e69957155be7925cf70f5b6dd3988a378e2",
+    "opening_content_sha256": "4a1d4a258e973605ef901874b8d6fbd35b50b05df591c79761463ef62cdb95cb",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G032",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "Marker selection examples, proposed behavior and nose/plugin alternatives are present. The generic draft adds no useful response; its empty detail set avoids unnecessary requests.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R33",
+    "method": "bounded_agent",
+    "issue_number": 12281,
+    "report_sha256": "5b8dc1a87d34cf992690bb3a66ca3b71aa6f721b77b4b4cd7f2f5072cf3ad5ec",
+    "opening_content_sha256": "4a1d4a258e973605ef901874b8d6fbd35b50b05df591c79761463ef62cdb95cb",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G032",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "Marker selection examples, proposed behavior and nose/plugin alternatives are present. The generic draft adds no useful response; its empty detail set avoids unnecessary requests.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R31",
+    "method": "keyword_rule",
+    "issue_number": 12281,
+    "report_sha256": "3a70f74836ee86f7b9197c7b876410027a9208fc8090d063316838de66b2a83b",
+    "opening_content_sha256": "4a1d4a258e973605ef901874b8d6fbd35b50b05df591c79761463ef62cdb95cb",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G032",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "Marker selection examples, proposed behavior and nose/plugin alternatives are present. The generic draft adds no useful response; its empty detail set avoids unnecessary requests.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R110",
+    "method": "bounded_agent",
+    "issue_number": 12287,
+    "report_sha256": "98067e3532a24dcb49b1573df6095528a8d22eda150823f902a96679fb96a4b7",
+    "opening_content_sha256": "fd219403ae9a365eaf77a839d91883237e3f58832f6b86d3993497f23d73f82d",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G033",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The namespace-package layout, runnable test and environment are supplied. The generic draft offers no focused investigation of sys.path insertion; a bug label is plausible but differs from the accepted question interpretation.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: question",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R100",
+    "method": "keyword_rule",
+    "issue_number": 12287,
+    "report_sha256": "8241cfb485e83a8a5e70fa43d3a64ef202182140af35957a99eefe75dd0c5acd",
+    "opening_content_sha256": "fd219403ae9a365eaf77a839d91883237e3f58832f6b86d3993497f23d73f82d",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G033",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The namespace-package layout, runnable test and environment are supplied. The generic draft offers no focused investigation of sys.path insertion; a bug label is plausible but differs from the accepted question interpretation.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: question",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R82",
+    "method": "fixed_rag",
+    "issue_number": 12287,
+    "report_sha256": "c7e0d56ea0dd730cb4360e299ab64d94f6db3cdf325da223332c8c3c2beee038",
+    "opening_content_sha256": "fd219403ae9a365eaf77a839d91883237e3f58832f6b86d3993497f23d73f82d",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G033",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The namespace-package layout, runnable test and environment are supplied. The generic draft offers no focused investigation of sys.path insertion; a bug label is plausible but differs from the accepted question interpretation.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: question",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R20",
+    "method": "bounded_agent",
+    "issue_number": 12290,
+    "report_sha256": "3ae4fba03b8f4024df9a979cf4c5df620f50761432ab5508cc1f5e0ced23714b",
+    "opening_content_sha256": "c87b63d7cab1d418ed76c5f4c879d7c5c577dc75ed25e19ec926f11d33c91f3e",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G034",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "Reading bright documentation in the evening already supplies the use case. Requesting it again has an unsupported missing-detail presupposition; requesting alternatives is still useful and supported by the feature template.",
+    "semantic_support": "partially_supported",
+    "unsupported_claims_or_presuppositions": [
+      "Request assumes real-world use case is absent despite supplied information."
+    ],
+    "redundant_requests": [
+      "real-world use case"
+    ],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/84e59af8c829de659efb339d5a9c7cec98eee719/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+        "file_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+        "cited_lines": [
+          "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/84e59af8c829de659efb339d5a9c7cec98eee719/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+        "file_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+        "cited_lines": [
+          "#### Alternative Solutions"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R51",
+    "method": "fixed_rag",
+    "issue_number": 12290,
+    "report_sha256": "691b46d8082c3d098f285408226038ae61cb3c0f9922714799282f0bee0842e6",
+    "opening_content_sha256": "c87b63d7cab1d418ed76c5f4c879d7c5c577dc75ed25e19ec926f11d33c91f3e",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G034",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "Reading bright documentation in the evening already supplies the use case. Requesting it again has an unsupported missing-detail presupposition; requesting alternatives is still useful and supported by the feature template.",
+    "semantic_support": "partially_supported",
+    "unsupported_claims_or_presuppositions": [
+      "Request assumes real-world use case is absent despite supplied information."
+    ],
+    "redundant_requests": [
+      "real-world use case"
+    ],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: enhancement",
+      "observed": "type: enhancement"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/84e59af8c829de659efb339d5a9c7cec98eee719/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+        "file_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+        "cited_lines": [
+          "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/84e59af8c829de659efb339d5a9c7cec98eee719/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+        "file_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+        "cited_lines": [
+          "#### Alternative Solutions"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R60",
+    "method": "keyword_rule",
+    "issue_number": 12290,
+    "report_sha256": "65d4bbc8146e7a00177e363d76e254692ab3f1827e20d70842bc8729eebd00ec",
+    "opening_content_sha256": "c87b63d7cab1d418ed76c5f4c879d7c5c577dc75ed25e19ec926f11d33c91f3e",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G034",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "Reading bright documentation in the evening already supplies the use case. Requesting it again has an unsupported missing-detail presupposition; requesting alternatives is still useful and supported by the feature template.",
+    "semantic_support": "partially_supported",
+    "unsupported_claims_or_presuppositions": [
+      "Request assumes real-world use case is absent despite supplied information."
+    ],
+    "redundant_requests": [
+      "real-world use case"
+    ],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: enhancement",
+      "observed": "type: docs"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/84e59af8c829de659efb339d5a9c7cec98eee719/.github/ISSUE_TEMPLATE/2_feature_request.md#L19",
+        "file_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+        "cited_lines": [
+          "<!-- Provide examples of real-world use cases that this would enable and how it solves the problem described above. -->"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/84e59af8c829de659efb339d5a9c7cec98eee719/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+        "file_sha256": "623cfc059fc28dba1786c2cf902bd708507788c5f825a254084dadc3d78b8c92",
+        "cited_lines": [
+          "#### Alternative Solutions"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R34",
+    "method": "keyword_rule",
+    "issue_number": 12293,
+    "report_sha256": "58d5ce810ab530f7cf7f77a2c55397c89642c29a8af940cd38f76f8932e674e0",
+    "opening_content_sha256": "7a133f79479d4d740111dbbf7ca904920d8afee9b40de83645d15fbf305f3cd1",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G035",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening gives a version transition and VendorImporter error but only selected packages and generic Linux. The generic draft misses the full package list, OS release and reproducer needed to investigate it.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: regression",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R109",
+    "method": "fixed_rag",
+    "issue_number": 12293,
+    "report_sha256": "8560be9c39c38156cb7b1ef561a3eb4b944a3d77599b1bcd4149acca45bc79e9",
+    "opening_content_sha256": "7a133f79479d4d740111dbbf7ca904920d8afee9b40de83645d15fbf305f3cd1",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G035",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening gives a version transition and VendorImporter error but only selected packages and generic Linux. The generic draft misses the full package list, OS release and reproducer needed to investigate it.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: regression",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R89",
+    "method": "bounded_agent",
+    "issue_number": 12293,
+    "report_sha256": "9c8de1958573f38c8830e8fa60d2e4ba981e8c243ba8f14fd85b2752287e7d14",
+    "opening_content_sha256": "7a133f79479d4d740111dbbf7ca904920d8afee9b40de83645d15fbf305f3cd1",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G035",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening gives a version transition and VendorImporter error but only selected packages and generic Linux. The generic draft misses the full package list, OS release and reproducer needed to investigate it.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: regression",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R80",
+    "method": "keyword_rule",
+    "issue_number": 12298,
+    "report_sha256": "4a2576a6312e5e6a974b4df370cb407ce681b47547a3e99d03ece8c668f677c4",
+    "opening_content_sha256": "bb77b8c82bfa989edf716f3007c15f0ccad235760ce0297781bcdfcf5bf09d40",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G036",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The fixture lifecycle question supplies logs and several pytest versions but no OS, package list or runnable fixture/test/invocation setup. The generic draft fails to request that information.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: question",
+      "observed": "type: question"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R91",
+    "method": "bounded_agent",
+    "issue_number": 12298,
+    "report_sha256": "53a3886204b27498be7a82cdf88d290b3b15b61a6c1e1f36895d5f9c198bfebe",
+    "opening_content_sha256": "bb77b8c82bfa989edf716f3007c15f0ccad235760ce0297781bcdfcf5bf09d40",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G036",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The fixture lifecycle question supplies logs and several pytest versions but no OS, package list or runnable fixture/test/invocation setup. The generic draft fails to request that information.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: question",
+      "observed": "type: question"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R98",
+    "method": "fixed_rag",
+    "issue_number": 12298,
+    "report_sha256": "72d52ca08f0d89a9bfea56f08c3166f32339316eb6f008348fa1fd67b163d24a",
+    "opening_content_sha256": "bb77b8c82bfa989edf716f3007c15f0ccad235760ce0297781bcdfcf5bf09d40",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G036",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The fixture lifecycle question supplies logs and several pytest versions but no OS, package list or runnable fixture/test/invocation setup. The generic draft fails to request that information.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions",
+      "minimal example"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: question",
+      "observed": "type: question"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R93",
+    "method": "fixed_rag",
+    "issue_number": 12300,
+    "report_sha256": "5dd9bec459fbf1ed477ec1f0c50d39beaa7dd919bd7886f561a9beff8096c6fc",
+    "opening_content_sha256": "da2d6ba369d552f1a8182094e367ada785a12067a48ab25ca1d46b76ef480fa8",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G037",
+    "status": "assistant_reviewed",
+    "rating": 2,
+    "reason": "The ENOSYS report gives a pytest commit but no OS release, complete package list or reproducible mount/test invocation. The three template-backed requests advance investigation; the supplied commit already identifies pytest, so a narrower OS question would be preferable.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: bug",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/d49f1fc4dbf9e04da016335d9e82527423d9ad1f/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] output of `pip list` from the virtual environment you are using"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/d49f1fc4dbf9e04da016335d9e82527423d9ad1f/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] pytest and operating system versions"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/d49f1fc4dbf9e04da016335d9e82527423d9ad1f/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] minimal example if possible"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R79",
+    "method": "keyword_rule",
+    "issue_number": 12300,
+    "report_sha256": "88439daa178e30f5e34f4a70845b2f92897f85212eca8a7bb7e46a729b7c898e",
+    "opening_content_sha256": "da2d6ba369d552f1a8182094e367ada785a12067a48ab25ca1d46b76ef480fa8",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G037",
+    "status": "assistant_reviewed",
+    "rating": 2,
+    "reason": "The ENOSYS report gives a pytest commit but no OS release, complete package list or reproducible mount/test invocation. The three template-backed requests advance investigation; the supplied commit already identifies pytest, so a narrower OS question would be preferable.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: bug",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/d49f1fc4dbf9e04da016335d9e82527423d9ad1f/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] output of `pip list` from the virtual environment you are using"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/d49f1fc4dbf9e04da016335d9e82527423d9ad1f/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] pytest and operating system versions"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/d49f1fc4dbf9e04da016335d9e82527423d9ad1f/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] minimal example if possible"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R08",
+    "method": "bounded_agent",
+    "issue_number": 12300,
+    "report_sha256": "40a8775834696823db358496921df374c23bd7670525d76c12d1298160081236",
+    "opening_content_sha256": "da2d6ba369d552f1a8182094e367ada785a12067a48ab25ca1d46b76ef480fa8",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G037",
+    "status": "assistant_reviewed",
+    "rating": 2,
+    "reason": "The ENOSYS report gives a pytest commit but no OS release, complete package list or reproducible mount/test invocation. The three template-backed requests advance investigation; the supplied commit already identifies pytest, so a narrower OS question would be preferable.",
+    "semantic_support": "supported",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: bug",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/d49f1fc4dbf9e04da016335d9e82527423d9ad1f/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] output of `pip list` from the virtual environment you are using"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/d49f1fc4dbf9e04da016335d9e82527423d9ad1f/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] pytest and operating system versions"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/d49f1fc4dbf9e04da016335d9e82527423d9ad1f/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] minimal example if possible"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R88",
+    "method": "fixed_rag",
+    "issue_number": 12303,
+    "report_sha256": "22be6c9761974e061bd190d71a4c58c1a0a6f6482578671b01014b9629b01349",
+    "opening_content_sha256": "4afdfd360b99847eb47a974f68ff58693fdfa9f46726617949db2b7f95ded725",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G038",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "The package list and rolling openSUSE Tumbleweed identify the accepted environment, making another version request redundant. An isolated reproducer is still needed. The report also omits the accepted uncertain relationship abstention; historical CI abstention is appropriate.",
+    "semantic_support": "partially_supported",
+    "unsupported_claims_or_presuppositions": [
+      "Request assumes pytest and OS versions is absent despite supplied information."
+    ],
+    "redundant_requests": [
+      "pytest and OS versions"
+    ],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: regression",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] pytest and operating system versions"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] minimal example if possible"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R21",
+    "method": "bounded_agent",
+    "issue_number": 12303,
+    "report_sha256": "37e471c4d24826e7c9ea1e4bcacfe53a9102e5b1e18c05c93f24631b5ebebe85",
+    "opening_content_sha256": "4afdfd360b99847eb47a974f68ff58693fdfa9f46726617949db2b7f95ded725",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G038",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "The package list and rolling openSUSE Tumbleweed identify the accepted environment, making another version request redundant. An isolated reproducer is still needed. The report also omits the accepted uncertain relationship abstention; historical CI abstention is appropriate.",
+    "semantic_support": "partially_supported",
+    "unsupported_claims_or_presuppositions": [
+      "Request assumes pytest and OS versions is absent despite supplied information."
+    ],
+    "redundant_requests": [
+      "pytest and OS versions"
+    ],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: regression",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] pytest and operating system versions"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] minimal example if possible"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R11",
+    "method": "keyword_rule",
+    "issue_number": 12303,
+    "report_sha256": "ad91642748496fb7912975d4737aa216fde1e8283ff7058e2e0d66754c2808e5",
+    "opening_content_sha256": "4afdfd360b99847eb47a974f68ff58693fdfa9f46726617949db2b7f95ded725",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G038",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "The package list and rolling openSUSE Tumbleweed identify the accepted environment, making another version request redundant. An isolated reproducer is still needed. The report also omits the accepted uncertain relationship abstention; historical CI abstention is appropriate.",
+    "semantic_support": "partially_supported",
+    "unsupported_claims_or_presuppositions": [
+      "Request assumes pytest and OS versions is absent despite supplied information."
+    ],
+    "redundant_requests": [
+      "pytest and OS versions"
+    ],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: regression",
+      "observed": "type: enhancement"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] pytest and operating system versions"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] minimal example if possible"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R81",
+    "method": "bounded_agent",
+    "issue_number": 12305,
+    "report_sha256": "e63261f3176077b5b515219e7af8639209fd356c368ecd5114585014f355c917",
+    "opening_content_sha256": "5259a44bff9c58804d76d0b3282a6778faae0c7f9766e6a1634db1068481a819",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G039",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "The editable-install package table, pytest version and Debian Bookworm container are supplied. Only the incomplete grouping/test inputs need a reproducible example. Package/version questions are redundant; bug is a plausible alternative to the accepted question type.",
+    "semantic_support": "partially_supported",
+    "unsupported_claims_or_presuppositions": [
+      "Request assumes pip list output is absent despite supplied information.",
+      "Request assumes pytest and OS versions is absent despite supplied information."
+    ],
+    "redundant_requests": [
+      "pip list output",
+      "pytest and OS versions"
+    ],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: question",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] output of `pip list` from the virtual environment you are using"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] pytest and operating system versions"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] minimal example if possible"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R39",
+    "method": "keyword_rule",
+    "issue_number": 12305,
+    "report_sha256": "5021f1ca9fe37dcc15b9f411c382f1b1d872b6dc6ba59b4353124d09739dbe4e",
+    "opening_content_sha256": "5259a44bff9c58804d76d0b3282a6778faae0c7f9766e6a1634db1068481a819",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G039",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "The editable-install package table, pytest version and Debian Bookworm container are supplied. Only the incomplete grouping/test inputs need a reproducible example. Package/version questions are redundant; bug is a plausible alternative to the accepted question type.",
+    "semantic_support": "partially_supported",
+    "unsupported_claims_or_presuppositions": [
+      "Request assumes pip list output is absent despite supplied information.",
+      "Request assumes pytest and OS versions is absent despite supplied information."
+    ],
+    "redundant_requests": [
+      "pip list output",
+      "pytest and OS versions"
+    ],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: question",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] output of `pip list` from the virtual environment you are using"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] pytest and operating system versions"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] minimal example if possible"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R94",
+    "method": "fixed_rag",
+    "issue_number": 12305,
+    "report_sha256": "12c21d8567d8af46dbb1253e1121ae5c1c795bb5bd31aa48a6b522b0acbbc21b",
+    "opening_content_sha256": "5259a44bff9c58804d76d0b3282a6778faae0c7f9766e6a1634db1068481a819",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G039",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "The editable-install package table, pytest version and Debian Bookworm container are supplied. Only the incomplete grouping/test inputs need a reproducible example. Package/version questions are redundant; bug is a plausible alternative to the accepted question type.",
+    "semantic_support": "partially_supported",
+    "unsupported_claims_or_presuppositions": [
+      "Request assumes pip list output is absent despite supplied information.",
+      "Request assumes pytest and OS versions is absent despite supplied information."
+    ],
+    "redundant_requests": [
+      "pip list output",
+      "pytest and OS versions"
+    ],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: question",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] output of `pip list` from the virtual environment you are using"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] pytest and operating system versions"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] minimal example if possible"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R69",
+    "method": "bounded_agent",
+    "issue_number": 12307,
+    "report_sha256": "5b06b3c70df57b6f6214070762ae71268d35518c3bdd94c68f2305ef7ae5ca84",
+    "opening_content_sha256": "af4f589c7f0326d224fc7d96cd8d855498bd6cea14b9f3f3a4cfbd4b14498dd9",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G040",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The assert example and development pytest revision are supplied, but the session banner does not identify a Linux release or full package list. The generic draft omits both needed environment requests and a useful investigation.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: bug",
+      "observed": null
+    },
+    "evidence": []
+  },
+  {
+    "code": "R52",
+    "method": "fixed_rag",
+    "issue_number": 12307,
+    "report_sha256": "24b37b9645297dd87d1b37a3c49f8a97e13cdba04c185d015a9b71428b202168",
+    "opening_content_sha256": "af4f589c7f0326d224fc7d96cd8d855498bd6cea14b9f3f3a4cfbd4b14498dd9",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G040",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The assert example and development pytest revision are supplied, but the session banner does not identify a Linux release or full package list. The generic draft omits both needed environment requests and a useful investigation.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: bug",
+      "observed": null
+    },
+    "evidence": []
+  },
+  {
+    "code": "R77",
+    "method": "keyword_rule",
+    "issue_number": 12307,
+    "report_sha256": "7a54c5f8438e9fcc3254551e2b916282b0ed5a13be2ff172d2117ba5e8be7534",
+    "opening_content_sha256": "af4f589c7f0326d224fc7d96cd8d855498bd6cea14b9f3f3a4cfbd4b14498dd9",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G040",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The assert example and development pytest revision are supplied, but the session banner does not identify a Linux release or full package list. The generic draft omits both needed environment requests and a useful investigation.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output",
+      "pytest and OS versions"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: bug",
+      "observed": null
+    },
+    "evidence": []
+  },
+  {
+    "code": "R23",
+    "method": "keyword_rule",
+    "issue_number": 12308,
+    "report_sha256": "38fc371d7714d1cc7e526be1a0799eb1d84bc50a54f7fa09ab46649f0ec86c53",
+    "opening_content_sha256": "8aff452d3e69adc0f65634b4e151530d8fcebff5c117d621fefb00f31ce6c8be",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G041",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "The full editable-install package table and Fedora/Ubuntu versions are supplied. A minimal workflow reproducer is needed, but requesting another package list has an unsupported absence presupposition. Historical CI abstention is appropriate.",
+    "semantic_support": "partially_supported",
+    "unsupported_claims_or_presuppositions": [
+      "Request assumes pip list output is absent despite supplied information."
+    ],
+    "redundant_requests": [
+      "pip list output"
+    ],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: regression",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] output of `pip list` from the virtual environment you are using"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] minimal example if possible"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R111",
+    "method": "fixed_rag",
+    "issue_number": 12308,
+    "report_sha256": "94e894c0a933bd9b47d06672a8c6c0c687d0c3d11307ef3a2789088b6ce6cff6",
+    "opening_content_sha256": "8aff452d3e69adc0f65634b4e151530d8fcebff5c117d621fefb00f31ce6c8be",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G041",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "The full editable-install package table and Fedora/Ubuntu versions are supplied. A minimal workflow reproducer is needed, but requesting another package list has an unsupported absence presupposition. Historical CI abstention is appropriate.",
+    "semantic_support": "partially_supported",
+    "unsupported_claims_or_presuppositions": [
+      "Request assumes pip list output is absent despite supplied information."
+    ],
+    "redundant_requests": [
+      "pip list output"
+    ],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: regression",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] output of `pip list` from the virtual environment you are using"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] minimal example if possible"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R59",
+    "method": "bounded_agent",
+    "issue_number": 12308,
+    "report_sha256": "bffed768a7200544b4b2873d5c7dc13eceb87f4a0ee241a4f75e1b7e2e4fdfa0",
+    "opening_content_sha256": "8aff452d3e69adc0f65634b4e151530d8fcebff5c117d621fefb00f31ce6c8be",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G041",
+    "status": "assistant_reviewed",
+    "rating": 1,
+    "reason": "The full editable-install package table and Fedora/Ubuntu versions are supplied. A minimal workflow reproducer is needed, but requesting another package list has an unsupported absence presupposition. Historical CI abstention is appropriate.",
+    "semantic_support": "partially_supported",
+    "unsupported_claims_or_presuppositions": [
+      "Request assumes pip list output is absent despite supplied information."
+    ],
+    "redundant_requests": [
+      "pip list output"
+    ],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: regression",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] output of `pip list` from the virtual environment you are using"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/5af46f3d4e8264c50ffd635dbb395199670e70b7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] minimal example if possible"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R45",
+    "method": "keyword_rule",
+    "issue_number": 12312,
+    "report_sha256": "864d9e9f2c8eb61dd8a2b0d914d94ec951d30cefe379802fba0a708881ff2286",
+    "opening_content_sha256": "05716aa97c6f3eec3741491753b3627882b1e273cefabe708613be85777b1066",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G042",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening supplies a slow-collection warning proposal, motivating example and an alternative integration approach. The generic draft offers no useful response; an empty detail set alone does not demonstrate understanding of the feature.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: enhancement",
+      "observed": null
+    },
+    "evidence": []
+  },
+  {
+    "code": "R65",
+    "method": "bounded_agent",
+    "issue_number": 12312,
+    "report_sha256": "309d148067bbcf5cf7036702ccac701d86b4a3d3bb8a4edebcd4c3a4801c8d99",
+    "opening_content_sha256": "05716aa97c6f3eec3741491753b3627882b1e273cefabe708613be85777b1066",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G042",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening supplies a slow-collection warning proposal, motivating example and an alternative integration approach. The generic draft offers no useful response; an empty detail set alone does not demonstrate understanding of the feature.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: enhancement",
+      "observed": null
+    },
+    "evidence": []
+  },
+  {
+    "code": "R24",
+    "method": "fixed_rag",
+    "issue_number": 12312,
+    "report_sha256": "2ce3906fee7607e2a835e8f0de50d8108794827791a72c0a68e25a25eb15c622",
+    "opening_content_sha256": "05716aa97c6f3eec3741491753b3627882b1e273cefabe708613be85777b1066",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G042",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The opening supplies a slow-collection warning proposal, motivating example and an alternative integration approach. The generic draft offers no useful response; an empty detail set alone does not demonstrate understanding of the feature.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: enhancement",
+      "observed": null
+    },
+    "evidence": []
+  },
+  {
+    "code": "R57",
+    "method": "fixed_rag",
+    "issue_number": 12323,
+    "report_sha256": "4fa43d7c24832bace4b8f20b59767bce3e152bdd08943fa5f4dd3d4208f6fb95",
+    "opening_content_sha256": "5751566e98d9d4ad626425ed9a64aed223ce50d9ebf43ca6764a1b4ef7ac52ab",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G043",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The pytest self-test command, failing nodes and Gentoo/development versions are supplied, but the complete package list is missing. The generic reply misses that request. Bug is a reasonable alternative to the accepted selftests label.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: selftests",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R76",
+    "method": "keyword_rule",
+    "issue_number": 12323,
+    "report_sha256": "65f71b7064c189c484b70c4b1592aa2b1b3c8b4d8214901d3f60cbd3670670f3",
+    "opening_content_sha256": "5751566e98d9d4ad626425ed9a64aed223ce50d9ebf43ca6764a1b4ef7ac52ab",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G043",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The pytest self-test command, failing nodes and Gentoo/development versions are supplied, but the complete package list is missing. The generic reply misses that request. Bug is a reasonable alternative to the accepted selftests label.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: selftests",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R67",
+    "method": "bounded_agent",
+    "issue_number": 12323,
+    "report_sha256": "1d98ede56026d7995e692408bd89c09440d942e4bc64fa6c176a74e7bb8f0b46",
+    "opening_content_sha256": "5751566e98d9d4ad626425ed9a64aed223ce50d9ebf43ca6764a1b4ef7ac52ab",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G043",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The pytest self-test command, failing nodes and Gentoo/development versions are supplied, but the complete package list is missing. The generic reply misses that request. Bug is a reasonable alternative to the accepted selftests label.",
+    "semantic_support": "abstained",
+    "unsupported_claims_or_presuppositions": [],
+    "redundant_requests": [],
+    "missing_requests": [
+      "pip list output"
+    ],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: selftests",
+      "observed": "type: bug"
+    },
+    "evidence": []
+  },
+  {
+    "code": "R48",
+    "method": "fixed_rag",
+    "issue_number": 12328,
+    "report_sha256": "1fff2c662f1b9f643b9cc0e8fe933f45490c9376f0fd44291516564e44e6aee5",
+    "opening_content_sha256": "21b63ca9c34203a425cfc77d01cc95679aec3510592702eb0bffc2e782417780",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G044",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The package layout, two tests and invocation already form a reproducer. The opening deliberately contrasts 8.2.0 output with output explicitly labeled Whereas pytest 7.4.4 produces. Both the minimal-example request and the conflicting-version presupposition are unsupported.",
+    "semantic_support": "unsupported",
+    "unsupported_claims_or_presuppositions": [
+      "Explicit before/after outputs are described as conflicting version evidence.",
+      "Request assumes minimal example is absent despite supplied information."
+    ],
+    "redundant_requests": [
+      "minimal example"
+    ],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: regression",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/fa1d5be3e8b0a34106b35eff092adaa67c9de503/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] minimal example if possible"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/12328",
+        "opening_content_sha256": "21b63ca9c34203a425cfc77d01cc95679aec3510592702eb0bffc2e782417780"
+      }
+    ]
+  },
+  {
+    "code": "R38",
+    "method": "bounded_agent",
+    "issue_number": 12328,
+    "report_sha256": "22c9d1dec2047c05a3d23c6bbff63120648434752448ade763e422de871040c3",
+    "opening_content_sha256": "21b63ca9c34203a425cfc77d01cc95679aec3510592702eb0bffc2e782417780",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G044",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The package layout, two tests and invocation already form a reproducer. The opening deliberately contrasts 8.2.0 output with output explicitly labeled Whereas pytest 7.4.4 produces. Both the minimal-example request and the conflicting-version presupposition are unsupported.",
+    "semantic_support": "unsupported",
+    "unsupported_claims_or_presuppositions": [
+      "Explicit before/after outputs are described as conflicting version evidence.",
+      "Request assumes minimal example is absent despite supplied information."
+    ],
+    "redundant_requests": [
+      "minimal example"
+    ],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": false,
+      "expected": "type: regression",
+      "observed": "type: bug"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/fa1d5be3e8b0a34106b35eff092adaa67c9de503/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] minimal example if possible"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/12328",
+        "opening_content_sha256": "21b63ca9c34203a425cfc77d01cc95679aec3510592702eb0bffc2e782417780"
+      }
+    ]
+  },
+  {
+    "code": "R78",
+    "method": "keyword_rule",
+    "issue_number": 12328,
+    "report_sha256": "a1097d2dffa41e98b8c815edbc75c53762677852debea94e5e5de26c877151f8",
+    "opening_content_sha256": "21b63ca9c34203a425cfc77d01cc95679aec3510592702eb0bffc2e782417780",
+    "reviewer": "Codex",
+    "reviewed_at": "2026-11-24T14:10:25.473859+00:00",
+    "independent_human_review": false,
+    "blinded": false,
+    "review_group": "G044",
+    "status": "assistant_reviewed",
+    "rating": 0,
+    "reason": "The package layout, two tests and invocation already form a reproducer. The opening deliberately contrasts 8.2.0 output with output explicitly labeled Whereas pytest 7.4.4 produces. Both the minimal-example request and the conflicting-version presupposition are unsupported.",
+    "semantic_support": "unsupported",
+    "unsupported_claims_or_presuppositions": [
+      "Explicit before/after outputs are described as conflicting version evidence.",
+      "Request assumes minimal example is absent despite supplied information."
+    ],
+    "redundant_requests": [
+      "minimal example"
+    ],
+    "missing_requests": [],
+    "relationships": "No relationship claim needing semantic support.",
+    "abstention": "Reviewed in the reason; unavailable historical CI remains a legitimate abstention.",
+    "type_field": {
+      "correct": true,
+      "expected": "type: regression",
+      "observed": "type: regression"
+    },
+    "evidence": [
+      {
+        "url": "https://github.com/pytest-dev/pytest/blob/fa1d5be3e8b0a34106b35eff092adaa67c9de503/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "file_sha256": "4d717090e3a5cf5f1a53d7c91607010d394eb618d2928aa63e2dcdb7d53bb4cb",
+        "cited_lines": [
+          "- [ ] minimal example if possible"
+        ]
+      },
+      {
+        "url": "https://github.com/pytest-dev/pytest/issues/12328",
+        "opening_content_sha256": "21b63ca9c34203a425cfc77d01cc95679aec3510592702eb0bffc2e782417780"
+      }
+    ]
+  }
+]

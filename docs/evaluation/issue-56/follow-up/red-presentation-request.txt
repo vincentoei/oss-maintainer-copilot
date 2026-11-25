@@ -1,0 +1,24 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________ test_traceback_presentation_request_only_needs_alternatives __________
+
+    def test_traceback_presentation_request_only_needs_alternatives() -> None:
+        report = replay_opening(
+            "Show nicer grouped-exception tracebacks",
+            "Currently a fixture exception produces a compact traceback. "
+            "However grouped exceptions show the full traceback.\n"
+            "```python\ndef test_group():\n    raise ExceptionGroup('group', [ValueError('bad')])\n```\n"
+            "I think pytest should be able to also handle groups and show a nicer traceback.",
+        )
+    
+>       assert {d.name for d in report.missing_details} == {"alternative solutions"}
+E       AssertionError: assert set() == {'alternative solutions'}
+E         
+E         Extra items in the right set:
+E         'alternative solutions'
+E         Use -v to get more diff
+
+tests/test_triage_quality_replay.py:193: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_traceback_presentation_request_only_needs_alternatives
+1 failed, 46 deselected in 0.12s

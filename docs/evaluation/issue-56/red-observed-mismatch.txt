@@ -1,0 +1,26 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________ test_observed_mismatch_selects_details_for_a_neutral_title __________
+
+    def test_observed_mismatch_selects_details_for_a_neutral_title() -> None:
+        report = replay_opening(
+            "Session-scoped fixture lifecycle",
+            "I expected session setup once. However, I didn't observe the expected "
+            "behavior: setup ran before each module.",
+        )
+    
+>       assert {d.name for d in report.missing_details} == {
+            "pip list output", "pytest and OS versions", "minimal example"
+        }
+E       AssertionError: assert set() == {'minimal exa... OS versions'}
+E         
+E         Extra items in the right set:
+E         'pip list output'
+E         'minimal example'
+E         'pytest and OS versions'
+E         Use -v to get more diff
+
+tests/test_triage_quality_replay.py:91: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_observed_mismatch_selects_details_for_a_neutral_title
+1 failed, 6 deselected in 0.11s

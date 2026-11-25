@@ -1,0 +1,18 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____ test_installed_pipenv_graph_is_not_requested_again_as_a_package_list _____
+
+    def test_installed_pipenv_graph_is_not_requested_again_as_a_package_list() -> None:
+        report = replay_opening(
+            "Bug: custom option is unrecognized",
+            "$ pipenv graph\npytest==8.2.0\n"
+            "└── pluggy [required: >=1.5.0, installed: 1.5.0]\n",
+        )
+    
+>       assert "pip list output" not in {d.name for d in report.missing_details}
+E       AssertionError: assert 'pip list output' not in {'minimal example', 'pip list output', 'pytest and OS versions'}
+
+tests/test_triage_quality_replay.py:270: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_installed_pipenv_graph_is_not_requested_again_as_a_package_list
+1 failed, 19 deselected in 0.12s

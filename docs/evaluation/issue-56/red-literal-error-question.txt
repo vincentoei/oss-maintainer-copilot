@@ -1,0 +1,24 @@
+..F                                                                      [100%]
+=================================== FAILURES ===================================
+_ test_question_with_explicit_failure_still_checks_bug_details[Why does pytest report an error during collection?] _
+
+title = 'Why does pytest report an error during collection?'
+
+    @pytest.mark.parametrize(
+        "title",
+        [
+            "Why does pytest fail with my plugin?",
+            "Why is pytest broken?",
+            "Why does pytest report an error during collection?",
+        ],
+    )
+    def test_question_with_explicit_failure_still_checks_bug_details(title: str) -> None:
+        report = replay_opening(title, "Collection stops before running any tests.")
+    
+>       assert "pip list output" in {d.name for d in report.missing_details}
+E       AssertionError: assert 'pip list output' in set()
+
+tests/test_triage_quality_replay.py:373: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_question_with_explicit_failure_still_checks_bug_details[Why does pytest report an error during collection?]
+1 failed, 2 passed, 30 deselected in 0.12s

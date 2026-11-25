@@ -1,0 +1,6 @@
+Tampered cached opening exit code: 0
+Traceback (most recent call last):
+  File "/tmp/issue56_review_identity_repro.py", line 18, in <module>
+    assert proc.returncode!=0,'Changed cached opening was accepted as historical evidence'
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Changed cached opening was accepted as historical evidence

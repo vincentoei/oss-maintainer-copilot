@@ -1,0 +1,79 @@
+...FF.F                                                                  [100%]
+=================================== FAILURES ===================================
+_ test_hypothetical_failure_question_does_not_acquire_a_report_checklist[pytest might fail during collection. Which diagnostics would help?] _
+
+body = 'pytest might fail during collection. Which diagnostics would help?'
+
+    @pytest.mark.parametrize(
+        "body",
+        [
+            "If pytest fails in collection, would additional logging be useful?",
+            "Suppose two parsers fail to parse this report. Which API should handle it?",
+            "If the module hook is not called, could a fixture replace it?",
+            "pytest might fail during collection. Which diagnostics would help?",
+            "I observed success elsewhere. pytest might fail during collection.",
+        ],
+    )
+    def test_hypothetical_failure_question_does_not_acquire_a_report_checklist(
+        body: str,
+    ) -> None:
+        report = replay_opening("Questions about diagnostics", body)
+    
+>       assert report.missing_details == []
+E       AssertionError: assert [MissingRepor...tion_id='C3')] == []
+E         
+E         Left contains 3 more items, first extra item: MissingReportDetail(name='pip list output', request='the output of `pip list` from the virtual environment you are using', citation_id='C1')
+E         Use -v to get more diff
+
+tests/test_triage_quality_replay.py:275: AssertionError
+_ test_hypothetical_failure_question_does_not_acquire_a_report_checklist[I observed success elsewhere. pytest might fail during collection.] _
+
+body = 'I observed success elsewhere. pytest might fail during collection.'
+
+    @pytest.mark.parametrize(
+        "body",
+        [
+            "If pytest fails in collection, would additional logging be useful?",
+            "Suppose two parsers fail to parse this report. Which API should handle it?",
+            "If the module hook is not called, could a fixture replace it?",
+            "pytest might fail during collection. Which diagnostics would help?",
+            "I observed success elsewhere. pytest might fail during collection.",
+        ],
+    )
+    def test_hypothetical_failure_question_does_not_acquire_a_report_checklist(
+        body: str,
+    ) -> None:
+        report = replay_opening("Questions about diagnostics", body)
+    
+>       assert report.missing_details == []
+E       AssertionError: assert [MissingRepor...tion_id='C3')] == []
+E         
+E         Left contains 3 more items, first extra item: MissingReportDetail(name='pip list output', request='the output of `pip list` from the virtual environment you are using', citation_id='C1')
+E         Use -v to get more diff
+
+tests/test_triage_quality_replay.py:275: AssertionError
+_ test_failing_example_supplied_alongside_a_working_control_is_recognized[Here is a minimal reproducer that fails:] _
+
+introduction = 'Here is a minimal reproducer that fails:'
+
+    @pytest.mark.parametrize("introduction", [
+        "Here is a minimal failing example:",
+        "Here is a minimal reproducer that fails:",
+    ])
+    def test_failing_example_supplied_alongside_a_working_control_is_recognized(introduction: str) -> None:
+        report = replay_opening(
+            "Bug: module hook stops working",
+            "The hook works in a minimized example.\n"
+            + introduction + "\n"
+            "```python\ndef test_hook():\n    assert False\n```",
+        )
+    
+>       assert "minimal example" not in {d.name for d in report.missing_details}
+E       AssertionError: assert 'minimal example' not in {'minimal example', 'pip list output', 'pytest and OS versions'}
+
+tests/test_triage_quality_replay.py:290: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_hypothetical_failure_question_does_not_acquire_a_report_checklist[pytest might fail during collection. Which diagnostics would help?]
+FAILED tests/test_triage_quality_replay.py::test_hypothetical_failure_question_does_not_acquire_a_report_checklist[I observed success elsewhere. pytest might fail during collection.]
+FAILED tests/test_triage_quality_replay.py::test_failing_example_supplied_alongside_a_working_control_is_recognized[Here is a minimal reproducer that fails:]
+3 failed, 4 passed, 48 deselected in 0.13s

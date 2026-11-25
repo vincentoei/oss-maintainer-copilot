@@ -666,6 +666,8 @@ def triage_issue(
         required_reply_ids=tuple(detail.citation_id for detail in details)
         + ((follow_up_id,) if follow_up is not None else ()),
     )
+    if follow_up is not None:
+        reply += f"\n- {follow_up.text} [{follow_up_id}]"
     try:
         client = model_client or model.OpenAICompatibleModel.from_environment()
         with recorder.call(
@@ -683,7 +685,7 @@ def triage_issue(
             else "Model output failed validation; no issue type was suggested."
         )
         abstentions.append(Abstention(field="issue_type", reason=model_reason))
-        if not details:
+        if not details and follow_up is None:
             reply += (
                 " I cannot substantiate a specific reply from the available evidence."
             )

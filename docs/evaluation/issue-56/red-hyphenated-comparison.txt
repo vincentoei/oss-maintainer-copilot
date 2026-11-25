@@ -1,0 +1,31 @@
+.F                                                                       [100%]
+=================================== FAILURES ===================================
+_ test_explicit_before_after_versions_are_not_reported_as_conflicting[Compared to pytest-7.4.4 this regressed:] _
+
+comparison = 'Compared to pytest-7.4.4 this regressed:'
+
+    @pytest.mark.parametrize(
+        "comparison",
+        ["Whereas pytest 7.4.4 produces:", "Compared to pytest-7.4.4 this regressed:"],
+    )
+    def test_explicit_before_after_versions_are_not_reported_as_conflicting(
+        comparison: str,
+    ) -> None:
+        report = replay_opening(
+            "Bug: package fixture ordering regressed",
+            "pip list:\npytest 8.2.0\n"
+            "Output from pytest 8.2.0:\nplatform linux -- pytest-8.2.0\n"
+            + comparison + "\nplatform linux -- pytest-7.4.4\n",
+        )
+    
+>       assert "conflicting version evidence" not in report.draft_reply
+E       AssertionError: assert 'conflicting...ion evidence' not in 'Thanks for ...onment? [C4]'
+E         
+E         'conflicting version evidence' is contained here:
+E            contains conflicting version evidence (pytest: 8.2.0 / 7.4.4). Could you confirm which pytest/pluggy versions produced the output using that run's environment? [C4]
+E         ?           ++++++++++++++++++++++++++++
+
+tests/test_triage_quality_replay.py:321: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_explicit_before_after_versions_are_not_reported_as_conflicting[Compared to pytest-7.4.4 this regressed:]
+1 failed, 1 passed, 28 deselected in 0.11s

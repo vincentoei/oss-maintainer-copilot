@@ -1,0 +1,46 @@
+.....FF                                                                  [100%]
+=================================== FAILURES ===================================
+_ test_hypothetical_failure_question_does_not_acquire_a_report_checklist[pytest does not fail during collection. I am asking about diagnostics.] _
+
+body = 'pytest does not fail during collection. I am asking about diagnostics.'
+
+    @pytest.mark.parametrize(
+        "body",
+        [
+            "If pytest fails in collection, would additional logging be useful?",
+            "Suppose two parsers fail to parse this report. Which API should handle it?",
+            "If the module hook is not called, could a fixture replace it?",
+            "pytest might fail during collection. Which diagnostics would help?",
+            "I observed success elsewhere. pytest might fail during collection.",
+            "pytest does not fail during collection. I am asking about diagnostics.",
+        ],
+    )
+    def test_hypothetical_failure_question_does_not_acquire_a_report_checklist(
+        body: str,
+    ) -> None:
+        report = replay_opening("Questions about diagnostics", body)
+    
+>       assert report.missing_details == []
+E       AssertionError: assert [MissingRepor...tion_id='C3')] == []
+E         
+E         Left contains 3 more items, first extra item: MissingReportDetail(name='pip list output', request='the output of `pip list` from the virtual environment you are using', citation_id='C1')
+E         Use -v to get more diff
+
+tests/test_triage_quality_replay.py:276: AssertionError
+__________ test_indented_working_control_is_not_a_failing_reproducer ___________
+
+    def test_indented_working_control_is_not_a_failing_reproducer() -> None:
+        report = replay_opening(
+            "Bug: module hook is not called",
+            "The hook works in a minimized example.\n"
+            "    def test_hook():\n        assert True\n",
+        )
+    
+>       assert "minimal example" in {d.name for d in report.missing_details}
+E       AssertionError: assert 'minimal example' in {'pip list output', 'pytest and OS versions'}
+
+tests/test_triage_quality_replay.py:305: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_hypothetical_failure_question_does_not_acquire_a_report_checklist[pytest does not fail during collection. I am asking about diagnostics.]
+FAILED tests/test_triage_quality_replay.py::test_indented_working_control_is_not_a_failing_reproducer
+2 failed, 5 passed, 50 deselected in 0.12s
