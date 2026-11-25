@@ -1,5 +1,6 @@
 """Workflow comparison at the agreed replay and runner boundaries."""
 
+import hashlib
 import io
 import json
 from pathlib import Path
@@ -16,7 +17,9 @@ from maintainer_copilot.replay import CaseFlagged, ControlledReplayModel, replay
 from maintainer_copilot.source import PublicRepositorySource
 
 
-@pytest.mark.parametrize(("issue", "count"), [(16, 20), (17, 30), (18, 40), (19, 50)])
+@pytest.mark.parametrize(
+    ("issue", "count"), [(16, 20), (17, 30), (18, 40), (19, 50), (56, 40)]
+)
 def test_comparison_catalog_preserves_archived_cases(issue: int, count: int) -> None:
     from maintainer_copilot.workflow_comparison import load_comparison_cases
 
@@ -117,12 +120,13 @@ def test_agent_replay_respects_historical_template_availability() -> None:
         (17, 30, "thirty_complete_pairs"),
         (18, 40, "forty_complete_pairs"),
         (19, 50, "fifty_complete_pairs"),
+        (56, 40, "forty_complete_pairs"),
     ],
 )
 def test_comparison_preserves_three_arms_and_reports_actual_inference_cost(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
-    comparison_issue: Literal[17, 18, 19],
+    comparison_issue: Literal[17, 18, 19, 56],
     planned_cases: int,
     pairs_gate: str,
 ) -> None:
@@ -140,8 +144,11 @@ def test_comparison_preserves_three_arms_and_reports_actual_inference_cost(
             {"tool": "finish", "arguments": {}}
             if "enum" in schema
             else {
-                "issue_type": "type: enhancement",
-                "issue_type_quote": "Feature",
+                "type_evidence_index": next(
+                    i
+                    for i, option in enumerate(data["type_evidence_options"])
+                    if option["issue_type"] == "type: enhancement"
+                ),
                 "reply_citation_ids": data["required_reply_ids"],
             }
         )
@@ -156,6 +163,8 @@ def test_comparison_preserves_three_arms_and_reports_actual_inference_cost(
 
     monkeypatch.setattr("maintainer_copilot.model.urlopen", endpoint)
     directory = tmp_path / "comparison"
+    protocol = tmp_path / "protocol.md"
+    protocol.write_text("One separately frozen follow-up pass; cap 200 calls.\n")
     artifact = evaluate_comparison(
         directory,
         "http://model.test/v1",
@@ -164,6 +173,10 @@ def test_comparison_preserves_three_arms_and_reports_actual_inference_cost(
         issue_source=evidence,
         source_reader=PublicRepositorySource(),
         comparison_issue=comparison_issue,
+        protocol_path=protocol,
+    )
+    assert (
+        artifact["protocol_sha256"] == hashlib.sha256(protocol.read_bytes()).hexdigest()
     )
     summary = artifact["summary"]
     assert len(artifact["cases"]) == 3

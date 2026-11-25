@@ -1,0 +1,18 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______ test_request_to_warn_about_slow_collection_supports_enhancement ________
+
+    def test_request_to_warn_about_slow_collection_supports_enhancement() -> None:
+        report = replay_opening(
+            "Warn if collection scans an empty directory for too long",
+            "A warning would help locate wasted collection time.",
+        )
+    
+>       assert report.issue_type == "type: enhancement"
+E       AssertionError: assert None == 'type: enhancement'
+E        +  where None = TriageReport(context=RepositoryContext(registration_id='pytest-default', repository='pytest-dev/pytest', revision='03e... template.'), Abstention(field='issue_type', reason='Model found insufficient issue-text evidence for a type label.')]).issue_type
+
+tests/test_triage_quality_replay.py:300: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_request_to_warn_about_slow_collection_supports_enhancement
+1 failed, 21 deselected in 0.11s

@@ -1,0 +1,144 @@
+FFFFF                                                                    [100%]
+=================================== FAILURES ===================================
+_ test_observed_body_failure_selects_report_details[The latest pytest fails in collection instead of running the tests.] _
+
+body = 'The latest pytest fails in collection instead of running the tests.'
+
+    @pytest.mark.parametrize("body", [
+        "The latest pytest fails in collection instead of running the tests.",
+        "Warnings raised at import time cannot be controlled by filterwarnings.",
+        "Two parsers fail to parse this report, truncating or crashing respectively.",
+        "Since the upgrade, pytest spawns child processes which are blocking each other.",
+        "ERROR collecting test_demo.py\nTraceback (most recent call last):\n"
+        "AttributeError: object has no attribute 'runTest'",
+    ])
+    def test_observed_body_failure_selects_report_details(body: str) -> None:
+        report = replay_opening("Collection behavior", body)
+    
+>       assert {d.name for d in report.missing_details} == {
+            "pip list output", "pytest and OS versions", "minimal example"
+        }
+E       AssertionError: assert set() == {'minimal exa... OS versions'}
+E         
+E         Extra items in the right set:
+E         'pip list output'
+E         'minimal example'
+E         'pytest and OS versions'
+E         Use -v to get more diff
+
+tests/test_triage_quality_replay.py:114: AssertionError
+_ test_observed_body_failure_selects_report_details[Warnings raised at import time cannot be controlled by filterwarnings.] _
+
+body = 'Warnings raised at import time cannot be controlled by filterwarnings.'
+
+    @pytest.mark.parametrize("body", [
+        "The latest pytest fails in collection instead of running the tests.",
+        "Warnings raised at import time cannot be controlled by filterwarnings.",
+        "Two parsers fail to parse this report, truncating or crashing respectively.",
+        "Since the upgrade, pytest spawns child processes which are blocking each other.",
+        "ERROR collecting test_demo.py\nTraceback (most recent call last):\n"
+        "AttributeError: object has no attribute 'runTest'",
+    ])
+    def test_observed_body_failure_selects_report_details(body: str) -> None:
+        report = replay_opening("Collection behavior", body)
+    
+>       assert {d.name for d in report.missing_details} == {
+            "pip list output", "pytest and OS versions", "minimal example"
+        }
+E       AssertionError: assert set() == {'minimal exa... OS versions'}
+E         
+E         Extra items in the right set:
+E         'pip list output'
+E         'minimal example'
+E         'pytest and OS versions'
+E         Use -v to get more diff
+
+tests/test_triage_quality_replay.py:114: AssertionError
+_ test_observed_body_failure_selects_report_details[Two parsers fail to parse this report, truncating or crashing respectively.] _
+
+body = 'Two parsers fail to parse this report, truncating or crashing respectively.'
+
+    @pytest.mark.parametrize("body", [
+        "The latest pytest fails in collection instead of running the tests.",
+        "Warnings raised at import time cannot be controlled by filterwarnings.",
+        "Two parsers fail to parse this report, truncating or crashing respectively.",
+        "Since the upgrade, pytest spawns child processes which are blocking each other.",
+        "ERROR collecting test_demo.py\nTraceback (most recent call last):\n"
+        "AttributeError: object has no attribute 'runTest'",
+    ])
+    def test_observed_body_failure_selects_report_details(body: str) -> None:
+        report = replay_opening("Collection behavior", body)
+    
+>       assert {d.name for d in report.missing_details} == {
+            "pip list output", "pytest and OS versions", "minimal example"
+        }
+E       AssertionError: assert set() == {'minimal exa... OS versions'}
+E         
+E         Extra items in the right set:
+E         'pip list output'
+E         'minimal example'
+E         'pytest and OS versions'
+E         Use -v to get more diff
+
+tests/test_triage_quality_replay.py:114: AssertionError
+_ test_observed_body_failure_selects_report_details[Since the upgrade, pytest spawns child processes which are blocking each other.] _
+
+body = 'Since the upgrade, pytest spawns child processes which are blocking each other.'
+
+    @pytest.mark.parametrize("body", [
+        "The latest pytest fails in collection instead of running the tests.",
+        "Warnings raised at import time cannot be controlled by filterwarnings.",
+        "Two parsers fail to parse this report, truncating or crashing respectively.",
+        "Since the upgrade, pytest spawns child processes which are blocking each other.",
+        "ERROR collecting test_demo.py\nTraceback (most recent call last):\n"
+        "AttributeError: object has no attribute 'runTest'",
+    ])
+    def test_observed_body_failure_selects_report_details(body: str) -> None:
+        report = replay_opening("Collection behavior", body)
+    
+>       assert {d.name for d in report.missing_details} == {
+            "pip list output", "pytest and OS versions", "minimal example"
+        }
+E       AssertionError: assert set() == {'minimal exa... OS versions'}
+E         
+E         Extra items in the right set:
+E         'pip list output'
+E         'minimal example'
+E         'pytest and OS versions'
+E         Use -v to get more diff
+
+tests/test_triage_quality_replay.py:114: AssertionError
+___________ test_observed_body_failure_selects_report_details[body4] ___________
+
+body = "ERROR collecting test_demo.py\nTraceback (most recent call last):\nAttributeError: object has no attribute 'runTest'"
+
+    @pytest.mark.parametrize("body", [
+        "The latest pytest fails in collection instead of running the tests.",
+        "Warnings raised at import time cannot be controlled by filterwarnings.",
+        "Two parsers fail to parse this report, truncating or crashing respectively.",
+        "Since the upgrade, pytest spawns child processes which are blocking each other.",
+        "ERROR collecting test_demo.py\nTraceback (most recent call last):\n"
+        "AttributeError: object has no attribute 'runTest'",
+    ])
+    def test_observed_body_failure_selects_report_details(body: str) -> None:
+        report = replay_opening("Collection behavior", body)
+    
+>       assert {d.name for d in report.missing_details} == {
+            "pip list output", "pytest and OS versions", "minimal example"
+        }
+E       AssertionError: assert set() == {'minimal exa... OS versions'}
+E         
+E         Extra items in the right set:
+E         'pip list output'
+E         'minimal example'
+E         'pytest and OS versions'
+E         Use -v to get more diff
+
+tests/test_triage_quality_replay.py:114: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_observed_body_failure_selects_report_details[The latest pytest fails in collection instead of running the tests.]
+FAILED tests/test_triage_quality_replay.py::test_observed_body_failure_selects_report_details[Warnings raised at import time cannot be controlled by filterwarnings.]
+FAILED tests/test_triage_quality_replay.py::test_observed_body_failure_selects_report_details[Two parsers fail to parse this report, truncating or crashing respectively.]
+FAILED tests/test_triage_quality_replay.py::test_observed_body_failure_selects_report_details[Since the upgrade, pytest spawns child processes which are blocking each other.]
+FAILED tests/test_triage_quality_replay.py::test_observed_body_failure_selects_report_details[body4]
+5 failed, 34 deselected in 0.13s

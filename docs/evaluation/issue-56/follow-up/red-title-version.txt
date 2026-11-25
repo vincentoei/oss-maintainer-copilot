@@ -1,0 +1,20 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________ test_pytest_version_in_title_is_not_requested_again ______________
+
+    def test_pytest_version_in_title_is_not_requested_again() -> None:
+        report = replay_opening(
+            "Pytest 8.2.0 collection fails", "The collector stops before executing tests."
+        )
+        detail = next(d for d in report.missing_details if d.name == "pytest and OS versions")
+    
+>       assert detail.request == "your operating system and release"
+E       AssertionError: assert 'your pytest ...stem versions' == 'your operati...m and release'
+E         
+E         - your operating system and release
+E         + your pytest and operating system versions
+
+tests/test_triage_quality_replay.py:166: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_pytest_version_in_title_is_not_requested_again
+1 failed, 57 deselected in 0.13s

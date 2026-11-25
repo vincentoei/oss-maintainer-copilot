@@ -1,0 +1,17 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______ test_reproducer_with_numbered_test_function_is_not_requested_again ______
+
+    def test_reproducer_with_numbered_test_function_is_not_requested_again() -> None:
+        report = replay_opening(
+            "Bug: collection order changes",
+            "```python\ndef test1():\n    assert True\n```\n",
+        )
+    
+>       assert "minimal example" not in {d.name for d in report.missing_details}
+E       AssertionError: assert 'minimal example' not in {'bug description', 'minimal example', 'pip list output', 'pytest and OS versions'}
+
+tests/test_triage_quality_replay.py:70: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_reproducer_with_numbered_test_function_is_not_requested_again
+1 failed, 4 deselected in 0.10s

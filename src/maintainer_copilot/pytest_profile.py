@@ -29,13 +29,15 @@ TYPE_EVIDENCE_CUES = {
     "type: bug": r"\b(?:bug|broken|crash\w*|fail\w*|error|incorrect|wrong)\b",
     "type: deprecation": r"\bdeprecat\w*\b",
     "type: docs": r"\b(?:docs|documentation|guide|manual|typo)\b",
-    "type: enhancement": r"\b(?:feature|enhancement|add|support|allow)\b",
+    "type: enhancement": r"\b(?:feature|enhancement|add|support|allow|warn if)\b",
     "type: infrastructure": r"\b(?:infrastructure|build|release|ci|workflow)\b",
     "type: performance": r"\b(?:performance|slow|latency|memory|speed)\b",
     "type: proposal": r"\b(?:proposal|propose|design)\b",
     "type: question": r"\b(?:question|how|why)\b|\?",
     "type: refactoring": r"\b(?:refactor\w*|cleanup)\b",
-    "type: regression": r"\b(?:regression|used to work|worked before)\b",
+    "type: regression": (
+        r"\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\b"
+    ),
     "type: removal": r"\bremov\w*\b",
     "type: selftests": r"\b(?:selftests|pytest test suite)\b",
 }
@@ -232,10 +234,18 @@ def template_for(title: str, body: str) -> TemplateKind | None:
         return "feature"
     feature_hint = bool(
         re.search(r"\b(feature request|feature|enhancement|add support)\b", title)
+        or re.match(r"^(?:show|render|provide) (?:nicer|better|more \w+)\b", title)
+    )
+    instructional_question = bool(
+        re.match(r"^(?:how|what|why|when|where|can|could|should|question)\b", title)
     )
     bug_hint = bool(
-        re.search(r"\b(bug|error|fails?|crashes?|regression|hangs?)\b", title)
-    )
+        re.search(
+            r"\b(bug|error|broken|fail(?:ure)?s?|crashes?|regress(?:ion|ed)|"
+            r"hangs?|truncated|no output)\b",
+            title,
+        )
+    ) or (not instructional_question and bool(re.search(r"\b\w+error\b", title)))
     if bug_hint and not feature_hint:
         return "bug"
     if feature_hint and not bug_hint:
@@ -244,11 +254,51 @@ def template_for(title: str, body: str) -> TemplateKind | None:
         return "feature"
     if "a detailed description of the bug or problem" in body.lower():
         return "bug"
+    prose = re.sub(r"<!--.*?-->|```.*?```", "", body, flags=re.DOTALL)
+    if all(
+        re.search(rf"(?im)^\s*#{{1,6}}\s+{heading}\s*$", prose)
+        for heading in ("current behavio[u]?r", "expected behavio[u]?r")
+    ):
+        return "bug"
+    problem_patterns = (
+        r"\b(?:does|do|did|is|are)(?:n't| not| never)\b[^.!?\n]{0,40}"
+        r"\b(?:work|working|supported|called|effect|controlled)\b",
+        r"\b(?:pytest|tests?|parsers?)\b[^.!?\n]{0,60}\b(?:fails?|crash\w*)\b|"
+        r"\bcannot be controlled\b|\bblocking each other\b",
+        r"\bcurrently witnessing this on\b[^\n]{0,100}\bpytest\b",
+    )
+    for index, pattern in enumerate(problem_patterns):
+        for observed_match in re.finditer(pattern, prose, re.I):
+            prefix = re.split(r"[.!?\n]", prose[: observed_match.start()])[-1]
+            if index != 0 and re.search(
+                r"\b(?:not|never)\b|n't\b", prefix + observed_match.group(), re.I
+            ):
+                continue
+            if not re.search(
+                r"\b(?:if|unless|suppose|whether|could|would|might|may|should|hypothetical)\b",
+                prefix + observed_match.group(),
+                re.I,
+            ):
+                return "bug"
+    if (
+        not instructional_question
+        and re.search(r"\bERROR collecting\b", body)
+        and "Traceback (most recent call last):" in body
+    ):
+        return "bug"
+    if re.search(
+        r"\b(?:didn't|did not) observe (?:the )?expected (?:behavio[u]?r|result)\b",
+        body,
+        re.I,
+    ):
+        return "bug"
+    problem = r"\bresults? in (?:a |an )?(?:collection )?(?:error|exception|failure)\b"
+    if quote_supports_label({"problem": problem}, "problem", body, body):
+        return "bug"
     return None
 
 
-def missing_bug_details(body: str) -> list[TemplateDetail]:
-    body_lower = body.lower()
+def missing_bug_details(body: str, title: str = "") -> list[TemplateDetail]:
     without_comments = re.sub(r"<!--.*?-->", "", body, flags=re.DOTALL)
     without_code = re.sub(r"```.*?```", "", without_comments, flags=re.DOTALL)
     description_lines = [
@@ -265,31 +315,68 @@ def missing_bug_details(body: str) -> list[TemplateDetail]:
     ]
     has_description = len(" ".join(description_lines)) >= 30
     has_pip_list = _has_pip_list_output(body)
-    has_versions = bool(
-        re.search(r"\bpytest(?:\s+version)?\s*[:= ]\s*v?\d", body_lower)
-        and (
-            re.search(r"(?im)^\s*(?:os|operating system)\s*:\s*[^\n]*\d", body)
-            or re.search(
-                r"\b(?:ubuntu|windows|macos|linux|fedora|debian|freebsd|openbsd|"
-                r"netbsd)\b[^\n]*\d",
-                body_lower,
-            )
-        )
-    )
+    has_versions = all(_provided_environment(f"{title}\n{body}"))
     has_example = _has_minimal_example(body)
     provided = (has_description, has_pip_list, has_versions, has_example)
     return _missing_details(BUG_DETAILS, provided)
 
 
+def _provided_environment(body: str) -> tuple[bool, bool]:
+    without_comments = re.sub(r"<!--.*?-->", "", body, flags=re.DOTALL)
+    environment_text = re.sub(r"[*`]", "", without_comments)
+    body_lower = environment_text.lower()
+    os_text = re.sub(
+        r"\b(?:python|pytest|pluggy)(?:\s+version)?[ :=-]*v?\d[\w.+-]*",
+        "",
+        environment_text,
+        flags=re.I,
+    )
+    has_pytest = bool(
+        re.search(r"\bpytest(?:\s+version)?\s*[:= -]\s*v?\d", body_lower)
+        or re.search(r"\bpytest versions?(?: tested)?\s*[:=( -]+v?\d", body_lower)
+        or re.search(
+            r"(?m)^\s*(?:#{1,6}\s*)?pytest and (?:operating system|os) versions"
+            r"\s*\n\s*[0-9a-f]{40}\b",
+            body_lower,
+        )
+    )
+    has_os = bool(
+        re.search(r"(?im)^\s*(?:os|operating system)\s*:\s*[^\n]*\d", os_text)
+        or re.search(
+            r"\b(?:ubuntu|windows|macos|linux|fedora|debian|freebsd|openbsd|"
+            r"netbsd)\b[^\n]*\d",
+            os_text,
+            re.I,
+        )
+        or re.search(
+            r"\b(?:opensuse\s+tumbleweed|gentoo(?:\s+linux)?|"
+            r"debian\s+(?:buster|bullseye|bookworm|trixie))\b",
+            body_lower,
+        )
+    )
+    return has_pytest, has_os
+
+
 def _has_pip_list_output(body: str) -> bool:
-    package_row = re.compile(r"^[\w.-]+\s+\d+(?:\.\d+)+(?:\S*)$")
+    if (
+        re.search(r"(?m)^\s*\$?\s*pipenv graph\s*$", body)
+        and re.search(r"(?m)^[\w.-]+==\d+(?:\.\d+)+", body)
+        and re.search(r"\[required:[^\]\n]+, installed:\s*\d", body)
+    ):
+        return True
+    package_row = re.compile(
+        r"^[\w.-]+\s+\d+(?:\.\d+)+(?:\S*)"
+        r"(?:\s+(?:/|[A-Za-z]:[\\/])[^\r\n]*)?$"
+    )
     lines = body.splitlines()
     # pip's own table header is stronger evidence than the reporter's heading.
     # Require actual rows, so a copied empty table is still missing.
     for index, line in enumerate(lines):
-        if re.fullmatch(r"\s*Package\s+Version\s*", line, re.I):
+        if re.fullmatch(
+            r"\s*Package\s+Version(?:\s+Editable project location)?\s*", line, re.I
+        ):
             rows = lines[index + 1 :]
-            if rows and re.fullmatch(r"\s*-+\s+-+\s*", rows[0]):
+            if rows and re.fullmatch(r"\s*-+\s+-+(?:\s+-+)?\s*", rows[0]):
                 rows = rows[1:]
             if rows and package_row.fullmatch(rows[0].strip()):
                 return True
@@ -313,7 +400,54 @@ def _has_pip_list_output(body: str) -> bool:
 
 
 def _has_minimal_example(body: str) -> bool:
-    if re.search(r"\bdef\s+test_\w+\s*\(", body):
+    working = (
+        r"\b(?:hook|example)\b[^.!?\n]{0,50}\b(?:works?|honored) "
+        r"(?:in|for|with) (?:a|the|this) minimi[sz]ed example\b"
+    )
+    blocks = list(
+        re.finditer(
+            r"```[^\n]*\n.*?```|(?m:(?:^(?: {4}|\t)[^\n]*(?:\n|$))+)",
+            body,
+            re.DOTALL,
+        )
+    )
+    control_blocks = set()
+    for statement in re.finditer(working, body, re.I):
+        if not quote_supports_label(
+            {"working": working}, "working", statement.group(), body
+        ):
+            continue
+        block = next((b for b in blocks if b.start() >= statement.end()), None)
+        if block is None:
+            continue
+        introduction = body[statement.end() : block.start()]
+        failing = r"\b(?:fails?|failing|reproducer)\b"
+        if not quote_supports_label(
+            {"failing": failing}, "failing", introduction, introduction
+        ):
+            control_blocks.add(block.span())
+    for start, end in sorted(control_blocks, reverse=True):
+        body = body[:start] + " " * (end - start) + body[end:]
+    if re.search(r"https://github\.com/[\w.-]+/[\w.-]+", body):
+        for description in re.finditer(
+            r"[^\n]*\brepository\b[^\n]{0,300}\bcontains\b"
+            r"[^\n]{0,80}\breproduc\w*\b",
+            body,
+            re.I,
+        ):
+            if not re.search(
+                r"\b(?:no|not|never|without|if|could|would|might)\b",
+                description.group(),
+                re.I,
+            ):
+                return True
+    if re.search(r"\bdef\s+test\w*\s*\(", body):
+        return True
+    if (
+        re.search(r"\btox\s+-e\s+py\d+\b", body)
+        and re.search(r"(?m)^FAILED testing/\S+::\S+", body)
+        and re.search(r"\bpytest-\d[^\s,]*\.dev", body)
+    ):
         return True
     heading = re.search(r"(?im)^\s*minimal example:[ \t]*(.*)$", body)
     if heading is None:
@@ -377,6 +511,28 @@ def _section_has_answer(body: str, heading: str) -> bool:
 
 
 def _has_concrete_scenario(body: str) -> bool:
+    for scenario in re.finditer(
+        r"\b(?:reading|read|viewing|view)\b[^\n.!?]{0,80}"
+        r"\b(?:docs|documentation)\b[^\n.!?]{0,80}"
+        r"\b(?:evening|night|low.light)\b",
+        body,
+        re.I,
+    ):
+        prefix = re.split(
+            r"[.!?\n]", body[max(0, scenario.start() - 64) : scenario.start()]
+        )[-1]
+        ending = re.search(r"[.!?\n]|$", body[scenario.end() :])
+        assert ending is not None
+        if (
+            re.search(
+                r"\b(?:if|unless|could|would|might|may|should|whether|never|not|don't)\b",
+                prefix,
+                re.I,
+            )
+            or ending.group() == "?"
+        ):
+            continue
+        return True
     if re.search(
         r"\b(?:i'm|i am|we are)\s+(?:currently\s+)?writing tests\b[^\n]{20,}",
         body,
@@ -449,6 +605,13 @@ def _has_current_alternative(body: str) -> bool:
 
 def _has_alternative_detail(body: str) -> bool:
     answer = _section_answer(body, "Alternative Solutions")
+    if re.search(
+        r"\b(?:could|can) (?:avoid|omit|drop|remove|disable)\b[^\n]*"
+        r"--?[a-z][\w-]*[^\n]*\bbut\b[^\n]*\b(?:lose|losing|no longer)\b",
+        answer,
+        re.I,
+    ):
+        return True
     # Explicitly reporting that none exists answers the template's "or none"
     # question. Saying an approach has not been tried does not.
     if re.fullmatch(
@@ -514,12 +677,16 @@ def missing_feature_details(body: str) -> list[TemplateDetail]:
         re.search(
             r"\b(?:i cannot|i can't|i need|the problem is)\b", without_comments, re.I
         )
+        or re.search(r"\bcurrently\b[^\n]{20,}\btraceback\b", without_comments, re.I)
     )
     has_solution = _section_has_answer(
         body, "Describe the solution you'd like"
     ) or bool(
         re.search(
-            r"\b(?:i would like|please add|the solution is)\b", without_comments, re.I
+            r"\b(?:i would like|please add|the solution is)\b|"
+            r"\bpytest should(?:\s+\w+){0,4}\s+(?:show|render|handle|support|allow)\b",
+            without_comments,
+            re.I,
         )
     )
     has_use_case = bool(
@@ -539,6 +706,7 @@ def missing_feature_details(body: str) -> list[TemplateDetail]:
             re.I,
         )
         or _has_concrete_scenario(without_comments)
+        or _has_minimal_example(without_comments)
     )
     has_alternatives = _has_alternative_detail(without_comments)
     provided = (has_problem, has_solution, has_use_case, has_alternatives)
@@ -580,14 +748,23 @@ def profile_details(
     if template is None:
         return None
     missing = (
-        missing_bug_details(body)
+        missing_bug_details(body, title)
         if template == "bug"
         else missing_feature_details(body)
     )
+    version_request = None
+    if template == "bug":
+        has_pytest, has_os = _provided_environment(f"{title}\n{body}")
+        if has_pytest and not has_os:
+            version_request = "your operating system and release"
+        elif has_os and not has_pytest:
+            version_request = "your pytest version"
     return [
         DetailRequest(
             name=d.name,
-            request=d.request,
+            request=(version_request or d.request)
+            if d.name == "pytest and OS versions"
+            else d.request,
             url=citation_url(template, d.line, revision),
             description=f"pytest {template} report template: {d.name}",
         )

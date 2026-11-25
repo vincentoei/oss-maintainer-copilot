@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "cases": 40,
+  "missing_expected_requests": [],
+  "detail_regressions": [],
+  "exact_details": 39,
+  "disagreements": [
+    {
+      "issue_number": 12083,
+      "expected": [
+        "pip list output"
+      ],
+      "observed": [
+        "pip list output",
+        "pytest and OS versions"
+      ],
+      "explanation": "Opening names Linux/macOS but not releases; kept explicit OS/release request and unchanged annotation."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________ test_explicit_regressed_word_supports_regression_type _____________
+
+    def test_explicit_regressed_word_supports_regression_type() -> None:
+        report = replay_opening(
+            "Import resolution regressed after the latest release",
+            "Previously working imports fail when collecting the same tests.",
+        )
+    
+>       assert report.issue_type == "type: regression"
+E       AssertionError: assert 'type: infrastructure' == 'type: regression'
+E         
+E         - type: regression
+E         + type: infrastructure
+
+tests/test_triage_quality_replay.py:202: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_explicit_regressed_word_supports_regression_type
+1 failed, 11 deselected in 0.12s

@@ -45,7 +45,7 @@ METHODS = ("keyword_rule", "fixed_rag", "bounded_agent")
 MODEL_NAME = "pytest-triage:coder3b-ctx16k"
 MODEL_DIGEST = "3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8"
 ROOT = Path(__file__).resolve().parents[2]
-CASE_COUNTS = {16: 20, 17: 30, 18: 40, 19: 50}
+CASE_COUNTS = {16: 20, 17: 30, 18: 40, 19: 50, 56: 40}
 
 
 def fingerprint(value: object) -> str:
@@ -282,7 +282,8 @@ def evaluate_comparison(
     source_reader: source.SourceReader,
     measure_gpu: bool = False,
     serving: dict[str, Any] | None = None,
-    comparison_issue: Literal[16, 17, 18, 19] = 16,
+    comparison_issue: Literal[16, 17, 18, 19, 56] = 16,
+    protocol_path: Path | None = None,
 ) -> dict[str, Any]:
     """Run once with shared eligibility; never replace or silently drop a case."""
     directory.mkdir(parents=True, exist_ok=False)
@@ -296,7 +297,8 @@ def evaluate_comparison(
         "planned_cases": case_count,
         "protocol_sha256": hashlib.sha256(
             (
-                ROOT / f"docs/evaluation/issue-{comparison_issue}-protocol.md"
+                protocol_path
+                or ROOT / f"docs/evaluation/issue-{comparison_issue}-protocol.md"
             ).read_bytes()
         ).hexdigest(),
         "source_sha256": {
@@ -797,6 +799,7 @@ def main() -> None:
     parser.add_argument("--ollama-url", required=True)
     parser.add_argument("--directory", required=True, type=Path)
     parser.add_argument("--issue", type=int, choices=tuple(CASE_COUNTS), default=16)
+    parser.add_argument("--protocol", type=Path)
     args = parser.parse_args()
     if args.directory.exists():
         parser.error("Run directory already exists; repetition/overwrite refused")
@@ -828,6 +831,7 @@ def main() -> None:
         measure_gpu=True,
         serving=serving,
         comparison_issue=args.issue,
+        protocol_path=args.protocol,
     )
     try:
         result["serving_after"] = serving_snapshot(base)

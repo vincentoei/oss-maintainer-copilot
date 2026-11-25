@@ -1,0 +1,25 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______ test_reported_collection_error_selects_details_without_a_bug_title ______
+
+    def test_reported_collection_error_selects_details_without_a_bug_title() -> None:
+        report = replay_opening(
+            "Dynamically register a fixture",
+            "The code results in a collection error instead of executing the fixture.",
+        )
+    
+>       assert {d.name for d in report.missing_details} == {
+            "pip list output", "pytest and OS versions", "minimal example"
+        }
+E       AssertionError: assert set() == {'minimal exa... OS versions'}
+E         
+E         Extra items in the right set:
+E         'minimal example'
+E         'pip list output'
+E         'pytest and OS versions'
+E         Use -v to get more diff
+
+tests/test_triage_quality_replay.py:226: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_reported_collection_error_selects_details_without_a_bug_title
+1 failed, 15 deselected in 0.12s

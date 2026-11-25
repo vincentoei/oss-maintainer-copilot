@@ -1,0 +1,17 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________ test_markdown_environment_versions_are_not_requested_again __________
+
+    def test_markdown_environment_versions_are_not_requested_again() -> None:
+        report = replay_opening(
+            "Bug: collection fails",
+            "**pytest version:** 8.2.0\n**OS:** Ubuntu 24.04\n",
+        )
+    
+>       assert "pytest and OS versions" not in {d.name for d in report.missing_details}
+E       AssertionError: assert 'pytest and OS versions' not in {'minimal example', 'pip list output', 'pytest and OS versions'}
+
+tests/test_triage_quality_replay.py:51: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_markdown_environment_versions_are_not_requested_again
+1 failed, 1 deselected in 0.10s

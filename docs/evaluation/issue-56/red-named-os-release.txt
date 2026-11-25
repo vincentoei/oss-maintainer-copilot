@@ -1,0 +1,34 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+______ test_named_os_release_is_not_requested_again[openSUSE Tumbleweed] _______
+
+release = 'openSUSE Tumbleweed'
+
+    @pytest.mark.parametrize("release", ["openSUSE Tumbleweed", "Debian bookworm"])
+    def test_named_os_release_is_not_requested_again(release: str) -> None:
+        report = replay_opening(
+            "Bug: collection fails", f"pytest version: 8.2.0\nOS: {release}\n"
+        )
+    
+>       assert "pytest and OS versions" not in {d.name for d in report.missing_details}
+E       AssertionError: assert 'pytest and OS versions' not in {'bug description', 'minimal example', 'pip list output', 'pytest and OS versions'}
+
+tests/test_triage_quality_replay.py:61: AssertionError
+________ test_named_os_release_is_not_requested_again[Debian bookworm] _________
+
+release = 'Debian bookworm'
+
+    @pytest.mark.parametrize("release", ["openSUSE Tumbleweed", "Debian bookworm"])
+    def test_named_os_release_is_not_requested_again(release: str) -> None:
+        report = replay_opening(
+            "Bug: collection fails", f"pytest version: 8.2.0\nOS: {release}\n"
+        )
+    
+>       assert "pytest and OS versions" not in {d.name for d in report.missing_details}
+E       AssertionError: assert 'pytest and OS versions' not in {'bug description', 'minimal example', 'pip list output', 'pytest and OS versions'}
+
+tests/test_triage_quality_replay.py:61: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_triage_quality_replay.py::test_named_os_release_is_not_requested_again[openSUSE Tumbleweed]
+FAILED tests/test_triage_quality_replay.py::test_named_os_release_is_not_requested_again[Debian bookworm]
+2 failed, 2 deselected in 0.10s
