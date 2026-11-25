@@ -1,0 +1,33 @@
+{
+  "issue_number": 12377,
+  "issue_family_id": "historical-notes-removed-pytest-config",
+  "template_profile": "bug_feature",
+  "opening_title": "\"Conditions as strings instead of booleans\" docs act like `pytest.config` is still a thing",
+  "opening_cutoff": "2024-05-27T16:04:40Z",
+  "opening_content_sha256": "415a6f53494c2b6b42ad6a3842a0fd00add33369ba84e000aa3b10b48a2508c1",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-25T03:45:42.247920+00:00",
+  "repository_commit": "24abe4eb03f64bfed301e6d70dfcf4f0c6a8cc0e",
+  "repository_commit_at": "2024-05-27T04:43:30Z",
+  "earlier_issue": {
+    "number": 12360,
+    "created_at": "2024-05-24T06:22:57Z",
+    "content_sha256": "1f833d98e260b5cf0c41e737e9aa8a25805d4c902c5753a0d4dbf06373ef9f9d",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "earlier_issue_relationship": "nonduplicate",
+    "issue_type": "type: docs",
+    "missing_details": [],
+    "rationale": "The exact linked historical-notes section recommends removed pytest.config as a modern boolean equivalent, unlike obsolete assertion-rewrite wording on another documentation page. The opening identifies the misleading recommendation and removed API/version clearly enough to act on it. No runtime package list, OS or reproducer is needed for this precise documentation correction; no missing report detail is expected.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/12377",
+      "https://github.com/pytest-dev/pytest/issues/12360"
+    ]
+  },
+  "human_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+    "confirmed_at": "2026-11-25T03:47:34.709691+00:00"
+  }
+}

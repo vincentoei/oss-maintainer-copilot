@@ -143,8 +143,8 @@ reader, run:
 RUN_LIVE_REPLAY=1 uv run --no-env-file pytest -q tests/test_replay.py -k recorded_case
 ```
 
-Forty case metadata files now live in
-[`src/maintainer_copilot/cases/`](src/maintainer_copilot/cases/). Replay all forty
+Fifty case metadata files now live in
+[`src/maintainer_copilot/cases/`](src/maintainer_copilot/cases/). Replay all fifty
 with controlled model responses using:
 
 ```sh
@@ -198,6 +198,27 @@ the saved comparison and family/chronology checks without network or inference:
 
 ```sh
 PYTHONPATH=src uv run --locked --no-env-file python scripts/issue18_verify.py
+```
+
+Issue #19 adds the final [ten reviewed cases](docs/evaluation/cases-forty-one-through-fifty.md),
+bringing the catalog to fifty. The [frozen protocol](docs/evaluation/issue-19-protocol.md)
+retains the same three workflows, selected model and prompts, with at most 250
+inference dispatches. Keep Ollama running, use its current Windows host address
+and choose a fresh directory:
+
+```sh
+GITHUB_TOKEN="$(gh auth token)" uv run --locked --no-env-file \
+  python -m maintainer_copilot.workflow_comparison --issue 19 \
+  --ollama-url http://172.17.48.1:11434 --directory /tmp/issue-19-new-run
+```
+
+The [final expanded comparison](docs/evaluation/issue-19.md) records field scores,
+latency, cost, failures and remaining review. Changed or unavailable public
+content is flagged before inference. Earlier `--issue 16`, `17` and `18` modes
+retain their archived catalogs. Audit the published fifty-case run offline with:
+
+```sh
+PYTHONPATH=src uv run --locked --no-env-file python scripts/issue19_verify.py --check-only
 ```
 
 [Issue #12's methodology and provisional results](docs/evaluation/issue-12.md)

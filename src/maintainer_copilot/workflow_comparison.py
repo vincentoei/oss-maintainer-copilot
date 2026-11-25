@@ -45,7 +45,7 @@ METHODS = ("keyword_rule", "fixed_rag", "bounded_agent")
 MODEL_NAME = "pytest-triage:coder3b-ctx16k"
 MODEL_DIGEST = "3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8"
 ROOT = Path(__file__).resolve().parents[2]
-CASE_COUNTS = {16: 20, 17: 30, 18: 40}
+CASE_COUNTS = {16: 20, 17: 30, 18: 40, 19: 50}
 
 
 def fingerprint(value: object) -> str:
@@ -67,7 +67,7 @@ class RequestBudget:
 
     def __init__(self, directory: Path, *, case_count: int = 20) -> None:
         if case_count not in CASE_COUNTS.values():
-            raise ValueError("Comparison budget requires twenty, thirty or forty cases")
+            raise ValueError("Comparison budget requires 20, 30, 40 or 50 cases")
         self.path = directory / "requests.jsonl"
         self.case_count = case_count
 
@@ -282,7 +282,7 @@ def evaluate_comparison(
     source_reader: source.SourceReader,
     measure_gpu: bool = False,
     serving: dict[str, Any] | None = None,
-    comparison_issue: Literal[16, 17, 18] = 16,
+    comparison_issue: Literal[16, 17, 18, 19] = 16,
 ) -> dict[str, Any]:
     """Run once with shared eligibility; never replace or silently drop a case."""
     directory.mkdir(parents=True, exist_ok=False)
@@ -603,6 +603,7 @@ def summarize_comparison(artifact: dict[str, Any]) -> dict[str, Any]:
         20: "twenty_complete_pairs",
         30: "thirty_complete_pairs",
         40: "forty_complete_pairs",
+        50: "fifty_complete_pairs",
     }[planned_cases]
     gates = {
         pairs_gate: len(gains) == planned_cases
@@ -776,6 +777,21 @@ def serving_snapshot(base: str) -> dict[str, Any]:
     }
 
 
+def load_comparison_cases(issue: int) -> list[HistoricalCase]:
+    """Keep each comparison's recorded catalog after subsequent expansions."""
+    cases = load_cases()
+    if issue != 19:
+        path = (
+            ROOT / "docs/evaluation/issue-16/results.json"
+            if issue == 16
+            else ROOT / f"docs/evaluation/issue-{issue}/run/results.json"
+        )
+        original = json.loads(path.read_text())
+        numbers = {row["issue_number"] for row in original["preflight"]}
+        cases = [case for case in cases if case.issue_number in numbers]
+    return cases
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--ollama-url", required=True)
@@ -793,18 +809,7 @@ def main() -> None:
     for name, expected in baseline["files"].items():
         if hashlib.sha256((ROOT / name).read_bytes()).hexdigest() != expected:
             parser.error(f"Preserved baseline changed: {name}")
-    cases = load_cases()
-    if args.issue != 18:
-        # Preserve archived run catalogs after subsequent expansions.
-        original = json.loads(
-            (
-                ROOT / "docs/evaluation/issue-16/results.json"
-                if args.issue == 16
-                else ROOT / "docs/evaluation/issue-17/run/results.json"
-            ).read_text()
-        )
-        numbers = {row["issue_number"] for row in original["preflight"]}
-        cases = [case for case in cases if case.issue_number in numbers]
+    cases = load_comparison_cases(args.issue)
     expected_count = CASE_COUNTS[args.issue]
     if len(cases) != expected_count:
         parser.error(f"Frozen comparison requires {expected_count} cases")
