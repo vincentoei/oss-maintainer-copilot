@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "preserved_files": 395,
+  "case_count": 50,
+  "new_confirmed_cases": 10,
+  "new_pending_cases": 0,
+  "family_count": 46,
+  "family_members": 58,
+  "relationship_coverage": {
+    "duplicate_candidate": 5,
+    "nonduplicate": 42,
+    "uncertain": 3
+  },
+  "training_partition": "not_created; external/future corpus unverified",
+  "workflow_rows": 150,
+  "shared_eligible_cases": 50,
+  "dispatches": 198,
+  "response_records": 198,
+  "raw_responses": 198,
+  "score_recomputations": 150,
+  "fresh_report_reviews_pending": 150,
+  "frozen_source_commit": "ee0e7c6e33c0ec2b696035612c606a1e7c61984c",
+  "prior_fifty_compared_rows": 150,
+  "prior_quality_compared_rows": 120,
+  "exact_field_regressions": [
+    {
+      "method": "bounded_agent",
+      "issue_number": 12377,
+      "field": "issue_type",
+      "before": true,
+      "after": false
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12377,
+      "field": "issue_type",
+      "before": true,
+      "after": false
+    }
+  ],
+  "methods": [
+    "keyword_rule",
+    "fixed_rag",
+    "bounded_agent"
+  ],
+  "fresh_semantic_usefulness_review": "pending; no prior ratings transferred"
+}
