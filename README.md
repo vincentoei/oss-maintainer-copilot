@@ -246,6 +246,13 @@ Hosted predictions remain separate from confirmed case annotations. Audit the
 saved run without network or inference with
 `PYTHONPATH=src uv run --locked --no-env-file python scripts/issue20_verify.py`.
 
+The requested [DeepSeek V4.1 Flash / GLM 5.3 Flash comparison](docs/evaluation/issue-20-flash.md)
+keeps the same fifty cases, preserves GPT-4.1's results, and shares the original
+US$5 budget. Its [separate protocol](docs/evaluation/issue-20-flash-protocol.md)
+records pinned providers and low reasoning with a bounded completion allowance.
+Audit that saved pass offline with
+`PYTHONPATH=src uv run --locked --no-env-file python scripts/issue20_flash_verify.py`.
+
 The requested [triage-quality follow-up](docs/evaluation/issue-56.md) preserves
 the forty cases and all prior results. It fixes report-detail recognition and
 model label/quote pairing, then measures one separately frozen comparison with
