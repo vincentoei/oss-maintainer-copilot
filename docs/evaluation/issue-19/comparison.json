@@ -1,0 +1,1434 @@
+{
+  "scope": "Field/status changes on original forty; new ten reported separately. Report comparisons exclude volatile trace IDs. No causal model-improvement claim.",
+  "changed_case_workflow_rows": 0,
+  "changed_cases": [],
+  "changes": [],
+  "original_case_comparisons": [
+    {
+      "method": "keyword_rule",
+      "issue_number": 7312,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 7312,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 7312,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 10156,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 10156,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 10156,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12053,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12053,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12053,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12072,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12072,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12072,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12079,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12079,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12079,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12081,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12081,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12081,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12083,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12083,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12083,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12116,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12116,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12116,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12146,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12146,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12146,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12189,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12189,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12189,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12197,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12197,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12197,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12201,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12201,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12201,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12203,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12203,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12203,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12204,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12204,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12204,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12216,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12216,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12216,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12219,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12219,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12219,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12223,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12223,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12223,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12224,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12224,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12224,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12226,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12226,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12226,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12228,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12228,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12228,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12231,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12231,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12231,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12242,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12242,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12242,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12249,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12249,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12249,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12255,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12255,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12255,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12263,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12263,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12263,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12273,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12273,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12273,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12278,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12278,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12278,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12281,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12281,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12281,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12287,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12287,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12287,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12290,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12290,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12290,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12293,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12293,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12293,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12298,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12298,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12298,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12300,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12300,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12300,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12303,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12303,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12303,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12305,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12305,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12305,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12307,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12307,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12307,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12308,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12308,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12308,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12312,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12312,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12312,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12323,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12323,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12323,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "fixed_rag",
+      "issue_number": 12328,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "bounded_agent",
+      "issue_number": 12328,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    },
+    {
+      "method": "keyword_rule",
+      "issue_number": 12328,
+      "added_candidates": [],
+      "removed_candidates": [],
+      "report_changed": false,
+      "changes": {}
+    }
+  ],
+  "scores": {
+    "previous_forty": {
+      "keyword_rule": {
+        "cases": 40,
+        "completed": 40,
+        "errors": [],
+        "mean_latency_ms": 4.72,
+        "mean_candidate_pool_size": 28.35,
+        "duplicate_retrieval_recall": 0.15,
+        "duplicate_judgment_accuracy": 0.054,
+        "issue_type_accuracy": 0.4,
+        "missing_details_exact": 0.425,
+        "missing_details_precision": 0.887,
+        "missing_details_recall": 0.6,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.9,
+        "duplicate_abstention_appropriateness": 0.925,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 10156,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12072,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12083,
+            "field": "abstention"
+          }
+        ]
+      },
+      "fixed_rag": {
+        "cases": 40,
+        "completed": 40,
+        "errors": [],
+        "mean_latency_ms": 757.8,
+        "mean_candidate_pool_size": 28.35,
+        "duplicate_retrieval_recall": 0.15,
+        "duplicate_judgment_accuracy": 0.054,
+        "issue_type_accuracy": 0.475,
+        "missing_details_exact": 0.425,
+        "missing_details_precision": 0.887,
+        "missing_details_recall": 0.6,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.875,
+        "duplicate_abstention_appropriateness": 0.925,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 10156,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12072,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12083,
+            "field": "abstention"
+          }
+        ]
+      },
+      "bounded_agent": {
+        "cases": 40,
+        "completed": 40,
+        "errors": [],
+        "mean_latency_ms": 1378.25,
+        "mean_candidate_pool_size": 28.35,
+        "duplicate_retrieval_recall": 0.125,
+        "duplicate_judgment_accuracy": 0.054,
+        "issue_type_accuracy": 0.475,
+        "missing_details_exact": 0.425,
+        "missing_details_precision": 0.887,
+        "missing_details_recall": 0.6,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.875,
+        "duplicate_abstention_appropriateness": 0.875,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 10156,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12072,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12081,
+            "field": "abstention"
+          }
+        ]
+      }
+    },
+    "rerun_original_forty": {
+      "keyword_rule": {
+        "cases": 40,
+        "completed": 40,
+        "errors": [],
+        "mean_latency_ms": 4.14,
+        "mean_candidate_pool_size": 28.35,
+        "duplicate_retrieval_recall": 0.15,
+        "duplicate_judgment_accuracy": 0.054,
+        "issue_type_accuracy": 0.4,
+        "missing_details_exact": 0.425,
+        "missing_details_precision": 0.887,
+        "missing_details_recall": 0.6,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.9,
+        "duplicate_abstention_appropriateness": 0.925,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 10156,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12072,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12083,
+            "field": "abstention"
+          }
+        ]
+      },
+      "fixed_rag": {
+        "cases": 40,
+        "completed": 40,
+        "errors": [],
+        "mean_latency_ms": 783.69,
+        "mean_candidate_pool_size": 28.35,
+        "duplicate_retrieval_recall": 0.15,
+        "duplicate_judgment_accuracy": 0.054,
+        "issue_type_accuracy": 0.475,
+        "missing_details_exact": 0.425,
+        "missing_details_precision": 0.887,
+        "missing_details_recall": 0.6,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.875,
+        "duplicate_abstention_appropriateness": 0.925,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 10156,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12072,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12083,
+            "field": "abstention"
+          }
+        ]
+      },
+      "bounded_agent": {
+        "cases": 40,
+        "completed": 40,
+        "errors": [],
+        "mean_latency_ms": 1344.08,
+        "mean_candidate_pool_size": 28.35,
+        "duplicate_retrieval_recall": 0.125,
+        "duplicate_judgment_accuracy": 0.054,
+        "issue_type_accuracy": 0.475,
+        "missing_details_exact": 0.425,
+        "missing_details_precision": 0.887,
+        "missing_details_recall": 0.6,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.875,
+        "duplicate_abstention_appropriateness": 0.875,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 10156,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12072,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12081,
+            "field": "abstention"
+          }
+        ]
+      }
+    },
+    "new_ten": {
+      "keyword_rule": {
+        "cases": 10,
+        "completed": 10,
+        "errors": [],
+        "mean_latency_ms": 5.98,
+        "mean_candidate_pool_size": 53.5,
+        "duplicate_retrieval_recall": 0.0,
+        "duplicate_judgment_accuracy": 0.0,
+        "issue_type_accuracy": 0.4,
+        "missing_details_exact": 0.3,
+        "missing_details_precision": 0.633,
+        "missing_details_recall": 0.65,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 1.0,
+        "duplicate_abstention_appropriateness": 1.0,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 12351,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 12351,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 12351,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12351,
+            "field": "missing_details"
+          }
+        ]
+      },
+      "fixed_rag": {
+        "cases": 10,
+        "completed": 10,
+        "errors": [],
+        "mean_latency_ms": 636.77,
+        "mean_candidate_pool_size": 53.5,
+        "duplicate_retrieval_recall": 0.0,
+        "duplicate_judgment_accuracy": 0.0,
+        "issue_type_accuracy": 0.5,
+        "missing_details_exact": 0.3,
+        "missing_details_precision": 0.633,
+        "missing_details_recall": 0.65,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 1.0,
+        "duplicate_abstention_appropriateness": 1.0,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 12351,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 12351,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 12351,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12352,
+            "field": "issue_type"
+          }
+        ]
+      },
+      "bounded_agent": {
+        "cases": 10,
+        "completed": 10,
+        "errors": [],
+        "mean_latency_ms": 1288.76,
+        "mean_candidate_pool_size": 53.5,
+        "duplicate_retrieval_recall": 0.0,
+        "duplicate_judgment_accuracy": 0.0,
+        "issue_type_accuracy": 0.5,
+        "missing_details_exact": 0.3,
+        "missing_details_precision": 0.633,
+        "missing_details_recall": 0.65,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 1.0,
+        "duplicate_abstention_appropriateness": 1.0,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 12351,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 12351,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 12351,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12352,
+            "field": "issue_type"
+          }
+        ]
+      }
+    },
+    "expanded_fifty": {
+      "keyword_rule": {
+        "cases": 50,
+        "completed": 50,
+        "errors": [],
+        "mean_latency_ms": 4.51,
+        "mean_candidate_pool_size": 33.38,
+        "duplicate_retrieval_recall": 0.12,
+        "duplicate_judgment_accuracy": 0.043,
+        "issue_type_accuracy": 0.4,
+        "missing_details_exact": 0.4,
+        "missing_details_precision": 0.837,
+        "missing_details_recall": 0.61,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.92,
+        "duplicate_abstention_appropriateness": 0.94,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 10156,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12072,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12083,
+            "field": "abstention"
+          }
+        ]
+      },
+      "fixed_rag": {
+        "cases": 50,
+        "completed": 50,
+        "errors": [],
+        "mean_latency_ms": 754.31,
+        "mean_candidate_pool_size": 33.38,
+        "duplicate_retrieval_recall": 0.12,
+        "duplicate_judgment_accuracy": 0.043,
+        "issue_type_accuracy": 0.48,
+        "missing_details_exact": 0.4,
+        "missing_details_precision": 0.837,
+        "missing_details_recall": 0.61,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.9,
+        "duplicate_abstention_appropriateness": 0.94,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 10156,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12072,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12083,
+            "field": "abstention"
+          }
+        ]
+      },
+      "bounded_agent": {
+        "cases": 50,
+        "completed": 50,
+        "errors": [],
+        "mean_latency_ms": 1333.02,
+        "mean_candidate_pool_size": 33.38,
+        "duplicate_retrieval_recall": 0.1,
+        "duplicate_judgment_accuracy": 0.043,
+        "issue_type_accuracy": 0.48,
+        "missing_details_exact": 0.4,
+        "missing_details_precision": 0.837,
+        "missing_details_recall": 0.61,
+        "citation_validity_rate": 1.0,
+        "issue_type_abstention_appropriateness": 0.9,
+        "duplicate_abstention_appropriateness": 0.9,
+        "draft_reply_usefulness": "pending_human_review",
+        "representative_failures": [
+          {
+            "issue_number": 7312,
+            "field": "duplicate_judgment"
+          },
+          {
+            "issue_number": 10156,
+            "field": "duplicate_retrieval"
+          },
+          {
+            "issue_number": 10156,
+            "field": "issue_type"
+          },
+          {
+            "issue_number": 12072,
+            "field": "missing_details"
+          },
+          {
+            "issue_number": 12081,
+            "field": "abstention"
+          }
+        ]
+      }
+    }
+  }
+}
