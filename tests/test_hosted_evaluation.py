@@ -397,3 +397,33 @@ def test_runner_refuses_changed_comparison_or_existing_directory_before_dispatch
         assert (directory / "preserve.txt").read_text() == "original"
     else:
         assert not directory.exists()
+
+
+def test_crash_between_failed_response_and_halt_marker_cannot_reopen_budget(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    dispatches = 0
+
+    def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
+        nonlocal dispatches
+        dispatches += 1
+        raise TimeoutError
+
+    monkeypatch.setattr("maintainer_copilot.hosted_evaluation.urlopen", endpoint)
+    schema: dict[str, object] = {"type": "object", "properties": {}}
+    budget = HostedBudget(tmp_path)
+    with pytest.raises(ModelUnavailable):
+        HostedModel("secret", budget, 1).generate_json(
+            "select", {}, max_tokens=256, response_schema=schema
+        )
+    # Model a process death after the response fsync, before the halt-marker write.
+    rows = budget.records()
+    budget.path.write_text(
+        "".join(json.dumps(row) + "\n" for row in rows if row["event"] != "halted")
+    )
+    with pytest.raises(ModelUnavailable):
+        HostedModel("secret", HostedBudget(tmp_path), 2).generate_json(
+            "select", {}, max_tokens=256, response_schema=schema
+        )
+    assert dispatches == 1
+    assert HostedBudget(tmp_path).summary()["halted"] is True

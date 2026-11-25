@@ -106,9 +106,9 @@ class HostedBudget:
             if any(r["provider"] != self.provider for r in charges):
                 raise model.ModelUnavailable("Frozen hosted provider changed")
             finished = {r["request"] for r in records if r["event"] == "response"}
-            if any(r["event"] == "halted" for r in records) or any(
-                r["request"] not in finished for r in charges
-            ):
+            if any(
+                r["event"] == "halted" or r.get("accounting_error") for r in records
+            ) or any(r["request"] not in finished for r in charges):
                 raise model.ModelUnavailable("Hosted accounting halted; no more calls")
             if (
                 sum(r["reserved_micro_usd"] for r in charges) + reserved > CAP_MICRO_USD
@@ -158,7 +158,9 @@ class HostedBudget:
             if complete
             else None,
             "unknown_usage_requests": len(charges) - len(known),
-            "halted": any(r["event"] == "halted" for r in records),
+            "halted": any(
+                r["event"] == "halted" or r.get("accounting_error") for r in records
+            ),
             "reported_cost_micro_usd": sum(reported)
             if len(reported) == len(charges) and all(v is not None for v in reported)
             else None,
