@@ -296,3 +296,37 @@ def test_uncertain_call_stops_both_models_and_retains_its_reservation(
             tmp_path, prior_reserved_micro_usd=1_183_980
         ).path.read_text()
     )
+
+
+def test_provider_decimal_cost_is_retained_without_float_rounding(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    exact_cost = "0.0001000000000000000000000001"
+    profile = FLASH_MODELS["deepseek"]
+
+    def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
+        response = json.dumps(
+            {
+                "model": profile.model_id,
+                "provider": profile.provider_name,
+                "choices": [{"finish_reason": "stop", "message": {"content": "{}"}}],
+                "usage": {
+                    "prompt_tokens": 100,
+                    "completion_tokens": 200,
+                    "cost": 0.0001,
+                },
+            }
+        ).replace('"cost": 0.0001', '"cost": ' + exact_cost)
+        return io.BytesIO(response.encode())
+
+    monkeypatch.setattr("maintainer_copilot.flash_evaluation.urlopen", endpoint)
+    budget = FlashBudget(tmp_path, prior_reserved_micro_usd=1_183_980)
+    client = FlashModel("secret", profile, budget, 1)
+    client.generate_json(
+        "select",
+        {},
+        max_tokens=256,
+        response_schema={"type": "object", "properties": {}},
+    )
+    assert client.calls[0]["reported_cost_usd"] == exact_cost
+    assert budget.summary()["reported_cost_micro_usd"] == 101

@@ -225,7 +225,7 @@ class FlashModel(model.OpenAICompatibleModel):
                 raw = response.read(65_537)
             if len(raw) > 65_536:
                 raise ValueError("Response exceeds bounded transport limit")
-            envelope = json.loads(raw)
+            envelope = json.loads(raw, parse_float=Decimal)
             usage = envelope["usage"]
             input_tokens, output_tokens = (
                 usage["prompt_tokens"],
