@@ -228,6 +228,24 @@ their archived catalogs. Audit the updated fifty-case run offline with:
 PYTHONPATH=src uv run --locked --no-env-file python scripts/issue19_post_quality_verify.py --check-only
 ```
 
+Issue #20 adds a [separately capped hosted quality reference](docs/evaluation/issue-20.md)
+on the same fifty cases and cutoffs. The [protocol](docs/evaluation/issue-20-protocol.md)
+supports a dated OpenAI model or OpenRouter's pinned OpenAI route. Set
+`OPENROUTER_API_KEY` and run once with a fresh directory:
+
+```sh
+GITHUB_TOKEN="$(gh auth token)" uv run --locked --no-env-file \
+  python -m maintainer_copilot.hosted_evaluation --provider openrouter \
+  --directory /tmp/issue20-new-run
+```
+
+The evaluator reserves worst-case spending before dispatch, below a separate
+US$5 limit, and retains usage, costs, reports and a durable ledger. Add
+`--preflight-only` to verify public evidence without paid requests or a key.
+Hosted predictions remain separate from confirmed case annotations. Audit the
+saved run without network or inference with
+`PYTHONPATH=src uv run --locked --no-env-file python scripts/issue20_verify.py`.
+
 The requested [triage-quality follow-up](docs/evaluation/issue-56.md) preserves
 the forty cases and all prior results. It fixes report-detail recognition and
 model label/quote pairing, then measures one separately frozen comparison with

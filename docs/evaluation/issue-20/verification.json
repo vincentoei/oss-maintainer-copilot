@@ -1,0 +1,26 @@
+{
+  "verified": true,
+  "status": "complete",
+  "cases": 50,
+  "eligible": 50,
+  "scored": 50,
+  "paired_cases": 50,
+  "accounting": {
+    "cap_micro_usd": 4999999,
+    "request_count": 50,
+    "reserved_micro_usd": 1183980,
+    "known_cost_micro_usd": 171238,
+    "cost_micro_usd": 171238,
+    "input_tokens": 81499,
+    "output_tokens": 1030,
+    "unknown_usage_requests": 0,
+    "halted": false,
+    "reported_cost_micro_usd": 171238
+  },
+  "preserved_local_baseline": true,
+  "source_and_protocol_match_freeze": true,
+  "scores_recomputed": 50,
+  "semantic_review": "pending_human_review",
+  "upstream_snapshot_attestation": "OpenRouter alias limitation disclosed",
+  "credential_scan": "No credential in published files; local credential file ignored"
+}

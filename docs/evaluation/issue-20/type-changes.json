@@ -1,0 +1,58 @@
+[
+  {
+    "issue_number": 10156,
+    "expected": "type: docs",
+    "local": "type: infrastructure",
+    "hosted": "type: question",
+    "local_correct": false,
+    "hosted_correct": false
+  },
+  {
+    "issue_number": 12219,
+    "expected": "type: bug",
+    "local": "type: docs",
+    "hosted": null,
+    "local_correct": false,
+    "hosted_correct": false
+  },
+  {
+    "issue_number": 12223,
+    "expected": "type: bug",
+    "local": "type: bug",
+    "hosted": "type: question",
+    "local_correct": true,
+    "hosted_correct": false
+  },
+  {
+    "issue_number": 12305,
+    "expected": "type: question",
+    "local": "type: bug",
+    "hosted": "type: regression",
+    "local_correct": false,
+    "hosted_correct": false
+  },
+  {
+    "issue_number": 12308,
+    "expected": "type: regression",
+    "local": "type: bug",
+    "hosted": "type: regression",
+    "local_correct": false,
+    "hosted_correct": true
+  },
+  {
+    "issue_number": 12367,
+    "expected": "type: regression",
+    "local": "type: question",
+    "hosted": "type: regression",
+    "local_correct": false,
+    "hosted_correct": true
+  },
+  {
+    "issue_number": 12377,
+    "expected": "type: docs",
+    "local": "type: question",
+    "hosted": "type: docs",
+    "local_correct": false,
+    "hosted_correct": true
+  }
+]
