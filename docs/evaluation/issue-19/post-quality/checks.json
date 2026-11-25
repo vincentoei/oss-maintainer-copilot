@@ -1,0 +1,128 @@
+{
+  "recorded_at": "2026-11-25T04:34:55.659007+00:00",
+  "frozen_commit": "ee0e7c6e33c0ec2b696035612c606a1e7c61984c",
+  "source_sha256": {
+    "src/maintainer_copilot/__init__.py": "5e41140633dd670de4305c608f38bc50eae7710947fa64ffecbdd2048e949daf",
+    "src/maintainer_copilot/agent.py": "a522cf02867dc03f61b57ef521d42fa1ca1456a0dd86a852fdd78119d8df6dcc",
+    "src/maintainer_copilot/ci.py": "84246233c17a2bfd2da5a88c8f9ccbe50825b3a9b3bb83dd2a5d83f112fbc455",
+    "src/maintainer_copilot/documentation.py": "1f77c64648dcef8cb9a85ab27d3913cc94ab20f39cf3a482c72f0bb27e4054a8",
+    "src/maintainer_copilot/drafting.py": "f207e72391b561071a95535cfabb062b57d4ad63ff52f52794842717cfe13b85",
+    "src/maintainer_copilot/evaluation.py": "b2ef5e6833b582584133b37d8f4af91d39879b3955cd4bc1e2b7257e19372597",
+    "src/maintainer_copilot/follow_up.py": "d1f490bb454594fc35b0aaba9db90c557b6f9d5ce43885ac47e6987a01bdc7ab",
+    "src/maintainer_copilot/issue_search.py": "fb3b07a76c582682e07512ace6721d2eb61fd779144d9adda2cfe2c5360df63a",
+    "src/maintainer_copilot/label_evidence.py": "328b868674c0b96ea3d209fdea13353d6d3f6adcb6bf5881ebe175e3a0a9c03d",
+    "src/maintainer_copilot/local_evaluation.py": "15c2b19d15e6f8adda2e04e044175eaf75a5ad52d5ee36d0c99e5d7a07725ffa",
+    "src/maintainer_copilot/model.py": "900c862c4af6ca6b648b549142e233553ef90f8961afbbaaf0c0c5864df3fbe0",
+    "src/maintainer_copilot/pytest_profile.py": "b7f494ea859ef9560d0305764a95332cc6e15700e51d9ab0396eb3259b0c378c",
+    "src/maintainer_copilot/registry.py": "a86bfcaed95454019742c7844f76959e15b5a702d4a3b8089edb0cc23499b5ae",
+    "src/maintainer_copilot/replay.py": "3f676a7fa1eb6ebe25fa70d186d86e539d15ae4aaf3a0a37cfe6162d17712d35",
+    "src/maintainer_copilot/repository.py": "988ec4e758c0c8975b1f2f19c0b226c75286053c55099d8d96b5f57ca2ef0596",
+    "src/maintainer_copilot/source.py": "112c52304c2c2d2300330ae99370de71408caef5f8e9e84ea5f2587bec48daa2",
+    "src/maintainer_copilot/templates.py": "781ac4b58ec582a31ade1ab05a7b55f7abc35f7356ea818ed626e9c3a45f1270",
+    "src/maintainer_copilot/trace.py": "67efdf38ee8f0038134af5f1a7d02c82e43553de21d55c8df23824ec4cb19107",
+    "src/maintainer_copilot/triage.py": "bc94f5ede829eac7d86c92a7d893933f4d5d9a2a69b6996b12cb52a8d9f84122",
+    "src/maintainer_copilot/web.py": "dda8ce33e9168cc6775883e927def80b5270e3c0715b75789346c2e04c9c8cf0",
+    "src/maintainer_copilot/workflow_comparison.py": "f5708b6fd7343d41391021899780ef57d3876ef7ec7075c25da31f9353dc9aac"
+  },
+  "checks": [
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "138 files already formatted\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/mypy",
+        "src",
+        "tests"
+      ],
+      "exit_code": 0,
+      "stdout": "Success: no issues found in 39 source files\n",
+      "stderr": ""
+    },
+    {
+      "command": ".venv/bin/pytest -q",
+      "head": "b425fdb4ecbee43dc31a93776b7a1907c514c5c0",
+      "exit_code": 0,
+      "stdout": "........................................................................ [ 16%]\n........................................................................ [ 32%]\n...................................................................ss... [ 48%]\n........................................................................ [ 64%]\n........................................................................ [ 80%]\n........................................................................ [ 96%]\n..............                                                           [100%]\n444 passed, 2 skipped in 9.85s\n",
+      "stderr": "",
+      "seconds": 10.052
+    }
+  ],
+  "offline_audits": [
+    {
+      "command": [
+        "PYTHONPATH=src",
+        ".venv/bin/python",
+        "scripts/issue19_verify.py",
+        "--check-only"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"passed\",\n  \"preserved_files\": 269,\n  \"case_count\": 50,\n  \"new_confirmed_cases\": 10,\n  \"new_pending_cases\": 0,\n  \"family_count\": 46,\n  \"family_members\": 58,\n  \"relationship_coverage\": {\n    \"duplicate_candidate\": 5,\n    \"nonduplicate\": 42,\n    \"uncertain\": 3\n  },\n  \"training_partition\": \"not_created; external/future corpus unverified\",\n  \"workflow_rows\": 150,\n  \"shared_eligible_cases\": 50,\n  \"dispatches\": 198,\n  \"response_records\": 198,\n  \"raw_responses\": 198,\n  \"score_recomputations\": 150,\n  \"fresh_report_reviews_pending\": 150\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "PYTHONPATH=src",
+        ".venv/bin/python",
+        "scripts/issue18_verify.py",
+        "--check-only"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"passed\",\n  \"preserved_files\": 237,\n  \"case_count\": 40,\n  \"new_confirmed_cases\": 10,\n  \"new_pending_cases\": 0,\n  \"family_count\": 37,\n  \"family_members\": 46,\n  \"relationship_coverage\": {\n    \"duplicate_candidate\": 5,\n    \"nonduplicate\": 32,\n    \"uncertain\": 3\n  },\n  \"training_partition\": \"not_created; external/future corpus unverified\",\n  \"workflow_rows\": 120,\n  \"shared_eligible_cases\": 40,\n  \"dispatches\": 158,\n  \"response_records\": 158,\n  \"raw_responses\": 158,\n  \"score_recomputations\": 120,\n  \"fresh_report_reviews_pending\": 120\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "PYTHONPATH=src",
+        ".venv/bin/python",
+        "scripts/issue56_verify.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"passed\",\n  \"preserved_files\": 269,\n  \"case_count\": 40,\n  \"same_candidate_pools\": true,\n  \"frozen_source_commit\": \"ac498979cc170eedfdbd8b534d1a68b554f755f4\",\n  \"assistant_review_fingerprints_verified\": {\n    \"archived\": 120,\n    \"candidate\": 120\n  },\n  \"future_training_corpus\": \"not created; overlap audit remains unverified\",\n  \"workflow_rows\": 120,\n  \"shared_eligible_cases\": 40,\n  \"dispatches\": 158,\n  \"response_records\": 158,\n  \"raw_responses\": 158,\n  \"score_recomputations\": 120,\n  \"fresh_report_reviews_pending\": 120\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "PYTHONPATH=src",
+        ".venv/bin/python",
+        "scripts/issue56_followup_verify.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"passed\",\n  \"preserved_files\": 323,\n  \"frozen_source_commit\": \"0035e144fe98b13aa32416b7b5dce199437215e5\",\n  \"assistant_review_fingerprints_verified\": 120,\n  \"post_measurement_wording_replays\": 6,\n  \"post_measurement_live_dispatches\": 0,\n  \"independent_human_review\": \"not supplied; not claimed\",\n  \"future_training_corpus\": \"not created; overlap remains unverified\",\n  \"workflow_rows\": 120,\n  \"shared_eligible_cases\": 40,\n  \"dispatches\": 158,\n  \"response_records\": 158,\n  \"raw_responses\": 158,\n  \"score_recomputations\": 120,\n  \"independent_human_report_reviews_pending\": 120\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "PYTHONPATH=src",
+        ".venv/bin/python",
+        "scripts/issue19_post_quality_verify.py",
+        "--check-only"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"passed\",\n  \"preserved_files\": 395,\n  \"case_count\": 50,\n  \"new_confirmed_cases\": 10,\n  \"new_pending_cases\": 0,\n  \"family_count\": 46,\n  \"family_members\": 58,\n  \"relationship_coverage\": {\n    \"duplicate_candidate\": 5,\n    \"nonduplicate\": 42,\n    \"uncertain\": 3\n  },\n  \"training_partition\": \"not_created; external/future corpus unverified\",\n  \"workflow_rows\": 150,\n  \"shared_eligible_cases\": 50,\n  \"dispatches\": 198,\n  \"response_records\": 198,\n  \"raw_responses\": 198,\n  \"score_recomputations\": 150,\n  \"fresh_report_reviews_pending\": 150,\n  \"frozen_source_commit\": \"ee0e7c6e33c0ec2b696035612c606a1e7c61984c\",\n  \"prior_fifty_compared_rows\": 150,\n  \"prior_quality_compared_rows\": 120,\n  \"exact_field_regressions\": [\n    {\n      \"method\": \"bounded_agent\",\n      \"issue_number\": 12377,\n      \"field\": \"issue_type\",\n      \"before\": true,\n      \"after\": false\n    },\n    {\n      \"method\": \"fixed_rag\",\n      \"issue_number\": 12377,\n      \"field\": \"issue_type\",\n      \"before\": true,\n      \"after\": false\n    }\n  ],\n  \"methods\": [\n    \"keyword_rule\",\n    \"fixed_rag\",\n    \"bounded_agent\"\n  ],\n  \"fresh_semantic_usefulness_review\": \"pending; no prior ratings transferred\"\n}\n",
+      "stderr": ""
+    }
+  ],
+  "review": {
+    "standards_findings": 0,
+    "spec_findings": 0
+  },
+  "scope": "Merged main integration plus separately frozen fifty-case comparison; no source or outcome change after inference."
+}

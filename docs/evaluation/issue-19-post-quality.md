@@ -186,7 +186,10 @@ forty-case catalog and validate the original final-wording commit, preserving
 their artifact bytes as source evolves. The [red CLI evidence](issue-19/post-quality/red-custom-baseline.txt)
 and archived-audit red outputs document the integration checks before fixes.
 Focused replay/provider checks passed 80 tests, with strict typechecking clean.
-Final checks and two-axis review are recorded separately with this update.
+Final [checks](issue-19/post-quality/checks.json) passed lint, formatting, strict
+typechecking and the complete suite: **444 passed, 2 skipped**. All five archived
+and current comparison audits passed. The [two-axis review](issue-19-post-quality-code-review.md)
+found zero Standards and zero Spec issues against the merged main base.
 
 The fresh [blinded sheet](issue-19/post-quality/run/human-review.md),
 [pending ratings](issue-19/post-quality/run/human-review.json) and separate
