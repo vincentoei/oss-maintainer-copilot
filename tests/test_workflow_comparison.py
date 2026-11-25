@@ -3,6 +3,8 @@
 import hashlib
 import io
 import json
+import subprocess
+import sys
 from pathlib import Path
 from typing import Literal
 from urllib.request import Request
@@ -15,6 +17,35 @@ from maintainer_copilot.agent import AgentStepRequest
 from maintainer_copilot.model import ModelRequest, ModelUnavailable
 from maintainer_copilot.replay import CaseFlagged, ControlledReplayModel, replay_case
 from maintainer_copilot.source import PublicRepositorySource
+
+
+def test_comparison_cli_checks_supplied_baseline_before_dispatch(
+    tmp_path: Path,
+) -> None:
+    baseline = tmp_path / "baseline.json"
+    baseline.write_text(json.dumps({"files": {"README.md": "0" * 64}}))
+    directory = tmp_path / "unstarted"
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "maintainer_copilot.workflow_comparison",
+            "--issue",
+            "19",
+            "--ollama-url",
+            "http://127.0.0.1:1",
+            "--directory",
+            str(directory),
+            "--baseline",
+            str(baseline),
+        ],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert result.returncode == 2
+    assert "Preserved baseline changed: README.md" in result.stderr
+    assert not directory.exists()
 
 
 @pytest.mark.parametrize(

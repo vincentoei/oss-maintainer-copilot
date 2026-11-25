@@ -800,10 +800,11 @@ def main() -> None:
     parser.add_argument("--directory", required=True, type=Path)
     parser.add_argument("--issue", type=int, choices=tuple(CASE_COUNTS), default=16)
     parser.add_argument("--protocol", type=Path)
+    parser.add_argument("--baseline", type=Path)
     args = parser.parse_args()
     if args.directory.exists():
         parser.error("Run directory already exists; repetition/overwrite refused")
-    baseline_path = (
+    baseline_path = args.baseline or (
         ROOT / f"docs/evaluation/issue-{args.issue}/baseline.json"
         if args.issue != 16
         else ROOT / "docs/evaluation/issue-16-baseline.json"

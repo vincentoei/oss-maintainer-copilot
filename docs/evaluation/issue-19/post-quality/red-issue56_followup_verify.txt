@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/home/vincentoei/projects/oss-maintainer-copilot/scripts/issue56_followup_verify.py", line 147, in <module>
+    main()
+  File "/home/vincentoei/projects/oss-maintainer-copilot/scripts/issue56_followup_verify.py", line 35, in main
+    assert len(cases) == 40
+           ^^^^^^^^^^^^^^^^
+AssertionError
