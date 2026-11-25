@@ -28,6 +28,17 @@ model search, continuation of a started directory, or drafting. Record the exact
 requested and returned model snapshot, token usage, sanitized failure types,
 output, response and input fingerprints, report and trace.
 
+The `--provider openrouter` route uses `OPENROUTER_API_KEY` and
+`https://openrouter.ai/api/v1`. It requests `openai/gpt-4.1`, pins provider
+`openai`, disables fallbacks and transforms, requires parameter support, and
+sets routing maximum prices to US$2/US$8 per million input/output tokens.
+Before creating a directory, read the public
+[endpoint metadata](https://openrouter.ai/api/v1/models/openai/gpt-4.1/endpoints),
+require its OpenAI endpoint name to identify `gpt-4.1-2025-04-14`, and reject
+prices above the frozen rates. Preserve that metadata, requested alias, returned
+model/provider and request ID. OpenRouter's completion alias does not independently
+attest the upstream dated snapshot; disclose this version-verification limit.
+
 ## Independent monetary cap
 
 Use only the standard text Chat Completions endpoint. Rates checked on
@@ -36,6 +47,13 @@ Use only the standard text Chat Completions endpoint. Rates checked on
 The [structured-output guide](https://developers.openai.com/api/docs/guides/structured-outputs)
 documents the strict schema contract. Cached input receives no discount in
 accounting; reported cost is a conservative token-price estimate, not an invoice.
+OpenRouter additionally supplies `usage.cost`; retain its reported account charge,
+rounded upward to integer microdollars, separately from the token-price estimate.
+Missing, invalid or over-reservation cost halts OpenRouter inference. The
+[usage accounting](https://openrouter.ai/docs/cookbook/administration/usage-accounting)
+and [provider routing](https://openrouter.ai/docs/guides/routing/provider-selection)
+documentation describe those fields and routing restrictions. Credit purchase
+fees and taxes are outside the inference cap.
 No tools, service-tier surcharge, batch mode or other billable API is requested.
 
 Before dispatch, lock and fsync a reservation to `hosted-requests.jsonl`.
@@ -68,6 +86,9 @@ retain their original reviewer attribution, including accepted Codex delegation;
 they are not uniformly independent human assessment. A hosted prediction never
 becomes an expected triage outcome. Report field denominators and failed calls;
 fallback reports must not be described as successful hosted inference.
+Rejected selections and failed requests retain fallback reports but receive no
+hosted score. Publish paired hosted and local aggregates over exactly the same
+successful case IDs, alongside full-catalog aggregates and each exclusion reason.
 
 Missing-detail detection and duplicate retrieval remain deterministic components
 of the fixed workflow. This comparison measures model selection of supplied
@@ -91,5 +112,8 @@ GITHUB_TOKEN="$(gh auth token)" uv run --locked --no-env-file \
 
 For the single paid pass, expose `OPENAI_API_KEY` through the environment and
 run the same command without `--preflight-only`, with a fresh directory.
+Alternatively expose `OPENROUTER_API_KEY` and add `--provider openrouter`.
+The repository's ignored `.local/issue20.env` may hold that variable locally;
+load it into the process environment before running the command.
 Missing credentials cause failure before directory creation or provider access.
 Never put a credential in a tracked file, command argument or published artifact.

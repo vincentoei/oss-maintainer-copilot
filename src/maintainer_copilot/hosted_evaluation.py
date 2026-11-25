@@ -8,9 +8,11 @@ import os
 from collections.abc import Collection
 from dataclasses import asdict
 from datetime import UTC, datetime
+from decimal import ROUND_CEILING, Decimal
 from pathlib import Path
 from time import perf_counter
 from typing import Any
+from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
 from maintainer_copilot import issue_search, model, source
@@ -37,13 +39,46 @@ CAP_MICRO_USD = 4_999_999
 INPUT_MICRO_USD = 2
 OUTPUT_MICRO_USD = 8
 BASELINE = ROOT / "docs/evaluation/issue-19/post-quality/run/results.json"
+PROVIDERS = {
+    "openai": ("https://api.openai.com/v1", MODEL, "OPENAI_API_KEY"),
+    "openrouter": (
+        "https://openrouter.ai/api/v1",
+        "openai/gpt-4.1",
+        "OPENROUTER_API_KEY",
+    ),
+}
+
+
+def _provider_identity(provider: str) -> dict[str, Any]:
+    if provider == "openai":
+        return {"model": MODEL, "provider": "OpenAI"}
+    if provider != "openrouter":
+        raise ValueError("Unsupported hosted provider")
+    request = Request(
+        "https://openrouter.ai/api/v1/models/openai/gpt-4.1/endpoints",
+        headers={"User-Agent": "oss-maintainer-copilot"},
+    )
+    with urlopen(request, timeout=20) as response:
+        raw = response.read(65_537)
+    if len(raw) > 65_536:
+        raise ValueError("OpenRouter endpoint metadata exceeds limit")
+    endpoints = json.loads(raw)["data"]["endpoints"]
+    endpoint = next((e for e in endpoints if e["tag"] == "openai"), None)
+    if endpoint is None or f"openai/{MODEL}" not in endpoint["name"]:
+        raise ValueError("OpenRouter dated model identity unavailable")
+    for name, maximum in (("prompt", "0.000002"), ("completion", "0.000008")):
+        price = Decimal(endpoint["pricing"][name])
+        if not price.is_finite() or not 0 <= price <= Decimal(maximum):
+            raise ValueError("OpenRouter pricing exceeds frozen reservation rates")
+    return {"endpoint": endpoint, "metadata_sha256": hashlib.sha256(raw).hexdigest()}
 
 
 class HostedBudget:
     """Durable, nonrefundable worst-case reservations; failures stay charged."""
 
-    def __init__(self, directory: Path) -> None:
+    def __init__(self, directory: Path, *, provider: str = "openai") -> None:
         self.path = directory / "hosted-requests.jsonl"
+        self.provider = provider
 
     def records(self) -> list[dict[str, Any]]:
         if not self.path.exists():
@@ -68,6 +103,8 @@ class HostedBudget:
             handle.seek(0)
             records = [json.loads(line) for line in handle]
             charges = [r for r in records if r["event"] == "reserved"]
+            if any(r["provider"] != self.provider for r in charges):
+                raise model.ModelUnavailable("Frozen hosted provider changed")
             finished = {r["request"] for r in records if r["event"] == "response"}
             if any(r["event"] == "halted" for r in records) or any(
                 r["request"] not in finished for r in charges
@@ -84,6 +121,7 @@ class HostedBudget:
                 "request": len(charges) + 1,
                 "issue_number": issue_number,
                 "model": MODEL,
+                "provider": self.provider,
                 "input_token_bound": input_bound,
                 "max_output_tokens": 256,
                 "reserved_micro_usd": reserved,
@@ -106,6 +144,7 @@ class HostedBudget:
         responses = [r for r in records if r["event"] == "response"]
         known = [r for r in responses if r.get("cost_micro_usd") is not None]
         complete = len(known) == len(charges)
+        reported = [r.get("reported_cost_micro_usd") for r in responses]
         return {
             "cap_micro_usd": CAP_MICRO_USD,
             "request_count": len(charges),
@@ -120,16 +159,30 @@ class HostedBudget:
             else None,
             "unknown_usage_requests": len(charges) - len(known),
             "halted": any(r["event"] == "halted" for r in records),
+            "reported_cost_micro_usd": sum(reported)
+            if len(reported) == len(charges) and all(v is not None for v in reported)
+            else None,
         }
 
 
 class HostedModel(model.OpenAICompatibleModel):
     """Use the existing selection prompt with one authenticated, capped POST."""
 
-    def __init__(self, api_key: str, budget: HostedBudget, issue_number: int) -> None:
+    def __init__(
+        self,
+        api_key: str,
+        budget: HostedBudget,
+        issue_number: int,
+        *,
+        provider: str = "openai",
+    ) -> None:
         if not api_key.strip():
-            raise ValueError("OPENAI_API_KEY is required")
-        super().__init__("https://api.openai.com/v1", MODEL)
+            raise ValueError("A hosted API key is required")
+        base_url, request_model, _ = PROVIDERS[provider]
+        super().__init__(base_url, request_model)
+        if budget.provider != provider:
+            raise ValueError("Hosted client and budget provider differ")
+        self.provider = provider
         self.api_key = api_key
         self.budget = budget
         self.issue_number = issue_number
@@ -161,7 +214,7 @@ class HostedModel(model.OpenAICompatibleModel):
         schema["properties"] = properties
         body = json.dumps(
             {
-                "model": MODEL,
+                "model": self.model_name,
                 "temperature": 0,
                 "max_tokens": max_tokens,
                 "response_format": {
@@ -176,9 +229,23 @@ class HostedModel(model.OpenAICompatibleModel):
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": json.dumps(user_data)},
                 ],
+                **(
+                    {
+                        "provider": {
+                            "only": ["openai"],
+                            "allow_fallbacks": False,
+                            "require_parameters": True,
+                            "max_price": {"prompt": 2, "completion": 8},
+                        },
+                        "transforms": [],
+                    }
+                    if self.provider == "openrouter"
+                    else {}
+                ),
             }
         ).encode()
         record = self.budget.reserve(body, self.issue_number)
+        record["accounting_error"] = "InterruptedRequest"
         started = perf_counter()
         try:
             request = Request(
@@ -207,6 +274,7 @@ class HostedModel(model.OpenAICompatibleModel):
                 raise ValueError("Hosted usage is outside reserved bounds")
             record.update(
                 returned_model=envelope["model"],
+                returned_provider=envelope.get("provider"),
                 provider_request_id=envelope.get("id"),
                 input_tokens=input_tokens,
                 output_tokens=output_tokens,
@@ -214,8 +282,22 @@ class HostedModel(model.OpenAICompatibleModel):
                 + output_tokens * OUTPUT_MICRO_USD,
                 response_sha256=hashlib.sha256(raw).hexdigest(),
             )
-            if envelope["model"] != MODEL:
+            if self.provider == "openrouter":
+                reported_cost = Decimal(str(usage["cost"]))
+                if not reported_cost.is_finite() or reported_cost < 0:
+                    raise ValueError("OpenRouter reported an invalid cost")
+                record["reported_cost_micro_usd"] = int(
+                    (reported_cost * 1_000_000).to_integral_value(
+                        rounding=ROUND_CEILING
+                    )
+                )
+                if record["reported_cost_micro_usd"] > record["reserved_micro_usd"]:
+                    raise ValueError("OpenRouter cost exceeds reserved bound")
+                if envelope.get("provider") != "OpenAI":
+                    raise ValueError("OpenRouter returned an unrequested provider")
+            if envelope["model"] != self.model_name:
                 raise ValueError("Hosted model snapshot differs from frozen reference")
+            del record["accounting_error"]
             try:
                 output = json.loads(envelope["choices"][0]["message"]["content"])
             except (KeyError, IndexError, TypeError, ValueError):
@@ -223,10 +305,11 @@ class HostedModel(model.OpenAICompatibleModel):
                 return model.ModelResponse(
                     None, input_tokens, output_tokens, record["output_error"]
                 )
-            record["output"] = output
             return model.ModelResponse(output, input_tokens, output_tokens)
         except Exception as exc:
             record["accounting_error"] = type(exc).__name__
+            if isinstance(exc, HTTPError):
+                record["provider_http_status"] = exc.code
             raise model.ModelUnavailable(
                 "Hosted request failed; accounting halted"
             ) from exc
@@ -246,6 +329,7 @@ def evaluate_hosted_reference(
     issue_source: issue_search.IssueSource,
     source_reader: source.SourceReader,
     preflight_only: bool = False,
+    provider: str = "openai",
 ) -> dict[str, Any]:
     """Keep baseline eligibility, candidates and cutoffs; flag drift before paying."""
     if not preflight_only and not api_key.strip():
@@ -279,14 +363,24 @@ def evaluate_hosted_reference(
             }.items()
         ):
             raise ValueError("Local case metadata or candidate pool changed")
+    if directory.exists():
+        raise FileExistsError("Run directory already exists; resume/overwrite refused")
+    provider_identity = _provider_identity(provider)
     directory.mkdir(parents=True, exist_ok=False)
-    budget = HostedBudget(directory)
+    budget = HostedBudget(directory, provider=provider)
     evidence = _EvidenceSnapshot(commit_source, issue_source, source_reader)
     artifact: dict[str, Any] = {
         "status": "preflight",
         "recorded_at": datetime.now(UTC).isoformat(),
         "method": "hosted_quality_reference",
         "model_version": MODEL,
+        "provider": provider,
+        "provider_identity": provider_identity,
+        "requested_model": PROVIDERS[provider][1],
+        "snapshot_verification": "Exact response model required"
+        if provider == "openai"
+        else "OpenRouter alias with pinned OpenAI provider; upstream dated snapshot "
+        "is not independently attested by the completion response",
         "baseline_sha256": hashlib.sha256(baseline_path.read_bytes()).hexdigest(),
         "catalog_sha256": baseline["catalog_sha256"],
         "source_sha256": {
@@ -352,7 +446,7 @@ def evaluate_hosted_reference(
     artifact["status"] = "running"
     results: list[CaseResult] = []
     for case, preflight in zip(catalog, artifact["preflight"], strict=True):
-        client = HostedModel(api_key, budget, case.issue_number)
+        client = HostedModel(api_key, budget, case.issue_number, provider=provider)
         report = None
         scores = None
         error = preflight["error"] or preflight["local_error"]
@@ -372,10 +466,17 @@ def evaluate_hosted_reference(
                 if not client.calls:
                     error = "Hosted dispatch refused by separate budget"
                 else:
-                    scores = score_report(case, report, numbers)
                     error = client.calls[-1].get("accounting_error") or client.calls[
                         -1
                     ].get("output_error")
+                    report_trace = get_trace(report.trace_id)
+                    if report_trace is None or any(
+                        e.kind == "model" and e.status != "ok"
+                        for e in report_trace.events
+                    ):
+                        error = error or "Hosted selection failed report validation"
+                    if error is None:
+                        scores = score_report(case, report, numbers)
             except (CaseFlagged, ValueError) as exc:
                 error = str(exc)
         result = CaseResult(
@@ -409,13 +510,35 @@ def evaluate_hosted_reference(
         "complete" if all(r.error is None for r in results) else "incomplete"
     )
     artifact["aggregate"] = aggregate(results)
-    artifact["local_fixed_aggregate"] = (
+    artifact["local_fixed_full_catalog_aggregate"] = (
         baseline.get("summary", {}).get("methods", {}).get("fixed_rag")
     )
-    artifact["paired_scoreable_cases"] = sum(
-        row["scores"] is not None and row["local_fixed_scores"] is not None
-        for row in artifact["cases"]
+    paired = [
+        r for r in results if r.scores is not None and local[r.issue_number]["scores"]
+    ]
+    artifact["paired_scoreable_cases"] = len(paired)
+    artifact["hosted_paired_aggregate"] = aggregate(paired)
+    artifact["local_fixed_aggregate"] = aggregate(
+        [
+            CaseResult(
+                r.issue_number,
+                "local_fixed_rag",
+                r.opening_cutoff,
+                r.repository_commit,
+                local[r.issue_number].get("latency_ms", 0),
+                r.candidate_pool_size,
+                None,
+                local[r.issue_number]["scores"],
+            )
+            for r in paired
+        ]
     )
+    paired_numbers = {r.issue_number for r in paired}
+    artifact["excluded_from_pairing"] = [
+        {"issue_number": r.issue_number, "reason": r.error or "Local score unavailable"}
+        for r in results
+        if r.issue_number not in paired_numbers
+    ]
     artifact["accounting"] = budget.summary()
     _save(output, artifact)
     return artifact
@@ -425,10 +548,12 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--directory", required=True, type=Path)
     parser.add_argument("--preflight-only", action="store_true")
+    parser.add_argument("--provider", choices=tuple(PROVIDERS), default="openai")
     args = parser.parse_args()
-    key = os.getenv("OPENAI_API_KEY", "")
+    key_name = PROVIDERS[args.provider][2]
+    key = os.getenv(key_name, "")
     if not args.preflight_only and not key.strip():
-        parser.error("OPENAI_API_KEY is required; no hosted requests made")
+        parser.error(f"{key_name} is required; no hosted requests made")
     evidence = _LiveEvidenceCache()
     evaluate_hosted_reference(
         args.directory,
@@ -439,6 +564,7 @@ def main() -> None:
         issue_source=evidence,
         source_reader=evidence,
         preflight_only=args.preflight_only,
+        provider=args.provider,
     )
 
 
