@@ -183,7 +183,11 @@ runner. Red-before-green evidence covers the [fifty-case budget](issue-19/red-bu
 and [published case coverage](issue-19/red-published-cases.txt). Focused checks
 passed **87 tests**, with two opt-in live tests skipped; strict typechecking
 passed. The actual fifty-case preflight supplies separate live evidence.
-Final repository checks are recorded in [checks](issue-19/checks.json).
+Final [repository checks](issue-19/checks.json) passed lint, formatting, strict
+typechecking and the full suite: **383 passed, 2 skipped**. The initial
+restricted-sandbox suite stalled without output and was interrupted; expanded
+permissions resolved that environment limitation. The completed suite used no
+inference and changed no application or expected-outcome data.
 
 Audit without network or inference:
 

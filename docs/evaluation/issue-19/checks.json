@@ -1,0 +1,88 @@
+{
+  "recorded_at": "2026-11-25T03:57:57.093Z",
+  "reviewed_commit": "6554105ba747ae603cb177ad46235e15551b56ab",
+  "checks": [
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "116 files already formatted\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/mypy",
+        "src",
+        "tests"
+      ],
+      "exit_code": 0,
+      "stdout": "Success: no issues found in 38 source files\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "stdout": "........................................................................ [ 18%]\n........................................................................ [ 37%]\n...................................................................ss... [ 56%]\n........................................................................ [ 74%]\n........................................................................ [ 93%]\n.........................                                                [100%]\n383 passed, 2 skipped in 10.57s\n",
+      "stderr": "",
+      "duration_seconds": 10.758,
+      "recorded_at": "2026-11-25T03:57:12.842506+00:00",
+      "permissions": "expanded to avoid restricted sandbox test stall"
+    }
+  ],
+  "focused_checks": {
+    "command": [
+      ".venv/bin/pytest",
+      "-q",
+      "tests/test_replay.py",
+      "tests/test_workflow_comparison.py"
+    ],
+    "passed": 87,
+    "skipped": 2
+  },
+  "offline_audits": [
+    {
+      "command": [
+        "PYTHONPATH=src",
+        ".venv/bin/python",
+        "scripts/issue19_verify.py",
+        "--check-only"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"passed\",\n  \"preserved_files\": 269,\n  \"case_count\": 50,\n  \"new_confirmed_cases\": 10,\n  \"new_pending_cases\": 0,\n  \"family_count\": 46,\n  \"family_members\": 58,\n  \"relationship_coverage\": {\n    \"duplicate_candidate\": 5,\n    \"nonduplicate\": 42,\n    \"uncertain\": 3\n  },\n  \"training_partition\": \"not_created; external/future corpus unverified\",\n  \"workflow_rows\": 150,\n  \"shared_eligible_cases\": 50,\n  \"dispatches\": 198,\n  \"response_records\": 198,\n  \"raw_responses\": 198,\n  \"score_recomputations\": 150,\n  \"fresh_report_reviews_pending\": 150\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "PYTHONPATH=src",
+        ".venv/bin/python",
+        "scripts/issue18_verify.py",
+        "--check-only"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"passed\",\n  \"preserved_files\": 237,\n  \"case_count\": 40,\n  \"new_confirmed_cases\": 10,\n  \"new_pending_cases\": 0,\n  \"family_count\": 37,\n  \"family_members\": 46,\n  \"relationship_coverage\": {\n    \"duplicate_candidate\": 5,\n    \"nonduplicate\": 32,\n    \"uncertain\": 3\n  },\n  \"training_partition\": \"not_created; external/future corpus unverified\",\n  \"workflow_rows\": 120,\n  \"shared_eligible_cases\": 40,\n  \"dispatches\": 158,\n  \"response_records\": 158,\n  \"raw_responses\": 158,\n  \"score_recomputations\": 120,\n  \"fresh_report_reviews_pending\": 120\n}\n",
+      "stderr": ""
+    }
+  ],
+  "review": {
+    "standards_findings": 0,
+    "spec_findings": 0
+  },
+  "note": "One completed full suite; initial restricted sandbox attempt stalled and was interrupted (checks-sandbox-attempt.json). Expanded permissions resolved the test environment limitation. No application or inference changes after the frozen pass or review."
+}
