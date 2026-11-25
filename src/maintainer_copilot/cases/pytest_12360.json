@@ -1,0 +1,33 @@
+{
+  "issue_number": 12360,
+  "issue_family_id": "outdated-assert-message-rewrite-documentation",
+  "template_profile": "bug_feature",
+  "opening_title": "Assertions are rewritten even if a message is present",
+  "opening_cutoff": "2024-05-24T06:22:57Z",
+  "opening_content_sha256": "1f833d98e260b5cf0c41e737e9aa8a25805d4c902c5753a0d4dbf06373ef9f9d",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-25T03:45:42.247920+00:00",
+  "repository_commit": "cbf6bd9dd28d8464f7eebe32e51b398e2a5e3039",
+  "repository_commit_at": "2024-05-21T13:56:18Z",
+  "earlier_issue": {
+    "number": 12307,
+    "created_at": "2024-05-11T16:40:27Z",
+    "content_sha256": "af4f589c7f0326d224fc7d96cd8d855498bd6cea14b9f3f3a4cfbd4b14498dd9",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "earlier_issue_relationship": "nonduplicate",
+    "issue_type": "type: docs",
+    "missing_details": [],
+    "rationale": "The opening contrasts a precise 7.1 documentation statement with reproducible assertion introspection on a newer checkout, unlike truncation of a long assertion message even with -vv. It supplies the documentation URL, exact disputed text, runnable example and plain-assert comparison. This is an adequately specified documentation/version mismatch; no bug-only environment checklist is imposed. Later advice to use newer docs confirms the interpretation but never enters replay.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/12360",
+      "https://github.com/pytest-dev/pytest/issues/12307"
+    ]
+  },
+  "human_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+    "confirmed_at": "2026-11-25T03:47:34.709691+00:00"
+  }
+}

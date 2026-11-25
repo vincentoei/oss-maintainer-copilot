@@ -1,0 +1,35 @@
+..F                                                                      [100%]
+=================================== FAILURES ===================================
+_______ test_expanded_budget_persists_case_limit_across_restarts[50-250] _______
+
+tmp_path = PosixPath('/tmp/pytest-of-vincentoei/pytest-0/test_expanded_budget_persists_2')
+case_count = 50, dispatches = 250
+
+    @pytest.mark.parametrize(("case_count", "dispatches"), [(30, 150), (40, 200), (50, 250)])
+    def test_expanded_budget_persists_case_limit_across_restarts(
+        tmp_path: Path,
+        case_count: int,
+        dispatches: int,
+    ) -> None:
+        from maintainer_copilot.workflow_comparison import RequestBudget
+    
+        for number in range(case_count):
+>           budget = RequestBudget(tmp_path, case_count=case_count)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_workflow_comparison.py:60: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <maintainer_copilot.workflow_comparison.RequestBudget object at 0x752d0d4670b0>
+directory = PosixPath('/tmp/pytest-of-vincentoei/pytest-0/test_expanded_budget_persists_2')
+case_count = 50
+
+    def __init__(self, directory: Path, *, case_count: int = 20) -> None:
+        if case_count not in CASE_COUNTS.values():
+>           raise ValueError("Comparison budget requires twenty, thirty or forty cases")
+E           ValueError: Comparison budget requires twenty, thirty or forty cases
+
+src/maintainer_copilot/workflow_comparison.py:70: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_workflow_comparison.py::test_expanded_budget_persists_case_limit_across_restarts[50-250]
+1 failed, 2 passed, 10 deselected in 0.79s

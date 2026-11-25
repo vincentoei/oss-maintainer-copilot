@@ -143,8 +143,8 @@ reader, run:
 RUN_LIVE_REPLAY=1 uv run --no-env-file pytest -q tests/test_replay.py -k recorded_case
 ```
 
-Forty case metadata files now live in
-[`src/maintainer_copilot/cases/`](src/maintainer_copilot/cases/). Replay all forty
+Fifty case metadata files now live in
+[`src/maintainer_copilot/cases/`](src/maintainer_copilot/cases/). Replay all fifty
 with controlled model responses using:
 
 ```sh
@@ -198,6 +198,34 @@ the saved comparison and family/chronology checks without network or inference:
 
 ```sh
 PYTHONPATH=src uv run --locked --no-env-file python scripts/issue18_verify.py
+```
+
+Issue #19 adds the final [ten reviewed cases](docs/evaluation/cases-forty-one-through-fifty.md),
+bringing the catalog to fifty. After issue #56 / PR #57 merged, a
+[separate frozen comparison](docs/evaluation/issue-19/post-quality/protocol.md)
+measures the merged detail-recognition and label/quote-pairing fixes on those
+same cases. It retains the three workflows and selected model, with at most
+250 inference dispatches. Keep Ollama running, use its current Windows host
+address and choose a fresh directory:
+
+```sh
+GITHUB_TOKEN="$(gh auth token)" uv run --locked --no-env-file \
+  python -m maintainer_copilot.workflow_comparison --issue 19 \
+  --ollama-url http://172.17.48.1:11434 \
+  --baseline docs/evaluation/issue-19/post-quality/baseline.json \
+  --protocol docs/evaluation/issue-19/post-quality/protocol.md \
+  --directory /tmp/issue-19-post-quality-new-run
+```
+
+The [comparison after merged fixes](docs/evaluation/issue-19-post-quality.md)
+records field scores, latency, cost, failures and remaining review. The
+[original fifty-case comparison](docs/evaluation/issue-19.md) remains archived
+with its original source and results. Changed or unavailable public content is
+flagged before inference. Earlier `--issue 16`, `17`, `18` and `56` modes retain
+their archived catalogs. Audit the updated fifty-case run offline with:
+
+```sh
+PYTHONPATH=src uv run --locked --no-env-file python scripts/issue19_post_quality_verify.py --check-only
 ```
 
 The requested [triage-quality follow-up](docs/evaluation/issue-56.md) preserves

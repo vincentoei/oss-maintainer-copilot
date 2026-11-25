@@ -1,0 +1,215 @@
+..F                                                                      [100%]
+=================================== FAILURES ===================================
+_ test_comparison_preserves_three_arms_and_reports_actual_inference_cost[19-50-fifty_complete_pairs] _
+
+tmp_path = PosixPath('/tmp/pytest-of-vincentoei/pytest-2/test_comparison_preserves_thre2')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x785233c2bbf0>
+comparison_issue = 19, planned_cases = 50, pairs_gate = 'fifty_complete_pairs'
+
+    @pytest.mark.parametrize(
+        ("comparison_issue", "planned_cases", "pairs_gate"),
+        [(17, 30, "thirty_complete_pairs"), (18, 40, "forty_complete_pairs"), (19, 50, "fifty_complete_pairs")],
+    )
+    def test_comparison_preserves_three_arms_and_reports_actual_inference_cost(
+        tmp_path: Path,
+        monkeypatch: pytest.MonkeyPatch,
+        comparison_issue: Literal[17, 18, 19],
+        planned_cases: int,
+        pairs_gate: str,
+    ) -> None:
+        from maintainer_copilot.workflow_comparison import evaluate_comparison
+    
+        evidence = RecordedEvidence()
+    
+        def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
+            assert timeout == 20 and isinstance(request.data, bytes)
+            payload = json.loads(request.data)
+            data = json.loads(payload["messages"][1]["content"])
+            assert payload["max_tokens"] == 256
+            schema = payload["response_format"]["json_schema"]["schema"]
+            output = (
+                {"tool": "finish", "arguments": {}}
+                if "enum" in schema
+                else {
+                    "issue_type": "type: enhancement",
+                    "issue_type_quote": "Feature",
+                    "reply_citation_ids": data["required_reply_ids"],
+                }
+            )
+            return io.BytesIO(
+                json.dumps(
+                    {
+                        "choices": [{"message": {"content": json.dumps(output)}}],
+                        "usage": {"prompt_tokens": 100, "completion_tokens": 10},
+                    }
+                ).encode()
+            )
+    
+        monkeypatch.setattr("maintainer_copilot.model.urlopen", endpoint)
+        directory = tmp_path / "comparison"
+>       artifact = evaluate_comparison(
+            directory,
+            "http://model.test/v1",
+            cases=[evidence.case],
+            commit_source=evidence,
+            issue_source=evidence,
+            source_reader=PublicRepositorySource(),
+            comparison_issue=comparison_issue,
+        )
+
+tests/test_workflow_comparison.py:132: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/maintainer_copilot/workflow_comparison.py:428: in evaluate_comparison
+    artifact["summary"] = summarize_comparison(artifact)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+artifact = {'status': 'complete', 'recorded_at': '2026-11-25T03:44:40.940497+00:00', 'comparison_issue': 19, 'planned_cases': 50, ...}
+
+    def summarize_comparison(artifact: dict[str, Any]) -> dict[str, Any]:
+        """Field and paired metrics; unknown semantics/usage never become successes."""
+        groups = {
+            method: [r for r in artifact["cases"] if r["method"] == method]
+            for method in METHODS
+        }
+        methods: dict[str, Any] = {}
+        fields = tuple(CaseResult.__dataclass_fields__)
+        for method, rows in groups.items():
+            results = [CaseResult(**{key: row[key] for key in fields}) for row in rows]
+            latencies = sorted(r["latency_ms"] for r in rows)
+            events = [
+                event for row in rows if row["trace"] for event in row["trace"]["events"]
+            ]
+            methods[method] = {
+                **aggregate(results),
+                "denominators": {
+                    "catalog": len(artifact["preflight"]),
+                    "rows": len(rows),
+                    "scoreable_reports": sum(r["scores"] is not None for r in rows),
+                    "known_relationships": sum(
+                        r["scores"] is not None
+                        and r["scores"]["duplicate_judgment"]["correct"] is not None
+                        for r in rows
+                    ),
+                },
+                "partial_reports": sum(
+                    r["report"] is not None and r["report"]["status"] == "partial"
+                    for r in rows
+                ),
+                "model_errors": sum(
+                    e["kind"] == "model" and e["status"] != "ok" for e in events
+                ),
+                "tool_errors": sum(
+                    e["kind"] == "tool" and e["status"] != "ok" for e in events
+                ),
+                "p50_latency_ms": latencies[math.ceil(len(latencies) * 0.5) - 1]
+                if latencies
+                else None,
+                "p95_latency_ms": latencies[math.ceil(len(latencies) * 0.95) - 1]
+                if latencies
+                else None,
+                "resources": _usage(rows),
+                "peak_sampled_gpu_mib": max(
+                    (
+                        r["gpu_memory"]["peak_sampled_used_mib"]
+                        for r in rows
+                        if r["gpu_memory"]["peak_sampled_used_mib"] is not None
+                    ),
+                    default=None,
+                ),
+                "representative_error": next(
+                    (
+                        {"issue_number": r["issue_number"], "error": r["error"]}
+                        for r in rows
+                        if r["error"]
+                    ),
+                    None,
+                ),
+                "representative_model_failure": next(
+                    (
+                        {"issue_number": r["issue_number"], "event": event}
+                        for r in rows
+                        if r["trace"]
+                        for event in r["trace"]["events"]
+                        if event["kind"] == "model" and event["status"] != "ok"
+                    ),
+                    None,
+                ),
+            }
+        by_number = {
+            method: {r["issue_number"]: r for r in rows} for method, rows in groups.items()
+        }
+        paired = []
+        for case in artifact["preflight"]:
+            number = case["issue_number"]
+            qualities = {
+                m: _exact_quality(by_number[m][number]) if number in by_number[m] else None
+                for m in METHODS
+            }
+            fixed, bounded = qualities["fixed_rag"], qualities["bounded_agent"]
+            paired.append(
+                {
+                    "issue_number": number,
+                    "quality": qualities,
+                    "agent_minus_fixed": bounded - fixed
+                    if bounded is not None and fixed is not None
+                    else None,
+                }
+            )
+        gains = [
+            p["agent_minus_fixed"] for p in paired if p["agent_minus_fixed"] is not None
+        ]
+        fixed_method, agent_method = methods["fixed_rag"], methods["bounded_agent"]
+        fixed_p95, agent_p95 = (
+            fixed_method["p95_latency_ms"],
+            agent_method["p95_latency_ms"],
+        )
+        latency_ratio = agent_p95 / fixed_p95 if fixed_p95 else None
+        token_totals = {}
+        for method in ("fixed_rag", "bounded_agent"):
+            usage = methods[method]["resources"]
+            token_totals[method] = (
+                usage["input_tokens"] + usage["output_tokens"]
+                if usage["input_tokens"] is not None and usage["output_tokens"] is not None
+                else None
+            )
+        fixed_tokens, agent_tokens = (
+            token_totals["fixed_rag"],
+            token_totals["bounded_agent"],
+        )
+        token_ratio = (
+            agent_tokens / fixed_tokens
+            if (fixed_tokens and agent_tokens is not None)
+            else None
+        )
+        field_deltas = {
+            field: agent_method[field] - fixed_method[field]
+            if agent_method[field] is not None and fixed_method[field] is not None
+            else None
+            for field in (
+                "issue_type_accuracy",
+                "missing_details_exact",
+                "duplicate_judgment_accuracy",
+                "citation_validity_rate",
+            )
+        }
+        gain = sum(gains) / len(gains) if gains else None
+        residency = artifact.get("serving_after", {}).get("residency", {}).get("models", [])
+        loaded = next((m for m in residency if m.get("digest") == MODEL_DIGEST), None)
+        gpu_peaks = [m["peak_sampled_gpu_mib"] for m in methods.values()]
+        planned_cases = artifact.get("planned_cases", 20)
+>       pairs_gate = {
+            20: "twenty_complete_pairs",
+            30: "thirty_complete_pairs",
+            40: "forty_complete_pairs",
+        }[planned_cases]
+E       KeyError: 50
+
+src/maintainer_copilot/workflow_comparison.py:602: KeyError
+----------------------------- Captured stderr call -----------------------------
+keyword_rule #12224: complete
+fixed_rag #12224: complete
+bounded_agent #12224: partial
+=========================== short test summary info ============================
+FAILED tests/test_workflow_comparison.py::test_comparison_preserves_three_arms_and_reports_actual_inference_cost[19-50-fifty_complete_pairs]
+1 failed, 2 passed, 11 deselected in 0.30s

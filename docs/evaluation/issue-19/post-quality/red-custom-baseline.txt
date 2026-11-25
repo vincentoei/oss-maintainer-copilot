@@ -1,0 +1,37 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________ test_comparison_cli_checks_supplied_baseline_before_dispatch _________
+
+tmp_path = PosixPath('/tmp/pytest-of-vincentoei/pytest-15/test_comparison_cli_checks_sup0')
+
+    def test_comparison_cli_checks_supplied_baseline_before_dispatch(tmp_path: Path) -> None:
+        baseline = tmp_path / "baseline.json"
+        baseline.write_text(json.dumps({"files": {"README.md": "0" * 64}}))
+        directory = tmp_path / "unstarted"
+        result = subprocess.run(
+            [
+                sys.executable,
+                "-m",
+                "maintainer_copilot.workflow_comparison",
+                "--issue",
+                "19",
+                "--ollama-url",
+                "http://127.0.0.1:1",
+                "--directory",
+                str(directory),
+                "--baseline",
+                str(baseline),
+            ],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        assert result.returncode == 2
+>       assert "Preserved baseline changed: README.md" in result.stderr
+E       AssertionError: assert 'Preserved baseline changed: README.md' in 'usage: workflow_comparison.py [-h] --ollama-url OLLAMA_URL --directory\n                              DIRECTORY [--is...unrecognized arguments: --baseline /tmp/pytest-of-vincentoei/pytest-15/test_comparison_cli_checks_sup0/baseline.json\n'
+E        +  where 'usage: workflow_comparison.py [-h] --ollama-url OLLAMA_URL --directory\n                              DIRECTORY [--is...unrecognized arguments: --baseline /tmp/pytest-of-vincentoei/pytest-15/test_comparison_cli_checks_sup0/baseline.json\n' = CompletedProcess(args=['/home/vincentoei/projects/oss-maintainer-copilot/.venv/bin/python', '-m', 'maintainer_copilot....nrecognized arguments: --baseline /tmp/pytest-of-vincentoei/pytest-15/test_comparison_cli_checks_sup0/baseline.json\n').stderr
+
+tests/test_workflow_comparison.py:45: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_workflow_comparison.py::test_comparison_cli_checks_supplied_baseline_before_dispatch
+1 failed, 21 deselected in 0.25s

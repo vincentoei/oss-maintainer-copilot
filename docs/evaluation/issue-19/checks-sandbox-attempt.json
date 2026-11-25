@@ -1,0 +1,36 @@
+{
+  "recorded_at": "2026-11-25T03:56:57.330Z",
+  "checks": [
+    {
+      "cmd": ".venv/bin/ruff check .",
+      "chunk_id": "c8e555",
+      "wall_time_seconds": 0.000008964,
+      "exit_code": 0,
+      "original_token_count": 5,
+      "output": "All checks passed!\n"
+    },
+    {
+      "cmd": ".venv/bin/ruff format --check .",
+      "chunk_id": "815afd",
+      "wall_time_seconds": 0.000013131,
+      "exit_code": 0,
+      "original_token_count": 7,
+      "output": "116 files already formatted\n"
+    },
+    {
+      "cmd": ".venv/bin/mypy src tests",
+      "chunk_id": "f52a68",
+      "wall_time_seconds": 0.056645275,
+      "exit_code": 0,
+      "original_token_count": 11,
+      "output": "Success: no issues found in 38 source files\n"
+    },
+    {
+      "cmd": ".venv/bin/pytest -q",
+      "exit_code": 130,
+      "output": "",
+      "status": "interrupted_after_no_progress"
+    }
+  ],
+  "note": "Restricted sandbox pytest attempt stalled without output and was interrupted with Ctrl-C (exit 130); final full suite rerun with expanded permissions. Same sandbox behavior was recorded in prior expansion."
+}

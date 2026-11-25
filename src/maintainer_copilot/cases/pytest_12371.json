@@ -1,0 +1,35 @@
+{
+  "issue_number": 12371,
+  "issue_family_id": "conftest-module-skip-package-scope",
+  "template_profile": "bug_feature",
+  "opening_title": "pytest.skip in conftest/__init__ files doesn't work as expected",
+  "opening_cutoff": "2024-05-26T08:51:30Z",
+  "opening_content_sha256": "bf20828dbe3faf257a11c34eeefd0e937991527f54735be1acf1d00fcba7d823",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-25T03:45:42.247920+00:00",
+  "repository_commit": "f8dfc1d5f0e576d5af4e84712e90d73b06763c89",
+  "repository_commit_at": "2024-05-26T07:34:11Z",
+  "earlier_issue": {
+    "number": 12226,
+    "created_at": "2024-04-19T11:34:17Z",
+    "content_sha256": "439bb13184ef8ca1b56b2f06094204328cbe9f5bc0b352020573bab713d26ece",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "earlier_issue_relationship": "nonduplicate",
+    "issue_type": "type: bug",
+    "missing_details": [
+      "pip list output"
+    ],
+    "rationale": "The opening reports allow_module_level=False silently skipping a conftest package instead of rejecting the import-time skip, unlike shell quoting for marker negation. The conftest snippet isolates the skip behavior, pytest 8.2.1 and macOS Monterey 12.3.1 identify versions, but no full package list is supplied. Bug is accepted for the reported flag-contract violation; the proposed extra package flag is an enhancement alternative. Later deprecation discussion and a 2026 closure are annotation only.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/12371",
+      "https://github.com/pytest-dev/pytest/issues/12226"
+    ]
+  },
+  "human_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+    "confirmed_at": "2026-11-25T03:47:34.709691+00:00"
+  }
+}

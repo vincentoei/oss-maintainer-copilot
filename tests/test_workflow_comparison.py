@@ -3,6 +3,8 @@
 import hashlib
 import io
 import json
+import subprocess
+import sys
 from pathlib import Path
 from typing import Literal
 from urllib.request import Request
@@ -15,6 +17,58 @@ from maintainer_copilot.agent import AgentStepRequest
 from maintainer_copilot.model import ModelRequest, ModelUnavailable
 from maintainer_copilot.replay import CaseFlagged, ControlledReplayModel, replay_case
 from maintainer_copilot.source import PublicRepositorySource
+
+
+def test_comparison_cli_checks_supplied_baseline_before_dispatch(
+    tmp_path: Path,
+) -> None:
+    baseline = tmp_path / "baseline.json"
+    baseline.write_text(json.dumps({"files": {"README.md": "0" * 64}}))
+    directory = tmp_path / "unstarted"
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "maintainer_copilot.workflow_comparison",
+            "--issue",
+            "19",
+            "--ollama-url",
+            "http://127.0.0.1:1",
+            "--directory",
+            str(directory),
+            "--baseline",
+            str(baseline),
+        ],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert result.returncode == 2
+    assert "Preserved baseline changed: README.md" in result.stderr
+    assert not directory.exists()
+
+
+@pytest.mark.parametrize(
+    ("issue", "count"), [(16, 20), (17, 30), (18, 40), (19, 50), (56, 40)]
+)
+def test_comparison_catalog_preserves_archived_cases(issue: int, count: int) -> None:
+    from maintainer_copilot.workflow_comparison import load_comparison_cases
+
+    cases = load_comparison_cases(issue)
+    assert len(cases) == count
+    if issue == 19:
+        assert cases[-1].issue_number == 12377
+    else:
+        root = Path(__file__).resolve().parents[1]
+        path = (
+            root / "docs/evaluation/issue-16/results.json"
+            if issue == 16
+            else root / f"docs/evaluation/issue-{issue}/run/results.json"
+        )
+        archived = json.loads(path.read_text())
+        assert [c.issue_number for c in cases] == [
+            row["issue_number"] for row in archived["preflight"]
+        ]
 
 
 def test_request_budget_survives_restart_and_counts_failed_dispatches(
@@ -49,7 +103,9 @@ def test_frozen_budget_allows_exactly_twenty_fixed_and_eighty_agent_dispatches(
     assert len((tmp_path / "requests.jsonl").read_text().splitlines()) == 100
 
 
-@pytest.mark.parametrize(("case_count", "dispatches"), [(30, 150), (40, 200)])
+@pytest.mark.parametrize(
+    ("case_count", "dispatches"), [(30, 150), (40, 200), (50, 250)]
+)
 def test_expanded_budget_persists_case_limit_across_restarts(
     tmp_path: Path,
     case_count: int,
@@ -94,13 +150,14 @@ def test_agent_replay_respects_historical_template_availability() -> None:
     [
         (17, 30, "thirty_complete_pairs"),
         (18, 40, "forty_complete_pairs"),
+        (19, 50, "fifty_complete_pairs"),
         (56, 40, "forty_complete_pairs"),
     ],
 )
 def test_comparison_preserves_three_arms_and_reports_actual_inference_cost(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
-    comparison_issue: Literal[17, 18, 56],
+    comparison_issue: Literal[17, 18, 19, 56],
     planned_cases: int,
     pairs_gate: str,
 ) -> None:
@@ -264,19 +321,29 @@ def test_agent_replay_uses_only_verified_historical_evidence() -> None:
     assert uncalled.inputs == []
 
 
+@pytest.mark.parametrize("failure", ["changed", "unavailable"])
 def test_shared_integrity_failure_keeps_all_rows_and_dispatches_nothing(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
+    failure: str,
 ) -> None:
+    from maintainer_copilot.issue_search import IssueRecord, IssueSearchError
     from maintainer_copilot.workflow_comparison import evaluate_comparison
 
     evidence = RecordedEvidence()
-    evidence.opening = type(evidence.opening)(
-        evidence.opening.number,
-        evidence.opening.title,
-        "changed after cutoff",
-        evidence.opening.created_at,
-    )
+    if failure == "changed":
+        evidence.opening = type(evidence.opening)(
+            evidence.opening.number,
+            evidence.opening.title,
+            "changed after cutoff",
+            evidence.opening.created_at,
+        )
+    else:
+
+        def unavailable(number: int) -> IssueRecord:
+            raise IssueSearchError("Public opening is unavailable")
+
+        monkeypatch.setattr(evidence, "get_issue", unavailable)
 
     def forbidden(*args: object, **kwargs: object) -> None:
         raise AssertionError("Integrity failures must not dispatch inference")
@@ -293,6 +360,7 @@ def test_shared_integrity_failure_keeps_all_rows_and_dispatches_nothing(
     assert len(result["cases"]) == 3
     assert len({r["error"] for r in result["cases"]}) == 1
     assert all(r["scores"] is None and r["model_calls"] == [] for r in result["cases"])
+    assert not (tmp_path / "flagged/requests.jsonl").exists()
     assert result["summary"]["paired_cases"] == 0
     assert result["summary"]["missing_pairs"] == 1
 

@@ -1,0 +1,29 @@
+{
+  "commit": "c611f9d7f0255caccaefd8a0c9826491ca664e1a",
+  "recorded_at": "2026-11-25T03:49:41.273951+00:00",
+  "catalog_sha256": "924b506c662b51e50743f19aaa26df947230a53a09bb23789742542474daf4d7",
+  "protocol_sha256": "accc73432ae12e8498e893e81c8a8b7fec0f441657c3b0b25ea2973591ea024b",
+  "source_sha256": {
+    "src/maintainer_copilot/__init__.py": "5e41140633dd670de4305c608f38bc50eae7710947fa64ffecbdd2048e949daf",
+    "src/maintainer_copilot/agent.py": "a522cf02867dc03f61b57ef521d42fa1ca1456a0dd86a852fdd78119d8df6dcc",
+    "src/maintainer_copilot/ci.py": "84246233c17a2bfd2da5a88c8f9ccbe50825b3a9b3bb83dd2a5d83f112fbc455",
+    "src/maintainer_copilot/documentation.py": "1f77c64648dcef8cb9a85ab27d3913cc94ab20f39cf3a482c72f0bb27e4054a8",
+    "src/maintainer_copilot/drafting.py": "f207e72391b561071a95535cfabb062b57d4ad63ff52f52794842717cfe13b85",
+    "src/maintainer_copilot/evaluation.py": "b2ef5e6833b582584133b37d8f4af91d39879b3955cd4bc1e2b7257e19372597",
+    "src/maintainer_copilot/follow_up.py": "da874f744428fcdac754a4e12ab1f0179000a64f9bbf2a2cc95c320b565a56cf",
+    "src/maintainer_copilot/issue_search.py": "fb3b07a76c582682e07512ace6721d2eb61fd779144d9adda2cfe2c5360df63a",
+    "src/maintainer_copilot/label_evidence.py": "d5facd81f10615a82c5c2ffc0909b5b2165dea5cb64f976d26feaf2cb54b5b6f",
+    "src/maintainer_copilot/local_evaluation.py": "15c2b19d15e6f8adda2e04e044175eaf75a5ad52d5ee36d0c99e5d7a07725ffa",
+    "src/maintainer_copilot/model.py": "25497ff79b3a77f5925eb0257ab90a34e0fba7bf6f3079a5f4afe070444d3b8f",
+    "src/maintainer_copilot/pytest_profile.py": "83a6e0931f1b2cd122560670ad0ed9398f55fba5ed622f3a64f7f45dc24ad9b4",
+    "src/maintainer_copilot/registry.py": "a86bfcaed95454019742c7844f76959e15b5a702d4a3b8089edb0cc23499b5ae",
+    "src/maintainer_copilot/replay.py": "3f676a7fa1eb6ebe25fa70d186d86e539d15ae4aaf3a0a37cfe6162d17712d35",
+    "src/maintainer_copilot/repository.py": "988ec4e758c0c8975b1f2f19c0b226c75286053c55099d8d96b5f57ca2ef0596",
+    "src/maintainer_copilot/source.py": "112c52304c2c2d2300330ae99370de71408caef5f8e9e84ea5f2587bec48daa2",
+    "src/maintainer_copilot/templates.py": "781ac4b58ec582a31ade1ab05a7b55f7abc35f7356ea818ed626e9c3a45f1270",
+    "src/maintainer_copilot/trace.py": "67efdf38ee8f0038134af5f1a7d02c82e43553de21d55c8df23824ec4cb19107",
+    "src/maintainer_copilot/triage.py": "2fb9d64977414b5ce3a6390bc84007831dccaefcefb835a5d02974d1a88866e0",
+    "src/maintainer_copilot/web.py": "dda8ce33e9168cc6775883e927def80b5270e3c0715b75789346c2e04c9c8cf0",
+    "src/maintainer_copilot/workflow_comparison.py": "0ab9de11396fe1ef1279d15ad02cf61bf96572585a107eccc2b14a331e52f3b4"
+  }
+}

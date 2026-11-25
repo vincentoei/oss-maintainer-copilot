@@ -9,8 +9,12 @@ from pathlib import Path
 from comparison_verification import verify_comparison_records
 
 from maintainer_copilot.evaluation import CaseResult, aggregate
-from maintainer_copilot.replay import candidate_references, load_cases
-from maintainer_copilot.workflow_comparison import METHODS, fingerprint
+from maintainer_copilot.replay import candidate_references
+from maintainer_copilot.workflow_comparison import (
+    METHODS,
+    fingerprint,
+    load_comparison_cases,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 DIRECTORY = ROOT / "docs/evaluation/issue-56"
@@ -170,7 +174,7 @@ def main():
         hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest
         for path, digest in baseline["files"].items()
     ), "Preserved baseline artifact changed"
-    cases = load_cases()
+    cases = load_comparison_cases(56)
     assert len(cases) == 40
     partitions = read(ROOT / "docs/evaluation/issue-18/partitions.json")
     for case in cases:

@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "preserved_files": 269,
+  "case_count": 50,
+  "new_confirmed_cases": 10,
+  "new_pending_cases": 0,
+  "family_count": 46,
+  "family_members": 58,
+  "relationship_coverage": {
+    "duplicate_candidate": 5,
+    "nonduplicate": 42,
+    "uncertain": 3
+  },
+  "training_partition": "not_created; external/future corpus unverified"
+}

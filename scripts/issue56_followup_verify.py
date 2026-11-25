@@ -9,12 +9,12 @@ from comparison_verification import verify_comparison_records
 from issue56_verify import compare, verify_assistant_reviews
 
 from maintainer_copilot.evaluation import score_report
-from maintainer_copilot.replay import load_cases
 from maintainer_copilot.triage import TriageReport
-from maintainer_copilot.workflow_comparison import fingerprint
+from maintainer_copilot.workflow_comparison import fingerprint, load_comparison_cases
 
 ROOT = Path(__file__).resolve().parents[1]
 DIRECTORY = ROOT / "docs/evaluation/issue-56/follow-up"
+WORDING_COMMIT = "9b44f24cd5a6bf1dede236b315e8066085331341"
 
 
 def read(path):
@@ -31,7 +31,7 @@ def main():
         hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest
         for path, digest in baseline["files"].items()
     ), "Preserved case/evaluation artifact changed"
-    cases = load_cases()
+    cases = load_comparison_cases(56)
     assert len(cases) == 40
     freeze = read(DIRECTORY / "freeze.json")
     result = read(DIRECTORY / "run/results.json")
@@ -73,7 +73,12 @@ def main():
         if digest != result["source_sha256"][path]
     ] == ["src/maintainer_copilot/pytest_profile.py"]
     assert all(
-        hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest
+        hashlib.sha256(
+            subprocess.check_output(
+                ["git", "show", f"{WORDING_COMMIT}:{path}"], cwd=ROOT
+            )
+        ).hexdigest()
+        == digest
         for path, digest in final_source.items()
     )
     checks = read(DIRECTORY / "checks.json")

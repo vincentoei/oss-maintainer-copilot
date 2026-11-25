@@ -1,0 +1,48 @@
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+___________ test_comparison_catalog_preserves_archived_cases[16-20] ____________
+
+issue = 16, count = 20
+
+    @pytest.mark.parametrize(("issue", "count"), [(16, 20), (17, 30), (18, 40), (19, 50)])
+    def test_comparison_catalog_preserves_archived_cases(issue: int, count: int) -> None:
+>       from maintainer_copilot.workflow_comparison import load_comparison_cases
+E       ImportError: cannot import name 'load_comparison_cases' from 'maintainer_copilot.workflow_comparison' (/home/vincentoei/projects/oss-maintainer-copilot/src/maintainer_copilot/workflow_comparison.py)
+
+tests/test_workflow_comparison.py:21: ImportError
+___________ test_comparison_catalog_preserves_archived_cases[17-30] ____________
+
+issue = 17, count = 30
+
+    @pytest.mark.parametrize(("issue", "count"), [(16, 20), (17, 30), (18, 40), (19, 50)])
+    def test_comparison_catalog_preserves_archived_cases(issue: int, count: int) -> None:
+>       from maintainer_copilot.workflow_comparison import load_comparison_cases
+E       ImportError: cannot import name 'load_comparison_cases' from 'maintainer_copilot.workflow_comparison' (/home/vincentoei/projects/oss-maintainer-copilot/src/maintainer_copilot/workflow_comparison.py)
+
+tests/test_workflow_comparison.py:21: ImportError
+___________ test_comparison_catalog_preserves_archived_cases[18-40] ____________
+
+issue = 18, count = 40
+
+    @pytest.mark.parametrize(("issue", "count"), [(16, 20), (17, 30), (18, 40), (19, 50)])
+    def test_comparison_catalog_preserves_archived_cases(issue: int, count: int) -> None:
+>       from maintainer_copilot.workflow_comparison import load_comparison_cases
+E       ImportError: cannot import name 'load_comparison_cases' from 'maintainer_copilot.workflow_comparison' (/home/vincentoei/projects/oss-maintainer-copilot/src/maintainer_copilot/workflow_comparison.py)
+
+tests/test_workflow_comparison.py:21: ImportError
+___________ test_comparison_catalog_preserves_archived_cases[19-50] ____________
+
+issue = 19, count = 50
+
+    @pytest.mark.parametrize(("issue", "count"), [(16, 20), (17, 30), (18, 40), (19, 50)])
+    def test_comparison_catalog_preserves_archived_cases(issue: int, count: int) -> None:
+>       from maintainer_copilot.workflow_comparison import load_comparison_cases
+E       ImportError: cannot import name 'load_comparison_cases' from 'maintainer_copilot.workflow_comparison' (/home/vincentoei/projects/oss-maintainer-copilot/src/maintainer_copilot/workflow_comparison.py)
+
+tests/test_workflow_comparison.py:21: ImportError
+=========================== short test summary info ============================
+FAILED tests/test_workflow_comparison.py::test_comparison_catalog_preserves_archived_cases[16-20]
+FAILED tests/test_workflow_comparison.py::test_comparison_catalog_preserves_archived_cases[17-30]
+FAILED tests/test_workflow_comparison.py::test_comparison_catalog_preserves_archived_cases[18-40]
+FAILED tests/test_workflow_comparison.py::test_comparison_catalog_preserves_archived_cases[19-50]
+4 failed, 14 deselected in 0.12s

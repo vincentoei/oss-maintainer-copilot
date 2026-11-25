@@ -1,0 +1,35 @@
+{
+  "issue_number": 12366,
+  "issue_family_id": "terminal-status-output-newline",
+  "template_profile": "bug_feature",
+  "opening_title": "Add newline after test status ouput",
+  "opening_cutoff": "2024-05-25T11:10:27Z",
+  "opening_content_sha256": "5389ad827de5522318a574002fb944354e01f02675cf51bcaff328e1b068c900",
+  "opening_last_edited_at": null,
+  "opening_verified_at": "2026-11-25T03:45:42.247920+00:00",
+  "repository_commit": "889d9b28d786c75b66f4d1acb80123bdb341639c",
+  "repository_commit_at": "2024-05-24T11:16:44Z",
+  "earlier_issue": {
+    "number": 12189,
+    "created_at": "2024-04-05T09:14:51Z",
+    "content_sha256": "7c9d2d1977a430e51c42fb6319ecc3fae01bb9d7f46d01f1921fb1760199785d",
+    "last_edited_at": null
+  },
+  "expected_outcome": {
+    "earlier_issue_relationship": "nonduplicate",
+    "issue_type": "type: enhancement",
+    "missing_details": [
+      "alternative solutions"
+    ],
+    "rationale": "The request shows a passing test with print output and asks for a newline after the terminal status, unlike missing captured JUnit XML output. The example and desired display specify the problem, solution and use case despite an empty solution section. No alternative or attempted workaround is stated. This is a display enhancement, not proof of a particular capture configuration; the later maintainer explanation does not supply the omitted invocation.",
+    "annotation_evidence": [
+      "https://github.com/pytest-dev/pytest/issues/12366",
+      "https://github.com/pytest-dev/pytest/issues/12189"
+    ]
+  },
+  "human_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user (explicitly delegated review to Codex and accepted its confirmation)",
+    "confirmed_at": "2026-11-25T03:47:34.709691+00:00"
+  }
+}
