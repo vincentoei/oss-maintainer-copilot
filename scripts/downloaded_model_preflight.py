@@ -1,5 +1,6 @@
 """Run the unscored application and thinking-disabled probes on pinned aliases."""
 
+import base64
 import hashlib
 import io
 import json
@@ -7,9 +8,9 @@ import subprocess
 from argparse import ArgumentParser
 from unittest.mock import patch
 from urllib.error import HTTPError
-from urllib.request import Request
+from urllib.request import HTTPRedirectHandler, ProxyHandler, Request, build_opener
 
-from downloaded_model_pull import DATA, LOCAL, PLAN, installed, local_json, save_new
+from downloaded_model_pull import DATA, PLAN, installed, local_json, save_new
 
 from maintainer_copilot import IssueUnderReview, triage_issue
 from maintainer_copilot.local_evaluation import _GpuMemory
@@ -17,6 +18,11 @@ from maintainer_copilot.model import OpenAICompatibleModel
 from maintainer_copilot.trace import get_trace
 
 HASHES = DATA / "requests.json"
+
+
+class LocalOnly(HTTPRedirectHandler):
+    def redirect_request(self, *args, **kwargs):
+        return None
 
 
 def sha(data):
@@ -65,6 +71,8 @@ def prepare():
                 return io.BytesIO(b"{}")
 
             invoke(alias, capture, None)
+        if set(hashes[alias]) != set(PLAN["modes"]):
+            raise RuntimeError("Incomplete request capture")
     save_new(HASHES, hashes)
 
 
@@ -78,16 +86,30 @@ def prepare_alias(name, model):
     ):
         raise ValueError("Unexpected parent identity, quantization or Ollama version")
     alias = model["alias"]
-    if alias in tags:
-        raise FileExistsError(alias)
+    evidence = DATA / "run" / name / "alias.json"
     params = PLAN["parameters"]
-    result = local_json(
-        "/api/create",
-        {"model": alias, "from": model["tag"], "parameters": params, "stream": False},
-        timeout=180,
-    )
-    if result.get("status") != "success":
-        raise ValueError(result)
+    if alias in tags:
+        if (
+            not evidence.exists()
+            or tags[alias]["digest"]
+            != json.loads(evidence.read_bytes())["tag"]["digest"]
+        ):
+            raise FileExistsError(
+                f"Existing alias has no matching preflight record: {alias}"
+            )
+    else:
+        result = local_json(
+            "/api/create",
+            {
+                "model": alias,
+                "from": model["tag"],
+                "parameters": params,
+                "stream": False,
+            },
+            timeout=180,
+        )
+        if result.get("status") != "success":
+            raise ValueError(result)
     tag = installed()[alias]
     summaries = {}
     for ref in (model["tag"], alias):
@@ -106,7 +128,8 @@ def prepare_alias(name, model):
                 "capabilities",
             }
         }
-    save_new(DATA / "run" / name / "alias.json", {"tag": tag, "show": summaries})
+    if not evidence.exists():
+        save_new(evidence, {"tag": tag, "show": summaries})
     if tag["details"]["parent_model"] != model["tag"]:
         raise ValueError("Unexpected parent alias")
     child = summaries[alias]
@@ -125,6 +148,8 @@ def probe(name, model, tag, mode, expected_hash):
     alias = model["alias"]
     folder = DATA / "run" / name
     raw = []
+    transport = build_opener(ProxyHandler({}), LocalOnly())
+    charged = False
     row = {
         "mode": mode,
         "alias": alias,
@@ -133,6 +158,7 @@ def probe(name, model, tag, mode, expected_hash):
     }
 
     def dispatch(request, *, timeout):
+        nonlocal charged
         data = wire(request, timeout, alias, mode)
         digest = sha(data)
         if digest != expected_hash or installed()[alias]["digest"] != tag["digest"]:
@@ -144,12 +170,13 @@ def probe(name, model, tag, mode, expected_hash):
         req = Request(
             request.full_url, data=data, headers={"Content-Type": "application/json"}
         )
+        charged = True
         try:
-            response = LOCAL.open(req, timeout=timeout)
+            response = transport.open(req, timeout=timeout)
         except HTTPError as exc:
             row["http_status"] = exc.code
             with exc:
-                row["server_error"] = exc.read(65537).decode(errors="replace")
+                raw.append(exc.read(65537))
             raise
         except OSError as exc:
             row["transport_error"] = str(exc)
@@ -159,6 +186,8 @@ def probe(name, model, tag, mode, expected_hash):
 
     with _GpuMemory(True) as gpu:
         report = invoke(alias, dispatch, raw.append)
+    if not charged:
+        raise RuntimeError(f"Preflight guard stopped {mode} before dispatch")
     row["gpu"] = gpu.summary()
     row["after"] = local_json("/api/ps")
     row["model_event"] = next(
@@ -169,6 +198,7 @@ def probe(name, model, tag, mode, expected_hash):
     row["type"] = report.issue_type
     if raw:
         row["response_sha256"] = sha(raw[0])
+        row["response_base64"] = base64.b64encode(raw[0]).decode("ascii")
         try:
             envelope = json.loads(raw[0])
             choice = envelope["choices"][0]
@@ -188,7 +218,8 @@ def probe(name, model, tag, mode, expected_hash):
             row["envelope_error"] = type(exc).__name__
     resident = [m for m in row["after"]["models"] if m["digest"] == tag["digest"]]
     row["full_gpu_16k"] = any(
-        m["context_length"] == 16384 and m["size"] == m["size_vram"] > 0
+        m["context_length"] == PLAN["parameters"]["num_ctx"]
+        and m["size"] == m["size_vram"] > 0
         for m in resident
     )
     row["valid_application_json"] = (
@@ -214,12 +245,27 @@ def main():
     if action == "prepare":
         prepare()
         return
-    for path in (HASHES, DATA / "preflight.json", __file__):
-        subprocess.run(["git", "diff", "--quiet", "HEAD", "--", str(path)], check=True)
+    for revision, paths in (
+        (PLAN["source_commit"], ["src", "uv.lock"]),
+        (
+            "83c28e5",
+            [
+                "scripts/downloaded_model_pull.py",
+                DATA / "preflight.json",
+                DATA / "manifests",
+            ],
+        ),
+        ("761145e", [HASHES]),
+        ("HEAD", [__file__]),
+    ):
+        subprocess.run(["git", "diff", "--quiet", revision, "--", *paths], check=True)
     model = PLAN["models"][action]
     tag = prepare_alias(action, model)
     expected = json.loads(HASHES.read_bytes())[model["alias"]]
     for mode in PLAN["modes"]:
+        if (DATA / "run" / action / f"{mode}-reservation.json").exists():
+            print(f"Already charged {mode}, skipping", flush=True)
+            continue
         probe(action, model, tag, mode, expected[mode])
 
 
