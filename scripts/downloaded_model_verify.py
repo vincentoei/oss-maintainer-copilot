@@ -20,16 +20,40 @@ def verify_response(alias, mode, row, body, reservation):
 
     def replay(request, *, timeout):
         seen.append(hashlib.sha256(wire(request, timeout, alias, mode)).hexdigest())
+        if body is None:
+            raise TimeoutError("timed out")
         return io.BytesIO(body)
 
     report = invoke(alias, replay, None)
     assert seen == [reservation["request_sha256"]]
     trace = get_trace(report.trace_id)
     (event,) = (e for e in trace.events if e.name == "triage_selection")
-    assert event.status == row["model_event"]["status"]
+    for key in ("status", "error", "input_tokens", "output_tokens"):
+        assert getattr(event, key) == row["model_event"][key]
     assert report.issue_type == row["type"]
+    if body is None:
+        assert event.status == "error" and report.issue_type is None
+        assert row["http_status"] is None and row["transport_error"] == "timed out"
+        assert not row["valid_application_json"]
+        assert (
+            not {
+                "response_base64",
+                "response_sha256",
+                "finish_reason",
+                "usage",
+                "content",
+            }
+            & row.keys()
+        )
+        return
+    assert row["http_status"] == 200 and "transport_error" not in row
     envelope = json.loads(body)
     choice = envelope["choices"][0]
+    assert row["usage"] == envelope["usage"]
+    assert row["finish_reason"] == choice["finish_reason"]
+    assert row["content"] == choice["message"]["content"]
+    assert row["message_fields"] == sorted(choice["message"])
+    assert row["response_model"] == envelope["model"] == alias
     assert row["valid_application_json"] == (
         event.status == "ok"
         and envelope["model"] == alias
@@ -67,14 +91,11 @@ def verify():
             assert reservation["request_sha256"] == hashes[alias][mode]
             row = read(folder / f"{mode}.json")
             assert row["alias"] == alias and row["mode"] == mode
-            body = b""
-            if "response_base64" in row:
+            body = None
+            if (name, mode) != ("gemma4", "application"):
                 body = base64.b64decode(row["response_base64"], validate=True)
                 assert hashlib.sha256(body).hexdigest() == row["response_sha256"]
-            if row["http_status"] == 200:
-                verify_response(alias, mode, row, body, reservation)
-            else:
-                assert not row["valid_application_json"]
+            verify_response(alias, mode, row, body, reservation)
             assert row["full_gpu_16k"] == any(
                 m["digest"] == tag["digest"]
                 and m["context_length"] == PLAN["parameters"]["num_ctx"]
