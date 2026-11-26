@@ -1,17 +1,22 @@
 """A model swap must preserve the request and validator at both public report paths."""
 
 import hashlib
+import importlib
 import io
 import json
 from pathlib import Path
+from typing import Any
 from urllib.request import Request
+from uuid import UUID
 
 import pytest
 from test_triage_quality_replay import replay_opening
 
 from maintainer_copilot import IssueUnderReview, triage_issue
+from maintainer_copilot.local_evaluation import _GpuMemory
 from maintainer_copilot.model import OpenAICompatibleModel
 from maintainer_copilot.paired_evaluation import PairedBudget
+from maintainer_copilot.trace import get_trace
 
 PROBES = json.loads(
     (
@@ -101,3 +106,57 @@ def test_paired_budget_refuses_drift_duplicate_after_restart_and_cap(
     assert [
         json.loads(line)["sequence"] for line in ledger.read_text().splitlines()
     ] == [1, 2, 3]
+
+
+@pytest.mark.parametrize("failure", [ConnectionResetError, TimeoutError])
+def test_charged_response_read_failure_survives_saved_report_audit(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, failure: type[OSError]
+) -> None:
+    root = Path(__file__).resolve().parents[1]
+    monkeypatch.syspath_prepend(str(root / "scripts"))
+    runner = importlib.import_module("issue62_compare")
+    scored = importlib.import_module("downloaded_scored_run")
+    auditor = importlib.import_module("downloaded_scored_results")
+    monkeypatch.setattr(runner, "_GpuMemory", lambda enabled: _GpuMemory(False))
+    alias = "triage-eval:qwen35-4b-16k-v1"
+    requests = json.loads(
+        (root / "docs/evaluation/downloaded-models/scored/requests.json").read_bytes()
+    )
+    ledger = tmp_path / "reservations.jsonl"
+    budget = PairedBudget(
+        ledger,
+        {(alias, "xml-A"): requests["xml-A"]["sha256"][alias]},
+        per_model=1,
+        total=1,
+    )
+
+    class BrokenBody(io.BytesIO):
+        status = 200
+
+        def read(self, size: int | None = -1) -> bytes:
+            raise failure("Response body interrupted")
+
+    class Transport:
+        def open(self, request: Request, *, timeout: int) -> BrokenBody:
+            assert timeout == 20
+            assert len(ledger.read_text().splitlines()) == 1
+            return BrokenBody()
+
+    monkeypatch.setattr(scored, "TRANSPORT", Transport())
+    charged = scored.ChargedRequest(budget)
+    row: dict[str, Any] = {"case": "xml-A", "alias": alias, "expected": "type: bug"}
+    probes = {p["id"]: p for p in PROBES}
+    runner.run_case(row, charged, charged, {}, probes, [], None)
+    assert row["status"] == "transport_error"
+    assert row["http_status"] == 200
+    assert row["transport_error"] == failure.__name__
+    trace = get_trace(UUID(row["report"]["trace_id"]))
+    assert trace is not None
+    row["trace"] = trace.model_dump(mode="json")
+    scored.annotate(row, "unused-digest", {"models": []})
+    reservation = json.loads(ledger.read_text())
+    auditor.audit_row(row, reservation, "unused-digest", {}, probes, [], None)
+    metrics = auditor.arm_metrics([row])
+    assert metrics["planned"] == 1
+    assert metrics["correct"] == 0
+    assert metrics["statuses"] == {"transport_error": 1}

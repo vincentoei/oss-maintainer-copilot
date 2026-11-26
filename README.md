@@ -289,6 +289,23 @@ The corresponding stored rows are in the #60 `before` and `followup` directories
 and missed the obsolete-helper counterexample. The candidate is confined to
 the diagnostic runner. [Paired results and reproducer](docs/evaluation/issue-59.md)
 
+The [#62 local comparison](docs/evaluation/issue-62.md) measured the installed
+Qwen 3B and 7B models on the corrected contract. A separately capped
+[downloaded-model comparison](docs/evaluation/downloaded-models/scored/report.md)
+then measured Qwen3.5 4B at 38/50, Qwen2.5-Coder 7B at 34/50 and Gemma 4 E2B
+at 32/50 exposed historical type agreements. All three matched 5/6 reviewed
+synthetic expectations. These results leave the default-model decision open;
+semantic support and reply usefulness remain pending. See the
+[publication review](docs/evaluation/local-comparison-review.md).
+
+Audit the additional measurements without model calls:
+
+```sh
+PYTHONPATH=src uv run --locked --no-env-file python scripts/issue62_verify.py
+PYTHONPATH=src uv run --locked --no-env-file python scripts/downloaded_model_verify.py
+PYTHONPATH=src uv run --locked --no-env-file python scripts/downloaded_scored_results.py
+```
+
 The requested [triage-quality follow-up](docs/evaluation/issue-56.md) preserves
 the forty cases and all prior results. It fixes report-detail recognition and
 model label/quote pairing, then measures one separately frozen comparison with

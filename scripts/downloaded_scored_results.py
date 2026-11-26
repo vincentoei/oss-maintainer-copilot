@@ -1,6 +1,7 @@
 """Reconcile the frozen ledger and replay saved responses without a model server."""
 
 import base64
+import builtins
 import io
 import json
 from collections import Counter
@@ -31,6 +32,17 @@ from maintainer_copilot.replay import load_cases
 
 class RecordedResponse(io.BytesIO):
     status = 200
+
+    def __init__(self, data, read_failure=None):
+        super().__init__(data)
+        self.read_failure = read_failure
+
+    def read(self, size=-1):
+        if self.read_failure is not None:
+            error = getattr(builtins, self.read_failure, None)
+            assert isinstance(error, type) and issubclass(error, OSError)
+            raise error("Recorded response body interrupted")
+        return super().read(size)
 
 
 class Replay:
@@ -67,6 +79,9 @@ class Replay:
             if r["transport_error"] == "TimeoutError":
                 raise TimeoutError()
             raise URLError(OSError(r["transport_error"]))
+        if data is None:
+            assert r["http_status"] == 200 and r["transport_error"]
+            return RecordedResponse(b"", read_failure=r["transport_error"])
         assert data is not None and len(data) <= 65536
         response = RecordedResponse(data + (b" " if r["truncated"] else b""))
         if r["http_status"] != 200:

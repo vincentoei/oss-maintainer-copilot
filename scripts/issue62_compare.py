@@ -5,6 +5,7 @@ import hashlib
 import json
 import os
 import subprocess
+from contextlib import contextmanager
 from time import perf_counter
 from unittest.mock import patch
 from urllib.error import HTTPError, URLError
@@ -185,6 +186,16 @@ def run_case(row, budget, transport, cases, probes, catalog, evidence):
     row.update(http_status=None, transport_error=None)
     fatal = []
 
+    @contextmanager
+    def observed_response(response):
+        try:
+            with response:
+                yield response
+        except OSError as exc:
+            reason = exc.reason if isinstance(exc, URLError) else exc
+            row["transport_error"] = type(reason).__name__
+            raise
+
     def dispatch(request, *, timeout):
         if timeout != 20 or request.full_url != HOST + "/v1/chat/completions":
             fatal.append("Unapproved route or timeout")
@@ -197,7 +208,7 @@ def run_case(row, budget, transport, cases, probes, catalog, evidence):
         try:
             response = transport.open(request, timeout=timeout)
             row["http_status"] = response.status
-            return response
+            return observed_response(response)
         except HTTPError as exc:
             row["http_status"] = exc.code
             row["transport_error"] = type(exc).__name__
