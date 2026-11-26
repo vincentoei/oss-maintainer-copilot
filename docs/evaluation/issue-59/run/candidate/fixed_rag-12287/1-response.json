@@ -1,0 +1,10 @@
+{
+  "output": {
+    "issue_type": "type: bug",
+    "quote_index": 0,
+    "reply_citation_ids": []
+  },
+  "input_tokens": 1431,
+  "output_tokens": 29,
+  "error": null
+}

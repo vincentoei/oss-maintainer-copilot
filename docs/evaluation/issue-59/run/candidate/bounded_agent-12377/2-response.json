@@ -1,0 +1,9 @@
+{
+  "output": {
+    "tool": "finish",
+    "arguments": {}
+  },
+  "input_tokens": 415,
+  "output_tokens": 12,
+  "error": null
+}

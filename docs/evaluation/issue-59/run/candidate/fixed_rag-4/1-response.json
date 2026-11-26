@@ -1,0 +1,10 @@
+{
+  "output": {
+    "issue_type": "type: question",
+    "quote_index": 1,
+    "reply_citation_ids": []
+  },
+  "input_tokens": 464,
+  "output_tokens": 29,
+  "error": null
+}

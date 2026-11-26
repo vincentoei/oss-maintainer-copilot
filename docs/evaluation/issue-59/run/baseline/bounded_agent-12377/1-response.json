@@ -1,0 +1,11 @@
+{
+  "output": {
+    "tool": "search_earlier_issues",
+    "arguments": {
+      "issue_number": 12377
+    }
+  },
+  "input_tokens": 415,
+  "output_tokens": 23,
+  "error": null
+}

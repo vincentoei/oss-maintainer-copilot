@@ -1,0 +1,12 @@
+{
+  "output": {
+    "issue_type": "type: enhancement",
+    "quote_index": 10,
+    "reply_citation_ids": [
+      "C1"
+    ]
+  },
+  "input_tokens": 1653,
+  "output_tokens": 33,
+  "error": null
+}
