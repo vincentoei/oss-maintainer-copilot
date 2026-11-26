@@ -79,6 +79,7 @@ def evaluate_classification(
     source_reader: source.SourceReader,
     serving: dict[str, Any] | None = None,
     measure_gpu: bool = False,
+    availability_only: bool = False,
 ) -> dict[str, Any]:
     directory.mkdir(parents=True, exist_ok=False)
     catalog = sorted(cases, key=lambda c: c.issue_number)
@@ -97,7 +98,7 @@ def evaluate_classification(
         "generation": {
             "max_tokens": 256,
             "timeout_seconds": 20,
-            "max_dispatches": 50,
+            "max_dispatches": 0 if availability_only else 50,
             "warmups": 0,
             "retries": 0,
         },
@@ -106,6 +107,11 @@ def evaluate_classification(
         "report_review": "pending_human_review; no prior ratings transferred",
         "model_api_usd": 0,
     }
+    if availability_only:
+        # The current driver can audit an older package loaded via PYTHONPATH.
+        artifact["audit_driver_sha256"] = hashlib.sha256(
+            Path(__file__).read_bytes()
+        ).hexdigest()
     output = directory / "results.json"
     _save(output, artifact)
     for case in catalog:
@@ -155,6 +161,10 @@ def evaluate_classification(
         _save(output, artifact)
     evidence.frozen = True
     artifact["evidence_sha256"] = evidence.manifest()
+    if availability_only:
+        artifact["status"] = "availability_audit"
+        _save(output, artifact)
+        return artifact
     artifact["status"] = "running"
     results = []
     for case, preflight in zip(catalog, artifact["preflight"], strict=True):
@@ -243,13 +253,20 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--directory", type=Path, required=True)
     parser.add_argument("--phase", choices=("before", "after"), required=True)
-    parser.add_argument("--ollama-url", required=True)
+    parser.add_argument("--ollama-url")
+    parser.add_argument(
+        "--availability-only",
+        action="store_true",
+        help="Verify openings and capture labels without inference.",
+    )
     args = parser.parse_args()
     cases = load_cases()
     if len(cases) != 50 or any(c.human_review.status != "confirmed" for c in cases):
         parser.error("The frozen fifty confirmed cases are required")
-    base = args.ollama_url.rstrip("/")
-    serving = serving_snapshot(base)
+    if not args.availability_only and not args.ollama_url:
+        parser.error("--ollama-url is required for inference")
+    base = (args.ollama_url or "").rstrip("/")
+    serving = None if args.availability_only else serving_snapshot(base)
     cache = _LiveEvidenceCache()
     result = evaluate_classification(
         args.directory,
@@ -260,10 +277,12 @@ def main() -> None:
         issue_source=cache,
         source_reader=cache,
         serving=serving,
-        measure_gpu=True,
+        measure_gpu=not args.availability_only,
+        availability_only=args.availability_only,
     )
-    result["serving_after"] = serving_snapshot(base)
-    _save(args.directory / "results.json", result)
+    if not args.availability_only:
+        result["serving_after"] = serving_snapshot(base)
+        _save(args.directory / "results.json", result)
 
 
 if __name__ == "__main__":

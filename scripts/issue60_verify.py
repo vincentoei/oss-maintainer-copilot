@@ -17,6 +17,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def verify(directory: Path) -> dict[str, Any]:
+    if not __debug__:
+        raise RuntimeError(
+            "Run the artifact assertions with Python optimization disabled"
+        )
     freeze = json.loads((directory / "freeze.json").read_text())
     preservation = json.loads((directory / "preservation.json").read_text())
     assert (

@@ -19,6 +19,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def verify(directory: Path) -> dict[str, Any]:
+    if not __debug__:
+        raise RuntimeError(
+            "Run the artifact assertions with Python optimization disabled"
+        )
     freeze = json.loads(
         (ROOT / "docs/evaluation/issue-20/flash/freeze.json").read_text()
     )

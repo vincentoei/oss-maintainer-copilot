@@ -233,37 +233,61 @@ their archived catalogs. Audit the updated fifty-case run offline with:
 PYTHONPATH=src uv run --locked --no-env-file python scripts/issue19_post_quality_verify.py --check-only
 ```
 
-Issue #20 adds a [separately capped hosted quality reference](docs/evaluation/issue-20.md)
-on the same fifty cases and cutoffs. The [protocol](docs/evaluation/issue-20-protocol.md)
-supports a dated OpenAI model or OpenRouter's pinned OpenAI route. Set
-`OPENROUTER_API_KEY` and run once with a fresh directory:
+### Verify the stacked classification evaluations
+
+From a full-history clone, run the four offline audits. They read saved outputs,
+case annotations and the original Git objects. They require neither credentials
+nor a model server.
 
 ```sh
-GITHUB_TOKEN="$(gh auth token)" uv run --locked --no-env-file \
-  python -m maintainer_copilot.hosted_evaluation --provider openrouter \
-  --directory /tmp/issue20-new-run
+PYTHONPATH=src uv run --locked --no-env-file python scripts/issue20_verify.py
+PYTHONPATH=src uv run --locked --no-env-file python scripts/issue20_flash_verify.py
+PYTHONPATH=src uv run --locked --no-env-file python scripts/issue60_verify.py
+PYTHONPATH=src uv run --locked --no-env-file python scripts/issue59_verify.py
 ```
 
-The evaluator reserves worst-case spending before dispatch, below a separate
-US$5 limit, and retains usage, costs, reports and a durable ledger. Add
-`--preflight-only` to verify public evidence without paid requests or a key.
-Hosted predictions remain separate from confirmed case annotations. Audit the
-saved run without network or inference with
-`PYTHONPATH=src uv run --locked --no-env-file python scripts/issue20_verify.py`.
+**#20 — hosted quality reference.** Three hosted models processed the same 50
+cases and cutoffs using the old label/quote contract. The recorded experiment
+reserved US$1.530026 and reported US$0.20073915 in inference charges against
+the shared US$5 cap. For historical reproduction, the GPT-4.1 protocol command
+belongs in a checkout of `8fba053`. The Flash command belongs in a checkout
+of `52fbc8d`, which contains the GPT-4.1 results and ledger it reads.
+Running these paid commands at the current tip uses a different classifier.
+A fresh paid experiment has its own output directory and spending decision.
+[GPT-4.1 evidence](docs/evaluation/issue-20.md) · [Flash evidence](docs/evaluation/issue-20-flash.md)
 
-The requested [DeepSeek V4.1 Flash / GLM 5.3 Flash comparison](docs/evaluation/issue-20-flash.md)
-keeps the same fifty cases, preserves GPT-4.1's results, and shares the original
-US$5 budget. Its [separate protocol](docs/evaluation/issue-20-flash-protocol.md)
-records pinned providers and low reasoning with a bounded completion allowance.
-Audit that saved pass offline with
-`PYTHONPATH=src uv run --locked --no-env-file python scripts/issue20_flash_verify.py`.
+**#60 — label availability.** The indexed-quote contract makes every type
+reachable. Qwen retained 29/50 agreement with six gains and six regressions.
+The archive includes the failed free-quote candidate, both budgets and pending
+human review. [Comparison](docs/evaluation/issue-60.md)
 
-The [issue #60 classification correction](docs/evaluation/issue-60.md) makes all
-repository types available without lexical cues. The same local Qwen model stays
-at 29/50 type agreement, with six gains and six regressions; the report preserves
-the failed first candidate and pending human semantic/usefulness review. Audit
-all three frozen runs without inference with
-`PYTHONPATH=src uv run --locked --no-env-file python scripts/issue60_verify.py`.
+To regenerate the before and final availability rows, use the current audit
+driver with each frozen Python package. From the repository root after
+`uv sync --locked --group dev`, the commands below read public GitHub evidence,
+verify openings and capture label options with zero model dispatches. Set
+`GITHUB_TOKEN` in the environment for authenticated GitHub read limits.
+
+```sh
+audit_dir=$(mktemp -d)
+for revision in 1e4aec5 8d52071; do
+  mkdir "$audit_dir/$revision"
+  git archive "$revision" src | tar -x -C "$audit_dir/$revision"
+  phase=before
+  if [ "$revision" = 8d52071 ]; then phase=after; fi
+  PYTHONPATH="$audit_dir/$revision/src" .venv/bin/python \
+    src/maintainer_copilot/classification_evaluation.py --availability-only \
+    --phase "$phase" --directory "$audit_dir/$phase"
+done
+```
+
+Each output `results.json` records the audit driver hash, the frozen package
+hashes and one preflight row per case. Check `error`
+before interpreting `expected_reachable`: a flagged opening has a null result.
+The corresponding stored rows are in the #60 `before` and `followup` directories.
+
+**#59 — docs versus question.** Both prompts returned docs for pytest #12377
+and missed the obsolete-helper counterexample. The candidate is confined to
+the diagnostic runner. [Paired results and reproducer](docs/evaluation/issue-59.md)
 
 The requested [triage-quality follow-up](docs/evaluation/issue-56.md) preserves
 the forty cases and all prior results. It fixes report-detail recognition and

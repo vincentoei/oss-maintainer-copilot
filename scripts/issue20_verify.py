@@ -26,6 +26,10 @@ def verify_recorded_source(root: Path, hashes: dict[str, str], commit: str) -> N
 
 
 def verify(directory: Path) -> dict[str, Any]:
+    if not __debug__:
+        raise RuntimeError(
+            "Run the artifact assertions with Python optimization disabled"
+        )
     freeze = json.loads((ROOT / "docs/evaluation/issue-20/freeze.json").read_text())
     baseline_path = ROOT / "docs/evaluation/issue-19/post-quality/run/results.json"
     baseline = json.loads(baseline_path.read_text())
