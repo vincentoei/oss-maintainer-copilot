@@ -73,14 +73,14 @@ observations, separate from the historical cohort. [Exact openings](issue-62/pro
 | Historical 3B | 50 | 96,216 / 1,680 | 537 / 1,824 | 542 / 1,833 | 2,754 |
 | Historical 7B | 50 | 96,216 / 1,449 | 895 / 3,427 | 911 / 3,437 | 5,370 |
 | Reviewed synthetic 3B | 6 | 2,716 / 174 | 312 / 349 | 312 / 349 | 2,754 |
-| Reviewed synthetic 7B | 6 | 2,716 / 150 | 459 / 489 | 459 / 489 | 5,370 |
+| Reviewed synthetic 7B | 6 | 2,716 / 150 | 459 / 489 | 459 / 490 | 5,370 |
 
 All **112/112** reservations produced one HTTP 200 response and one report.
 Zero model validation failures, transport errors, type abstentions, missing
 token counts or rows without GPU measurements. Zero downloads, hosted calls,
 repairs or retries. Model API cost was **US$0**. Per-call records preserve the
 bounded provider response, selected index, mapped quote, latency, usage,
-status and GPU samples. [Durable ledger](issue-62/run/reservations.jsonl) · [Control reports](issue-62/run/coder3b-ctx16k/) · [Candidate reports](issue-62/run/coder7b-ctx16k/)
+status and GPU sampling summaries. [Durable ledger](issue-62/run/reservations.jsonl) · [Control reports](issue-62/run/coder3b-ctx16k/) · [Candidate reports](issue-62/run/coder7b-ctx16k/)
 
 The 3B arm ran first. Its first call took 5.73 s with neither model resident
 before the arm. The 7B's first call took 6.24 s with the 3B resident before
@@ -102,6 +102,12 @@ describe one serial pass; energy and total operating costs were unmeasured.
 | Separate human expectations and freeze before dispatch | User confirmed all six fresh types and authorized the bounded run. Freeze commit `f6865f3` pins runner `48bb6f3`, reviewed texts, both model identities, settings, explicit budgets and file hashes. [Freeze](issue-62/freeze.json) |
 | Full denominators, errors, confusion, gains/losses and resource observations | Both tables above and the [machine-readable summary](issue-62/results.json). Error/skip rows cannot earn agreement, and the offline scorer retains undispatched and charged-without-result rows if interrupted. |
 | Deterministic validation and review | Both aliases passed fixed and historical-replay wire-parity and foreign-label rejection tests. Budget tests cover altered or unknown payloads, restarts, duplicate reservations and both limits. Independent review before dispatch led to checks for unexpected response model identity, lossless bounded error evidence, missing usage and partial-run scoring. Offline fault simulations covered all four. Full suite 504 passed, two opt-in public replay tests skipped; Ruff and mypy passed. |
+
+The four earlier offline audits passed in a fresh full-history clone. The #62
+input verifier passed there and the scorer reproduced the published JSON byte
+for byte. Independent Standards and Spec reviews checked the 112 saved
+responses against the publication and identified a rounding correction to the
+synthetic 7B replay p95, included above.
 
 From a full-history clone with the project environment, these commands audit
 the prepared inputs and recompute the scored publication without calling
