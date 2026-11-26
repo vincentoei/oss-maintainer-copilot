@@ -24,14 +24,24 @@ REVIEWED = json.loads(
 )["examples"]
 
 
-@pytest.mark.parametrize("case", REVIEWED)
+@pytest.mark.parametrize(
+    "case",
+    [
+        *REVIEWED,
+        {
+            "title": "Unresolved notes",
+            "body": "I have some notes, but have not decided whether anything needs to change.",
+            "expected_type": None,
+        },
+    ],
+)
 @pytest.mark.parametrize("path", ["fixed", "agent", "replay"])
-def test_user_reviewed_semantic_types_without_required_keywords(
+def test_semantic_types_and_ambiguity_across_report_paths(
     monkeypatch: pytest.MonkeyPatch,
-    case: dict[str, str],
+    case: dict[str, str | None],
     path: str,
 ) -> None:
-    text = case["body"]
+    text = str(case["body"])
 
     def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
         assert isinstance(request.data, bytes)
@@ -65,7 +75,9 @@ def test_user_reviewed_semantic_types_without_required_keywords(
                                 "content": json.dumps(
                                     {
                                         "issue_type": case["expected_type"],
-                                        "issue_type_quote": text,
+                                        "issue_type_quote": text
+                                        if case["expected_type"]
+                                        else None,
                                         "reply_citation_ids": [],
                                     }
                                 )
@@ -77,7 +89,7 @@ def test_user_reviewed_semantic_types_without_required_keywords(
         )
 
     monkeypatch.setattr("maintainer_copilot.model.urlopen", endpoint)
-    issue = IssueUnderReview(title=case["title"], body=text)
+    issue = IssueUnderReview(title=str(case["title"]), body=text)
     if path == "fixed":
         report = triage_issue(
             issue, model_client=OpenAICompatibleModel("http://model.test/v1", "test")
@@ -92,12 +104,12 @@ def test_user_reviewed_semantic_types_without_required_keywords(
         )
     else:
         report = replay_opening(
-            case["title"],
+            str(case["title"]),
             text,
             model_client=OpenAICompatibleModel("http://model.test/v1", "test"),
         )
     assert report.issue_type == case["expected_type"]
-    assert report.issue_type_quote == text
+    assert report.issue_type_quote == (text if case["expected_type"] else None)
 
 
 @pytest.mark.parametrize("label", ["maintenance", "type: bug"])
