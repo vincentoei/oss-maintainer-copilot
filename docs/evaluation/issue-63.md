@@ -1,46 +1,35 @@
 # Issue #63: Qwen3.5 default-model evaluation
 
-Status: **prepared, awaiting execution approval**. No #63 model calls or quality
-measurements have been made. The current application default remains 3B.
+Status: **approved run complete; human report review pending**. Qwen3.5 matched
+12/12 new synthetic expectations against 8/12 for both controls, but repeated
+all three exposed bug-loss diagnostics. Keep the 3B default pending resolution
+of the historical tradeoffs and semantic/usefulness review. [Full report](issue-63/report.md)
+· [Offline scorecard](issue-63/scorecard.json).
 
-The user confirmed all [twelve new synthetic expectations](issue-63/proposed-cases.json)
-in three explicit batch replies. They are designed diagnostic cases, not unseen
-real-world generalization evidence. The [protocol](issue-63/proposal.md) proposes
-three fixed-workflow arms plus candidate-only application integration, with a
-maximum **55 local calls / 14,080 output tokens**, no model downloads, hosted calls,
-retries or API fees. [Request preview](issue-63/request-preview.json) ·
-[Read-only serving inspection](issue-63/serving-inspection.json).
-
-| Acceptance area | Preparation evidence / outstanding work |
+| Acceptance area | Evidence / remaining limitations |
 | --- | --- |
-| Publish reviewed prior comparison | PR #64 merged as `28f3d36`, preserving frozen history; #62 resolution recorded and issue closed. Original measurements and expected outcomes unchanged. |
-| Fresh cases and annotation rubric | Twelve proposed types confirmed by the requesting user before inference; rubric recorded in protocol. Four bugs, three regressions, three questions, one docs case and one null. |
-| Frozen, approved requests and limits | All 55 request hashes captured without inference, including actual browser/API paths. Final committed freeze and explicit execution approval are required before dispatch. |
-| Measured comparison and per-case changes | Not yet run. Three exposed bug-loss diagnostics are separate from the twelve fresh synthetic cases. No new fifty-case score is planned. |
-| Human semantic/usefulness review | Not yet available: actual generated reports do not exist. The auditor can generate method-hidden sheets keyed to report fingerprints after execution. |
-| Application and resource checks | Opt-in `MODEL_REASONING_EFFORT=none` reaches fixed, agent planning and agent final calls; unset preserves the previous payload. Controlled simulation covers Python, HTTP, browser and finish-to-report agent paths. Live compatibility, cold/long-input behavior and measurements await approval. Search/inspect transitions are covered by existing deterministic tests, not this integration set. |
-| Preservation, checks, review and audit | [Checks](issue-63/preparation-checks.json): 510 passed, 2 opt-in skips; Ruff/mypy and seven earlier audits pass. All 53 simulated reports replayed; accounting/tamper/late-worker fault checks passed. Separate [reviews](issue-63/preparation-review.md) found no remaining blockers before freeze. |
-| Promote/retain decision | Pending actual outcomes and actual human report ratings. The historical 38/50 score does not authorize promotion. |
+| Review and publish prior comparison | PR #64 merged as `28f3d36`, preserving frozen history. #62 resolution recorded and issue closed. Earlier measurements and expected outcomes unchanged. |
+| Fresh cases and annotation rubric | All [twelve synthetic expectations](issue-63/proposed-cases.json) confirmed by the requesting user before inference. Four bugs, three regressions, three questions, one docs and one null. Rubric frozen in protocol; small designed cohort does not establish real-world generalization. |
+| Frozen, approved requests and limits | [Protocol](issue-63/proposal.md), [freeze](issue-63/freeze.json), [actual user approval](issue-63/approval.json), [request hashes](issue-63/request-preview.json) and [pre-dispatch ledger](issue-63/run/reservations.jsonl). Exactly 55 calls; 1528/14,080 output tokens; no retries, repairs, warm-ups, model downloads, hosted calls or API fees. |
+| Comparison and per-case changes | [Scorecard](issue-63/scorecard.json) preserves all denominators, statuses, confusion and paired changes. Fresh: candidate 12/12, controls 8/12; candidate gains three regressions and null, loses none. Exposed diagnostics: candidate 0/3 versus both controls 3/3; reported separately. No new fifty-case score. |
+| Fresh human semantic/usefulness review | [Actual report sheets](issue-63/review/reports.md), fingerprints, rubric and pending attribution cover all 53 reports. Request sent to the user. **Unverified:** no actual human ratings received; no expected labels or agent inspection presented as human review. Promotion gate cannot pass yet. |
+| Application and resources | Candidate passes all eight Python/API/browser/agent short/long reports, ten calls. All observations report 16K GPU placement; sampled peak candidate device use 4276 MiB. Empty-residency first-call model time 4.981 s; fresh median 487 ms. Long final prompt 4532 reported tokens. Physical tensor residency, absence of truncation, near-window behavior and model-driven search/inspect remain unverified here. Existing deterministic tests/simulations cover failure guards and unrelated behavior; no live failure was induced. |
+| Preservation, tests, review and replay | [Preparation checks](issue-63/preparation-checks.json): 510 passed, two opt-in skips, Ruff/mypy and seven prior audits pass. Separate [preparation reviews](issue-63/preparation-review.md) have no remaining blockers. The new auditor reproduced all 53 full report/context objects and matched 55 charges without further inference. Final publication review is in progress; results and expected outcomes from earlier evaluations are preserved. |
+| Recommendation and tradeoffs | [Decision rationale](issue-63/report.md): retain 3B for now; Qwen3.5 is a stronger classification candidate, but known historical losses and actual human review remain unresolved. Default unchanged. #63 remains open for report review and final disposition. |
 
-To reproduce the request capture with simulated model responses (no model calls):
-
-```sh
-PYTHONPATH=src .venv/bin/python scripts/issue63_prepare.py
-```
-
-The preparation requires the retained, hash-verified historical snapshot and
-pinned local browser tooling. It starts a temporary loopback application and
-browser, and injects simulated responses at the model boundary. Source/config
-and protocol must be committed cleanly before generating the separate freeze.
-
-The live entry point refuses execution without a committed approval record
-matching the exact freeze and numeric limits. After an approved run, audit its
-ledger, responses, reports, placement and scores without model inference:
+Audit saved responses, reports, accounting, placement and scores without inference:
 
 ```sh
 PYTHONPATH=src .venv/bin/python scripts/issue63_results.py
 ```
 
-Cold model residency, native cache counts and sampled device memory have the
-limits stated in the protocol. Neither valid JSON nor an exact quote establishes
-semantic correctness. Missing data or human ratings cannot pass adoption gates.
+With the retained hash-verified local diagnostic snapshot, this reproduces
+`issue-63/scorecard.json` byte for byte. Without that private snapshot, the auditor
+still verifies raw response/accounting/scoring but explicitly lists the nine
+historical report structures it could not replay. Contributor openings are not
+republished in bulk under ADR-0003.
+
+The runner refuses to reuse the existing allocation. The pre-run source and
+proposal are frozen historical evidence; their pending-status wording does not
+override the later approval and measured results. Generated report ratings are
+a separate step and remain pending.
