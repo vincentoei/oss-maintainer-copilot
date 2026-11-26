@@ -1,0 +1,29 @@
+{
+  "node_version": "v20.20.2",
+  "playwright_package": "/home/vincentoei/.npm/_npx/e41f203b7505f1fb/node_modules/playwright",
+  "playwright_version": "1.63.0",
+  "playwright_package_sha256": "8bc2ddebe8d9b051b9ecb87d62c6c63877e59d08617f32c3215681ca8bb70998",
+  "chromium_executable": "/home/vincentoei/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell",
+  "chromium_sha256": "ded93a9c9a53a1ae040f08124badcca95c938e9d5015ff340c3b5538c41bf39e",
+  "library_path": "/tmp/issue63-browser-deps/root/usr/lib/x86_64-linux-gnu",
+  "libraries_sha256": {
+    "/tmp/issue63-browser-deps/root/usr/lib/x86_64-linux-gnu/libfreebl3.chk": "af2106152665e3cfad37415c0323cd19b4e5c814259d5b1fec267496fd2a06ea",
+    "/tmp/issue63-browser-deps/root/usr/lib/x86_64-linux-gnu/libfreebl3.so": "f69fbccbc374e71a7ed6da7c35d5f69c6feef33e7cee5c6bfa8d02b94ffc5959",
+    "/tmp/issue63-browser-deps/root/usr/lib/x86_64-linux-gnu/libfreeblpriv3.chk": "47e1d2b867e30e7960c31b63d8a193534075078051370d3ab9db3b8ae9bb091a",
+    "/tmp/issue63-browser-deps/root/usr/lib/x86_64-linux-gnu/libfreeblpriv3.so": "2192cfdb1c367e8ad322528ed5ed40632b5cf83a2ec86ba3f88ca8eb6ac57425",
+    "/tmp/issue63-browser-deps/root/usr/lib/x86_64-linux-gnu/libnspr4.so": "c32583a53640c144757419b977a76976ee3dbda7b905a0af1046ace3c570ae98",
+    "/tmp/issue63-browser-deps/root/usr/lib/x86_64-linux-gnu/libnss3.so": "e02cd7ae23536d20588e6f0a3e1cfa93e7591cbca2408a090a147769dd3e3f7d",
+    "/tmp/issue63-browser-deps/root/usr/lib/x86_64-linux-gnu/libnssckbi.so": "f5480fbce00d49d5d623de0ee7b1b9468dd01c9e2fdc54047c9fa2b5038aea9f",
+    "/tmp/issue63-browser-deps/root/usr/lib/x86_64-linux-gnu/libnssdbm3.chk": "74a4e5e788b8dd1039edfadd2be4232c3c6cf7a535cfa30ded38e06ef96afb2b",
+    "/tmp/issue63-browser-deps/root/usr/lib/x86_64-linux-gnu/libnssdbm3.so": "c119cedf2bb4819a1d71712713e294832fa4c5071ebb6d451eae4f005060d1cc",
+    "/tmp/issue63-browser-deps/root/usr/lib/x86_64-linux-gnu/libnssutil3.so": "8be78576227541c877d6ab17b49efe9ed7635b75039ea9810c8ccd030380f6e3",
+    "/tmp/issue63-browser-deps/root/usr/lib/x86_64-linux-gnu/libplc4.so": "f68520b4a9ba6190c67ce96511192f9af31dd96d91f18fd64cca48ffe08f7deb",
+    "/tmp/issue63-browser-deps/root/usr/lib/x86_64-linux-gnu/libplds4.so": "403f3c1ec489de93d04b5a386d2e659af6da0a41e09ffb90a280b6d68eeb1617",
+    "/tmp/issue63-browser-deps/root/usr/lib/x86_64-linux-gnu/libsmime3.so": "2c9e89b4004d027ceab26e71fbced1d82f7b2129f54d90495e86c888c6c0d777",
+    "/tmp/issue63-browser-deps/root/usr/lib/x86_64-linux-gnu/libsoftokn3.chk": "94fc4aa792fa7fb3a6158f27ea799dbba54e4e58aeda485575632299a72a05ed",
+    "/tmp/issue63-browser-deps/root/usr/lib/x86_64-linux-gnu/libsoftokn3.so": "6a25299c9b9f7a254b6288bd4fc59f75946326480973f508d79d1e2cb95e295d",
+    "/tmp/issue63-browser-deps/root/usr/lib/x86_64-linux-gnu/libssl3.so": "fe4350efe53fb58382ebb94db38de739cb9c9dd0dee017410e6cf8891d4bff8a"
+  },
+  "preparation_dependency_download_bytes": 1562310,
+  "model_downloads": 0
+}

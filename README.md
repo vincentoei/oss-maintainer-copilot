@@ -63,8 +63,14 @@ endpoint). For example, after starting a local model server:
 MODEL_NAME=your-model-name uv run --no-env-file uvicorn maintainer_copilot.web:app --reload
 ```
 
-Set `MODEL_BASE_URL` if your server uses a different URL. The model receives the
-issue title and body, all valid type labels from the resolved repository profile,
+Set `MODEL_BASE_URL` if your server uses a different URL. For compatible endpoints,
+`MODEL_REASONING_EFFORT=none` explicitly disables thinking in fixed reports and
+both bounded-agent planning and final reporting. Leave it unset or empty to omit
+the provider parameter and preserve existing behavior. Other values are rejected.
+This opt-in setting supports the [#63 evaluation](docs/evaluation/issue-63/proposal.md);
+it does not change the selected model.
+
+The model receives the issue title and body, all valid type labels from the resolved repository profile,
 a bounded set of exact issue excerpts, and the report's available citation-backed
 statements. It selects a suggested
 label or unknown, an independent excerpt index, and citation IDs for the draft

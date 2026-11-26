@@ -1,0 +1,103 @@
+{
+  "kind": "new investigator-designed synthetic cases, not real-world held-out evaluation",
+  "review": {
+    "status": "confirmed",
+    "reviewer": "requesting user",
+    "confirmation": "Confirm these four proposed types",
+    "batches": [
+      [
+        "log-bug",
+        "log-regression",
+        "fixture-question",
+        "fixture-bug"
+      ],
+      [
+        "exit-bug",
+        "exit-regression",
+        "precedence-docs",
+        "precedence-question"
+      ],
+      [
+        "teardown-regression",
+        "traceback-bug",
+        "warning-question",
+        "uncertain"
+      ]
+    ],
+    "scope": "expected types only; no generated-report ratings"
+  },
+  "cases": [
+    {
+      "id": "log-bug",
+      "title": "Log file entries",
+      "body": "With --log-file enabled, each emitted log record appears twice in the output file. The same unchanged project shows this on both pytest 8.2 and 8.3. Please fix the duplicate writes.",
+      "proposed_type": "type: bug"
+    },
+    {
+      "id": "log-regression",
+      "title": "Log file entries",
+      "body": "The unchanged project writes each log record once with pytest 8.2 and twice with 8.3. Switching back to 8.2 restores single writes. Please restore the earlier behavior.",
+      "proposed_type": "type: regression"
+    },
+    {
+      "id": "fixture-question",
+      "title": "Sharing a connection",
+      "body": "My function-scoped connection fixture opens and closes correctly. I want to reuse one connection across all tests in a module. Which fixture scope should I choose?",
+      "proposed_type": "type: question"
+    },
+    {
+      "id": "fixture-bug",
+      "title": "Closing a connection",
+      "body": "A function-scoped fixture opens one connection, yields it to one passing test, and should then close it. Its teardown never runs, leaving the connection open. This also happens on the previous release.",
+      "proposed_type": "type: bug"
+    },
+    {
+      "id": "exit-bug",
+      "title": "Process exit status",
+      "body": "A test deliberately raises AssertionError and the summary correctly reports one failed test, but the pytest process exits with status 0. Both releases I checked behave this way. Please fix the exit status.",
+      "proposed_type": "type: bug"
+    },
+    {
+      "id": "exit-regression",
+      "title": "Process exit status",
+      "body": "For the same failing test, pytest 8.2 exits with status 1 and pytest 8.3 exits with status 0. The summary reports the failure in both. Reinstalling 8.2 restores status 1.",
+      "proposed_type": "type: regression"
+    },
+    {
+      "id": "precedence-docs",
+      "title": "Configuration precedence",
+      "body": "The reference says a project configuration value overrides the command-line value. The implementation and intended behavior give the command line priority. Please correct that sentence in the reference.",
+      "proposed_type": "type: docs"
+    },
+    {
+      "id": "precedence-question",
+      "title": "Configuration precedence",
+      "body": "The reference correctly says the command line overrides project configuration, and that works for me. How can I choose a different value for just one invocation without editing the project file?",
+      "proposed_type": "type: question"
+    },
+    {
+      "id": "teardown-regression",
+      "title": "Session cleanup",
+      "body": "The same plugin and test suite close their temporary directory at session end with pytest 8.2. After upgrading to 8.3, the cleanup callback is never called. Rolling back restores the callback.",
+      "proposed_type": "type: regression"
+    },
+    {
+      "id": "traceback-bug",
+      "title": "Captured traceback",
+      "body": "A failing test raises ValueError with a message, but the displayed traceback attributes it to an unrelated test that passed. The problem occurs on both tested releases. Please show the traceback for the actual failing test.",
+      "proposed_type": "type: bug"
+    },
+    {
+      "id": "warning-question",
+      "title": "Understanding a warning",
+      "body": "All my tests pass, and the warning correctly describes a deprecated option I still use. Where can I configure pytest to hide this warning temporarily while I update my project?",
+      "proposed_type": "type: question"
+    },
+    {
+      "id": "uncertain",
+      "title": "Notes for later",
+      "body": "I saved an incomplete note about a test run. I no longer have the output, have not checked whether anything failed, and have not decided whether I need help or want anything changed.",
+      "proposed_type": null
+    }
+  ]
+}

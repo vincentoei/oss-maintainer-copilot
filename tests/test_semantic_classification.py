@@ -28,6 +28,59 @@ REVIEWED = json.loads(
 )["examples"]
 
 
+@pytest.mark.parametrize("effort", [None, "none"])
+@pytest.mark.parametrize("path", ["fixed", "agent"])
+def test_environment_can_disable_thinking_for_both_public_report_paths(
+    monkeypatch: pytest.MonkeyPatch, effort: str | None, path: str
+) -> None:
+    monkeypatch.setenv("MODEL_BASE_URL", "http://model.test/v1")
+    monkeypatch.setenv("MODEL_NAME", "configured-model")
+    if effort is None:
+        monkeypatch.delenv("MODEL_REASONING_EFFORT", raising=False)
+    else:
+        monkeypatch.setenv("MODEL_REASONING_EFFORT", effort)
+    calls = []
+
+    def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
+        assert isinstance(request.data, bytes)
+        payload = json.loads(request.data)
+        if effort is None:
+            assert "reasoning_effort" not in payload
+        else:
+            assert payload["reasoning_effort"] == "none"
+        assert payload["model"] == "configured-model" and timeout == 20
+        assert payload["max_tokens"] == 256
+        calls.append(payload)
+        schema = payload["response_format"]["json_schema"]["schema"]
+        output: dict[str, object] = (
+            {"tool": "finish", "arguments": {}}
+            if "enum" in schema
+            else {"issue_type": None, "quote_index": None, "reply_citation_ids": []}
+        )
+        return io.BytesIO(
+            json.dumps(
+                {"choices": [{"message": {"content": json.dumps(output)}}]}
+            ).encode()
+        )
+
+    monkeypatch.setattr("maintainer_copilot.model.urlopen", endpoint)
+    issue = IssueUnderReview(title="Undecided", body="I have not identified a problem.")
+    if path == "fixed":
+        report = triage_issue(
+            issue, model_client=OpenAICompatibleModel.from_environment()
+        )
+    else:
+        report = triage_issue_with_agent(
+            issue,
+            GitHubIssueSource(),
+            PublicDocumentationSource(()),
+            PublicRepositorySource(),
+            agent_client=OpenAICompatibleAgent.from_environment(),
+        )
+    assert report.issue_type is None
+    assert len(calls) == (1 if path == "fixed" else 2)
+
+
 @pytest.mark.parametrize(
     "case",
     [

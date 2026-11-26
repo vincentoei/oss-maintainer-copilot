@@ -4,7 +4,7 @@ import json
 import os
 from collections.abc import Callable
 from dataclasses import dataclass, field, replace
-from typing import Protocol, Self
+from typing import Literal, Protocol, Self
 from urllib.error import URLError
 from urllib.request import Request, urlopen
 
@@ -166,16 +166,22 @@ class OpenAICompatibleModel:
         model_name: str,
         *,
         response_observer: Callable[[bytes], None] | None = None,
+        reasoning_effort: Literal["none"] | None = None,
     ) -> None:
         self.base_url = base_url.rstrip("/")
         self.model_name = model_name
         self.response_observer = response_observer
+        self.reasoning_effort = reasoning_effort
 
     @classmethod
     def from_environment(cls) -> Self:
+        effort = os.getenv("MODEL_REASONING_EFFORT") or None
+        if effort not in (None, "none"):
+            raise ValueError("MODEL_REASONING_EFFORT must be unset or 'none'")
         return cls(
             os.getenv("MODEL_BASE_URL", "http://127.0.0.1:11434/v1"),
             os.getenv("MODEL_NAME", ""),
+            reasoning_effort="none" if effort == "none" else None,
         )
 
     def generate(self, request: ModelRequest) -> object:
@@ -291,6 +297,11 @@ class OpenAICompatibleModel:
             "model": self.model_name,
             "temperature": 0,
             "max_tokens": max_tokens,
+            **(
+                {"reasoning_effort": self.reasoning_effort}
+                if self.reasoning_effort is not None
+                else {}
+            ),
             "response_format": (
                 {
                     "type": "json_schema",
