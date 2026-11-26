@@ -1,0 +1,60 @@
+{
+  "recorded_at": "2026-11-25T15:40:42.920796+00:00",
+  "checks": [
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0,
+      "output": "All checks passed!\n"
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "exit_code": 0,
+      "output": "145 files already formatted\n"
+    },
+    {
+      "command": [
+        ".venv/bin/mypy",
+        "src",
+        "tests"
+      ],
+      "exit_code": 0,
+      "output": "Success: no issues found in 41 source files\n"
+    },
+    {
+      "command": [
+        ".venv/bin/pytest",
+        "-q",
+        "tests/test_hosted_evaluation.py"
+      ],
+      "exit_code": 0,
+      "output": "17 passed in 0.38s",
+      "evidence": "Observed focused run after final implementation correction."
+    },
+    {
+      "command": [
+        ".venv/bin/pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "output": "461 passed, 2 skipped in 14.69s",
+      "evidence": "Observed complete suite outside sandbox after final implementation correction; original sandboxed process stalled and was terminated."
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/issue20_verify.py"
+      ],
+      "exit_code": 0,
+      "output": "50 cases/eligible/scored/paired; every source, score and ledger check passed; no network or inference."
+    }
+  ]
+}

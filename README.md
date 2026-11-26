@@ -64,13 +64,18 @@ MODEL_NAME=your-model-name uv run --no-env-file uvicorn maintainer_copilot.web:a
 ```
 
 Set `MODEL_BASE_URL` if your server uses a different URL. The model receives the
-issue title and body, mechanically valid issue-text quote options, and the
-report's available citation-backed statements. It
-returns a supported label from the selected profile or unknown, an exact quote from the issue for a
-suggested label, and citation IDs to include in the draft reply. The server
-rejects free-text claims, unknown citations, and labels without an unnegated
-cue in the quote's original issue context. With no model configured, the report
-still works and marks the model suggestion as unavailable.
+issue title and body, all valid type labels from the resolved repository profile,
+a bounded set of exact issue excerpts, and the report's available citation-backed
+statements. It selects a suggested
+label or unknown, an independent excerpt index, and citation IDs for the draft
+reply. The server maps a valid index back to its original issue-text quote.
+The server rejects unknown labels, fabricated/oversized quotes, unknown citations
+and extra free-text claims. It validates quote provenance, not whether the quote
+semantically justifies the label. Semantic fit, negation and ambiguity remain
+model judgments requiring review. The independent keyword baseline keeps its
+literal-cue rules. With no model configured, the report still works and marks
+model suggestions unavailable.
+
 
 The [tested Windows Ollama / WSL app guide](docs/local-model.md) serves
 Qwen2.5 Coder 3B Instruct Q4_K_M with 16K context and no paid model API.
@@ -227,6 +232,62 @@ their archived catalogs. Audit the updated fifty-case run offline with:
 ```sh
 PYTHONPATH=src uv run --locked --no-env-file python scripts/issue19_post_quality_verify.py --check-only
 ```
+
+### Verify the stacked classification evaluations
+
+From a full-history clone, run the four offline audits. They read saved outputs,
+case annotations and the original Git objects. They require neither credentials
+nor a model server.
+
+```sh
+PYTHONPATH=src uv run --locked --no-env-file python scripts/issue20_verify.py
+PYTHONPATH=src uv run --locked --no-env-file python scripts/issue20_flash_verify.py
+PYTHONPATH=src uv run --locked --no-env-file python scripts/issue60_verify.py
+PYTHONPATH=src uv run --locked --no-env-file python scripts/issue59_verify.py
+```
+
+**#20 — hosted quality reference.** Three hosted models processed the same 50
+cases and cutoffs using the old label/quote contract. The recorded experiment
+reserved US$1.530026 and reported US$0.20073915 in inference charges against
+the shared US$5 cap. For historical reproduction, the GPT-4.1 protocol command
+belongs in a checkout of `8fba053`. The Flash command belongs in a checkout
+of `52fbc8d`, which contains the GPT-4.1 results and ledger it reads.
+Running these paid commands at the current tip uses a different classifier.
+A fresh paid experiment has its own output directory and spending decision.
+[GPT-4.1 evidence](docs/evaluation/issue-20.md) · [Flash evidence](docs/evaluation/issue-20-flash.md)
+
+**#60 — label availability.** The indexed-quote contract makes every type
+reachable. Qwen retained 29/50 agreement with six gains and six regressions.
+The archive includes the failed free-quote candidate, both budgets and pending
+human review. [Comparison](docs/evaluation/issue-60.md)
+
+To regenerate the before and final availability rows, use the current audit
+driver with each frozen Python package. From the repository root after
+`uv sync --locked --group dev`, the commands below read public GitHub evidence,
+verify openings and capture label options with zero model dispatches. Set
+`GITHUB_TOKEN` in the environment for authenticated GitHub read limits.
+
+```sh
+audit_dir=$(mktemp -d)
+for revision in 1e4aec5 8d52071; do
+  mkdir "$audit_dir/$revision"
+  git archive "$revision" src | tar -x -C "$audit_dir/$revision"
+  phase=before
+  if [ "$revision" = 8d52071 ]; then phase=after; fi
+  PYTHONPATH="$audit_dir/$revision/src" .venv/bin/python \
+    src/maintainer_copilot/classification_evaluation.py --availability-only \
+    --phase "$phase" --directory "$audit_dir/$phase"
+done
+```
+
+Each output `results.json` records the audit driver hash, the frozen package
+hashes and one preflight row per case. Check `error`
+before interpreting `expected_reachable`: a flagged opening has a null result.
+The corresponding stored rows are in the #60 `before` and `followup` directories.
+
+**#59 — docs versus question.** Both prompts returned docs for pytest #12377
+and missed the obsolete-helper counterexample. The candidate is confined to
+the diagnostic runner. [Paired results and reproducer](docs/evaluation/issue-59.md)
 
 The requested [triage-quality follow-up](docs/evaluation/issue-56.md) preserves
 the forty cases and all prior results. It fixes report-detail recognition and

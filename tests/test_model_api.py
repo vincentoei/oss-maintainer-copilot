@@ -11,7 +11,8 @@ from maintainer_copilot.documentation import (
     DocumentationSource,
     DocumentationTopic,
 )
-from maintainer_copilot.model import ModelUnavailable
+from maintainer_copilot.evaluation import KeywordRuleModel
+from maintainer_copilot.model import ModelClient, ModelUnavailable
 from maintainer_copilot.web import (
     app,
     get_documentation_source,
@@ -32,9 +33,9 @@ class FixedModel:
 
 
 def report_for(
-    model: FixedModel, title: str = "Bug: collection fails"
+    model: ModelClient, title: str = "Bug: collection fails"
 ) -> dict[str, Any]:
-    async def fixed_model() -> FixedModel:
+    async def fixed_model() -> ModelClient:
         return model
 
     app.dependency_overrides[get_model_client] = fixed_model
@@ -143,8 +144,8 @@ def test_model_accepts_other_pytest_type_when_issue_quote_supports_it() -> None:
             "reply_citation_ids": ["C1", "C2", "C3", "C4"],
         },
         {
-            "issue_type": "type: docs",
-            "issue_type_quote": "Bug: collection fails",
+            "issue_type": "type: bug",
+            "issue_type_quote": None,
             "reply_citation_ids": ["C1", "C2", "C3", "C4"],
         },
     ],
@@ -206,20 +207,13 @@ def test_model_abstains_from_reply_when_no_supported_claim_exists() -> None:
     assert any(item["field"] == "draft_reply" for item in report["abstentions"])
 
 
-def test_negated_type_cue_does_not_ground_a_suggestion() -> None:
+def test_keyword_baseline_negated_type_cue_does_not_ground_a_suggestion() -> None:
     report = report_for(
-        FixedModel(
-            {
-                "issue_type": "type: bug",
-                "issue_type_quote": "No bug found",
-                "reply_citation_ids": ["C1", "C2", "C3", "C4"],
-            }
-        ),
+        KeywordRuleModel(),
         title="No bug found",
     )
 
-    assert report["issue_type"] is None
-    assert any(item["field"] == "issue_type" for item in report["abstentions"])
+    assert report["issue_type"] != "type: bug"
 
 
 def test_branch_routing_label_is_not_an_issue_type_suggestion() -> None:
@@ -238,52 +232,31 @@ def test_branch_routing_label_is_not_an_issue_type_suggestion() -> None:
     assert any(item["field"] == "issue_type" for item in report["abstentions"])
 
 
-def test_postcue_negation_does_not_ground_a_suggestion() -> None:
+def test_keyword_baseline_postcue_negation_does_not_ground_a_suggestion() -> None:
     report = report_for(
-        FixedModel(
-            {
-                "issue_type": "type: bug",
-                "issue_type_quote": "Bug is not present",
-                "reply_citation_ids": ["C1", "C2", "C3", "C4"],
-            }
-        ),
+        KeywordRuleModel(),
         title="Bug is not present",
     )
 
-    assert report["issue_type"] is None
-    assert any(item["field"] == "issue_type" for item in report["abstentions"])
+    assert report["issue_type"] != "type: bug"
 
 
-def test_cropped_quote_cannot_hide_negation_in_issue_text() -> None:
+def test_keyword_baseline_cropped_quote_cannot_hide_negation_in_issue_text() -> None:
     report = report_for(
-        FixedModel(
-            {
-                "issue_type": "type: bug",
-                "issue_type_quote": "bug",
-                "reply_citation_ids": ["C1", "C2", "C3", "C4"],
-            }
-        ),
+        KeywordRuleModel(),
         title="Feature request, not a bug",
     )
 
-    assert report["issue_type"] is None
-    assert any(item["field"] == "issue_type" for item in report["abstentions"])
+    assert report["issue_type"] != "type: bug"
 
 
-def test_qualified_negation_cannot_ground_type_suggestion() -> None:
+def test_keyword_baseline_qualified_negation_cannot_ground_type_suggestion() -> None:
     report = report_for(
-        FixedModel(
-            {
-                "issue_type": "type: bug",
-                "issue_type_quote": "bug",
-                "reply_citation_ids": ["C1", "C2", "C3", "C4"],
-            }
-        ),
+        KeywordRuleModel(),
         title="Feature request, not really a bug",
     )
 
-    assert report["issue_type"] is None
-    assert any(item["field"] == "issue_type" for item in report["abstentions"])
+    assert report["issue_type"] != "type: bug"
 
 
 def test_model_failure_without_reply_evidence_explicitly_abstains() -> None:

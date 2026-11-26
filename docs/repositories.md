@@ -149,8 +149,10 @@ verified pinned profile rather than a fresh network observation.
   rule can miss actual omissions and cannot guarantee semantic completeness.
 - First 100 available labels only; a full page is disclosed as possibly capped.
   Generic type candidates come from template labels or configured `type_labels`,
-  intersected with verified available labels. Literal, unnegated label wording
-  must appear in the selected exact issue-text quote. Unestablished conventions
+  intersected with verified available labels. Literal, unnegated wording
+  remains part of lexical profile rules. Model classification can select
+  any resolved type label with an exact issue-text quote; the server verifies
+  provenance rather than semantic label support. Unestablished conventions
   or no matching evidence abstain; arbitrary label names are not semantic types.
 - At most three configured documents (defaults: README.md, CONTRIBUTING.md,
   docs/README.md). Each supplies at most its first twenty lines and 2,000

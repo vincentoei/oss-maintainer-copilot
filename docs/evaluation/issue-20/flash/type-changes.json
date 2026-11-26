@@ -1,0 +1,211 @@
+[
+  {
+    "model": "glm",
+    "issue_number": 10156,
+    "expected": "type: docs",
+    "qwen": "type: infrastructure",
+    "gpt41": "type: question",
+    "flash": null,
+    "qwen_correct": false,
+    "gpt41_correct": false,
+    "flash_correct": false
+  },
+  {
+    "model": "deepseek",
+    "issue_number": 10156,
+    "expected": "type: docs",
+    "qwen": "type: infrastructure",
+    "gpt41": "type: question",
+    "flash": null,
+    "qwen_correct": false,
+    "gpt41_correct": false,
+    "flash_correct": false
+  },
+  {
+    "model": "deepseek",
+    "issue_number": 12083,
+    "expected": "type: regression",
+    "qwen": "type: question",
+    "gpt41": "type: question",
+    "flash": "type: bug",
+    "qwen_correct": false,
+    "gpt41_correct": false,
+    "flash_correct": false
+  },
+  {
+    "model": "glm",
+    "issue_number": 12083,
+    "expected": "type: regression",
+    "qwen": "type: question",
+    "gpt41": "type: question",
+    "flash": "type: bug",
+    "qwen_correct": false,
+    "gpt41_correct": false,
+    "flash_correct": false
+  },
+  {
+    "model": "glm",
+    "issue_number": 12219,
+    "expected": "type: bug",
+    "qwen": "type: docs",
+    "gpt41": null,
+    "flash": null,
+    "qwen_correct": false,
+    "gpt41_correct": false,
+    "flash_correct": false
+  },
+  {
+    "model": "deepseek",
+    "issue_number": 12219,
+    "expected": "type: bug",
+    "qwen": "type: docs",
+    "gpt41": null,
+    "flash": null,
+    "qwen_correct": false,
+    "gpt41_correct": false,
+    "flash_correct": false
+  },
+  {
+    "model": "deepseek",
+    "issue_number": 12223,
+    "expected": "type: bug",
+    "qwen": "type: bug",
+    "gpt41": "type: question",
+    "flash": "type: bug",
+    "qwen_correct": true,
+    "gpt41_correct": false,
+    "flash_correct": true
+  },
+  {
+    "model": "glm",
+    "issue_number": 12223,
+    "expected": "type: bug",
+    "qwen": "type: bug",
+    "gpt41": "type: question",
+    "flash": null,
+    "qwen_correct": true,
+    "gpt41_correct": false,
+    "flash_correct": false
+  },
+  {
+    "model": "deepseek",
+    "issue_number": 12242,
+    "expected": "type: question",
+    "qwen": "type: bug",
+    "gpt41": "type: bug",
+    "flash": null,
+    "qwen_correct": false,
+    "gpt41_correct": false,
+    "flash_correct": false
+  },
+  {
+    "model": "deepseek",
+    "issue_number": 12305,
+    "expected": "type: question",
+    "qwen": "type: bug",
+    "gpt41": "type: regression",
+    "flash": "type: bug",
+    "qwen_correct": false,
+    "gpt41_correct": false,
+    "flash_correct": false
+  },
+  {
+    "model": "glm",
+    "issue_number": 12305,
+    "expected": "type: question",
+    "qwen": "type: bug",
+    "gpt41": "type: regression",
+    "flash": "type: bug",
+    "qwen_correct": false,
+    "gpt41_correct": false,
+    "flash_correct": false
+  },
+  {
+    "model": "deepseek",
+    "issue_number": 12308,
+    "expected": "type: regression",
+    "qwen": "type: bug",
+    "gpt41": "type: regression",
+    "flash": "type: regression",
+    "qwen_correct": false,
+    "gpt41_correct": true,
+    "flash_correct": true
+  },
+  {
+    "model": "glm",
+    "issue_number": 12308,
+    "expected": "type: regression",
+    "qwen": "type: bug",
+    "gpt41": "type: regression",
+    "flash": "type: regression",
+    "qwen_correct": false,
+    "gpt41_correct": true,
+    "flash_correct": true
+  },
+  {
+    "model": "glm",
+    "issue_number": 12360,
+    "expected": "type: docs",
+    "qwen": "type: docs",
+    "gpt41": "type: docs",
+    "flash": null,
+    "qwen_correct": true,
+    "gpt41_correct": true,
+    "flash_correct": false
+  },
+  {
+    "model": "glm",
+    "issue_number": 12363,
+    "expected": "type: enhancement",
+    "qwen": "type: enhancement",
+    "gpt41": "type: enhancement",
+    "flash": "type: docs",
+    "qwen_correct": true,
+    "gpt41_correct": true,
+    "flash_correct": false
+  },
+  {
+    "model": "deepseek",
+    "issue_number": 12367,
+    "expected": "type: regression",
+    "qwen": "type: question",
+    "gpt41": "type: regression",
+    "flash": "type: regression",
+    "qwen_correct": false,
+    "gpt41_correct": true,
+    "flash_correct": true
+  },
+  {
+    "model": "glm",
+    "issue_number": 12367,
+    "expected": "type: regression",
+    "qwen": "type: question",
+    "gpt41": "type: regression",
+    "flash": "type: regression",
+    "qwen_correct": false,
+    "gpt41_correct": true,
+    "flash_correct": true
+  },
+  {
+    "model": "glm",
+    "issue_number": 12377,
+    "expected": "type: docs",
+    "qwen": "type: question",
+    "gpt41": "type: docs",
+    "flash": "type: docs",
+    "qwen_correct": false,
+    "gpt41_correct": true,
+    "flash_correct": true
+  },
+  {
+    "model": "deepseek",
+    "issue_number": 12377,
+    "expected": "type: docs",
+    "qwen": "type: question",
+    "gpt41": "type: docs",
+    "flash": "type: docs",
+    "qwen_correct": false,
+    "gpt41_correct": true,
+    "flash_correct": true
+  }
+]

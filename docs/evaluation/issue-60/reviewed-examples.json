@@ -1,0 +1,31 @@
+{
+  "kind": "new synthetic examples; excluded from the historical fifty-case catalog",
+  "review": {
+    "status": "confirmed",
+    "reviewer": "requesting user",
+    "confirmation": "Confirm all four proposed types",
+    "scope": "expected issue types only; no model output ratings"
+  },
+  "examples": [
+    {
+      "title": "Weekly checks",
+      "body": "Our CI job that packages wheels needs its runner image updated.",
+      "expected_type": "type: infrastructure"
+    },
+    {
+      "title": "Changed behavior",
+      "body": "The same unchanged project passes with 8.1, but stops collecting tests with 8.2.",
+      "expected_type": "type: regression"
+    },
+    {
+      "title": "Internal suite",
+      "body": "The tests shipped inside pytest itself produce unexpected results; user projects are unaffected.",
+      "expected_type": "type: selftests"
+    },
+    {
+      "title": "Reader clarification",
+      "body": "The README says the option applies everywhere, while its reference page limits it to collection. Please reconcile those descriptions.",
+      "expected_type": "type: docs"
+    }
+  ]
+}

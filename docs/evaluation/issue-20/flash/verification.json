@@ -1,0 +1,30 @@
+{
+  "verified": true,
+  "status": "complete",
+  "case_rows": 100,
+  "eligible_cases": 50,
+  "common_paired_cases": 50,
+  "models": {
+    "deepseek": {
+      "requests": 50,
+      "known_usage_requests": 50,
+      "input_tokens": 82076,
+      "output_tokens": 15687,
+      "reasoning_tokens": 14530,
+      "reported_cost_usd": "0.01807918"
+    },
+    "glm": {
+      "requests": 50,
+      "known_usage_requests": 50,
+      "input_tokens": 78639,
+      "output_tokens": 1418,
+      "reasoning_tokens": 286,
+      "reported_cost_usd": "0.01142197"
+    }
+  },
+  "combined_reported_cost_usd": "0.20073915",
+  "combined_reserved_micro_usd": 1530026,
+  "preserved_references_and_source_freeze": true,
+  "report_semantics_and_usefulness": "pending_human_review",
+  "credential_scan": "No credential in published files; local key ignored"
+}

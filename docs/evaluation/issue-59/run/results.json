@@ -1,0 +1,2957 @@
+[
+  {
+    "arm": "baseline",
+    "number": 1,
+    "method": "fixed_rag",
+    "expected": "type: docs",
+    "report": {
+      "context": {
+        "registration_id": "pytest-default",
+        "repository": "pytest-dev/pytest",
+        "revision": "50234b4e670064c42a4c29cb6258115a2079ba4c",
+        "profile": "pytest",
+        "status": "ready",
+        "errors": [],
+        "labels": [
+          "type: backward compatibility",
+          "type: bug",
+          "type: deprecation",
+          "type: docs",
+          "type: enhancement",
+          "type: infrastructure",
+          "type: performance",
+          "type: proposal",
+          "type: question",
+          "type: refactoring",
+          "type: regression",
+          "type: removal",
+          "type: selftests"
+        ],
+        "type_cues": [
+          [
+            "type: backward compatibility",
+            "\\b(?:backward compatib\\w*|breaking change)\\b"
+          ],
+          [
+            "type: bug",
+            "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+          ],
+          [
+            "type: deprecation",
+            "\\bdeprecat\\w*\\b"
+          ],
+          [
+            "type: docs",
+            "\\b(?:docs|documentation|guide|manual|typo)\\b"
+          ],
+          [
+            "type: enhancement",
+            "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+          ],
+          [
+            "type: infrastructure",
+            "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+          ],
+          [
+            "type: performance",
+            "\\b(?:performance|slow|latency|memory|speed)\\b"
+          ],
+          [
+            "type: proposal",
+            "\\b(?:proposal|propose|design)\\b"
+          ],
+          [
+            "type: question",
+            "\\b(?:question|how|why)\\b|\\?"
+          ],
+          [
+            "type: refactoring",
+            "\\b(?:refactor\\w*|cleanup)\\b"
+          ],
+          [
+            "type: regression",
+            "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+          ],
+          [
+            "type: removal",
+            "\\bremov\\w*\\b"
+          ],
+          [
+            "type: selftests",
+            "\\b(?:selftests|pytest test suite)\\b"
+          ]
+        ],
+        "templates": [
+          {
+            "name": "bug",
+            "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "bug description",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "pip list output",
+                "line": 14,
+                "required": true
+              },
+              {
+                "name": "pytest and OS versions",
+                "line": 15,
+                "required": true
+              },
+              {
+                "name": "minimal example",
+                "line": 16,
+                "required": true
+              }
+            ]
+          },
+          {
+            "name": "feature",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "problem to solve",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "proposed solution",
+                "line": 16,
+                "required": true
+              },
+              {
+                "name": "real-world use case",
+                "line": 19,
+                "required": true
+              },
+              {
+                "name": "alternative solutions",
+                "line": 21,
+                "required": true
+              }
+            ]
+          }
+        ],
+        "documentation": [],
+        "prepared_at": "",
+        "structured_templates": true
+      },
+      "trace_id": "342f309a-5fbd-436f-9cfb-fb4e795cb768",
+      "status": "complete",
+      "issue_type": "type: docs",
+      "issue_type_quote": "The guide says to put the flag under [runner]. Its own example puts it under [collection]. Could the two instructions be reconciled?",
+      "duplicate_candidates": [],
+      "related_issues": [],
+      "missing_details": [],
+      "documentation_claims": [],
+      "source_claims": [],
+      "ci_results": [],
+      "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+      "citations": [],
+      "abstentions": [
+        {
+          "field": "duplicate_candidates",
+          "reason": "A pytest issue number is needed to search only earlier issues."
+        },
+        {
+          "field": "related_issues",
+          "reason": "A pytest issue number is needed to search only earlier issues."
+        },
+        {
+          "field": "missing_details",
+          "reason": "Issue text does not establish one supported applicable template."
+        },
+        {
+          "field": "draft_reply",
+          "reason": "No supported reply claim was selected."
+        }
+      ]
+    }
+  },
+  {
+    "arm": "baseline",
+    "number": 2,
+    "method": "fixed_rag",
+    "expected": "type: question",
+    "report": {
+      "context": {
+        "registration_id": "pytest-default",
+        "repository": "pytest-dev/pytest",
+        "revision": "50234b4e670064c42a4c29cb6258115a2079ba4c",
+        "profile": "pytest",
+        "status": "ready",
+        "errors": [],
+        "labels": [
+          "type: backward compatibility",
+          "type: bug",
+          "type: deprecation",
+          "type: docs",
+          "type: enhancement",
+          "type: infrastructure",
+          "type: performance",
+          "type: proposal",
+          "type: question",
+          "type: refactoring",
+          "type: regression",
+          "type: removal",
+          "type: selftests"
+        ],
+        "type_cues": [
+          [
+            "type: backward compatibility",
+            "\\b(?:backward compatib\\w*|breaking change)\\b"
+          ],
+          [
+            "type: bug",
+            "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+          ],
+          [
+            "type: deprecation",
+            "\\bdeprecat\\w*\\b"
+          ],
+          [
+            "type: docs",
+            "\\b(?:docs|documentation|guide|manual|typo)\\b"
+          ],
+          [
+            "type: enhancement",
+            "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+          ],
+          [
+            "type: infrastructure",
+            "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+          ],
+          [
+            "type: performance",
+            "\\b(?:performance|slow|latency|memory|speed)\\b"
+          ],
+          [
+            "type: proposal",
+            "\\b(?:proposal|propose|design)\\b"
+          ],
+          [
+            "type: question",
+            "\\b(?:question|how|why)\\b|\\?"
+          ],
+          [
+            "type: refactoring",
+            "\\b(?:refactor\\w*|cleanup)\\b"
+          ],
+          [
+            "type: regression",
+            "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+          ],
+          [
+            "type: removal",
+            "\\bremov\\w*\\b"
+          ],
+          [
+            "type: selftests",
+            "\\b(?:selftests|pytest test suite)\\b"
+          ]
+        ],
+        "templates": [
+          {
+            "name": "bug",
+            "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "bug description",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "pip list output",
+                "line": 14,
+                "required": true
+              },
+              {
+                "name": "pytest and OS versions",
+                "line": 15,
+                "required": true
+              },
+              {
+                "name": "minimal example",
+                "line": 16,
+                "required": true
+              }
+            ]
+          },
+          {
+            "name": "feature",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "problem to solve",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "proposed solution",
+                "line": 16,
+                "required": true
+              },
+              {
+                "name": "real-world use case",
+                "line": 19,
+                "required": true
+              },
+              {
+                "name": "alternative solutions",
+                "line": 21,
+                "required": true
+              }
+            ]
+          }
+        ],
+        "documentation": [],
+        "prepared_at": "",
+        "structured_templates": true
+      },
+      "trace_id": "c00393c2-b6bf-4a24-b43f-013cfa8a7535",
+      "status": "complete",
+      "issue_type": "type: question",
+      "issue_type_quote": "The guide puts the flag under [collection]. I have two test directories. How do I apply that setting to only one of them?",
+      "duplicate_candidates": [],
+      "related_issues": [],
+      "missing_details": [],
+      "documentation_claims": [],
+      "source_claims": [],
+      "ci_results": [],
+      "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+      "citations": [],
+      "abstentions": [
+        {
+          "field": "duplicate_candidates",
+          "reason": "A pytest issue number is needed to search only earlier issues."
+        },
+        {
+          "field": "related_issues",
+          "reason": "A pytest issue number is needed to search only earlier issues."
+        },
+        {
+          "field": "missing_details",
+          "reason": "Issue text does not establish one supported applicable template."
+        },
+        {
+          "field": "draft_reply",
+          "reason": "No supported reply claim was selected."
+        }
+      ]
+    }
+  },
+  {
+    "arm": "baseline",
+    "number": 3,
+    "method": "fixed_rag",
+    "expected": "type: docs",
+    "report": {
+      "context": {
+        "registration_id": "pytest-default",
+        "repository": "pytest-dev/pytest",
+        "revision": "50234b4e670064c42a4c29cb6258115a2079ba4c",
+        "profile": "pytest",
+        "status": "ready",
+        "errors": [],
+        "labels": [
+          "type: backward compatibility",
+          "type: bug",
+          "type: deprecation",
+          "type: docs",
+          "type: enhancement",
+          "type: infrastructure",
+          "type: performance",
+          "type: proposal",
+          "type: question",
+          "type: refactoring",
+          "type: regression",
+          "type: removal",
+          "type: selftests"
+        ],
+        "type_cues": [
+          [
+            "type: backward compatibility",
+            "\\b(?:backward compatib\\w*|breaking change)\\b"
+          ],
+          [
+            "type: bug",
+            "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+          ],
+          [
+            "type: deprecation",
+            "\\bdeprecat\\w*\\b"
+          ],
+          [
+            "type: docs",
+            "\\b(?:docs|documentation|guide|manual|typo)\\b"
+          ],
+          [
+            "type: enhancement",
+            "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+          ],
+          [
+            "type: infrastructure",
+            "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+          ],
+          [
+            "type: performance",
+            "\\b(?:performance|slow|latency|memory|speed)\\b"
+          ],
+          [
+            "type: proposal",
+            "\\b(?:proposal|propose|design)\\b"
+          ],
+          [
+            "type: question",
+            "\\b(?:question|how|why)\\b|\\?"
+          ],
+          [
+            "type: refactoring",
+            "\\b(?:refactor\\w*|cleanup)\\b"
+          ],
+          [
+            "type: regression",
+            "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+          ],
+          [
+            "type: removal",
+            "\\bremov\\w*\\b"
+          ],
+          [
+            "type: selftests",
+            "\\b(?:selftests|pytest test suite)\\b"
+          ]
+        ],
+        "templates": [
+          {
+            "name": "bug",
+            "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "bug description",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "pip list output",
+                "line": 14,
+                "required": true
+              },
+              {
+                "name": "pytest and OS versions",
+                "line": 15,
+                "required": true
+              },
+              {
+                "name": "minimal example",
+                "line": 16,
+                "required": true
+              }
+            ]
+          },
+          {
+            "name": "feature",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "problem to solve",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "proposed solution",
+                "line": 16,
+                "required": true
+              },
+              {
+                "name": "real-world use case",
+                "line": 19,
+                "required": true
+              },
+              {
+                "name": "alternative solutions",
+                "line": 21,
+                "required": true
+              }
+            ]
+          }
+        ],
+        "documentation": [],
+        "prepared_at": "",
+        "structured_templates": true
+      },
+      "trace_id": "29a71574-188c-4f78-bff1-a552ec9a4cc4",
+      "status": "complete",
+      "issue_type": "type: bug",
+      "issue_type_quote": "The migration page tells readers to import a helper removed in the release it describes. Please update its example to use the supported helper.",
+      "duplicate_candidates": [],
+      "related_issues": [],
+      "missing_details": [],
+      "documentation_claims": [],
+      "source_claims": [],
+      "ci_results": [],
+      "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+      "citations": [],
+      "abstentions": [
+        {
+          "field": "duplicate_candidates",
+          "reason": "A pytest issue number is needed to search only earlier issues."
+        },
+        {
+          "field": "related_issues",
+          "reason": "A pytest issue number is needed to search only earlier issues."
+        },
+        {
+          "field": "missing_details",
+          "reason": "Issue text does not establish one supported applicable template."
+        },
+        {
+          "field": "draft_reply",
+          "reason": "No supported reply claim was selected."
+        }
+      ]
+    }
+  },
+  {
+    "arm": "baseline",
+    "number": 4,
+    "method": "fixed_rag",
+    "expected": "type: question",
+    "report": {
+      "context": {
+        "registration_id": "pytest-default",
+        "repository": "pytest-dev/pytest",
+        "revision": "50234b4e670064c42a4c29cb6258115a2079ba4c",
+        "profile": "pytest",
+        "status": "ready",
+        "errors": [],
+        "labels": [
+          "type: backward compatibility",
+          "type: bug",
+          "type: deprecation",
+          "type: docs",
+          "type: enhancement",
+          "type: infrastructure",
+          "type: performance",
+          "type: proposal",
+          "type: question",
+          "type: refactoring",
+          "type: regression",
+          "type: removal",
+          "type: selftests"
+        ],
+        "type_cues": [
+          [
+            "type: backward compatibility",
+            "\\b(?:backward compatib\\w*|breaking change)\\b"
+          ],
+          [
+            "type: bug",
+            "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+          ],
+          [
+            "type: deprecation",
+            "\\bdeprecat\\w*\\b"
+          ],
+          [
+            "type: docs",
+            "\\b(?:docs|documentation|guide|manual|typo)\\b"
+          ],
+          [
+            "type: enhancement",
+            "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+          ],
+          [
+            "type: infrastructure",
+            "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+          ],
+          [
+            "type: performance",
+            "\\b(?:performance|slow|latency|memory|speed)\\b"
+          ],
+          [
+            "type: proposal",
+            "\\b(?:proposal|propose|design)\\b"
+          ],
+          [
+            "type: question",
+            "\\b(?:question|how|why)\\b|\\?"
+          ],
+          [
+            "type: refactoring",
+            "\\b(?:refactor\\w*|cleanup)\\b"
+          ],
+          [
+            "type: regression",
+            "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+          ],
+          [
+            "type: removal",
+            "\\bremov\\w*\\b"
+          ],
+          [
+            "type: selftests",
+            "\\b(?:selftests|pytest test suite)\\b"
+          ]
+        ],
+        "templates": [
+          {
+            "name": "bug",
+            "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "bug description",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "pip list output",
+                "line": 14,
+                "required": true
+              },
+              {
+                "name": "pytest and OS versions",
+                "line": 15,
+                "required": true
+              },
+              {
+                "name": "minimal example",
+                "line": 16,
+                "required": true
+              }
+            ]
+          },
+          {
+            "name": "feature",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "problem to solve",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "proposed solution",
+                "line": 16,
+                "required": true
+              },
+              {
+                "name": "real-world use case",
+                "line": 19,
+                "required": true
+              },
+              {
+                "name": "alternative solutions",
+                "line": 21,
+                "required": true
+              }
+            ]
+          }
+        ],
+        "documentation": [],
+        "prepared_at": "",
+        "structured_templates": true
+      },
+      "trace_id": "44971193-c9ba-4fda-baf2-cd8eb0d1d09e",
+      "status": "complete",
+      "issue_type": "type: question",
+      "issue_type_quote": "The migration page shows the supported helper and the example works. Where should I call that helper when I use a session fixture?",
+      "duplicate_candidates": [],
+      "related_issues": [],
+      "missing_details": [],
+      "documentation_claims": [],
+      "source_claims": [],
+      "ci_results": [],
+      "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+      "citations": [],
+      "abstentions": [
+        {
+          "field": "duplicate_candidates",
+          "reason": "A pytest issue number is needed to search only earlier issues."
+        },
+        {
+          "field": "related_issues",
+          "reason": "A pytest issue number is needed to search only earlier issues."
+        },
+        {
+          "field": "missing_details",
+          "reason": "Issue text does not establish one supported applicable template."
+        },
+        {
+          "field": "draft_reply",
+          "reason": "No supported reply claim was selected."
+        }
+      ]
+    }
+  },
+  {
+    "arm": "baseline",
+    "number": 12377,
+    "method": "bounded_agent",
+    "expected": "type: docs",
+    "report": {
+      "context": {
+        "registration_id": "pytest-default",
+        "repository": "pytest-dev/pytest",
+        "revision": "24abe4eb03f64bfed301e6d70dfcf4f0c6a8cc0e",
+        "profile": "pytest",
+        "status": "ready",
+        "errors": [],
+        "labels": [
+          "type: backward compatibility",
+          "type: bug",
+          "type: deprecation",
+          "type: docs",
+          "type: enhancement",
+          "type: infrastructure",
+          "type: performance",
+          "type: proposal",
+          "type: question",
+          "type: refactoring",
+          "type: regression",
+          "type: removal",
+          "type: selftests"
+        ],
+        "type_cues": [
+          [
+            "type: backward compatibility",
+            "\\b(?:backward compatib\\w*|breaking change)\\b"
+          ],
+          [
+            "type: bug",
+            "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+          ],
+          [
+            "type: deprecation",
+            "\\bdeprecat\\w*\\b"
+          ],
+          [
+            "type: docs",
+            "\\b(?:docs|documentation|guide|manual|typo)\\b"
+          ],
+          [
+            "type: enhancement",
+            "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+          ],
+          [
+            "type: infrastructure",
+            "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+          ],
+          [
+            "type: performance",
+            "\\b(?:performance|slow|latency|memory|speed)\\b"
+          ],
+          [
+            "type: proposal",
+            "\\b(?:proposal|propose|design)\\b"
+          ],
+          [
+            "type: question",
+            "\\b(?:question|how|why)\\b|\\?"
+          ],
+          [
+            "type: refactoring",
+            "\\b(?:refactor\\w*|cleanup)\\b"
+          ],
+          [
+            "type: regression",
+            "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+          ],
+          [
+            "type: removal",
+            "\\bremov\\w*\\b"
+          ],
+          [
+            "type: selftests",
+            "\\b(?:selftests|pytest test suite)\\b"
+          ]
+        ],
+        "templates": [
+          {
+            "name": "bug",
+            "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "bug description",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "pip list output",
+                "line": 14,
+                "required": true
+              },
+              {
+                "name": "pytest and OS versions",
+                "line": 15,
+                "required": true
+              },
+              {
+                "name": "minimal example",
+                "line": 16,
+                "required": true
+              }
+            ]
+          },
+          {
+            "name": "feature",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "problem to solve",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "proposed solution",
+                "line": 16,
+                "required": true
+              },
+              {
+                "name": "real-world use case",
+                "line": 19,
+                "required": true
+              },
+              {
+                "name": "alternative solutions",
+                "line": 21,
+                "required": true
+              }
+            ]
+          }
+        ],
+        "documentation": [],
+        "prepared_at": "",
+        "structured_templates": true
+      },
+      "trace_id": "d2d5617b-767b-41f3-859c-aa36d4d056cb",
+      "status": "complete",
+      "issue_type": "type: docs",
+      "issue_type_quote": "\"Conditions as strings instead of booleans\" docs act like `pytest.config` is still a thing",
+      "duplicate_candidates": [],
+      "related_issues": [],
+      "missing_details": [],
+      "documentation_claims": [],
+      "source_claims": [],
+      "ci_results": [],
+      "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+      "citations": [],
+      "abstentions": [
+        {
+          "field": "missing_details",
+          "reason": "Issue text does not establish one supported applicable template."
+        },
+        {
+          "field": "draft_reply",
+          "reason": "No supported reply claim was selected."
+        }
+      ]
+    }
+  },
+  {
+    "arm": "candidate",
+    "number": 10156,
+    "method": "fixed_rag",
+    "expected": "type: docs",
+    "report": {
+      "context": {
+        "registration_id": "pytest-default",
+        "repository": "pytest-dev/pytest",
+        "revision": "34a285986e456406b22b62aa563a64331f640e7f",
+        "profile": "pytest",
+        "status": "ready",
+        "errors": [],
+        "labels": [
+          "type: backward compatibility",
+          "type: bug",
+          "type: deprecation",
+          "type: docs",
+          "type: enhancement",
+          "type: infrastructure",
+          "type: performance",
+          "type: proposal",
+          "type: question",
+          "type: refactoring",
+          "type: regression",
+          "type: removal",
+          "type: selftests"
+        ],
+        "type_cues": [
+          [
+            "type: backward compatibility",
+            "\\b(?:backward compatib\\w*|breaking change)\\b"
+          ],
+          [
+            "type: bug",
+            "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+          ],
+          [
+            "type: deprecation",
+            "\\bdeprecat\\w*\\b"
+          ],
+          [
+            "type: docs",
+            "\\b(?:docs|documentation|guide|manual|typo)\\b"
+          ],
+          [
+            "type: enhancement",
+            "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+          ],
+          [
+            "type: infrastructure",
+            "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+          ],
+          [
+            "type: performance",
+            "\\b(?:performance|slow|latency|memory|speed)\\b"
+          ],
+          [
+            "type: proposal",
+            "\\b(?:proposal|propose|design)\\b"
+          ],
+          [
+            "type: question",
+            "\\b(?:question|how|why)\\b|\\?"
+          ],
+          [
+            "type: refactoring",
+            "\\b(?:refactor\\w*|cleanup)\\b"
+          ],
+          [
+            "type: regression",
+            "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+          ],
+          [
+            "type: removal",
+            "\\bremov\\w*\\b"
+          ],
+          [
+            "type: selftests",
+            "\\b(?:selftests|pytest test suite)\\b"
+          ]
+        ],
+        "templates": [
+          {
+            "name": "bug",
+            "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "bug description",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "pip list output",
+                "line": 14,
+                "required": true
+              },
+              {
+                "name": "pytest and OS versions",
+                "line": 15,
+                "required": true
+              },
+              {
+                "name": "minimal example",
+                "line": 16,
+                "required": true
+              }
+            ]
+          },
+          {
+            "name": "feature",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "problem to solve",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "proposed solution",
+                "line": 16,
+                "required": true
+              },
+              {
+                "name": "real-world use case",
+                "line": 19,
+                "required": true
+              },
+              {
+                "name": "alternative solutions",
+                "line": 21,
+                "required": true
+              }
+            ]
+          }
+        ],
+        "documentation": [],
+        "prepared_at": "",
+        "structured_templates": true
+      },
+      "trace_id": "6be6f758-0798-4963-b550-453b61c83948",
+      "status": "complete",
+      "issue_type": "type: enhancement",
+      "issue_type_quote": "Document how to build dynamic session-scoped fixtures",
+      "duplicate_candidates": [],
+      "related_issues": [],
+      "missing_details": [],
+      "documentation_claims": [],
+      "source_claims": [],
+      "ci_results": [],
+      "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+      "citations": [],
+      "abstentions": [
+        {
+          "field": "missing_details",
+          "reason": "Issue text does not establish one supported applicable template."
+        },
+        {
+          "field": "draft_reply",
+          "reason": "No supported reply claim was selected."
+        }
+      ]
+    }
+  },
+  {
+    "arm": "candidate",
+    "number": 12189,
+    "method": "fixed_rag",
+    "expected": "type: question",
+    "report": {
+      "context": {
+        "registration_id": "pytest-default",
+        "repository": "pytest-dev/pytest",
+        "revision": "4e3dd21506a9e543c04c63ebff966a9b604d2b9e",
+        "profile": "pytest",
+        "status": "ready",
+        "errors": [],
+        "labels": [
+          "type: backward compatibility",
+          "type: bug",
+          "type: deprecation",
+          "type: docs",
+          "type: enhancement",
+          "type: infrastructure",
+          "type: performance",
+          "type: proposal",
+          "type: question",
+          "type: refactoring",
+          "type: regression",
+          "type: removal",
+          "type: selftests"
+        ],
+        "type_cues": [
+          [
+            "type: backward compatibility",
+            "\\b(?:backward compatib\\w*|breaking change)\\b"
+          ],
+          [
+            "type: bug",
+            "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+          ],
+          [
+            "type: deprecation",
+            "\\bdeprecat\\w*\\b"
+          ],
+          [
+            "type: docs",
+            "\\b(?:docs|documentation|guide|manual|typo)\\b"
+          ],
+          [
+            "type: enhancement",
+            "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+          ],
+          [
+            "type: infrastructure",
+            "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+          ],
+          [
+            "type: performance",
+            "\\b(?:performance|slow|latency|memory|speed)\\b"
+          ],
+          [
+            "type: proposal",
+            "\\b(?:proposal|propose|design)\\b"
+          ],
+          [
+            "type: question",
+            "\\b(?:question|how|why)\\b|\\?"
+          ],
+          [
+            "type: refactoring",
+            "\\b(?:refactor\\w*|cleanup)\\b"
+          ],
+          [
+            "type: regression",
+            "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+          ],
+          [
+            "type: removal",
+            "\\bremov\\w*\\b"
+          ],
+          [
+            "type: selftests",
+            "\\b(?:selftests|pytest test suite)\\b"
+          ]
+        ],
+        "templates": [
+          {
+            "name": "bug",
+            "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "bug description",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "pip list output",
+                "line": 14,
+                "required": true
+              },
+              {
+                "name": "pytest and OS versions",
+                "line": 15,
+                "required": true
+              },
+              {
+                "name": "minimal example",
+                "line": 16,
+                "required": true
+              }
+            ]
+          },
+          {
+            "name": "feature",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "problem to solve",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "proposed solution",
+                "line": 16,
+                "required": true
+              },
+              {
+                "name": "real-world use case",
+                "line": 19,
+                "required": true
+              },
+              {
+                "name": "alternative solutions",
+                "line": 21,
+                "required": true
+              }
+            ]
+          }
+        ],
+        "documentation": [],
+        "prepared_at": "",
+        "structured_templates": true
+      },
+      "trace_id": "0fae0fca-6fb3-4dc7-ba0b-32b6c5fafeea",
+      "status": "complete",
+      "issue_type": "type: bug",
+      "issue_type_quote": "No output written to JUnit XML files",
+      "duplicate_candidates": [],
+      "related_issues": [],
+      "missing_details": [
+        {
+          "name": "pytest and OS versions",
+          "request": "your operating system and release",
+          "citation_id": "C1"
+        }
+      ],
+      "documentation_claims": [],
+      "source_claims": [],
+      "ci_results": [],
+      "draft_reply": "Thanks for sharing this issue.\n- Could you add your operating system and release? [C1]",
+      "citations": [
+        {
+          "id": "C1",
+          "source_url": "https://github.com/pytest-dev/pytest/blob/4e3dd21506a9e543c04c63ebff966a9b604d2b9e/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+          "description": "pytest bug report template: pytest and OS versions",
+          "passage": null,
+          "source_location": null
+        }
+      ],
+      "abstentions": []
+    }
+  },
+  {
+    "arm": "candidate",
+    "number": 12228,
+    "method": "fixed_rag",
+    "expected": "type: docs",
+    "report": {
+      "context": {
+        "registration_id": "pytest-default",
+        "repository": "pytest-dev/pytest",
+        "revision": "ad95d59d6158076768cccd0000b968cd691cb62a",
+        "profile": "pytest",
+        "status": "ready",
+        "errors": [],
+        "labels": [
+          "type: backward compatibility",
+          "type: bug",
+          "type: deprecation",
+          "type: docs",
+          "type: enhancement",
+          "type: infrastructure",
+          "type: performance",
+          "type: proposal",
+          "type: question",
+          "type: refactoring",
+          "type: regression",
+          "type: removal",
+          "type: selftests"
+        ],
+        "type_cues": [
+          [
+            "type: backward compatibility",
+            "\\b(?:backward compatib\\w*|breaking change)\\b"
+          ],
+          [
+            "type: bug",
+            "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+          ],
+          [
+            "type: deprecation",
+            "\\bdeprecat\\w*\\b"
+          ],
+          [
+            "type: docs",
+            "\\b(?:docs|documentation|guide|manual|typo)\\b"
+          ],
+          [
+            "type: enhancement",
+            "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+          ],
+          [
+            "type: infrastructure",
+            "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+          ],
+          [
+            "type: performance",
+            "\\b(?:performance|slow|latency|memory|speed)\\b"
+          ],
+          [
+            "type: proposal",
+            "\\b(?:proposal|propose|design)\\b"
+          ],
+          [
+            "type: question",
+            "\\b(?:question|how|why)\\b|\\?"
+          ],
+          [
+            "type: refactoring",
+            "\\b(?:refactor\\w*|cleanup)\\b"
+          ],
+          [
+            "type: regression",
+            "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+          ],
+          [
+            "type: removal",
+            "\\bremov\\w*\\b"
+          ],
+          [
+            "type: selftests",
+            "\\b(?:selftests|pytest test suite)\\b"
+          ]
+        ],
+        "templates": [
+          {
+            "name": "bug",
+            "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "bug description",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "pip list output",
+                "line": 14,
+                "required": true
+              },
+              {
+                "name": "pytest and OS versions",
+                "line": 15,
+                "required": true
+              },
+              {
+                "name": "minimal example",
+                "line": 16,
+                "required": true
+              }
+            ]
+          },
+          {
+            "name": "feature",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "problem to solve",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "proposed solution",
+                "line": 16,
+                "required": true
+              },
+              {
+                "name": "real-world use case",
+                "line": 19,
+                "required": true
+              },
+              {
+                "name": "alternative solutions",
+                "line": 21,
+                "required": true
+              }
+            ]
+          }
+        ],
+        "documentation": [],
+        "prepared_at": "",
+        "structured_templates": true
+      },
+      "trace_id": "498e7624-d592-4bed-abf4-561a3440ccf8",
+      "status": "complete",
+      "issue_type": "type: enhancement",
+      "issue_type_quote": "on-options should tell the users what are all the possibilities for encoding an specific configuration in `pyproject.toml` in addition to `pytest.ini/setup.cfg/",
+      "duplicate_candidates": [],
+      "related_issues": [],
+      "missing_details": [
+        {
+          "name": "alternative solutions",
+          "request": "any workaround or alternative you have tried, or that there is none",
+          "citation_id": "C1"
+        }
+      ],
+      "documentation_claims": [],
+      "source_claims": [],
+      "ci_results": [],
+      "draft_reply": "Thanks for sharing this issue.\n- Could you add any workaround or alternative you have tried, or that there is none? [C1]",
+      "citations": [
+        {
+          "id": "C1",
+          "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+          "description": "pytest feature report template: alternative solutions",
+          "passage": null,
+          "source_location": null
+        }
+      ],
+      "abstentions": []
+    }
+  },
+  {
+    "arm": "candidate",
+    "number": 12287,
+    "method": "fixed_rag",
+    "expected": "type: question",
+    "report": {
+      "context": {
+        "registration_id": "pytest-default",
+        "repository": "pytest-dev/pytest",
+        "revision": "3d09c85df0e5e6d4cf2a7ad087fe15618d61cdb2",
+        "profile": "pytest",
+        "status": "ready",
+        "errors": [],
+        "labels": [
+          "type: backward compatibility",
+          "type: bug",
+          "type: deprecation",
+          "type: docs",
+          "type: enhancement",
+          "type: infrastructure",
+          "type: performance",
+          "type: proposal",
+          "type: question",
+          "type: refactoring",
+          "type: regression",
+          "type: removal",
+          "type: selftests"
+        ],
+        "type_cues": [
+          [
+            "type: backward compatibility",
+            "\\b(?:backward compatib\\w*|breaking change)\\b"
+          ],
+          [
+            "type: bug",
+            "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+          ],
+          [
+            "type: deprecation",
+            "\\bdeprecat\\w*\\b"
+          ],
+          [
+            "type: docs",
+            "\\b(?:docs|documentation|guide|manual|typo)\\b"
+          ],
+          [
+            "type: enhancement",
+            "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+          ],
+          [
+            "type: infrastructure",
+            "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+          ],
+          [
+            "type: performance",
+            "\\b(?:performance|slow|latency|memory|speed)\\b"
+          ],
+          [
+            "type: proposal",
+            "\\b(?:proposal|propose|design)\\b"
+          ],
+          [
+            "type: question",
+            "\\b(?:question|how|why)\\b|\\?"
+          ],
+          [
+            "type: refactoring",
+            "\\b(?:refactor\\w*|cleanup)\\b"
+          ],
+          [
+            "type: regression",
+            "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+          ],
+          [
+            "type: removal",
+            "\\bremov\\w*\\b"
+          ],
+          [
+            "type: selftests",
+            "\\b(?:selftests|pytest test suite)\\b"
+          ]
+        ],
+        "templates": [
+          {
+            "name": "bug",
+            "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "bug description",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "pip list output",
+                "line": 14,
+                "required": true
+              },
+              {
+                "name": "pytest and OS versions",
+                "line": 15,
+                "required": true
+              },
+              {
+                "name": "minimal example",
+                "line": 16,
+                "required": true
+              }
+            ]
+          },
+          {
+            "name": "feature",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "problem to solve",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "proposed solution",
+                "line": 16,
+                "required": true
+              },
+              {
+                "name": "real-world use case",
+                "line": 19,
+                "required": true
+              },
+              {
+                "name": "alternative solutions",
+                "line": 21,
+                "required": true
+              }
+            ]
+          }
+        ],
+        "documentation": [],
+        "prepared_at": "",
+        "structured_templates": true
+      },
+      "trace_id": "95d5afe2-5799-45af-9e3f-6bde7d0b1ecf",
+      "status": "complete",
+      "issue_type": "type: bug",
+      "issue_type_quote": "`--doctest-modules` option causes namespace packages' subpackages to be added to `sys.path`",
+      "duplicate_candidates": [],
+      "related_issues": [],
+      "missing_details": [],
+      "documentation_claims": [],
+      "source_claims": [],
+      "ci_results": [],
+      "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+      "citations": [],
+      "abstentions": [
+        {
+          "field": "draft_reply",
+          "reason": "No supported reply claim was selected."
+        }
+      ]
+    }
+  },
+  {
+    "arm": "candidate",
+    "number": 12298,
+    "method": "fixed_rag",
+    "expected": "type: question",
+    "report": {
+      "context": {
+        "registration_id": "pytest-default",
+        "repository": "pytest-dev/pytest",
+        "revision": "d49f1fc4dbf9e04da016335d9e82527423d9ad1f",
+        "profile": "pytest",
+        "status": "ready",
+        "errors": [],
+        "labels": [
+          "type: backward compatibility",
+          "type: bug",
+          "type: deprecation",
+          "type: docs",
+          "type: enhancement",
+          "type: infrastructure",
+          "type: performance",
+          "type: proposal",
+          "type: question",
+          "type: refactoring",
+          "type: regression",
+          "type: removal",
+          "type: selftests"
+        ],
+        "type_cues": [
+          [
+            "type: backward compatibility",
+            "\\b(?:backward compatib\\w*|breaking change)\\b"
+          ],
+          [
+            "type: bug",
+            "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+          ],
+          [
+            "type: deprecation",
+            "\\bdeprecat\\w*\\b"
+          ],
+          [
+            "type: docs",
+            "\\b(?:docs|documentation|guide|manual|typo)\\b"
+          ],
+          [
+            "type: enhancement",
+            "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+          ],
+          [
+            "type: infrastructure",
+            "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+          ],
+          [
+            "type: performance",
+            "\\b(?:performance|slow|latency|memory|speed)\\b"
+          ],
+          [
+            "type: proposal",
+            "\\b(?:proposal|propose|design)\\b"
+          ],
+          [
+            "type: question",
+            "\\b(?:question|how|why)\\b|\\?"
+          ],
+          [
+            "type: refactoring",
+            "\\b(?:refactor\\w*|cleanup)\\b"
+          ],
+          [
+            "type: regression",
+            "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+          ],
+          [
+            "type: removal",
+            "\\bremov\\w*\\b"
+          ],
+          [
+            "type: selftests",
+            "\\b(?:selftests|pytest test suite)\\b"
+          ]
+        ],
+        "templates": [
+          {
+            "name": "bug",
+            "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "bug description",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "pip list output",
+                "line": 14,
+                "required": true
+              },
+              {
+                "name": "pytest and OS versions",
+                "line": 15,
+                "required": true
+              },
+              {
+                "name": "minimal example",
+                "line": 16,
+                "required": true
+              }
+            ]
+          },
+          {
+            "name": "feature",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "problem to solve",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "proposed solution",
+                "line": 16,
+                "required": true
+              },
+              {
+                "name": "real-world use case",
+                "line": 19,
+                "required": true
+              },
+              {
+                "name": "alternative solutions",
+                "line": 21,
+                "required": true
+              }
+            ]
+          }
+        ],
+        "documentation": [],
+        "prepared_at": "",
+        "structured_templates": true
+      },
+      "trace_id": "4c29b198-555f-4047-908e-8711a6f07ae5",
+      "status": "complete",
+      "issue_type": "type: bug",
+      "issue_type_quote": "<div type='discussions-op-text'>",
+      "duplicate_candidates": [],
+      "related_issues": [],
+      "missing_details": [
+        {
+          "name": "pip list output",
+          "request": "the output of `pip list` from the virtual environment you are using",
+          "citation_id": "C1"
+        },
+        {
+          "name": "pytest and OS versions",
+          "request": "your operating system and release",
+          "citation_id": "C2"
+        },
+        {
+          "name": "minimal example",
+          "request": "a minimal example, if possible",
+          "citation_id": "C3"
+        }
+      ],
+      "documentation_claims": [],
+      "source_claims": [],
+      "ci_results": [],
+      "draft_reply": "Thanks for sharing this issue.\n- Could you add the output of `pip list` from the virtual environment you are using? [C1]\n- Could you add your operating system and release? [C2]\n- Could you add a minimal example, if possible? [C3]",
+      "citations": [
+        {
+          "id": "C1",
+          "source_url": "https://github.com/pytest-dev/pytest/blob/d49f1fc4dbf9e04da016335d9e82527423d9ad1f/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+          "description": "pytest bug report template: pip list output",
+          "passage": null,
+          "source_location": null
+        },
+        {
+          "id": "C2",
+          "source_url": "https://github.com/pytest-dev/pytest/blob/d49f1fc4dbf9e04da016335d9e82527423d9ad1f/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+          "description": "pytest bug report template: pytest and OS versions",
+          "passage": null,
+          "source_location": null
+        },
+        {
+          "id": "C3",
+          "source_url": "https://github.com/pytest-dev/pytest/blob/d49f1fc4dbf9e04da016335d9e82527423d9ad1f/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+          "description": "pytest bug report template: minimal example",
+          "passage": null,
+          "source_location": null
+        }
+      ],
+      "abstentions": []
+    }
+  },
+  {
+    "arm": "candidate",
+    "number": 12360,
+    "method": "fixed_rag",
+    "expected": "type: docs",
+    "report": {
+      "context": {
+        "registration_id": "pytest-default",
+        "repository": "pytest-dev/pytest",
+        "revision": "cbf6bd9dd28d8464f7eebe32e51b398e2a5e3039",
+        "profile": "pytest",
+        "status": "ready",
+        "errors": [],
+        "labels": [
+          "type: backward compatibility",
+          "type: bug",
+          "type: deprecation",
+          "type: docs",
+          "type: enhancement",
+          "type: infrastructure",
+          "type: performance",
+          "type: proposal",
+          "type: question",
+          "type: refactoring",
+          "type: regression",
+          "type: removal",
+          "type: selftests"
+        ],
+        "type_cues": [
+          [
+            "type: backward compatibility",
+            "\\b(?:backward compatib\\w*|breaking change)\\b"
+          ],
+          [
+            "type: bug",
+            "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+          ],
+          [
+            "type: deprecation",
+            "\\bdeprecat\\w*\\b"
+          ],
+          [
+            "type: docs",
+            "\\b(?:docs|documentation|guide|manual|typo)\\b"
+          ],
+          [
+            "type: enhancement",
+            "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+          ],
+          [
+            "type: infrastructure",
+            "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+          ],
+          [
+            "type: performance",
+            "\\b(?:performance|slow|latency|memory|speed)\\b"
+          ],
+          [
+            "type: proposal",
+            "\\b(?:proposal|propose|design)\\b"
+          ],
+          [
+            "type: question",
+            "\\b(?:question|how|why)\\b|\\?"
+          ],
+          [
+            "type: refactoring",
+            "\\b(?:refactor\\w*|cleanup)\\b"
+          ],
+          [
+            "type: regression",
+            "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+          ],
+          [
+            "type: removal",
+            "\\bremov\\w*\\b"
+          ],
+          [
+            "type: selftests",
+            "\\b(?:selftests|pytest test suite)\\b"
+          ]
+        ],
+        "templates": [
+          {
+            "name": "bug",
+            "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "bug description",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "pip list output",
+                "line": 14,
+                "required": true
+              },
+              {
+                "name": "pytest and OS versions",
+                "line": 15,
+                "required": true
+              },
+              {
+                "name": "minimal example",
+                "line": 16,
+                "required": true
+              }
+            ]
+          },
+          {
+            "name": "feature",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "problem to solve",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "proposed solution",
+                "line": 16,
+                "required": true
+              },
+              {
+                "name": "real-world use case",
+                "line": 19,
+                "required": true
+              },
+              {
+                "name": "alternative solutions",
+                "line": 21,
+                "required": true
+              }
+            ]
+          }
+        ],
+        "documentation": [],
+        "prepared_at": "",
+        "structured_templates": true
+      },
+      "trace_id": "4e51688a-f64c-4fef-9804-95133ad5d58d",
+      "status": "complete",
+      "issue_type": "type: bug",
+      "issue_type_quote": "Assertions are rewritten even if a message is present",
+      "duplicate_candidates": [],
+      "related_issues": [],
+      "missing_details": [],
+      "documentation_claims": [],
+      "source_claims": [],
+      "ci_results": [],
+      "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+      "citations": [],
+      "abstentions": [
+        {
+          "field": "missing_details",
+          "reason": "Issue text does not establish one supported applicable template."
+        },
+        {
+          "field": "draft_reply",
+          "reason": "No supported reply claim was selected."
+        }
+      ]
+    }
+  },
+  {
+    "arm": "candidate",
+    "number": 12377,
+    "method": "fixed_rag",
+    "expected": "type: docs",
+    "report": {
+      "context": {
+        "registration_id": "pytest-default",
+        "repository": "pytest-dev/pytest",
+        "revision": "24abe4eb03f64bfed301e6d70dfcf4f0c6a8cc0e",
+        "profile": "pytest",
+        "status": "ready",
+        "errors": [],
+        "labels": [
+          "type: backward compatibility",
+          "type: bug",
+          "type: deprecation",
+          "type: docs",
+          "type: enhancement",
+          "type: infrastructure",
+          "type: performance",
+          "type: proposal",
+          "type: question",
+          "type: refactoring",
+          "type: regression",
+          "type: removal",
+          "type: selftests"
+        ],
+        "type_cues": [
+          [
+            "type: backward compatibility",
+            "\\b(?:backward compatib\\w*|breaking change)\\b"
+          ],
+          [
+            "type: bug",
+            "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+          ],
+          [
+            "type: deprecation",
+            "\\bdeprecat\\w*\\b"
+          ],
+          [
+            "type: docs",
+            "\\b(?:docs|documentation|guide|manual|typo)\\b"
+          ],
+          [
+            "type: enhancement",
+            "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+          ],
+          [
+            "type: infrastructure",
+            "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+          ],
+          [
+            "type: performance",
+            "\\b(?:performance|slow|latency|memory|speed)\\b"
+          ],
+          [
+            "type: proposal",
+            "\\b(?:proposal|propose|design)\\b"
+          ],
+          [
+            "type: question",
+            "\\b(?:question|how|why)\\b|\\?"
+          ],
+          [
+            "type: refactoring",
+            "\\b(?:refactor\\w*|cleanup)\\b"
+          ],
+          [
+            "type: regression",
+            "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+          ],
+          [
+            "type: removal",
+            "\\bremov\\w*\\b"
+          ],
+          [
+            "type: selftests",
+            "\\b(?:selftests|pytest test suite)\\b"
+          ]
+        ],
+        "templates": [
+          {
+            "name": "bug",
+            "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "bug description",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "pip list output",
+                "line": 14,
+                "required": true
+              },
+              {
+                "name": "pytest and OS versions",
+                "line": 15,
+                "required": true
+              },
+              {
+                "name": "minimal example",
+                "line": 16,
+                "required": true
+              }
+            ]
+          },
+          {
+            "name": "feature",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "problem to solve",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "proposed solution",
+                "line": 16,
+                "required": true
+              },
+              {
+                "name": "real-world use case",
+                "line": 19,
+                "required": true
+              },
+              {
+                "name": "alternative solutions",
+                "line": 21,
+                "required": true
+              }
+            ]
+          }
+        ],
+        "documentation": [],
+        "prepared_at": "",
+        "structured_templates": true
+      },
+      "trace_id": "44b86959-d7dd-438c-97b4-f6b0a5055527",
+      "status": "complete",
+      "issue_type": "type: docs",
+      "issue_type_quote": "\"Conditions as strings instead of booleans\" docs act like `pytest.config` is still a thing",
+      "duplicate_candidates": [],
+      "related_issues": [],
+      "missing_details": [],
+      "documentation_claims": [],
+      "source_claims": [],
+      "ci_results": [],
+      "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+      "citations": [],
+      "abstentions": [
+        {
+          "field": "missing_details",
+          "reason": "Issue text does not establish one supported applicable template."
+        },
+        {
+          "field": "draft_reply",
+          "reason": "No supported reply claim was selected."
+        }
+      ]
+    }
+  },
+  {
+    "arm": "candidate",
+    "number": 1,
+    "method": "fixed_rag",
+    "expected": "type: docs",
+    "report": {
+      "context": {
+        "registration_id": "pytest-default",
+        "repository": "pytest-dev/pytest",
+        "revision": "50234b4e670064c42a4c29cb6258115a2079ba4c",
+        "profile": "pytest",
+        "status": "ready",
+        "errors": [],
+        "labels": [
+          "type: backward compatibility",
+          "type: bug",
+          "type: deprecation",
+          "type: docs",
+          "type: enhancement",
+          "type: infrastructure",
+          "type: performance",
+          "type: proposal",
+          "type: question",
+          "type: refactoring",
+          "type: regression",
+          "type: removal",
+          "type: selftests"
+        ],
+        "type_cues": [
+          [
+            "type: backward compatibility",
+            "\\b(?:backward compatib\\w*|breaking change)\\b"
+          ],
+          [
+            "type: bug",
+            "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+          ],
+          [
+            "type: deprecation",
+            "\\bdeprecat\\w*\\b"
+          ],
+          [
+            "type: docs",
+            "\\b(?:docs|documentation|guide|manual|typo)\\b"
+          ],
+          [
+            "type: enhancement",
+            "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+          ],
+          [
+            "type: infrastructure",
+            "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+          ],
+          [
+            "type: performance",
+            "\\b(?:performance|slow|latency|memory|speed)\\b"
+          ],
+          [
+            "type: proposal",
+            "\\b(?:proposal|propose|design)\\b"
+          ],
+          [
+            "type: question",
+            "\\b(?:question|how|why)\\b|\\?"
+          ],
+          [
+            "type: refactoring",
+            "\\b(?:refactor\\w*|cleanup)\\b"
+          ],
+          [
+            "type: regression",
+            "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+          ],
+          [
+            "type: removal",
+            "\\bremov\\w*\\b"
+          ],
+          [
+            "type: selftests",
+            "\\b(?:selftests|pytest test suite)\\b"
+          ]
+        ],
+        "templates": [
+          {
+            "name": "bug",
+            "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "bug description",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "pip list output",
+                "line": 14,
+                "required": true
+              },
+              {
+                "name": "pytest and OS versions",
+                "line": 15,
+                "required": true
+              },
+              {
+                "name": "minimal example",
+                "line": 16,
+                "required": true
+              }
+            ]
+          },
+          {
+            "name": "feature",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "problem to solve",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "proposed solution",
+                "line": 16,
+                "required": true
+              },
+              {
+                "name": "real-world use case",
+                "line": 19,
+                "required": true
+              },
+              {
+                "name": "alternative solutions",
+                "line": 21,
+                "required": true
+              }
+            ]
+          }
+        ],
+        "documentation": [],
+        "prepared_at": "",
+        "structured_templates": true
+      },
+      "trace_id": "b95a2dd0-e04d-4849-95ec-5d5ab3ae176c",
+      "status": "complete",
+      "issue_type": "type: docs",
+      "issue_type_quote": "The guide says to put the flag under [runner]. Its own example puts it under [collection]. Could the two instructions be reconciled?",
+      "duplicate_candidates": [],
+      "related_issues": [],
+      "missing_details": [],
+      "documentation_claims": [],
+      "source_claims": [],
+      "ci_results": [],
+      "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+      "citations": [],
+      "abstentions": [
+        {
+          "field": "duplicate_candidates",
+          "reason": "A pytest issue number is needed to search only earlier issues."
+        },
+        {
+          "field": "related_issues",
+          "reason": "A pytest issue number is needed to search only earlier issues."
+        },
+        {
+          "field": "missing_details",
+          "reason": "Issue text does not establish one supported applicable template."
+        },
+        {
+          "field": "draft_reply",
+          "reason": "No supported reply claim was selected."
+        }
+      ]
+    }
+  },
+  {
+    "arm": "candidate",
+    "number": 2,
+    "method": "fixed_rag",
+    "expected": "type: question",
+    "report": {
+      "context": {
+        "registration_id": "pytest-default",
+        "repository": "pytest-dev/pytest",
+        "revision": "50234b4e670064c42a4c29cb6258115a2079ba4c",
+        "profile": "pytest",
+        "status": "ready",
+        "errors": [],
+        "labels": [
+          "type: backward compatibility",
+          "type: bug",
+          "type: deprecation",
+          "type: docs",
+          "type: enhancement",
+          "type: infrastructure",
+          "type: performance",
+          "type: proposal",
+          "type: question",
+          "type: refactoring",
+          "type: regression",
+          "type: removal",
+          "type: selftests"
+        ],
+        "type_cues": [
+          [
+            "type: backward compatibility",
+            "\\b(?:backward compatib\\w*|breaking change)\\b"
+          ],
+          [
+            "type: bug",
+            "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+          ],
+          [
+            "type: deprecation",
+            "\\bdeprecat\\w*\\b"
+          ],
+          [
+            "type: docs",
+            "\\b(?:docs|documentation|guide|manual|typo)\\b"
+          ],
+          [
+            "type: enhancement",
+            "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+          ],
+          [
+            "type: infrastructure",
+            "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+          ],
+          [
+            "type: performance",
+            "\\b(?:performance|slow|latency|memory|speed)\\b"
+          ],
+          [
+            "type: proposal",
+            "\\b(?:proposal|propose|design)\\b"
+          ],
+          [
+            "type: question",
+            "\\b(?:question|how|why)\\b|\\?"
+          ],
+          [
+            "type: refactoring",
+            "\\b(?:refactor\\w*|cleanup)\\b"
+          ],
+          [
+            "type: regression",
+            "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+          ],
+          [
+            "type: removal",
+            "\\bremov\\w*\\b"
+          ],
+          [
+            "type: selftests",
+            "\\b(?:selftests|pytest test suite)\\b"
+          ]
+        ],
+        "templates": [
+          {
+            "name": "bug",
+            "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "bug description",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "pip list output",
+                "line": 14,
+                "required": true
+              },
+              {
+                "name": "pytest and OS versions",
+                "line": 15,
+                "required": true
+              },
+              {
+                "name": "minimal example",
+                "line": 16,
+                "required": true
+              }
+            ]
+          },
+          {
+            "name": "feature",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "problem to solve",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "proposed solution",
+                "line": 16,
+                "required": true
+              },
+              {
+                "name": "real-world use case",
+                "line": 19,
+                "required": true
+              },
+              {
+                "name": "alternative solutions",
+                "line": 21,
+                "required": true
+              }
+            ]
+          }
+        ],
+        "documentation": [],
+        "prepared_at": "",
+        "structured_templates": true
+      },
+      "trace_id": "7e547c9c-1a39-436c-97ba-4e8591107990",
+      "status": "complete",
+      "issue_type": "type: question",
+      "issue_type_quote": "The guide puts the flag under [collection]. I have two test directories. How do I apply that setting to only one of them?",
+      "duplicate_candidates": [],
+      "related_issues": [],
+      "missing_details": [],
+      "documentation_claims": [],
+      "source_claims": [],
+      "ci_results": [],
+      "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+      "citations": [],
+      "abstentions": [
+        {
+          "field": "duplicate_candidates",
+          "reason": "A pytest issue number is needed to search only earlier issues."
+        },
+        {
+          "field": "related_issues",
+          "reason": "A pytest issue number is needed to search only earlier issues."
+        },
+        {
+          "field": "missing_details",
+          "reason": "Issue text does not establish one supported applicable template."
+        },
+        {
+          "field": "draft_reply",
+          "reason": "No supported reply claim was selected."
+        }
+      ]
+    }
+  },
+  {
+    "arm": "candidate",
+    "number": 3,
+    "method": "fixed_rag",
+    "expected": "type: docs",
+    "report": {
+      "context": {
+        "registration_id": "pytest-default",
+        "repository": "pytest-dev/pytest",
+        "revision": "50234b4e670064c42a4c29cb6258115a2079ba4c",
+        "profile": "pytest",
+        "status": "ready",
+        "errors": [],
+        "labels": [
+          "type: backward compatibility",
+          "type: bug",
+          "type: deprecation",
+          "type: docs",
+          "type: enhancement",
+          "type: infrastructure",
+          "type: performance",
+          "type: proposal",
+          "type: question",
+          "type: refactoring",
+          "type: regression",
+          "type: removal",
+          "type: selftests"
+        ],
+        "type_cues": [
+          [
+            "type: backward compatibility",
+            "\\b(?:backward compatib\\w*|breaking change)\\b"
+          ],
+          [
+            "type: bug",
+            "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+          ],
+          [
+            "type: deprecation",
+            "\\bdeprecat\\w*\\b"
+          ],
+          [
+            "type: docs",
+            "\\b(?:docs|documentation|guide|manual|typo)\\b"
+          ],
+          [
+            "type: enhancement",
+            "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+          ],
+          [
+            "type: infrastructure",
+            "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+          ],
+          [
+            "type: performance",
+            "\\b(?:performance|slow|latency|memory|speed)\\b"
+          ],
+          [
+            "type: proposal",
+            "\\b(?:proposal|propose|design)\\b"
+          ],
+          [
+            "type: question",
+            "\\b(?:question|how|why)\\b|\\?"
+          ],
+          [
+            "type: refactoring",
+            "\\b(?:refactor\\w*|cleanup)\\b"
+          ],
+          [
+            "type: regression",
+            "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+          ],
+          [
+            "type: removal",
+            "\\bremov\\w*\\b"
+          ],
+          [
+            "type: selftests",
+            "\\b(?:selftests|pytest test suite)\\b"
+          ]
+        ],
+        "templates": [
+          {
+            "name": "bug",
+            "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "bug description",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "pip list output",
+                "line": 14,
+                "required": true
+              },
+              {
+                "name": "pytest and OS versions",
+                "line": 15,
+                "required": true
+              },
+              {
+                "name": "minimal example",
+                "line": 16,
+                "required": true
+              }
+            ]
+          },
+          {
+            "name": "feature",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "problem to solve",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "proposed solution",
+                "line": 16,
+                "required": true
+              },
+              {
+                "name": "real-world use case",
+                "line": 19,
+                "required": true
+              },
+              {
+                "name": "alternative solutions",
+                "line": 21,
+                "required": true
+              }
+            ]
+          }
+        ],
+        "documentation": [],
+        "prepared_at": "",
+        "structured_templates": true
+      },
+      "trace_id": "48e65a22-6fe4-4a29-a66b-e0b37e43d126",
+      "status": "complete",
+      "issue_type": "type: bug",
+      "issue_type_quote": "The migration page tells readers to import a helper removed in the release it describes. Please update its example to use the supported helper.",
+      "duplicate_candidates": [],
+      "related_issues": [],
+      "missing_details": [],
+      "documentation_claims": [],
+      "source_claims": [],
+      "ci_results": [],
+      "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+      "citations": [],
+      "abstentions": [
+        {
+          "field": "duplicate_candidates",
+          "reason": "A pytest issue number is needed to search only earlier issues."
+        },
+        {
+          "field": "related_issues",
+          "reason": "A pytest issue number is needed to search only earlier issues."
+        },
+        {
+          "field": "missing_details",
+          "reason": "Issue text does not establish one supported applicable template."
+        },
+        {
+          "field": "draft_reply",
+          "reason": "No supported reply claim was selected."
+        }
+      ]
+    }
+  },
+  {
+    "arm": "candidate",
+    "number": 4,
+    "method": "fixed_rag",
+    "expected": "type: question",
+    "report": {
+      "context": {
+        "registration_id": "pytest-default",
+        "repository": "pytest-dev/pytest",
+        "revision": "50234b4e670064c42a4c29cb6258115a2079ba4c",
+        "profile": "pytest",
+        "status": "ready",
+        "errors": [],
+        "labels": [
+          "type: backward compatibility",
+          "type: bug",
+          "type: deprecation",
+          "type: docs",
+          "type: enhancement",
+          "type: infrastructure",
+          "type: performance",
+          "type: proposal",
+          "type: question",
+          "type: refactoring",
+          "type: regression",
+          "type: removal",
+          "type: selftests"
+        ],
+        "type_cues": [
+          [
+            "type: backward compatibility",
+            "\\b(?:backward compatib\\w*|breaking change)\\b"
+          ],
+          [
+            "type: bug",
+            "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+          ],
+          [
+            "type: deprecation",
+            "\\bdeprecat\\w*\\b"
+          ],
+          [
+            "type: docs",
+            "\\b(?:docs|documentation|guide|manual|typo)\\b"
+          ],
+          [
+            "type: enhancement",
+            "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+          ],
+          [
+            "type: infrastructure",
+            "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+          ],
+          [
+            "type: performance",
+            "\\b(?:performance|slow|latency|memory|speed)\\b"
+          ],
+          [
+            "type: proposal",
+            "\\b(?:proposal|propose|design)\\b"
+          ],
+          [
+            "type: question",
+            "\\b(?:question|how|why)\\b|\\?"
+          ],
+          [
+            "type: refactoring",
+            "\\b(?:refactor\\w*|cleanup)\\b"
+          ],
+          [
+            "type: regression",
+            "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+          ],
+          [
+            "type: removal",
+            "\\bremov\\w*\\b"
+          ],
+          [
+            "type: selftests",
+            "\\b(?:selftests|pytest test suite)\\b"
+          ]
+        ],
+        "templates": [
+          {
+            "name": "bug",
+            "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "bug description",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "pip list output",
+                "line": 14,
+                "required": true
+              },
+              {
+                "name": "pytest and OS versions",
+                "line": 15,
+                "required": true
+              },
+              {
+                "name": "minimal example",
+                "line": 16,
+                "required": true
+              }
+            ]
+          },
+          {
+            "name": "feature",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "problem to solve",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "proposed solution",
+                "line": 16,
+                "required": true
+              },
+              {
+                "name": "real-world use case",
+                "line": 19,
+                "required": true
+              },
+              {
+                "name": "alternative solutions",
+                "line": 21,
+                "required": true
+              }
+            ]
+          }
+        ],
+        "documentation": [],
+        "prepared_at": "",
+        "structured_templates": true
+      },
+      "trace_id": "de965672-d7db-4328-a2e2-328b147af95e",
+      "status": "complete",
+      "issue_type": "type: question",
+      "issue_type_quote": "The migration page shows the supported helper and the example works. Where should I call that helper when I use a session fixture?",
+      "duplicate_candidates": [],
+      "related_issues": [],
+      "missing_details": [],
+      "documentation_claims": [],
+      "source_claims": [],
+      "ci_results": [],
+      "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+      "citations": [],
+      "abstentions": [
+        {
+          "field": "duplicate_candidates",
+          "reason": "A pytest issue number is needed to search only earlier issues."
+        },
+        {
+          "field": "related_issues",
+          "reason": "A pytest issue number is needed to search only earlier issues."
+        },
+        {
+          "field": "missing_details",
+          "reason": "Issue text does not establish one supported applicable template."
+        },
+        {
+          "field": "draft_reply",
+          "reason": "No supported reply claim was selected."
+        }
+      ]
+    }
+  },
+  {
+    "arm": "candidate",
+    "number": 12377,
+    "method": "bounded_agent",
+    "expected": "type: docs",
+    "report": {
+      "context": {
+        "registration_id": "pytest-default",
+        "repository": "pytest-dev/pytest",
+        "revision": "24abe4eb03f64bfed301e6d70dfcf4f0c6a8cc0e",
+        "profile": "pytest",
+        "status": "ready",
+        "errors": [],
+        "labels": [
+          "type: backward compatibility",
+          "type: bug",
+          "type: deprecation",
+          "type: docs",
+          "type: enhancement",
+          "type: infrastructure",
+          "type: performance",
+          "type: proposal",
+          "type: question",
+          "type: refactoring",
+          "type: regression",
+          "type: removal",
+          "type: selftests"
+        ],
+        "type_cues": [
+          [
+            "type: backward compatibility",
+            "\\b(?:backward compatib\\w*|breaking change)\\b"
+          ],
+          [
+            "type: bug",
+            "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+          ],
+          [
+            "type: deprecation",
+            "\\bdeprecat\\w*\\b"
+          ],
+          [
+            "type: docs",
+            "\\b(?:docs|documentation|guide|manual|typo)\\b"
+          ],
+          [
+            "type: enhancement",
+            "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+          ],
+          [
+            "type: infrastructure",
+            "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+          ],
+          [
+            "type: performance",
+            "\\b(?:performance|slow|latency|memory|speed)\\b"
+          ],
+          [
+            "type: proposal",
+            "\\b(?:proposal|propose|design)\\b"
+          ],
+          [
+            "type: question",
+            "\\b(?:question|how|why)\\b|\\?"
+          ],
+          [
+            "type: refactoring",
+            "\\b(?:refactor\\w*|cleanup)\\b"
+          ],
+          [
+            "type: regression",
+            "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+          ],
+          [
+            "type: removal",
+            "\\bremov\\w*\\b"
+          ],
+          [
+            "type: selftests",
+            "\\b(?:selftests|pytest test suite)\\b"
+          ]
+        ],
+        "templates": [
+          {
+            "name": "bug",
+            "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "bug description",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "pip list output",
+                "line": 14,
+                "required": true
+              },
+              {
+                "name": "pytest and OS versions",
+                "line": 15,
+                "required": true
+              },
+              {
+                "name": "minimal example",
+                "line": 16,
+                "required": true
+              }
+            ]
+          },
+          {
+            "name": "feature",
+            "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+            "format": "markdown",
+            "labels": [],
+            "fields": [
+              {
+                "name": "problem to solve",
+                "line": 13,
+                "required": true
+              },
+              {
+                "name": "proposed solution",
+                "line": 16,
+                "required": true
+              },
+              {
+                "name": "real-world use case",
+                "line": 19,
+                "required": true
+              },
+              {
+                "name": "alternative solutions",
+                "line": 21,
+                "required": true
+              }
+            ]
+          }
+        ],
+        "documentation": [],
+        "prepared_at": "",
+        "structured_templates": true
+      },
+      "trace_id": "7045e1fe-ef9c-4cfb-8ae1-772be05d4b54",
+      "status": "complete",
+      "issue_type": "type: docs",
+      "issue_type_quote": "\"Conditions as strings instead of booleans\" docs act like `pytest.config` is still a thing",
+      "duplicate_candidates": [],
+      "related_issues": [],
+      "missing_details": [],
+      "documentation_claims": [],
+      "source_claims": [],
+      "ci_results": [],
+      "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+      "citations": [],
+      "abstentions": [
+        {
+          "field": "missing_details",
+          "reason": "Issue text does not establish one supported applicable template."
+        },
+        {
+          "field": "draft_reply",
+          "reason": "No supported reply claim was selected."
+        }
+      ]
+    }
+  }
+]
