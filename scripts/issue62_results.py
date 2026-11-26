@@ -1,5 +1,7 @@
 """Audit the completed paired ledgers and calculate scores without inference."""
 
+import base64
+import hashlib
 import json
 from collections import Counter, defaultdict
 from math import ceil
@@ -98,7 +100,20 @@ def summarize():
         path = RUN / alias.split(":")[1]
         assert sum(a == alias for a, _ in charged) <= freeze["per_model"]
         for key, expected in (historical | fresh).items():
-            row = read(path / f"{key}.json")
+            file = path / f"{key}.json"
+            if not file.exists():
+                status = (
+                    "charged_without_result"
+                    if (alias, key) in charged
+                    else "undispatched"
+                )
+                rows[key] = {
+                    "expected": expected,
+                    "case": key,
+                    "status": "unavailable" if key in flags else status,
+                }
+                continue
+            row = read(file)
             assert (row["case"], row["expected"], row["alias"]) == (
                 key,
                 expected,
@@ -110,8 +125,24 @@ def summarize():
                 assert (alias, key) in charged
                 report = TriageReport.model_validate(row["report"])
                 event = row["model_event"]
-                assert row["status"] in {"valid", "validation_error", "transport_error"}
-                assert (event["status"] == "ok") == (row["status"] == "valid")
+                assert row["status"] in {
+                    "valid",
+                    "validation_error",
+                    "transport_error",
+                    "identity_error",
+                }
+                if row["status"] != "identity_error":
+                    assert (event["status"] == "ok") == (row["status"] == "valid")
+                if row["raw_sha256"] is not None:
+                    data = (
+                        row["raw_response"].encode()
+                        if row["raw_response"] is not None
+                        else base64.b64decode(row["raw_base64"], validate=True)
+                    )
+                    assert (
+                        len(data) <= 65536
+                        and hashlib.sha256(data).hexdigest() == row["raw_sha256"]
+                    )
                 if row["status"] == "valid":
                     envelope = json.loads(row["raw_response"])
                     output = json.loads(envelope["choices"][0]["message"]["content"])
@@ -122,10 +153,17 @@ def summarize():
                     assert (output["quote_index"] is None) == (
                         report.issue_type_quote is None
                     )
-                    assert event["input_tokens"] == envelope["usage"]["prompt_tokens"]
-                    assert (
-                        event["output_tokens"] == envelope["usage"]["completion_tokens"]
-                    )
+                    usage = envelope.get("usage")
+                    for event_key, usage_key in [
+                        ("input_tokens", "prompt_tokens"),
+                        ("output_tokens", "completion_tokens"),
+                    ]:
+                        value = (
+                            usage.get(usage_key) if isinstance(usage, dict) else None
+                        )
+                        assert event[event_key] == (
+                            value if type(value) is int and value >= 0 else None
+                        )
             rows[key] = row
         arms.append(rows)
     summary = {

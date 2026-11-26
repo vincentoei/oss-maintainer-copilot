@@ -1,12 +1,14 @@
 """Execute the source-frozen #62 comparison once, on the approved local host."""
 
+import base64
 import hashlib
 import json
 import os
 import subprocess
 from time import perf_counter
 from unittest.mock import patch
-from urllib.request import HTTPRedirectHandler, ProxyHandler, build_opener
+from urllib.error import HTTPError, URLError
+from urllib.request import HTTPRedirectHandler, ProxyHandler, Request, build_opener
 
 from issue62_prepare import ALIASES, DATA, PROBES, prepare
 
@@ -14,7 +16,6 @@ from maintainer_copilot import IssueUnderReview, triage_issue
 from maintainer_copilot.local_evaluation import (
     _GpuMemory,
     _LiveEvidenceCache,
-    _ollama_json,
 )
 from maintainer_copilot.model import OpenAICompatibleModel
 from maintainer_copilot.paired_evaluation import PairedBudget
@@ -72,11 +73,20 @@ def check_freeze(*, live):
     return freeze
 
 
-def check_serving():
+def check_serving(transport):
+    def metadata(path, data=None):
+        request = Request(
+            HOST + path,
+            data=json.dumps(data).encode() if data else None,
+            headers={"Content-Type": "application/json"},
+        )
+        with transport.open(request, timeout=20) as response:
+            return json.load(response)
+
     inventory = json.loads((HERE / "serving-inventory.json").read_bytes())
-    if _ollama_json(HOST + "/api/version")["version"] != inventory["ollama_version"]:
+    if metadata("/api/version")["version"] != inventory["ollama_version"]:
         raise ValueError("Ollama version changed")
-    tags = {m["name"]: m for m in _ollama_json(HOST + "/api/tags")["models"]}
+    tags = {m["name"]: m for m in metadata("/api/tags")["models"]}
     for arm in inventory["proposed_arms"]:
         tag = tags[arm["alias"]]
         if (tag["digest"], tag["details"]["quantization_level"]) != (
@@ -84,13 +94,13 @@ def check_serving():
             arm["quantization"],
         ):
             raise ValueError("Local alias changed")
-        show = _ollama_json(HOST + "/api/show", {"model": arm["alias"]})
+        show = metadata("/api/show", {"model": arm["alias"]})
         if (fingerprint(show["template"]), show["parameters"]) != (
             arm["template_sha256"],
             arm["parameters"],
         ):
             raise ValueError("Template or serving options changed")
-    return _ollama_json(HOST + "/api/ps")
+    return metadata("/api/ps")
 
 
 def main():
@@ -133,7 +143,7 @@ def main():
     }
     if not flags and not current["evidence_manifest_matches_issue60"]:
         raise ValueError("Evidence manifest differs from #60")
-    initial = check_serving()
+    initial = check_serving(transport)
     RUN.mkdir()
     ledger = RUN / "reservations.jsonl"
     ledger.touch(exist_ok=False)
@@ -147,7 +157,7 @@ def main():
     for alias in ALIASES:
         arm = RUN / alias.split(":")[1]
         arm.mkdir()
-        _save(arm / "serving-before.json", check_serving())
+        _save(arm / "serving-before.json", check_serving(transport))
         for key in keys:
             expected = (
                 cases[key].expected_outcome.issue_type
@@ -164,12 +174,15 @@ def main():
             if key not in flags:
                 run_case(row, budget, transport, cases, probes, catalog, evidence)
             _save(arm / f"{key}.json", row)
-        _save(arm / "serving-after.json", check_serving())
+            if row["status"] == "identity_error":
+                raise ValueError("Unexpected provider model identity; run halted")
+        _save(arm / "serving-after.json", check_serving(transport))
 
 
 def run_case(row, budget, transport, cases, probes, catalog, evidence):
     key, alias = row["case"], row["alias"]
     raw = []
+    row.update(http_status=None, transport_error=None)
     fatal = []
 
     def dispatch(request, *, timeout):
@@ -181,7 +194,20 @@ def run_case(row, budget, transport, cases, probes, catalog, evidence):
         except Exception as exc:
             fatal.append(str(exc))
             raise
-        return transport.open(request, timeout=timeout)
+        try:
+            response = transport.open(request, timeout=timeout)
+            row["http_status"] = response.status
+            return response
+        except HTTPError as exc:
+            row["http_status"] = exc.code
+            row["transport_error"] = type(exc).__name__
+            with exc:
+                raw.append(exc.read(65537))
+            raise
+        except OSError as exc:
+            reason = exc.reason if isinstance(exc, URLError) else exc
+            row["transport_error"] = type(reason).__name__
+            raise
 
     client = OpenAICompatibleModel(HOST + "/v1", alias, response_observer=raw.append)
     with _GpuMemory(True) as gpu, patch("maintainer_copilot.model.urlopen", dispatch):
@@ -208,21 +234,34 @@ def run_case(row, budget, transport, cases, probes, catalog, evidence):
         raise ValueError(fatal[0])
     trace = get_trace(report.trace_id)
     (event,) = (e for e in trace.events if e.name == "triage_selection")
+    status = "valid" if event.status == "ok" else "validation_error"
+    if row["transport_error"] or not raw:
+        status = "transport_error"
+    data = raw[0][:65536] if raw else None
+    try:
+        envelope = json.loads(data) if data else None
+    except (ValueError, UnicodeDecodeError):
+        envelope = None
+    if isinstance(envelope, dict) and (
+        ("model" in envelope or status == "valid") and envelope.get("model") != alias
+    ):
+        status = "identity_error"
     row.update(
-        status=(
-            "valid"
-            if event.status == "ok"
-            else "validation_error"
-            if raw
-            else "transport_error"
-        ),
+        status=status,
+        truncated=bool(raw and len(raw[0]) > 65536),
+        raw_sha256=hashlib.sha256(data).hexdigest() if data is not None else None,
         report=report.model_dump(mode="json"),
         model_event=event.model_dump(mode="json"),
         gpu=gpu.summary(),
-        raw_response=raw[0].decode(errors="replace") if raw else None,
+        raw_response=None,
     )
-    if row["status"] != "valid":
-        row["error"] = event.error
+    if data is not None:
+        try:
+            row["raw_response"] = data.decode()
+        except UnicodeDecodeError:
+            row["raw_base64"] = base64.b64encode(data).decode()
+    if status != "valid":
+        row["error"] = row["transport_error"] or event.error or status
 
 
 if __name__ == "__main__":
