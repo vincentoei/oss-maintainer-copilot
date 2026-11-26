@@ -1,0 +1,57 @@
+{
+  "implementation_commit": "8d5207183560a82c0f272b0d65647520a25eb44a",
+  "full_suite": {
+    "command": ".venv/bin/pytest -q",
+    "passed": 499,
+    "skipped": 2,
+    "seconds": 10.38,
+    "execution": "outside sandbox; local HTTP tests stall under sandbox",
+    "skips": "Two opt-in public replay tests; RUN_LIVE_REPLAY not set. Separate fifty-case live evidence preflights passed in all three measured phases."
+  },
+  "focused": {
+    "command": ".venv/bin/pytest -q tests/test_semantic_classification.py tests/test_classification_evaluation.py",
+    "passed": 27,
+    "seconds": 0.18
+  },
+  "ruff_check": {
+    "command": ".venv/bin/ruff check .",
+    "result": "All checks passed!"
+  },
+  "ruff_format": {
+    "command": ".venv/bin/ruff format --check .",
+    "result": "160 files already formatted"
+  },
+  "mypy": {
+    "command": ".venv/bin/mypy src tests",
+    "result": "Success: no issues found in 46 source files"
+  },
+  "offline_audits": [
+    {
+      "command": "PYTHONPATH=src .venv/bin/python scripts/issue60_verify.py",
+      "verified": true,
+      "preserved_files": 434,
+      "dispatches": 150,
+      "complete_pairs": 50,
+      "pending_review_rows": 150
+    },
+    {
+      "command": "PYTHONPATH=src .venv/bin/python scripts/issue20_verify.py",
+      "verified": true
+    },
+    {
+      "command": "PYTHONPATH=src .venv/bin/python scripts/issue20_flash_verify.py",
+      "verified": true
+    }
+  ],
+  "review": "See code-review.md; Standards and Spec reviewed separately.",
+  "fresh_human_report_ratings": "pending; no ratings transferred from prior runs",
+  "inference_after_final_followup": 0,
+  "publication": {
+    "standards_remaining_hard_findings": 0,
+    "standards_optional_heuristics": 1,
+    "spec_remaining_findings": 0,
+    "local_links": "resolved",
+    "credential_marker_scan": "passed on 38 changed/new files",
+    "git_diff_check": "passed"
+  }
+}

@@ -258,6 +258,13 @@ records pinned providers and low reasoning with a bounded completion allowance.
 Audit that saved pass offline with
 `PYTHONPATH=src uv run --locked --no-env-file python scripts/issue20_flash_verify.py`.
 
+The [issue #60 classification correction](docs/evaluation/issue-60.md) makes all
+repository types available without lexical cues. The same local Qwen model stays
+at 29/50 type agreement, with six gains and six regressions; the report preserves
+the failed first candidate and pending human semantic/usefulness review. Audit
+all three frozen runs without inference with
+`PYTHONPATH=src uv run --locked --no-env-file python scripts/issue60_verify.py`.
+
 The requested [triage-quality follow-up](docs/evaluation/issue-56.md) preserves
 the forty cases and all prior results. It fixes report-detail recognition and
 model label/quote pairing, then measures one separately frozen comparison with
