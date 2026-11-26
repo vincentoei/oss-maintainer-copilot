@@ -1,0 +1,226 @@
+{
+  "case": "h-12273",
+  "alias": "pytest-triage:coder7b-ctx16k",
+  "expected": "type: regression",
+  "status": "valid",
+  "error": null,
+  "http_status": 200,
+  "transport_error": null,
+  "replay_ms": 1024.083,
+  "truncated": false,
+  "raw_sha256": "0cf56f7f2e42f1276b5f4d159f49f894eb6d50cacc146cd74bcefc745e35defb",
+  "report": {
+    "context": {
+      "registration_id": "pytest-default",
+      "repository": "pytest-dev/pytest",
+      "revision": "b660596f614f7a67dcf5f6f863345600840df18e",
+      "profile": "pytest",
+      "status": "ready",
+      "errors": [],
+      "labels": [
+        "type: backward compatibility",
+        "type: bug",
+        "type: deprecation",
+        "type: docs",
+        "type: enhancement",
+        "type: infrastructure",
+        "type: performance",
+        "type: proposal",
+        "type: question",
+        "type: refactoring",
+        "type: regression",
+        "type: removal",
+        "type: selftests"
+      ],
+      "type_cues": [
+        [
+          "type: backward compatibility",
+          "\\b(?:backward compatib\\w*|breaking change)\\b"
+        ],
+        [
+          "type: bug",
+          "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+        ],
+        [
+          "type: deprecation",
+          "\\bdeprecat\\w*\\b"
+        ],
+        [
+          "type: docs",
+          "\\b(?:docs|documentation|guide|manual|typo)\\b"
+        ],
+        [
+          "type: enhancement",
+          "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+        ],
+        [
+          "type: infrastructure",
+          "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+        ],
+        [
+          "type: performance",
+          "\\b(?:performance|slow|latency|memory|speed)\\b"
+        ],
+        [
+          "type: proposal",
+          "\\b(?:proposal|propose|design)\\b"
+        ],
+        [
+          "type: question",
+          "\\b(?:question|how|why)\\b|\\?"
+        ],
+        [
+          "type: refactoring",
+          "\\b(?:refactor\\w*|cleanup)\\b"
+        ],
+        [
+          "type: regression",
+          "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+        ],
+        [
+          "type: removal",
+          "\\bremov\\w*\\b"
+        ],
+        [
+          "type: selftests",
+          "\\b(?:selftests|pytest test suite)\\b"
+        ]
+      ],
+      "templates": [
+        {
+          "name": "bug",
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "bug description",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "pip list output",
+              "line": 14,
+              "required": true
+            },
+            {
+              "name": "pytest and OS versions",
+              "line": 15,
+              "required": true
+            },
+            {
+              "name": "minimal example",
+              "line": 16,
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "feature",
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "problem to solve",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "proposed solution",
+              "line": 16,
+              "required": true
+            },
+            {
+              "name": "real-world use case",
+              "line": 19,
+              "required": true
+            },
+            {
+              "name": "alternative solutions",
+              "line": 21,
+              "required": true
+            }
+          ]
+        }
+      ],
+      "documentation": [],
+      "prepared_at": "",
+      "structured_templates": true
+    },
+    "trace_id": "74f7dd29-9a5d-484b-8fc2-38aef70d7398",
+    "status": "complete",
+    "issue_type": "type: bug",
+    "issue_type_quote": "AttributeError: 'FSDPTest' object has no attribute 'runTest'. Did you mean: 'run_test'?",
+    "duplicate_candidates": [],
+    "related_issues": [],
+    "missing_details": [
+      {
+        "name": "pip list output",
+        "request": "the output of `pip list` from the virtual environment you are using",
+        "citation_id": "C1"
+      },
+      {
+        "name": "pytest and OS versions",
+        "request": "your operating system and release",
+        "citation_id": "C2"
+      },
+      {
+        "name": "minimal example",
+        "request": "a minimal example, if possible",
+        "citation_id": "C3"
+      }
+    ],
+    "documentation_claims": [],
+    "source_claims": [],
+    "ci_results": [],
+    "draft_reply": "Thanks for sharing this issue.\n- Could you add the output of `pip list` from the virtual environment you are using? [C1]\n- Could you add your operating system and release? [C2]\n- Could you add a minimal example, if possible? [C3]",
+    "citations": [
+      {
+        "id": "C1",
+        "source_url": "https://github.com/pytest-dev/pytest/blob/b660596f614f7a67dcf5f6f863345600840df18e/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+        "description": "pytest bug report template: pip list output",
+        "passage": null,
+        "source_location": null
+      },
+      {
+        "id": "C2",
+        "source_url": "https://github.com/pytest-dev/pytest/blob/b660596f614f7a67dcf5f6f863345600840df18e/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+        "description": "pytest bug report template: pytest and OS versions",
+        "passage": null,
+        "source_location": null
+      },
+      {
+        "id": "C3",
+        "source_url": "https://github.com/pytest-dev/pytest/blob/b660596f614f7a67dcf5f6f863345600840df18e/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "description": "pytest bug report template: minimal example",
+        "passage": null,
+        "source_location": null
+      }
+    ],
+    "abstentions": []
+  },
+  "model_event": {
+    "kind": "model",
+    "name": "triage_selection",
+    "status": "ok",
+    "started_ms": 4.151,
+    "duration_ms": 1019.236,
+    "target": "pytest-triage:coder7b-ctx16k",
+    "result_count": null,
+    "references": [],
+    "input_tokens": 1413,
+    "output_tokens": 36,
+    "error": null
+  },
+  "gpu": {
+    "enabled": true,
+    "sample_interval_ms": 500,
+    "sample_count": 3,
+    "initial_used_mib": 5368.0,
+    "peak_sampled_used_mib": 5368.0,
+    "error": null,
+    "scope": "Device-wide use including other processes; sampled, not true peak."
+  },
+  "raw_response": "{\"id\":\"chatcmpl-749\",\"object\":\"chat.completion\",\"created\":1795692230,\"model\":\"pytest-triage:coder7b-ctx16k\",\"system_fingerprint\":\"fp_ollama\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"{\\\"issue_type\\\": \\\"type: bug\\\", \\\"quote_index\\\": 13, \\\"reply_citation_ids\\\": [\\\"C1\\\", \\\"C2\\\", \\\"C3\\\"]}\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":1413,\"prompt_tokens_details\":{\"cached_tokens\":216},\"completion_tokens\":36,\"total_tokens\":1449}}\n"
+}

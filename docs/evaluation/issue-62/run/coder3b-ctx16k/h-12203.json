@@ -1,0 +1,202 @@
+{
+  "case": "h-12203",
+  "alias": "pytest-triage:coder3b-ctx16k",
+  "expected": "type: bug",
+  "status": "valid",
+  "error": null,
+  "http_status": 200,
+  "transport_error": null,
+  "replay_ms": 494.876,
+  "truncated": false,
+  "raw_sha256": "d2e1c686c9fcd4a69d4d246cd7dbed0ccb152c1ee925a28be2d00c44970ba071",
+  "report": {
+    "context": {
+      "registration_id": "pytest-default",
+      "repository": "pytest-dev/pytest",
+      "revision": "1f001cd1051a4ca4bef251d93e472e625578aaf7",
+      "profile": "pytest",
+      "status": "ready",
+      "errors": [],
+      "labels": [
+        "type: backward compatibility",
+        "type: bug",
+        "type: deprecation",
+        "type: docs",
+        "type: enhancement",
+        "type: infrastructure",
+        "type: performance",
+        "type: proposal",
+        "type: question",
+        "type: refactoring",
+        "type: regression",
+        "type: removal",
+        "type: selftests"
+      ],
+      "type_cues": [
+        [
+          "type: backward compatibility",
+          "\\b(?:backward compatib\\w*|breaking change)\\b"
+        ],
+        [
+          "type: bug",
+          "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+        ],
+        [
+          "type: deprecation",
+          "\\bdeprecat\\w*\\b"
+        ],
+        [
+          "type: docs",
+          "\\b(?:docs|documentation|guide|manual|typo)\\b"
+        ],
+        [
+          "type: enhancement",
+          "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+        ],
+        [
+          "type: infrastructure",
+          "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+        ],
+        [
+          "type: performance",
+          "\\b(?:performance|slow|latency|memory|speed)\\b"
+        ],
+        [
+          "type: proposal",
+          "\\b(?:proposal|propose|design)\\b"
+        ],
+        [
+          "type: question",
+          "\\b(?:question|how|why)\\b|\\?"
+        ],
+        [
+          "type: refactoring",
+          "\\b(?:refactor\\w*|cleanup)\\b"
+        ],
+        [
+          "type: regression",
+          "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+        ],
+        [
+          "type: removal",
+          "\\bremov\\w*\\b"
+        ],
+        [
+          "type: selftests",
+          "\\b(?:selftests|pytest test suite)\\b"
+        ]
+      ],
+      "templates": [
+        {
+          "name": "bug",
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "bug description",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "pip list output",
+              "line": 14,
+              "required": true
+            },
+            {
+              "name": "pytest and OS versions",
+              "line": 15,
+              "required": true
+            },
+            {
+              "name": "minimal example",
+              "line": 16,
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "feature",
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "problem to solve",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "proposed solution",
+              "line": 16,
+              "required": true
+            },
+            {
+              "name": "real-world use case",
+              "line": 19,
+              "required": true
+            },
+            {
+              "name": "alternative solutions",
+              "line": 21,
+              "required": true
+            }
+          ]
+        }
+      ],
+      "documentation": [],
+      "prepared_at": "",
+      "structured_templates": true
+    },
+    "trace_id": "e76388da-685d-4382-90ec-3c57f186f119",
+    "status": "complete",
+    "issue_type": "type: bug",
+    "issue_type_quote": "Pytest does not capture teardown logs if a fixture throws an exception",
+    "duplicate_candidates": [],
+    "related_issues": [],
+    "missing_details": [
+      {
+        "name": "minimal example",
+        "request": "a minimal example, if possible",
+        "citation_id": "C1"
+      }
+    ],
+    "documentation_claims": [],
+    "source_claims": [],
+    "ci_results": [],
+    "draft_reply": "Thanks for sharing this issue.\n- Could you add a minimal example, if possible? [C1]",
+    "citations": [
+      {
+        "id": "C1",
+        "source_url": "https://github.com/pytest-dev/pytest/blob/1f001cd1051a4ca4bef251d93e472e625578aaf7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "description": "pytest bug report template: minimal example",
+        "passage": null,
+        "source_location": null
+      }
+    ],
+    "abstentions": []
+  },
+  "model_event": {
+    "kind": "model",
+    "name": "triage_selection",
+    "status": "ok",
+    "started_ms": 3.013,
+    "duration_ms": 491.391,
+    "target": "pytest-triage:coder3b-ctx16k",
+    "result_count": null,
+    "references": [],
+    "input_tokens": 1409,
+    "output_tokens": 32,
+    "error": null
+  },
+  "gpu": {
+    "enabled": true,
+    "sample_interval_ms": 500,
+    "sample_count": 2,
+    "initial_used_mib": 2752.0,
+    "peak_sampled_used_mib": 2752.0,
+    "error": null,
+    "scope": "Device-wide use including other processes; sampled, not true peak."
+  },
+  "raw_response": "{\"id\":\"chatcmpl-63\",\"object\":\"chat.completion\",\"created\":1795692154,\"model\":\"pytest-triage:coder3b-ctx16k\",\"system_fingerprint\":\"fp_ollama\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"{\\n  \\\"issue_type\\\": \\\"type: bug\\\",\\n  \\\"quote_index\\\": 0,\\n  \\\"reply_citation_ids\\\": [\\\"C1\\\"]\\n}\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":1409,\"prompt_tokens_details\":{\"cached_tokens\":216},\"completion_tokens\":32,\"total_tokens\":1441}}\n"
+}

@@ -1,0 +1,202 @@
+{
+  "case": "h-12226",
+  "alias": "pytest-triage:coder3b-ctx16k",
+  "expected": "type: enhancement",
+  "status": "valid",
+  "error": null,
+  "http_status": 200,
+  "transport_error": null,
+  "replay_ms": 472.728,
+  "truncated": false,
+  "raw_sha256": "15fbbb0ed7c126af69113a4c9373be55e67a1d3f2342c9969d74901e53c65f15",
+  "report": {
+    "context": {
+      "registration_id": "pytest-default",
+      "repository": "pytest-dev/pytest",
+      "revision": "ad95d59d6158076768cccd0000b968cd691cb62a",
+      "profile": "pytest",
+      "status": "ready",
+      "errors": [],
+      "labels": [
+        "type: backward compatibility",
+        "type: bug",
+        "type: deprecation",
+        "type: docs",
+        "type: enhancement",
+        "type: infrastructure",
+        "type: performance",
+        "type: proposal",
+        "type: question",
+        "type: refactoring",
+        "type: regression",
+        "type: removal",
+        "type: selftests"
+      ],
+      "type_cues": [
+        [
+          "type: backward compatibility",
+          "\\b(?:backward compatib\\w*|breaking change)\\b"
+        ],
+        [
+          "type: bug",
+          "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+        ],
+        [
+          "type: deprecation",
+          "\\bdeprecat\\w*\\b"
+        ],
+        [
+          "type: docs",
+          "\\b(?:docs|documentation|guide|manual|typo)\\b"
+        ],
+        [
+          "type: enhancement",
+          "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+        ],
+        [
+          "type: infrastructure",
+          "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+        ],
+        [
+          "type: performance",
+          "\\b(?:performance|slow|latency|memory|speed)\\b"
+        ],
+        [
+          "type: proposal",
+          "\\b(?:proposal|propose|design)\\b"
+        ],
+        [
+          "type: question",
+          "\\b(?:question|how|why)\\b|\\?"
+        ],
+        [
+          "type: refactoring",
+          "\\b(?:refactor\\w*|cleanup)\\b"
+        ],
+        [
+          "type: regression",
+          "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+        ],
+        [
+          "type: removal",
+          "\\bremov\\w*\\b"
+        ],
+        [
+          "type: selftests",
+          "\\b(?:selftests|pytest test suite)\\b"
+        ]
+      ],
+      "templates": [
+        {
+          "name": "bug",
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "bug description",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "pip list output",
+              "line": 14,
+              "required": true
+            },
+            {
+              "name": "pytest and OS versions",
+              "line": 15,
+              "required": true
+            },
+            {
+              "name": "minimal example",
+              "line": 16,
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "feature",
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "problem to solve",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "proposed solution",
+              "line": 16,
+              "required": true
+            },
+            {
+              "name": "real-world use case",
+              "line": 19,
+              "required": true
+            },
+            {
+              "name": "alternative solutions",
+              "line": 21,
+              "required": true
+            }
+          ]
+        }
+      ],
+      "documentation": [],
+      "prepared_at": "",
+      "structured_templates": true
+    },
+    "trace_id": "37408bf8-ef3d-4b7a-a3ce-c91c0ce1a35e",
+    "status": "complete",
+    "issue_type": "type: enhancement",
+    "issue_type_quote": "#### Describe the solution you'd like",
+    "duplicate_candidates": [],
+    "related_issues": [],
+    "missing_details": [
+      {
+        "name": "alternative solutions",
+        "request": "any workaround or alternative you have tried, or that there is none",
+        "citation_id": "C1"
+      }
+    ],
+    "documentation_claims": [],
+    "source_claims": [],
+    "ci_results": [],
+    "draft_reply": "Thanks for sharing this issue.\n- Could you add any workaround or alternative you have tried, or that there is none? [C1]",
+    "citations": [
+      {
+        "id": "C1",
+        "source_url": "https://github.com/pytest-dev/pytest/blob/ad95d59d6158076768cccd0000b968cd691cb62a/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+        "description": "pytest feature report template: alternative solutions",
+        "passage": null,
+        "source_location": null
+      }
+    ],
+    "abstentions": []
+  },
+  "model_event": {
+    "kind": "model",
+    "name": "triage_selection",
+    "status": "ok",
+    "started_ms": 2.639,
+    "duration_ms": 469.62,
+    "target": "pytest-triage:coder3b-ctx16k",
+    "result_count": null,
+    "references": [],
+    "input_tokens": 906,
+    "output_tokens": 33,
+    "error": null
+  },
+  "gpu": {
+    "enabled": true,
+    "sample_interval_ms": 500,
+    "sample_count": 2,
+    "initial_used_mib": 2752.0,
+    "peak_sampled_used_mib": 2752.0,
+    "error": null,
+    "scope": "Device-wide use including other processes; sampled, not true peak."
+  },
+  "raw_response": "{\"id\":\"chatcmpl-154\",\"object\":\"chat.completion\",\"created\":1795692162,\"model\":\"pytest-triage:coder3b-ctx16k\",\"system_fingerprint\":\"fp_ollama\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"{\\n  \\\"issue_type\\\": \\\"type: enhancement\\\",\\n  \\\"quote_index\\\": 10,\\n  \\\"reply_citation_ids\\\": [\\\"C1\\\"]\\n}\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":906,\"prompt_tokens_details\":{\"cached_tokens\":216},\"completion_tokens\":33,\"total_tokens\":939}}\n"
+}
