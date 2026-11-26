@@ -25,10 +25,11 @@ def main() -> None:
     )
     opening = json.loads(args.opening.read_bytes())
     title, body = opening["title"], opening["body"]
-    assert (
+    if (
         hashlib.sha256(f"{title}\0{body}".encode()).hexdigest()
-        == case["opening_content_sha256"]
-    )
+        != case["opening_content_sha256"]
+    ):
+        raise ValueError("Opening differs from the verified historical case")
     path = ROOT / "docs/evaluation/issue-60" / args.phase / "responses.jsonl"
     (record,) = (
         r
@@ -45,8 +46,10 @@ def main() -> None:
                 (user_data, "input"),
                 (response_schema, "schema"),
             ]:
-                assert fingerprint(value) == record[f"{key}_sha256"], key
-            assert max_tokens == record["max_tokens"]
+                if fingerprint(value) != record[f"{key}_sha256"]:
+                    raise ValueError(f"Historical {key} mismatch")
+            if max_tokens != record["max_tokens"]:
+                raise ValueError("Output token limit changed")
             print(
                 user_data.get(
                     "type_evidence_options", user_data.get("issue_quote_options")
@@ -62,9 +65,8 @@ def main() -> None:
         Playback("", "playback"), ModelRequest(title, body, (), ())
     )
     print(result.issue_type, result.issue_type_quote)
-    assert result.issue_type == case["expected_outcome"]["issue_type"], (
-        result.issue_type
-    )
+    if result.issue_type != case["expected_outcome"]["issue_type"]:
+        raise AssertionError(result.issue_type)
 
 
 if __name__ == "__main__":

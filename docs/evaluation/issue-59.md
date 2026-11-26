@@ -3,7 +3,7 @@
 **Keep the #60 classification contract.** On the same Qwen, a single added
 instruction distinguishing correction of published guidance from help applying
 it changed zero labels. The focal docs prediction survived historical agent
-replay, but failed to generalize to a closely related migration-guide defect.
+replay. Both prompts missed a closely related migration-guide defect.
 This supports declining this particular prompt change. It leaves the measured
 50-case application agreement at 29/50.
 
@@ -37,8 +37,9 @@ removal from the obsolete API. The word “how” described the guide's content.
 The #19 post-quality agent and fixed final requests also have the same three
 hashes and returned the same index. On the #60 follow-up the same assertion
 passes: Qwen selected docs and independent quote index 0, the title. No
-evidence was repaired. The focal case has no missing report details across
-the archived and new completed workflows.
+evidence was repaired. The focal reports emit an empty missing-detail list, matching the
+expected list. They explicitly abstain on template applicability and on the
+draft reply. The empty list alone does not resolve template applicability.
 
 Reproduce from the repo root with the existing virtual environment. The fetch
 only reads public issue text. The first playback intentionally exits with
@@ -78,7 +79,7 @@ issues for each historical replay. Results use pre-cutoff evidence.
 
 The candidate retained **1/7** historical fixed, **1/1** focal agent and **3/4**
 synthetic types. Zero gains, regressions, type abstentions, or validation/model
-errors in the paired sets. Synthetic intents were declared by the investigator.
+errors in the paired sets. Other report-field abstentions remain in the archived reports. Synthetic intents were declared by the investigator.
 Notably, the obsolete-helper probe had only two options for quoting; the model
 selected the entire body including the requested text correction, then assigned
 bug. Resampling quotes cannot supply more relevant evidence in that example.
@@ -105,3 +106,20 @@ The seven historical cases were selected for diagnosis after seeing #60.
 The two synthetic pairs deliberately share vocabulary and have no independent
 ratings. No fifty-case candidate score, model promotion, or fresh human
 judgment of reply usefulness or semantic support follows from this comparison.
+
+## Checks and review
+
+The full suite passed 499 tests with two opt-in public replay skips. The focused
+semantic-classification and historical replay tests passed 83/83. Ruff lint
+and format, mypy on src and tests, and the #59, #60 and two #20 offline audits
+passed. The local HTTP tests required the usual outside-sandbox execution.
+
+Independent Standards and Spec reviews against cac83fe found that the initial
+offline audit could miss a substituted prompt or a changed agent action, and
+that optimized Python could skip the opening check in the reproducer. The
+revised audit replays both sets of synthetic responses through public triage,
+checks the exact report prompt hashes, compares the full paired planner
+sequences and checks the historical selections against the archive. The
+reproducer explicitly rejects changed inputs even under optimized Python.
+The focal case's non-type abstentions are disclosed above. These follow-up
+checks used the recorded outputs and consumed no model calls.
