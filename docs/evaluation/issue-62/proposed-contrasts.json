@@ -1,0 +1,42 @@
+{
+  "origin": "Investigator-designed synthetic openings for #62",
+  "review_status": "pending",
+  "cases": [
+    {
+      "id": "xml-A",
+      "title": "One test produces two XML testcase entries",
+      "body": "With one passing test and no plugins, --junitxml writes two testcase entries for the same node. The same minimal project produces two entries in both 8.1 and 8.2.",
+      "proposed_type": "type: bug"
+    },
+    {
+      "id": "xml-B",
+      "title": "One test produces two XML testcase entries",
+      "body": "With one passing test and no plugins, --junitxml writes two testcase entries for the same node. The same minimal project produces one entry in 8.1 and two in 8.2. Switching back restores one.",
+      "proposed_type": "type: regression"
+    },
+    {
+      "id": "filter-A",
+      "title": "Selecting tests with a marker",
+      "body": "My tiny suite has two tests. Only test_upload is marked slow. Running pytest -m slow selects test_upload. How do I select the other test as well without changing either file?",
+      "proposed_type": "type: question"
+    },
+    {
+      "id": "filter-B",
+      "title": "Selecting tests with a marker",
+      "body": "My tiny suite has two tests. Only test_upload is marked slow. Running pytest -m slow selects both tests, including the unmarked one. This reproduces with the marker registered and all plugins disabled.",
+      "proposed_type": "type: bug"
+    },
+    {
+      "id": "paths-A",
+      "title": "Paths in the configuration reference",
+      "body": "The reference says testpaths accepts a single directory. Its example on the same page lists two directories and both are collected. Could you correct the sentence that says only one is allowed?",
+      "proposed_type": "type: docs"
+    },
+    {
+      "id": "paths-B",
+      "title": "Paths in the configuration reference",
+      "body": "The reference shows testpaths with two directories and both are collected in my project. How can I run just the second directory for one invocation while keeping both in the configuration?",
+      "proposed_type": "type: question"
+    }
+  ]
+}
