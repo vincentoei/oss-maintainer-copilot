@@ -1,5 +1,6 @@
 """A model swap must preserve the request and validator at both public report paths."""
 
+import hashlib
 import io
 import json
 from pathlib import Path
@@ -10,6 +11,7 @@ from test_triage_quality_replay import replay_opening
 
 from maintainer_copilot import IssueUnderReview, triage_issue
 from maintainer_copilot.model import OpenAICompatibleModel
+from maintainer_copilot.paired_evaluation import PairedBudget
 
 PROBES = json.loads(
     (
@@ -67,3 +69,35 @@ def test_model_identity_is_only_wire_difference(
         left, right = payloads
         assert (left.pop("model"), right.pop("model")) == aliases
         assert left == right
+
+
+def test_paired_budget_refuses_drift_duplicate_after_restart_and_cap(
+    tmp_path: Path,
+) -> None:
+    body = b'{"model":"control"}'
+    allowed = {
+        (arm, case): hashlib.sha256(body).hexdigest()
+        for arm in ["control", "candidate"]
+        for case in ["one", "two", "three"]
+    }
+    ledger = tmp_path / "reservations.jsonl"
+    budget = PairedBudget(ledger, allowed, per_model=2, total=3)
+    with pytest.raises(ValueError, match="differs"):
+        budget.reserve("control", "one", b"{}")
+    with pytest.raises(ValueError, match="differs"):
+        budget.reserve("control", "unknown", body)
+    assert not ledger.exists()
+    budget.reserve("control", "one", body)
+    # A lost response still spends its reservation after restarting the client.
+    restarted = PairedBudget(ledger, allowed, per_model=2, total=3)
+    with pytest.raises(ValueError, match="Duplicate"):
+        restarted.reserve("control", "one", body)
+    restarted.reserve("control", "two", body)
+    with pytest.raises(ValueError, match="exhausted"):
+        restarted.reserve("control", "three", body)
+    restarted.reserve("candidate", "one", body)
+    with pytest.raises(ValueError, match="exhausted"):
+        restarted.reserve("candidate", "two", body)
+    assert [
+        json.loads(line)["sequence"] for line in ledger.read_text().splitlines()
+    ] == [1, 2, 3]

@@ -1,9 +1,9 @@
 # Proposed local model comparison under the #60 contract
 
-**Awaiting review.** This is a proposal for [#62](https://github.com/vincentoei/oss-maintainer-copilot/issues/62).
-Preparation has a zero-dispatch budget. The requesting user reviews the six
-exact openings and proposed types, and separately authorizes the experiment.
-Record their actual decision, revisions and scope before freezing the run.
+**Approved for execution after freeze.** This is the protocol for [#62](https://github.com/vincentoei/oss-maintainer-copilot/issues/62).
+Preparation has a zero-dispatch budget. The requesting user confirmed all
+six exact expected types and approved the bounded comparison after freeze.
+[Type review](contrast-review.json)
 Each pair shares its title. The bodies describe intentionally different issue
 openings. These synthetic requests never join the historical catalog.
 [Proposed contrasts](proposed-contrasts.json)
@@ -24,7 +24,7 @@ cost are all plausible. [Upstream 7B model card](https://huggingface.co/Qwen/Qwe
 | `pytest-triage:coder3b-ctx16k` | Qwen2.5-Coder-3B-Instruct Q4_K_M | `3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8` |
 | `pytest-triage:coder7b-ctx16k` | Qwen2.5-Coder-7B-Instruct Q4_K_M | `863fd25a4686b53c56c1a178816edc5ede1c859fc40233e35ad5d8a898e3f7cc` |
 
-Read-only host inspection on 2026-11-26 found Windows Ollama 0.40.16 with
+[Read-only host inspection](serving-inventory.json) on 2026-11-26 found Windows Ollama 0.40.16 with
 both GGUF aliases installed, no resident models, and identical template
 fingerprint `47fca52d970e517f889420240f615fa9f8f4c6e2cb062340b9dec6fe266385b5`
 (repo JSON fingerprint). Both aliases specify 16,384 context, temperature 0,
@@ -52,7 +52,9 @@ hosted arm or backend comparison. [Earlier hardware measurements](../issue-21.md
   no issue number and empty documentation topics. Inputs contain only the
   opening and normal application fields. Exclude pair IDs, review status,
   proposed types and rationale from the payload. Resolve any edits before the
-  freeze. Do not pool these results with the historical scores.
+  freeze. If only n openings are confirmed, retain all n fresh rows, cap both
+  arms together at 2 × (50 + n), and identify unpaired openings. Report
+  matched-pair accuracy only for pairs with both members confirmed. Do not pool these results with the historical scores.
 - Use only #60's system instruction, label/null schema, full opening, indexed
   exact excerpts, vetted reply citations and existing validators. Never add
   the rejected #59 instruction. Keep model-native template, options and model
@@ -120,3 +122,23 @@ evidence. Mixed signals, substantial validation loss or resource penalties
 can support retaining the 3B. No automatic promotion, claim of population
 accuracy or prompt revision follows. Any taxonomy intervention needs its own
 approval and same-model control. vLLM remains a separate #22 investigation.
+
+## Preparation evidence
+
+The [input manifest](preparation.json) contains matched prompt, input and schema
+fingerprints and the output-token limit for all 50 archived fixed requests.
+The transport capture also serializes both aliases through the production HTTP
+client with a local stub, comparing the entire JSON body after removing the model
+field. It records both raw body hashes and the common normalized fingerprint.
+All historical openings and candidate pools verified, with zero flags; the
+evidence manifest matched #60. Six additional fingerprints come from public
+fixed triage of the proposed openings. The proposal status in that manifest predates the separately recorded type review.
+This file predates authorization and is separate from the eventual run freeze.
+
+Run `PYTHONPATH=src .venv/bin/python scripts/issue62_verify.py` to audit the
+manifest offline and re-encode the six proposed openings. To rebuild the
+historical manifest from public evidence, use `scripts/issue62_prepare.py`
+with a new output path and authenticated read access to GitHub. Both commands
+use an HTTP-free model adapter. The paired transport tests compare serialized
+request bodies across aliases at fixed-triage and historical-replay entry
+points, including rejection of the same foreign label in both arms.
