@@ -94,7 +94,7 @@ The three historical #12249 reports were partial because linked CI evidence was
 unavailable; their model selections were valid and retained in the denominator.
 Overall there were 50 complete and three partial reports.
 
-| Model | Fresh median model ms | Empty-residency first-call model ms | Peak sampled device MiB across its observations |
+| Model | Fresh p50 model ms (nearest rank) | Empty-residency first-call model ms | Peak sampled device MiB across its observations |
 | --- | ---: | ---: | ---: |
 | 3B | 320.387 | 3873.144 | 2752 |
 | 7B | 445.332 | 5213.072 | 5368 |
@@ -106,7 +106,7 @@ preceded arm changes; no warm-up generation occurred. First-call duration
 includes loading and inference; a separate native load duration is unavailable.
 Native usage reported cache hits on eleven fresh calls per control and zero
 fresh candidate calls. Seven candidate integration calls reported hits. Neither
-cross-arm median latency nor browser timing implies an intrinsic model speed.
+cross-arm p50 latency nor browser timing implies an intrinsic model speed.
 
 All observations reported the pinned digest, 16,384 context, and positive equal
 total/GPU byte counts. Device memory was sampled every 500 ms and includes other
@@ -130,7 +130,7 @@ frozen slots before HTTP. Provider usage totals were 55,389 input and **1528 /
 were zero retries, repairs, warm-ups, downloads, hosted calls or API fees.
 Hardware and electricity costs were not measured.
 
-The offline auditor reproduced all 53 complete report/context structures from
+The offline auditor reproduced all 53 full report/context structures from
 the saved bounded responses, including all nine diagnostic reports using the
 hash-verified retained snapshot. It reconciled all 55 charges with call files,
 recomputed scoring/placement, and checked unchanged unrelated fixed-report

@@ -1,0 +1,43 @@
+{
+  "scope": "Completed approved issue63 run and publication, not human semantic acceptance or model promotion",
+  "frozen_source_commit": "cfd21c0d31a913a08038546610644aa03e10be67",
+  "source_unchanged": true,
+  "approval_commit": "a969e09",
+  "executed_calls": 55,
+  "report_observations": 53,
+  "input_tokens": 55389,
+  "output_tokens": 1528,
+  "output_token_cap": 14080,
+  "extra_model_calls": 0,
+  "model_downloads": 0,
+  "retries": 0,
+  "warmups": 0,
+  "hosted_calls": 0,
+  "api_usd": 0,
+  "offline_audit": {
+    "all_report_structures_replayed": 53,
+    "scorecard_byte_exact": true,
+    "charges_reconciled": 55
+  },
+  "fresh_full_history_clone": {
+    "scorecard_byte_exact_with_snapshot": true,
+    "without_snapshot_reports_replayed": 44,
+    "without_snapshot_historical_reports_explicitly_unreplayed": 9,
+    "without_snapshot_scores_and_accounting_unchanged": true
+  },
+  "review_pack": {
+    "actual_fingerprints_verified": 53,
+    "method_identities_absent_from_sheet": true,
+    "human_ratings_pending": 53,
+    "review_request": "requesting user, actual reports, start R01-R06; no response received yet"
+  },
+  "prior_artifacts_unchanged": true,
+  "source_tests_and_static_checks": "See preparation-checks.json:510passed,2opt-in-skips,Ruff,mypy; tested application source unchanged",
+  "reviews": {
+    "standards": "0 blocking findings; nearest-rank p50 wording corrected",
+    "spec": "0 publication blockers; actual semantic/usefulness ratings pending"
+  },
+  "scorecard_sha256": "c0fe695ac00de815e9e9e88c066e7e896d873bb3fcb454a3bc9385902c8b9645",
+  "default_model": "unchanged Qwen2.5-Coder3B",
+  "issue_disposition": "open pending actual report review and final acceptance"
+}
