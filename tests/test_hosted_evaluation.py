@@ -75,7 +75,7 @@ def test_invalid_hosted_selection_is_not_scored_as_a_successful_reference(
         return hosted_response(
             {
                 "issue_type": "type: invalid",
-                "issue_type_quote": "Feature",
+                "quote_index": 0,
                 "reply_citation_ids": [],
             }
         )
@@ -220,7 +220,7 @@ def test_runner_pairs_same_cutoff_and_keeps_model_output_separate_from_annotatio
         )
         assert user["issue_body"] == evidence.opening.body
         return hosted_response(
-            {"issue_type": None, "issue_type_quote": None, "reply_citation_ids": []}
+            {"issue_type": None, "quote_index": None, "reply_citation_ids": []}
         )
 
     monkeypatch.setattr("maintainer_copilot.hosted_evaluation.urlopen", endpoint)

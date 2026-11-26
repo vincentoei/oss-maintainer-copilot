@@ -38,7 +38,7 @@ def test_availability_audit_is_inference_free_and_flags_changed_openings(
                                 "content": json.dumps(
                                     {
                                         "issue_type": "type: enhancement",
-                                        "issue_type_quote": "Feature",
+                                        "quote_index": 0,
                                         "reply_citation_ids": [],
                                     }
                                 )

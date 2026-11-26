@@ -190,7 +190,7 @@ def test_type_evidence_ignores_reference_urls_and_example_output(
         assert incidental_type in data["repository_type_labels"]
         output = {
             "issue_type": "type: enhancement",
-            "issue_type_quote": body.split("\n", 1)[0],
+            "quote_index": 1,
             "reply_citation_ids": data["required_reply_ids"],
         }
         return io.BytesIO(
@@ -216,7 +216,7 @@ def test_required_investigative_question_is_owned_by_the_report(
     def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
         output = {
             "issue_type": None,
-            "issue_type_quote": None,
+            "quote_index": None,
             "reply_citation_ids": selected_ids,
         }
         return io.BytesIO(
@@ -340,7 +340,7 @@ def test_model_returns_valid_repository_type_and_verbatim_quote(
         assert "type: bug" in schema["properties"]["issue_type"]["enum"]
         output = {
             "issue_type": "type: bug",
-            "issue_type_quote": data["issue_title"],
+            "quote_index": 0,
             "reply_citation_ids": data["required_reply_ids"],
         }
         return io.BytesIO(
@@ -379,7 +379,7 @@ def test_invalid_type_abstains_and_retains_provider_usage(
                                 "content": json.dumps(
                                     {
                                         "issue_type": index,
-                                        "issue_type_quote": "Bug: collection fails",
+                                        "quote_index": 0,
                                         "reply_citation_ids": [],
                                     }
                                 )

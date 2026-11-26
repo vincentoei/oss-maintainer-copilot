@@ -100,9 +100,7 @@ def test_runner_keeps_shared_eligibility_and_distinguishes_failed_predictions(
                 "issue_type": "type: invalid"
                 if condition == "invalid_selection"
                 else None,
-                "issue_type_quote": "Feature"
-                if condition == "invalid_selection"
-                else None,
+                "quote_index": 0 if condition == "invalid_selection" else None,
                 "reply_citation_ids": [],
             }
             return io.BytesIO(

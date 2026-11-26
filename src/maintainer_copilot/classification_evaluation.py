@@ -63,6 +63,8 @@ class AvailabilityModel(model.OpenAICompatibleModel):
         self.offered = [
             label for label in properties["issue_type"]["enum"] if label is not None
         ]
+        if "quote_index" in properties:
+            return {"issue_type": None, "quote_index": None, "reply_citation_ids": []}
         return {"issue_type": None, "issue_type_quote": None, "reply_citation_ids": []}
 
 

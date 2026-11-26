@@ -65,8 +65,10 @@ MODEL_NAME=your-model-name uv run --no-env-file uvicorn maintainer_copilot.web:a
 
 Set `MODEL_BASE_URL` if your server uses a different URL. The model receives the
 issue title and body, all valid type labels from the resolved repository profile,
-and the report's available citation-backed statements. It returns a suggested
-label or unknown, an exact issue-text quote, and citation IDs for the draft reply.
+a bounded set of exact issue excerpts, and the report's available citation-backed
+statements. It selects a suggested
+label or unknown, an independent excerpt index, and citation IDs for the draft
+reply. The server maps a valid index back to its original issue-text quote.
 The server rejects unknown labels, fabricated/oversized quotes, unknown citations
 and extra free-text claims. It validates quote provenance, not whether the quote
 semantically justifies the label. Semantic fit, negation and ambiguity remain

@@ -176,7 +176,7 @@ def test_comparison_preserves_three_arms_and_reports_actual_inference_cost(
             if "enum" in schema
             else {
                 "issue_type": "type: enhancement",
-                "issue_type_quote": data["issue_title"],
+                "quote_index": 0,
                 "reply_citation_ids": data["required_reply_ids"],
             }
         )
