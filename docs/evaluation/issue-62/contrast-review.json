@@ -1,0 +1,15 @@
+{
+  "status": "confirmed",
+  "reviewer": "requesting user",
+  "decision": "Confirm all six expected types",
+  "scope": "Expected types for these six exact synthetic openings only",
+  "probes_sha256": "e3066b8a89c7bc9d641a26c0a2cdb22b53afc572cae84d627e1ca0da5f80a67f",
+  "expected_types": {
+    "xml-A": "type: bug",
+    "xml-B": "type: regression",
+    "filter-A": "type: question",
+    "filter-B": "type: bug",
+    "paths-A": "type: docs",
+    "paths-B": "type: question"
+  }
+}

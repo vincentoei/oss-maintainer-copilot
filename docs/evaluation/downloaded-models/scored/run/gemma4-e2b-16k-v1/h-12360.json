@@ -1,0 +1,457 @@
+{
+  "case": "h-12360",
+  "alias": "triage-eval:gemma4-e2b-16k-v1",
+  "expected": "type: docs",
+  "status": "valid",
+  "error": null,
+  "resident_before": {
+    "models": [
+      {
+        "name": "triage-eval:gemma4-e2b-16k-v1",
+        "model": "triage-eval:gemma4-e2b-16k-v1",
+        "size": 404215561,
+        "digest": "94d69e727168d1101645f07c651f7677776c48859760fa28ea93d753ccbb92c6",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "gemma4",
+          "families": [
+            "gemma4"
+          ],
+          "parameter_size": "4.6B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-11-26T19:59:15.9068055+07:00",
+        "size_vram": 404215561,
+        "context_length": 16384,
+        "runner": "llamacpp"
+      }
+    ]
+  },
+  "http_status": 200,
+  "transport_error": null,
+  "replay_ms": 443.406,
+  "truncated": false,
+  "raw_sha256": "74708221a02fc4c18d2617ebb27d8d10bbf1f18dd7f65fcac2bc66f93d73d0a9",
+  "report": {
+    "context": {
+      "registration_id": "pytest-default",
+      "repository": "pytest-dev/pytest",
+      "revision": "cbf6bd9dd28d8464f7eebe32e51b398e2a5e3039",
+      "profile": "pytest",
+      "status": "ready",
+      "errors": [],
+      "labels": [
+        "type: backward compatibility",
+        "type: bug",
+        "type: deprecation",
+        "type: docs",
+        "type: enhancement",
+        "type: infrastructure",
+        "type: performance",
+        "type: proposal",
+        "type: question",
+        "type: refactoring",
+        "type: regression",
+        "type: removal",
+        "type: selftests"
+      ],
+      "type_cues": [
+        [
+          "type: backward compatibility",
+          "\\b(?:backward compatib\\w*|breaking change)\\b"
+        ],
+        [
+          "type: bug",
+          "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+        ],
+        [
+          "type: deprecation",
+          "\\bdeprecat\\w*\\b"
+        ],
+        [
+          "type: docs",
+          "\\b(?:docs|documentation|guide|manual|typo)\\b"
+        ],
+        [
+          "type: enhancement",
+          "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+        ],
+        [
+          "type: infrastructure",
+          "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+        ],
+        [
+          "type: performance",
+          "\\b(?:performance|slow|latency|memory|speed)\\b"
+        ],
+        [
+          "type: proposal",
+          "\\b(?:proposal|propose|design)\\b"
+        ],
+        [
+          "type: question",
+          "\\b(?:question|how|why)\\b|\\?"
+        ],
+        [
+          "type: refactoring",
+          "\\b(?:refactor\\w*|cleanup)\\b"
+        ],
+        [
+          "type: regression",
+          "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+        ],
+        [
+          "type: removal",
+          "\\bremov\\w*\\b"
+        ],
+        [
+          "type: selftests",
+          "\\b(?:selftests|pytest test suite)\\b"
+        ]
+      ],
+      "templates": [
+        {
+          "name": "bug",
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "bug description",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "pip list output",
+              "line": 14,
+              "required": true
+            },
+            {
+              "name": "pytest and OS versions",
+              "line": 15,
+              "required": true
+            },
+            {
+              "name": "minimal example",
+              "line": 16,
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "feature",
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "problem to solve",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "proposed solution",
+              "line": 16,
+              "required": true
+            },
+            {
+              "name": "real-world use case",
+              "line": 19,
+              "required": true
+            },
+            {
+              "name": "alternative solutions",
+              "line": 21,
+              "required": true
+            }
+          ]
+        }
+      ],
+      "documentation": [],
+      "prepared_at": "",
+      "structured_templates": true
+    },
+    "trace_id": "31fe0f1c-1e1c-4c1c-a236-a5bbd9d6e209",
+    "status": "complete",
+    "issue_type": "type: bug",
+    "issue_type_quote": "Assertions are rewritten even if a message is present",
+    "duplicate_candidates": [],
+    "related_issues": [],
+    "missing_details": [],
+    "documentation_claims": [],
+    "source_claims": [],
+    "ci_results": [],
+    "draft_reply": "Thanks for sharing this issue. I cannot substantiate a specific request from the available evidence.",
+    "citations": [],
+    "abstentions": [
+      {
+        "field": "missing_details",
+        "reason": "Issue text does not establish one supported applicable template."
+      },
+      {
+        "field": "draft_reply",
+        "reason": "No supported reply claim was selected."
+      }
+    ]
+  },
+  "model_event": {
+    "kind": "model",
+    "name": "triage_selection",
+    "status": "ok",
+    "started_ms": 6.334,
+    "duration_ms": 435.974,
+    "target": "triage-eval:gemma4-e2b-16k-v1",
+    "result_count": null,
+    "references": [],
+    "input_tokens": 1581,
+    "output_tokens": 28,
+    "error": null
+  },
+  "gpu": {
+    "enabled": true,
+    "sample_interval_ms": 500,
+    "sample_count": 2,
+    "initial_used_mib": 3282.0,
+    "peak_sampled_used_mib": 3282.0,
+    "error": null,
+    "scope": "Device-wide use including other processes; sampled, not true peak."
+  },
+  "raw_response": "{\"id\":\"chatcmpl-814\",\"object\":\"chat.completion\",\"created\":1795697656,\"model\":\"triage-eval:gemma4-e2b-16k-v1\",\"system_fingerprint\":\"fp_ollama\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"{\\\"issue_type\\\": \\\"type: bug\\\", \\\"quote_index\\\": 0, \\\"reply_citation_ids\\\": []}\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":1581,\"prompt_tokens_details\":{\"cached_tokens\":149},\"completion_tokens\":28,\"total_tokens\":1609}}\n",
+  "trace": {
+    "context": {
+      "registration_id": "pytest-default",
+      "repository": "pytest-dev/pytest",
+      "revision": "cbf6bd9dd28d8464f7eebe32e51b398e2a5e3039",
+      "profile": "pytest",
+      "status": "ready",
+      "errors": [],
+      "labels": [
+        "type: backward compatibility",
+        "type: bug",
+        "type: deprecation",
+        "type: docs",
+        "type: enhancement",
+        "type: infrastructure",
+        "type: performance",
+        "type: proposal",
+        "type: question",
+        "type: refactoring",
+        "type: regression",
+        "type: removal",
+        "type: selftests"
+      ],
+      "type_cues": [
+        [
+          "type: backward compatibility",
+          "\\b(?:backward compatib\\w*|breaking change)\\b"
+        ],
+        [
+          "type: bug",
+          "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+        ],
+        [
+          "type: deprecation",
+          "\\bdeprecat\\w*\\b"
+        ],
+        [
+          "type: docs",
+          "\\b(?:docs|documentation|guide|manual|typo)\\b"
+        ],
+        [
+          "type: enhancement",
+          "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+        ],
+        [
+          "type: infrastructure",
+          "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+        ],
+        [
+          "type: performance",
+          "\\b(?:performance|slow|latency|memory|speed)\\b"
+        ],
+        [
+          "type: proposal",
+          "\\b(?:proposal|propose|design)\\b"
+        ],
+        [
+          "type: question",
+          "\\b(?:question|how|why)\\b|\\?"
+        ],
+        [
+          "type: refactoring",
+          "\\b(?:refactor\\w*|cleanup)\\b"
+        ],
+        [
+          "type: regression",
+          "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+        ],
+        [
+          "type: removal",
+          "\\bremov\\w*\\b"
+        ],
+        [
+          "type: selftests",
+          "\\b(?:selftests|pytest test suite)\\b"
+        ]
+      ],
+      "templates": [
+        {
+          "name": "bug",
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "bug description",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "pip list output",
+              "line": 14,
+              "required": true
+            },
+            {
+              "name": "pytest and OS versions",
+              "line": 15,
+              "required": true
+            },
+            {
+              "name": "minimal example",
+              "line": 16,
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "feature",
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "problem to solve",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "proposed solution",
+              "line": 16,
+              "required": true
+            },
+            {
+              "name": "real-world use case",
+              "line": 19,
+              "required": true
+            },
+            {
+              "name": "alternative solutions",
+              "line": 21,
+              "required": true
+            }
+          ]
+        }
+      ],
+      "documentation": [],
+      "prepared_at": "",
+      "structured_templates": true
+    },
+    "trace_id": "31fe0f1c-1e1c-4c1c-a236-a5bbd9d6e209",
+    "created_at": "2026-11-26T12:54:15.871635Z",
+    "status": "complete",
+    "duration_ms": 442.357,
+    "events": [
+      {
+        "kind": "retrieval",
+        "name": "get_issue",
+        "status": "ok",
+        "started_ms": 0.617,
+        "duration_ms": 0.043,
+        "target": "pytest issue #12360",
+        "result_count": 1,
+        "references": [
+          "https://github.com/pytest-dev/pytest/issues/12360"
+        ],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "search_issues",
+        "status": "ok",
+        "started_ms": 0.679,
+        "duration_ms": 3.604,
+        "target": "query (assertions OR rewritten OR message) before 2024-05-24T06:22:57+00:00",
+        "result_count": 4,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "assess_matches",
+        "status": "ok",
+        "started_ms": 4.289,
+        "duration_ms": 0.882,
+        "target": null,
+        "result_count": 0,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "model",
+        "name": "triage_selection",
+        "status": "ok",
+        "started_ms": 6.334,
+        "duration_ms": 435.974,
+        "target": "triage-eval:gemma4-e2b-16k-v1",
+        "result_count": null,
+        "references": [],
+        "input_tokens": 1581,
+        "output_tokens": 28,
+        "error": null
+      }
+    ]
+  },
+  "finish_reason": "stop",
+  "reasoning_chars": 0,
+  "usage": {
+    "prompt_tokens": 1581,
+    "prompt_tokens_details": {
+      "cached_tokens": 149
+    },
+    "completion_tokens": 28,
+    "total_tokens": 1609
+  },
+  "context_flag": "truncation_unknown",
+  "resident_after": {
+    "models": [
+      {
+        "name": "triage-eval:gemma4-e2b-16k-v1",
+        "model": "triage-eval:gemma4-e2b-16k-v1",
+        "size": 404215561,
+        "digest": "94d69e727168d1101645f07c651f7677776c48859760fa28ea93d753ccbb92c6",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "gemma4",
+          "families": [
+            "gemma4"
+          ],
+          "parameter_size": "4.6B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-11-26T19:59:16.5368807+07:00",
+        "size_vram": 404215561,
+        "context_length": 16384,
+        "runner": "llamacpp"
+      }
+    ]
+  },
+  "gpu_16k": true
+}

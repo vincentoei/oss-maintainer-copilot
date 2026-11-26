@@ -1,0 +1,21 @@
+{
+  "process": "llama-server.exe",
+  "flags": [
+    "-c 16384",
+    "-np 1",
+    "--spec-type draft-mtp",
+    "--spec-draft-n-max 3",
+    "--load-mode none",
+    "--flash-attn auto",
+    "-b 1024",
+    "-ub 1024"
+  ],
+  "windows_gpu_process_memory_bytes": [
+    {
+      "DedicatedUsage": 3422769152,
+      "SharedUsage": 2573205504,
+      "TotalCommitted": 5995974656
+    }
+  ],
+  "utc": "2026-11-26T12:17:06.4351114Z"
+}

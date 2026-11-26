@@ -1,0 +1,252 @@
+{
+  "dispatches": 112,
+  "max_dispatches": 112,
+  "model_api_usd": 0,
+  "historical": {
+    "planned": 50,
+    "eligible": 50,
+    "common_valid": 50,
+    "gains": [
+      "h-10156",
+      "h-12228",
+      "h-12263",
+      "h-12298",
+      "h-12308",
+      "h-12328",
+      "h-12367"
+    ],
+    "regressions": [
+      "h-12290",
+      "h-12363"
+    ],
+    "nonvalid_transitions": {},
+    "arms": {
+      "pytest-triage:coder3b-ctx16k": {
+        "correct": 29,
+        "planned": 50,
+        "statuses": {
+          "valid": 50
+        },
+        "type_abstentions": 0,
+        "confusion": {
+          "type: enhancement": {
+            "type: enhancement": 14
+          },
+          "type: docs": {
+            "type: enhancement": 2,
+            "type: bug": 1,
+            "type: docs": 1
+          },
+          "type: bug": {
+            "type: bug": 13
+          },
+          "type: regression": {
+            "type: bug": 7,
+            "type: regression": 1
+          },
+          "type: question": {
+            "type: bug": 7
+          },
+          "null": {
+            "type: bug": 1
+          },
+          "type: selftests": {
+            "type: bug": 2
+          },
+          "type: proposal": {
+            "type: enhancement": 1
+          }
+        },
+        "model_ms": {
+          "p50": 537.061,
+          "p95": 1823.717
+        },
+        "replay_ms": {
+          "p50": 541.885,
+          "p95": 1833.152
+        },
+        "tokens": {
+          "input_tokens": {
+            "sum_known": 96216,
+            "missing": 0
+          },
+          "output_tokens": {
+            "sum_known": 1680,
+            "missing": 0
+          }
+        },
+        "peak_device_mib": 2754.0,
+        "rows_without_gpu": 0
+      },
+      "pytest-triage:coder7b-ctx16k": {
+        "correct": 34,
+        "planned": 50,
+        "statuses": {
+          "valid": 50
+        },
+        "type_abstentions": 0,
+        "confusion": {
+          "type: enhancement": {
+            "type: enhancement": 12,
+            "type: docs": 2
+          },
+          "type: docs": {
+            "type: docs": 3,
+            "type: bug": 1
+          },
+          "type: bug": {
+            "type: bug": 13
+          },
+          "type: regression": {
+            "type: bug": 3,
+            "type: regression": 5
+          },
+          "type: question": {
+            "type: bug": 6,
+            "type: question": 1
+          },
+          "null": {
+            "type: bug": 1
+          },
+          "type: selftests": {
+            "type: bug": 2
+          },
+          "type: proposal": {
+            "type: enhancement": 1
+          }
+        },
+        "model_ms": {
+          "p50": 894.717,
+          "p95": 3426.802
+        },
+        "replay_ms": {
+          "p50": 910.886,
+          "p95": 3436.6
+        },
+        "tokens": {
+          "input_tokens": {
+            "sum_known": 96216,
+            "missing": 0
+          },
+          "output_tokens": {
+            "sum_known": 1449,
+            "missing": 0
+          }
+        },
+        "peak_device_mib": 5370.0,
+        "rows_without_gpu": 0
+      }
+    }
+  },
+  "reviewed_synthetic": {
+    "planned": 6,
+    "eligible": 6,
+    "common_valid": 6,
+    "gains": [
+      "filter-A",
+      "paths-B"
+    ],
+    "regressions": [],
+    "nonvalid_transitions": {},
+    "arms": {
+      "pytest-triage:coder3b-ctx16k": {
+        "correct": 3,
+        "planned": 6,
+        "statuses": {
+          "valid": 6
+        },
+        "type_abstentions": 0,
+        "confusion": {
+          "type: bug": {
+            "type: bug": 2
+          },
+          "type: regression": {
+            "type: bug": 1
+          },
+          "type: question": {
+            "type: bug": 1,
+            "type: docs": 1
+          },
+          "type: docs": {
+            "type: docs": 1
+          }
+        },
+        "model_ms": {
+          "p50": 311.513,
+          "p95": 348.511
+        },
+        "replay_ms": {
+          "p50": 311.861,
+          "p95": 348.813
+        },
+        "tokens": {
+          "input_tokens": {
+            "sum_known": 2716,
+            "missing": 0
+          },
+          "output_tokens": {
+            "sum_known": 174,
+            "missing": 0
+          }
+        },
+        "peak_device_mib": 2754.0,
+        "rows_without_gpu": 0
+      },
+      "pytest-triage:coder7b-ctx16k": {
+        "correct": 5,
+        "planned": 6,
+        "statuses": {
+          "valid": 6
+        },
+        "type_abstentions": 0,
+        "confusion": {
+          "type: bug": {
+            "type: bug": 2
+          },
+          "type: regression": {
+            "type: bug": 1
+          },
+          "type: question": {
+            "type: question": 2
+          },
+          "type: docs": {
+            "type: docs": 1
+          }
+        },
+        "model_ms": {
+          "p50": 458.712,
+          "p95": 489.122
+        },
+        "replay_ms": {
+          "p50": 459.19,
+          "p95": 489.85
+        },
+        "tokens": {
+          "input_tokens": {
+            "sum_known": 2716,
+            "missing": 0
+          },
+          "output_tokens": {
+            "sum_known": 150,
+            "missing": 0
+          }
+        },
+        "peak_device_mib": 5370.0,
+        "rows_without_gpu": 0
+      }
+    }
+  },
+  "control_drift": [],
+  "complete_fresh_pairs": {
+    "pytest-triage:coder3b-ctx16k": {
+      "xml": false,
+      "filter": false,
+      "paths": false
+    },
+    "pytest-triage:coder7b-ctx16k": {
+      "xml": false,
+      "filter": true,
+      "paths": true
+    }
+  }
+}

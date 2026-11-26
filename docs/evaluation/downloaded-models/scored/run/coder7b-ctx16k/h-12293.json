@@ -1,0 +1,486 @@
+{
+  "case": "h-12293",
+  "alias": "pytest-triage:coder7b-ctx16k",
+  "expected": "type: regression",
+  "status": "valid",
+  "error": null,
+  "resident_before": {
+    "models": [
+      {
+        "name": "pytest-triage:coder7b-ctx16k",
+        "model": "pytest-triage:coder7b-ctx16k",
+        "size": 5472623000,
+        "digest": "863fd25a4686b53c56c1a178816edc5ede1c859fc40233e35ad5d8a898e3f7cc",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "7.6B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-11-26T19:58:06.7031689+07:00",
+        "size_vram": 5472623000,
+        "context_length": 16384,
+        "runner": "llamacpp"
+      }
+    ]
+  },
+  "http_status": 200,
+  "transport_error": null,
+  "replay_ms": 867.874,
+  "truncated": false,
+  "raw_sha256": "928fc350f718ffe58a31886ea8e8f42e871974404458d7128f69070e50782f90",
+  "report": {
+    "context": {
+      "registration_id": "pytest-default",
+      "repository": "pytest-dev/pytest",
+      "revision": "4080459f041f02c66356777001d18155d2796ee7",
+      "profile": "pytest",
+      "status": "ready",
+      "errors": [],
+      "labels": [
+        "type: backward compatibility",
+        "type: bug",
+        "type: deprecation",
+        "type: docs",
+        "type: enhancement",
+        "type: infrastructure",
+        "type: performance",
+        "type: proposal",
+        "type: question",
+        "type: refactoring",
+        "type: regression",
+        "type: removal",
+        "type: selftests"
+      ],
+      "type_cues": [
+        [
+          "type: backward compatibility",
+          "\\b(?:backward compatib\\w*|breaking change)\\b"
+        ],
+        [
+          "type: bug",
+          "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+        ],
+        [
+          "type: deprecation",
+          "\\bdeprecat\\w*\\b"
+        ],
+        [
+          "type: docs",
+          "\\b(?:docs|documentation|guide|manual|typo)\\b"
+        ],
+        [
+          "type: enhancement",
+          "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+        ],
+        [
+          "type: infrastructure",
+          "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+        ],
+        [
+          "type: performance",
+          "\\b(?:performance|slow|latency|memory|speed)\\b"
+        ],
+        [
+          "type: proposal",
+          "\\b(?:proposal|propose|design)\\b"
+        ],
+        [
+          "type: question",
+          "\\b(?:question|how|why)\\b|\\?"
+        ],
+        [
+          "type: refactoring",
+          "\\b(?:refactor\\w*|cleanup)\\b"
+        ],
+        [
+          "type: regression",
+          "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+        ],
+        [
+          "type: removal",
+          "\\bremov\\w*\\b"
+        ],
+        [
+          "type: selftests",
+          "\\b(?:selftests|pytest test suite)\\b"
+        ]
+      ],
+      "templates": [
+        {
+          "name": "bug",
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "bug description",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "pip list output",
+              "line": 14,
+              "required": true
+            },
+            {
+              "name": "pytest and OS versions",
+              "line": 15,
+              "required": true
+            },
+            {
+              "name": "minimal example",
+              "line": 16,
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "feature",
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "problem to solve",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "proposed solution",
+              "line": 16,
+              "required": true
+            },
+            {
+              "name": "real-world use case",
+              "line": 19,
+              "required": true
+            },
+            {
+              "name": "alternative solutions",
+              "line": 21,
+              "required": true
+            }
+          ]
+        }
+      ],
+      "documentation": [],
+      "prepared_at": "",
+      "structured_templates": true
+    },
+    "trace_id": "54affea6-9915-4646-99ca-2861d2e3b07d",
+    "status": "complete",
+    "issue_type": "type: bug",
+    "issue_type_quote": "Pytest 8.2.0: \"AttributeError: 'VendorImporter' object has no attribute 'find_spec'\"",
+    "duplicate_candidates": [],
+    "related_issues": [],
+    "missing_details": [
+      {
+        "name": "pip list output",
+        "request": "the output of `pip list` from the virtual environment you are using",
+        "citation_id": "C1"
+      },
+      {
+        "name": "pytest and OS versions",
+        "request": "your operating system and release",
+        "citation_id": "C2"
+      },
+      {
+        "name": "minimal example",
+        "request": "a minimal example, if possible",
+        "citation_id": "C3"
+      }
+    ],
+    "documentation_claims": [],
+    "source_claims": [],
+    "ci_results": [],
+    "draft_reply": "Thanks for sharing this issue.\n- Could you add the output of `pip list` from the virtual environment you are using? [C1]\n- Could you add your operating system and release? [C2]\n- Could you add a minimal example, if possible? [C3]",
+    "citations": [
+      {
+        "id": "C1",
+        "source_url": "https://github.com/pytest-dev/pytest/blob/4080459f041f02c66356777001d18155d2796ee7/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+        "description": "pytest bug report template: pip list output",
+        "passage": null,
+        "source_location": null
+      },
+      {
+        "id": "C2",
+        "source_url": "https://github.com/pytest-dev/pytest/blob/4080459f041f02c66356777001d18155d2796ee7/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+        "description": "pytest bug report template: pytest and OS versions",
+        "passage": null,
+        "source_location": null
+      },
+      {
+        "id": "C3",
+        "source_url": "https://github.com/pytest-dev/pytest/blob/4080459f041f02c66356777001d18155d2796ee7/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "description": "pytest bug report template: minimal example",
+        "passage": null,
+        "source_location": null
+      }
+    ],
+    "abstentions": []
+  },
+  "model_event": {
+    "kind": "model",
+    "name": "triage_selection",
+    "status": "ok",
+    "started_ms": 3.101,
+    "duration_ms": 864.236,
+    "target": "pytest-triage:coder7b-ctx16k",
+    "result_count": null,
+    "references": [],
+    "input_tokens": 1055,
+    "output_tokens": 35,
+    "error": null
+  },
+  "gpu": {
+    "enabled": true,
+    "sample_interval_ms": 500,
+    "sample_count": 3,
+    "initial_used_mib": 5368.0,
+    "peak_sampled_used_mib": 5368.0,
+    "error": null,
+    "scope": "Device-wide use including other processes; sampled, not true peak."
+  },
+  "raw_response": "{\"id\":\"chatcmpl-813\",\"object\":\"chat.completion\",\"created\":1795697587,\"model\":\"pytest-triage:coder7b-ctx16k\",\"system_fingerprint\":\"fp_ollama\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"{\\\"issue_type\\\": \\\"type: bug\\\", \\\"quote_index\\\": 0, \\\"reply_citation_ids\\\": [\\\"C1\\\", \\\"C2\\\", \\\"C3\\\"]}\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":1055,\"prompt_tokens_details\":{\"cached_tokens\":216},\"completion_tokens\":35,\"total_tokens\":1090}}\n",
+  "trace": {
+    "context": {
+      "registration_id": "pytest-default",
+      "repository": "pytest-dev/pytest",
+      "revision": "4080459f041f02c66356777001d18155d2796ee7",
+      "profile": "pytest",
+      "status": "ready",
+      "errors": [],
+      "labels": [
+        "type: backward compatibility",
+        "type: bug",
+        "type: deprecation",
+        "type: docs",
+        "type: enhancement",
+        "type: infrastructure",
+        "type: performance",
+        "type: proposal",
+        "type: question",
+        "type: refactoring",
+        "type: regression",
+        "type: removal",
+        "type: selftests"
+      ],
+      "type_cues": [
+        [
+          "type: backward compatibility",
+          "\\b(?:backward compatib\\w*|breaking change)\\b"
+        ],
+        [
+          "type: bug",
+          "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+        ],
+        [
+          "type: deprecation",
+          "\\bdeprecat\\w*\\b"
+        ],
+        [
+          "type: docs",
+          "\\b(?:docs|documentation|guide|manual|typo)\\b"
+        ],
+        [
+          "type: enhancement",
+          "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+        ],
+        [
+          "type: infrastructure",
+          "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+        ],
+        [
+          "type: performance",
+          "\\b(?:performance|slow|latency|memory|speed)\\b"
+        ],
+        [
+          "type: proposal",
+          "\\b(?:proposal|propose|design)\\b"
+        ],
+        [
+          "type: question",
+          "\\b(?:question|how|why)\\b|\\?"
+        ],
+        [
+          "type: refactoring",
+          "\\b(?:refactor\\w*|cleanup)\\b"
+        ],
+        [
+          "type: regression",
+          "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+        ],
+        [
+          "type: removal",
+          "\\bremov\\w*\\b"
+        ],
+        [
+          "type: selftests",
+          "\\b(?:selftests|pytest test suite)\\b"
+        ]
+      ],
+      "templates": [
+        {
+          "name": "bug",
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "bug description",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "pip list output",
+              "line": 14,
+              "required": true
+            },
+            {
+              "name": "pytest and OS versions",
+              "line": 15,
+              "required": true
+            },
+            {
+              "name": "minimal example",
+              "line": 16,
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "feature",
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "problem to solve",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "proposed solution",
+              "line": 16,
+              "required": true
+            },
+            {
+              "name": "real-world use case",
+              "line": 19,
+              "required": true
+            },
+            {
+              "name": "alternative solutions",
+              "line": 21,
+              "required": true
+            }
+          ]
+        }
+      ],
+      "documentation": [],
+      "prepared_at": "",
+      "structured_templates": true
+    },
+    "trace_id": "54affea6-9915-4646-99ca-2861d2e3b07d",
+    "created_at": "2026-11-26T12:53:06.692014Z",
+    "status": "complete",
+    "duration_ms": 867.434,
+    "events": [
+      {
+        "kind": "retrieval",
+        "name": "get_issue",
+        "status": "ok",
+        "started_ms": 0.19,
+        "duration_ms": 0.018,
+        "target": "pytest issue #12293",
+        "result_count": 1,
+        "references": [
+          "https://github.com/pytest-dev/pytest/issues/12293"
+        ],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "search_issues",
+        "status": "ok",
+        "started_ms": 0.216,
+        "duration_ms": 2.545,
+        "target": "query (attributeerror OR vendorimporter OR attribute) before 2024-05-07T14:08:39+00:00",
+        "result_count": 3,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "assess_matches",
+        "status": "ok",
+        "started_ms": 2.766,
+        "duration_ms": 0.189,
+        "target": null,
+        "result_count": 0,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "model",
+        "name": "triage_selection",
+        "status": "ok",
+        "started_ms": 3.101,
+        "duration_ms": 864.236,
+        "target": "pytest-triage:coder7b-ctx16k",
+        "result_count": null,
+        "references": [],
+        "input_tokens": 1055,
+        "output_tokens": 35,
+        "error": null
+      }
+    ]
+  },
+  "finish_reason": "stop",
+  "reasoning_chars": 0,
+  "usage": {
+    "prompt_tokens": 1055,
+    "prompt_tokens_details": {
+      "cached_tokens": 216
+    },
+    "completion_tokens": 35,
+    "total_tokens": 1090
+  },
+  "context_flag": "truncation_unknown",
+  "resident_after": {
+    "models": [
+      {
+        "name": "pytest-triage:coder7b-ctx16k",
+        "model": "pytest-triage:coder7b-ctx16k",
+        "size": 5472623000,
+        "digest": "863fd25a4686b53c56c1a178816edc5ede1c859fc40233e35ad5d8a898e3f7cc",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "7.6B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-11-26T19:58:07.7820137+07:00",
+        "size_vram": 5472623000,
+        "context_length": 16384,
+        "runner": "llamacpp"
+      }
+    ]
+  },
+  "gpu_16k": true
+}

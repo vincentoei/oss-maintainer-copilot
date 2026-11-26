@@ -1,0 +1,548 @@
+{
+  "case": "h-12081",
+  "alias": "triage-eval:qwen35-4b-16k-v1",
+  "expected": "type: enhancement",
+  "status": "valid",
+  "error": null,
+  "resident_before": {
+    "models": [
+      {
+        "name": "triage-eval:qwen35-4b-16k-v1",
+        "model": "triage-eval:qwen35-4b-16k-v1",
+        "size": 3650124512,
+        "digest": "8da535b12863762c2403ed06956d92da4e57806a4772ba321137a2809e9a8bbe",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen35",
+          "families": [
+            "qwen35"
+          ],
+          "parameter_size": "4.2B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-11-26T19:59:34.056602+07:00",
+        "size_vram": 3650124512,
+        "context_length": 16384,
+        "runner": "llamacpp"
+      }
+    ]
+  },
+  "http_status": 200,
+  "transport_error": null,
+  "replay_ms": 1066.603,
+  "truncated": false,
+  "raw_sha256": "0a6ff7e70634c443cccb294ee0c89671f4a29508a0a993dc79eb07e4e125c566",
+  "report": {
+    "context": {
+      "registration_id": "pytest-default",
+      "repository": "pytest-dev/pytest",
+      "revision": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "profile": "pytest",
+      "status": "ready",
+      "errors": [],
+      "labels": [
+        "type: backward compatibility",
+        "type: bug",
+        "type: deprecation",
+        "type: docs",
+        "type: enhancement",
+        "type: infrastructure",
+        "type: performance",
+        "type: proposal",
+        "type: question",
+        "type: refactoring",
+        "type: regression",
+        "type: removal",
+        "type: selftests"
+      ],
+      "type_cues": [
+        [
+          "type: backward compatibility",
+          "\\b(?:backward compatib\\w*|breaking change)\\b"
+        ],
+        [
+          "type: bug",
+          "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+        ],
+        [
+          "type: deprecation",
+          "\\bdeprecat\\w*\\b"
+        ],
+        [
+          "type: docs",
+          "\\b(?:docs|documentation|guide|manual|typo)\\b"
+        ],
+        [
+          "type: enhancement",
+          "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+        ],
+        [
+          "type: infrastructure",
+          "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+        ],
+        [
+          "type: performance",
+          "\\b(?:performance|slow|latency|memory|speed)\\b"
+        ],
+        [
+          "type: proposal",
+          "\\b(?:proposal|propose|design)\\b"
+        ],
+        [
+          "type: question",
+          "\\b(?:question|how|why)\\b|\\?"
+        ],
+        [
+          "type: refactoring",
+          "\\b(?:refactor\\w*|cleanup)\\b"
+        ],
+        [
+          "type: regression",
+          "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+        ],
+        [
+          "type: removal",
+          "\\bremov\\w*\\b"
+        ],
+        [
+          "type: selftests",
+          "\\b(?:selftests|pytest test suite)\\b"
+        ]
+      ],
+      "templates": [
+        {
+          "name": "bug",
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "bug description",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "pip list output",
+              "line": 14,
+              "required": true
+            },
+            {
+              "name": "pytest and OS versions",
+              "line": 15,
+              "required": true
+            },
+            {
+              "name": "minimal example",
+              "line": 16,
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "feature",
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "problem to solve",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "proposed solution",
+              "line": 16,
+              "required": true
+            },
+            {
+              "name": "real-world use case",
+              "line": 19,
+              "required": true
+            },
+            {
+              "name": "alternative solutions",
+              "line": 21,
+              "required": true
+            }
+          ]
+        }
+      ],
+      "documentation": [
+        {
+          "key": "capture",
+          "url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
+          "section": "accessing-captured-output-from-a-test-function",
+          "passage": "The ``capsys``, ``capsysbinary``, ``capfd``, and ``capfdbinary`` fixtures allow access to stdout/stderr output created during test execution.  Here is",
+          "claim": "pytest documents that capture fixtures let tests access stdout and stderr created during execution.",
+          "relevance": "\\b(?:capsys|capfd|capteesys|capsysbinary|capfdbinary)\\b"
+        }
+      ],
+      "prepared_at": "",
+      "structured_templates": true
+    },
+    "trace_id": "065f0094-9356-40bb-9dcc-e8fa9413dc66",
+    "status": "complete",
+    "issue_type": "type: enhancement",
+    "issue_type_quote": ", **resetting the internal buffer**.\"), however the [\"How to capture stdout/stderr output\" tutorial](https://docs.pytest.org/en/7.1.x/how-to/capture-stdout-stde",
+    "duplicate_candidates": [],
+    "related_issues": [
+      {
+        "issue_number": 3448,
+        "title": "capture: keep all output for \"Captured stdout call\" etc",
+        "url": "https://github.com/pytest-dev/pytest/issues/3448",
+        "reason": "Both concern readouterr consuming captured output. This report: \"\u2026turing via readouterr() consume stdout, meaning that logs are no longer available in the \"Captured s\u2026\"; earlier: \"\u2026uterr()` in a test also resets what pytest displays in case of failed tests.\". This opening names copyouterr; compare its proposed behavior with the earlier readouterr report.",
+        "citation_id": "C1"
+      }
+    ],
+    "missing_details": [],
+    "documentation_claims": [
+      {
+        "claim": "pytest documents that capture fixtures let tests access stdout and stderr created during execution.",
+        "citation_id": "C2"
+      }
+    ],
+    "source_claims": [
+      {
+        "claim": "At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line.",
+        "citation_id": "C3"
+      }
+    ],
+    "ci_results": [],
+    "draft_reply": "Thanks for sharing this issue.\n- Earlier issue #3448 may be relevant: Both concern readouterr consuming captured output. This report: \"\u2026turing via readouterr() consume stdout, meaning that logs are no longer available in the \"Captured s\u2026\"; earlier: \"\u2026uterr()` in a test also resets what pytest displays in case of failed tests.\". This opening names copyouterr; compare its proposed behavior with the earlier readouterr report. [C1]\n- pytest documents that capture fixtures let tests access stdout and stderr created during execution. [C2]\n- At commit 03e54712dd123138aa4c1035a027e17d0dd9a86c, pytest source src/_pytest/capture.py:935 contains the cited line. [C3]",
+    "citations": [
+      {
+        "id": "C1",
+        "source_url": "https://github.com/pytest-dev/pytest/issues/3448",
+        "description": "pytest issue #3448: capture: keep all output for \"Captured stdout call\" etc",
+        "passage": null,
+        "source_location": null
+      },
+      {
+        "id": "C2",
+        "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
+        "description": "pytest documentation: capture",
+        "passage": "The ``capsys``, ``capsysbinary``, ``capfd``, and ``capfdbinary`` fixtures allow access to stdout/stderr output created during test execution.  Here is",
+        "source_location": null
+      },
+      {
+        "id": "C3",
+        "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+        "description": "pytest source: src/_pytest/capture.py:935",
+        "passage": "        \"\"\"Read and return the captured output so far, resetting the internal",
+        "source_location": {
+          "repository": "pytest-dev/pytest",
+          "commit": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+          "path": "src/_pytest/capture.py",
+          "line": 935
+        }
+      }
+    ],
+    "abstentions": [
+      {
+        "field": "missing_details",
+        "reason": "Issue text does not establish one supported applicable template."
+      }
+    ]
+  },
+  "model_event": {
+    "kind": "model",
+    "name": "triage_selection",
+    "status": "ok",
+    "started_ms": 4.37,
+    "duration_ms": 1061.718,
+    "target": "triage-eval:qwen35-4b-16k-v1",
+    "result_count": null,
+    "references": [],
+    "input_tokens": 2195,
+    "output_tokens": 35,
+    "error": null
+  },
+  "gpu": {
+    "enabled": true,
+    "sample_interval_ms": 500,
+    "sample_count": 4,
+    "initial_used_mib": 4276.0,
+    "peak_sampled_used_mib": 4276.0,
+    "error": null,
+    "scope": "Device-wide use including other processes; sampled, not true peak."
+  },
+  "raw_response": "{\"id\":\"chatcmpl-192\",\"object\":\"chat.completion\",\"created\":1795697675,\"model\":\"triage-eval:qwen35-4b-16k-v1\",\"system_fingerprint\":\"fp_ollama\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"{\\\"issue_type\\\": \\\"type: enhancement\\\", \\\"quote_index\\\": 1, \\\"reply_citation_ids\\\": [\\\"C1\\\", \\\"C2\\\", \\\"C3\\\"]}\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":2195,\"prompt_tokens_details\":{\"cached_tokens\":66},\"completion_tokens\":35,\"total_tokens\":2230}}\n",
+  "trace": {
+    "context": {
+      "registration_id": "pytest-default",
+      "repository": "pytest-dev/pytest",
+      "revision": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "profile": "pytest",
+      "status": "ready",
+      "errors": [],
+      "labels": [
+        "type: backward compatibility",
+        "type: bug",
+        "type: deprecation",
+        "type: docs",
+        "type: enhancement",
+        "type: infrastructure",
+        "type: performance",
+        "type: proposal",
+        "type: question",
+        "type: refactoring",
+        "type: regression",
+        "type: removal",
+        "type: selftests"
+      ],
+      "type_cues": [
+        [
+          "type: backward compatibility",
+          "\\b(?:backward compatib\\w*|breaking change)\\b"
+        ],
+        [
+          "type: bug",
+          "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+        ],
+        [
+          "type: deprecation",
+          "\\bdeprecat\\w*\\b"
+        ],
+        [
+          "type: docs",
+          "\\b(?:docs|documentation|guide|manual|typo)\\b"
+        ],
+        [
+          "type: enhancement",
+          "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+        ],
+        [
+          "type: infrastructure",
+          "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+        ],
+        [
+          "type: performance",
+          "\\b(?:performance|slow|latency|memory|speed)\\b"
+        ],
+        [
+          "type: proposal",
+          "\\b(?:proposal|propose|design)\\b"
+        ],
+        [
+          "type: question",
+          "\\b(?:question|how|why)\\b|\\?"
+        ],
+        [
+          "type: refactoring",
+          "\\b(?:refactor\\w*|cleanup)\\b"
+        ],
+        [
+          "type: regression",
+          "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+        ],
+        [
+          "type: removal",
+          "\\bremov\\w*\\b"
+        ],
+        [
+          "type: selftests",
+          "\\b(?:selftests|pytest test suite)\\b"
+        ]
+      ],
+      "templates": [
+        {
+          "name": "bug",
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "bug description",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "pip list output",
+              "line": 14,
+              "required": true
+            },
+            {
+              "name": "pytest and OS versions",
+              "line": 15,
+              "required": true
+            },
+            {
+              "name": "minimal example",
+              "line": 16,
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "feature",
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "problem to solve",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "proposed solution",
+              "line": 16,
+              "required": true
+            },
+            {
+              "name": "real-world use case",
+              "line": 19,
+              "required": true
+            },
+            {
+              "name": "alternative solutions",
+              "line": 21,
+              "required": true
+            }
+          ]
+        }
+      ],
+      "documentation": [
+        {
+          "key": "capture",
+          "url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110",
+          "section": "accessing-captured-output-from-a-test-function",
+          "passage": "The ``capsys``, ``capsysbinary``, ``capfd``, and ``capfdbinary`` fixtures allow access to stdout/stderr output created during test execution.  Here is",
+          "claim": "pytest documents that capture fixtures let tests access stdout and stderr created during execution.",
+          "relevance": "\\b(?:capsys|capfd|capteesys|capsysbinary|capfdbinary)\\b"
+        }
+      ],
+      "prepared_at": "",
+      "structured_templates": true
+    },
+    "trace_id": "065f0094-9356-40bb-9dcc-e8fa9413dc66",
+    "created_at": "2026-11-26T12:54:34.691753Z",
+    "status": "complete",
+    "duration_ms": 1066.162,
+    "events": [
+      {
+        "kind": "retrieval",
+        "name": "get_issue",
+        "status": "ok",
+        "started_ms": 0.549,
+        "duration_ms": 0.018,
+        "target": "pytest issue #12081",
+        "result_count": 1,
+        "references": [
+          "https://github.com/pytest-dev/pytest/issues/12081"
+        ],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "search_issues",
+        "status": "ok",
+        "started_ms": 0.575,
+        "duration_ms": 0.396,
+        "target": "query (readouterr OR consuming OR capture) before 2024-03-06T00:03:25+00:00",
+        "result_count": 1,
+        "references": [
+          "https://github.com/pytest-dev/pytest/issues/3448"
+        ],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "assess_matches",
+        "status": "ok",
+        "started_ms": 0.974,
+        "duration_ms": 0.43,
+        "target": null,
+        "result_count": 1,
+        "references": [],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "get_documentation_passage",
+        "status": "ok",
+        "started_ms": 1.449,
+        "duration_ms": 0.035,
+        "target": "capture",
+        "result_count": 1,
+        "references": [
+          "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/doc/en/how-to/capture-stdout-stderr.rst#L109-L110"
+        ],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "retrieval",
+        "name": "get_source_excerpt",
+        "status": "ok",
+        "started_ms": 1.524,
+        "duration_ms": 0.014,
+        "target": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935",
+        "result_count": 1,
+        "references": [
+          "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/src/_pytest/capture.py#L935"
+        ],
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": null
+      },
+      {
+        "kind": "model",
+        "name": "triage_selection",
+        "status": "ok",
+        "started_ms": 4.37,
+        "duration_ms": 1061.718,
+        "target": "triage-eval:qwen35-4b-16k-v1",
+        "result_count": null,
+        "references": [],
+        "input_tokens": 2195,
+        "output_tokens": 35,
+        "error": null
+      }
+    ]
+  },
+  "finish_reason": "stop",
+  "reasoning_chars": 0,
+  "usage": {
+    "prompt_tokens": 2195,
+    "prompt_tokens_details": {
+      "cached_tokens": 66
+    },
+    "completion_tokens": 35,
+    "total_tokens": 2230
+  },
+  "context_flag": "truncation_unknown",
+  "resident_after": {
+    "models": [
+      {
+        "name": "triage-eval:qwen35-4b-16k-v1",
+        "model": "triage-eval:qwen35-4b-16k-v1",
+        "size": 3650124512,
+        "digest": "8da535b12863762c2403ed06956d92da4e57806a4772ba321137a2809e9a8bbe",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen35",
+          "families": [
+            "qwen35"
+          ],
+          "parameter_size": "4.2B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-11-26T19:59:35.2983268+07:00",
+        "size_vram": 3650124512,
+        "context_length": 16384,
+        "runner": "llamacpp"
+      }
+    ]
+  },
+  "gpu_16k": true
+}

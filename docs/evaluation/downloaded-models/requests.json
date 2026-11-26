@@ -1,0 +1,10 @@
+{
+  "triage-eval:gemma4-e2b-16k-v1": {
+    "application": "2cb9b1fafbd5d246eb621196632a84c044423a6595e2ecada9f47be4fe73fca7",
+    "reasoning_effort_none": "01844a7a1c0d5123d26abbe477dad48a9949994c4cdfdaf4c133a08a57d8f292"
+  },
+  "triage-eval:qwen35-4b-16k-v1": {
+    "application": "7810a6cfa26d9a9500ff957761fbac83d8e2b710270744abbaac4104dc867f32",
+    "reasoning_effort_none": "ffbcfde5746d0bc82b925e23aead8c779338fe1a0a4de7efedd59a98ad395262"
+  }
+}

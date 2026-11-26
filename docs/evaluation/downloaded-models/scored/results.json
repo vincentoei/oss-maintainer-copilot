@@ -1,0 +1,1092 @@
+{
+  "dispatches": 168,
+  "allocated_output_tokens": 43008,
+  "model_api_usd": 0,
+  "halt": null,
+  "complete": true,
+  "first_calls": {
+    "pytest-triage:coder7b-ctx16k": {
+      "case": "h-7312",
+      "status": "valid",
+      "model_ms": 6021.162,
+      "before": [],
+      "cached_tokens": 0
+    },
+    "triage-eval:gemma4-e2b-16k-v1": {
+      "case": "h-7312",
+      "status": "valid",
+      "model_ms": 10576.54,
+      "before": [
+        "pytest-triage:coder7b-ctx16k"
+      ],
+      "cached_tokens": 0
+    },
+    "triage-eval:qwen35-4b-16k-v1": {
+      "case": "h-7312",
+      "status": "valid",
+      "model_ms": 6276.768,
+      "before": [
+        "triage-eval:gemma4-e2b-16k-v1"
+      ],
+      "cached_tokens": 0
+    }
+  },
+  "historical": {
+    "planned": 50,
+    "eligible": 50,
+    "arms": {
+      "pytest-triage:coder7b-ctx16k": {
+        "correct": 34,
+        "planned": 50,
+        "statuses": {
+          "valid": 50
+        },
+        "type_abstentions": 0,
+        "confusion": {
+          "type: enhancement": {
+            "type: enhancement": 12,
+            "type: docs": 2
+          },
+          "type: docs": {
+            "type: docs": 3,
+            "type: bug": 1
+          },
+          "type: bug": {
+            "type: bug": 13
+          },
+          "type: regression": {
+            "type: bug": 3,
+            "type: regression": 5
+          },
+          "type: question": {
+            "type: bug": 6,
+            "type: question": 1
+          },
+          "null": {
+            "type: bug": 1
+          },
+          "type: selftests": {
+            "type: bug": 2
+          },
+          "type: proposal": {
+            "type: enhancement": 1
+          }
+        },
+        "model_ms": {
+          "p50": 947.778,
+          "p95": 3199.94
+        },
+        "replay_ms": {
+          "p50": 952.052,
+          "p95": 3208.443
+        },
+        "tokens": {
+          "input_tokens": {
+            "sum_known": 96216,
+            "missing": 0
+          },
+          "output_tokens": {
+            "sum_known": 1449,
+            "missing": 0
+          }
+        },
+        "peak_device_mib": 5370.0,
+        "rows_without_gpu": 0,
+        "valid_disagreements": 16,
+        "cached_prompt_tokens": 10585,
+        "rows_with_reported_cache": 50,
+        "rows_with_cache_hit": 49,
+        "cached_hit_model_ms": {
+          "p50": 947.778,
+          "p95": 1991.559
+        },
+        "finish_reasons": {
+          "stop": 50
+        },
+        "context_flags": {
+          "truncation_unknown": 50
+        },
+        "max_prompt_tokens": 14970,
+        "exposed_reasoning_chars": 0,
+        "unknown_reasoning": 0,
+        "full_gpu_16k_rows": 50
+      },
+      "triage-eval:gemma4-e2b-16k-v1": {
+        "correct": 32,
+        "planned": 50,
+        "statuses": {
+          "valid": 50
+        },
+        "type_abstentions": 0,
+        "confusion": {
+          "type: enhancement": {
+            "type: enhancement": 12,
+            "type: bug": 1,
+            "type: docs": 1
+          },
+          "type: docs": {
+            "type: docs": 2,
+            "type: enhancement": 1,
+            "type: bug": 1
+          },
+          "type: bug": {
+            "type: bug": 13
+          },
+          "type: regression": {
+            "type: regression": 4,
+            "type: bug": 3,
+            "type: backward compatibility": 1
+          },
+          "type: question": {
+            "type: bug": 5,
+            "type: question": 1,
+            "type: regression": 1
+          },
+          "null": {
+            "type: bug": 1
+          },
+          "type: selftests": {
+            "type: bug": 2
+          },
+          "type: proposal": {
+            "type: enhancement": 1
+          }
+        },
+        "model_ms": {
+          "p50": 392.927,
+          "p95": 724.715
+        },
+        "replay_ms": {
+          "p50": 395.578,
+          "p95": 733.471
+        },
+        "tokens": {
+          "input_tokens": {
+            "sum_known": 97301,
+            "missing": 0
+          },
+          "output_tokens": {
+            "sum_known": 1606,
+            "missing": 0
+          }
+        },
+        "peak_device_mib": 5370.0,
+        "rows_without_gpu": 0,
+        "valid_disagreements": 18,
+        "cached_prompt_tokens": 7220,
+        "rows_with_reported_cache": 50,
+        "rows_with_cache_hit": 48,
+        "cached_hit_model_ms": {
+          "p50": 390.175,
+          "p95": 572.264
+        },
+        "finish_reasons": {
+          "stop": 50
+        },
+        "context_flags": {
+          "truncation_unknown": 50
+        },
+        "max_prompt_tokens": 8493,
+        "exposed_reasoning_chars": 0,
+        "unknown_reasoning": 0,
+        "full_gpu_16k_rows": 50
+      },
+      "triage-eval:qwen35-4b-16k-v1": {
+        "correct": 38,
+        "planned": 50,
+        "statuses": {
+          "valid": 50
+        },
+        "type_abstentions": 0,
+        "confusion": {
+          "type: enhancement": {
+            "type: enhancement": 13,
+            "type: docs": 1
+          },
+          "type: docs": {
+            "type: docs": 3,
+            "type: bug": 1
+          },
+          "type: bug": {
+            "type: bug": 10,
+            "type: regression": 1,
+            "type: enhancement": 2
+          },
+          "type: regression": {
+            "type: regression": 7,
+            "type: bug": 1
+          },
+          "type: question": {
+            "type: question": 4,
+            "type: bug": 3
+          },
+          "null": {
+            "type: regression": 1
+          },
+          "type: selftests": {
+            "type: bug": 1,
+            "type: selftests": 1
+          },
+          "type: proposal": {
+            "type: enhancement": 1
+          }
+        },
+        "model_ms": {
+          "p50": 858.831,
+          "p95": 2804.847
+        },
+        "replay_ms": {
+          "p50": 862.294,
+          "p95": 2815.346
+        },
+        "tokens": {
+          "input_tokens": {
+            "sum_known": 96385,
+            "missing": 0
+          },
+          "output_tokens": {
+            "sum_known": 1463,
+            "missing": 0
+          }
+        },
+        "peak_device_mib": 4278.0,
+        "rows_without_gpu": 0,
+        "valid_disagreements": 12,
+        "cached_prompt_tokens": 6601,
+        "rows_with_reported_cache": 50,
+        "rows_with_cache_hit": 49,
+        "cached_hit_model_ms": {
+          "p50": 858.831,
+          "p95": 1598.46
+        },
+        "finish_reasons": {
+          "stop": 50
+        },
+        "context_flags": {
+          "truncation_unknown": 50
+        },
+        "max_prompt_tokens": 14970,
+        "exposed_reasoning_chars": 0,
+        "unknown_reasoning": 0,
+        "full_gpu_16k_rows": 50
+      }
+    },
+    "paired": {
+      "triage-eval:gemma4-e2b-16k-v1": {
+        "common_valid": 50,
+        "gains": [
+          "h-12083",
+          "h-12290"
+        ],
+        "regressions": [
+          "h-12081",
+          "h-12228",
+          "h-12263",
+          "h-12308"
+        ],
+        "nonvalid_transitions": {}
+      },
+      "triage-eval:qwen35-4b-16k-v1": {
+        "common_valid": 50,
+        "gains": [
+          "h-12083",
+          "h-12189",
+          "h-12242",
+          "h-12287",
+          "h-12290",
+          "h-12293",
+          "h-12352"
+        ],
+        "regressions": [
+          "h-12219",
+          "h-12223",
+          "h-12249"
+        ],
+        "nonvalid_transitions": {}
+      }
+    },
+    "cases": [
+      {
+        "case": "h-7312",
+        "expected": "type: enhancement",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: enhancement",
+          "triage-eval:gemma4-e2b-16k-v1": "type: enhancement",
+          "triage-eval:qwen35-4b-16k-v1": "type: enhancement"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-10156",
+        "expected": "type: docs",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: docs",
+          "triage-eval:gemma4-e2b-16k-v1": "type: docs",
+          "triage-eval:qwen35-4b-16k-v1": "type: docs"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12053",
+        "expected": "type: enhancement",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: enhancement",
+          "triage-eval:gemma4-e2b-16k-v1": "type: enhancement",
+          "triage-eval:qwen35-4b-16k-v1": "type: enhancement"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12072",
+        "expected": "type: bug",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: bug"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12079",
+        "expected": "type: enhancement",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: enhancement",
+          "triage-eval:gemma4-e2b-16k-v1": "type: enhancement",
+          "triage-eval:qwen35-4b-16k-v1": "type: enhancement"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12081",
+        "expected": "type: enhancement",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: enhancement",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: enhancement"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12083",
+        "expected": "type: regression",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: regression",
+          "triage-eval:qwen35-4b-16k-v1": "type: regression"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12116",
+        "expected": "type: bug",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: bug"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12146",
+        "expected": "type: bug",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: bug"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12189",
+        "expected": "type: question",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: question"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12197",
+        "expected": "type: question",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: bug"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12201",
+        "expected": "type: enhancement",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: enhancement",
+          "triage-eval:gemma4-e2b-16k-v1": "type: enhancement",
+          "triage-eval:qwen35-4b-16k-v1": "type: enhancement"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12203",
+        "expected": "type: bug",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: bug"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12204",
+        "expected": "type: bug",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: bug"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12216",
+        "expected": "type: bug",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: bug"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12219",
+        "expected": "type: bug",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: regression"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12223",
+        "expected": "type: bug",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: enhancement"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12224",
+        "expected": "type: enhancement",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: enhancement",
+          "triage-eval:gemma4-e2b-16k-v1": "type: enhancement",
+          "triage-eval:qwen35-4b-16k-v1": "type: enhancement"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12226",
+        "expected": "type: enhancement",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: enhancement",
+          "triage-eval:gemma4-e2b-16k-v1": "type: enhancement",
+          "triage-eval:qwen35-4b-16k-v1": "type: enhancement"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12228",
+        "expected": "type: docs",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: docs",
+          "triage-eval:gemma4-e2b-16k-v1": "type: enhancement",
+          "triage-eval:qwen35-4b-16k-v1": "type: docs"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12231",
+        "expected": "type: enhancement",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: enhancement",
+          "triage-eval:gemma4-e2b-16k-v1": "type: enhancement",
+          "triage-eval:qwen35-4b-16k-v1": "type: enhancement"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12242",
+        "expected": "type: question",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: question"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12249",
+        "expected": "type: bug",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: enhancement"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12255",
+        "expected": "type: enhancement",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: enhancement",
+          "triage-eval:gemma4-e2b-16k-v1": "type: enhancement",
+          "triage-eval:qwen35-4b-16k-v1": "type: enhancement"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12263",
+        "expected": "type: regression",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: regression",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: regression"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12273",
+        "expected": "type: regression",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: backward compatibility",
+          "triage-eval:qwen35-4b-16k-v1": "type: bug"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12278",
+        "expected": null,
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: regression"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12281",
+        "expected": "type: enhancement",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: enhancement",
+          "triage-eval:gemma4-e2b-16k-v1": "type: enhancement",
+          "triage-eval:qwen35-4b-16k-v1": "type: enhancement"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12287",
+        "expected": "type: question",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: question"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12290",
+        "expected": "type: enhancement",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: docs",
+          "triage-eval:gemma4-e2b-16k-v1": "type: enhancement",
+          "triage-eval:qwen35-4b-16k-v1": "type: enhancement"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12293",
+        "expected": "type: regression",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: regression"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12298",
+        "expected": "type: question",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: question",
+          "triage-eval:gemma4-e2b-16k-v1": "type: question",
+          "triage-eval:qwen35-4b-16k-v1": "type: question"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12300",
+        "expected": "type: bug",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: bug"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12303",
+        "expected": "type: regression",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: regression",
+          "triage-eval:gemma4-e2b-16k-v1": "type: regression",
+          "triage-eval:qwen35-4b-16k-v1": "type: regression"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12305",
+        "expected": "type: question",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: regression",
+          "triage-eval:qwen35-4b-16k-v1": "type: bug"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12307",
+        "expected": "type: bug",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: bug"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12308",
+        "expected": "type: regression",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: regression",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: regression"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12312",
+        "expected": "type: enhancement",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: enhancement",
+          "triage-eval:gemma4-e2b-16k-v1": "type: enhancement",
+          "triage-eval:qwen35-4b-16k-v1": "type: enhancement"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12323",
+        "expected": "type: selftests",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: bug"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12328",
+        "expected": "type: regression",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: regression",
+          "triage-eval:gemma4-e2b-16k-v1": "type: regression",
+          "triage-eval:qwen35-4b-16k-v1": "type: regression"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12351",
+        "expected": "type: bug",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: bug"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12352",
+        "expected": "type: selftests",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: selftests"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12357",
+        "expected": "type: question",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: bug"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12360",
+        "expected": "type: docs",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: bug"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12363",
+        "expected": "type: enhancement",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: docs",
+          "triage-eval:gemma4-e2b-16k-v1": "type: docs",
+          "triage-eval:qwen35-4b-16k-v1": "type: docs"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12366",
+        "expected": "type: enhancement",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: enhancement",
+          "triage-eval:gemma4-e2b-16k-v1": "type: enhancement",
+          "triage-eval:qwen35-4b-16k-v1": "type: enhancement"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12367",
+        "expected": "type: regression",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: regression",
+          "triage-eval:gemma4-e2b-16k-v1": "type: regression",
+          "triage-eval:qwen35-4b-16k-v1": "type: regression"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12371",
+        "expected": "type: bug",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: bug"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12376",
+        "expected": "type: proposal",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: enhancement",
+          "triage-eval:gemma4-e2b-16k-v1": "type: enhancement",
+          "triage-eval:qwen35-4b-16k-v1": "type: enhancement"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "h-12377",
+        "expected": "type: docs",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: docs",
+          "triage-eval:gemma4-e2b-16k-v1": "type: docs",
+          "triage-eval:qwen35-4b-16k-v1": "type: docs"
+        },
+        "eligibility_flag": null
+      }
+    ],
+    "reference_drift_from_62": []
+  },
+  "fresh": {
+    "planned": 6,
+    "eligible": 6,
+    "arms": {
+      "pytest-triage:coder7b-ctx16k": {
+        "correct": 5,
+        "planned": 6,
+        "statuses": {
+          "valid": 6
+        },
+        "type_abstentions": 0,
+        "confusion": {
+          "type: bug": {
+            "type: bug": 2
+          },
+          "type: regression": {
+            "type: bug": 1
+          },
+          "type: question": {
+            "type: question": 2
+          },
+          "type: docs": {
+            "type: docs": 1
+          }
+        },
+        "model_ms": {
+          "p50": 435.967,
+          "p95": 562.853
+        },
+        "replay_ms": {
+          "p50": 436.268,
+          "p95": 563.196
+        },
+        "tokens": {
+          "input_tokens": {
+            "sum_known": 2716,
+            "missing": 0
+          },
+          "output_tokens": {
+            "sum_known": 150,
+            "missing": 0
+          }
+        },
+        "peak_device_mib": 5370.0,
+        "rows_without_gpu": 0,
+        "valid_disagreements": 1,
+        "cached_prompt_tokens": 1379,
+        "rows_with_reported_cache": 6,
+        "rows_with_cache_hit": 6,
+        "cached_hit_model_ms": {
+          "p50": 435.967,
+          "p95": 562.853
+        },
+        "finish_reasons": {
+          "stop": 6
+        },
+        "context_flags": {
+          "truncation_unknown": 6
+        },
+        "max_prompt_tokens": 469,
+        "exposed_reasoning_chars": 0,
+        "unknown_reasoning": 0,
+        "full_gpu_16k_rows": 6
+      },
+      "triage-eval:gemma4-e2b-16k-v1": {
+        "correct": 5,
+        "planned": 6,
+        "statuses": {
+          "valid": 6
+        },
+        "type_abstentions": 0,
+        "confusion": {
+          "type: bug": {
+            "type: bug": 2
+          },
+          "type: regression": {
+            "type: bug": 1
+          },
+          "type: question": {
+            "type: question": 2
+          },
+          "type: docs": {
+            "type: docs": 1
+          }
+        },
+        "model_ms": {
+          "p50": 309.134,
+          "p95": 384.578
+        },
+        "replay_ms": {
+          "p50": 309.431,
+          "p95": 385.042
+        },
+        "tokens": {
+          "input_tokens": {
+            "sum_known": 2822,
+            "missing": 0
+          },
+          "output_tokens": {
+            "sum_known": 168,
+            "missing": 0
+          }
+        },
+        "peak_device_mib": 3282.0,
+        "rows_without_gpu": 0,
+        "valid_disagreements": 1,
+        "cached_prompt_tokens": 873,
+        "rows_with_reported_cache": 6,
+        "rows_with_cache_hit": 6,
+        "cached_hit_model_ms": {
+          "p50": 309.134,
+          "p95": 384.578
+        },
+        "finish_reasons": {
+          "stop": 6
+        },
+        "context_flags": {
+          "truncation_unknown": 6
+        },
+        "max_prompt_tokens": 486,
+        "exposed_reasoning_chars": 0,
+        "unknown_reasoning": 0,
+        "full_gpu_16k_rows": 6
+      },
+      "triage-eval:qwen35-4b-16k-v1": {
+        "correct": 5,
+        "planned": 6,
+        "statuses": {
+          "valid": 6
+        },
+        "type_abstentions": 0,
+        "confusion": {
+          "type: bug": {
+            "type: bug": 2
+          },
+          "type: regression": {
+            "type: bug": 1
+          },
+          "type: question": {
+            "type: question": 2
+          },
+          "type: docs": {
+            "type: docs": 1
+          }
+        },
+        "model_ms": {
+          "p50": 514.872,
+          "p95": 834.338
+        },
+        "replay_ms": {
+          "p50": 515.21,
+          "p95": 836.462
+        },
+        "tokens": {
+          "input_tokens": {
+            "sum_known": 2740,
+            "missing": 0
+          },
+          "output_tokens": {
+            "sum_known": 150,
+            "missing": 0
+          }
+        },
+        "peak_device_mib": 4278.0,
+        "rows_without_gpu": 0,
+        "valid_disagreements": 1,
+        "cached_prompt_tokens": 1284,
+        "rows_with_reported_cache": 6,
+        "rows_with_cache_hit": 6,
+        "cached_hit_model_ms": {
+          "p50": 514.872,
+          "p95": 834.338
+        },
+        "finish_reasons": {
+          "stop": 6
+        },
+        "context_flags": {
+          "truncation_unknown": 6
+        },
+        "max_prompt_tokens": 473,
+        "exposed_reasoning_chars": 0,
+        "unknown_reasoning": 0,
+        "full_gpu_16k_rows": 6
+      }
+    },
+    "paired": {
+      "triage-eval:gemma4-e2b-16k-v1": {
+        "common_valid": 6,
+        "gains": [],
+        "regressions": [],
+        "nonvalid_transitions": {}
+      },
+      "triage-eval:qwen35-4b-16k-v1": {
+        "common_valid": 6,
+        "gains": [],
+        "regressions": [],
+        "nonvalid_transitions": {}
+      }
+    },
+    "cases": [
+      {
+        "case": "xml-A",
+        "expected": "type: bug",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: bug"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "xml-B",
+        "expected": "type: regression",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: bug"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "filter-A",
+        "expected": "type: question",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: question",
+          "triage-eval:gemma4-e2b-16k-v1": "type: question",
+          "triage-eval:qwen35-4b-16k-v1": "type: question"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "filter-B",
+        "expected": "type: bug",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: bug",
+          "triage-eval:gemma4-e2b-16k-v1": "type: bug",
+          "triage-eval:qwen35-4b-16k-v1": "type: bug"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "paths-A",
+        "expected": "type: docs",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: docs",
+          "triage-eval:gemma4-e2b-16k-v1": "type: docs",
+          "triage-eval:qwen35-4b-16k-v1": "type: docs"
+        },
+        "eligibility_flag": null
+      },
+      {
+        "case": "paths-B",
+        "expected": "type: question",
+        "predictions": {
+          "pytest-triage:coder7b-ctx16k": "type: question",
+          "triage-eval:gemma4-e2b-16k-v1": "type: question",
+          "triage-eval:qwen35-4b-16k-v1": "type: question"
+        },
+        "eligibility_flag": null
+      }
+    ],
+    "reference_drift_from_62": []
+  },
+  "complete_contrast_pairs": {
+    "pytest-triage:coder7b-ctx16k": {
+      "xml": false,
+      "filter": true,
+      "paths": true
+    },
+    "triage-eval:gemma4-e2b-16k-v1": {
+      "xml": false,
+      "filter": true,
+      "paths": true
+    },
+    "triage-eval:qwen35-4b-16k-v1": {
+      "xml": false,
+      "filter": true,
+      "paths": true
+    }
+  }
+}

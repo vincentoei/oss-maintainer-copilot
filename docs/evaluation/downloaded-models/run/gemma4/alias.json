@@ -1,0 +1,93 @@
+{
+  "tag": {
+    "name": "triage-eval:gemma4-e2b-16k-v1",
+    "model": "triage-eval:gemma4-e2b-16k-v1",
+    "modified_at": "2026-11-26T19:14:52.6333633+07:00",
+    "size": 4587156570,
+    "digest": "94d69e727168d1101645f07c651f7677776c48859760fa28ea93d753ccbb92c6",
+    "details": {
+      "parent_model": "gemma4:e2b-it-q4_K_M",
+      "format": "gguf",
+      "family": "gemma4",
+      "families": [
+        "gemma4"
+      ],
+      "parameter_size": "4.6B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 131072,
+      "embedding_length": 1536,
+      "runner": "llamacpp"
+    },
+    "capabilities": [
+      "completion",
+      "vision",
+      "audio",
+      "tools",
+      "thinking"
+    ]
+  },
+  "show": {
+    "gemma4:e2b-it-q4_K_M": {
+      "thinking": {
+        "values": [
+          false,
+          true
+        ],
+        "default": true
+      },
+      "parameters": "draft_num_predict              3\ntemperature                    1\ntop_k                          64\ntop_p                          0.95",
+      "template": "{{ .Prompt }}",
+      "renderer": "gemma4-small",
+      "parser": "gemma4",
+      "details": {
+        "parent_model": "gemma4-validation-20260929:e2b-imatrix-attention-q6-q8-draft2",
+        "format": "gguf",
+        "family": "gemma4",
+        "families": [
+          "gemma4"
+        ],
+        "parameter_size": "4.6B",
+        "quantization_level": "Q4_K_M",
+        "runner": "llamacpp"
+      },
+      "capabilities": [
+        "completion",
+        "vision",
+        "audio",
+        "tools",
+        "thinking"
+      ]
+    },
+    "triage-eval:gemma4-e2b-16k-v1": {
+      "thinking": {
+        "values": [
+          false,
+          true
+        ],
+        "default": true
+      },
+      "parameters": "num_ctx                        16384\npresence_penalty               0\nrepeat_penalty                 1\nseed                           42\ntemperature                    0\ntop_k                          20\ntop_p                          0.8\ndraft_num_predict              3",
+      "template": "{{ .Prompt }}",
+      "renderer": "gemma4-small",
+      "parser": "gemma4",
+      "details": {
+        "parent_model": "gemma4:e2b-it-q4_K_M",
+        "format": "gguf",
+        "family": "gemma4",
+        "families": [
+          "gemma4"
+        ],
+        "parameter_size": "4.6B",
+        "quantization_level": "Q4_K_M",
+        "runner": "llamacpp"
+      },
+      "capabilities": [
+        "completion",
+        "vision",
+        "audio",
+        "tools",
+        "thinking"
+      ]
+    }
+  }
+}

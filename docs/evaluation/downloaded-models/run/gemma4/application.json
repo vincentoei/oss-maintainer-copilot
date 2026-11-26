@@ -1,0 +1,37 @@
+{
+  "mode": "application",
+  "alias": "triage-eval:gemma4-e2b-16k-v1",
+  "before": {
+    "models": []
+  },
+  "http_status": null,
+  "transport_error": "timed out",
+  "gpu": {
+    "enabled": true,
+    "sample_interval_ms": 500,
+    "sample_count": 38,
+    "initial_used_mib": 17.0,
+    "peak_sampled_used_mib": 1922.0,
+    "error": null,
+    "scope": "Device-wide use including other processes; sampled, not true peak."
+  },
+  "after": {
+    "models": []
+  },
+  "model_event": {
+    "kind": "model",
+    "name": "triage_selection",
+    "status": "error",
+    "started_ms": 1.09,
+    "duration_ms": 20082.228,
+    "target": "triage-eval:gemma4-e2b-16k-v1",
+    "result_count": null,
+    "references": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "error": "Call failed."
+  },
+  "type": null,
+  "full_gpu_16k": false,
+  "valid_application_json": false
+}

@@ -1,0 +1,217 @@
+{
+  "case": "h-12079",
+  "alias": "pytest-triage:coder7b-ctx16k",
+  "expected": "type: enhancement",
+  "status": "valid",
+  "error": null,
+  "http_status": 200,
+  "transport_error": null,
+  "replay_ms": 896.696,
+  "truncated": false,
+  "raw_sha256": "78aa55c67bd99eadeea2f73146b4ae23038d60e6f1ee95b361ce2ca98b956baa",
+  "report": {
+    "context": {
+      "registration_id": "pytest-default",
+      "repository": "pytest-dev/pytest",
+      "revision": "03e54712dd123138aa4c1035a027e17d0dd9a86c",
+      "profile": "pytest",
+      "status": "ready",
+      "errors": [],
+      "labels": [
+        "type: backward compatibility",
+        "type: bug",
+        "type: deprecation",
+        "type: docs",
+        "type: enhancement",
+        "type: infrastructure",
+        "type: performance",
+        "type: proposal",
+        "type: question",
+        "type: refactoring",
+        "type: regression",
+        "type: removal",
+        "type: selftests"
+      ],
+      "type_cues": [
+        [
+          "type: backward compatibility",
+          "\\b(?:backward compatib\\w*|breaking change)\\b"
+        ],
+        [
+          "type: bug",
+          "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+        ],
+        [
+          "type: deprecation",
+          "\\bdeprecat\\w*\\b"
+        ],
+        [
+          "type: docs",
+          "\\b(?:docs|documentation|guide|manual|typo)\\b"
+        ],
+        [
+          "type: enhancement",
+          "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+        ],
+        [
+          "type: infrastructure",
+          "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+        ],
+        [
+          "type: performance",
+          "\\b(?:performance|slow|latency|memory|speed)\\b"
+        ],
+        [
+          "type: proposal",
+          "\\b(?:proposal|propose|design)\\b"
+        ],
+        [
+          "type: question",
+          "\\b(?:question|how|why)\\b|\\?"
+        ],
+        [
+          "type: refactoring",
+          "\\b(?:refactor\\w*|cleanup)\\b"
+        ],
+        [
+          "type: regression",
+          "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+        ],
+        [
+          "type: removal",
+          "\\bremov\\w*\\b"
+        ],
+        [
+          "type: selftests",
+          "\\b(?:selftests|pytest test suite)\\b"
+        ]
+      ],
+      "templates": [
+        {
+          "name": "bug",
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "bug description",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "pip list output",
+              "line": 14,
+              "required": true
+            },
+            {
+              "name": "pytest and OS versions",
+              "line": 15,
+              "required": true
+            },
+            {
+              "name": "minimal example",
+              "line": 16,
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "feature",
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "problem to solve",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "proposed solution",
+              "line": 16,
+              "required": true
+            },
+            {
+              "name": "real-world use case",
+              "line": 19,
+              "required": true
+            },
+            {
+              "name": "alternative solutions",
+              "line": 21,
+              "required": true
+            }
+          ]
+        }
+      ],
+      "documentation": [],
+      "prepared_at": "",
+      "structured_templates": true
+    },
+    "trace_id": "7552b4d4-5046-49ab-82cc-e421952c6329",
+    "status": "complete",
+    "issue_type": "type: enhancement",
+    "issue_type_quote": "Read tests to be executed from a file instead of from positional arguments",
+    "duplicate_candidates": [],
+    "related_issues": [
+      {
+        "issue_number": 11871,
+        "title": "Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+        "url": "https://github.com/pytest-dev/pytest/issues/11871",
+        "reason": "Both concern reading test-selection arguments from a file. This report: \"\u2026 file, and run selected subsets of it using `pytest`\"; earlier: \"\u2026irs`, to compliment the positional `file_or_dir` argument.\". the same failure or request is not established.",
+        "citation_id": "C2"
+      }
+    ],
+    "missing_details": [
+      {
+        "name": "alternative solutions",
+        "request": "any workaround or alternative you have tried, or that there is none",
+        "citation_id": "C1"
+      }
+    ],
+    "documentation_claims": [],
+    "source_claims": [],
+    "ci_results": [],
+    "draft_reply": "Thanks for sharing this issue.\n- Could you add any workaround or alternative you have tried, or that there is none? [C1]\n- Earlier issue #11871 may be relevant: Both concern reading test-selection arguments from a file. This report: \"\u2026 file, and run selected subsets of it using `pytest`\"; earlier: \"\u2026irs`, to compliment the positional `file_or_dir` argument.\". the same failure or request is not established. [C2]",
+    "citations": [
+      {
+        "id": "C1",
+        "source_url": "https://github.com/pytest-dev/pytest/blob/03e54712dd123138aa4c1035a027e17d0dd9a86c/.github/ISSUE_TEMPLATE/2_feature_request.md#L21",
+        "description": "pytest feature report template: alternative solutions",
+        "passage": null,
+        "source_location": null
+      },
+      {
+        "id": "C2",
+        "source_url": "https://github.com/pytest-dev/pytest/issues/11871",
+        "description": "pytest issue #11871: Proposing a new flag, `--list-of-files-or-dirs`, to compliment the positional `file_or_dir` argument",
+        "passage": null,
+        "source_location": null
+      }
+    ],
+    "abstentions": []
+  },
+  "model_event": {
+    "kind": "model",
+    "name": "triage_selection",
+    "status": "ok",
+    "started_ms": 1.516,
+    "duration_ms": 894.717,
+    "target": "pytest-triage:coder7b-ctx16k",
+    "result_count": null,
+    "references": [],
+    "input_tokens": 1333,
+    "output_tokens": 31,
+    "error": null
+  },
+  "gpu": {
+    "enabled": true,
+    "sample_interval_ms": 500,
+    "sample_count": 3,
+    "initial_used_mib": 5368.0,
+    "peak_sampled_used_mib": 5368.0,
+    "error": null,
+    "scope": "Device-wide use including other processes; sampled, not true peak."
+  },
+  "raw_response": "{\"id\":\"chatcmpl-515\",\"object\":\"chat.completion\",\"created\":1795692199,\"model\":\"pytest-triage:coder7b-ctx16k\",\"system_fingerprint\":\"fp_ollama\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"{\\\"issue_type\\\": \\\"type: enhancement\\\", \\\"quote_index\\\": 0, \\\"reply_citation_ids\\\": [\\\"C1\\\", \\\"C2\\\"]}\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":1333,\"prompt_tokens_details\":{\"cached_tokens\":215},\"completion_tokens\":31,\"total_tokens\":1364}}\n"
+}

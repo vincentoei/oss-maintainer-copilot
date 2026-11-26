@@ -1,0 +1,46 @@
+{
+  "observed_at": "2026-11-26T11:12:05.762003+00:00",
+  "ollama_version": "0.40.16",
+  "residency": {
+    "models": []
+  },
+  "installed_tags": [
+    "pytest-triage:reproduction-check",
+    "pytest-triage:coder7b-ctx16k",
+    "qwen2.5-coder:7b-instruct-q4_K_M",
+    "pytest-triage:qwen3-4b-ctx16k",
+    "pytest-triage:coder3b-ctx16k",
+    "pytest-triage:qwen3-4b-ctx8k",
+    "qwen3:4b-instruct-2507-q4_K_M",
+    "pytest-triage:coder3b-ctx8k",
+    "qwen2.5-coder:3b-instruct-q4_K_M"
+  ],
+  "proposed_arms": [
+    {
+      "alias": "pytest-triage:coder3b-ctx16k",
+      "digest": "3831e8788ccb3dbe0a6510820b4c4807c7179ca34065d4aef9cc92c44c7fdad8",
+      "size_bytes": 1929912340,
+      "parent": "qwen2.5-coder:3b-instruct-q4_K_M",
+      "parent_digest": "f72c60cabf6237b07f6e632b2c48d533cef25eda2efbd34bed21c5e9c01e6225",
+      "parameter_size": "3.1B",
+      "quantization": "Q4_K_M",
+      "parameters": "num_ctx                        16384\nrepeat_penalty                 1\nseed                           42\ntemperature                    0\ntop_k                          20\ntop_p                          0.8",
+      "template_sha256": "47fca52d970e517f889420240f615fa9f8f4c6e2cb062340b9dec6fe266385b5"
+    },
+    {
+      "alias": "pytest-triage:coder7b-ctx16k",
+      "digest": "863fd25a4686b53c56c1a178816edc5ede1c859fc40233e35ad5d8a898e3f7cc",
+      "size_bytes": 4683087275,
+      "parent": "qwen2.5-coder:7b-instruct-q4_K_M",
+      "parent_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+      "parameter_size": "7.6B",
+      "quantization": "Q4_K_M",
+      "parameters": "num_ctx                        16384\nrepeat_penalty                 1\nseed                           42\ntemperature                    0\ntop_k                          20\ntop_p                          0.8",
+      "template_sha256": "47fca52d970e517f889420240f615fa9f8f4c6e2cb062340b9dec6fe266385b5"
+    }
+  ],
+  "gpu_csv": [
+    "name, memory.total [MiB], memory.free [MiB], driver_version",
+    "NVIDIA GeForce RTX 5060 Laptop GPU, 8151 MiB, 7883 MiB, 592.01"
+  ]
+}

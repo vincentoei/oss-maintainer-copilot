@@ -1,0 +1,79 @@
+{
+  "mode": "reasoning_effort_none",
+  "alias": "triage-eval:gemma4-e2b-16k-v1",
+  "before": {
+    "models": []
+  },
+  "http_status": 200,
+  "gpu": {
+    "enabled": true,
+    "sample_interval_ms": 500,
+    "sample_count": 33,
+    "initial_used_mib": 1922.0,
+    "peak_sampled_used_mib": 3276.0,
+    "error": null,
+    "scope": "Device-wide use including other processes; sampled, not true peak."
+  },
+  "after": {
+    "models": [
+      {
+        "name": "triage-eval:gemma4-e2b-16k-v1",
+        "model": "triage-eval:gemma4-e2b-16k-v1",
+        "size": 404215561,
+        "digest": "94d69e727168d1101645f07c651f7677776c48859760fa28ea93d753ccbb92c6",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "gemma4",
+          "families": [
+            "gemma4"
+          ],
+          "parameter_size": "4.6B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-11-26T19:20:31.1851432+07:00",
+        "size_vram": 404215561,
+        "context_length": 16384,
+        "runner": "llamacpp"
+      }
+    ]
+  },
+  "model_event": {
+    "kind": "model",
+    "name": "triage_selection",
+    "status": "ok",
+    "started_ms": 0.153,
+    "duration_ms": 17162.446,
+    "target": "triage-eval:gemma4-e2b-16k-v1",
+    "result_count": null,
+    "references": [],
+    "input_tokens": 420,
+    "output_tokens": 28,
+    "error": null
+  },
+  "type": "type: bug",
+  "response_sha256": "7b437b15d11a9cb55be566d6d417b4f19b94be2569613ad69e6a93e8cb612ea2",
+  "response_base64": "eyJpZCI6ImNoYXRjbXBsLTgxMiIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNyZWF0ZWQiOjE3OTU2OTUzMzEsIm1vZGVsIjoidHJpYWdlLWV2YWw6Z2VtbWE0LWUyYi0xNmstdjEiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9vbGxhbWEiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwibWVzc2FnZSI6eyJyb2xlIjoiYXNzaXN0YW50IiwiY29udGVudCI6IntcImlzc3VlX3R5cGVcIjogXCJ0eXBlOiBidWdcIiwgXCJxdW90ZV9pbmRleFwiOiAwLCBcInJlcGx5X2NpdGF0aW9uX2lkc1wiOiBbXX0ifSwiZmluaXNoX3JlYXNvbiI6InN0b3AifV0sInVzYWdlIjp7InByb21wdF90b2tlbnMiOjQyMCwicHJvbXB0X3Rva2Vuc19kZXRhaWxzIjp7ImNhY2hlZF90b2tlbnMiOjB9LCJjb21wbGV0aW9uX3Rva2VucyI6MjgsInRvdGFsX3Rva2VucyI6NDQ4fX0K",
+  "response_model": "triage-eval:gemma4-e2b-16k-v1",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 420,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens": 28,
+    "total_tokens": 448
+  },
+  "content": "{\"issue_type\": \"type: bug\", \"quote_index\": 0, \"reply_citation_ids\": []}",
+  "message_fields": [
+    "content",
+    "role"
+  ],
+  "reasoning_chars": {
+    "thinking": 0,
+    "reasoning": 0,
+    "reasoning_content": 0
+  },
+  "full_gpu_16k": true,
+  "valid_application_json": true
+}
