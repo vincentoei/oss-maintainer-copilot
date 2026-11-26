@@ -1,0 +1,562 @@
+{
+  "h-7312": {
+    "cohort": "historical",
+    "expected": "type: enhancement",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "55603d09e5b53f71798efacf9479e90f460a9bb370298aebd4082eb5c4efc04d",
+      "triage-eval:gemma4-e2b-16k-v1": "7356c5561f2fc82c7eba05481e73a3b5a285f23a8bec47aa93533a2ef75a728a",
+      "triage-eval:qwen35-4b-16k-v1": "191632d5102cc0c0f6e743340bde3ecfeaef5e23dff69e2a8cfd19ebc54805b1"
+    }
+  },
+  "h-10156": {
+    "cohort": "historical",
+    "expected": "type: docs",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "70fa763f1be84f092ae5b8d16ad7b4125fab27797c09b47be28bb9333cc18239",
+      "triage-eval:gemma4-e2b-16k-v1": "66f5df1c2835b51ec4f5fb530fec7b1e81a0c47eff65189755fef8f0b5757d3e",
+      "triage-eval:qwen35-4b-16k-v1": "f5dde53785200d3f61e6dee18669221651de36e3ffe1664dd96ffe2f2eb88b49"
+    }
+  },
+  "h-12053": {
+    "cohort": "historical",
+    "expected": "type: enhancement",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "5e33670b10adfd8cea9e41fb98c3c847d89c186fb42861757d53fb2454cd0bdd",
+      "triage-eval:gemma4-e2b-16k-v1": "1d9a8242e25ed09f057c996e01593dbd7b3a3d0f8c7bb0e3f8b3d4912ee1bf20",
+      "triage-eval:qwen35-4b-16k-v1": "ccf87549cab6ef679384057a55e8b340d61d1f6037886e3346c9550a93411edd"
+    }
+  },
+  "h-12072": {
+    "cohort": "historical",
+    "expected": "type: bug",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "aa44413d9fa196e70889406c30aca6328906b11ace1f9b9648b6f19275bfbacb",
+      "triage-eval:gemma4-e2b-16k-v1": "8c10ab2c90e31f97f0ccd8e4eb3096860e86c6e08eee98be94676d257462b9f6",
+      "triage-eval:qwen35-4b-16k-v1": "54f0b06328eb7da8528143d2cc054e704e5890dbb5d115abd49fbf9aa0a50d09"
+    }
+  },
+  "h-12079": {
+    "cohort": "historical",
+    "expected": "type: enhancement",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "c44aa060ccc58bf3f6e0cee70f5e804e56278089140c1fc163a24143343a33fd",
+      "triage-eval:gemma4-e2b-16k-v1": "446bfaf508bb9e1546a84087b6b83cd46044245e701f58f2b00dd693f8cd1eea",
+      "triage-eval:qwen35-4b-16k-v1": "dbbc2cb1a140f31361402264b40b01f2be303609bc4c20e5b512ab462404d5a2"
+    }
+  },
+  "h-12081": {
+    "cohort": "historical",
+    "expected": "type: enhancement",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "d92c732463b4313a28557179c2468c37f5f2e741d749c25fc68f6c4b5a4d1ff6",
+      "triage-eval:gemma4-e2b-16k-v1": "cdd456650210ca18c9f8059b77e38b79eca674996b1b9d51d7f3a689aa064574",
+      "triage-eval:qwen35-4b-16k-v1": "ef9cdce108bcb78f65c23ade064c8e9c36406c32a1bf196b4fa4a59887726c9c"
+    }
+  },
+  "h-12083": {
+    "cohort": "historical",
+    "expected": "type: regression",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "1ed2110a18769824d84e6ee0fed721e5c34584c052cc6c4bf7184dfa4b39da3d",
+      "triage-eval:gemma4-e2b-16k-v1": "2ad2f3e3a3bce0664a17991f848d8cf4a6d2fd63309c84fbd425a224ad693dbf",
+      "triage-eval:qwen35-4b-16k-v1": "7f4c3019610ca99ab0b90644c9fb502f780ac19362efbeba5c545f09766fa803"
+    }
+  },
+  "h-12116": {
+    "cohort": "historical",
+    "expected": "type: bug",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "2bea9d17949d6183115666269d7723b6439b724f7d022c62538d6f668f496e7b",
+      "triage-eval:gemma4-e2b-16k-v1": "11ed3ff435c9b705d22d67aec779ddd92543bf1a1faa0317c2d1e530a4585bb7",
+      "triage-eval:qwen35-4b-16k-v1": "20351edc584cf98c32ff83107636d02313c17eba828a5918f068b19b90b723e1"
+    }
+  },
+  "h-12146": {
+    "cohort": "historical",
+    "expected": "type: bug",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "7cdb6d7530961b7ac68156ff2a295cfb0ca21553ce0b18fa8a229c7dba720651",
+      "triage-eval:gemma4-e2b-16k-v1": "a842164a6ad2b45981b9c402d43c4848b2d4dcc4ef1caf67d0956141411868ab",
+      "triage-eval:qwen35-4b-16k-v1": "b594989260611282573bed6aed0be4ee796e9708bb4f9db33a9e6f38f0513479"
+    }
+  },
+  "h-12189": {
+    "cohort": "historical",
+    "expected": "type: question",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "690a0d4258655cbc9223043a56db3cde726057854a04b82ba3aa51a48886e7ac",
+      "triage-eval:gemma4-e2b-16k-v1": "bdca0d0a289efe12239897ee836d0587d30121ad2635ab61a8dae0caa6d4e7bc",
+      "triage-eval:qwen35-4b-16k-v1": "9eac36605a100583a3318965609e9650f1367efe9b723e8a9f8f0e6371dd0961"
+    }
+  },
+  "h-12197": {
+    "cohort": "historical",
+    "expected": "type: question",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "e92af2f8143ebd87c686ced4c710ec81547f4cb482d25c60000b2c32b627e0cf",
+      "triage-eval:gemma4-e2b-16k-v1": "de2691237b7734b6e5bc23e9e57464e6189c1caef0445a9bb01d2b6aa4e66a5e",
+      "triage-eval:qwen35-4b-16k-v1": "293315879f8a79fcd635625c6ee522aa662de23876f12b43e90ac693d7fd05ee"
+    }
+  },
+  "h-12201": {
+    "cohort": "historical",
+    "expected": "type: enhancement",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "a1aacac3e0ab154f206e1494dd88017e82a17b215eb9895eda27a0daa0f3cc7d",
+      "triage-eval:gemma4-e2b-16k-v1": "2862f64ebd6830eb6917b50603255bb14493b3dcf6319a99e95ad9b6d3bdb57f",
+      "triage-eval:qwen35-4b-16k-v1": "47d1cb21519a873c206761b0e85099ef01b6bccfc3f3a73017d8f763a051d5f2"
+    }
+  },
+  "h-12203": {
+    "cohort": "historical",
+    "expected": "type: bug",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "7e4d16a18462fac8fe054a69c9453662b357eff234b49d322d34765ae0211ed0",
+      "triage-eval:gemma4-e2b-16k-v1": "60cf67fb58ecc57f0199f3cba7bc5f3638596d7c3254034964d1d5de99b77287",
+      "triage-eval:qwen35-4b-16k-v1": "358811074d66656b0e92bf398d8e4636acd94f92fdb93046c44a477a48f3ea57"
+    }
+  },
+  "h-12204": {
+    "cohort": "historical",
+    "expected": "type: bug",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "208b0f3917a1c6e57be16482e19249cf40002e87a1089c68b69c775f49095229",
+      "triage-eval:gemma4-e2b-16k-v1": "970636e06aded3d191379dae7aa8dbffff9ba67dd6da5a8a35b2c3c488012747",
+      "triage-eval:qwen35-4b-16k-v1": "da5d3607fc242754fb5d6ff10c53ce433158f042e42f68efb081c04cc3b20dd8"
+    }
+  },
+  "h-12216": {
+    "cohort": "historical",
+    "expected": "type: bug",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "9bc21be38a94b102608bf7931848030e066be7edb2cd8d91e4cefb79f3ebaca5",
+      "triage-eval:gemma4-e2b-16k-v1": "7d2aa96c238deb9e22cb8bda3176020848f1092235e7223e945d5d3019860621",
+      "triage-eval:qwen35-4b-16k-v1": "2fdc442ce61e55bd7b8455c83aee06e82dbdcb1b665c7aaefff1abfe276cea90"
+    }
+  },
+  "h-12219": {
+    "cohort": "historical",
+    "expected": "type: bug",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "140b57b060a7e8b4c91a7ff2355598c432945fd3c26e7a2ac84f43f0a386333c",
+      "triage-eval:gemma4-e2b-16k-v1": "4b2fb1e54ee5f77f4b2db04da685433dc8d4748b1e6c00d71773b60466407500",
+      "triage-eval:qwen35-4b-16k-v1": "3f03b4435866eb62b34a99c7326d6a1a377ef31f8cf4c73d99ca764a42ac06db"
+    }
+  },
+  "h-12223": {
+    "cohort": "historical",
+    "expected": "type: bug",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "2ec59e50806f75aad00db327ae9fc13d59e35ee89b661de358604e2f84ac3f1f",
+      "triage-eval:gemma4-e2b-16k-v1": "5ab6c7be9e45211ff08e5b7b42d561cfb39f6a483d141b3932aa7c85a9c79059",
+      "triage-eval:qwen35-4b-16k-v1": "ad2ccc861e67d98f561f00fe663ebeeee28d1714bd2f802ad235c85905929b09"
+    }
+  },
+  "h-12224": {
+    "cohort": "historical",
+    "expected": "type: enhancement",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "7bd88aafcffb58cd6223f68c540b9aea1a3a1e31386e6533fe290b9e9bbfa349",
+      "triage-eval:gemma4-e2b-16k-v1": "9341b181c36f57ef5e235b39b5fdfd620d887e6dee72c1f868aaa9578fc11573",
+      "triage-eval:qwen35-4b-16k-v1": "fdfd7ee4e73ca60a1165089f34d22eb8714a41e21452e2a868b935819b6e627d"
+    }
+  },
+  "h-12226": {
+    "cohort": "historical",
+    "expected": "type: enhancement",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "fa8f3fed26097d1b508ef1e5a8e068674a0d8cc408624b8fba0464086d7e65c3",
+      "triage-eval:gemma4-e2b-16k-v1": "91364567e5d33c2d67e2be3452a5670a4c4c22d510a7888f22c3fe77acdfd5c6",
+      "triage-eval:qwen35-4b-16k-v1": "a6ee2e2175502132bb3dacf36ec31e3dbe9036e65535e3c2854b8207198cf4b0"
+    }
+  },
+  "h-12228": {
+    "cohort": "historical",
+    "expected": "type: docs",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "38407812e19ba5b2cbde5243f0a89a61a4ca1877d6061726ec871a4f6d0fb76d",
+      "triage-eval:gemma4-e2b-16k-v1": "2215a09d6cfe19a07be669f92db254e313ef3c7cb524f5f4fb05316ada255550",
+      "triage-eval:qwen35-4b-16k-v1": "29765a639d1d18ae149ddb5b6232c8a275f1bcbf699dfdf7efc4b537581df3b7"
+    }
+  },
+  "h-12231": {
+    "cohort": "historical",
+    "expected": "type: enhancement",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "4cf6dc36ad51284455e423d4e5f85632ae1daa081ef1eb40132556fd1784e3b1",
+      "triage-eval:gemma4-e2b-16k-v1": "f3dce453272d9c7e72fc528aa893e342812a069bdbae481623a6955c77bbb361",
+      "triage-eval:qwen35-4b-16k-v1": "98045d120f4eb1489ac046e63b7081711b6a5d81832682f2806e38063ed76471"
+    }
+  },
+  "h-12242": {
+    "cohort": "historical",
+    "expected": "type: question",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "33bee1cf555a99ca87503674a9e2e7a592ab7d5a7e04c1429d23ef031ac6a652",
+      "triage-eval:gemma4-e2b-16k-v1": "f6e0bf2c57d972a5de1aa0808dcc5b8484dca2dcc2107ae89dd42ec9147478f6",
+      "triage-eval:qwen35-4b-16k-v1": "a55572bc17816d997a991883e95f9a36f620b2f78d0e0c798b534bd794b0e0d5"
+    }
+  },
+  "h-12249": {
+    "cohort": "historical",
+    "expected": "type: bug",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "c376ead8a0bbdd3212099182ca2ec915e66b84b4c6464682e521877b225513f2",
+      "triage-eval:gemma4-e2b-16k-v1": "e44de25990aba615c469f6524064ca98beea9dca5fe3b3393154f0eefc36c27c",
+      "triage-eval:qwen35-4b-16k-v1": "db3833ad68edb3c17b59605b2d687f16007a350150904e6ea278e381e0e1e57f"
+    }
+  },
+  "h-12255": {
+    "cohort": "historical",
+    "expected": "type: enhancement",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "36d181d6944928ce990bb4f1a1c56d39815b3382fd2945b34f2034570d5da605",
+      "triage-eval:gemma4-e2b-16k-v1": "56f3bab34bba667fb0ffc589dba1e4dbe89efa5213725204baedc2f964251f16",
+      "triage-eval:qwen35-4b-16k-v1": "d27034cda2ede87f7cf96bff23c644ce3e555c8a305a5536f34c28eabe9cd5de"
+    }
+  },
+  "h-12263": {
+    "cohort": "historical",
+    "expected": "type: regression",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "65fe00b000318aa86b80acc937238c5a2214ee0342354f738b5ec498b5fe0393",
+      "triage-eval:gemma4-e2b-16k-v1": "04c7564de247ae539106b3d793c6bc6e8df787c1a06d0ca117fcb0b6ecd3e2e8",
+      "triage-eval:qwen35-4b-16k-v1": "c60a5ba5cd0ff0bfa67019570f023e8a504eca81ffeb946e9132619e6366f14e"
+    }
+  },
+  "h-12273": {
+    "cohort": "historical",
+    "expected": "type: regression",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "693ac11a3139d993e7bf992c0ab3bc6ee4ffd4675f39be904fbc152e1175c9e2",
+      "triage-eval:gemma4-e2b-16k-v1": "f312f6b8f1cb00e0a56e232f344c72fcb4d677b592368d3f855a3397cb3c01a2",
+      "triage-eval:qwen35-4b-16k-v1": "daaef43f3e153c774bc0b78de853698b646c500e1f0815c6f8102ac65b17a9f8"
+    }
+  },
+  "h-12278": {
+    "cohort": "historical",
+    "expected": null,
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "cc8fa5260626c28526e6dec93e0edd4b430bc0d16d9e4a6559d57c8449f0cb76",
+      "triage-eval:gemma4-e2b-16k-v1": "105fa2557c35cf287cb72cfb465237143191389736b6bd9533a2baa0f6eb00eb",
+      "triage-eval:qwen35-4b-16k-v1": "ad9655f02ac5c2b2ec4d8001bf1719c3d952d348b68f317f1b9d0089022ddd0b"
+    }
+  },
+  "h-12281": {
+    "cohort": "historical",
+    "expected": "type: enhancement",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "b58ecb53e93af11f8185ed054df7b780e60b7cc402432b0499c93159b3b4f8a9",
+      "triage-eval:gemma4-e2b-16k-v1": "389423801fec4b911ce8b0aa4d45c9817bd09ed34be7e6733717feeb2c08bcbf",
+      "triage-eval:qwen35-4b-16k-v1": "961e5d33e6e1228d635befe8195194aad8a7976191244c6c6a3185fafda942fa"
+    }
+  },
+  "h-12287": {
+    "cohort": "historical",
+    "expected": "type: question",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "ba17b876ea4393f4c66a3b74379868efb3e793eff24672ac0d84106274467c25",
+      "triage-eval:gemma4-e2b-16k-v1": "422cc22d6862904a0e66edea21fb32442c084faa38fb7e9a7fe493c58202500f",
+      "triage-eval:qwen35-4b-16k-v1": "a2ea5a2e5760358eb9c7a9419b50020bde4c1aae7be0218d67578e9c87e012df"
+    }
+  },
+  "h-12290": {
+    "cohort": "historical",
+    "expected": "type: enhancement",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "d3a97ca527a4a9cb2461d2131c3727d8cefdfc87f2d61ffd3205d0c7ed2bce44",
+      "triage-eval:gemma4-e2b-16k-v1": "ed338277b018a3ea38cfb41e61df859f0f691f953eedb4e9b0bfaab4a0f68d51",
+      "triage-eval:qwen35-4b-16k-v1": "e4cfc01c5bbd5b3c17fa4404c807cf8d9cadf5b40af146794aa7dcbebfec9946"
+    }
+  },
+  "h-12293": {
+    "cohort": "historical",
+    "expected": "type: regression",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "e1b7b0375ceece088d54ea693291d399d4b6c0c877f957284f28939a7c5d1670",
+      "triage-eval:gemma4-e2b-16k-v1": "2e42f897fb5f7ceae1cfd32aaf183301a7c73081fd56e0df1575453a2feec45c",
+      "triage-eval:qwen35-4b-16k-v1": "ce40aec1ad8d9588fb8ba0a57aadbe95d3d50bd0a25a5093d200fb2d9f701c14"
+    }
+  },
+  "h-12298": {
+    "cohort": "historical",
+    "expected": "type: question",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "2dd92fcf48db8c7dd0e0a475cc479088442495ad7f3ba0fe8bb9123d8309a718",
+      "triage-eval:gemma4-e2b-16k-v1": "ae0a22d5f41930c3ebd6b9d005f428a679c3a7d6c771335ccc7a0dac3348b721",
+      "triage-eval:qwen35-4b-16k-v1": "fb0602a8b8e1a048f84f5130ad0b0571ad381932c691cc45a8139324a1ea8670"
+    }
+  },
+  "h-12300": {
+    "cohort": "historical",
+    "expected": "type: bug",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "71352d2520f3b99e97f26fe644d98a050f3e09e281570600762cec50a9bd8ba7",
+      "triage-eval:gemma4-e2b-16k-v1": "0ac1b0020f5564306f6be7b7d967ba1d3f8809eb17c680bdf9426bb63e51a526",
+      "triage-eval:qwen35-4b-16k-v1": "d7a8c3bfef0b0b85494e3c2adca0fda8af2ecf398b889b10e913a84858cce6be"
+    }
+  },
+  "h-12303": {
+    "cohort": "historical",
+    "expected": "type: regression",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "a1aacdbc32a583531bda2d629b4d613b8ea01d012ef9e6a3f9f314ce48a97cf3",
+      "triage-eval:gemma4-e2b-16k-v1": "d63e7932393eadc24ec558ddbeee4ba1a729f0bd51deee88dfe8723d7547df38",
+      "triage-eval:qwen35-4b-16k-v1": "bd2b85afa914663e8d7933e111339a0a08a385899f5f13c408f6b0fde1ab126a"
+    }
+  },
+  "h-12305": {
+    "cohort": "historical",
+    "expected": "type: question",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "ae69f9ededd7bab4af39ac622ad1883ea5b5c7d40cbcb5c1410a2a17a20ac85a",
+      "triage-eval:gemma4-e2b-16k-v1": "00d428e3b9810631762369090e8264a88fa56d591b6ed9f9eac1016befc1367e",
+      "triage-eval:qwen35-4b-16k-v1": "2e71e7139ad153ed06a6c88813302725fd956598e07c21ed63fa1df4bafee2d8"
+    }
+  },
+  "h-12307": {
+    "cohort": "historical",
+    "expected": "type: bug",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "5b2e4efffbb9d88d66efa0adb293fee22a85b07aaafdeed4e65f1474c6f6b105",
+      "triage-eval:gemma4-e2b-16k-v1": "8ea5b1e10f2f28ed5ed16a1a26ff549a8cc4bbff1b8f17c230f7d3dae7bb2001",
+      "triage-eval:qwen35-4b-16k-v1": "d1a39e5e32990311449084e403850c45108863e9d1052d6edb463295ad187387"
+    }
+  },
+  "h-12308": {
+    "cohort": "historical",
+    "expected": "type: regression",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "ec9d67ee2277d1129b8f231bf149eb89a85f73610c5b30b9631a49d776375909",
+      "triage-eval:gemma4-e2b-16k-v1": "a2eb85851729c49a02ade1ffc406e78bfa4ee834f47ca9d19c5ce61960e5fa61",
+      "triage-eval:qwen35-4b-16k-v1": "191f3f1eb02c3103c061384736c6ad242d8ea991fdf29dcf8a62c5d1baeedc55"
+    }
+  },
+  "h-12312": {
+    "cohort": "historical",
+    "expected": "type: enhancement",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "373d9d02b7d338c0066f53d8e13d73c49e75d3faba3d39112177ff7fdaa705ea",
+      "triage-eval:gemma4-e2b-16k-v1": "0bc110f7fdb5df77330ad09a2a58ec6f0d3ee17aefe981ff8253ba6a7ab094bb",
+      "triage-eval:qwen35-4b-16k-v1": "338a9342887206a27f11755d2029256106def0222f201b17532403a37b75c099"
+    }
+  },
+  "h-12323": {
+    "cohort": "historical",
+    "expected": "type: selftests",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "f728321039c4090db94c7a3f906adec8817e3cea7f303def8755eae9b01972f8",
+      "triage-eval:gemma4-e2b-16k-v1": "74cad2f85cf75d12de5ff2788a0f59376f7f4e39f81523e3eb7c2f853838a596",
+      "triage-eval:qwen35-4b-16k-v1": "ec444894e90d8dbf98737b3375f43a1d70b1d483c18e9edbadbdd2f2115e8575"
+    }
+  },
+  "h-12328": {
+    "cohort": "historical",
+    "expected": "type: regression",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "7b10f33b379d46b640487053a1c58054e83ec306ce2ddf7a34f5f3af341fa19f",
+      "triage-eval:gemma4-e2b-16k-v1": "b5461b955d7a535b8efbb0456aecb4452ea99b2f5efb8841f70530c6f5556020",
+      "triage-eval:qwen35-4b-16k-v1": "c448c1e285b804b9d51a12696fd6867c7e38df639e6727e79a7fb476cac8d70c"
+    }
+  },
+  "h-12351": {
+    "cohort": "historical",
+    "expected": "type: bug",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "3b2aaa0505c74a17fb239164bf2f7959c49d1dc7fefe9e0a3db1906075037a48",
+      "triage-eval:gemma4-e2b-16k-v1": "f83c915d22c9763ed2bf6c8f78bcb58354425d3fb65270a9ac5cc958dcb1b660",
+      "triage-eval:qwen35-4b-16k-v1": "860a8f2ee84cb924e435c29cb7716334d0608bfd7c4f436f1bed95995c42343c"
+    }
+  },
+  "h-12352": {
+    "cohort": "historical",
+    "expected": "type: selftests",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "7201b3a0d16fe81136785f3edd4e5f69accf1361fa617907edf07ea4af3dde92",
+      "triage-eval:gemma4-e2b-16k-v1": "b8aae4e36c4ee98877d72650dcf1e957f1fb7b21ab1e010ddddb926b5fa95127",
+      "triage-eval:qwen35-4b-16k-v1": "4a8e2678a8aad24dbb51d39240cbf036e57b1c3f960c07423259187c09d794c0"
+    }
+  },
+  "h-12357": {
+    "cohort": "historical",
+    "expected": "type: question",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "50507419d3fd07e3f98dcaa7ce2450ec059377ea5240fa7f5e4beb0cf90ccbf3",
+      "triage-eval:gemma4-e2b-16k-v1": "b6ca747be3625dcb397d09394a5420fdc997f662dadc9a74615da587cc94a275",
+      "triage-eval:qwen35-4b-16k-v1": "840991c8c1db6a04621c53ef86cad79bd84878245812c2e9aa67c61102903ef9"
+    }
+  },
+  "h-12360": {
+    "cohort": "historical",
+    "expected": "type: docs",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "dee72b7ebcdb38c25e2d08b18189d37585b37c97eec7fbe7ca4a426b76bf3d48",
+      "triage-eval:gemma4-e2b-16k-v1": "e3dbb8c3b0bc553903a00a94aba4e6cc1ae8c4a6e0efacf4ccd6a65d0fc36fc9",
+      "triage-eval:qwen35-4b-16k-v1": "ae4dbda3ca24c87f6eff470d4110ac6601f2b4a48f5e0901eabb56918ea16091"
+    }
+  },
+  "h-12363": {
+    "cohort": "historical",
+    "expected": "type: enhancement",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "79d650985b2a8ddfe14eb5e251c243e66f49cd05379182cdc47cc0f494160585",
+      "triage-eval:gemma4-e2b-16k-v1": "1b326576242d31d359b1089d8e885bdbc29cec60c0e614ce031f0725a28aaf1c",
+      "triage-eval:qwen35-4b-16k-v1": "f57b8388d162c1b7c1c2b3528fb7e60e957d69d3badfffca2b983ac4a8c743c4"
+    }
+  },
+  "h-12366": {
+    "cohort": "historical",
+    "expected": "type: enhancement",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "d504d5fce7275c37c423fd6128f2bc8e4c8132c46573bcc128f57a3a8ca70b40",
+      "triage-eval:gemma4-e2b-16k-v1": "94956bd7deb44ca66fd17d3c3c7fdce1927b31ccd9013dfcbda3e06b9e3e338a",
+      "triage-eval:qwen35-4b-16k-v1": "0194a1e8baff304c0277c7ca90bcd7a76709d0502e0218bffee2eb3fbf8aef28"
+    }
+  },
+  "h-12367": {
+    "cohort": "historical",
+    "expected": "type: regression",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "5d30720f757d8d86d959d8d7fdab6f81bc3c421f184f6f594d59f4582cae5dea",
+      "triage-eval:gemma4-e2b-16k-v1": "fee91213f9157a3f556532e8d5952c84fb5c68abc6322ab9f534796555affa8a",
+      "triage-eval:qwen35-4b-16k-v1": "6498a35270d46805390d5f5e6a932a05285731b6b4362b23b5cfcba1dadd12f3"
+    }
+  },
+  "h-12371": {
+    "cohort": "historical",
+    "expected": "type: bug",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "6f8930d6ff4f1673252a9ac4f4903e22abc45e9ff8d599ac5b04e2e07973a8c2",
+      "triage-eval:gemma4-e2b-16k-v1": "f101fb27b7fcbcc2ef9bd3aa36ed1d02a7aad7a2015c4feac28cfe52a1ec34ff",
+      "triage-eval:qwen35-4b-16k-v1": "1abb9db71dacf281c800cfa2dd60bfddbf99cdf538fb48075f1f05d175f5dd54"
+    }
+  },
+  "h-12376": {
+    "cohort": "historical",
+    "expected": "type: proposal",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "11d52cc7c3e2fe830b6ba4043021ee68e4c5768dc03676874980a33c4be70b3b",
+      "triage-eval:gemma4-e2b-16k-v1": "e3ad9e44219dc7934cd3990aa4a05a302db67474b83f3ea622fa0bc61d2b641b",
+      "triage-eval:qwen35-4b-16k-v1": "831dc311693b6d1fd947f9ad0c69470bec3d95adbf608746db221cc5e0af3edd"
+    }
+  },
+  "h-12377": {
+    "cohort": "historical",
+    "expected": "type: docs",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "83668d1d57acd74bd570ba84ddef84fa1d838e8c922f230e4507d51c83124a42",
+      "triage-eval:gemma4-e2b-16k-v1": "a072c177c67b0e8e936d0a1cb4db3854a2be3a40d26b0c298bb6cc8f84de32db",
+      "triage-eval:qwen35-4b-16k-v1": "87a55eebf0bf7bd3071f2f6d5b89c3924429798d62428575d58ed6a5f17adf7d"
+    }
+  },
+  "xml-A": {
+    "cohort": "fresh",
+    "expected": "type: bug",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "10f702034e02d11a7baf6b6e7eabfa361d0d104d7ec4928ba1593a0f9f127b2e",
+      "triage-eval:gemma4-e2b-16k-v1": "aef1eebd09e8a2c3c3e4c040674f2097f7313e51f96099ea71b67ec3a549309e",
+      "triage-eval:qwen35-4b-16k-v1": "53275037ed3d6bc7d1cedbca6c60e603f78d1b0de628ced65666c53b66f81e4b"
+    }
+  },
+  "xml-B": {
+    "cohort": "fresh",
+    "expected": "type: regression",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "b75e3e6f8bef2a1d93699c3a2af3000a4f820bcfe8735d9ebd6ca94b93cc2c0c",
+      "triage-eval:gemma4-e2b-16k-v1": "1ddca8d5dab5cac27967264f40931b5ce1e9c0cd72c805673ef5facb55b17535",
+      "triage-eval:qwen35-4b-16k-v1": "675f211558c6235c8f73f12714f0ea85cbc111ef451283fab5cbc47495fd804d"
+    }
+  },
+  "filter-A": {
+    "cohort": "fresh",
+    "expected": "type: question",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "c71fe9941dd96a5bb3f555bf6c451c1bcda08ba828f04cd7de1d465ee1bbee5f",
+      "triage-eval:gemma4-e2b-16k-v1": "1ffbc5f0f60e36dde52e750a2f894528f049619a62ef4e4a65419f4472326314",
+      "triage-eval:qwen35-4b-16k-v1": "c06db6198883e3d57038d15ede7e2e0df7e4976a5d62a3522597ff2170da69c7"
+    }
+  },
+  "filter-B": {
+    "cohort": "fresh",
+    "expected": "type: bug",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "d210beb226207815d48f0e00e0161472c0e022dd2fb032e031df65b0232eb775",
+      "triage-eval:gemma4-e2b-16k-v1": "08cb3c9f3d38f0b79803738c0360c14ed26461275e7d8b21ce15e6a300b24402",
+      "triage-eval:qwen35-4b-16k-v1": "8e48f76e5e73540d1c8499d6a264e14f0cb063a21fbf76012b80f7f82f7aa4aa"
+    }
+  },
+  "paths-A": {
+    "cohort": "fresh",
+    "expected": "type: docs",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "d5d750cf7da90ac1c37baa83477d3e493273b0938e060255f57f8d88ddd00f8a",
+      "triage-eval:gemma4-e2b-16k-v1": "37712d00ee24b9a2a42dcbe27b11bd4843445a4135490af429b53d8251f07b71",
+      "triage-eval:qwen35-4b-16k-v1": "77210e4607de592dfef41ff67591848ec2f747e30e0aa7805b42f76a483ee411"
+    }
+  },
+  "paths-B": {
+    "cohort": "fresh",
+    "expected": "type: question",
+    "error": null,
+    "sha256": {
+      "pytest-triage:coder7b-ctx16k": "eade0c59739081be4effc4b627eca93b4067cc2ff24ab5b6ea4fe898e7336af8",
+      "triage-eval:gemma4-e2b-16k-v1": "f6ffea111724b5063b19a6845903e86d45432b7baa15f940f4a4601447e4b0fb",
+      "triage-eval:qwen35-4b-16k-v1": "e85b69cc235e80ef3f4a46ec5c01ef2fa99e2e2a8716b1efe53854a8ccdcd942"
+    }
+  }
+}
