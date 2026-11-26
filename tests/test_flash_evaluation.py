@@ -97,7 +97,10 @@ def test_runner_keeps_shared_eligibility_and_distinguishes_failed_predictions(
             assert "expected_outcome" not in user and "human_review" not in user
             assert user["issue_body"] == evidence.opening.body
             output: dict[str, Any] = {
-                "type_evidence_index": 999
+                "issue_type": "type: invalid"
+                if condition == "invalid_selection"
+                else None,
+                "issue_type_quote": "Feature"
                 if condition == "invalid_selection"
                 else None,
                 "reply_citation_ids": [],

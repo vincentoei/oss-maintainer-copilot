@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import json
+import subprocess
 from dataclasses import asdict
 from pathlib import Path
 from typing import Any
@@ -13,6 +14,15 @@ from maintainer_copilot.triage import TriageReport
 from maintainer_copilot.workflow_comparison import fingerprint
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def verify_recorded_source(root: Path, hashes: dict[str, str], commit: str) -> None:
+    """Check the frozen Git source, allowing current implementation to evolve."""
+    for name, digest in hashes.items():
+        recorded = subprocess.check_output(
+            ["git", "show", f"{commit}:{name}"], cwd=root
+        )
+        assert hashlib.sha256(recorded).hexdigest() == digest
 
 
 def verify(directory: Path) -> dict[str, Any]:
@@ -36,8 +46,9 @@ def verify(directory: Path) -> dict[str, Any]:
         == freeze["protocol_sha256"]
     )
     assert result["source_sha256"] == freeze["source_sha256"]
-    for name, digest in freeze["source_sha256"].items():
-        assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == digest
+    verify_recorded_source(
+        ROOT, freeze["source_sha256"], freeze["implementation_commit"]
+    )
     catalog = sorted(load_cases(), key=lambda c: c.issue_number)
     numbers = [c.issue_number for c in catalog]
     assert len(catalog) == 50

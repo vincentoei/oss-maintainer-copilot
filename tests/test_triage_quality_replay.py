@@ -187,15 +187,10 @@ def test_type_evidence_ignores_reference_urls_and_example_output(
     def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
         assert isinstance(request.data, bytes)
         data = json.loads(json.loads(request.data)["messages"][1]["content"])
-        assert incidental_type not in {
-            o["issue_type"] for o in data["type_evidence_options"]
-        }
+        assert incidental_type in data["repository_type_labels"]
         output = {
-            "type_evidence_index": next(
-                o["index"]
-                for o in data["type_evidence_options"]
-                if o["issue_type"] == "type: enhancement"
-            ),
+            "issue_type": "type: enhancement",
+            "issue_type_quote": body.split("\n", 1)[0],
             "reply_citation_ids": data["required_reply_ids"],
         }
         return io.BytesIO(
@@ -219,7 +214,11 @@ def test_required_investigative_question_is_owned_by_the_report(
     monkeypatch: pytest.MonkeyPatch, selected_ids: list[str]
 ) -> None:
     def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
-        output = {"type_evidence_index": None, "reply_citation_ids": selected_ids}
+        output = {
+            "issue_type": None,
+            "issue_type_quote": None,
+            "reply_citation_ids": selected_ids,
+        }
         return io.BytesIO(
             json.dumps(
                 {"choices": [{"message": {"content": json.dumps(output)}}]}
@@ -330,36 +329,20 @@ def test_observed_mismatch_selects_details_for_a_neutral_title() -> None:
     }
 
 
-def test_model_selects_a_supported_type_and_quote_as_one_option(
+def test_model_returns_valid_repository_type_and_verbatim_quote(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
         assert isinstance(request.data, bytes)
         payload = json.loads(request.data)
         data = json.loads(payload["messages"][1]["content"])
-        options = data["type_evidence_options"]
-        properties = payload["response_format"]["json_schema"]["schema"]["properties"]
-        # A decoder following the old independent enums can pair a bug label
-        # with enhancement-only evidence, as the archived #12216 response did.
-        if "type_evidence_index" in properties:
-            output = {
-                "type_evidence_index": next(
-                    i
-                    for i, option in enumerate(options)
-                    if option["issue_type"] == "type: bug"
-                ),
-                "reply_citation_ids": data["required_reply_ids"],
-            }
-        else:
-            output = {
-                "issue_type": "type: bug",
-                "issue_type_quote": next(
-                    option["quote"]
-                    for option in options
-                    if option["issue_type"] == "type: enhancement"
-                ),
-                "reply_citation_ids": data["required_reply_ids"],
-            }
+        schema = payload["response_format"]["json_schema"]["schema"]
+        assert "type: bug" in schema["properties"]["issue_type"]["enum"]
+        output = {
+            "issue_type": "type: bug",
+            "issue_type_quote": data["issue_title"],
+            "reply_citation_ids": data["required_reply_ids"],
+        }
         return io.BytesIO(
             json.dumps(
                 {
@@ -382,8 +365,8 @@ def test_model_selects_a_supported_type_and_quote_as_one_option(
     assert report.issue_type_quote is not None and "Bug" in report.issue_type_quote
 
 
-@pytest.mark.parametrize("index", [True, -1, 9999])
-def test_invalid_type_option_abstains_and_retains_provider_usage(
+@pytest.mark.parametrize("index", [True, -1, "type: invalid"])
+def test_invalid_type_abstains_and_retains_provider_usage(
     monkeypatch: pytest.MonkeyPatch, index: object
 ) -> None:
     def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
@@ -395,7 +378,8 @@ def test_invalid_type_option_abstains_and_retains_provider_usage(
                             "message": {
                                 "content": json.dumps(
                                     {
-                                        "type_evidence_index": index,
+                                        "issue_type": index,
+                                        "issue_type_quote": "Bug: collection fails",
                                         "reply_citation_ids": [],
                                     }
                                 )

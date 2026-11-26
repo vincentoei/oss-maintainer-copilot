@@ -7,6 +7,8 @@ from decimal import ROUND_CEILING, Decimal
 from pathlib import Path
 from typing import Any
 
+from issue20_verify import verify_recorded_source
+
 from maintainer_copilot.evaluation import CaseResult, aggregate, score_report
 from maintainer_copilot.flash_evaluation import FLASH_MODELS
 from maintainer_copilot.replay import candidate_references, load_cases
@@ -21,11 +23,11 @@ def verify(directory: Path) -> dict[str, Any]:
         (ROOT / "docs/evaluation/issue-20/flash/freeze.json").read_text()
     )
     result = json.loads((directory / "results.json").read_text())
-    for name, digest in {
-        **freeze["preserved_references"],
-        **freeze["source_sha256"],
-    }.items():
+    for name, digest in freeze["preserved_references"].items():
         assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == digest
+    verify_recorded_source(
+        ROOT, freeze["source_sha256"], freeze["implementation_commit"]
+    )
     assert result["source_sha256"] == freeze["source_sha256"]
     assert (
         hashlib.sha256(

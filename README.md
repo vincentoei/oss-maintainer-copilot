@@ -64,13 +64,16 @@ MODEL_NAME=your-model-name uv run --no-env-file uvicorn maintainer_copilot.web:a
 ```
 
 Set `MODEL_BASE_URL` if your server uses a different URL. The model receives the
-issue title and body, mechanically valid issue-text quote options, and the
-report's available citation-backed statements. It
-returns a supported label from the selected profile or unknown, an exact quote from the issue for a
-suggested label, and citation IDs to include in the draft reply. The server
-rejects free-text claims, unknown citations, and labels without an unnegated
-cue in the quote's original issue context. With no model configured, the report
-still works and marks the model suggestion as unavailable.
+issue title and body, all valid type labels from the resolved repository profile,
+and the report's available citation-backed statements. It returns a suggested
+label or unknown, an exact issue-text quote, and citation IDs for the draft reply.
+The server rejects unknown labels, fabricated/oversized quotes, unknown citations
+and extra free-text claims. It validates quote provenance, not whether the quote
+semantically justifies the label. Semantic fit, negation and ambiguity remain
+model judgments requiring review. The independent keyword baseline keeps its
+literal-cue rules. With no model configured, the report still works and marks
+model suggestions unavailable.
+
 
 The [tested Windows Ollama / WSL app guide](docs/local-model.md) serves
 Qwen2.5 Coder 3B Instruct Q4_K_M with 16K context and no paid model API.

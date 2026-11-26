@@ -72,7 +72,13 @@ def test_invalid_hosted_selection_is_not_scored_as_a_successful_reference(
     evidence = RecordedEvidence()
 
     def endpoint(request: Request, *, timeout: int) -> io.BytesIO:
-        return hosted_response({"type_evidence_index": 9999, "reply_citation_ids": []})
+        return hosted_response(
+            {
+                "issue_type": "type: invalid",
+                "issue_type_quote": "Feature",
+                "reply_citation_ids": [],
+            }
+        )
 
     monkeypatch.setattr("maintainer_copilot.hosted_evaluation.urlopen", endpoint)
     result: dict[str, Any] = evaluate_hosted_reference(
@@ -213,7 +219,9 @@ def test_runner_pairs_same_cutoff_and_keeps_model_output_separate_from_annotatio
             forbidden in user for forbidden in ("expected_outcome", "human_review")
         )
         assert user["issue_body"] == evidence.opening.body
-        return hosted_response({"type_evidence_index": None, "reply_citation_ids": []})
+        return hosted_response(
+            {"issue_type": None, "issue_type_quote": None, "reply_citation_ids": []}
+        )
 
     monkeypatch.setattr("maintainer_copilot.hosted_evaluation.urlopen", endpoint)
     directory = tmp_path / "run"
