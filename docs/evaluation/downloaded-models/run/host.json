@@ -1,0 +1,39 @@
+{
+  "observed_utc": "2026-11-26T12:06:13.455947+00:00",
+  "server": {
+    "version": "0.40.16"
+  },
+  "resident": {
+    "models": []
+  },
+  "gpu": [
+    "name, memory.total [MiB], memory.free [MiB], driver_version",
+    "NVIDIA GeForce RTX 5060 Laptop GPU, 8151 MiB, 7883 MiB, 592.01"
+  ],
+  "model_volume_free_bytes": 304830263296,
+  "reference": {
+    "name": "pytest-triage:coder7b-ctx16k",
+    "model": "pytest-triage:coder7b-ctx16k",
+    "modified_at": "2026-11-20T00:15:44.1287167+07:00",
+    "size": 4683087275,
+    "digest": "863fd25a4686b53c56c1a178816edc5ede1c859fc40233e35ad5d8a898e3f7cc",
+    "details": {
+      "parent_model": "qwen2.5-coder:7b-instruct-q4_K_M",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "7.6B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 3584,
+      "runner": "llamacpp"
+    },
+    "capabilities": [
+      "completion",
+      "tools",
+      "insert"
+    ]
+  }
+}

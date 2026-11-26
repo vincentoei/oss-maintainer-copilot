@@ -1,0 +1,5 @@
+{
+  "tag": "qwen3.5:4b-q4_K_M",
+  "sha256": "d8b0f5e9760cd1682034f292d7ef72ec46f432149be0df7574bf2d6e92e38c04",
+  "alias": "triage-eval:qwen35-4b-16k-v1"
+}
