@@ -1,0 +1,6 @@
+[
+  {"title":"Which setting controls collection?","body":"The guide says to put the flag under [runner]. Its own example puts it under [collection]. Could the two instructions be reconciled?","expected":"type: docs"},
+  {"title":"Which setting controls collection?","body":"The guide puts the flag under [collection]. I have two test directories. How do I apply that setting to only one of them?","expected":"type: question"},
+  {"title":"Applying the migration example","body":"The migration page tells readers to import a helper removed in the release it describes. Please update its example to use the supported helper.","expected":"type: docs"},
+  {"title":"Applying the migration example","body":"The migration page shows the supported helper and the example works. Where should I call that helper when I use a session fixture?","expected":"type: question"}
+]
