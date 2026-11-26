@@ -76,7 +76,17 @@ class Replay:
         return response
 
 
-def audit_row(row, reservation, digest, cases, probes, catalog, snapshot):
+def audit_row(
+    row,
+    reservation,
+    digest,
+    cases,
+    probes,
+    catalog,
+    snapshot,
+    *,
+    missing_telemetry=False,
+):
     event = row["model_event"]
     assert row["trace"]["trace_id"] == row["report"]["trace_id"]
     assert [e for e in row["trace"]["events"] if e["name"] == "triage_selection"] == [
@@ -94,7 +104,7 @@ def audit_row(row, reservation, digest, cases, probes, catalog, snapshot):
     assert row["raw_sha256"] == (sha256(raw).hexdigest() if raw is not None else None)
     if row["http_status"] is None:
         assert row["transport_error"] and event["status"] == "error" and raw is None
-    if row["status"] == "valid":
+    if row["status"] == "valid" and not missing_telemetry:
         assert row["http_status"] == 200 and event["status"] == "ok" and raw
         envelope = json.loads(raw)
         choice = envelope["choices"][0]
@@ -103,6 +113,41 @@ def audit_row(row, reservation, digest, cases, probes, catalog, snapshot):
             json.loads(choice["message"]["content"])["issue_type"]
             == row["report"]["issue_type"]
         )
+    # Recompute provider-derived fields even in a metadata-only checkout.
+    observed = dict(row)
+    observed["status"] = "valid" if event["status"] == "ok" else "validation_error"
+    if row["transport_error"] or raw is None:
+        observed["status"] = "transport_error"
+    if raw:
+        try:
+            envelope = json.loads(raw)
+        except (ValueError, UnicodeDecodeError):
+            envelope = None
+        if isinstance(envelope, dict) and (
+            "model" in envelope or observed["status"] == "valid"
+        ):
+            if envelope.get("model") != row["alias"]:
+                observed["status"] = "identity_error"
+    residency = row.get("resident_after", {"models": []})
+    if not missing_telemetry:
+        assert "resident_after" in row
+    annotate(observed, digest, residency)
+    for key in ("finish_reason", "usage", "context_flag", "reasoning_chars", "gpu_16k"):
+        if missing_telemetry:
+            row[key] = None if key == "gpu_16k" else observed[key]
+        else:
+            assert row[key] == observed[key], (row["case"], key)
+    assert observed["status"] == row["status"] or missing_telemetry
+    if event["status"] == "ok":
+        assert row["status"] in ("valid", "validation_error", "identity_error")
+        for name, field in (
+            ("input_tokens", "prompt_tokens"),
+            ("output_tokens", "completion_tokens"),
+        ):
+            count = (observed["usage"] or {}).get(field)
+            assert event[name] == (count if type(count) is int and count >= 0 else None)
+    elif row["http_status"] is None:
+        assert row["status"] == "transport_error"
     if snapshot is None and row["case"] in cases:
         # Historical text is local-only under ADR-0003. Metadata-only clones
         # can reconcile the reservations, response, trace and scored report.
@@ -112,7 +157,7 @@ def audit_row(row, reservation, digest, cases, probes, catalog, snapshot):
     with patch("issue62_compare._GpuMemory", lambda enabled: _GpuMemory(False)):
         run_case(checked, replay, replay, cases, probes, catalog, snapshot)
     assert replay.sent
-    annotate(checked, digest, row["resident_after"])
+    annotate(checked, digest, residency)
     for key in (
         "status",
         "http_status",
@@ -123,7 +168,7 @@ def audit_row(row, reservation, digest, cases, probes, catalog, snapshot):
         "gpu_16k",
         "raw_sha256",
     ):
-        assert checked[key] == row[key], (row["case"], key)
+        assert checked[key] == observed[key], (row["case"], key)
     assert {k: v for k, v in checked["report"].items() if k != "trace_id"} == {
         k: v for k, v in row["report"].items() if k != "trace_id"
     }
@@ -159,7 +204,7 @@ def resources(rows):
         ),
         exposed_reasoning_chars=sum(r["reasoning_chars"] or 0 for r in measured),
         unknown_reasoning=sum(r["reasoning_chars"] is None for r in measured),
-        full_gpu_16k_rows=sum(r["gpu_16k"] for r in measured),
+        full_gpu_16k_rows=sum(r["gpu_16k"] is True for r in measured),
     )
     return result
 
@@ -202,6 +247,7 @@ def summarize():
     catalog = load_cases()
     cases = {f"h-{c.issue_number}": c for c in catalog}
     probes = {c["id"]: c for c in read(PROBES)["cases"]}
+    halt_record = read(RUN / "halt.json") if (RUN / "halt.json").exists() else {}
     arms = {}
     first_calls = {}
     for alias in ALIASES:
@@ -229,6 +275,13 @@ def summarize():
                 assert reservation is None and row["status"] == "unavailable"
             else:
                 assert reservation
+                missing_telemetry = "resident_after" not in row
+                if missing_telemetry:
+                    assert (halt_record.get("alias"), halt_record.get("case")) == (
+                        alias,
+                        key,
+                    )
+                    assert halt_record["reason"].startswith("Telemetry failed:")
                 audit_row(
                     row,
                     reservation,
@@ -237,7 +290,10 @@ def summarize():
                     probes,
                     catalog,
                     snapshot,
+                    missing_telemetry=missing_telemetry,
                 )
+                if missing_telemetry:
+                    row["status"] = "telemetry_incomplete"
             rows[key] = row
         if records:
             first = rows[records[0]["case"]]

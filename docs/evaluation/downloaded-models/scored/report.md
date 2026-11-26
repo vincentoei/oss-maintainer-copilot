@@ -79,3 +79,5 @@ PYTHONPATH=src .venv/bin/python scripts/downloaded_scored_results.py | diff - do
 ```
 
 With the locally retained, hash-verified public snapshot, this also exercises all 168 recorded responses through the production validation and replay paths. A metadata-only checkout audits the published records and replays the reviewed synthetic cases without bulk contributor issue text. All six earlier #20/#59/#60/#62 checks, the four-call downloaded-model preflight audit, Ruff lint/format and mypy passed. The application suite passed 504 tests with two opt-in public replay tests skipped.
+
+Independent Spec and Standards reviews checked the ledger, per-case outcomes, token counts and residency against the saved responses. The publication audit also ran in a fresh metadata-only clone. A final scorer check recomputes provider-derived fields before using the historical metadata and retains a charged observation with unknown residency after a telemetry halt. Fault simulations confirmed detection of modified telemetry and preservation of the full denominators. These checks used zero additional model requests.
