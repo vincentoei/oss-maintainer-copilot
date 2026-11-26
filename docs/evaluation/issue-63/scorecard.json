@@ -1,0 +1,379 @@
+{
+  "verified": true,
+  "charged": 55,
+  "usage_known_all_calls": {
+    "input_tokens": 55389,
+    "output_tokens": 1528
+  },
+  "reported_output_within_budget": true,
+  "reports_replayed": 53,
+  "historical_reports_not_replayed_without_private_snapshot": [],
+  "execution_status": "complete",
+  "charged_without_result": 0,
+  "cohorts": {
+    "fresh_synthetic": {
+      "pytest-triage:coder3b-ctx16k": {
+        "planned": 12,
+        "correct": 8,
+        "statuses": {
+          "valid": 12
+        },
+        "valid_abstentions": 0,
+        "confusion": {
+          "type: bug": {
+            "type: bug": 4
+          },
+          "type: regression": {
+            "type: bug": 3
+          },
+          "type: question": {
+            "type: question": 3
+          },
+          "type: docs": {
+            "type: docs": 1
+          },
+          "null": {
+            "type: bug": 1
+          }
+        },
+        "model_latency_ms": {
+          "p50": 320.387,
+          "p95": 3873.144
+        },
+        "model_latency_by_stage_ms": {
+          "planner": null,
+          "report": {
+            "p50": 320.387,
+            "p95": 3873.144
+          }
+        },
+        "end_to_end_latency_ms": {
+          "p50": 382.881,
+          "p95": 3971.333
+        },
+        "peak_sampled_device_mib": 2746.0,
+        "reported_cache_hit_calls": 11,
+        "cache_unknown_calls": 0,
+        "model_cold_observations": [
+          "log-bug"
+        ],
+        "gpu_measurement_errors": []
+      },
+      "pytest-triage:coder7b-ctx16k": {
+        "planned": 12,
+        "correct": 8,
+        "statuses": {
+          "valid": 12
+        },
+        "valid_abstentions": 0,
+        "confusion": {
+          "type: bug": {
+            "type: bug": 4
+          },
+          "type: regression": {
+            "type: bug": 3
+          },
+          "type: question": {
+            "type: question": 3
+          },
+          "type: docs": {
+            "type: docs": 1
+          },
+          "null": {
+            "type: question": 1
+          }
+        },
+        "model_latency_ms": {
+          "p50": 445.332,
+          "p95": 5213.072
+        },
+        "model_latency_by_stage_ms": {
+          "planner": null,
+          "report": {
+            "p50": 445.332,
+            "p95": 5213.072
+          }
+        },
+        "end_to_end_latency_ms": {
+          "p50": 505.98,
+          "p95": 5268.323
+        },
+        "peak_sampled_device_mib": 5366.0,
+        "reported_cache_hit_calls": 11,
+        "cache_unknown_calls": 0,
+        "model_cold_observations": [
+          "log-bug"
+        ],
+        "gpu_measurement_errors": []
+      },
+      "triage-eval:qwen35-4b-16k-v1": {
+        "planned": 12,
+        "correct": 12,
+        "statuses": {
+          "valid": 12
+        },
+        "valid_abstentions": 1,
+        "confusion": {
+          "type: bug": {
+            "type: bug": 4
+          },
+          "type: regression": {
+            "type: regression": 3
+          },
+          "type: question": {
+            "type: question": 3
+          },
+          "type: docs": {
+            "type: docs": 1
+          },
+          "null": {
+            "null": 1
+          }
+        },
+        "model_latency_ms": {
+          "p50": 486.687,
+          "p95": 4980.511
+        },
+        "model_latency_by_stage_ms": {
+          "planner": null,
+          "report": {
+            "p50": 486.687,
+            "p95": 4980.511
+          }
+        },
+        "end_to_end_latency_ms": {
+          "p50": 539.991,
+          "p95": 5036.719
+        },
+        "peak_sampled_device_mib": 4272.0,
+        "reported_cache_hit_calls": 0,
+        "cache_unknown_calls": 0,
+        "model_cold_observations": [
+          "log-bug"
+        ],
+        "gpu_measurement_errors": []
+      }
+    },
+    "exposed_bug_loss": {
+      "pytest-triage:coder3b-ctx16k": {
+        "planned": 3,
+        "correct": 3,
+        "statuses": {
+          "valid": 3
+        },
+        "valid_abstentions": 0,
+        "confusion": {
+          "type: bug": {
+            "type: bug": 3
+          }
+        },
+        "model_latency_ms": {
+          "p50": 552.739,
+          "p95": 652.126
+        },
+        "model_latency_by_stage_ms": {
+          "planner": null,
+          "report": {
+            "p50": 552.739,
+            "p95": 652.126
+          }
+        },
+        "end_to_end_latency_ms": {
+          "p50": 612.234,
+          "p95": 729.952
+        },
+        "peak_sampled_device_mib": 2752.0,
+        "reported_cache_hit_calls": 3,
+        "cache_unknown_calls": 0,
+        "model_cold_observations": [],
+        "gpu_measurement_errors": []
+      },
+      "pytest-triage:coder7b-ctx16k": {
+        "planned": 3,
+        "correct": 3,
+        "statuses": {
+          "valid": 3
+        },
+        "valid_abstentions": 0,
+        "confusion": {
+          "type: bug": {
+            "type: bug": 3
+          }
+        },
+        "model_latency_ms": {
+          "p50": 1025.963,
+          "p95": 1180.539
+        },
+        "model_latency_by_stage_ms": {
+          "planner": null,
+          "report": {
+            "p50": 1025.963,
+            "p95": 1180.539
+          }
+        },
+        "end_to_end_latency_ms": {
+          "p50": 1077.176,
+          "p95": 1236.977
+        },
+        "peak_sampled_device_mib": 5368.0,
+        "reported_cache_hit_calls": 3,
+        "cache_unknown_calls": 0,
+        "model_cold_observations": [],
+        "gpu_measurement_errors": []
+      },
+      "triage-eval:qwen35-4b-16k-v1": {
+        "planned": 3,
+        "correct": 0,
+        "statuses": {
+          "valid": 3
+        },
+        "valid_abstentions": 0,
+        "confusion": {
+          "type: bug": {
+            "type: regression": 1,
+            "type: enhancement": 2
+          }
+        },
+        "model_latency_ms": {
+          "p50": 963.073,
+          "p95": 1079.016
+        },
+        "model_latency_by_stage_ms": {
+          "planner": null,
+          "report": {
+            "p50": 963.073,
+            "p95": 1079.016
+          }
+        },
+        "end_to_end_latency_ms": {
+          "p50": 1041.574,
+          "p95": 1140.269
+        },
+        "peak_sampled_device_mib": 4276.0,
+        "reported_cache_hit_calls": 0,
+        "cache_unknown_calls": 0,
+        "model_cold_observations": [],
+        "gpu_measurement_errors": []
+      }
+    },
+    "integration": {
+      "triage-eval:qwen35-4b-16k-v1": {
+        "planned": 8,
+        "correct": 8,
+        "statuses": {
+          "valid": 8
+        },
+        "valid_abstentions": 0,
+        "confusion": {
+          "type: bug": {
+            "type: bug": 8
+          }
+        },
+        "model_latency_ms": {
+          "p50": 523.432,
+          "p95": 1655.867
+        },
+        "model_latency_by_stage_ms": {
+          "planner": {
+            "p50": 417.366,
+            "p95": 1273.607
+          },
+          "report": {
+            "p50": 523.432,
+            "p95": 1655.867
+          }
+        },
+        "end_to_end_latency_ms": {
+          "p50": 907.579,
+          "p95": 1897.774
+        },
+        "peak_sampled_device_mib": 4276.0,
+        "reported_cache_hit_calls": 7,
+        "cache_unknown_calls": 0,
+        "model_cold_observations": [],
+        "gpu_measurement_errors": []
+      }
+    }
+  },
+  "candidate_paired_comparisons": {
+    "fresh_synthetic": {
+      "pytest-triage:coder3b-ctx16k": {
+        "common_valid": [
+          "log-bug",
+          "log-regression",
+          "fixture-question",
+          "fixture-bug",
+          "exit-bug",
+          "exit-regression",
+          "precedence-docs",
+          "precedence-question",
+          "teardown-regression",
+          "traceback-bug",
+          "warning-question",
+          "uncertain"
+        ],
+        "gains": [
+          "log-regression",
+          "exit-regression",
+          "teardown-regression",
+          "uncertain"
+        ],
+        "losses": []
+      },
+      "pytest-triage:coder7b-ctx16k": {
+        "common_valid": [
+          "log-bug",
+          "log-regression",
+          "fixture-question",
+          "fixture-bug",
+          "exit-bug",
+          "exit-regression",
+          "precedence-docs",
+          "precedence-question",
+          "teardown-regression",
+          "traceback-bug",
+          "warning-question",
+          "uncertain"
+        ],
+        "gains": [
+          "log-regression",
+          "exit-regression",
+          "teardown-regression",
+          "uncertain"
+        ],
+        "losses": []
+      }
+    },
+    "exposed_bug_loss": {
+      "pytest-triage:coder3b-ctx16k": {
+        "common_valid": [
+          "h-12219",
+          "h-12223",
+          "h-12249"
+        ],
+        "gains": [],
+        "losses": [
+          "h-12219",
+          "h-12223",
+          "h-12249"
+        ]
+      },
+      "pytest-triage:coder7b-ctx16k": {
+        "common_valid": [
+          "h-12219",
+          "h-12223",
+          "h-12249"
+        ],
+        "gains": [],
+        "losses": [
+          "h-12219",
+          "h-12223",
+          "h-12249"
+        ]
+      }
+    }
+  },
+  "unrelated_fixed_report_fields_unchanged": true,
+  "decision": "pending_actual_human_report_review",
+  "limits": "Small designed set; historical diagnostics exposed; truncation/physical residency not independently proven."
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "request": {
+      "model": "pytest-triage:coder3b-ctx16k",
+      "keep_alive": 0,
+      "stream": false
+    },
+    "response": {
+      "model": "pytest-triage:coder3b-ctx16k",
+      "created_at": "2026-11-26T15:06:58.7652743Z",
+      "response": "",
+      "done": true,
+      "done_reason": "unload"
+    }
+  },
+  {
+    "request": {
+      "model": "pytest-triage:coder7b-ctx16k",
+      "keep_alive": 0,
+      "stream": false
+    },
+    "response": {
+      "model": "pytest-triage:coder7b-ctx16k",
+      "created_at": "2026-11-26T15:07:16.7069449Z",
+      "response": "",
+      "done": true,
+      "done_reason": "unload"
+    }
+  }
+]

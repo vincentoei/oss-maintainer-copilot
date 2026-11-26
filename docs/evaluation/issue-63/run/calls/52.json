@@ -1,0 +1,9 @@
+{
+  "slot": "i-agent-short-1",
+  "alias": "triage-eval:qwen35-4b-16k-v1",
+  "http_status": 200,
+  "transport_error": null,
+  "raw_base64": "eyJpZCI6ImNoYXRjbXBsLTMxNCIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNyZWF0ZWQiOjE3OTU3MDU2NjMsIm1vZGVsIjoidHJpYWdlLWV2YWw6cXdlbjM1LTRiLTE2ay12MSIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX29sbGFtYSIsImNob2ljZXMiOlt7ImluZGV4IjowLCJtZXNzYWdlIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50Ijoie1widG9vbFwiOlwiZmluaXNoXCIsXCJhcmd1bWVudHNcIjp7fX0ifSwiZmluaXNoX3JlYXNvbiI6InN0b3AifV0sInVzYWdlIjp7InByb21wdF90b2tlbnMiOjI4NywicHJvbXB0X3Rva2Vuc19kZXRhaWxzIjp7ImNhY2hlZF90b2tlbnMiOjB9LCJjb21wbGV0aW9uX3Rva2VucyI6MTEsInRvdGFsX3Rva2VucyI6Mjk4fX0K",
+  "request_sha256": "204b0892e65b1f10ae0da7697ed5d53f1cb4f8d20fe5c7245d1189b06ad8e264",
+  "latency_ms": 417.366
+}

@@ -1,0 +1,9 @@
+{
+  "slot": "exit-regression",
+  "alias": "triage-eval:qwen35-4b-16k-v1",
+  "http_status": 200,
+  "transport_error": null,
+  "raw_base64": "eyJpZCI6ImNoYXRjbXBsLTY2MSIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNyZWF0ZWQiOjE3OTU3MDU2NDUsIm1vZGVsIjoidHJpYWdlLWV2YWw6cXdlbjM1LTRiLTE2ay12MSIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX29sbGFtYSIsImNob2ljZXMiOlt7ImluZGV4IjowLCJtZXNzYWdlIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50Ijoie1wiaXNzdWVfdHlwZVwiOiBcInR5cGU6IHJlZ3Jlc3Npb25cIiwgXCJxdW90ZV9pbmRleFwiOiAxLCBcInJlcGx5X2NpdGF0aW9uX2lkc1wiOiBbXX0ifSwiZmluaXNoX3JlYXNvbiI6InN0b3AifV0sInVzYWdlIjp7InByb21wdF90b2tlbnMiOjQ2NywicHJvbXB0X3Rva2Vuc19kZXRhaWxzIjp7ImNhY2hlZF90b2tlbnMiOjB9LCJjb21wbGV0aW9uX3Rva2VucyI6MjUsInRvdGFsX3Rva2VucyI6NDkyfX0K",
+  "request_sha256": "2029d2d26efec64f1107a6f76d3caec1013d35d94e1fa0a31d7447af45f20433",
+  "latency_ms": 493.794
+}

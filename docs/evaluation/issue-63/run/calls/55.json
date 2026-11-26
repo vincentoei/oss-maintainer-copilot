@@ -1,0 +1,9 @@
+{
+  "slot": "i-agent-long-2",
+  "alias": "triage-eval:qwen35-4b-16k-v1",
+  "http_status": 200,
+  "transport_error": null,
+  "raw_base64": "eyJpZCI6ImNoYXRjbXBsLTM1MyIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNyZWF0ZWQiOjE3OTU3MDU2NjUsIm1vZGVsIjoidHJpYWdlLWV2YWw6cXdlbjM1LTRiLTE2ay12MSIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX29sbGFtYSIsImNob2ljZXMiOlt7ImluZGV4IjowLCJtZXNzYWdlIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50Ijoie1wiaXNzdWVfdHlwZVwiOiBcInR5cGU6IGJ1Z1wiLCBcInF1b3RlX2luZGV4XCI6IDEsIFwicmVwbHlfY2l0YXRpb25faWRzXCI6IFtdfSJ9LCJmaW5pc2hfcmVhc29uIjoic3RvcCJ9XSwidXNhZ2UiOnsicHJvbXB0X3Rva2VucyI6NDUzMiwicHJvbXB0X3Rva2Vuc19kZXRhaWxzIjp7ImNhY2hlZF90b2tlbnMiOjQ1Mjh9LCJjb21wbGV0aW9uX3Rva2VucyI6MjUsInRvdGFsX3Rva2VucyI6NDU1N319Cg==",
+  "request_sha256": "3415a5f9041c8bd340f549094fbf1f86704dc57c160537e9a18f4d3f5af700a3",
+  "latency_ms": 523.432
+}
