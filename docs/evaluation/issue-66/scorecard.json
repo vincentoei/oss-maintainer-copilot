@@ -1,0 +1,1341 @@
+{
+  "verified": true,
+  "approved_freeze_sha256": "7754ad7a9e9c2700a7c5edafe7537258988a09ded1a9886da109556dd1bd1cd7",
+  "charged": 48,
+  "reports_rebuilt": 48,
+  "execution_complete": true,
+  "charged_without_report": 0,
+  "model_errors": [],
+  "usage": {
+    "input_tokens": 34270,
+    "output_tokens": 1258
+  },
+  "archives_preserved": 916,
+  "cohorts": {
+    "development": {
+      "control": {
+        "planned": 9,
+        "charged": 9,
+        "valid": 9,
+        "exact_match": 6,
+        "acceptable_match": 7,
+        "abstentions": [
+          "insufficient"
+        ],
+        "failures": []
+      },
+      "candidate": {
+        "planned": 9,
+        "charged": 9,
+        "valid": 9,
+        "exact_match": 7,
+        "acceptable_match": 8,
+        "abstentions": [
+          "old-docs",
+          "insufficient",
+          "omitted-support"
+        ],
+        "failures": []
+      }
+    },
+    "previously_exposed": {
+      "control": {
+        "planned": 12,
+        "charged": 12,
+        "valid": 12,
+        "exact_match": 12,
+        "acceptable_match": 12,
+        "abstentions": [
+          "uncertain"
+        ],
+        "failures": []
+      },
+      "candidate": {
+        "planned": 12,
+        "charged": 12,
+        "valid": 12,
+        "exact_match": 11,
+        "acceptable_match": 11,
+        "abstentions": [
+          "uncertain"
+        ],
+        "failures": []
+      }
+    },
+    "exposed_diagnostic": {
+      "control": {
+        "planned": 3,
+        "charged": 3,
+        "valid": 3,
+        "exact_match": 0,
+        "acceptable_match": 0,
+        "abstentions": [],
+        "failures": []
+      },
+      "candidate": {
+        "planned": 3,
+        "charged": 3,
+        "valid": 3,
+        "exact_match": 0,
+        "acceptable_match": 0,
+        "abstentions": [],
+        "failures": []
+      }
+    }
+  },
+  "outcomes": [
+    {
+      "arm": "control",
+      "id": "ordinary-bug",
+      "cohort": "development",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "request_sha256": "962af8cec02bdd876bc54bf1749204b2690beadae948353cb391f9bc237f3ae6",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 2,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: bug",
+      "selected_quote": "The test passes, but its finalizer never closes the file on either release I tested. Please fix the leaked file.",
+      "report_sha256": "e26cea2db0d8a69bfd245fc128e8a76888b62ca690660229c5adcbd91e5f081f",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "ordinary-bug",
+      "cohort": "development",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "request_sha256": "021c551b2d223c64b56f4178d6df34a8d0ea38dfff1cb40a3e357e77aa508686",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 2,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: bug",
+      "selected_quote": "The test passes, but its finalizer never closes the file on either release I tested. Please fix the leaked file.",
+      "report_sha256": "7fa915165b331503064ad6d4db7eccc10d23f98519581683fa5c51397cf50039",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "control",
+      "id": "version-break",
+      "cohort": "development",
+      "expected": "type: regression",
+      "acceptable_types": [
+        "type: regression"
+      ],
+      "request_sha256": "6311e5e5657662daac91267e8da395469ab64fad7a6419d4f17c0ae11c0b5e24",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 2,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: regression",
+      "selected_quote": "The same test closes the file on pytest 8.2 but leaks it on 8.3. Reinstalling 8.2 restores cleanup.",
+      "report_sha256": "d58c1778a10d9fab76095a756c5705131e5cfc676672c96669248a3915881ab5",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "version-break",
+      "cohort": "development",
+      "expected": "type: regression",
+      "acceptable_types": [
+        "type: regression"
+      ],
+      "request_sha256": "7e6791f90dda8eeca1c0b807ab1847a6c8d3b93dfa9647451759107ab63062b6",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 2,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: regression",
+      "selected_quote": "The same test closes the file on pytest 8.2 but leaks it on 8.3. Reinstalling 8.2 restores cleanup.",
+      "report_sha256": "b29c340bb838bd1b949d5fec0983422eeafe7002d8ed651d074c9cf8fcecab76",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "control",
+      "id": "old-docs",
+      "cohort": "development",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "request_sha256": "f902e386889b87722dd7bb9cf891bf1e546873f70b7082bf2dfda34604e53a71",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 2,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: question",
+      "selected_quote": "The documented hook never runs in my project. An older manual also lists this hook; I have not tried an older release.",
+      "report_sha256": "b8dfa36f102b14ce54c5cfedb484d2acfdbf359d346926ef566c17e50548705c",
+      "exact_match": false,
+      "acceptable_match": false,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "old-docs",
+      "cohort": "development",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "request_sha256": "4490a57fc41fa13f220e6d6e55fd65662f769c7db9f38aaafb67582f827e9b9e",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 2,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": null,
+      "selected_quote": null,
+      "report_sha256": "fa9b359f3ad8deba0c1cb403ecaf8e6b31f6ec741412c127d1836ff40f8bc270",
+      "exact_match": false,
+      "acceptable_match": false,
+      "abstained": true
+    },
+    {
+      "arm": "control",
+      "id": "extension",
+      "cohort": "development",
+      "expected": "type: enhancement",
+      "acceptable_types": [
+        "type: enhancement"
+      ],
+      "request_sha256": "3f00c9fcd2cb4fdbe1ad61408359309ccfd1bfe79e78da421f121f29d48cf0d6",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 2,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: enhancement",
+      "selected_quote": "The XML output is valid and consumers work. Please add a separate option to shorten the message attribute.",
+      "report_sha256": "040578c6049bc977ec7f2306ee6bab38f210adfde00f638c1a71b2d57235af47",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "extension",
+      "cohort": "development",
+      "expected": "type: enhancement",
+      "acceptable_types": [
+        "type: enhancement"
+      ],
+      "request_sha256": "f62c3dd5c93c64f1e3497cf591616fd981152518a2a5e6fd01874eb738818055",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 2,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: enhancement",
+      "selected_quote": "The XML output is valid and consumers work. Please add a separate option to shorten the message attribute.",
+      "report_sha256": "633302bddd8884c1fd08b29571f193d2b579b5439bace5bba674da750ced578d",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "control",
+      "id": "overlap",
+      "cohort": "development",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug",
+        "type: enhancement"
+      ],
+      "request_sha256": "9ced4d5cc49b7df28ff7b11a2b9b7e207b08b7cee01dbb4c15b7fae54dafd743",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 2,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: enhancement",
+      "selected_quote": "My consumer crashes on large valid message attributes; please add a separate attribute-size option.",
+      "report_sha256": "be4e6a093d0086144367d6aaa963239a75cb87288fb5867dd6415e18184dc1db",
+      "exact_match": false,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "overlap",
+      "cohort": "development",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug",
+        "type: enhancement"
+      ],
+      "request_sha256": "c816a14fd317c8f13f13aca8d48f7641db09af2e3f04a191a2ed170f2ce4d4e7",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 2,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: enhancement",
+      "selected_quote": "My consumer crashes on large valid message attributes; please add a separate attribute-size option.",
+      "report_sha256": "dae6d1c65e2d433c595699184fb8de0e52d31d7bec2fa8cf8a60cef8d7d1e771",
+      "exact_match": false,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "control",
+      "id": "quote-misses-request",
+      "cohort": "development",
+      "expected": "type: enhancement",
+      "acceptable_types": [
+        "type: enhancement"
+      ],
+      "request_sha256": "efbd76a49c8608437b5bbad905a8635b6766f51a3a28b3a241a7a21260633644",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: enhancement",
+      "selected_quote": "I am requesting a new optional attribute-size limit, not a repair to existing XML output.",
+      "report_sha256": "bbb5279244675ec96b20e8526d939aaee8d724c9ebd35192a307fd8eef033463",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "quote-misses-request",
+      "cohort": "development",
+      "expected": "type: enhancement",
+      "acceptable_types": [
+        "type: enhancement"
+      ],
+      "request_sha256": "8436f971fa7b0f56f82addb696717a351490b4466db345278592e60f437c9160",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: enhancement",
+      "selected_quote": "I am requesting a new optional attribute-size limit, not a repair to existing XML output.",
+      "report_sha256": "665c5fc8478671b1c8421edca83b4e9976baa0d0cf4f97fb6094376d209c1df3",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "control",
+      "id": "insufficient",
+      "cohort": "development",
+      "expected": null,
+      "acceptable_types": [
+        null
+      ],
+      "request_sha256": "d20a37a7a94d33148ad68bcd51b4efb5892a2ceaf51f565cd6fbb0ae7c67cb3f",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 2,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": null,
+      "selected_quote": null,
+      "report_sha256": "cc1c5587a688838fdc1cb293bb06839bcdb9bb914c8f1cc2e79a21d452284a3e",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": true
+    },
+    {
+      "arm": "candidate",
+      "id": "insufficient",
+      "cohort": "development",
+      "expected": null,
+      "acceptable_types": [
+        null
+      ],
+      "request_sha256": "b657246c0bc84e142c8771a9a64975bd0aa854c011541c64461258d1d0b8684c",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 2,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": null,
+      "selected_quote": null,
+      "report_sha256": "27076f901169c3727211265b013c39b6e9dad940c764e510c17003ea474dc4f9",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": true
+    },
+    {
+      "arm": "control",
+      "id": "negated-comparison",
+      "cohort": "development",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "request_sha256": "da1a838eea6dd2643e08eb4dcd2d7ea537d6fbb11fcc93031e8b74307f2fd5b8",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 2,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: bug",
+      "selected_quote": "The file leaks on both 8.2 and 8.3; the claim that switching back restores cleanup was mistaken.",
+      "report_sha256": "ce2fa7a340c9b2d98f6278a6d926a6e3dc7caa8cfb55c765323fc923c3fc291c",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "negated-comparison",
+      "cohort": "development",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "request_sha256": "92d14005d2c47b1559de368a8f2712bac4e5793c06f867c66f5b83fd1d8da6af",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 2,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: bug",
+      "selected_quote": "The file leaks on both 8.2 and 8.3; the claim that switching back restores cleanup was mistaken.",
+      "report_sha256": "7398edaa4b351a4dd1007acdfb001c52af2cc086682faa0a613c792a5f6d88e9",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "control",
+      "id": "omitted-support",
+      "cohort": "development",
+      "expected": null,
+      "acceptable_types": [
+        null
+      ],
+      "request_sha256": "50309ad74155236e0305420aa50a3f1bae7af195a458af3ff4e049746c6dbd2f",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 16,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: regression",
+      "selected_quote": "Observation 01: no additional diagnostic information.",
+      "report_sha256": "2b0174c98ec821e7c4dc18c68b07222a6da0413c90ea8def6e41e425031012ef",
+      "exact_match": false,
+      "acceptable_match": false,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "omitted-support",
+      "cohort": "development",
+      "expected": null,
+      "acceptable_types": [
+        null
+      ],
+      "request_sha256": "41f2c87fcc74373a5efbeecebcdb54f71920ee93ce33e8897057b55f68d9646e",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 16,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": null,
+      "selected_quote": null,
+      "report_sha256": "7be0dfe37a2845a1a5d5d89dc9ac28686b6a8e459bca3e062fd13955bf7e5183",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": true
+    },
+    {
+      "arm": "control",
+      "id": "log-bug",
+      "cohort": "previously_exposed",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "request_sha256": "7fcddb9c645958a217fd14595e777ce513c965c786eb144230f8e49627ef8389",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: bug",
+      "selected_quote": "With --log-file enabled, each emitted log record appears twice in the output file. The same unchanged project shows this on both pytest 8.2 and 8.3. Please fix",
+      "report_sha256": "bc3fe33c8ca6074e54590e2e8553d60e889e224dca1ebb01cee07758efe5c52d",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "log-bug",
+      "cohort": "previously_exposed",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "request_sha256": "f86ded662ee81cc3bf4776ba2a757c9ba9a517d378b402fb3fe72fcaa95503ca",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: bug",
+      "selected_quote": "With --log-file enabled, each emitted log record appears twice in the output file. The same unchanged project shows this on both pytest 8.2 and 8.3. Please fix",
+      "report_sha256": "f32134551842ecc3215128793c76b91dd46a99a17ff76864fb70dbd2408d5f02",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "control",
+      "id": "log-regression",
+      "cohort": "previously_exposed",
+      "expected": "type: regression",
+      "acceptable_types": [
+        "type: regression"
+      ],
+      "request_sha256": "aaf47c47b1d63b0b72d4cdbc7b5549118979bfdcb9fa1b384e431b523287677f",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: regression",
+      "selected_quote": "The unchanged project writes each log record once with pytest 8.2 and twice with 8.3. Switching back to 8.2 restores single writes. Please restore the earlier b",
+      "report_sha256": "4cfe06f9f1099ecf10b102a3de83665e37f8d54bb552e9394c9ca21ad9ff9a4e",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "log-regression",
+      "cohort": "previously_exposed",
+      "expected": "type: regression",
+      "acceptable_types": [
+        "type: regression"
+      ],
+      "request_sha256": "48df1ae21594036724e694443ecda81a34042f219d8b23e8f91b6da4e6fe82e8",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: regression",
+      "selected_quote": "The unchanged project writes each log record once with pytest 8.2 and twice with 8.3. Switching back to 8.2 restores single writes. Please restore the earlier b",
+      "report_sha256": "d85a92f0fc700d23483d834415ac624bd08df93982386b5ce7cc9ba2bd78e317",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "control",
+      "id": "fixture-question",
+      "cohort": "previously_exposed",
+      "expected": "type: question",
+      "acceptable_types": [
+        "type: question"
+      ],
+      "request_sha256": "a626cda114767a03a4b21f903302392687e053a0a22264447240b6d79f422108",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: question",
+      "selected_quote": "My function-scoped connection fixture opens and closes correctly. I want to reuse one connection across all tests in a module. Which fixture scope should I choo",
+      "report_sha256": "f6f2a7f6fac4dc92c76aeb8077d5145278d3f1ad406ea633c2d33c9534621c8b",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "fixture-question",
+      "cohort": "previously_exposed",
+      "expected": "type: question",
+      "acceptable_types": [
+        "type: question"
+      ],
+      "request_sha256": "398d7f524b6e385fbe3f28060db10bdc8da16ddd50b9a4e8093f1b0011e34678",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: question",
+      "selected_quote": "My function-scoped connection fixture opens and closes correctly. I want to reuse one connection across all tests in a module. Which fixture scope should I choo",
+      "report_sha256": "30a633b3cac750bb171e65a89f313e6a77a9345ee9ad08dc4233fb12fa7bac46",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "control",
+      "id": "fixture-bug",
+      "cohort": "previously_exposed",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "request_sha256": "55a541c937288ceb810d0d6308ec0bbc4dc0403f4fd3a37dc6362ae3f86cb862",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: bug",
+      "selected_quote": "A function-scoped fixture opens one connection, yields it to one passing test, and should then close it. Its teardown never runs, leaving the connection open. T",
+      "report_sha256": "2c816b3cbe0d6c6c2c8b2e9dc41cbb0af882ce892f0f43e1345976f65302cde4",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "fixture-bug",
+      "cohort": "previously_exposed",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "request_sha256": "3ccd43114340f43c1df1acd36112c755b4e50a1a2ad6e59bdc06511b650ca620",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: regression",
+      "selected_quote": "his also happens on the previous release.",
+      "report_sha256": "c2c5b41d9aaf2760efa3320347da0d71abbacdd43d6b8b2b10ffd542a9cea989",
+      "exact_match": false,
+      "acceptable_match": false,
+      "abstained": false
+    },
+    {
+      "arm": "control",
+      "id": "exit-bug",
+      "cohort": "previously_exposed",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "request_sha256": "7ee0c66d43468ae5ad2fcc24e0c42b4460d2e817ce747cff8b60a2e227d775c0",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: bug",
+      "selected_quote": "A test deliberately raises AssertionError and the summary correctly reports one failed test, but the pytest process exits with status 0. Both releases I checked",
+      "report_sha256": "178e2128cab7c8133b18ca0ba5387a153658b37748fa01e2950f54c45b2d6f16",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "exit-bug",
+      "cohort": "previously_exposed",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "request_sha256": "0701ace26b314082473c5deb55919d5c853827c9110d205bd1dd39ace1c1864f",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: bug",
+      "selected_quote": "A test deliberately raises AssertionError and the summary correctly reports one failed test, but the pytest process exits with status 0. Both releases I checked",
+      "report_sha256": "b332cc00fb85cbfa689d16e6ae26bce8a9bbdb05c7d4c8f0f22664996acd3ce7",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "control",
+      "id": "exit-regression",
+      "cohort": "previously_exposed",
+      "expected": "type: regression",
+      "acceptable_types": [
+        "type: regression"
+      ],
+      "request_sha256": "72b0be1a9029f02a46b589f7d6d0442adba544b7094e0a49396b990cf46d54df",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: regression",
+      "selected_quote": "For the same failing test, pytest 8.2 exits with status 1 and pytest 8.3 exits with status 0. The summary reports the failure in both. Reinstalling 8.2 restores",
+      "report_sha256": "377c925c1ab1e65bc083f28984c7aaa60b2aaaa46f43a529c96dec2972c55114",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "exit-regression",
+      "cohort": "previously_exposed",
+      "expected": "type: regression",
+      "acceptable_types": [
+        "type: regression"
+      ],
+      "request_sha256": "acbf43b3457bf04b1779857140b8418340f985e3e3601ad089e438df2a336317",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: regression",
+      "selected_quote": "For the same failing test, pytest 8.2 exits with status 1 and pytest 8.3 exits with status 0. The summary reports the failure in both. Reinstalling 8.2 restores",
+      "report_sha256": "51b22f4343cc5128f1a5b9ae34456c47f0442b36487345f9771a136bd9333e61",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "control",
+      "id": "precedence-docs",
+      "cohort": "previously_exposed",
+      "expected": "type: docs",
+      "acceptable_types": [
+        "type: docs"
+      ],
+      "request_sha256": "e927fef05cc28ebafd23309a3e2646db22fbf0934826ea9adc9c684ea3a87dd5",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: docs",
+      "selected_quote": "The reference says a project configuration value overrides the command-line value. The implementation and intended behavior give the command line priority. Plea",
+      "report_sha256": "3ba3d31c8d38d1094d12b4db3dd7f341d1eec9017ef7e138282e4db708f1b1b0",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "precedence-docs",
+      "cohort": "previously_exposed",
+      "expected": "type: docs",
+      "acceptable_types": [
+        "type: docs"
+      ],
+      "request_sha256": "cf6cfaf6bc827c244062006764b7635698962182a74e39884fb9c25e2538e0b8",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: docs",
+      "selected_quote": "The reference says a project configuration value overrides the command-line value. The implementation and intended behavior give the command line priority. Plea",
+      "report_sha256": "6a1450177a5b890c3197f5dd2206963fbdaad014d3e66d5f75c48045f004a133",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "control",
+      "id": "precedence-question",
+      "cohort": "previously_exposed",
+      "expected": "type: question",
+      "acceptable_types": [
+        "type: question"
+      ],
+      "request_sha256": "101b960c5b4435c7ee24aaf5e957f67dd459034e01d7c2b86fc233720cee32f2",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: question",
+      "selected_quote": "The reference correctly says the command line overrides project configuration, and that works for me. How can I choose a different value for just one invocation",
+      "report_sha256": "4183d7437243234646dfc6dc31c99df921a0e63fea3215eafed7653c4a6ef47c",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "precedence-question",
+      "cohort": "previously_exposed",
+      "expected": "type: question",
+      "acceptable_types": [
+        "type: question"
+      ],
+      "request_sha256": "577a49e59ea767710b3c48f327447420973cc81d0464be947931b68b1a35f04c",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: question",
+      "selected_quote": "The reference correctly says the command line overrides project configuration, and that works for me. How can I choose a different value for just one invocation",
+      "report_sha256": "f4faceb48672f759417c72fffb184259f68349c586e90ed36fc6b5639f27a720",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "control",
+      "id": "teardown-regression",
+      "cohort": "previously_exposed",
+      "expected": "type: regression",
+      "acceptable_types": [
+        "type: regression"
+      ],
+      "request_sha256": "2474657c3c2c08019f77a6ca71c70e1c8e24a3a0e1077e7e3baacef478acccd5",
+      "null_report_sha256": "fc496ab0bfd04bc725884f992ffa1373b2ece66df2358655e47b68377d17446b",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: regression",
+      "selected_quote": "The same plugin and test suite close their temporary directory at session end with pytest 8.2. After upgrading to 8.3, the cleanup callback is never called. Rol",
+      "report_sha256": "b12b1dcb3e4b458847561d283d2d582f5c2727b0bf084d679db5eaf701aa2222",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "teardown-regression",
+      "cohort": "previously_exposed",
+      "expected": "type: regression",
+      "acceptable_types": [
+        "type: regression"
+      ],
+      "request_sha256": "05998558db463a5b7714e56811792fe36b5f7abcc66fbab408bb920dee7449e4",
+      "null_report_sha256": "fc496ab0bfd04bc725884f992ffa1373b2ece66df2358655e47b68377d17446b",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: regression",
+      "selected_quote": "The same plugin and test suite close their temporary directory at session end with pytest 8.2. After upgrading to 8.3, the cleanup callback is never called. Rol",
+      "report_sha256": "cd959e5d636bf9b057b1764d223bebc47bc8fc62921de82ec5725afcaaf8c9cf",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "control",
+      "id": "traceback-bug",
+      "cohort": "previously_exposed",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "request_sha256": "2443ba8bc542c739658a6ebd5de4199f13c0c6f3c8df81226023077f66e0fb61",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: bug",
+      "selected_quote": "A failing test raises ValueError with a message, but the displayed traceback attributes it to an unrelated test that passed. The problem occurs on both tested r",
+      "report_sha256": "1f90bd0242e3c5b0e5f8240cfd39d16d67fa2caa3d6900f3057d9861205b22b9",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "traceback-bug",
+      "cohort": "previously_exposed",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "request_sha256": "7d6a5bc473e777252106e2d6184c06c6a700f4ad45c6a27bbf28c5a61dc309bf",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: bug",
+      "selected_quote": "A failing test raises ValueError with a message, but the displayed traceback attributes it to an unrelated test that passed. The problem occurs on both tested r",
+      "report_sha256": "525e648eb5628b26c7b78e580c74948f8e7b6bc875f7300807430b7463fb1c91",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "control",
+      "id": "warning-question",
+      "cohort": "previously_exposed",
+      "expected": "type: question",
+      "acceptable_types": [
+        "type: question"
+      ],
+      "request_sha256": "3222a953b539995e029dc6649c724bc9af63325f3d874508726c0f24ad637348",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: question",
+      "selected_quote": "All my tests pass, and the warning correctly describes a deprecated option I still use. Where can I configure pytest to hide this warning temporarily while I up",
+      "report_sha256": "6ce5eea34474aa2ea437e0a80673d20b7e3224143acdbed7f99709b04de7ff2b",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "warning-question",
+      "cohort": "previously_exposed",
+      "expected": "type: question",
+      "acceptable_types": [
+        "type: question"
+      ],
+      "request_sha256": "b7a3ec853194586c791e694f84d4e4eb72a7a9e2cda80a391be779694db4ef09",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: question",
+      "selected_quote": "All my tests pass, and the warning correctly describes a deprecated option I still use. Where can I configure pytest to hide this warning temporarily while I up",
+      "report_sha256": "a3a9b625e4af1181413685c8cc34feba06ab1d570f45f2db1779a37d0023ade8",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": false
+    },
+    {
+      "arm": "control",
+      "id": "uncertain",
+      "cohort": "previously_exposed",
+      "expected": null,
+      "acceptable_types": [
+        null
+      ],
+      "request_sha256": "7e8784be4fe5502921d9c7e5edb6f9d4d1cba467159906c83eb852de5c634720",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": null,
+      "selected_quote": null,
+      "report_sha256": "2b3363d9f8c0026e8b7c842539e1e6d4b9d518d03fcb7393737ee64636602f23",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": true
+    },
+    {
+      "arm": "candidate",
+      "id": "uncertain",
+      "cohort": "previously_exposed",
+      "expected": null,
+      "acceptable_types": [
+        null
+      ],
+      "request_sha256": "5dd3dcf09767b9b81c87cfbec11daa312b3732c5e471d739543e0aebd22b3cb5",
+      "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+      "quote_options": 3,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": null,
+      "selected_quote": null,
+      "report_sha256": "85ec7c0d1fe54dce21f933dd5d4504725182468b943c49b52f4bbba5756e2f5b",
+      "exact_match": true,
+      "acceptable_match": true,
+      "abstained": true
+    },
+    {
+      "arm": "control",
+      "id": "h-12219",
+      "cohort": "exposed_diagnostic",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "request_sha256": "5274c5785e51949aa178cb75bdcdcebac56129c22c186ae3c41b2ce4fe64c7b3",
+      "null_report_sha256": "0b3870be2ea983adf5cc22bbd88050bff515804a5803ca34db2fdb81f9947727",
+      "quote_options": 16,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: regression",
+      "selected_quote": "ts.tarfile). When I run the tests, the setUpModule is never called.",
+      "report_sha256": "1ca4968e832b1af1aa07996fe9db937014f3da33cec376bcd4db64bb76df21e3",
+      "exact_match": false,
+      "acceptable_match": false,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "h-12219",
+      "cohort": "exposed_diagnostic",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "request_sha256": "a95a501f03eba12b496376ba90d7f6fc5a9b64308b4dc2a3ff1b564365c7412a",
+      "null_report_sha256": "0b3870be2ea983adf5cc22bbd88050bff515804a5803ca34db2fdb81f9947727",
+      "quote_options": 16,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: regression",
+      "selected_quote": "However, with pytest 8.x, I'm finding that it's not supported, even though the [docs say it is](https://github.com/pytest-dev/pytest/blob/58844247f7ae4a7a213a73",
+      "report_sha256": "290f7e513d63cd02c03179fe230d3ff5a877faf061a673af0fa42c76d2ccaf1f",
+      "exact_match": false,
+      "acceptable_match": false,
+      "abstained": false
+    },
+    {
+      "arm": "control",
+      "id": "h-12223",
+      "cohort": "exposed_diagnostic",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "request_sha256": "dfa3970596f0e504a73bdaf2bc4b15891ee386ab440fd92a8e5cc994c68ee8d6",
+      "null_report_sha256": "6d148fb21e1a777622a851f9c292db054479410abaf74ddc03ea87957691aa89",
+      "quote_options": 16,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: enhancement",
+      "selected_quote": "for parsers, and projects like BeautifulSoup and lxml will fail to parse this correctly (truncating or crashing, respectively).",
+      "report_sha256": "acfaf6d01afcc37172de2c322b104c69e4f229f19bddc755640acc7ab6c58b84",
+      "exact_match": false,
+      "acceptable_match": false,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "h-12223",
+      "cohort": "exposed_diagnostic",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "request_sha256": "eb59464b0625eb08484bf3d17d897dd593cbbe22889c982820b85715b653f03b",
+      "null_report_sha256": "6d148fb21e1a777622a851f9c292db054479410abaf74ddc03ea87957691aa89",
+      "quote_options": 16,
+      "status": "valid",
+      "report_status": "complete",
+      "selected_type": "type: enhancement",
+      "selected_quote": "for parsers, and projects like BeautifulSoup and lxml will fail to parse this correctly (truncating or crashing, respectively).",
+      "report_sha256": "910f41061877d5c14ab7a1ad18990218c533e595e239546c07c0b0cc5d144b62",
+      "exact_match": false,
+      "acceptable_match": false,
+      "abstained": false
+    },
+    {
+      "arm": "control",
+      "id": "h-12249",
+      "cohort": "exposed_diagnostic",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "request_sha256": "af52ed851a2f0b7c49667d4c6d04854ba74e20c2ec757e2b7fba70e03afd0430",
+      "null_report_sha256": "c56b91b7e6e85982e81d395c294c11a4eac19d36f4d26b957d23ccdfbbdb757b",
+      "quote_options": 16,
+      "status": "valid",
+      "report_status": "partial",
+      "selected_type": "type: enhancement",
+      "selected_quote": "ctions, then they get raised early and cannot be controlled by the pytest `filterwarnings` config, which is unfortunate. There should be a good way to suppress",
+      "report_sha256": "d56455b287589a595e0617bd205e851a646803f31aacdfd2b8b5a44a46750e41",
+      "exact_match": false,
+      "acceptable_match": false,
+      "abstained": false
+    },
+    {
+      "arm": "candidate",
+      "id": "h-12249",
+      "cohort": "exposed_diagnostic",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "request_sha256": "76db824c3858b673f145ca210ae075efd9cfbaafddf5f59ab15f50d7a8c7153f",
+      "null_report_sha256": "c56b91b7e6e85982e81d395c294c11a4eac19d36f4d26b957d23ccdfbbdb757b",
+      "quote_options": 16,
+      "status": "valid",
+      "report_status": "partial",
+      "selected_type": "type: enhancement",
+      "selected_quote": "these with normal pytest config options.",
+      "report_sha256": "d22359cfd910a7060bdd89c85c4b6a13d102573b6bca4584f67dddba10f77bf5",
+      "exact_match": false,
+      "acceptable_match": false,
+      "abstained": false
+    }
+  ],
+  "pairs": [
+    {
+      "id": "ordinary-bug",
+      "cohort": "development",
+      "control": "type: bug",
+      "candidate": "type: bug",
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": false,
+      "non_type_field_changes": []
+    },
+    {
+      "id": "version-break",
+      "cohort": "development",
+      "control": "type: regression",
+      "candidate": "type: regression",
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": false,
+      "non_type_field_changes": []
+    },
+    {
+      "id": "old-docs",
+      "cohort": "development",
+      "control": "type: question",
+      "candidate": null,
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": true,
+      "non_type_field_changes": [
+        "abstentions"
+      ]
+    },
+    {
+      "id": "extension",
+      "cohort": "development",
+      "control": "type: enhancement",
+      "candidate": "type: enhancement",
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": false,
+      "non_type_field_changes": []
+    },
+    {
+      "id": "overlap",
+      "cohort": "development",
+      "control": "type: enhancement",
+      "candidate": "type: enhancement",
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": true,
+      "non_type_field_changes": []
+    },
+    {
+      "id": "quote-misses-request",
+      "cohort": "development",
+      "control": "type: enhancement",
+      "candidate": "type: enhancement",
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": false,
+      "non_type_field_changes": []
+    },
+    {
+      "id": "insufficient",
+      "cohort": "development",
+      "control": null,
+      "candidate": null,
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": false,
+      "non_type_field_changes": []
+    },
+    {
+      "id": "negated-comparison",
+      "cohort": "development",
+      "control": "type: bug",
+      "candidate": "type: bug",
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": false,
+      "non_type_field_changes": []
+    },
+    {
+      "id": "omitted-support",
+      "cohort": "development",
+      "control": "type: regression",
+      "candidate": null,
+      "exact_gain": true,
+      "exact_loss": false,
+      "common_exact_failure": false,
+      "non_type_field_changes": [
+        "abstentions"
+      ]
+    },
+    {
+      "id": "log-bug",
+      "cohort": "previously_exposed",
+      "control": "type: bug",
+      "candidate": "type: bug",
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": false,
+      "non_type_field_changes": []
+    },
+    {
+      "id": "log-regression",
+      "cohort": "previously_exposed",
+      "control": "type: regression",
+      "candidate": "type: regression",
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": false,
+      "non_type_field_changes": []
+    },
+    {
+      "id": "fixture-question",
+      "cohort": "previously_exposed",
+      "control": "type: question",
+      "candidate": "type: question",
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": false,
+      "non_type_field_changes": []
+    },
+    {
+      "id": "fixture-bug",
+      "cohort": "previously_exposed",
+      "control": "type: bug",
+      "candidate": "type: regression",
+      "exact_gain": false,
+      "exact_loss": true,
+      "common_exact_failure": false,
+      "non_type_field_changes": []
+    },
+    {
+      "id": "exit-bug",
+      "cohort": "previously_exposed",
+      "control": "type: bug",
+      "candidate": "type: bug",
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": false,
+      "non_type_field_changes": []
+    },
+    {
+      "id": "exit-regression",
+      "cohort": "previously_exposed",
+      "control": "type: regression",
+      "candidate": "type: regression",
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": false,
+      "non_type_field_changes": []
+    },
+    {
+      "id": "precedence-docs",
+      "cohort": "previously_exposed",
+      "control": "type: docs",
+      "candidate": "type: docs",
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": false,
+      "non_type_field_changes": []
+    },
+    {
+      "id": "precedence-question",
+      "cohort": "previously_exposed",
+      "control": "type: question",
+      "candidate": "type: question",
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": false,
+      "non_type_field_changes": []
+    },
+    {
+      "id": "teardown-regression",
+      "cohort": "previously_exposed",
+      "control": "type: regression",
+      "candidate": "type: regression",
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": false,
+      "non_type_field_changes": []
+    },
+    {
+      "id": "traceback-bug",
+      "cohort": "previously_exposed",
+      "control": "type: bug",
+      "candidate": "type: bug",
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": false,
+      "non_type_field_changes": []
+    },
+    {
+      "id": "warning-question",
+      "cohort": "previously_exposed",
+      "control": "type: question",
+      "candidate": "type: question",
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": false,
+      "non_type_field_changes": []
+    },
+    {
+      "id": "uncertain",
+      "cohort": "previously_exposed",
+      "control": null,
+      "candidate": null,
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": false,
+      "non_type_field_changes": []
+    },
+    {
+      "id": "h-12219",
+      "cohort": "exposed_diagnostic",
+      "control": "type: regression",
+      "candidate": "type: regression",
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": true,
+      "non_type_field_changes": []
+    },
+    {
+      "id": "h-12223",
+      "cohort": "exposed_diagnostic",
+      "control": "type: enhancement",
+      "candidate": "type: enhancement",
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": true,
+      "non_type_field_changes": []
+    },
+    {
+      "id": "h-12249",
+      "cohort": "exposed_diagnostic",
+      "control": "type: enhancement",
+      "candidate": "type: enhancement",
+      "exact_gain": false,
+      "exact_loss": false,
+      "common_exact_failure": true,
+      "non_type_field_changes": []
+    }
+  ],
+  "semantic_review": "Separate attributed review required; exact match is not semantic support.",
+  "limits": "Small exposed/development cases; fixed paired order, native cache/residency; no generalization or model-side input preservation guarantee.",
+  "attributed_ai_review": {
+    "review_kind": "Implementing Codex/AI semantic review of all 48 actual public reports; not human ratings",
+    "reviewer": "Codex implementing issue #66 (GPT-6 family; exact deployed variant unavailable)",
+    "human_review_status": "not supplied; execution approval and expectation confirmation do not rate actual generated reports",
+    "reports_rated": 48,
+    "counts": {
+      "control": {
+        "semantic_type_support": {
+          "yes": 20,
+          "no": 1,
+          "N/A": 2,
+          "uncertain": 1
+        },
+        "quote_relevance": {
+          "yes": 18,
+          "no": 3,
+          "N/A": 2,
+          "uncertain": 1
+        }
+      },
+      "candidate": {
+        "semantic_type_support": {
+          "yes": 18,
+          "N/A": 4,
+          "no": 1,
+          "uncertain": 1
+        },
+        "quote_relevance": {
+          "yes": 16,
+          "N/A": 4,
+          "no": 3,
+          "uncertain": 1
+        }
+      }
+    },
+    "paired_support_gains": [
+      "omitted-support"
+    ],
+    "paired_support_losses": [
+      "fixture-bug",
+      "h-12249"
+    ]
+  }
+}

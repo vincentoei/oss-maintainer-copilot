@@ -1,0 +1,62 @@
+{
+  "decision": "reject_correction_retain_unchanged_application",
+  "approved_freeze_sha256": "7754ad7a9e9c2700a7c5edafe7537258988a09ded1a9886da109556dd1bd1cd7",
+  "experiment_complete": true,
+  "adopted": false,
+  "policy_amendment": "none",
+  "gates": [
+    {
+      "number": 1,
+      "status": "fail",
+      "reason": "All 24 candidate reports are structurally valid, but fixture-bug changes from correct bug to unsupported regression; old sentinels 11/12 instead of required 12/12. Both null sentinels pass."
+    },
+    {
+      "number": 2,
+      "status": "fail",
+      "reason": "New candidate outcomes match acceptable set 8/9, below required 9/9: old-docs abstains despite an offered supporting bug quote. Overlap enhancement is an allowed semantic alternative but remains a preferred-expectation miss."
+    },
+    {
+      "number": 3,
+      "status": "fail",
+      "reason": "h-12219/R48 still selects uncertain regression with an unsupported quote; h-12223/R40 enhancement quote relevance remains uncertain; h-12249/R26 loses a supporting quote and selects a fragment without the requested suppression."
+    },
+    {
+      "number": 4,
+      "status": "fail",
+      "reason": "All 48 reports have attributed implementing-AI ratings; candidate loses synthetic semantic support on fixture-bug. Required human generated-report ratings remain unavailable. Execution/expectation approval is not human report review."
+    },
+    {
+      "number": 5,
+      "status": "fail",
+      "reason": "All frozen source/archive checks and deterministic/static checks pass. Under the literal frozen non-type-field rule, abstentions differ for old-docs and omitted-support. All other non-type fields, including replies/citations/retrieval/missing details, are identical. These type-abstention bookkeeping changes are retained, not silently excluded."
+    }
+  ],
+  "preferred_exact_type_gains": [
+    "omitted-support"
+  ],
+  "preferred_exact_type_losses": [
+    "fixture-bug"
+  ],
+  "ai_report_support_gains": [
+    "omitted-support"
+  ],
+  "ai_report_support_losses": [
+    "fixture-bug",
+    "h-12249"
+  ],
+  "preserved_historical_expected_types": {
+    "h-12219": "type: bug",
+    "h-12223": "type: bug",
+    "h-12249": "type: bug"
+  },
+  "historical_exact_matches": {
+    "control": "0/3",
+    "candidate": "0/3"
+  },
+  "unverified": [
+    "Human semantic ratings of the 48 generated reports",
+    "Out-of-sample generalization, independent model-side input preservation and physical tensor placement"
+  ],
+  "additional_generation_authorized_or_performed": false,
+  "negative_result_policy": "The frozen gates require rejection on failures; human ratings are not needed to adopt nothing. A documented negative result satisfies the issue without weakening gates or commissioning more experiments."
+}

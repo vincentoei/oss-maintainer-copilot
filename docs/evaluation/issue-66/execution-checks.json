@@ -1,0 +1,59 @@
+{
+  "phase": "Approved issue #66 experiment and offline result audit",
+  "prepared_commit": "7292553",
+  "approved_freeze_sha256": "7754ad7a9e9c2700a7c5edafe7537258988a09ded1a9886da109556dd1bd1cd7",
+  "frozen_inputs_and_source": "unchanged before and after execution",
+  "model_generation_calls": 48,
+  "cap_calls": 48,
+  "reported_input_tokens": 34270,
+  "reported_output_tokens": 1258,
+  "cap_output_tokens": 12288,
+  "downloads": 0,
+  "hosted_calls": 0,
+  "retries": 0,
+  "repairs": 0,
+  "warmups": 0,
+  "charged_without_report": 0,
+  "model_errors": 0,
+  "all_reports_structurally_valid": true,
+  "new_report_offline_replays": 48,
+  "exact_new_scorecard_reproduction": true,
+  "archived_files_preserved": 916,
+  "old_issue63": {
+    "reports_replayed": 53,
+    "old_charges_reconciled": 55,
+    "whole_scorecard_exact_match": true,
+    "new_inference": 0
+  },
+  "old_issue60": {
+    "preserved_files": 434,
+    "old_dispatches_verified": 150,
+    "expected_type_reachability": "50/50",
+    "agreement": "29/50",
+    "new_inference": 0
+  },
+  "static_checks": {
+    "ruff": "passed",
+    "format": "210 files already formatted",
+    "mypy": "49 source/test files passed"
+  },
+  "full_suite": {
+    "command": "timeout 60 .venv/bin/pytest -q",
+    "passed": 511,
+    "skipped": 2,
+    "seconds": 16.96,
+    "scope": "two opt-in live public replay tests skipped; deterministic suite makes no new model calls"
+  },
+  "source_review": {
+    "standards": "0 findings; separate fresh-context Codex/AI agent verified frozen sources,916archives,48charges/reports/ratings,usage and106execution artifact hashes",
+    "spec": "0 findings; separate fresh-context Codex/AI agent independently reproduced all48reports and exactscorecard; no substantive semantic rating inconsistency",
+    "review_file": "execution-review.md",
+    "human_generated_report_review": "not supplied; not needed to reject a candidate that fails frozen gates"
+  },
+  "actual_output_review": {
+    "reports_rated": 48,
+    "kind": "implementing Codex/AI, not independent or human",
+    "human_ratings": "not supplied; execution approval does not substitute"
+  },
+  "adoption": "rejected; all failed gates and pending human review preserved"
+}

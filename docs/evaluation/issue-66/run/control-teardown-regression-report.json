@@ -1,0 +1,398 @@
+{
+  "arm": "control",
+  "id": "teardown-regression",
+  "expected": "type: regression",
+  "cohort": "previously_exposed",
+  "report": {
+    "context": {
+      "registration_id": "pytest-default",
+      "repository": "pytest-dev/pytest",
+      "revision": "50234b4e670064c42a4c29cb6258115a2079ba4c",
+      "profile": "pytest",
+      "status": "ready",
+      "errors": [],
+      "labels": [
+        "type: backward compatibility",
+        "type: bug",
+        "type: deprecation",
+        "type: docs",
+        "type: enhancement",
+        "type: infrastructure",
+        "type: performance",
+        "type: proposal",
+        "type: question",
+        "type: refactoring",
+        "type: regression",
+        "type: removal",
+        "type: selftests"
+      ],
+      "type_cues": [
+        [
+          "type: backward compatibility",
+          "\\b(?:backward compatib\\w*|breaking change)\\b"
+        ],
+        [
+          "type: bug",
+          "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+        ],
+        [
+          "type: deprecation",
+          "\\bdeprecat\\w*\\b"
+        ],
+        [
+          "type: docs",
+          "\\b(?:docs|documentation|guide|manual|typo)\\b"
+        ],
+        [
+          "type: enhancement",
+          "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+        ],
+        [
+          "type: infrastructure",
+          "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+        ],
+        [
+          "type: performance",
+          "\\b(?:performance|slow|latency|memory|speed)\\b"
+        ],
+        [
+          "type: proposal",
+          "\\b(?:proposal|propose|design)\\b"
+        ],
+        [
+          "type: question",
+          "\\b(?:question|how|why)\\b|\\?"
+        ],
+        [
+          "type: refactoring",
+          "\\b(?:refactor\\w*|cleanup)\\b"
+        ],
+        [
+          "type: regression",
+          "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+        ],
+        [
+          "type: removal",
+          "\\bremov\\w*\\b"
+        ],
+        [
+          "type: selftests",
+          "\\b(?:selftests|pytest test suite)\\b"
+        ]
+      ],
+      "templates": [
+        {
+          "name": "bug",
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "bug description",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "pip list output",
+              "line": 14,
+              "required": true
+            },
+            {
+              "name": "pytest and OS versions",
+              "line": 15,
+              "required": true
+            },
+            {
+              "name": "minimal example",
+              "line": 16,
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "feature",
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "problem to solve",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "proposed solution",
+              "line": 16,
+              "required": true
+            },
+            {
+              "name": "real-world use case",
+              "line": 19,
+              "required": true
+            },
+            {
+              "name": "alternative solutions",
+              "line": 21,
+              "required": true
+            }
+          ]
+        }
+      ],
+      "documentation": [],
+      "prepared_at": "",
+      "structured_templates": true
+    },
+    "trace_id": "b98e0261-7a67-4894-8b2d-65dab417f3bb",
+    "status": "complete",
+    "issue_type": "type: regression",
+    "issue_type_quote": "The same plugin and test suite close their temporary directory at session end with pytest 8.2. After upgrading to 8.3, the cleanup callback is never called. Rol",
+    "duplicate_candidates": [],
+    "related_issues": [],
+    "missing_details": [
+      {
+        "name": "pip list output",
+        "request": "the output of `pip list` from the virtual environment you are using",
+        "citation_id": "C1"
+      },
+      {
+        "name": "pytest and OS versions",
+        "request": "your operating system and release",
+        "citation_id": "C2"
+      },
+      {
+        "name": "minimal example",
+        "request": "a minimal example, if possible",
+        "citation_id": "C3"
+      }
+    ],
+    "documentation_claims": [],
+    "source_claims": [],
+    "ci_results": [],
+    "draft_reply": "Thanks for sharing this issue.\n- Could you add the output of `pip list` from the virtual environment you are using? [C1]\n- Could you add your operating system and release? [C2]\n- Could you add a minimal example, if possible? [C3]",
+    "citations": [
+      {
+        "id": "C1",
+        "source_url": "https://github.com/pytest-dev/pytest/blob/50234b4e670064c42a4c29cb6258115a2079ba4c/.github/ISSUE_TEMPLATE/1_bug_report.md#L14",
+        "description": "pytest bug report template: pip list output",
+        "passage": null,
+        "source_location": null
+      },
+      {
+        "id": "C2",
+        "source_url": "https://github.com/pytest-dev/pytest/blob/50234b4e670064c42a4c29cb6258115a2079ba4c/.github/ISSUE_TEMPLATE/1_bug_report.md#L15",
+        "description": "pytest bug report template: pytest and OS versions",
+        "passage": null,
+        "source_location": null
+      },
+      {
+        "id": "C3",
+        "source_url": "https://github.com/pytest-dev/pytest/blob/50234b4e670064c42a4c29cb6258115a2079ba4c/.github/ISSUE_TEMPLATE/1_bug_report.md#L16",
+        "description": "pytest bug report template: minimal example",
+        "passage": null,
+        "source_location": null
+      }
+    ],
+    "abstentions": [
+      {
+        "field": "duplicate_candidates",
+        "reason": "A pytest issue number is needed to search only earlier issues."
+      },
+      {
+        "field": "related_issues",
+        "reason": "A pytest issue number is needed to search only earlier issues."
+      }
+    ]
+  },
+  "trace": {
+    "context": {
+      "registration_id": "pytest-default",
+      "repository": "pytest-dev/pytest",
+      "revision": "50234b4e670064c42a4c29cb6258115a2079ba4c",
+      "profile": "pytest",
+      "status": "ready",
+      "errors": [],
+      "labels": [
+        "type: backward compatibility",
+        "type: bug",
+        "type: deprecation",
+        "type: docs",
+        "type: enhancement",
+        "type: infrastructure",
+        "type: performance",
+        "type: proposal",
+        "type: question",
+        "type: refactoring",
+        "type: regression",
+        "type: removal",
+        "type: selftests"
+      ],
+      "type_cues": [
+        [
+          "type: backward compatibility",
+          "\\b(?:backward compatib\\w*|breaking change)\\b"
+        ],
+        [
+          "type: bug",
+          "\\b(?:bug|broken|crash\\w*|fail\\w*|error|incorrect|wrong)\\b"
+        ],
+        [
+          "type: deprecation",
+          "\\bdeprecat\\w*\\b"
+        ],
+        [
+          "type: docs",
+          "\\b(?:docs|documentation|guide|manual|typo)\\b"
+        ],
+        [
+          "type: enhancement",
+          "\\b(?:feature|enhancement|add|support|allow|warn if)\\b"
+        ],
+        [
+          "type: infrastructure",
+          "\\b(?:infrastructure|build|release|ci|workflow)\\b"
+        ],
+        [
+          "type: performance",
+          "\\b(?:performance|slow|latency|memory|speed)\\b"
+        ],
+        [
+          "type: proposal",
+          "\\b(?:proposal|propose|design)\\b"
+        ],
+        [
+          "type: question",
+          "\\b(?:question|how|why)\\b|\\?"
+        ],
+        [
+          "type: refactoring",
+          "\\b(?:refactor\\w*|cleanup)\\b"
+        ],
+        [
+          "type: regression",
+          "\\b(?:regress(?:ions?|ed|es|ing)?|used to work|worked before)\\b"
+        ],
+        [
+          "type: removal",
+          "\\bremov\\w*\\b"
+        ],
+        [
+          "type: selftests",
+          "\\b(?:selftests|pytest test suite)\\b"
+        ]
+      ],
+      "templates": [
+        {
+          "name": "bug",
+          "path": ".github/ISSUE_TEMPLATE/1_bug_report.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "bug description",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "pip list output",
+              "line": 14,
+              "required": true
+            },
+            {
+              "name": "pytest and OS versions",
+              "line": 15,
+              "required": true
+            },
+            {
+              "name": "minimal example",
+              "line": 16,
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "feature",
+          "path": ".github/ISSUE_TEMPLATE/2_feature_request.md",
+          "format": "markdown",
+          "labels": [],
+          "fields": [
+            {
+              "name": "problem to solve",
+              "line": 13,
+              "required": true
+            },
+            {
+              "name": "proposed solution",
+              "line": 16,
+              "required": true
+            },
+            {
+              "name": "real-world use case",
+              "line": 19,
+              "required": true
+            },
+            {
+              "name": "alternative solutions",
+              "line": 21,
+              "required": true
+            }
+          ]
+        }
+      ],
+      "documentation": [],
+      "prepared_at": "",
+      "structured_templates": true
+    },
+    "trace_id": "b98e0261-7a67-4894-8b2d-65dab417f3bb",
+    "created_at": "2026-11-27T10:30:22.157558Z",
+    "status": "complete",
+    "duration_ms": 786.213,
+    "events": [
+      {
+        "kind": "model",
+        "name": "triage_selection",
+        "status": "ok",
+        "started_ms": 0.366,
+        "duration_ms": 785.783,
+        "target": "pytest-triage:qwen35-4b-ctx16k",
+        "result_count": null,
+        "references": [],
+        "input_tokens": 745,
+        "output_tokens": 35,
+        "error": null
+      }
+    ]
+  },
+  "calls": [
+    {
+      "http_status": 200,
+      "raw_base64": "eyJpZCI6ImNoYXRjbXBsLTQwMCIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNyZWF0ZWQiOjE3OTU3NzU0MjIsIm1vZGVsIjoicHl0ZXN0LXRyaWFnZTpxd2VuMzUtNGItY3R4MTZrIiwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfb2xsYW1hIiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsIm1lc3NhZ2UiOnsicm9sZSI6ImFzc2lzdGFudCIsImNvbnRlbnQiOiJ7XCJpc3N1ZV90eXBlXCI6IFwidHlwZTogcmVncmVzc2lvblwiLCBcInF1b3RlX2luZGV4XCI6IDEsIFwicmVwbHlfY2l0YXRpb25faWRzXCI6IFtcIkMxXCIsIFwiQzJcIiwgXCJDM1wiXX0ifSwiZmluaXNoX3JlYXNvbiI6InN0b3AifV0sInVzYWdlIjp7InByb21wdF90b2tlbnMiOjc0NSwicHJvbXB0X3Rva2Vuc19kZXRhaWxzIjp7ImNhY2hlZF90b2tlbnMiOjB9LCJjb21wbGV0aW9uX3Rva2VucyI6MzUsInRvdGFsX3Rva2VucyI6NzgwfX0K",
+      "error": null,
+      "latency_ms": 775.9094219945837
+    }
+  ],
+  "report_latency_ms": 786.6759039752651,
+  "residency_before": {
+    "models": [
+      {
+        "name": "pytest-triage:qwen35-4b-ctx16k",
+        "model": "pytest-triage:qwen35-4b-ctx16k",
+        "size": 3650124512,
+        "digest": "8da535b12863762c2403ed06956d92da4e57806a4772ba321137a2809e9a8bbe",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen35",
+          "families": [
+            "qwen35"
+          ],
+          "parameter_size": "4.2B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-11-27T17:35:21.973133+07:00",
+        "size_vram": 3650124512,
+        "context_length": 16384,
+        "runner": "llamacpp"
+      }
+    ]
+  }
+}
