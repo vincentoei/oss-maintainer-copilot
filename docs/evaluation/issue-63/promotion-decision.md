@@ -13,6 +13,11 @@ result under the frozen promotion gates. The [original report](report.md),
 and pending human ratings remain unchanged. The AI review is attributed to its
 actual Codex reviewer; it is not represented as human review.
 
+[Promotion verification](promotion-checks.json) records 510 passing tests,
+two opt-in skips, static checks, unchanged frozen source hashes and exact offline
+scorecard replay. Separate [Standards and Spec follow-up reviews](promotion-review.md)
+found no blockers in this accepted configuration change.
+
 ## Why accept the tradeoff
 
 The candidate matched 12/12 user-confirmed fresh synthetic expectations against

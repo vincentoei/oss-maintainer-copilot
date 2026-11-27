@@ -47,6 +47,18 @@ is absent; promotion did not perform one. Inspect source/artifact identity and
 settings before calling a newly provisioned model equivalent to the measured one.
 Do not assume a mutable source tag permanently identifies the same weights.
 
+After the source is available and verified, a fresh installation can create the
+alias from this checkout (adjust the Windows-visible WSL path as needed):
+
+```powershell
+$modelFile = '\\wsl.localhost\Ubuntu\home\vincentoei\projects\oss-maintainer-copilot\models\pytest-triage-qwen35.Modelfile'
+Test-Path $modelFile
+& $ollamaExe create pytest-triage:qwen35-4b-ctx16k -f $modelFile
+```
+
+Expect `True` before creation; inspect the resulting digest and parameters using
+the commands above. The existing laptop used the copy route, not this rebuild.
+
 Expected effective parameters: `num_ctx 16384`, temperature 0, seed 42,
 top-k 20, top-p 0.8, repeat penalty 1 and presence penalty 0. Qwen3.5's native
 thinking default is true, so the application request setting below is essential.
