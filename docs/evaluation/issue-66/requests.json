@@ -1,0 +1,580 @@
+[
+  {
+    "arm": "control",
+    "id": "ordinary-bug",
+    "cohort": "development",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug"
+    ],
+    "request_sha256": "962af8cec02bdd876bc54bf1749204b2690beadae948353cb391f9bc237f3ae6",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 2
+  },
+  {
+    "arm": "candidate",
+    "id": "ordinary-bug",
+    "cohort": "development",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug"
+    ],
+    "request_sha256": "021c551b2d223c64b56f4178d6df34a8d0ea38dfff1cb40a3e357e77aa508686",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 2
+  },
+  {
+    "arm": "control",
+    "id": "version-break",
+    "cohort": "development",
+    "expected": "type: regression",
+    "acceptable_types": [
+      "type: regression"
+    ],
+    "request_sha256": "6311e5e5657662daac91267e8da395469ab64fad7a6419d4f17c0ae11c0b5e24",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 2
+  },
+  {
+    "arm": "candidate",
+    "id": "version-break",
+    "cohort": "development",
+    "expected": "type: regression",
+    "acceptable_types": [
+      "type: regression"
+    ],
+    "request_sha256": "7e6791f90dda8eeca1c0b807ab1847a6c8d3b93dfa9647451759107ab63062b6",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 2
+  },
+  {
+    "arm": "control",
+    "id": "old-docs",
+    "cohort": "development",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug"
+    ],
+    "request_sha256": "f902e386889b87722dd7bb9cf891bf1e546873f70b7082bf2dfda34604e53a71",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 2
+  },
+  {
+    "arm": "candidate",
+    "id": "old-docs",
+    "cohort": "development",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug"
+    ],
+    "request_sha256": "4490a57fc41fa13f220e6d6e55fd65662f769c7db9f38aaafb67582f827e9b9e",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 2
+  },
+  {
+    "arm": "control",
+    "id": "extension",
+    "cohort": "development",
+    "expected": "type: enhancement",
+    "acceptable_types": [
+      "type: enhancement"
+    ],
+    "request_sha256": "3f00c9fcd2cb4fdbe1ad61408359309ccfd1bfe79e78da421f121f29d48cf0d6",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 2
+  },
+  {
+    "arm": "candidate",
+    "id": "extension",
+    "cohort": "development",
+    "expected": "type: enhancement",
+    "acceptable_types": [
+      "type: enhancement"
+    ],
+    "request_sha256": "f62c3dd5c93c64f1e3497cf591616fd981152518a2a5e6fd01874eb738818055",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 2
+  },
+  {
+    "arm": "control",
+    "id": "overlap",
+    "cohort": "development",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug",
+      "type: enhancement"
+    ],
+    "request_sha256": "9ced4d5cc49b7df28ff7b11a2b9b7e207b08b7cee01dbb4c15b7fae54dafd743",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 2
+  },
+  {
+    "arm": "candidate",
+    "id": "overlap",
+    "cohort": "development",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug",
+      "type: enhancement"
+    ],
+    "request_sha256": "c816a14fd317c8f13f13aca8d48f7641db09af2e3f04a191a2ed170f2ce4d4e7",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 2
+  },
+  {
+    "arm": "control",
+    "id": "quote-misses-request",
+    "cohort": "development",
+    "expected": "type: enhancement",
+    "acceptable_types": [
+      "type: enhancement"
+    ],
+    "request_sha256": "efbd76a49c8608437b5bbad905a8635b6766f51a3a28b3a241a7a21260633644",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "candidate",
+    "id": "quote-misses-request",
+    "cohort": "development",
+    "expected": "type: enhancement",
+    "acceptable_types": [
+      "type: enhancement"
+    ],
+    "request_sha256": "8436f971fa7b0f56f82addb696717a351490b4466db345278592e60f437c9160",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "control",
+    "id": "insufficient",
+    "cohort": "development",
+    "expected": null,
+    "acceptable_types": [
+      null
+    ],
+    "request_sha256": "d20a37a7a94d33148ad68bcd51b4efb5892a2ceaf51f565cd6fbb0ae7c67cb3f",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 2
+  },
+  {
+    "arm": "candidate",
+    "id": "insufficient",
+    "cohort": "development",
+    "expected": null,
+    "acceptable_types": [
+      null
+    ],
+    "request_sha256": "b657246c0bc84e142c8771a9a64975bd0aa854c011541c64461258d1d0b8684c",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 2
+  },
+  {
+    "arm": "control",
+    "id": "negated-comparison",
+    "cohort": "development",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug"
+    ],
+    "request_sha256": "da1a838eea6dd2643e08eb4dcd2d7ea537d6fbb11fcc93031e8b74307f2fd5b8",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 2
+  },
+  {
+    "arm": "candidate",
+    "id": "negated-comparison",
+    "cohort": "development",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug"
+    ],
+    "request_sha256": "92d14005d2c47b1559de368a8f2712bac4e5793c06f867c66f5b83fd1d8da6af",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 2
+  },
+  {
+    "arm": "control",
+    "id": "omitted-support",
+    "cohort": "development",
+    "expected": null,
+    "acceptable_types": [
+      null
+    ],
+    "request_sha256": "50309ad74155236e0305420aa50a3f1bae7af195a458af3ff4e049746c6dbd2f",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 16
+  },
+  {
+    "arm": "candidate",
+    "id": "omitted-support",
+    "cohort": "development",
+    "expected": null,
+    "acceptable_types": [
+      null
+    ],
+    "request_sha256": "41f2c87fcc74373a5efbeecebcdb54f71920ee93ce33e8897057b55f68d9646e",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 16
+  },
+  {
+    "arm": "control",
+    "id": "log-bug",
+    "cohort": "previously_exposed",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug"
+    ],
+    "request_sha256": "7fcddb9c645958a217fd14595e777ce513c965c786eb144230f8e49627ef8389",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "candidate",
+    "id": "log-bug",
+    "cohort": "previously_exposed",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug"
+    ],
+    "request_sha256": "f86ded662ee81cc3bf4776ba2a757c9ba9a517d378b402fb3fe72fcaa95503ca",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "control",
+    "id": "log-regression",
+    "cohort": "previously_exposed",
+    "expected": "type: regression",
+    "acceptable_types": [
+      "type: regression"
+    ],
+    "request_sha256": "aaf47c47b1d63b0b72d4cdbc7b5549118979bfdcb9fa1b384e431b523287677f",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "candidate",
+    "id": "log-regression",
+    "cohort": "previously_exposed",
+    "expected": "type: regression",
+    "acceptable_types": [
+      "type: regression"
+    ],
+    "request_sha256": "48df1ae21594036724e694443ecda81a34042f219d8b23e8f91b6da4e6fe82e8",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "control",
+    "id": "fixture-question",
+    "cohort": "previously_exposed",
+    "expected": "type: question",
+    "acceptable_types": [
+      "type: question"
+    ],
+    "request_sha256": "a626cda114767a03a4b21f903302392687e053a0a22264447240b6d79f422108",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "candidate",
+    "id": "fixture-question",
+    "cohort": "previously_exposed",
+    "expected": "type: question",
+    "acceptable_types": [
+      "type: question"
+    ],
+    "request_sha256": "398d7f524b6e385fbe3f28060db10bdc8da16ddd50b9a4e8093f1b0011e34678",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "control",
+    "id": "fixture-bug",
+    "cohort": "previously_exposed",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug"
+    ],
+    "request_sha256": "55a541c937288ceb810d0d6308ec0bbc4dc0403f4fd3a37dc6362ae3f86cb862",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "candidate",
+    "id": "fixture-bug",
+    "cohort": "previously_exposed",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug"
+    ],
+    "request_sha256": "3ccd43114340f43c1df1acd36112c755b4e50a1a2ad6e59bdc06511b650ca620",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "control",
+    "id": "exit-bug",
+    "cohort": "previously_exposed",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug"
+    ],
+    "request_sha256": "7ee0c66d43468ae5ad2fcc24e0c42b4460d2e817ce747cff8b60a2e227d775c0",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "candidate",
+    "id": "exit-bug",
+    "cohort": "previously_exposed",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug"
+    ],
+    "request_sha256": "0701ace26b314082473c5deb55919d5c853827c9110d205bd1dd39ace1c1864f",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "control",
+    "id": "exit-regression",
+    "cohort": "previously_exposed",
+    "expected": "type: regression",
+    "acceptable_types": [
+      "type: regression"
+    ],
+    "request_sha256": "72b0be1a9029f02a46b589f7d6d0442adba544b7094e0a49396b990cf46d54df",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "candidate",
+    "id": "exit-regression",
+    "cohort": "previously_exposed",
+    "expected": "type: regression",
+    "acceptable_types": [
+      "type: regression"
+    ],
+    "request_sha256": "acbf43b3457bf04b1779857140b8418340f985e3e3601ad089e438df2a336317",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "control",
+    "id": "precedence-docs",
+    "cohort": "previously_exposed",
+    "expected": "type: docs",
+    "acceptable_types": [
+      "type: docs"
+    ],
+    "request_sha256": "e927fef05cc28ebafd23309a3e2646db22fbf0934826ea9adc9c684ea3a87dd5",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "candidate",
+    "id": "precedence-docs",
+    "cohort": "previously_exposed",
+    "expected": "type: docs",
+    "acceptable_types": [
+      "type: docs"
+    ],
+    "request_sha256": "cf6cfaf6bc827c244062006764b7635698962182a74e39884fb9c25e2538e0b8",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "control",
+    "id": "precedence-question",
+    "cohort": "previously_exposed",
+    "expected": "type: question",
+    "acceptable_types": [
+      "type: question"
+    ],
+    "request_sha256": "101b960c5b4435c7ee24aaf5e957f67dd459034e01d7c2b86fc233720cee32f2",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "candidate",
+    "id": "precedence-question",
+    "cohort": "previously_exposed",
+    "expected": "type: question",
+    "acceptable_types": [
+      "type: question"
+    ],
+    "request_sha256": "577a49e59ea767710b3c48f327447420973cc81d0464be947931b68b1a35f04c",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "control",
+    "id": "teardown-regression",
+    "cohort": "previously_exposed",
+    "expected": "type: regression",
+    "acceptable_types": [
+      "type: regression"
+    ],
+    "request_sha256": "2474657c3c2c08019f77a6ca71c70e1c8e24a3a0e1077e7e3baacef478acccd5",
+    "null_report_sha256": "fc496ab0bfd04bc725884f992ffa1373b2ece66df2358655e47b68377d17446b",
+    "quote_options": 3
+  },
+  {
+    "arm": "candidate",
+    "id": "teardown-regression",
+    "cohort": "previously_exposed",
+    "expected": "type: regression",
+    "acceptable_types": [
+      "type: regression"
+    ],
+    "request_sha256": "05998558db463a5b7714e56811792fe36b5f7abcc66fbab408bb920dee7449e4",
+    "null_report_sha256": "fc496ab0bfd04bc725884f992ffa1373b2ece66df2358655e47b68377d17446b",
+    "quote_options": 3
+  },
+  {
+    "arm": "control",
+    "id": "traceback-bug",
+    "cohort": "previously_exposed",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug"
+    ],
+    "request_sha256": "2443ba8bc542c739658a6ebd5de4199f13c0c6f3c8df81226023077f66e0fb61",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "candidate",
+    "id": "traceback-bug",
+    "cohort": "previously_exposed",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug"
+    ],
+    "request_sha256": "7d6a5bc473e777252106e2d6184c06c6a700f4ad45c6a27bbf28c5a61dc309bf",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "control",
+    "id": "warning-question",
+    "cohort": "previously_exposed",
+    "expected": "type: question",
+    "acceptable_types": [
+      "type: question"
+    ],
+    "request_sha256": "3222a953b539995e029dc6649c724bc9af63325f3d874508726c0f24ad637348",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "candidate",
+    "id": "warning-question",
+    "cohort": "previously_exposed",
+    "expected": "type: question",
+    "acceptable_types": [
+      "type: question"
+    ],
+    "request_sha256": "b7a3ec853194586c791e694f84d4e4eb72a7a9e2cda80a391be779694db4ef09",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "control",
+    "id": "uncertain",
+    "cohort": "previously_exposed",
+    "expected": null,
+    "acceptable_types": [
+      null
+    ],
+    "request_sha256": "7e8784be4fe5502921d9c7e5edb6f9d4d1cba467159906c83eb852de5c634720",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "candidate",
+    "id": "uncertain",
+    "cohort": "previously_exposed",
+    "expected": null,
+    "acceptable_types": [
+      null
+    ],
+    "request_sha256": "5dd3dcf09767b9b81c87cfbec11daa312b3732c5e471d739543e0aebd22b3cb5",
+    "null_report_sha256": "9f771d2c72643439cbbee9ab0e5d4f1f9a51ec56b1730c8c07237ad74f217628",
+    "quote_options": 3
+  },
+  {
+    "arm": "control",
+    "id": "h-12219",
+    "cohort": "exposed_diagnostic",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug"
+    ],
+    "request_sha256": "5274c5785e51949aa178cb75bdcdcebac56129c22c186ae3c41b2ce4fe64c7b3",
+    "null_report_sha256": "0b3870be2ea983adf5cc22bbd88050bff515804a5803ca34db2fdb81f9947727",
+    "quote_options": 16
+  },
+  {
+    "arm": "candidate",
+    "id": "h-12219",
+    "cohort": "exposed_diagnostic",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug"
+    ],
+    "request_sha256": "a95a501f03eba12b496376ba90d7f6fc5a9b64308b4dc2a3ff1b564365c7412a",
+    "null_report_sha256": "0b3870be2ea983adf5cc22bbd88050bff515804a5803ca34db2fdb81f9947727",
+    "quote_options": 16
+  },
+  {
+    "arm": "control",
+    "id": "h-12223",
+    "cohort": "exposed_diagnostic",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug"
+    ],
+    "request_sha256": "dfa3970596f0e504a73bdaf2bc4b15891ee386ab440fd92a8e5cc994c68ee8d6",
+    "null_report_sha256": "6d148fb21e1a777622a851f9c292db054479410abaf74ddc03ea87957691aa89",
+    "quote_options": 16
+  },
+  {
+    "arm": "candidate",
+    "id": "h-12223",
+    "cohort": "exposed_diagnostic",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug"
+    ],
+    "request_sha256": "eb59464b0625eb08484bf3d17d897dd593cbbe22889c982820b85715b653f03b",
+    "null_report_sha256": "6d148fb21e1a777622a851f9c292db054479410abaf74ddc03ea87957691aa89",
+    "quote_options": 16
+  },
+  {
+    "arm": "control",
+    "id": "h-12249",
+    "cohort": "exposed_diagnostic",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug"
+    ],
+    "request_sha256": "af52ed851a2f0b7c49667d4c6d04854ba74e20c2ec757e2b7fba70e03afd0430",
+    "null_report_sha256": "c56b91b7e6e85982e81d395c294c11a4eac19d36f4d26b957d23ccdfbbdb757b",
+    "quote_options": 16
+  },
+  {
+    "arm": "candidate",
+    "id": "h-12249",
+    "cohort": "exposed_diagnostic",
+    "expected": "type: bug",
+    "acceptable_types": [
+      "type: bug"
+    ],
+    "request_sha256": "76db824c3858b673f145ca210ae075efd9cfbaafddf5f59ab15f50d7a8c7153f",
+    "null_report_sha256": "c56b91b7e6e85982e81d395c294c11a4eac19d36f4d26b957d23ccdfbbdb757b",
+    "quote_options": 16
+  }
+]

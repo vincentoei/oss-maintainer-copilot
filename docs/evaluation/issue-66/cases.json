@@ -1,0 +1,112 @@
+{
+  "kind": "Investigator-designed synthetic development examples; not held-out evidence",
+  "review": {
+    "reviewer": "Codex implementing issue #66; AI review, not independent or human confirmation",
+    "status": "AI-reviewed proposed expectations; requesting-user confirmation not yet supplied",
+    "scope": "Expected types and positive/counterexample quote support; no generated candidate outputs"
+  },
+  "cases": [
+    {
+      "id": "ordinary-bug",
+      "title": "Closing a resource",
+      "body": "The test passes, but its finalizer never closes the file on either release I tested. Please fix the leaked file.",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "reason": "A reproducible malfunction supports bug; neither tested release works. This counters regression inferred from a malfunction alone.",
+      "quote_counterexamples": []
+    },
+    {
+      "id": "version-break",
+      "title": "Closing a resource",
+      "body": "The same test closes the file on pytest 8.2 but leaks it on 8.3. Reinstalling 8.2 restores cleanup.",
+      "expected": "type: regression",
+      "acceptable_types": [
+        "type: regression"
+      ],
+      "reason": "The unchanged test and rollback give a credible version comparison in one selectable quote.",
+      "quote_counterexamples": []
+    },
+    {
+      "id": "old-docs",
+      "title": "Hook execution",
+      "body": "The documented hook never runs in my project. An older manual also lists this hook; I have not tried an older release.",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "reason": "An old documented feature does not establish that this project ever worked. A request to repair the reported malfunction supports bug.",
+      "quote_counterexamples": []
+    },
+    {
+      "id": "extension",
+      "title": "Output control",
+      "body": "The XML output is valid and consumers work. Please add a separate option to shorten the message attribute.",
+      "expected": "type: enhancement",
+      "acceptable_types": [
+        "type: enhancement"
+      ],
+      "reason": "An explicit new optional capability without a malfunction supports enhancement.",
+      "quote_counterexamples": []
+    },
+    {
+      "id": "overlap",
+      "title": "Output control",
+      "body": "My consumer crashes on large valid message attributes; please add a separate attribute-size option.",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug",
+        "type: enhancement"
+      ],
+      "reason": "Broken interoperability supports bug; requested new control also defensibly supports enhancement. Preserve this ambiguity rather than declaring the alternative unsupported.",
+      "quote_counterexamples": []
+    },
+    {
+      "id": "quote-misses-request",
+      "title": "Output control",
+      "body": "An external consumer crashes on large attributes.\nI am requesting a new optional attribute-size limit, not a repair to existing XML output.",
+      "expected": "type: enhancement",
+      "acceptable_types": [
+        "type: enhancement"
+      ],
+      "reason": "The reporter explicitly requests a new capability. The failure-only quote omits that intent.",
+      "quote_counterexamples": [
+        "An external consumer crashes on large attributes."
+      ]
+    },
+    {
+      "id": "insufficient",
+      "title": "Notes",
+      "body": "I have not identified a problem, a desired change, or a question yet.",
+      "expected": null,
+      "acceptable_types": [
+        null
+      ],
+      "reason": "No intent supports a category; abstention must remain reachable.",
+      "quote_counterexamples": []
+    },
+    {
+      "id": "negated-comparison",
+      "title": "Closing a resource",
+      "body": "The file leaks on both 8.2 and 8.3; the claim that switching back restores cleanup was mistaken.",
+      "expected": "type: bug",
+      "acceptable_types": [
+        "type: bug"
+      ],
+      "reason": "Version numbers and restoration wording do not outweigh an explicit retraction; this counters lexical regression gating.",
+      "quote_counterexamples": []
+    },
+    {
+      "id": "omitted-support",
+      "title": "Observations",
+      "body": "Observation 00: no additional diagnostic information.\nObservation 01: no additional diagnostic information.\nThe unchanged test passes on 8.2 but fails on 8.3; reinstalling 8.2 restores passing.\nObservation 03: no additional diagnostic information.\nObservation 04: no additional diagnostic information.\nObservation 05: no additional diagnostic information.\nObservation 06: no additional diagnostic information.\nObservation 07: no additional diagnostic information.\nObservation 08: no additional diagnostic information.\nObservation 09: no additional diagnostic information.\nObservation 10: no additional diagnostic information.\nObservation 11: no additional diagnostic information.\nObservation 12: no additional diagnostic information.\nObservation 13: no additional diagnostic information.\nObservation 14: no additional diagnostic information.\nObservation 15: no additional diagnostic information.\nObservation 16: no additional diagnostic information.\nObservation 17: no additional diagnostic information.\nObservation 18: no additional diagnostic information.\nObservation 19: no additional diagnostic information.\nObservation 20: no additional diagnostic information.\nObservation 21: no additional diagnostic information.\nObservation 22: no additional diagnostic information.\nObservation 23: no additional diagnostic information.\nObservation 24: no additional diagnostic information.\nObservation 25: no additional diagnostic information.\nObservation 26: no additional diagnostic information.\nObservation 27: no additional diagnostic information.\nObservation 28: no additional diagnostic information.\nObservation 29: no additional diagnostic information.\nObservation 30: no additional diagnostic information.\nObservation 31: no additional diagnostic information.\nObservation 32: no additional diagnostic information.\nObservation 33: no additional diagnostic information.\nObservation 34: no additional diagnostic information.\nObservation 35: no additional diagnostic information.\nObservation 36: no additional diagnostic information.\nObservation 37: no additional diagnostic information.\nObservation 38: no additional diagnostic information.\nObservation 39: no additional diagnostic information.",
+      "expected": null,
+      "acceptable_types": [
+        null
+      ],
+      "reason": "The whole issue supports regression, but the independent sampler omits its only informative line. None of the offered quotes supports a category; abstain. This is a designed sampler stress case, not evidence of a real-world omission rate.",
+      "quote_counterexamples": []
+    }
+  ]
+}

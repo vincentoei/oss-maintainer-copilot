@@ -1,0 +1,65 @@
+[
+  {
+    "id": "h-12219",
+    "code": "R48",
+    "archived_expected": "type: bug",
+    "selected_type": "type: regression",
+    "selected_quote": "ts.tarfile). When I run the tests, the setUpModule is never called.",
+    "report_sha256": "50e54f896d747bb8517fbb06a307a24f3eae3742d1f98b1e262b19da4064d815",
+    "request_sha256": "bd102da0fcd4e855e519259fe1840402e4d4e33a83b09335af49ffa9800d3fd2",
+    "prior_attributed_review": {
+      "code": "R48",
+      "report_sha256": "50e54f896d747bb8517fbb06a307a24f3eae3742d1f98b1e262b19da4064d815",
+      "status": "rated",
+      "reviewer": "Independent Codex/AI review (GPT-6; exact deployment variant unavailable)",
+      "semantic_type_support": "uncertain",
+      "quote_relevance": "no",
+      "unsupported_claims": "no",
+      "reply_usefulness": 2,
+      "reason": "The opening contrasts historical support with current project failure but supplies no same-project old-version success, and its minimized current example works; regression is uncertain rather than established. The selected fragment only reports a missing hook, not a version regression. C5 accurately requests a failing project reduction and is useful despite generic redundancy.",
+      "unsupported_claims_reason": "The draft makes no unsupported external factual assertion; requests for information are not claims of a diagnosis. The generic inability statement is judged for usefulness, not as an external fact."
+    }
+  },
+  {
+    "id": "h-12223",
+    "code": "R40",
+    "archived_expected": "type: bug",
+    "selected_type": "type: enhancement",
+    "selected_quote": "for parsers, and projects like BeautifulSoup and lxml will fail to parse this correctly (truncating or crashing, respectively).",
+    "report_sha256": "852144d76b3e3300285cd1d97cf779fedc07740e940571dfdf05b182a2989dff",
+    "request_sha256": "a647f153ad8e5c8a07587ffeb331dbd690409d9aa9c81eda0d59afc26b353d91",
+    "prior_attributed_review": {
+      "code": "R40",
+      "report_sha256": "852144d76b3e3300285cd1d97cf779fedc07740e940571dfdf05b182a2989dff",
+      "status": "rated",
+      "reviewer": "Independent Codex/AI review (GPT-6; exact deployment variant unavailable)",
+      "semantic_type_support": "yes",
+      "quote_relevance": "uncertain",
+      "unsupported_claims": "no",
+      "reply_usefulness": 1,
+      "reason": "Reducing oversized XML message attributes is a defensible enhancement request as well as a consumer-facing bug. The quote establishes consumer failures but not the requested extension, leaving quote support uncertain. Grounded environment requests are generic and limited.",
+      "unsupported_claims_reason": "The draft makes no unsupported external factual assertion; requests for information are not claims of a diagnosis. The generic inability statement is judged for usefulness, not as an external fact."
+    }
+  },
+  {
+    "id": "h-12249",
+    "code": "R26",
+    "archived_expected": "type: bug",
+    "selected_type": "type: enhancement",
+    "selected_quote": "ctions, then they get raised early and cannot be controlled by the pytest `filterwarnings` config, which is unfortunate. There should be a good way to suppress",
+    "report_sha256": "fd4fd5da206a3e2338a00e5068734582e512b9cda309677968959605fd5757b7",
+    "request_sha256": "0336933d79b96a8a742ac5a8ef73b49a578b9d5b73c567e5cdb44786e25e7122",
+    "prior_attributed_review": {
+      "code": "R26",
+      "report_sha256": "fd4fd5da206a3e2338a00e5068734582e512b9cda309677968959605fd5757b7",
+      "status": "rated",
+      "reviewer": "Independent Codex/AI review (GPT-6; exact deployment variant unavailable)",
+      "semantic_type_support": "yes",
+      "quote_relevance": "yes",
+      "unsupported_claims": "no",
+      "reply_usefulness": 1,
+      "reason": "The frozen opening requests extending normal warning configuration to early import warnings; enhancement is defensible alongside bug. The quote captures both the limitation and desired suppression. Environment/example requests are grounded but generic and repeat OS already supplied; limited help.",
+      "unsupported_claims_reason": "The draft makes no unsupported external factual assertion; requests for information are not claims of a diagnosis. The generic inability statement is judged for usefulness, not as an external fact."
+    }
+  }
+]
