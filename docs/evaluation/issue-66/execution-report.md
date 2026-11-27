@@ -161,3 +161,15 @@ semantic entailment requires review. Remaining unknowns are human report judgmen
 out-of-sample generalization, independently proven input preservation and physical
 tensor placement. The approved allocation is complete; no more inference is
 authorized or needed to document this negative result.
+
+To reproduce the complete new scorecard without inference, using the retained
+hash-verified local snapshot:
+
+```bash
+PYTHONPATH=src .venv/bin/python scripts/issue66_results.py > /tmp/issue66-scorecard.json
+cmp /tmp/issue66-scorecard.json docs/evaluation/issue-66/scorecard.json
+```
+
+The auditor denies real socket connections and supplies only saved model
+responses. Do not rerun the executor: its allocation is complete, and its durable
+run-directory and reservation guards refuse reuse.

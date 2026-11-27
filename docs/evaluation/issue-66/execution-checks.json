@@ -38,10 +38,17 @@
     "mypy": "49 source/test files passed"
   },
   "full_suite": {
-    "status": "pending final run"
+    "command": "timeout 60 .venv/bin/pytest -q",
+    "passed": 511,
+    "skipped": 2,
+    "seconds": 16.96,
+    "scope": "two opt-in live public replay tests skipped; deterministic suite makes no new model calls"
   },
   "source_review": {
-    "status": "pending final Standards and Spec review"
+    "standards": "0 findings; separate fresh-context Codex/AI agent verified frozen sources,916archives,48charges/reports/ratings,usage and106execution artifact hashes",
+    "spec": "0 findings; separate fresh-context Codex/AI agent independently reproduced all48reports and exactscorecard; no substantive semantic rating inconsistency",
+    "review_file": "execution-review.md",
+    "human_generated_report_review": "not supplied; not needed to reject a candidate that fails frozen gates"
   },
   "actual_output_review": {
     "reports_rated": 48,
