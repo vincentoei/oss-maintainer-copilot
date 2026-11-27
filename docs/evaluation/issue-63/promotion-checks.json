@@ -1,0 +1,41 @@
+{
+  "scope": "Post-evaluation maintainer promotion of recommended configuration; source behavior and frozen evidence preserved",
+  "tests": {
+    "command": ".venv/bin/pytest -q",
+    "passed": 510,
+    "skipped": 2,
+    "seconds": 11.81,
+    "skip_scope": "opt-in public live replay"
+  },
+  "ruff_check": "passed",
+  "ruff_format": "199 files unchanged",
+  "mypy": "48 source/test files passed",
+  "offline_scorecard_byte_exact": true,
+  "reports_replayed": 53,
+  "frozen_source_hashes_unchanged": 67,
+  "independent_ai_review_commit": "21933aa35787045d540327941cf35d915e7960a2",
+  "ai_ratings": 53,
+  "human_ratings": "unchanged pending, not replaced",
+  "serving_alias": "pytest-triage:qwen35-4b-ctx16k",
+  "artifact_digest": "8da535b12863762c2403ed06956d92da4e57806a4772ba321137a2809e9a8bbe",
+  "alias_metadata_verification": {
+    "observed_at_utc": "2026-11-27T04:27:40.602063+00:00",
+    "alias_digest_match": true,
+    "effective_parameter_match": true,
+    "template_renderer_parser_thinking_match": true,
+    "native_metadata_sha256": "a209ae12c560facd1ae82d3a094c90b508e4cd70dd5d68cf52e44eda66be661a",
+    "parameter_display_order": "differs between aliases; names/values match"
+  },
+  "new_modelfile_parameters_match_verified_alias": true,
+  "new_modelfile_sha256": "3aecbdbbe0e0afb28d385db813f79a734a737c4d3cce8603fdcf7cca159c573e",
+  "new_application_or_evaluation_generation_calls": 0,
+  "new_downloads": 0,
+  "running_app_restarted": false,
+  "same_artifact_new_alias_inference": "not rerun; previous integration was evaluated source alias",
+  "decision_policy": "explicit post-result maintainer exception, original gates not all passed",
+  "followups": {
+    "66": "type/quote semantic support",
+    "67": "reply usefulness"
+  },
+  "merge_and_issue_closure": "not performed"
+}

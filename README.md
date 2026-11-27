@@ -60,7 +60,8 @@ with JSON-schema structured output support.
 endpoint). For example, after starting a local model server:
 
 ```sh
-MODEL_NAME=your-model-name uv run --no-env-file uvicorn maintainer_copilot.web:app --reload
+MODEL_NAME=pytest-triage:qwen35-4b-ctx16k MODEL_REASONING_EFFORT=none \
+  uv run --no-env-file uvicorn maintainer_copilot.web:app --reload
 ```
 
 Set `MODEL_BASE_URL` if your server uses a different URL. For compatible endpoints,
@@ -83,8 +84,13 @@ literal-cue rules. With no model configured, the report still works and marks
 model suggestions unavailable.
 
 
-The [tested Windows Ollama / WSL app guide](docs/local-model.md) serves
-Qwen2.5 Coder 3B Instruct Q4_K_M with 16K context and no paid model API.
+The [Windows Ollama / WSL app guide](docs/local-model.md) recommends
+Qwen3.5 4B Q4_K_M with 16K context and thinking explicitly disabled, with no paid
+model API. The [maintainer decision](docs/evaluation/issue-63/promotion-decision.md)
+accepts its known semantic-support limitations after the comparison and independent
+AI review; the original promotion gates were not all passed. Qwen2.5 Coder 3B
+remains selectable for lower-memory use. It does not automatically catch semantic
+errors in the selected model's report.
 [Issue #21's measurements](docs/evaluation/issue-21.md) record all three local
 candidates, twenty-case field scores, GPU memory, serving errors and real
 API/browser/agent checks. Windows and WSL connectivity is verified explicitly;
