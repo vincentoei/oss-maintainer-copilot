@@ -1,0 +1,18 @@
+{
+  "recorded_at_utc": "2026-11-27T10:29:46.373624+00:00",
+  "authorization_source": "Requesting user in this conversation",
+  "user_response": "Yes i approve",
+  "approved_request": "Approve the nine proposed expectations and frozen comparison: 48 local calls, at most 12,288 output tokens, no hosted calls or downloads.",
+  "prepared_commit": "7292553",
+  "approved_freeze_sha256": "7754ad7a9e9c2700a7c5edafe7537258988a09ded1a9886da109556dd1bd1cd7",
+  "scope": [
+    "confirmation of the nine proposed expected outcomes",
+    "execution of the frozen 48-call paired comparison"
+  ],
+  "not_approved": [
+    "additional calls, retries or extensions",
+    "changed inputs, settings, criteria or prompt",
+    "downloads or hosted spending"
+  ],
+  "future_generated_report_human_review": "not supplied by this execution approval"
+}

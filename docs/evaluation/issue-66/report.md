@@ -1,4 +1,9 @@
-# Issue #66: diagnosis and unadopted correction
+# Issue #66: pre-execution diagnosis and proposal record
+
+This is the preparation record from commit `7292553`, before the requesting
+user's subsequent approval. For the completed 48-call experiment, failed adoption
+gates and final acceptance evidence, see [execution-report.md](execution-report.md).
+The statements below describe the pre-execution phase.
 
 **Decision: retain the unchanged application; the proposed correction is
 inconclusive until separately approved model execution and human review.**
