@@ -23,6 +23,7 @@ MODEL = "pytest-triage:qwen35-4b-ctx16k"
 BASE = "http://172.17.48.1:11434/v1"
 BASELINE = "2194e338e2a82a9f54ab1ef06903944508523fa3"
 LIMITS = {"calls": 48, "per_arm": 24, "output_per_call": 256, "total_output": 12288}
+ARMS = (("control", OpenAICompatibleModel), ("candidate", SemanticSupportCandidate))
 
 
 def read(path):
@@ -95,10 +96,7 @@ def build():
     ):
         for case in cases:
             pair = []
-            for arm, cls in (
-                ("control", OpenAICompatibleModel),
-                ("candidate", SemanticSupportCandidate),
-            ):
+            for arm, cls in ARMS:
                 captured = []
 
                 def endpoint(request, *, timeout, captured=captured):

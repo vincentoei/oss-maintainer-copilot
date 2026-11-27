@@ -5,13 +5,15 @@ import base64
 import io
 import json
 import os
+import signal
 import time
+from contextlib import contextmanager
 from unittest.mock import patch
 from urllib.error import HTTPError
 from urllib.request import HTTPRedirectHandler, ProxyHandler, Request, build_opener
 
-from issue66_candidate import SemanticSupportCandidate
 from issue66_prepare import (
+    ARMS,
     BASE,
     HERE,
     LIMITS,
@@ -24,7 +26,6 @@ from issue66_prepare import (
     read,
 )
 
-from maintainer_copilot.model import OpenAICompatibleModel
 from maintainer_copilot.paired_evaluation import PairedBudget
 from maintainer_copilot.trace import get_trace
 
@@ -32,6 +33,25 @@ from maintainer_copilot.trace import get_trace
 class NoRedirect(HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         raise ValueError("Redirects are forbidden")
+
+
+@contextmanager
+def wall_deadline(seconds):
+    # The executor is serial in the main thread. Interrupt the socket read itself;
+    # a background worker could otherwise keep spending time after timeout.
+    if signal.getitimer(signal.ITIMER_REAL) != (0.0, 0.0):
+        raise RuntimeError("Cannot replace an existing deadline")
+
+    def expired(signum, frame):
+        raise TimeoutError("Overall request deadline exceeded")
+
+    previous = signal.signal(signal.SIGALRM, expired)
+    try:
+        signal.setitimer(signal.ITIMER_REAL, seconds)
+        yield
+    finally:
+        signal.setitimer(signal.ITIMER_REAL, 0)
+        signal.signal(signal.SIGALRM, previous)
 
 
 def save(path, value):
@@ -49,8 +69,9 @@ def metadata(transport, route, payload=None):
         data=json.dumps(payload).encode() if payload else None,
         headers={"Content-Type": "application/json"},
     )
-    with transport.open(request, timeout=5) as response:
-        raw = response.read(1048577)
+    with wall_deadline(5):
+        with transport.open(request, timeout=5) as response:
+            raw = response.read(1048577)
     if len(raw) > 1048576:
         raise ValueError("Metadata response exceeds bound")
     return json.loads(raw)
@@ -104,10 +125,7 @@ def execute(approved_freeze):
     try:
         save(run / "serving-before.json", serving(transport))
         for case in cases:
-            for arm, cls in (
-                ("control", OpenAICompatibleModel),
-                ("candidate", SemanticSupportCandidate),
-            ):
+            for arm, cls in ARMS:
                 calls = []
                 native_before = serving(transport)
                 residency = metadata(transport, "/api/ps")
@@ -122,15 +140,16 @@ def execute(approved_freeze):
                     started = time.perf_counter()
                     raw = None
                     try:
-                        with transport.open(request, timeout=20) as response:
-                            call["http_status"] = response.status
-                            raw = response.read(65537)
+                        with wall_deadline(20):
+                            try:
+                                with transport.open(request, timeout=20) as response:
+                                    call["http_status"] = response.status
+                                    raw = response.read(65537)
+                            except HTTPError as exc:
+                                call["http_status"] = exc.code
+                                raw = exc.read(65537)
+                                raise
                         return io.BytesIO(raw)
-                    except HTTPError as exc:
-                        call["http_status"] = exc.code
-                        raw = exc.read(65537)
-                        call["error"] = type(exc).__name__
-                        raise
                     except Exception as exc:
                         call["error"] = type(exc).__name__
                         raise

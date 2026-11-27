@@ -1,0 +1,83 @@
+{
+  "scope": "Issue #66 offline diagnosis and unadopted experiment preparation",
+  "baseline_commit": "2194e338e2a82a9f54ab1ef06903944508523fa3",
+  "new_model_generation_calls": 0,
+  "new_model_downloads": 0,
+  "new_hosted_calls": 0,
+  "tdd": {
+    "command": ".venv/bin/pytest -q tests/test_issue66_semantic_support.py",
+    "red": "1 failed before candidate module existed: ModuleNotFoundError",
+    "green": "1 passed; reproduces structural acceptance of unsupported regression; no semantic-effectiveness claim"
+  },
+  "targeted": {
+    "command": ".venv/bin/pytest -q tests/test_issue66_semantic_support.py tests/test_semantic_classification.py tests/test_model_api.py tests/test_paired_classification_requests.py",
+    "passed": 54
+  },
+  "full_suite": {
+    "command": "timeout 60 .venv/bin/pytest -q",
+    "passed": 511,
+    "skipped": 2,
+    "skip_scope": "opt-in live public replay",
+    "seconds": 11.26,
+    "environment": "outside sandbox; sandbox TestClient stalled and was interrupted"
+  },
+  "static_checks": {
+    "ruff_check": "passed",
+    "ruff_format": "207 files already formatted",
+    "mypy": "49 source/test files passed",
+    "diff_check": "passed"
+  },
+  "issue66_offline": {
+    "command": "PYTHONPATH=src .venv/bin/python scripts/issue66_prepare.py --check",
+    "exact_requests": 48,
+    "archived_reports_rebuilt_with_exact_request_hash_and_full_report_equality": 3,
+    "archives_preserved": 916,
+    "candidate_only_changes_system_prompt_suffix": true,
+    "all_resolved_labels_and_null_offered": true,
+    "sampler_omission_reproduced": true,
+    "network": "real socket connections denied"
+  },
+  "issue63_offline": {
+    "command": "issue63_results.summarize() compared to saved scorecard.json",
+    "reports_replayed": 53,
+    "archived_charges_reconciled": 55,
+    "whole_scorecard_exact_match": true,
+    "new_model_calls": 0,
+    "environment": "bounded rerun outside sandbox; model HTTP replaced by archived bytes"
+  },
+  "issue60_offline": {
+    "command": "PYTHONPATH=src .venv/bin/python scripts/issue60_verify.py",
+    "preserved_files": 434,
+    "archived_dispatches": 150,
+    "final_expected_type_reachability": "50/50",
+    "final_type_agreement": "29/50",
+    "original_gains_and_losses_preserved": true,
+    "new_model_calls": 0
+  },
+  "executor_offline": {
+    "changed_freeze_rejected_before_network": true,
+    "wall_deadline_probe": {
+      "operation": "five-second sleep under 0.03-second deadline",
+      "outcome": "TimeoutError at 0.030 seconds; prior signal handler restored, timer cleared",
+      "network_calls": 0
+    },
+    "live_dispatch_path": "unverified; execution not authorized"
+  },
+  "pending": [
+    "requesting-user confirmation of nine new expectations",
+    "new paired control/candidate inference and all semantic gains/losses/abstentions",
+    "attributed review of actual candidate selections, including required human report review",
+    "current serving identity/route and live executor behavior"
+  ],
+  "adoption": "none; unchanged application retained, proposal inconclusive",
+  "final_targeted_recheck": {
+    "command": ".venv/bin/pytest -q tests/test_issue66_semantic_support.py tests/test_semantic_classification.py",
+    "passed": 30,
+    "seconds": 0.12
+  },
+  "source_review": {
+    "standards": "0 remaining findings after wall-clock deadline and shared-arm corrections",
+    "spec": "0 remaining preparation blockers; evidence-file addition independently verified",
+    "attribution": "two Codex/AI agents with fresh contexts, plus separate follow-up reviews; not human semantic ratings"
+  }
+}
