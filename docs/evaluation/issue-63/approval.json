@@ -1,0 +1,22 @@
+{
+  "status": "approved",
+  "reviewer": "requesting user",
+  "response": "Approve the 55-call evaluation.",
+  "recorded_at_utc": "2026-11-26T15:06:25.118853+00:00",
+  "approved_freeze_commit": "332a6aa363b5ed0e55e71737624fb33b8163a936",
+  "freeze_sha256": "2122b7d6a5625ebdda984b142cf9838af949dc553bad02f54d371840ebac9e46",
+  "limits": {
+    "calls": 55,
+    "output_per_call": 256,
+    "total_output": 14080,
+    "timeout": 20,
+    "response_bytes": 65536,
+    "context": 16384,
+    "warmups": 0,
+    "retries": 0,
+    "downloads": 0,
+    "hosted": 0,
+    "api_usd": 0
+  },
+  "scope": "One frozen local evaluation; default unchanged; actual report review follows execution."
+}

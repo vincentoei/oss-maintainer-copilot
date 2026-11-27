@@ -1,0 +1,9 @@
+{
+  "slot": "h-12219",
+  "alias": "triage-eval:qwen35-4b-16k-v1",
+  "http_status": 200,
+  "transport_error": null,
+  "raw_base64": "eyJpZCI6ImNoYXRjbXBsLTgyMSIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNyZWF0ZWQiOjE3OTU3MDU2NTEsIm1vZGVsIjoidHJpYWdlLWV2YWw6cXdlbjM1LTRiLTE2ay12MSIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX29sbGFtYSIsImNob2ljZXMiOlt7ImluZGV4IjowLCJtZXNzYWdlIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50Ijoie1wiaXNzdWVfdHlwZVwiOiBcInR5cGU6IHJlZ3Jlc3Npb25cIiwgXCJxdW90ZV9pbmRleFwiOiAyLCBcInJlcGx5X2NpdGF0aW9uX2lkc1wiOiBbXCJDMVwiLCBcIkMyXCIsIFwiQzNcIiwgXCJDNVwiXX0ifSwiZmluaXNoX3JlYXNvbiI6InN0b3AifV0sInVzYWdlIjp7InByb21wdF90b2tlbnMiOjE3MTUsInByb21wdF90b2tlbnNfZGV0YWlscyI6eyJjYWNoZWRfdG9rZW5zIjowfSwiY29tcGxldGlvbl90b2tlbnMiOjM5LCJ0b3RhbF90b2tlbnMiOjE3NTR9fQo=",
+  "request_sha256": "bd102da0fcd4e855e519259fe1840402e4d4e33a83b09335af49ffa9800d3fd2",
+  "latency_ms": 1079.016
+}

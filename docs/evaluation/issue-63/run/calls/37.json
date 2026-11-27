@@ -1,0 +1,9 @@
+{
+  "slot": "precedence-docs",
+  "alias": "triage-eval:qwen35-4b-16k-v1",
+  "http_status": 200,
+  "transport_error": null,
+  "raw_base64": "eyJpZCI6ImNoYXRjbXBsLTUiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24iLCJjcmVhdGVkIjoxNzk1NzA1NjQ2LCJtb2RlbCI6InRyaWFnZS1ldmFsOnF3ZW4zNS00Yi0xNmstdjEiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9vbGxhbWEiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwibWVzc2FnZSI6eyJyb2xlIjoiYXNzaXN0YW50IiwiY29udGVudCI6IntcImlzc3VlX3R5cGVcIjogXCJ0eXBlOiBkb2NzXCIsIFwicXVvdGVfaW5kZXhcIjogMSwgXCJyZXBseV9jaXRhdGlvbl9pZHNcIjogW119In0sImZpbmlzaF9yZWFzb24iOiJzdG9wIn1dLCJ1c2FnZSI6eyJwcm9tcHRfdG9rZW5zIjo0MzUsInByb21wdF90b2tlbnNfZGV0YWlscyI6eyJjYWNoZWRfdG9rZW5zIjowfSwiY29tcGxldGlvbl90b2tlbnMiOjI1LCJ0b3RhbF90b2tlbnMiOjQ2MH19Cg==",
+  "request_sha256": "f4e977fe1ea673323fa8b5873f06dae10a627a3d6eb7e54ad99fcbc98c7557cd",
+  "latency_ms": 491.897
+}

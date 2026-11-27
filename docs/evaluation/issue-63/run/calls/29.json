@@ -1,0 +1,9 @@
+{
+  "slot": "h-12223",
+  "alias": "pytest-triage:coder7b-ctx16k",
+  "http_status": 200,
+  "transport_error": null,
+  "raw_base64": "eyJpZCI6ImNoYXRjbXBsLTUiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24iLCJjcmVhdGVkIjoxNzk1NzA1NjM1LCJtb2RlbCI6InB5dGVzdC10cmlhZ2U6Y29kZXI3Yi1jdHgxNmsiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF9vbGxhbWEiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwibWVzc2FnZSI6eyJyb2xlIjoiYXNzaXN0YW50IiwiY29udGVudCI6IntcImlzc3VlX3R5cGVcIjogXCJ0eXBlOiBidWdcIiwgXCJxdW90ZV9pbmRleFwiOiAwLCBcInJlcGx5X2NpdGF0aW9uX2lkc1wiOiBbXCJDMVwiLCBcIkMyXCJdfSJ9LCJmaW5pc2hfcmVhc29uIjoic3RvcCJ9XSwidXNhZ2UiOnsicHJvbXB0X3Rva2VucyI6MTYwNSwicHJvbXB0X3Rva2Vuc19kZXRhaWxzIjp7ImNhY2hlZF90b2tlbnMiOjIxNn0sImNvbXBsZXRpb25fdG9rZW5zIjozMSwidG90YWxfdG9rZW5zIjoxNjM2fX0K",
+  "request_sha256": "1ef2ff2cfd5877a41a487a5d3c866ace464249e7d7dd5eb14eb9bc2243013d20",
+  "latency_ms": 1015.498
+}

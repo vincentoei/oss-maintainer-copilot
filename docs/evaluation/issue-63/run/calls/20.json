@@ -1,0 +1,9 @@
+{
+  "slot": "exit-bug",
+  "alias": "pytest-triage:coder7b-ctx16k",
+  "http_status": 200,
+  "transport_error": null,
+  "raw_base64": "eyJpZCI6ImNoYXRjbXBsLTQwNyIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNyZWF0ZWQiOjE3OTU3MDU2MjcsIm1vZGVsIjoicHl0ZXN0LXRyaWFnZTpjb2RlcjdiLWN0eDE2ayIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX29sbGFtYSIsImNob2ljZXMiOlt7ImluZGV4IjowLCJtZXNzYWdlIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50Ijoie1wiaXNzdWVfdHlwZVwiOiBcInR5cGU6IGJ1Z1wiLCBcInF1b3RlX2luZGV4XCI6IDEsIFwicmVwbHlfY2l0YXRpb25faWRzXCI6IFtdfSJ9LCJmaW5pc2hfcmVhc29uIjoic3RvcCJ9XSwidXNhZ2UiOnsicHJvbXB0X3Rva2VucyI6NDQ0LCJwcm9tcHRfdG9rZW5zX2RldGFpbHMiOnsiY2FjaGVkX3Rva2VucyI6MjE2fSwiY29tcGxldGlvbl90b2tlbnMiOjI1LCJ0b3RhbF90b2tlbnMiOjQ2OX19Cg==",
+  "request_sha256": "69a80ab324c0a11d658c26d703e30bcb6e7962a53be221b6920c12dcf71fdeab",
+  "latency_ms": 450.658
+}

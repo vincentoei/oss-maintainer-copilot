@@ -1,0 +1,320 @@
+[
+  {
+    "code": "R01",
+    "case": "exit-regression",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "f11c31151cf2428da852ebad20d63503515ce28ce2ac00c733d4637fdb6763e5"
+  },
+  {
+    "code": "R02",
+    "case": "traceback-bug",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "1206ec89853d7a08070a91ae9ec9658e379a0fd177a11a073e70c5c28688989e"
+  },
+  {
+    "code": "R03",
+    "case": "warning-question",
+    "alias": "pytest-triage:coder3b-ctx16k",
+    "report_sha256": "5bbe23005eca79df4377d0b8e64e64e314052411b731bb5c4806dabd5403a0e2"
+  },
+  {
+    "code": "R04",
+    "case": "python-short",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "41e8f7d9f043ace99dd65ff9506fa5c9f3577f88deae4c65789534f0ce879627"
+  },
+  {
+    "code": "R05",
+    "case": "teardown-regression",
+    "alias": "pytest-triage:coder7b-ctx16k",
+    "report_sha256": "d50389617af062a9ca3a88e679f84d51c567688071f09358a391b7b0cc0246e1"
+  },
+  {
+    "code": "R06",
+    "case": "browser-short",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "9ab6b84383183cace09f53777de37953bb8af98d8cc4ff740cb6b2e79d2a20f4"
+  },
+  {
+    "code": "R07",
+    "case": "uncertain",
+    "alias": "pytest-triage:coder7b-ctx16k",
+    "report_sha256": "669c1c01ad648d628635d55e28e60dd8a1f1359624246cd093920f451aa5b1b4"
+  },
+  {
+    "code": "R08",
+    "case": "uncertain",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "9e2f03c27e36e603bd957131e94004196eaa5a435ca071db2261df9b06919e3a"
+  },
+  {
+    "code": "R09",
+    "case": "fixture-question",
+    "alias": "pytest-triage:coder3b-ctx16k",
+    "report_sha256": "5a0d5c7e850980d34b9217288dfdadc85bd365b85b24691d6a7eef4ace64ed8a"
+  },
+  {
+    "code": "R10",
+    "case": "precedence-docs",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "fa7ea66cb79257e705a38b78771caf0879ede1e8f3d5246e17d7f09aa7b4f61d"
+  },
+  {
+    "code": "R11",
+    "case": "warning-question",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "827972a8e9c0174527710ab5ef2ffbab9b57bf311e7693d6eab51ce41bae9b0d"
+  },
+  {
+    "code": "R12",
+    "case": "exit-regression",
+    "alias": "pytest-triage:coder7b-ctx16k",
+    "report_sha256": "b65930542b3e85f3a781f89473db325a9294b16aac7f56fdc27e3ccb305edf9c"
+  },
+  {
+    "code": "R13",
+    "case": "traceback-bug",
+    "alias": "pytest-triage:coder3b-ctx16k",
+    "report_sha256": "932eb2bdd69d8620d9e1f198fa1b04ad2fdb84d2512f7fa4ef343f08787826eb"
+  },
+  {
+    "code": "R14",
+    "case": "warning-question",
+    "alias": "pytest-triage:coder7b-ctx16k",
+    "report_sha256": "e0060f857ba8bf46327ddd3a1aa4795d86b7073209b21bf8019d66d92c37ed98"
+  },
+  {
+    "code": "R15",
+    "case": "log-bug",
+    "alias": "pytest-triage:coder3b-ctx16k",
+    "report_sha256": "a7bffe78391805da12693c4ac00d5f4c2357553bffe731f80336d12f24d06fa4"
+  },
+  {
+    "code": "R16",
+    "case": "api-long",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "1ea7fb0336d89790bd1a7678438fb1040f330324e1d62a5347901a416689dca0"
+  },
+  {
+    "code": "R17",
+    "case": "precedence-question",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "38b6582b708b080efceaa6dfba26b0636b65ac7fe645ee2495f14120955a7c86"
+  },
+  {
+    "code": "R18",
+    "case": "precedence-docs",
+    "alias": "pytest-triage:coder3b-ctx16k",
+    "report_sha256": "de88020a557cf2367d40aadfafb19525f131377da8a17a94d5f32cb2330a6307"
+  },
+  {
+    "code": "R19",
+    "case": "fixture-bug",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "db23f0c25fcb32745c1b3286f71638426a5a2673bd7b5c091a779f53aebfed3e"
+  },
+  {
+    "code": "R20",
+    "case": "uncertain",
+    "alias": "pytest-triage:coder3b-ctx16k",
+    "report_sha256": "eb7e61fd1aa7ecfcae10a2833784f98ee89e259ad5ebd4106d21213fd444d7b6"
+  },
+  {
+    "code": "R21",
+    "case": "exit-bug",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "d830cacf5779ac0a1a94a3e58eaba5c77908baaced6baaacbd88e7a213fd2035"
+  },
+  {
+    "code": "R22",
+    "case": "h-12223",
+    "alias": "pytest-triage:coder3b-ctx16k",
+    "report_sha256": "ef9d277dc62f0deae305b485deedc3b62ad9ee87af57d7be066850d7e03dc0a0"
+  },
+  {
+    "code": "R23",
+    "case": "fixture-question",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "468eecffb1903692a73d297de52b83535afd6a57e4ac890c4f087b6640ef43f7"
+  },
+  {
+    "code": "R24",
+    "case": "h-12219",
+    "alias": "pytest-triage:coder7b-ctx16k",
+    "report_sha256": "73f89f2e40af0d97404e8ee082255a9f68fe414b0a5098f0ad15cde4c814808d"
+  },
+  {
+    "code": "R25",
+    "case": "precedence-question",
+    "alias": "pytest-triage:coder3b-ctx16k",
+    "report_sha256": "c4f1ec3bd2e21f422ee4b85b82850d0f3a752f4b416592bed8266e25badbdea1"
+  },
+  {
+    "code": "R26",
+    "case": "h-12249",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "fd4fd5da206a3e2338a00e5068734582e512b9cda309677968959605fd5757b7"
+  },
+  {
+    "code": "R27",
+    "case": "precedence-question",
+    "alias": "pytest-triage:coder7b-ctx16k",
+    "report_sha256": "e23de338f1fb8e36986db047b9e2b9c80accbaf00a4194982e3ede8b81d396ec"
+  },
+  {
+    "code": "R28",
+    "case": "teardown-regression",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "b5e77a5b6624e10e3a0d0fa41ef088fcdec0762ec800a01814f5c6f56b064a67"
+  },
+  {
+    "code": "R29",
+    "case": "agent-short",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "9cbb77e50786647b7df058e8e9f3aded11e030a2243650b301348ffa03aff5db"
+  },
+  {
+    "code": "R30",
+    "case": "h-12249",
+    "alias": "pytest-triage:coder7b-ctx16k",
+    "report_sha256": "1ff1cdc13361350ed2c7fa443cda8c1d532686a3dcc7037a34c865b53d1e6ea7"
+  },
+  {
+    "code": "R31",
+    "case": "log-regression",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "adb8a194517d9c7cc51757ff6fe110a0cf1bfbbce57173e36f3294dde4f6adc0"
+  },
+  {
+    "code": "R32",
+    "case": "log-regression",
+    "alias": "pytest-triage:coder3b-ctx16k",
+    "report_sha256": "47d6e2a48772b5f0cc74ef281e342e76dfeaf572027ac29fcc7169006089ac25"
+  },
+  {
+    "code": "R33",
+    "case": "fixture-question",
+    "alias": "pytest-triage:coder7b-ctx16k",
+    "report_sha256": "62d985e5f89a2ac29c0b2611d59da1a1efb2b3091a861c3dc77fbc6ce02c0352"
+  },
+  {
+    "code": "R34",
+    "case": "log-bug",
+    "alias": "pytest-triage:coder7b-ctx16k",
+    "report_sha256": "46a504030f0d2f6929c386af33c7d629cb7dfbcd42cd3d730a3d95121ff3541d"
+  },
+  {
+    "code": "R35",
+    "case": "precedence-docs",
+    "alias": "pytest-triage:coder7b-ctx16k",
+    "report_sha256": "b7cd714e5c2f4bce989d27676b35fa40e71384acad1b98f0ac4e3a3f5bc0e1f8"
+  },
+  {
+    "code": "R36",
+    "case": "teardown-regression",
+    "alias": "pytest-triage:coder3b-ctx16k",
+    "report_sha256": "9f0607c33a85c95cd5a3f7b2c5192cd55542e273d20c8a4607959ba84cceda47"
+  },
+  {
+    "code": "R37",
+    "case": "h-12249",
+    "alias": "pytest-triage:coder3b-ctx16k",
+    "report_sha256": "0a315e4d57d8568cf632f8c27db973adb58e84e52cc1cacc9ed5313576e324f9"
+  },
+  {
+    "code": "R38",
+    "case": "fixture-bug",
+    "alias": "pytest-triage:coder3b-ctx16k",
+    "report_sha256": "936bd6ac6f979114469c872342cb3eb90c387eaf43ab3f3abc0666e0a100fac6"
+  },
+  {
+    "code": "R39",
+    "case": "exit-bug",
+    "alias": "pytest-triage:coder7b-ctx16k",
+    "report_sha256": "201fdf726799812102dcbf2bd9d13379a09b18165c74a00b4eb02389cbaf5d19"
+  },
+  {
+    "code": "R40",
+    "case": "h-12223",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "852144d76b3e3300285cd1d97cf779fedc07740e940571dfdf05b182a2989dff"
+  },
+  {
+    "code": "R41",
+    "case": "browser-long",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "62f4bd3b700ac2fcbf1f07a13925c2b9e1a31641b515d7c50e3a12dbf584aeb5"
+  },
+  {
+    "code": "R42",
+    "case": "h-12219",
+    "alias": "pytest-triage:coder3b-ctx16k",
+    "report_sha256": "450076f6d018859d4793f7b8782c7f3aa5e2ce45f2853f4c84a151f5f1685de4"
+  },
+  {
+    "code": "R43",
+    "case": "api-short",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "396e8ba52ab44aa6fd3aa1037b1065f663ed4c77a08d5467dfdddfafa8966b78"
+  },
+  {
+    "code": "R44",
+    "case": "exit-bug",
+    "alias": "pytest-triage:coder3b-ctx16k",
+    "report_sha256": "d151f650ec393cf2945137bee2bd4b9f1e3d1588ea0f9dbec8b4d25d78c30545"
+  },
+  {
+    "code": "R45",
+    "case": "python-long",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "16359c67f01473b7e2e00987d5c22296b218fa8e0a7baa895492d370448ce1e6"
+  },
+  {
+    "code": "R46",
+    "case": "traceback-bug",
+    "alias": "pytest-triage:coder7b-ctx16k",
+    "report_sha256": "8f716dce30834247176d6b34892ca10ec41b0c6145fed6ee3bd9e909501eaeb1"
+  },
+  {
+    "code": "R47",
+    "case": "exit-regression",
+    "alias": "pytest-triage:coder3b-ctx16k",
+    "report_sha256": "9905d55e0823ec1c95c4db5a4412719af29276e00abb070f5c322299509fb007"
+  },
+  {
+    "code": "R48",
+    "case": "h-12219",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "50e54f896d747bb8517fbb06a307a24f3eae3742d1f98b1e262b19da4064d815"
+  },
+  {
+    "code": "R49",
+    "case": "log-bug",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "a3af30316936804da208d21277c5b2deeaae8cef61ed5b34ff3133640edc45da"
+  },
+  {
+    "code": "R50",
+    "case": "log-regression",
+    "alias": "pytest-triage:coder7b-ctx16k",
+    "report_sha256": "75d9ed19d3085d8334e9f9a2648f65cd80e153fac91ca145f03e6f3630a73aa2"
+  },
+  {
+    "code": "R51",
+    "case": "fixture-bug",
+    "alias": "pytest-triage:coder7b-ctx16k",
+    "report_sha256": "4f79945c8a9fe983dd55c47ec2c24875e197ef8099f3b331c50ff351234632e0"
+  },
+  {
+    "code": "R52",
+    "case": "agent-long",
+    "alias": "triage-eval:qwen35-4b-16k-v1",
+    "report_sha256": "023e02f074c0acf590c447c97781b386ec1f1cabe96ad72ca0af672112da7abb"
+  },
+  {
+    "code": "R53",
+    "case": "h-12223",
+    "alias": "pytest-triage:coder7b-ctx16k",
+    "report_sha256": "22f50a97c4073114333243d4ddadc9049668d24e4c5eea6d86bed6ef04893be3"
+  }
+]

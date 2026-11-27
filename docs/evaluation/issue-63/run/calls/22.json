@@ -1,0 +1,9 @@
+{
+  "slot": "precedence-docs",
+  "alias": "pytest-triage:coder7b-ctx16k",
+  "http_status": 200,
+  "transport_error": null,
+  "raw_base64": "eyJpZCI6ImNoYXRjbXBsLTM5MiIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNyZWF0ZWQiOjE3OTU3MDU2MjgsIm1vZGVsIjoicHl0ZXN0LXRyaWFnZTpjb2RlcjdiLWN0eDE2ayIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwX29sbGFtYSIsImNob2ljZXMiOlt7ImluZGV4IjowLCJtZXNzYWdlIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50Ijoie1wiaXNzdWVfdHlwZVwiOiBcInR5cGU6IGRvY3NcIiwgXCJxdW90ZV9pbmRleFwiOiAxLCBcInJlcGx5X2NpdGF0aW9uX2lkc1wiOiBbXX0ifSwiZmluaXNoX3JlYXNvbiI6InN0b3AifV0sInVzYWdlIjp7InByb21wdF90b2tlbnMiOjQzMSwicHJvbXB0X3Rva2Vuc19kZXRhaWxzIjp7ImNhY2hlZF90b2tlbnMiOjIxNn0sImNvbXBsZXRpb25fdG9rZW5zIjoyNSwidG90YWxfdG9rZW5zIjo0NTZ9fQo=",
+  "request_sha256": "94d6a82eae33aec82ebaa1268b7a1cffc6390f8b26fa451d935d258d33abcaa4",
+  "latency_ms": 436.441
+}

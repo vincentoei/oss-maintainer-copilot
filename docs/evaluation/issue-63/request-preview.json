@@ -1,0 +1,379 @@
+{
+  "status": "draft_not_authorized_for_execution",
+  "expected_type_review": {
+    "status": "confirmed",
+    "reviewer": "requesting user",
+    "confirmation": "Confirm these four proposed types",
+    "batches": [
+      [
+        "log-bug",
+        "log-regression",
+        "fixture-question",
+        "fixture-bug"
+      ],
+      [
+        "exit-bug",
+        "exit-regression",
+        "precedence-docs",
+        "precedence-question"
+      ],
+      [
+        "teardown-regression",
+        "traceback-bug",
+        "warning-question",
+        "uncertain"
+      ]
+    ],
+    "scope": "expected types only; no generated-report ratings"
+  },
+  "cases_sha256": "5fed5231f7f77af1c1ca7a0ee2883801e4a9269c57537554ba62620db44b944d",
+  "model_dispatches": 0,
+  "fixed_observations": 15,
+  "fixed_request_slots": 45,
+  "integration_slots": 10,
+  "integrations": [
+    {
+      "id": "python-short",
+      "kind": "python",
+      "input_id": "short",
+      "wire_sha256": [
+        "46fc1603e0f67ac6ca1e8316931dccf68c37eb3e5801718f8b8e135fa6a0217f"
+      ]
+    },
+    {
+      "id": "python-long",
+      "kind": "python",
+      "input_id": "long",
+      "wire_sha256": [
+        "3415a5f9041c8bd340f549094fbf1f86704dc57c160537e9a18f4d3f5af700a3"
+      ]
+    },
+    {
+      "id": "api-short",
+      "kind": "api",
+      "input_id": "short",
+      "wire_sha256": [
+        "46fc1603e0f67ac6ca1e8316931dccf68c37eb3e5801718f8b8e135fa6a0217f"
+      ]
+    },
+    {
+      "id": "api-long",
+      "kind": "api",
+      "input_id": "long",
+      "wire_sha256": [
+        "3415a5f9041c8bd340f549094fbf1f86704dc57c160537e9a18f4d3f5af700a3"
+      ]
+    },
+    {
+      "id": "browser-short",
+      "kind": "browser",
+      "input_id": "short",
+      "wire_sha256": [
+        "46fc1603e0f67ac6ca1e8316931dccf68c37eb3e5801718f8b8e135fa6a0217f"
+      ]
+    },
+    {
+      "id": "browser-long",
+      "kind": "browser",
+      "input_id": "long",
+      "wire_sha256": [
+        "3415a5f9041c8bd340f549094fbf1f86704dc57c160537e9a18f4d3f5af700a3"
+      ]
+    },
+    {
+      "id": "agent-short",
+      "kind": "agent",
+      "input_id": "short",
+      "wire_sha256": [
+        "204b0892e65b1f10ae0da7697ed5d53f1cb4f8d20fe5c7245d1189b06ad8e264",
+        "46fc1603e0f67ac6ca1e8316931dccf68c37eb3e5801718f8b8e135fa6a0217f"
+      ]
+    },
+    {
+      "id": "agent-long",
+      "kind": "agent",
+      "input_id": "long",
+      "wire_sha256": [
+        "ad05ac0bab780c95623cec6906f7e87c4bcb1d1f40268d0e82d31f656726a632",
+        "3415a5f9041c8bd340f549094fbf1f86704dc57c160537e9a18f4d3f5af700a3"
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "log-bug",
+      "cohort": "fresh_synthetic",
+      "proposed_expected": "type: bug",
+      "error": null,
+      "wire_sha256": {
+        "pytest-triage:coder3b-ctx16k": "a657dd3a001ca348dd4ddeee064ccb190604f98a18bf8a820f6cab74efc6199b",
+        "pytest-triage:coder7b-ctx16k": "55b33c70bcf3b3b54de709ca2d199303a253f817e94922d0d606bec032893fed",
+        "triage-eval:qwen35-4b-16k-v1": "dbda5a7072df100f56894f3a982b50e628a045be0c08cdabc125d07db631397e"
+      },
+      "normalized_sha256": "63e660de0213f187cad0bdeee8b68b4608c713c7defe9e6b8f3c8be80cf4069c"
+    },
+    {
+      "id": "log-regression",
+      "cohort": "fresh_synthetic",
+      "proposed_expected": "type: regression",
+      "error": null,
+      "wire_sha256": {
+        "pytest-triage:coder3b-ctx16k": "0b2e7f544955e7d7697759a0ebdf29198da617b79210fbf9967bd9ed06d0265a",
+        "pytest-triage:coder7b-ctx16k": "da00fdfcf9456014f982ac17308d589d15b98d5186eb464d4edcfc5a42702747",
+        "triage-eval:qwen35-4b-16k-v1": "5958a0b187a1e22a07fa4f31df26d35be92ba5f3e62dbf128e3b51b8ff3a2037"
+      },
+      "normalized_sha256": "b13b726ce2ac4f1a86dcb9faebcc2718077ea1f83037da346761c84cd3afecd3"
+    },
+    {
+      "id": "fixture-question",
+      "cohort": "fresh_synthetic",
+      "proposed_expected": "type: question",
+      "error": null,
+      "wire_sha256": {
+        "pytest-triage:coder3b-ctx16k": "eb6a1964827e7b2eb1f52b5bb0dca73c7fa808c2663db8e98b8e3693f1768688",
+        "pytest-triage:coder7b-ctx16k": "0de8683a3bfcc3b0b4c4b067b42a57e053e359b877f4c95bbdf2efeaf1c7bcc5",
+        "triage-eval:qwen35-4b-16k-v1": "e69a82b3fe183e2e605037ec6beacf679313a338be20f61abc17259a5e2bde04"
+      },
+      "normalized_sha256": "b65c73a2054b3fe1ed562d27896afb8bdd82bcba0bc551aae0f380ba1a0bd8ce"
+    },
+    {
+      "id": "fixture-bug",
+      "cohort": "fresh_synthetic",
+      "proposed_expected": "type: bug",
+      "error": null,
+      "wire_sha256": {
+        "pytest-triage:coder3b-ctx16k": "a6c96bed4818a3570257c031de17683f650bf6a8fb846ef78bf0f068963f1dfc",
+        "pytest-triage:coder7b-ctx16k": "daff5b27233d87ced12a6495e7729abf7fd5222a52652c2a29f60dab7646ef1c",
+        "triage-eval:qwen35-4b-16k-v1": "5b92a984edd8f72562bc544d0baf7a86aa9f81a00cbf860af095f5640b33c6f7"
+      },
+      "normalized_sha256": "f8b98ad82214b8c7e7899d3a4f89d3dd83eca42288dfca911963e3593202a6d2"
+    },
+    {
+      "id": "exit-bug",
+      "cohort": "fresh_synthetic",
+      "proposed_expected": "type: bug",
+      "error": null,
+      "wire_sha256": {
+        "pytest-triage:coder3b-ctx16k": "854760c60d7bd8f488e18e85e9f42dc7ca4cdcfbadb212cd1148f405f7291eb5",
+        "pytest-triage:coder7b-ctx16k": "69a80ab324c0a11d658c26d703e30bcb6e7962a53be221b6920c12dcf71fdeab",
+        "triage-eval:qwen35-4b-16k-v1": "46fc1603e0f67ac6ca1e8316931dccf68c37eb3e5801718f8b8e135fa6a0217f"
+      },
+      "normalized_sha256": "f63085d272a7fdbdddaadc5d361eadf2d2ccde723724ad4dddd4f5ee20f43db1"
+    },
+    {
+      "id": "exit-regression",
+      "cohort": "fresh_synthetic",
+      "proposed_expected": "type: regression",
+      "error": null,
+      "wire_sha256": {
+        "pytest-triage:coder3b-ctx16k": "154a53bdcafadd0032845b743940c5ad5562bb9d9244992c16b0320160f01d1a",
+        "pytest-triage:coder7b-ctx16k": "67cc932f78b049f3d0941c251f84da2d72fb4a0ca7bf6d95ab549a0dd8df5d33",
+        "triage-eval:qwen35-4b-16k-v1": "2029d2d26efec64f1107a6f76d3caec1013d35d94e1fa0a31d7447af45f20433"
+      },
+      "normalized_sha256": "820d51ea3e0bee732a115622ad2bd5de196340cfa3424806945c2abc29ab4082"
+    },
+    {
+      "id": "precedence-docs",
+      "cohort": "fresh_synthetic",
+      "proposed_expected": "type: docs",
+      "error": null,
+      "wire_sha256": {
+        "pytest-triage:coder3b-ctx16k": "2451844a5a30aa8b3812fb0489b8a2e7188ec0defde7f3a6d5aeae436761ec92",
+        "pytest-triage:coder7b-ctx16k": "94d6a82eae33aec82ebaa1268b7a1cffc6390f8b26fa451d935d258d33abcaa4",
+        "triage-eval:qwen35-4b-16k-v1": "f4e977fe1ea673323fa8b5873f06dae10a627a3d6eb7e54ad99fcbc98c7557cd"
+      },
+      "normalized_sha256": "32f5df72612f35376b15ad6e66cf72b7687f1670d83c613f494bc626a48f21f3"
+    },
+    {
+      "id": "precedence-question",
+      "cohort": "fresh_synthetic",
+      "proposed_expected": "type: question",
+      "error": null,
+      "wire_sha256": {
+        "pytest-triage:coder3b-ctx16k": "62be82add22c78b4c4eacf0e50831085cf0b71e594e291c65015134167d38e3b",
+        "pytest-triage:coder7b-ctx16k": "e787cd1961f5e2bff49783f89b9aff72b1d2db590de31704910b49d9de6127f5",
+        "triage-eval:qwen35-4b-16k-v1": "cefebf9c6c17145fd0c34c7bc8a1690e29a7c51f29afbad1b94bcae937cf9f97"
+      },
+      "normalized_sha256": "79efd117dc8b098a6ab5cdb8d412c749e6fbc994dbf38470f7e5ba53302ba580"
+    },
+    {
+      "id": "teardown-regression",
+      "cohort": "fresh_synthetic",
+      "proposed_expected": "type: regression",
+      "error": null,
+      "wire_sha256": {
+        "pytest-triage:coder3b-ctx16k": "5ab8ff07c91308f3a58898fed8600f6fa782eca6de6706dee12566b5109399a3",
+        "pytest-triage:coder7b-ctx16k": "a46395e6ab9add64970c8798a487db6c59e15a38dc3d09b64d4e8c48debe2d3f",
+        "triage-eval:qwen35-4b-16k-v1": "acd8739a35b98b323172568f57a5d5c9fddb19690de6b1ae5c3cd106e758af3e"
+      },
+      "normalized_sha256": "ac61981354a5b7b03d52303afa7619e0f1e434632d778c8ea17ade21586fbc9b"
+    },
+    {
+      "id": "traceback-bug",
+      "cohort": "fresh_synthetic",
+      "proposed_expected": "type: bug",
+      "error": null,
+      "wire_sha256": {
+        "pytest-triage:coder3b-ctx16k": "0b1237ebc6e46e09dbfab103c6f10811241c17e92176d19cb09fb7ef3ebd58bb",
+        "pytest-triage:coder7b-ctx16k": "c7a07de244619fd8a203536f931dbc4717e030227b7a84c15e2bc8050bc491af",
+        "triage-eval:qwen35-4b-16k-v1": "42ad65f18f448922623ebbcef6640032cbc9baf35d22f036f0f87ac5eb53a77d"
+      },
+      "normalized_sha256": "9ec82df77d319325f0c6d4dd39bfa9f6aebe8555478dea963b0288edc2f1b954"
+    },
+    {
+      "id": "warning-question",
+      "cohort": "fresh_synthetic",
+      "proposed_expected": "type: question",
+      "error": null,
+      "wire_sha256": {
+        "pytest-triage:coder3b-ctx16k": "adea0f0b5428b8789636b69a2da1604d3699d4de4e5f5bdf6a075ef2eda3cb33",
+        "pytest-triage:coder7b-ctx16k": "81f458eec0644bc3ade8e1991902f27be6f14e23f92995369087dc3d46d6ba30",
+        "triage-eval:qwen35-4b-16k-v1": "cd99c0af410eac610451e86b4a5bf6c38aabd453547a56ecfe4250c8b46ce9c0"
+      },
+      "normalized_sha256": "69cb9ffc5637adc6b05fd43440fcc719daac366d21d58ad114d036b49e81c0ec"
+    },
+    {
+      "id": "uncertain",
+      "cohort": "fresh_synthetic",
+      "proposed_expected": null,
+      "error": null,
+      "wire_sha256": {
+        "pytest-triage:coder3b-ctx16k": "2fe2e8bb09cc8f1d873ed19115817fe66533b7ac7ad3ff400091e597b9ca4917",
+        "pytest-triage:coder7b-ctx16k": "a6e07cd0325af662cb44c4d8eee808b7cd82ee1ea459461496febfc651ca1d50",
+        "triage-eval:qwen35-4b-16k-v1": "ab0a9dd546fb08856c2b0962d92b257b78054d91881cc45d8755830bfa4f0084"
+      },
+      "normalized_sha256": "2fd0bd344193aa02ec569fc8de9a1d3b248cf8bef08e6bcbc833390122c275f5"
+    },
+    {
+      "id": "h-12219",
+      "cohort": "exposed_bug_loss",
+      "proposed_expected": "type: bug",
+      "error": null,
+      "wire_sha256": {
+        "pytest-triage:coder3b-ctx16k": "2fe32f1ed762842e4f09c1401597792f31ddd59b6759ad8b0f0462f383eff897",
+        "pytest-triage:coder7b-ctx16k": "d20253c45271a25573e2e565cccf3d830ced9644cd08bba91b115a7eb4e1e6f8",
+        "triage-eval:qwen35-4b-16k-v1": "bd102da0fcd4e855e519259fe1840402e4d4e33a83b09335af49ffa9800d3fd2"
+      },
+      "normalized_sha256": "981aa2620a1a8281bc24d93af026b5c2f4241abf3539c14c8a064e350b32aeef",
+      "opening_cutoff": "2024-04-16T08:22:38+00:00",
+      "opening_content_sha256": "681e48797dfaccd7ce7ff3a86bd5862656e34bfbda83da9364ae7fb8696a891b",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "candidate_numbers": [
+        349,
+        478,
+        2959,
+        3448,
+        4064,
+        7012,
+        7312,
+        8655,
+        10156,
+        11871,
+        12053,
+        12066,
+        12072,
+        12079,
+        12081,
+        12083,
+        12116,
+        12146,
+        12189,
+        12197,
+        12201,
+        12203,
+        12204,
+        12216
+      ]
+    },
+    {
+      "id": "h-12223",
+      "cohort": "exposed_bug_loss",
+      "proposed_expected": "type: bug",
+      "error": null,
+      "wire_sha256": {
+        "pytest-triage:coder3b-ctx16k": "9f535fbb12bbcfb0495e307e5b1f7b0d2076e3d6d153f5d33c32f8809a6264ea",
+        "pytest-triage:coder7b-ctx16k": "1ef2ff2cfd5877a41a487a5d3c866ace464249e7d7dd5eb14eb9bc2243013d20",
+        "triage-eval:qwen35-4b-16k-v1": "a647f153ad8e5c8a07587ffeb331dbd690409d9aa9c81eda0d59afc26b353d91"
+      },
+      "normalized_sha256": "67181406792496133cb39d16296f2b61234071ca97c4c5f32086e15cd59df8b4",
+      "opening_cutoff": "2024-04-17T09:00:30+00:00",
+      "opening_content_sha256": "731ee2132c277f516b51978c67bb77a578a8731a4b726346f248e7934d627e72",
+      "repository_commit": "58844247f7ae4a7a213a73c8af2462253b3d8fc7",
+      "candidate_numbers": [
+        349,
+        478,
+        2959,
+        3448,
+        4064,
+        7012,
+        7312,
+        8655,
+        10156,
+        11871,
+        12053,
+        12066,
+        12072,
+        12079,
+        12081,
+        12083,
+        12116,
+        12146,
+        12189,
+        12197,
+        12201,
+        12203,
+        12204,
+        12216,
+        12219
+      ]
+    },
+    {
+      "id": "h-12249",
+      "cohort": "exposed_bug_loss",
+      "proposed_expected": "type: bug",
+      "error": null,
+      "wire_sha256": {
+        "pytest-triage:coder3b-ctx16k": "082ace7801066df4f4ce59d864ebbf240396fe9ab4b5be2ff7281d6b78ab2606",
+        "pytest-triage:coder7b-ctx16k": "b993c5b5a17c7dc8e0e42ba177788383d7f303914291840032e0d3e360b6fc07",
+        "triage-eval:qwen35-4b-16k-v1": "0336933d79b96a8a742ac5a8ef73b49a578b9d5b73c567e5cdb44786e25e7122"
+      },
+      "normalized_sha256": "2798887a5841592a0a04da2e6506a77a2c955e0911ca734e0f074daa42427f18",
+      "opening_cutoff": "2024-04-26T14:06:04+00:00",
+      "opening_content_sha256": "5c195b0eca34760f69c1fcac6dd99193ed8c68662c4a8ddc38fd44dea581fdf5",
+      "repository_commit": "4eb8b6d525b7704432f378cfa45ab9ec02bf4e39",
+      "candidate_numbers": [
+        349,
+        478,
+        2959,
+        3448,
+        4064,
+        7012,
+        7312,
+        8655,
+        10156,
+        11871,
+        12053,
+        12066,
+        12072,
+        12079,
+        12081,
+        12083,
+        12116,
+        12146,
+        12189,
+        12197,
+        12201,
+        12203,
+        12204,
+        12216,
+        12219,
+        12223,
+        12224,
+        12226,
+        12228,
+        12231,
+        12242
+      ]
+    }
+  ]
+}

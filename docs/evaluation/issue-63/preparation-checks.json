@@ -1,0 +1,64 @@
+{
+  "scope": "preparation only; no issue63 model inference",
+  "baseline_merge": "28f3d36e06ea41c563aceca042a3d4725fd16ab7",
+  "full_suite": {
+    "command": ".venv/bin/pytest -q",
+    "passed": 510,
+    "skipped": 2,
+    "seconds": 22.94,
+    "skips": "opt-in public live replay tests; not enabled",
+    "execution": "outside sandbox for local HTTP tests"
+  },
+  "focused": {
+    "command": ".venv/bin/pytest -q tests/test_semantic_classification.py tests/test_paired_classification_requests.py",
+    "passed": 34,
+    "seconds": 0.2
+  },
+  "tdd": {
+    "configuration": "explicit-none fixed/agent cases failed before implementation, then all4 options/path cases passed",
+    "baseline_audit_fix": "HTTP200body-read reset/timeout failed then passed through runner/replay"
+  },
+  "ruff_check": "passed",
+  "ruff_format": "passed",
+  "mypy": "48 source/test files passed",
+  "preserved_audits": [
+    "issue20_verify.py",
+    "issue20_flash_verify.py",
+    "issue60_verify.py",
+    "issue59_verify.py",
+    "issue62_verify.py",
+    "downloaded_model_verify.py",
+    "downloaded_scored_results.py"
+  ],
+  "prior_scored_publication": "reproduced byte for byte",
+  "offline_simulation": {
+    "kind": "fake Ollama responses; no quality result",
+    "report_observations": 53,
+    "exact_reserved_slots": 55,
+    "real_model_calls": 0,
+    "full_reports_replayed": 53,
+    "tamper_rejected": [
+      "GPU placement",
+      "historical draft reply",
+      "integration quote"
+    ],
+    "interruption_checks": [
+      "reservation only",
+      "saved call without report",
+      "KeyboardInterrupt"
+    ],
+    "late_worker": "closed transport refuses further model request"
+  },
+  "reviewed_types": {
+    "requesting_user_confirmed": 12,
+    "batches": 3,
+    "generated_reports_reviewed": 0
+  },
+  "read_only_serving_inspection": {
+    "verified_arms": 3,
+    "model_dispatches": 0
+  },
+  "models_downloaded": 0,
+  "execution": "not approved, not started",
+  "human_report_ratings": "pending future actual generated reports"
+}

@@ -1,0 +1,53 @@
+{
+  "recorded_at_utc": "2026-11-27T04:29:18.312969+00:00",
+  "decision": "promote recommended local configuration to Qwen3.5 4B",
+  "decision_authority": "requesting maintainer",
+  "maintainer_response": "Okay i agree with your recommendation, so what should we do now?",
+  "accepted_recommendation": "Promote Qwen3.5 through an explicit maintainer decision; document unsupported regression quote and remaining uncertainty; keep3B selectable for lower memory; preserve failed promotion gate.",
+  "independent_review_commit": "21933aa35787045d540327941cf35d915e7960a2",
+  "independent_review_kind": "Codex/AI, not human",
+  "independent_rating_count": 53,
+  "independent_ratings_sha256": "fd9592f67ab1296795a9298828a7dcc67129deb77b41d253b72bce1f254854ec",
+  "original_gate_result": "not passed; independent review recommends retain",
+  "post_result_policy_exception": true,
+  "accepted_gaps": [
+    "R48 regression classification uncertain and quote lacks regression support",
+    "R40 enhancement quote relevance uncertain; two historical enhancement labels are defensible taxonomy ambiguities",
+    "no independent human report ratings",
+    "no measured matched reply-usefulness improvement",
+    "small synthetic fresh cohort; physical residency and truncation not independently proven"
+  ],
+  "recommended_model": "pytest-triage:qwen35-4b-ctx16k",
+  "evaluated_model": "triage-eval:qwen35-4b-16k-v1",
+  "artifact_digest": "8da535b12863762c2403ed06956d92da4e57806a4772ba321137a2809e9a8bbe",
+  "settings": {
+    "seed": "42",
+    "temperature": "0",
+    "top_k": "20",
+    "top_p": "0.8",
+    "num_ctx": "16384",
+    "presence_penalty": "0",
+    "repeat_penalty": "1"
+  },
+  "request_reasoning_effort": "none",
+  "base_url_default": "unchanged; select reachable local Ollama address",
+  "no_model_mode": "unchanged; MODEL_NAME remains opt-in",
+  "alternate_model": "pytest-triage:coder3b-ctx16k",
+  "automatic_semantic_fallback": false,
+  "evaluation_generation_calls_unchanged": 55,
+  "additional_generation_calls": 0,
+  "additional_downloads": 0,
+  "historical_artifacts": "unchanged",
+  "configuration_change": "README and current local guide select promoted alias; new Modelfile; library/evaluation defaults are unchanged",
+  "serving_verification": {
+    "observed_at_utc": "2026-11-27T04:27:40.602063+00:00",
+    "alias_digest_match": true,
+    "effective_parameter_match": true,
+    "template_renderer_parser_thinking_match": true,
+    "native_metadata_sha256": "a209ae12c560facd1ae82d3a094c90b508e4cd70dd5d68cf52e44eda66be661a",
+    "parameter_display_order": "differs between aliases; names/values match"
+  },
+  "new_alias_application_inference": "not rerun; identical digest/native metadata; prior integration applies to evaluated source alias",
+  "running_app_restart": "not performed; documented launch settings apply at next start",
+  "human_ratings": "remain pending, not silently replaced by AI ratings"
+}
